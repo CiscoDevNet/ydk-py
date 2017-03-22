@@ -82,7 +82,7 @@ class Ipv4AclAndPrefixList(object):
     """
 
     _prefix = 'ipv4-acl-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-11-07'
 
     def __init__(self):
         self.accesses = Ipv4AclAndPrefixList.Accesses()
@@ -109,7 +109,7 @@ class Ipv4AclAndPrefixList(object):
         """
 
         _prefix = 'ipv4-acl-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-11-07'
 
         def __init__(self):
             self.parent = None
@@ -137,7 +137,7 @@ class Ipv4AclAndPrefixList(object):
             """
 
             _prefix = 'ipv4-acl-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-11-07'
 
             def __init__(self):
                 self.parent = None
@@ -160,7 +160,7 @@ class Ipv4AclAndPrefixList(object):
                 """
 
                 _prefix = 'ipv4-acl-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-11-07'
 
                 def __init__(self):
                     self.parent = None
@@ -219,6 +219,11 @@ class Ipv4AclAndPrefixList(object):
                     
                     	DSCP settings
                     	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_cfg.Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp>`
+                    
+                    .. attribute:: fragment_offset
+                    
+                    	Fragment\-offset settings
+                    	**type**\:   :py:class:`FragmentOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_cfg.Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset>`
                     
                     .. attribute:: fragments
                     
@@ -300,6 +305,33 @@ class Ipv4AclAndPrefixList(object):
                     
                     
                     ----
+                    .. attribute:: protocol2
+                    
+                    	Protocol2 to match
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:   :py:class:`Ipv4AclProtocolNumberEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclProtocolNumberEnum>`
+                    
+                    
+                    ----
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    
+                    ----
+                    .. attribute:: protocol_operator
+                    
+                    	Protocol operator. Leave unspecified if no protocol comparison is to be done
+                    	**type**\:   :py:class:`Ipv4AclOperatorEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnumEnum>`
+                    
+                    .. attribute:: qos_group
+                    
+                    	Set qos\-group number
+                    	**type**\:  int
+                    
+                    	**range:** 0..512
+                    
                     .. attribute:: remark
                     
                     	Comments or a description for the access list
@@ -351,7 +383,7 @@ class Ipv4AclAndPrefixList(object):
                     """
 
                     _prefix = 'ipv4-acl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-11-07'
 
                     def __init__(self):
                         self.parent = None
@@ -366,6 +398,8 @@ class Ipv4AclAndPrefixList(object):
                         self.destination_prefix_group = None
                         self.dscp = Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Dscp()
                         self.dscp.parent = self
+                        self.fragment_offset = Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset()
+                        self.fragment_offset.parent = self
                         self.fragments = None
                         self.grant = None
                         self.icmp = Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp()
@@ -379,6 +413,9 @@ class Ipv4AclAndPrefixList(object):
                         self.packet_length.parent = self
                         self.precedence = None
                         self.protocol = None
+                        self.protocol2 = None
+                        self.protocol_operator = None
+                        self.qos_group = None
                         self.remark = None
                         self.sequence_str = None
                         self.source_network = Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork()
@@ -404,6 +441,13 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: source_prefix_length
+                        
+                        	Prefix length to apply to source address  (if specified), leave unspecified for no  wildcarding
+                        	**type**\:  int
+                        
+                        	**range:** 0..32
+                        
                         .. attribute:: source_wild_card_bits
                         
                         	Wildcard bits to apply to source address  (if specified), leave unspecified for no  wildcarding
@@ -416,11 +460,12 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
                             self.source_address = None
+                            self.source_prefix_length = None
                             self.source_wild_card_bits = None
 
                         @property
@@ -438,6 +483,9 @@ class Ipv4AclAndPrefixList(object):
                             if not self.is_config():
                                 return False
                             if self.source_address is not None:
+                                return True
+
+                            if self.source_prefix_length is not None:
                                 return True
 
                             if self.source_wild_card_bits is not None:
@@ -462,6 +510,13 @@ class Ipv4AclAndPrefixList(object):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        .. attribute:: destination_prefix_length
+                        
+                        	Prefix length to apply to destination address  (if specified), leave unspecified for no  wildcarding
+                        	**type**\:  int
+                        
+                        	**range:** 0..32
+                        
                         .. attribute:: destination_wild_card_bits
                         
                         	Wildcard bits to apply to destination address (if specified), leave unspecified for no  wildcarding
@@ -474,11 +529,12 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
                             self.destination_address = None
+                            self.destination_prefix_length = None
                             self.destination_wild_card_bits = None
 
                         @property
@@ -496,6 +552,9 @@ class Ipv4AclAndPrefixList(object):
                             if not self.is_config():
                                 return False
                             if self.destination_address is not None:
+                                return True
+
+                            if self.destination_prefix_length is not None:
                                 return True
 
                             if self.destination_wild_card_bits is not None:
@@ -553,7 +612,7 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -636,7 +695,7 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -689,7 +748,7 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -735,7 +794,7 @@ class Ipv4AclAndPrefixList(object):
                         ----
                         	**type**\:  int
                         
-                        	**range:** 0..32
+                        	**range:** 0..63
                         
                         
                         ----
@@ -750,7 +809,7 @@ class Ipv4AclAndPrefixList(object):
                         ----
                         	**type**\:  int
                         
-                        	**range:** 0..32
+                        	**range:** 0..63
                         
                         
                         ----
@@ -764,7 +823,7 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -831,7 +890,7 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -898,7 +957,7 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -937,6 +996,73 @@ class Ipv4AclAndPrefixList(object):
                             return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive']['meta_info']
 
 
+                    class FragmentOffset(object):
+                        """
+                        Fragment\-offset settings.
+                        
+                        .. attribute:: fragment_offset_1
+                        
+                        	Fragment\-offset value for comparison or first  fragment\-offset value for fragment\-offset range  comparision, leave unspecified if fragment\-offset classification is not required
+                        	**type**\:  int
+                        
+                        	**range:** 0..8191
+                        
+                        .. attribute:: fragment_offset_2
+                        
+                        	Second fragment\-offset value for comparion,  leave unspecified if fragment\-offset comparison is not to be performed or if only the first fragment\-offset should be considered
+                        	**type**\:  int
+                        
+                        	**range:** 0..8191
+                        
+                        .. attribute:: fragment_offset_operator
+                        
+                        	Fragment\-offset operator if fragment\-offset is to be compared. Leave unspecified if fragment\-offset classification is not required
+                        	**type**\:   :py:class:`Ipv4AclOperatorEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes.Ipv4AclOperatorEnumEnum>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-acl-cfg'
+                        _revision = '2016-11-07'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.fragment_offset_1 = None
+                            self.fragment_offset_2 = None
+                            self.fragment_offset_operator = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-acl-cfg:fragment-offset'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.fragment_offset_1 is not None:
+                                return True
+
+                            if self.fragment_offset_2 is not None:
+                                return True
+
+                            if self.fragment_offset_operator is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_cfg as meta
+                            return meta._meta_table['Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.FragmentOffset']['meta_info']
+
+
                     class NextHop(object):
                         """
                         Next\-hop settings.
@@ -966,7 +1092,7 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1005,7 +1131,7 @@ class Ipv4AclAndPrefixList(object):
                             """
 
                             _prefix = 'ipv4-acl-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-11-07'
 
                             def __init__(self):
                                 self.parent = None
@@ -1070,7 +1196,7 @@ class Ipv4AclAndPrefixList(object):
                             """
 
                             _prefix = 'ipv4-acl-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-11-07'
 
                             def __init__(self):
                                 self.parent = None
@@ -1135,7 +1261,7 @@ class Ipv4AclAndPrefixList(object):
                             """
 
                             _prefix = 'ipv4-acl-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-11-07'
 
                             def __init__(self):
                                 self.parent = None
@@ -1251,7 +1377,7 @@ class Ipv4AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv4-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1329,6 +1455,9 @@ class Ipv4AclAndPrefixList(object):
                         if self.dscp is not None and self.dscp._has_data():
                             return True
 
+                        if self.fragment_offset is not None and self.fragment_offset._has_data():
+                            return True
+
                         if self.fragments is not None:
                             return True
 
@@ -1357,6 +1486,15 @@ class Ipv4AclAndPrefixList(object):
                             return True
 
                         if self.protocol is not None:
+                            return True
+
+                        if self.protocol2 is not None:
+                            return True
+
+                        if self.protocol_operator is not None:
+                            return True
+
+                        if self.qos_group is not None:
                             return True
 
                         if self.remark is not None:
@@ -1484,7 +1622,7 @@ class Ipv4AclAndPrefixList(object):
         """
 
         _prefix = 'ipv4-acl-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-11-07'
 
         def __init__(self):
             self.parent = None
@@ -1514,7 +1652,7 @@ class Ipv4AclAndPrefixList(object):
             """
 
             _prefix = 'ipv4-acl-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-11-07'
 
             def __init__(self):
                 self.parent = None
@@ -1543,7 +1681,7 @@ class Ipv4AclAndPrefixList(object):
                 """
 
                 _prefix = 'ipv4-acl-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-11-07'
 
                 def __init__(self):
                     self.parent = None
@@ -1630,7 +1768,7 @@ class Ipv4AclAndPrefixList(object):
                     """
 
                     _prefix = 'ipv4-acl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-11-07'
 
                     def __init__(self):
                         self.parent = None
@@ -1805,7 +1943,7 @@ class Ipv4AclAndPrefixList(object):
         """
 
         _prefix = 'ipv4-acl-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-11-07'
 
         def __init__(self):
             self.parent = None

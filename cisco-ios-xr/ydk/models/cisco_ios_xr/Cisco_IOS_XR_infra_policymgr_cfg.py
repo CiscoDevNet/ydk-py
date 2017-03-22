@@ -358,7 +358,7 @@ class PolicyManager(object):
     """
 
     _prefix = 'infra-policymgr-cfg'
-    _revision = '2015-05-18'
+    _revision = '2016-12-15'
 
     def __init__(self):
         self.class_maps = PolicyManager.ClassMaps()
@@ -381,7 +381,7 @@ class PolicyManager(object):
         """
 
         _prefix = 'infra-policymgr-cfg'
-        _revision = '2015-05-18'
+        _revision = '2016-12-15'
 
         def __init__(self):
             self.parent = None
@@ -436,7 +436,7 @@ class PolicyManager(object):
             """
 
             _prefix = 'infra-policymgr-cfg'
-            _revision = '2015-05-18'
+            _revision = '2016-12-15'
 
             def __init__(self):
                 self.parent = None
@@ -532,7 +532,7 @@ class PolicyManager(object):
                 .. attribute:: destination_mac
                 
                 	Match destination MAC address
-                	**type**\:  str
+                	**type**\:  list of str
                 
                 .. attribute:: destination_port
                 
@@ -851,7 +851,7 @@ class PolicyManager(object):
                 .. attribute:: source_mac
                 
                 	Match source MAC address
-                	**type**\:  str
+                	**type**\:  list of str
                 
                 .. attribute:: source_port
                 
@@ -883,7 +883,7 @@ class PolicyManager(object):
                 
                 .. attribute:: traffic_class
                 
-                	Match Traffic Class. Should be value 0..7 or range
+                	Match Traffic Class. Should be value 0..63 or range
                 	**type**\:  list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -939,7 +939,7 @@ class PolicyManager(object):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2015-05-18'
+                _revision = '2016-12-15'
 
                 def __init__(self):
                     self.parent = None
@@ -965,7 +965,9 @@ class PolicyManager(object):
                     self.destination_address_ipv6 = YList()
                     self.destination_address_ipv6.parent = self
                     self.destination_address_ipv6.name = 'destination_address_ipv6'
-                    self.destination_mac = None
+                    self.destination_mac = YLeafList()
+                    self.destination_mac.parent = self
+                    self.destination_mac.name = 'destination_mac'
                     self.destination_port = YLeafList()
                     self.destination_port.parent = self
                     self.destination_port.name = 'destination_port'
@@ -1079,7 +1081,9 @@ class PolicyManager(object):
                     self.source_address_ipv6 = YList()
                     self.source_address_ipv6.parent = self
                     self.source_address_ipv6.name = 'source_address_ipv6'
-                    self.source_mac = None
+                    self.source_mac = YLeafList()
+                    self.source_mac.parent = self
+                    self.source_mac.name = 'source_mac'
                     self.source_port = YLeafList()
                     self.source_port.parent = self
                     self.source_port.name = 'source_port'
@@ -1132,7 +1136,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -1194,7 +1198,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -1256,7 +1260,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -1318,7 +1322,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -1380,7 +1384,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -1442,7 +1446,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -1502,7 +1506,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -1539,7 +1543,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -1659,7 +1663,9 @@ class PolicyManager(object):
                                 return True
 
                     if self.destination_mac is not None:
-                        return True
+                        for child in self.destination_mac:
+                            if child is not None:
+                                return True
 
                     if self.destination_port is not None:
                         for child in self.destination_port:
@@ -1858,7 +1864,9 @@ class PolicyManager(object):
                                 return True
 
                     if self.source_mac is not None:
-                        return True
+                        for child in self.source_mac:
+                            if child is not None:
+                                return True
 
                     if self.source_port is not None:
                         for child in self.source_port:
@@ -1980,7 +1988,7 @@ class PolicyManager(object):
                 .. attribute:: destination_mac
                 
                 	Match destination MAC address
-                	**type**\:  str
+                	**type**\:  list of str
                 
                 .. attribute:: destination_port
                 
@@ -2299,7 +2307,7 @@ class PolicyManager(object):
                 .. attribute:: source_mac
                 
                 	Match source MAC address
-                	**type**\:  str
+                	**type**\:  list of str
                 
                 .. attribute:: source_port
                 
@@ -2331,7 +2339,7 @@ class PolicyManager(object):
                 
                 .. attribute:: traffic_class
                 
-                	Match Traffic Class. Should be value 0..7 or range
+                	Match Traffic Class. Should be value 0..63 or range
                 	**type**\:  list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
@@ -2387,7 +2395,7 @@ class PolicyManager(object):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2015-05-18'
+                _revision = '2016-12-15'
 
                 def __init__(self):
                     self.parent = None
@@ -2409,7 +2417,9 @@ class PolicyManager(object):
                     self.destination_address_ipv6 = YList()
                     self.destination_address_ipv6.parent = self
                     self.destination_address_ipv6.name = 'destination_address_ipv6'
-                    self.destination_mac = None
+                    self.destination_mac = YLeafList()
+                    self.destination_mac.parent = self
+                    self.destination_mac.name = 'destination_mac'
                     self.destination_port = YLeafList()
                     self.destination_port.parent = self
                     self.destination_port.name = 'destination_port'
@@ -2523,7 +2533,9 @@ class PolicyManager(object):
                     self.source_address_ipv6 = YList()
                     self.source_address_ipv6.parent = self
                     self.source_address_ipv6.name = 'source_address_ipv6'
-                    self.source_mac = None
+                    self.source_mac = YLeafList()
+                    self.source_mac.parent = self
+                    self.source_mac.name = 'source_mac'
                     self.source_port = YLeafList()
                     self.source_port.parent = self
                     self.source_port.name = 'source_port'
@@ -2576,7 +2588,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -2638,7 +2650,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -2700,7 +2712,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -2762,7 +2774,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -2824,7 +2836,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -2886,7 +2898,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -2941,7 +2953,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -3024,7 +3036,9 @@ class PolicyManager(object):
                                 return True
 
                     if self.destination_mac is not None:
-                        return True
+                        for child in self.destination_mac:
+                            if child is not None:
+                                return True
 
                     if self.destination_port is not None:
                         for child in self.destination_port:
@@ -3223,7 +3237,9 @@ class PolicyManager(object):
                                 return True
 
                     if self.source_mac is not None:
-                        return True
+                        for child in self.source_mac:
+                            if child is not None:
+                                return True
 
                     if self.source_port is not None:
                         for child in self.source_port:
@@ -3368,7 +3384,7 @@ class PolicyManager(object):
         """
 
         _prefix = 'infra-policymgr-cfg'
-        _revision = '2015-05-18'
+        _revision = '2016-12-15'
 
         def __init__(self):
             self.parent = None
@@ -3413,7 +3429,7 @@ class PolicyManager(object):
             """
 
             _prefix = 'infra-policymgr-cfg'
-            _revision = '2015-05-18'
+            _revision = '2016-12-15'
 
             def __init__(self):
                 self.parent = None
@@ -3457,7 +3473,7 @@ class PolicyManager(object):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2015-05-18'
+                _revision = '2016-12-15'
 
                 def __init__(self):
                     self.parent = None
@@ -3500,7 +3516,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -3576,7 +3592,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -3621,7 +3637,7 @@ class PolicyManager(object):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -3673,7 +3689,7 @@ class PolicyManager(object):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -3744,7 +3760,7 @@ class PolicyManager(object):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -3818,7 +3834,7 @@ class PolicyManager(object):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -3891,7 +3907,7 @@ class PolicyManager(object):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -3943,7 +3959,7 @@ class PolicyManager(object):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -4243,7 +4259,7 @@ class PolicyManager(object):
                 """
 
                 _prefix = 'infra-policymgr-cfg'
-                _revision = '2015-05-18'
+                _revision = '2016-12-15'
 
                 def __init__(self):
                     self.parent = None
@@ -4310,7 +4326,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -4343,7 +4359,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -4401,7 +4417,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -4486,7 +4502,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -4544,7 +4560,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -4602,7 +4618,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -4666,7 +4682,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -4702,7 +4718,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -4760,7 +4776,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -4818,7 +4834,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -4982,7 +4998,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -5229,14 +5245,14 @@ class PolicyManager(object):
                     	Sets the Traffic class identifiers on IPv4 or MPLS packets
                     	**type**\:  int
                     
-                    	**range:** 0..7
+                    	**range:** 0..63
                     
                     
 
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -5379,7 +5395,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -5422,7 +5438,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -5480,7 +5496,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -5538,7 +5554,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -5596,7 +5612,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -5656,7 +5672,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -5814,14 +5830,14 @@ class PolicyManager(object):
                             	Sets the Traffic class identifiers on IPv4 or MPLS packets
                             	**type**\:  int
                             
-                            	**range:** 0..7
+                            	**range:** 0..63
                             
                             
 
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -5975,7 +5991,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -6133,14 +6149,14 @@ class PolicyManager(object):
                             	Sets the Traffic class identifiers on IPv4 or MPLS packets
                             	**type**\:  int
                             
-                            	**range:** 0..7
+                            	**range:** 0..63
                             
                             
 
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -6294,7 +6310,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -6452,14 +6468,14 @@ class PolicyManager(object):
                             	Sets the Traffic class identifiers on IPv4 or MPLS packets
                             	**type**\:  int
                             
-                            	**range:** 0..7
+                            	**range:** 0..63
                             
                             
 
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -6653,7 +6669,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -6724,7 +6740,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -6758,7 +6774,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -6816,7 +6832,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -6922,7 +6938,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -6984,7 +7000,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -7030,7 +7046,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -7096,7 +7112,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -7212,7 +7228,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -7249,7 +7265,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -7305,7 +7321,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -7346,7 +7362,7 @@ class PolicyManager(object):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -7431,7 +7447,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -7475,7 +7491,7 @@ class PolicyManager(object):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -7543,7 +7559,7 @@ class PolicyManager(object):
                             """
 
                             _prefix = 'infra-policymgr-cfg'
-                            _revision = '2015-05-18'
+                            _revision = '2016-12-15'
 
                             def __init__(self):
                                 self.parent = None
@@ -7672,7 +7688,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None
@@ -7716,7 +7732,7 @@ class PolicyManager(object):
                         """
 
                         _prefix = 'infra-policymgr-cfg'
-                        _revision = '2015-05-18'
+                        _revision = '2016-12-15'
 
                         def __init__(self):
                             self.parent = None
@@ -7810,7 +7826,7 @@ class PolicyManager(object):
                     """
 
                     _prefix = 'infra-policymgr-cfg'
-                    _revision = '2015-05-18'
+                    _revision = '2016-12-15'
 
                     def __init__(self):
                         self.parent = None

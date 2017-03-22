@@ -48,7 +48,7 @@ class Vrrp(object):
     """
 
     _prefix = 'ipv4-vrrp-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-12-16'
 
     def __init__(self):
         self.interfaces = Vrrp.Interfaces()
@@ -71,7 +71,7 @@ class Vrrp(object):
         """
 
         _prefix = 'ipv4-vrrp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-12-16'
 
         def __init__(self):
             self.parent = None
@@ -114,7 +114,7 @@ class Vrrp(object):
         """
 
         _prefix = 'ipv4-vrrp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-12-16'
 
         def __init__(self):
             self.parent = None
@@ -170,7 +170,7 @@ class Vrrp(object):
             """
 
             _prefix = 'ipv4-vrrp-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-12-16'
 
             def __init__(self):
                 self.parent = None
@@ -205,7 +205,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None
@@ -229,7 +229,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -251,7 +251,7 @@ class Vrrp(object):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-16'
 
                         def __init__(self):
                             self.parent = None
@@ -326,7 +326,7 @@ class Vrrp(object):
                             	VRRP Session Name
                             	**type**\:  str
                             
-                            	**length:** 0..16
+                            	**length:** 1..16
                             
                             .. attribute:: timer
                             
@@ -348,7 +348,7 @@ class Vrrp(object):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-16'
 
                             def __init__(self):
                                 self.parent = None
@@ -385,7 +385,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -420,7 +420,7 @@ class Vrrp(object):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-16'
 
                                     def __init__(self):
                                         self.parent = None
@@ -494,7 +494,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -528,7 +528,7 @@ class Vrrp(object):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-16'
 
                                     def __init__(self):
                                         self.parent = None
@@ -600,7 +600,7 @@ class Vrrp(object):
                                 	Advertisement time in milliseconds
                                 	**type**\:  int
                                 
-                                	**range:** 100..3000
+                                	**range:** 100..40950
                                 
                                 	**units**\: millisecond
                                 
@@ -632,7 +632,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -690,7 +690,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -724,7 +724,7 @@ class Vrrp(object):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-16'
 
                                     def __init__(self):
                                         self.parent = None
@@ -820,7 +820,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -975,7 +975,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -1020,7 +1020,7 @@ class Vrrp(object):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-16'
 
                         def __init__(self):
                             self.parent = None
@@ -1066,7 +1066,7 @@ class Vrrp(object):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-16'
 
                             def __init__(self):
                                 self.parent = None
@@ -1116,7 +1116,7 @@ class Vrrp(object):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-16'
 
                             def __init__(self):
                                 self.parent = None
@@ -1151,7 +1151,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1328,7 +1328,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None
@@ -1387,7 +1387,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None
@@ -1413,7 +1413,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -1435,7 +1435,7 @@ class Vrrp(object):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-16'
 
                         def __init__(self):
                             self.parent = None
@@ -1502,7 +1502,7 @@ class Vrrp(object):
                             	VRRP Session Name
                             	**type**\:  str
                             
-                            	**length:** 0..16
+                            	**length:** 1..16
                             
                             .. attribute:: timer
                             
@@ -1524,7 +1524,7 @@ class Vrrp(object):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-16'
 
                             def __init__(self):
                                 self.parent = None
@@ -1554,7 +1554,7 @@ class Vrrp(object):
                                 	Advertisement time in milliseconds
                                 	**type**\:  int
                                 
-                                	**range:** 100..3000
+                                	**range:** 100..40950
                                 
                                 	**units**\: millisecond
                                 
@@ -1586,7 +1586,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1643,7 +1643,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1668,7 +1668,7 @@ class Vrrp(object):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-16'
 
                                     def __init__(self):
                                         self.parent = None
@@ -1742,7 +1742,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1776,7 +1776,7 @@ class Vrrp(object):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-16'
 
                                     def __init__(self):
                                         self.parent = None
@@ -1854,7 +1854,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -1888,7 +1888,7 @@ class Vrrp(object):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-16'
 
                                     def __init__(self):
                                         self.parent = None
@@ -2071,7 +2071,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -2118,7 +2118,7 @@ class Vrrp(object):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-16'
 
                         def __init__(self):
                             self.parent = None
@@ -2144,7 +2144,7 @@ class Vrrp(object):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-16'
 
                             def __init__(self):
                                 self.parent = None
@@ -2169,7 +2169,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2306,7 +2306,7 @@ class Vrrp(object):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-16'
 
                     def __init__(self):
                         self.parent = None
@@ -2328,7 +2328,7 @@ class Vrrp(object):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-16'
 
                         def __init__(self):
                             self.parent = None
@@ -2395,7 +2395,7 @@ class Vrrp(object):
                             	VRRP Session Name
                             	**type**\:  str
                             
-                            	**length:** 0..16
+                            	**length:** 1..16
                             
                             .. attribute:: text_password
                             
@@ -2422,7 +2422,7 @@ class Vrrp(object):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-16'
 
                             def __init__(self):
                                 self.parent = None
@@ -2453,7 +2453,7 @@ class Vrrp(object):
                                 	Advertisement time in milliseconds
                                 	**type**\:  int
                                 
-                                	**range:** 100..3000
+                                	**range:** 100..40950
                                 
                                 	**units**\: millisecond
                                 
@@ -2485,7 +2485,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2542,7 +2542,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2567,7 +2567,7 @@ class Vrrp(object):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-16'
 
                                     def __init__(self):
                                         self.parent = None
@@ -2641,7 +2641,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2675,7 +2675,7 @@ class Vrrp(object):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-16'
 
                                     def __init__(self):
                                         self.parent = None
@@ -2753,7 +2753,7 @@ class Vrrp(object):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-16'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2787,7 +2787,7 @@ class Vrrp(object):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-16'
 
                                     def __init__(self):
                                         self.parent = None
@@ -3014,7 +3014,7 @@ class Vrrp(object):
                 """
 
                 _prefix = 'ipv4-vrrp-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-12-16'
 
                 def __init__(self):
                     self.parent = None

@@ -92,19 +92,19 @@ class CipherEnum(Enum):
 
     	Advanced Encryption Standard(AES) 128 bits
 
-    	counter (CTR)
+    	counter mode (CTR)
 
     .. data:: aes192_ctr = 5
 
     	Advanced Encryption Standard(AES) 192 bits
 
-    	counter (CTR)
+    	counter mode (CTR)
 
     .. data:: aes256_ctr = 6
 
     	Advanced Encryption Standard(AES) 256 bits
 
-    	counter (CTR)
+    	counter mode (CTR)
 
     """
 
@@ -213,19 +213,73 @@ class KexNameEnum(Enum):
 
     Different key\-exchange(kex) algorithms
 
-    .. data:: diffie_hellman = 0
+    .. data:: diffie_hellman_group1 = 0
 
-    	Diffie-Hellman key exchange algorithm
+    	Diffie-Hellman group 1 key exchange algorithm
 
-    .. data:: password_authenticated = 1
+    .. data:: diffie_hellman_group14 = 1
+
+    	Diffie-Hellman group 14 key exchange algorithm
+
+    .. data:: diffie_hellman_group15 = 2
+
+    	Diffie-Hellman group 14 key exchange algorithm
+
+    .. data:: diffie_hellman_group16 = 3
+
+    	Diffie-Hellman group 16 key exchange algorithm
+
+    .. data:: diffie_hellman_group17 = 4
+
+    	Diffie-Hellman group 17 key exchange algorithm
+
+    .. data:: diffie_hellman_group18 = 5
+
+    	Diffie-Hellman key group 18 exchange algorithm
+
+    .. data:: ecdh_nistp256 = 6
+
+    	Elliptical curve Diffie-Hellman prime 256 key
+
+    	exchange algorithm
+
+    .. data:: ecdh_nistp384 = 7
+
+    	Elliptical curve Diffie-Hellman prime 384 key
+
+    	exchange algorithm
+
+    .. data:: ecdh_nistp521 = 8
+
+    	Elliptical curve Diffie-Hellman prime 521
+
+    	exchange algorithm
+
+    .. data:: password_authenticated = 9
 
     	Password authenticated key agreement algorithm
 
     """
 
-    diffie_hellman = 0
+    diffie_hellman_group1 = 0
 
-    password_authenticated = 1
+    diffie_hellman_group14 = 1
+
+    diffie_hellman_group15 = 2
+
+    diffie_hellman_group16 = 3
+
+    diffie_hellman_group17 = 4
+
+    diffie_hellman_group18 = 5
+
+    ecdh_nistp256 = 6
+
+    ecdh_nistp384 = 7
+
+    ecdh_nistp521 = 8
+
+    password_authenticated = 9
 
 
     @staticmethod
@@ -254,11 +308,27 @@ class MacEnum(Enum):
 
     	SHA1 algorithm
 
+    .. data:: hmac_sha2_256 = 2
+
+    	Hash-based Message Authentication Code(HMAC)
+
+    	SHA2-256 algorithm
+
+    .. data:: hmac_sha2_512 = 3
+
+    	Hash-based Message Authentication Code(HMAC)
+
+    	SHA2-512 algorithm
+
     """
 
     hmac_md5 = 0
 
     hmac_sha1 = 1
+
+    hmac_sha2_256 = 2
+
+    hmac_sha2_512 = 3
 
 
     @staticmethod
@@ -924,6 +994,11 @@ class Ssh(object):
         	SSH session detail information
         	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail>`
         
+        .. attribute:: rekey
+        
+        	SSH session rekey information
+        	**type**\:   :py:class:`Rekey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey>`
+        
         
 
         """
@@ -937,6 +1012,304 @@ class Ssh(object):
             self.brief.parent = self
             self.detail = Ssh.Session.Detail()
             self.detail.parent = self
+            self.rekey = Ssh.Session.Rekey()
+            self.rekey.parent = self
+
+
+        class Rekey(object):
+            """
+            SSH session rekey information
+            
+            .. attribute:: incoming_sessions
+            
+            	List of incoming sessions
+            	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.IncomingSessions>`
+            
+            .. attribute:: outgoing_connections
+            
+            	List of outgoing connections
+            	**type**\:   :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.OutgoingConnections>`
+            
+            
+
+            """
+
+            _prefix = 'crypto-ssh-oper'
+            _revision = '2015-06-02'
+
+            def __init__(self):
+                self.parent = None
+                self.incoming_sessions = Ssh.Session.Rekey.IncomingSessions()
+                self.incoming_sessions.parent = self
+                self.outgoing_connections = Ssh.Session.Rekey.OutgoingConnections()
+                self.outgoing_connections.parent = self
+
+
+            class IncomingSessions(object):
+                """
+                List of incoming sessions
+                
+                .. attribute:: session_rekey_info
+                
+                	session rekey info
+                	**type**\: list of    :py:class:`SessionRekeyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo>`
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-oper'
+                _revision = '2015-06-02'
+
+                def __init__(self):
+                    self.parent = None
+                    self.session_rekey_info = YList()
+                    self.session_rekey_info.parent = self
+                    self.session_rekey_info.name = 'session_rekey_info'
+
+
+                class SessionRekeyInfo(object):
+                    """
+                    session rekey info
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: session_rekey_count
+                    
+                    	Session Rekey Count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: time_to_rekey
+                    
+                    	Time To Rekey
+                    	**type**\:  str
+                    
+                    .. attribute:: volume_to_rekey
+                    
+                    	Volume To Rekey
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-oper'
+                    _revision = '2015-06-02'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.session_id = None
+                        self.session_rekey_count = None
+                        self.time_to_rekey = None
+                        self.volume_to_rekey = None
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions/Cisco-IOS-XR-crypto-ssh-oper:session-rekey-info'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.session_id is not None:
+                            return True
+
+                        if self.session_rekey_count is not None:
+                            return True
+
+                        if self.time_to_rekey is not None:
+                            return True
+
+                        if self.volume_to_rekey is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.session_rekey_info is not None:
+                        for child_ref in self.session_rekey_info:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.Rekey.IncomingSessions']['meta_info']
+
+
+            class OutgoingConnections(object):
+                """
+                List of outgoing connections
+                
+                .. attribute:: session_rekey_info
+                
+                	session rekey info
+                	**type**\: list of    :py:class:`SessionRekeyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo>`
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-oper'
+                _revision = '2015-06-02'
+
+                def __init__(self):
+                    self.parent = None
+                    self.session_rekey_info = YList()
+                    self.session_rekey_info.parent = self
+                    self.session_rekey_info.name = 'session_rekey_info'
+
+
+                class SessionRekeyInfo(object):
+                    """
+                    session rekey info
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: session_rekey_count
+                    
+                    	Session Rekey Count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: time_to_rekey
+                    
+                    	Time To Rekey
+                    	**type**\:  str
+                    
+                    .. attribute:: volume_to_rekey
+                    
+                    	Volume To Rekey
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-oper'
+                    _revision = '2015-06-02'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.session_id = None
+                        self.session_rekey_count = None
+                        self.time_to_rekey = None
+                        self.volume_to_rekey = None
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey/Cisco-IOS-XR-crypto-ssh-oper:outgoing-connections/Cisco-IOS-XR-crypto-ssh-oper:session-rekey-info'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.session_id is not None:
+                            return True
+
+                        if self.session_rekey_count is not None:
+                            return True
+
+                        if self.time_to_rekey is not None:
+                            return True
+
+                        if self.volume_to_rekey is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                        return meta._meta_table['Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey/Cisco-IOS-XR-crypto-ssh-oper:outgoing-connections'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.session_rekey_info is not None:
+                        for child_ref in self.session_rekey_info:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                    return meta._meta_table['Ssh.Session.Rekey.OutgoingConnections']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.incoming_sessions is not None and self.incoming_sessions._has_data():
+                    return True
+
+                if self.outgoing_connections is not None and self.outgoing_connections._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
+                return meta._meta_table['Ssh.Session.Rekey']['meta_info']
 
 
         class Brief(object):
@@ -1730,6 +2103,9 @@ class Ssh(object):
                 return True
 
             if self.detail is not None and self.detail._has_data():
+                return True
+
+            if self.rekey is not None and self.rekey._has_data():
                 return True
 
             return False

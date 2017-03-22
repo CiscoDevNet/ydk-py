@@ -108,7 +108,7 @@ class TelemetryModelDriven(object):
     """
 
     _prefix = 'telemetry-model-driven-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-10-20'
 
     def __init__(self):
         self.destination_groups = TelemetryModelDriven.DestinationGroups()
@@ -134,7 +134,7 @@ class TelemetryModelDriven(object):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-10-20'
 
         def __init__(self):
             self.parent = None
@@ -164,7 +164,7 @@ class TelemetryModelDriven(object):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-20'
 
             def __init__(self):
                 self.parent = None
@@ -187,7 +187,7 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-20'
 
                 def __init__(self):
                     self.parent = None
@@ -210,7 +210,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-20'
 
                     def __init__(self):
                         self.parent = None
@@ -334,7 +334,7 @@ class TelemetryModelDriven(object):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-10-20'
 
         def __init__(self):
             self.parent = None
@@ -369,7 +369,7 @@ class TelemetryModelDriven(object):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-20'
 
             def __init__(self):
                 self.parent = None
@@ -394,7 +394,7 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-20'
 
                 def __init__(self):
                     self.parent = None
@@ -428,7 +428,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-20'
 
                     def __init__(self):
                         self.parent = None
@@ -505,7 +505,7 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-20'
 
                 def __init__(self):
                     self.parent = None
@@ -530,7 +530,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-20'
 
                     def __init__(self):
                         self.parent = None
@@ -657,7 +657,7 @@ class TelemetryModelDriven(object):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-10-20'
 
         def __init__(self):
             self.parent = None
@@ -692,7 +692,7 @@ class TelemetryModelDriven(object):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-10-20'
 
             def __init__(self):
                 self.parent = None
@@ -717,7 +717,7 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-20'
 
                 def __init__(self):
                     self.parent = None
@@ -761,7 +761,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-20'
 
                     def __init__(self):
                         self.parent = None
@@ -809,7 +809,7 @@ class TelemetryModelDriven(object):
                         """
 
                         _prefix = 'telemetry-model-driven-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-20'
 
                         def __init__(self):
                             self.parent = None
@@ -928,7 +928,7 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-10-20'
 
                 def __init__(self):
                     self.parent = None
@@ -972,7 +972,7 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-10-20'
 
                     def __init__(self):
                         self.parent = None
@@ -1020,7 +1020,7 @@ class TelemetryModelDriven(object):
                         """
 
                         _prefix = 'telemetry-model-driven-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-10-20'
 
                         def __init__(self):
                             self.parent = None

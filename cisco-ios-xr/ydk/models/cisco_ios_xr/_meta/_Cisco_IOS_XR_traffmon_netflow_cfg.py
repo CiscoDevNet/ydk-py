@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'NfSamplingModeEnum' : _MetaInfoEnum('NfSamplingModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg',
         {
@@ -22,6 +21,7 @@ _meta_table = {
         {
             'normal':'normal',
             'permanent':'permanent',
+            'immediate':'immediate',
         }, 'Cisco-IOS-XR-traffmon-netflow-cfg', _yang_ns._namespaces['Cisco-IOS-XR-traffmon-netflow-cfg']),
     'NetFlow.FlowExporterMaps.FlowExporterMap.Udp' : {
         'meta_info' : _MetaInfoClass('NetFlow.FlowExporterMaps.FlowExporterMap.Udp',
@@ -162,7 +162,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('exporter-map-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Exporter map name
                 ''',
                 'exporter_map_name',
@@ -178,6 +178,12 @@ _meta_table = {
                 '''                Specify DSCP value for export packets
                 ''',
                 'dscp',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('packet-length', ATTRIBUTE, 'int' , None, None, 
+                [('512', '1468')], [], 
+                '''                Configure Maximum Value for Export Packet size
+                ''',
+                'packet_length',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
@@ -273,7 +279,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('sampler-map-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Sampler map name
                 ''',
                 'sampler_map_name',
@@ -312,11 +318,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.FlowMonitorMapTable.FlowMonitorMap.Option',
             False, 
             [
+            _MetaInfoClassMember('bgp-attr', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Specify if BGP Attributes AS_PATH STD_COMM
+                should be exported
+                ''',
+                'bgp_attr',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('filtered', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Specify whether data should be filtered
                 ''',
                 'filtered',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('out-bundle-member', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Specify whether to export physical ifh for
+                bundle interface
+                ''',
+                'out_bundle_member',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('out-phys-int', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -337,7 +357,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('exporter-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Exporter name
                 ''',
                 'exporter_name',
@@ -378,7 +398,7 @@ _meta_table = {
                 'label',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('record-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Flow record format (Either 'ipv4-raw'
                 ,'ipv4-peer-as', 'ipv6', 'mpls', 'mpls-ipv4',
                 'mpls-ipv6', 'mpls-ipv4-ipv6', 'ipv6-peer-as')
@@ -397,7 +417,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('monitor-map-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Monitor map name
                 ''',
                 'monitor_map_name',
@@ -486,11 +506,25 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.FlowMonitorMapPerformanceTable.FlowMonitorMap.Option',
             False, 
             [
+            _MetaInfoClassMember('bgp-attr', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Specify if BGP Attributes AS_PATH STD_COMM
+                should be exported
+                ''',
+                'bgp_attr',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('filtered', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Specify whether data should be filtered
                 ''',
                 'filtered',
+                'Cisco-IOS-XR-traffmon-netflow-cfg', False),
+            _MetaInfoClassMember('out-bundle-member', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Specify whether to export physical ifh for
+                bundle interface
+                ''',
+                'out_bundle_member',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('out-phys-int', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -511,7 +545,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('exporter-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Exporter name
                 ''',
                 'exporter_name',
@@ -552,7 +586,7 @@ _meta_table = {
                 'label',
                 'Cisco-IOS-XR-traffmon-netflow-cfg', False),
             _MetaInfoClassMember('record-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Flow record format (Either 'ipv4-raw'
                 ,'ipv4-peer-as', 'ipv6', 'mpls', 'mpls-ipv4',
                 'mpls-ipv6', 'mpls-ipv4-ipv6', 'ipv6-peer-as')
@@ -571,7 +605,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('monitor-map-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Monitor map name
                 ''',
                 'monitor_map_name',

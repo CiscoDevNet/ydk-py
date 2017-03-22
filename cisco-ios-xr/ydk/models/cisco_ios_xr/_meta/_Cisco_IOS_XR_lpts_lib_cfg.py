@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames.Ipv4VrfName' : {
         'meta_info' : _MetaInfoClass('Lpts.Ipolicer.Ipv4Acls.Ipv4Acl.Ipv4VrfNames.Ipv4VrfName',
@@ -420,7 +419,7 @@ _meta_table = {
                 'routing_protocols_enable',
                 'Cisco-IOS-XR-lpts-punt-flowtrap-cfg', False),
             _MetaInfoClassMember('sample-prob', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Probability of packets to be sampled
                 ''',
                 'sample_prob',

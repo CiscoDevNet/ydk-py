@@ -251,19 +251,30 @@ class LptsPifib(object):
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: deliver_list
+                        .. attribute:: deliver_list_long
                         
-                        	Deliver List
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: deliver_list_str
-                        
-                        	Deliver List String
+                        	Deliver List Long Format
                         	**type**\:  str
                         
-                        	**length:** 0..1024
+                        .. attribute:: deliver_list_short
+                        
+                        	Deliver List Short Format
+                        	**type**\:  str
+                        
+                        .. attribute:: destination_addr
+                        
+                        	Destination IP Address
+                        	**type**\:  str
+                        
+                        .. attribute:: destination_type
+                        
+                        	Destination Key Type
+                        	**type**\:  str
+                        
+                        .. attribute:: destination_value
+                        
+                        	Destination Port/ICMP Type/IGMP Type
+                        	**type**\:  str
                         
                         .. attribute:: drops
                         
@@ -275,9 +286,7 @@ class LptsPifib(object):
                         .. attribute:: flow_type
                         
                         	Flow type
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	**type**\:  str
                         
                         .. attribute:: intf_handle
                         
@@ -285,6 +294,11 @@ class LptsPifib(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: intf_name
+                        
+                        	Interface Name
+                        	**type**\:  str
                         
                         .. attribute:: is_fgid
                         
@@ -324,16 +338,7 @@ class LptsPifib(object):
                         .. attribute:: listener_tag
                         
                         	Listener Tag
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: local_addr
-                        
-                        	Local IP Address
                         	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
                         .. attribute:: local_flag
                         
@@ -341,13 +346,6 @@ class LptsPifib(object):
                         	**type**\:  int
                         
                         	**range:** 0..255
-                        
-                        .. attribute:: local_prefix_len
-                        
-                        	Local Prefix Length
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: min_ttl
                         
@@ -359,9 +357,12 @@ class LptsPifib(object):
                         .. attribute:: opcode
                         
                         	Opcode
-                        	**type**\:  int
+                        	**type**\:  str
                         
-                        	**range:** 0..255
+                        .. attribute:: pifib_program_time
+                        
+                        	Creation or Update Time
+                        	**type**\:  str
                         
                         .. attribute:: pifib_type
                         
@@ -370,26 +371,15 @@ class LptsPifib(object):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: remote_addr
+                        .. attribute:: source_addr
                         
-                        	Remote IP Address
+                        	Source IP Address
                         	**type**\:  str
                         
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        .. attribute:: source_port
                         
-                        .. attribute:: remote_port
-                        
-                        	Remote port
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: remote_prefix_len
-                        
-                        	Remote Prefix Length
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
+                        	Source port
+                        	**type**\:  str
                         
                         .. attribute:: stale
                         
@@ -398,38 +388,17 @@ class LptsPifib(object):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: u_len
-                        
-                        	Union Key Length
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: u_type
-                        
-                        	Union Key Type
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: u_value
-                        
-                        	Local Port/ICMP Type/IGMP Type
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: utime
-                        
-                        	Creation or Update Time
-                        	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime>`
-                        
                         .. attribute:: vid
                         
                         	VRF ID
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: vrf_name
+                        
+                        	VRF Name
+                        	**type**\:  str
                         
                         
 
@@ -442,91 +411,31 @@ class LptsPifib(object):
                             self.parent = None
                             self.entry = None
                             self.accepts = None
-                            self.deliver_list = None
-                            self.deliver_list_str = None
+                            self.deliver_list_long = None
+                            self.deliver_list_short = None
+                            self.destination_addr = None
+                            self.destination_type = None
+                            self.destination_value = None
                             self.drops = None
                             self.flow_type = None
                             self.intf_handle = None
+                            self.intf_name = None
                             self.is_fgid = None
                             self.is_frag = None
                             self.is_syn = None
                             self.l3protocol = None
                             self.l4protocol = None
                             self.listener_tag = None
-                            self.local_addr = None
                             self.local_flag = None
-                            self.local_prefix_len = None
                             self.min_ttl = None
                             self.opcode = None
+                            self.pifib_program_time = None
                             self.pifib_type = None
-                            self.remote_addr = None
-                            self.remote_port = None
-                            self.remote_prefix_len = None
+                            self.source_addr = None
+                            self.source_port = None
                             self.stale = None
-                            self.u_len = None
-                            self.u_type = None
-                            self.u_value = None
-                            self.utime = LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime()
-                            self.utime.parent = self
                             self.vid = None
-
-
-                        class Utime(object):
-                            """
-                            Creation or Update Time
-                            
-                            .. attribute:: tv_nsec
-                            
-                            	Time Nanosec
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: tv_sec
-                            
-                            	Time Sec
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'lpts-pre-ifib-oper'
-                            _revision = '2016-02-22'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.tv_nsec = None
-                                self.tv_sec = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-lpts-pre-ifib-oper:utime'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.tv_nsec is not None:
-                                    return True
-
-                                if self.tv_sec is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_oper as meta
-                                return meta._meta_table['LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime']['meta_info']
+                            self.vrf_name = None
 
                         @property
                         def _common_path(self):
@@ -550,10 +459,19 @@ class LptsPifib(object):
                             if self.accepts is not None:
                                 return True
 
-                            if self.deliver_list is not None:
+                            if self.deliver_list_long is not None:
                                 return True
 
-                            if self.deliver_list_str is not None:
+                            if self.deliver_list_short is not None:
+                                return True
+
+                            if self.destination_addr is not None:
+                                return True
+
+                            if self.destination_type is not None:
+                                return True
+
+                            if self.destination_value is not None:
                                 return True
 
                             if self.drops is not None:
@@ -563,6 +481,9 @@ class LptsPifib(object):
                                 return True
 
                             if self.intf_handle is not None:
+                                return True
+
+                            if self.intf_name is not None:
                                 return True
 
                             if self.is_fgid is not None:
@@ -583,13 +504,7 @@ class LptsPifib(object):
                             if self.listener_tag is not None:
                                 return True
 
-                            if self.local_addr is not None:
-                                return True
-
                             if self.local_flag is not None:
-                                return True
-
-                            if self.local_prefix_len is not None:
                                 return True
 
                             if self.min_ttl is not None:
@@ -598,34 +513,25 @@ class LptsPifib(object):
                             if self.opcode is not None:
                                 return True
 
+                            if self.pifib_program_time is not None:
+                                return True
+
                             if self.pifib_type is not None:
                                 return True
 
-                            if self.remote_addr is not None:
+                            if self.source_addr is not None:
                                 return True
 
-                            if self.remote_port is not None:
-                                return True
-
-                            if self.remote_prefix_len is not None:
+                            if self.source_port is not None:
                                 return True
 
                             if self.stale is not None:
                                 return True
 
-                            if self.u_len is not None:
-                                return True
-
-                            if self.u_type is not None:
-                                return True
-
-                            if self.u_value is not None:
-                                return True
-
-                            if self.utime is not None and self.utime._has_data():
-                                return True
-
                             if self.vid is not None:
+                                return True
+
+                            if self.vrf_name is not None:
                                 return True
 
                             return False

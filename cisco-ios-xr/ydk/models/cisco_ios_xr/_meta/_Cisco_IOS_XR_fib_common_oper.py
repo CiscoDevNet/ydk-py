@@ -8,19 +8,11 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
-    'FibMplsLlcEntryBagEnum' : _MetaInfoEnum('FibMplsLlcEntryBagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-mpls-llc-bag-type-xc':'fib_mpls_llc_bag_type_xc',
-            'fib-mpls-llc-bag-type-pfx':'fib_mpls_llc_bag_type_pfx',
-            'fib-mpls-llc-bag-type-lsm':'fib_mpls_llc_bag_type_lsm',
-            'fib-mpls-llc-bag-type-max':'fib_mpls_llc_bag_type_max',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'MgmtFibMplsFrrStateEnum' : _MetaInfoEnum('MgmtFibMplsFrrStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
             'partial':'partial',
@@ -28,114 +20,6 @@ _meta_table = {
             'ready':'ready',
             'complete':'complete',
             'any':'any',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibShIpencapHdrEnum' : _MetaInfoEnum('FibShIpencapHdrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-sh-ip-encap-none':'fib_sh_ip_encap_none',
-            'fib-sh-ip-encap-ip4':'fib_sh_ip_encap_ip4',
-            'fib-sh-ip-encap-ip6':'fib_sh_ip_encap_ip6',
-            'fib-sh-ip-encap-udp':'fib_sh_ip_encap_udp',
-            'fib-sh-ip-encap-lisp':'fib_sh_ip_encap_lisp',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibProtocolEnum' : _MetaInfoEnum('FibProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'ipv4':'ipv4',
-            'ipv6':'ipv6',
-            'mpls':'mpls',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibNehEnum' : _MetaInfoEnum('FibNehEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'nh-local':'nh_local',
-            'nh-remote':'nh_remote',
-            'nh-special':'nh_special',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibFrrProtocolShowEnum' : _MetaInfoEnum('FibFrrProtocolShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'frr-protocol-ipv4':'frr_protocol_ipv4',
-            'frr-protocol-ipv6':'frr_protocol_ipv6',
-            'frr-protocol-mpls':'frr_protocol_mpls',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'ProtoEnum' : _MetaInfoEnum('ProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'ipv4':'ipv4',
-            'ipv6':'ipv6',
-            'mpls':'mpls',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibLinkEnum' : _MetaInfoEnum('FibLinkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'link-ipv4':'link_ipv4',
-            'link-ipv6':'link_ipv6',
-            'link-mpls':'link_mpls',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibAdjacencyShowEnum' : _MetaInfoEnum('FibAdjacencyShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-adjacency-normal':'fib_adjacency_normal',
-            'fib-adjacency-null':'fib_adjacency_null',
-            'fib-adjacency-punt':'fib_adjacency_punt',
-            'fib-adjacency-drop':'fib_adjacency_drop',
-            'fib-adjacency-glean':'fib_adjacency_glean',
-            'fib-adjacency-discard':'fib_adjacency_discard',
-            'fib-adjacency-broadcast':'fib_adjacency_broadcast',
-            'fib-adjacency-external':'fib_adjacency_external',
-            'fib-adjacency-lisp':'fib_adjacency_lisp',
-            'fib-adjacency-unknown':'fib_adjacency_unknown',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibLoadshareShowEnum' : _MetaInfoEnum('FibLoadshareShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-load-share-none':'fib_load_share_none',
-            'fib-load-share-per-packet':'fib_load_share_per_packet',
-            'fib-load-share-dest-sharing':'fib_load_share_dest_sharing',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'EosEnum' : _MetaInfoEnum('EosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'eos0':'eos0',
-            'eos1':'eos1',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibllcEntryEnum' : _MetaInfoEnum('FibllcEntryEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'xc':'xc',
-            'pfx':'pfx',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibRpfModeEnum' : _MetaInfoEnum('FibRpfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fib-rpf-mode-strict':'fib_rpf_mode_strict',
-            'fib-rpf-mode-loose':'fib_rpf_mode_loose',
-            'fib-rpf-mode-unknown':'fib_rpf_mode_unknown',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibidbOperEnum' : _MetaInfoEnum('FibidbOperEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'fibidb-none':'fibidb_none',
-            'fibidb-create':'fibidb_create',
-            'fibidb-delete':'fibidb_delete',
-            'fibidb-modify':'fibidb_modify',
-            'fibidb-max':'fibidb_max',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'SsLbaStateEnum' : _MetaInfoEnum('SsLbaStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'l3':'l3',
-            'l4':'l4',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'NextHopEnum' : _MetaInfoEnum('NextHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'tx':'tx',
-            'rx':'rx',
-            'special':'special',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'FibRouteSourceEnum' : _MetaInfoEnum('FibRouteSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'lsd':'lsd',
-            'rib':'rib',
-            'mrib':'mrib',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'MplseosEnum' : _MetaInfoEnum('MplseosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'eos0':'eos0',
-            'eos1':'eos1',
-        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
-    'MgmtFibMplsLspRoleEnum' : _MetaInfoEnum('MgmtFibMplsLspRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
-        {
-            'head':'head',
-            'midpoint':'midpoint',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibNehSpecialEnum' : _MetaInfoEnum('FibNehSpecialEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
         {
@@ -150,6 +34,134 @@ _meta_table = {
             'nh-lisp':'nh_lisp',
             'nh-lookup':'nh_lookup',
             'nh-max-type':'nh_max_type',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'ProtoEnum' : _MetaInfoEnum('ProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'mpls':'mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibShIpencapHdrEnum' : _MetaInfoEnum('FibShIpencapHdrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-sh-ip-encap-none':'fib_sh_ip_encap_none',
+            'fib-sh-ip-encap-ip4':'fib_sh_ip_encap_ip4',
+            'fib-sh-ip-encap-ip6':'fib_sh_ip_encap_ip6',
+            'fib-sh-ip-encap-udp':'fib_sh_ip_encap_udp',
+            'fib-sh-ip-encap-lisp':'fib_sh_ip_encap_lisp',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibAdjacencyShowEnum' : _MetaInfoEnum('FibAdjacencyShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-adjacency-normal':'fib_adjacency_normal',
+            'fib-adjacency-null':'fib_adjacency_null',
+            'fib-adjacency-punt':'fib_adjacency_punt',
+            'fib-adjacency-drop':'fib_adjacency_drop',
+            'fib-adjacency-glean':'fib_adjacency_glean',
+            'fib-adjacency-discard':'fib_adjacency_discard',
+            'fib-adjacency-broadcast':'fib_adjacency_broadcast',
+            'fib-adjacency-external':'fib_adjacency_external',
+            'fib-adjacency-lisp':'fib_adjacency_lisp',
+            'fib-adjacency-unknown':'fib_adjacency_unknown',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'SsLbaStateEnum' : _MetaInfoEnum('SsLbaStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'l3':'l3',
+            'l4':'l4',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibRouteSourceEnum' : _MetaInfoEnum('FibRouteSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'lsd':'lsd',
+            'rib':'rib',
+            'mrib':'mrib',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibMplsLlcEntryBagEnum' : _MetaInfoEnum('FibMplsLlcEntryBagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-mpls-llc-bag-type-xc':'fib_mpls_llc_bag_type_xc',
+            'fib-mpls-llc-bag-type-pfx':'fib_mpls_llc_bag_type_pfx',
+            'fib-mpls-llc-bag-type-lsm':'fib_mpls_llc_bag_type_lsm',
+            'fib-mpls-llc-bag-type-max':'fib_mpls_llc_bag_type_max',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibRpfModeEnum' : _MetaInfoEnum('FibRpfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-rpf-mode-strict':'fib_rpf_mode_strict',
+            'fib-rpf-mode-loose':'fib_rpf_mode_loose',
+            'fib-rpf-mode-unknown':'fib_rpf_mode_unknown',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibafiProtoEnum' : _MetaInfoEnum('FibafiProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'ipv4':'ipv4',
+            'ipv4-mpls':'ipv4_mpls',
+            'ipv6':'ipv6',
+            'ipv6-mpls':'ipv6_mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'MplseosEnum' : _MetaInfoEnum('MplseosEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'eos0':'eos0',
+            'eos1':'eos1',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibFrrProtocolShowEnum' : _MetaInfoEnum('FibFrrProtocolShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'frr-protocol-ipv4':'frr_protocol_ipv4',
+            'frr-protocol-ipv6':'frr_protocol_ipv6',
+            'frr-protocol-mpls':'frr_protocol_mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibLinkEnum' : _MetaInfoEnum('FibLinkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'link-ipv4':'link_ipv4',
+            'link-ipv6':'link_ipv6',
+            'link-mpls':'link_mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibUpdatePathLfaProtectionEnum' : _MetaInfoEnum('FibUpdatePathLfaProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'not-lfa-protected':'not_lfa_protected',
+            'local-lfa-protected':'local_lfa_protected',
+            'remote-lfa-protected':'remote_lfa_protected',
+            'ti-lfa-protected':'ti_lfa_protected',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibLoadshareShowEnum' : _MetaInfoEnum('FibLoadshareShowEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fib-load-share-none':'fib_load_share_none',
+            'fib-load-share-per-packet':'fib_load_share_per_packet',
+            'fib-load-share-dest-sharing':'fib_load_share_dest_sharing',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibllcEntryEnum' : _MetaInfoEnum('FibllcEntryEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'xc':'xc',
+            'pfx':'pfx',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibNehEnum' : _MetaInfoEnum('FibNehEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'nh-local':'nh_local',
+            'nh-remote':'nh_remote',
+            'nh-special':'nh_special',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'NextHopEnum' : _MetaInfoEnum('NextHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'tx':'tx',
+            'rx':'rx',
+            'special':'special',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'MgmtFibMplsLspRoleEnum' : _MetaInfoEnum('MgmtFibMplsLspRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'head':'head',
+            'midpoint':'midpoint',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibProtocolEnum' : _MetaInfoEnum('FibProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'mpls':'mpls',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibidbOperEnum' : _MetaInfoEnum('FibidbOperEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'fibidb-none':'fibidb_none',
+            'fibidb-create':'fibidb_create',
+            'fibidb-delete':'fibidb_delete',
+            'fibidb-modify':'fibidb_modify',
+            'fibidb-max':'fibidb_max',
+        }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
+    'FibShTblFibExtBagEnum' : _MetaInfoEnum('FibShTblFibExtBagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper',
+        {
+            'leaf-extension':'leaf_extension',
         }, 'Cisco-IOS-XR-fib-common-oper', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper']),
     'FibStatistics.Nodes.Node.Drops' : {
         'meta_info' : _MetaInfoClass('FibStatistics.Nodes.Node.Drops',
@@ -357,6 +369,477 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
+    'Fib.Nodes.Node.Global_.Summary.Total.CommonInfo' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Total.CommonInfo',
+            False, 
+            [
+            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Placeholder for common info counts
+                ''',
+                'count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'common-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfRetry' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfRetry',
+            False, 
+            [
+            _MetaInfoClassMember('num-retries', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                number of elements for this obj type in retry db
+                ''',
+                'num_retries',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('retry-object-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                retry object
+                ''',
+                'retry_object_type',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'array-number-of-retry',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfObject' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfObject',
+            False, 
+            [
+            _MetaInfoClassMember('num-objects', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                number of elements for this obj type
+                ''',
+                'num_objects',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('object-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                object
+                ''',
+                'object_type',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'array-number-of-object',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Total.TotalCounters' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Total.TotalCounters',
+            False, 
+            [
+            _MetaInfoClassMember('array-number-of-object', REFERENCE_LIST, 'ArrayNumberOfObject' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfObject', 
+                [], [], 
+                '''                total number of objects
+                ''',
+                'array_number_of_object',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('array-number-of-retry', REFERENCE_LIST, 'ArrayNumberOfRetry' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfRetry', 
+                [], [], 
+                '''                number of objects in retry db
+                ''',
+                'array_number_of_retry',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('num-retry-ojbects', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                number of elements in retry db
+                ''',
+                'num_retry_ojbects',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('num-retry-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                number of retry timeouts
+                ''',
+                'num_retry_timeouts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'total-counters',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Total' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Total',
+            False, 
+            [
+            _MetaInfoClassMember('common-info', REFERENCE_CLASS, 'CommonInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Total.CommonInfo', 
+                [], [], 
+                '''                Common info
+                ''',
+                'common_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total-counters', REFERENCE_CLASS, 'TotalCounters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Total.TotalCounters', 
+                [], [], 
+                '''                Aggregate counters of all protocols
+                ''',
+                'total_counters',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'total',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Protos.Proto.CommonInfo' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Protos.Proto.CommonInfo',
+            False, 
+            [
+            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Placeholder for common info counts
+                ''',
+                'count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'common-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.BaseObject' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.BaseObject',
+            False, 
+            [
+            _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                protocol
+                ''',
+                'protocol',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'base-object',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfRetry' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfRetry',
+            False, 
+            [
+            _MetaInfoClassMember('num-retries', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                number of elements for this obj type in retry db
+                ''',
+                'num_retries',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('retry-object-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                retry object
+                ''',
+                'retry_object_type',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'array-number-of-retry',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfObject' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfObject',
+            False, 
+            [
+            _MetaInfoClassMember('num-objects', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                number of elements for this obj type
+                ''',
+                'num_objects',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('object-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                object
+                ''',
+                'object_type',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'array-number-of-object',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts',
+            False, 
+            [
+            _MetaInfoClassMember('array-number-of-object', REFERENCE_LIST, 'ArrayNumberOfObject' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfObject', 
+                [], [], 
+                '''                total number of objects
+                ''',
+                'array_number_of_object',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('array-number-of-retry', REFERENCE_LIST, 'ArrayNumberOfRetry' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfRetry', 
+                [], [], 
+                '''                number of objects in retry db
+                ''',
+                'array_number_of_retry',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('num-retry-ojbects', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                number of elements in retry db
+                ''',
+                'num_retry_ojbects',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('num-retry-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                number of retry timeouts
+                ''',
+                'num_retry_timeouts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'summary-counts',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.Health' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.Health',
+            False, 
+            [
+            _MetaInfoClassMember('is-retry-db-empty', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is the retry db empty?
+                ''',
+                'is_retry_db_empty',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'health',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_',
+            False, 
+            [
+            _MetaInfoClassMember('base-object', REFERENCE_CLASS, 'BaseObject' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.BaseObject', 
+                [], [], 
+                '''                Base object
+                ''',
+                'base_object',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('health', REFERENCE_CLASS, 'Health' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.Health', 
+                [], [], 
+                '''                Global summary health
+                ''',
+                'health',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('summary-counts', REFERENCE_CLASS, 'SummaryCounts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts', 
+                [], [], 
+                '''                Global Summary counts
+                ''',
+                'summary_counts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Protos.Proto' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Protos.Proto',
+            False, 
+            [
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'FibafiProtoEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibafiProtoEnum', 
+                [], [], 
+                '''                Protocol Name
+                ''',
+                'protocol_name',
+                'Cisco-IOS-XR-fib-common-oper', True),
+            _MetaInfoClassMember('common-info', REFERENCE_CLASS, 'CommonInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Protos.Proto.CommonInfo', 
+                [], [], 
+                '''                Common Info
+                ''',
+                'common_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_', 
+                [], [], 
+                '''                Global summary
+                ''',
+                'summary',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'proto',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary.Protos' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary.Protos',
+            False, 
+            [
+            _MetaInfoClassMember('proto', REFERENCE_LIST, 'Proto' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Protos.Proto', 
+                [], [], 
+                '''                Proto Table entry
+                ''',
+                'proto',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'protos',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.Summary' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.Summary',
+            False, 
+            [
+            _MetaInfoClassMember('protos', REFERENCE_CLASS, 'Protos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Protos', 
+                [], [], 
+                '''                Proto Table
+                ''',
+                'protos',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('total', REFERENCE_CLASS, 'Total' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary.Total', 
+                [], [], 
+                '''                Display total counters and common info
+                ''',
+                'total',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.BaseObject' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.BaseObject',
+            False, 
+            [
+            _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                protocol
+                ''',
+                'protocol',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'base-object',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.ObjectHistory_' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.ObjectHistory_',
+            False, 
+            [
+            _MetaInfoClassMember('count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Placeholder for obj history counts
+                ''',
+                'count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'object-history',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto',
+            False, 
+            [
+            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'FibafiProtoEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibafiProtoEnum', 
+                [], [], 
+                '''                Protocol Name
+                ''',
+                'protocol_name',
+                'Cisco-IOS-XR-fib-common-oper', True),
+            _MetaInfoClassMember('base-object', REFERENCE_CLASS, 'BaseObject' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.BaseObject', 
+                [], [], 
+                '''                Base object
+                ''',
+                'base_object',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('object-history', REFERENCE_CLASS, 'ObjectHistory_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.ObjectHistory_', 
+                [], [], 
+                '''                Obj History
+                ''',
+                'object_history',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'obj-history-proto',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos',
+            False, 
+            [
+            _MetaInfoClassMember('obj-history-proto', REFERENCE_LIST, 'ObjHistoryProto' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto', 
+                [], [], 
+                '''                Protocol Table entry
+                ''',
+                'obj_history_proto',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'obj-history-protos',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_.ObjectHistory' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_.ObjectHistory',
+            False, 
+            [
+            _MetaInfoClassMember('obj-history-protos', REFERENCE_CLASS, 'ObjHistoryProtos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos', 
+                [], [], 
+                '''                Proto Table
+                ''',
+                'obj_history_protos',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'object-history',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Global_' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Global_',
+            False, 
+            [
+            _MetaInfoClassMember('object-history', REFERENCE_CLASS, 'ObjectHistory' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.ObjectHistory', 
+                [], [], 
+                '''                Object History
+                ''',
+                'object_history',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_.Summary', 
+                [], [], 
+                '''                Global Summary
+                ''',
+                'summary',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'global',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
     'Fib.Nodes.Node.Protocols.Protocol.IssuState.FisProtoState' : {
         'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.IssuState.FisProtoState',
             False, 
@@ -535,8 +1018,395 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement' : {
-        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement',
+    'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrShmState' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrShmState',
+            False, 
+            [
+            _MetaInfoClassMember('srs-avg-avail', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Average number of bytes available
+                ''',
+                'srs_avg_avail',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srs-curr-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                OOR mode for this shared memory window
+                ''',
+                'srs_curr_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srs-max-avail', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Maximum bytes available
+                ''',
+                'srs_max_avail',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'sr-shm-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo',
+            False, 
+            [
+            _MetaInfoClassMember('sr-curr-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Current overall oor mode
+                ''',
+                'sr_curr_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hw-oor-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                sr hw oor count
+                ''',
+                'sr_hw_oor_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hwrsrc-info', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Opaque hardware rsrc state info
+                ''',
+                'sr_hwrsrc_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hwrsrc-mode', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Hardware resource mode
+                ''',
+                'sr_hwrsrc_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-in-oor-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                sr in oor ts
+                ''',
+                'sr_in_oor_ts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-out-oor-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                sr out oor ts
+                ''',
+                'sr_out_oor_ts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-shm-state', REFERENCE_LIST, 'SrShmState' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrShmState', 
+                [], [], 
+                '''                Current status of shared memories
+                ''',
+                'sr_shm_state',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-shmwin-oor-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                sr shmwin oor count
+                ''',
+                'sr_shmwin_oor_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'resource-detail-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrShmState' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrShmState',
+            False, 
+            [
+            _MetaInfoClassMember('srs-avg-avail', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Average number of bytes available
+                ''',
+                'srs_avg_avail',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srs-curr-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                OOR mode for this shared memory window
+                ''',
+                'srs_curr_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srs-max-avail', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Maximum bytes available
+                ''',
+                'srs_max_avail',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'sr-shm-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo',
+            False, 
+            [
+            _MetaInfoClassMember('sr-curr-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Current overall oor mode
+                ''',
+                'sr_curr_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hw-oor-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                sr hw oor count
+                ''',
+                'sr_hw_oor_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hwrsrc-info', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Opaque hardware rsrc state info
+                ''',
+                'sr_hwrsrc_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hwrsrc-mode', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Hardware resource mode
+                ''',
+                'sr_hwrsrc_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-in-oor-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                sr in oor ts
+                ''',
+                'sr_in_oor_ts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-out-oor-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                sr out oor ts
+                ''',
+                'sr_out_oor_ts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-shm-state', REFERENCE_LIST, 'SrShmState' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrShmState', 
+                [], [], 
+                '''                Current status of shared memories
+                ''',
+                'sr_shm_state',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-shmwin-oor-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                sr shmwin oor count
+                ''',
+                'sr_shmwin_oor_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'resource-hardware-ingress-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrShmState' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrShmState',
+            False, 
+            [
+            _MetaInfoClassMember('srs-avg-avail', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Average number of bytes available
+                ''',
+                'srs_avg_avail',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srs-curr-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                OOR mode for this shared memory window
+                ''',
+                'srs_curr_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srs-max-avail', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Maximum bytes available
+                ''',
+                'srs_max_avail',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'sr-shm-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo',
+            False, 
+            [
+            _MetaInfoClassMember('sr-curr-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Current overall oor mode
+                ''',
+                'sr_curr_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hw-oor-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                sr hw oor count
+                ''',
+                'sr_hw_oor_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hwrsrc-info', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Opaque hardware rsrc state info
+                ''',
+                'sr_hwrsrc_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hwrsrc-mode', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Hardware resource mode
+                ''',
+                'sr_hwrsrc_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-in-oor-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                sr in oor ts
+                ''',
+                'sr_in_oor_ts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-out-oor-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                sr out oor ts
+                ''',
+                'sr_out_oor_ts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-shm-state', REFERENCE_LIST, 'SrShmState' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrShmState', 
+                [], [], 
+                '''                Current status of shared memories
+                ''',
+                'sr_shm_state',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-shmwin-oor-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                sr shmwin oor count
+                ''',
+                'sr_shmwin_oor_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'resource-hardware-egress-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrShmState' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrShmState',
+            False, 
+            [
+            _MetaInfoClassMember('srs-avg-avail', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Average number of bytes available
+                ''',
+                'srs_avg_avail',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srs-curr-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                OOR mode for this shared memory window
+                ''',
+                'srs_curr_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srs-max-avail', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Maximum bytes available
+                ''',
+                'srs_max_avail',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'sr-shm-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo',
+            False, 
+            [
+            _MetaInfoClassMember('sr-curr-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Current overall oor mode
+                ''',
+                'sr_curr_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hw-oor-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                sr hw oor count
+                ''',
+                'sr_hw_oor_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hwrsrc-info', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Opaque hardware rsrc state info
+                ''',
+                'sr_hwrsrc_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-hwrsrc-mode', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Hardware resource mode
+                ''',
+                'sr_hwrsrc_mode',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-in-oor-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                sr in oor ts
+                ''',
+                'sr_in_oor_ts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-out-oor-ts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                sr out oor ts
+                ''',
+                'sr_out_oor_ts',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-shm-state', REFERENCE_LIST, 'SrShmState' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrShmState', 
+                [], [], 
+                '''                Current status of shared memories
+                ''',
+                'sr_shm_state',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sr-shmwin-oor-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                sr shmwin oor count
+                ''',
+                'sr_shmwin_oor_count',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'resource-summary-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Resource' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Resource',
+            False, 
+            [
+            _MetaInfoClassMember('resource-detail-info', REFERENCE_CLASS, 'ResourceDetailInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo', 
+                [], [], 
+                '''                Detailed info
+                ''',
+                'resource_detail_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('resource-hardware-egress-info', REFERENCE_CLASS, 'ResourceHardwareEgressInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo', 
+                [], [], 
+                '''                Detailed info with egress hardware info
+                ''',
+                'resource_hardware_egress_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('resource-hardware-ingress-info', REFERENCE_CLASS, 'ResourceHardwareIngressInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo', 
+                [], [], 
+                '''                Detailed info with ingress hardware info
+                ''',
+                'resource_hardware_ingress_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('resource-summary-info', REFERENCE_CLASS, 'ResourceSummaryInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo', 
+                [], [], 
+                '''                Summary info
+                ''',
+                'resource_summary_info',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'resource',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement',
             False, 
             [
             _MetaInfoClassMember('platform-shared-load-info-elements', ATTRIBUTE, 'int' , None, None, 
@@ -602,8 +1472,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement' : {
-        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement',
+    'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.SharedLoadSharingElement' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.SharedLoadSharingElement',
             False, 
             [
             _MetaInfoClassMember('platform-shared-load-info-elements', ATTRIBUTE, 'int' , None, None, 
@@ -669,8 +1539,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement' : {
-        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement',
+    'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.CrossSharedLoadSharingElement' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.CrossSharedLoadSharingElement',
             False, 
             [
             _MetaInfoClassMember('platform-shared-load-info-elements', ATTRIBUTE, 'int' , None, None, 
@@ -736,8 +1606,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement' : {
-        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement',
+    'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.LabelSharedLoadSharingElement' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.LabelSharedLoadSharingElement',
             False, 
             [
             _MetaInfoClassMember('platform-shared-load-info-elements', ATTRIBUTE, 'int' , None, None, 
@@ -803,8 +1673,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary' : {
-        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary',
+    'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary',
             False, 
             [
             _MetaInfoClassMember('cef-route-drops', ATTRIBUTE, 'int' , None, None, 
@@ -827,7 +1697,7 @@ _meta_table = {
                 ''',
                 'cefl_bl_recycled_routes',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('cross-shared-load-sharing-element', REFERENCE_CLASS, 'CrossSharedLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement', 
+            _MetaInfoClassMember('cross-shared-load-sharing-element', REFERENCE_CLASS, 'CrossSharedLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.CrossSharedLoadSharingElement', 
                 [], [], 
                 '''                Cross-table shared load sharing element
                 ''',
@@ -839,7 +1709,7 @@ _meta_table = {
                 ''',
                 'delete_cache_num_entries',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('exclusive-load-sharing-element', REFERENCE_CLASS, 'ExclusiveLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement', 
+            _MetaInfoClassMember('exclusive-load-sharing-element', REFERENCE_CLASS, 'ExclusiveLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement', 
                 [], [], 
                 '''                Exclusive load sharing element
                 ''',
@@ -888,7 +1758,7 @@ _meta_table = {
                 ''',
                 'incomplete_next_hops',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-shared-load-sharing-element', REFERENCE_CLASS, 'LabelSharedLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement', 
+            _MetaInfoClassMember('label-shared-load-sharing-element', REFERENCE_CLASS, 'LabelSharedLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.LabelSharedLoadSharingElement', 
                 [], [], 
                 '''                Label-shared load sharing element
                 ''',
@@ -981,12 +1851,6 @@ _meta_table = {
                 ''',
                 'prefix_in_place_modifications',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('protocol-name', REFERENCE_ENUM_CLASS, 'FibProtocolEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibProtocolEnum', 
-                [], [], 
-                '''                Protocol Name 
-                ''',
-                'protocol_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('reresolve-entries', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Number of reresolved entries
@@ -1005,7 +1869,7 @@ _meta_table = {
                 ''',
                 'routes',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('shared-load-sharing-element', REFERENCE_CLASS, 'SharedLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement', 
+            _MetaInfoClassMember('shared-load-sharing-element', REFERENCE_CLASS, 'SharedLoadSharingElement' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.SharedLoadSharingElement', 
                 [], [], 
                 '''                Shared load sharing element
                 ''',
@@ -1091,24 +1955,24 @@ _meta_table = {
                 'Cisco-IOS-XR-fib-common-oper', False),
             ],
             'Cisco-IOS-XR-fib-common-oper',
-            'summary',
+            'fib-summary',
             _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'Fib.Nodes.Node.Protocols.Protocol.Summaries' : {
-        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Summaries',
+    'Fib.Nodes.Node.Protocols.Protocol.FibSummaries' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.FibSummaries',
             False, 
             [
-            _MetaInfoClassMember('summary', REFERENCE_LIST, 'Summary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary', 
+            _MetaInfoClassMember('fib-summary', REFERENCE_LIST, 'FibSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary', 
                 [], [], 
                 '''                Summary for the requested fib table
                 ''',
-                'summary',
+                'fib_summary',
                 'Cisco-IOS-XR-fib-common-oper', False),
             ],
             'Cisco-IOS-XR-fib-common-oper',
-            'summaries',
+            'fib-summaries',
             _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
@@ -1128,7 +1992,7 @@ _meta_table = {
                 '''                Number of ECD pathlists per interest
                 ''',
                 'sep_num_ecd_pl_per_interest',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=12),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('sep-num-ecd-pl-unresolved', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Number of ECD pathlists unresolved
@@ -2256,6 +3120,12 @@ _meta_table = {
                 ''',
                 'brief_interface_handle',
                 'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('brief-lfa-protection-type', REFERENCE_ENUM_CLASS, 'FibUpdatePathLfaProtectionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibUpdatePathLfaProtectionEnum', 
+                [], [], 
+                '''                LFA protection type
+                ''',
+                'brief_lfa_protection_type',
+                'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('brief-next-hop-prefix', ATTRIBUTE, 'str' , None, None, 
                 [(0, 52)], [], 
                 '''                Next hop prefix
@@ -2317,7 +3187,7 @@ _meta_table = {
                 'path_dlb',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('path-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
+                [('0', '4294967295')], [], 
                 '''                Path flags
                 ''',
                 'path_flags',
@@ -2388,6 +3258,110 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
+    'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information.Srv6Statistics' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information.Srv6Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('srv6-packets-dropped', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                SRv6 Packets dropped for a prefix
+                ''',
+                'srv6_packets_dropped',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srv6-packets-forwarded', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                SRv6 packets forwarded for a prefix
+                ''',
+                'srv6_packets_forwarded',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'srv6-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information',
+            False, 
+            [
+            _MetaInfoClassMember('route-is-sripv6-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Route is an IPv6 Segment-Routing prefix
+                ''',
+                'route_is_sripv6_flag',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sripv6-stats-valid-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Statistics are valid for this prefix
+                ''',
+                'sripv6_stats_valid_flag',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srv6-pfx-resolved-via-policy-label', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Route is a SRv6 prefix resolved via Policy label
+                ''',
+                'srv6_pfx_resolved_via_policy_label',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srv6-statistics', REFERENCE_CLASS, 'Srv6Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information.Srv6Statistics', 
+                [], [], 
+                '''                Statistics for a IPv6 SR prefix
+                ''',
+                'srv6_statistics',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'srv6-information',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject.SfecdLe' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject.SfecdLe',
+            False, 
+            [
+            _MetaInfoClassMember('context-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Context Label
+                ''',
+                'context_label',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('context-label-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Context Label Exist
+                ''',
+                'context_label_flag',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'sfecd-le',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject',
+            False, 
+            [
+            _MetaInfoClassMember('sfecd-le', REFERENCE_CLASS, 'SfecdLe' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject.SfecdLe', 
+                [], [], 
+                '''                sfecd le
+                ''',
+                'sfecd_le',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'FibShTblFibExtBagEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibShTblFibExtBagEnum', 
+                [], [], 
+                '''                type
+                ''',
+                'type',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'extension-object',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
     'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail' : {
         'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail',
             False, 
@@ -2421,6 +3395,12 @@ _meta_table = {
                 '''                exact-route result
                 ''',
                 'exact_route_result',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('extension-object', REFERENCE_LIST, 'ExtensionObject' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject', 
+                [], [], 
+                '''                Leaf Extension Object List
+                ''',
+                'extension_object',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('external-switch-triggered', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2603,6 +3583,18 @@ _meta_table = {
                 External Reach only
                 ''',
                 'route_for_external_reach_linecard_flag',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('route-is-sr-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Route is a MPLS Segment-Routing prefix
+                ''',
+                'route_is_sr_flag',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srv6-information', REFERENCE_CLASS, 'Srv6Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information', 
+                [], [], 
+                '''                Information about IPv6 SR prefix
+                ''',
+                'srv6_information',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
@@ -4654,6 +5646,12 @@ _meta_table = {
                 ''',
                 'brief_interface_handle',
                 'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('brief-lfa-protection-type', REFERENCE_ENUM_CLASS, 'FibUpdatePathLfaProtectionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibUpdatePathLfaProtectionEnum', 
+                [], [], 
+                '''                LFA protection type
+                ''',
+                'brief_lfa_protection_type',
+                'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('brief-next-hop-prefix', ATTRIBUTE, 'str' , None, None, 
                 [(0, 52)], [], 
                 '''                Next hop prefix
@@ -4715,7 +5713,7 @@ _meta_table = {
                 'path_dlb',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('path-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
+                [('0', '4294967295')], [], 
                 '''                Path flags
                 ''',
                 'path_flags',
@@ -4786,6 +5784,110 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
+    'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information.Srv6Statistics' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information.Srv6Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('srv6-packets-dropped', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                SRv6 Packets dropped for a prefix
+                ''',
+                'srv6_packets_dropped',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srv6-packets-forwarded', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                SRv6 packets forwarded for a prefix
+                ''',
+                'srv6_packets_forwarded',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'srv6-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information',
+            False, 
+            [
+            _MetaInfoClassMember('route-is-sripv6-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Route is an IPv6 Segment-Routing prefix
+                ''',
+                'route_is_sripv6_flag',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('sripv6-stats-valid-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Statistics are valid for this prefix
+                ''',
+                'sripv6_stats_valid_flag',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srv6-pfx-resolved-via-policy-label', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Route is a SRv6 prefix resolved via Policy label
+                ''',
+                'srv6_pfx_resolved_via_policy_label',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srv6-statistics', REFERENCE_CLASS, 'Srv6Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information.Srv6Statistics', 
+                [], [], 
+                '''                Statistics for a IPv6 SR prefix
+                ''',
+                'srv6_statistics',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'srv6-information',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject.SfecdLe' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject.SfecdLe',
+            False, 
+            [
+            _MetaInfoClassMember('context-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Context Label
+                ''',
+                'context_label',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('context-label-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Context Label Exist
+                ''',
+                'context_label_flag',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'sfecd-le',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject',
+            False, 
+            [
+            _MetaInfoClassMember('sfecd-le', REFERENCE_CLASS, 'SfecdLe' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject.SfecdLe', 
+                [], [], 
+                '''                sfecd le
+                ''',
+                'sfecd_le',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'FibShTblFibExtBagEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibShTblFibExtBagEnum', 
+                [], [], 
+                '''                type
+                ''',
+                'type',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'extension-object',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
     'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief' : {
         'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief',
             False, 
@@ -4819,6 +5921,12 @@ _meta_table = {
                 '''                exact-route result
                 ''',
                 'exact_route_result',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('extension-object', REFERENCE_LIST, 'ExtensionObject' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject', 
+                [], [], 
+                '''                Leaf Extension Object List
+                ''',
+                'extension_object',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('external-switch-triggered', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5002,6 +6110,18 @@ _meta_table = {
                 ''',
                 'route_for_external_reach_linecard_flag',
                 'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('route-is-sr-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Route is a MPLS Segment-Routing prefix
+                ''',
+                'route_is_sr_flag',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('srv6-information', REFERENCE_CLASS, 'Srv6Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information', 
+                [], [], 
+                '''                Information about IPv6 SR prefix
+                ''',
+                'srv6_information',
+                'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
                 '''                The time of last update in msec
@@ -5108,6 +6228,101 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
+    'Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId',
+            False, 
+            [
+            _MetaInfoClassMember('nh-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Next-hop address in string format (e.g., 1
+                .2.3.4)
+                ''',
+                'nh_address',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('nh-address-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Next-hop address
+                ''',
+                'nh_address_xr',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('nh-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                NHID value
+                ''',
+                'nh_id',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('nh-id-value', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                NexthopId Value
+                ''',
+                'nh_id_value',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('nh-interf-handle', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Next-hop interface
+                ''',
+                'nh_interf_handle',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('nh-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface Name
+                ''',
+                'nh_interface_name',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('nh-link-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Payload linktype
+                ''',
+                'nh_link_type',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('nh-protocol', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Next-hop address protocol, IPv4/IPv6
+                ''',
+                'nh_protocol',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('nh-table-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Table-ID entry notified for
+                ''',
+                'nh_table_id',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                The time of last update in msec
+                ''',
+                'time_of_last_update_in_msec',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                RIB version
+                ''',
+                'version',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'nh-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'Fib.Nodes.Node.Protocols.Protocol.NhIds' : {
+        'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.NhIds',
+            False, 
+            [
+            _MetaInfoClassMember('nh-id', REFERENCE_LIST, 'NhId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId', 
+                [], [], 
+                '''                NextHopeId table entry
+                ''',
+                'nh_id',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'nh-ids',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
     'Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum' : {
         'meta_info' : _MetaInfoClass('Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum',
             False, 
@@ -5123,7 +6338,7 @@ _meta_table = {
                 '''                Number of ECD pathlists per interest
                 ''',
                 'sep_num_ecd_pl_per_interest',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=12),
+                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
             _MetaInfoClassMember('sep-num-ecd-pl-unresolved', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Number of ECD pathlists unresolved
@@ -6762,6 +7977,12 @@ _meta_table = {
                 ''',
                 'external_summary_all',
                 'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('fib-summaries', REFERENCE_CLASS, 'FibSummaries' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.FibSummaries', 
+                [], [], 
+                '''                Summary for FIB tables
+                ''',
+                'fib_summaries',
+                'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('frr-log', REFERENCE_CLASS, 'FrrLog' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.FrrLog', 
                 [], [], 
                 '''                Table of Fast Reroute activation logs
@@ -6786,11 +8007,18 @@ _meta_table = {
                 ''',
                 'misc',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('summaries', REFERENCE_CLASS, 'Summaries' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Summaries', 
+            _MetaInfoClassMember('nh-ids', REFERENCE_CLASS, 'NhIds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.NhIds', 
                 [], [], 
-                '''                Summary for FIB tables
+                '''                NHIdTable is accessed by two keys;
+                {NHIdValue} and/or {NHInterface,NHAddress
                 ''',
-                'summaries',
+                'nh_ids',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('resource', REFERENCE_CLASS, 'Resource' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Resource', 
+                [], [], 
+                '''                Resource information
+                ''',
+                'resource',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols.Protocol.Vrfs', 
                 [], [], 
@@ -6832,6 +8060,12 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-fib-common-oper', True),
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Global_', 
+                [], [], 
+                '''                FIB Global info
+                ''',
+                'global_',
+                'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('protocols', REFERENCE_CLASS, 'Protocols' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'Fib.Nodes.Node.Protocols', 
                 [], [], 
                 '''                Protocol table
@@ -7065,6 +8299,112 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-fib-common-oper',
             'forwarding-summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime',
+            False, 
+            [
+            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Nanoseconds part of time value
+                ''',
+                'nanoseconds',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Seconds part of time valueiin UTC
+                ''',
+                'seconds',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'start-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'MplsForwarding.Nodes.Node.FrrLogs.FrrLog' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrLogs.FrrLog',
+            False, 
+            [
+            _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Event ID
+                ''',
+                'event_id',
+                'Cisco-IOS-XR-fib-common-oper', True),
+            _MetaInfoClassMember('fast-bundle-member-down-interface', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Fast Bundle Member Down Interface
+                ''',
+                'fast_bundle_member_down_interface',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('frr-event-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                '''                Node on which the FRR event happened
+                ''',
+                'frr_event_node_id',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('main-processing', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Main Processing for FRR
+                ''',
+                'main_processing',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Next Hop
+                ''',
+                'next_hop',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('number-of-rewrites-affected', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of rewrites affected
+                ''',
+                'number_of_rewrites_affected',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('protected-frr-interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'protected_frr_interface_name',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime', 
+                [], [], 
+                '''                Time of FRR event processing start, Seconds in
+                UTC, and Nano Seconds
+                ''',
+                'start_time',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('switching-time-nsecs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Time to switch rewrites [nsecs]
+                ''',
+                'switching_time_nsecs',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'frr-log',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'MplsForwarding.Nodes.Node.FrrLogs' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrLogs',
+            False, 
+            [
+            _MetaInfoClassMember('frr-log', REFERENCE_LIST, 'FrrLog' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrLogs.FrrLog', 
+                [], [], 
+                '''                FRR Log information
+                ''',
+                'frr_log',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'frr-logs',
             _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
@@ -7419,7 +8759,7 @@ _meta_table = {
                 'label_information',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('label-value', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('16', '1048575')], [], 
                 '''                Local label value
                 ''',
                 'label_value',
@@ -7545,7 +8885,7 @@ _meta_table = {
             [
             _MetaInfoClassMember('forwarding-detail', REFERENCE_LIST, 'ForwardingDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail', 
                 [], [], 
-                '''                FIB MPLS forwarding details
+                '''                MPLS forwarding details
                 ''',
                 'forwarding_detail',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -7906,7 +9246,7 @@ _meta_table = {
                 'label_information',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('label-value', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('16', '1048575')], [], 
                 '''                Local label value
                 ''',
                 'label_value',
@@ -8032,7 +9372,7 @@ _meta_table = {
             [
             _MetaInfoClassMember('information', REFERENCE_LIST, 'Information' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.LabelFib.Informations.Information', 
                 [], [], 
-                '''                FIB MPLS forwarding information
+                '''                MPLS forwarding information
                 ''',
                 'information',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -8195,2092 +9535,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'MplsForwarding.Nodes.Node' : {
-        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node',
-            False, 
-            [
-            _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
-                '''                Node ID
-                ''',
-                'node_name',
-                'Cisco-IOS-XR-fib-common-oper', True),
-            _MetaInfoClassMember('forwarding-summary', REFERENCE_CLASS, 'ForwardingSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.ForwardingSummary', 
-                [], [], 
-                '''                FIB MPLS forwarding summary
-                ''',
-                'forwarding_summary',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-fib', REFERENCE_CLASS, 'LabelFib' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.LabelFib', 
-                [], [], 
-                '''                Labels For FIB
-                ''',
-                'label_fib',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'node',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'MplsForwarding.Nodes' : {
-        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes',
-            False, 
-            [
-            _MetaInfoClassMember('node', REFERENCE_LIST, 'Node' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node', 
-                [], [], 
-                '''                Operational data for a specific Node
-                ''',
-                'node',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'nodes',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'MplsForwarding' : {
-        'meta_info' : _MetaInfoClass('MplsForwarding',
-            False, 
-            [
-            _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes', 
-                [], [], 
-                '''                Table of Nodes
-                ''',
-                'nodes',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'mpls-forwarding',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.LabelInformationDetail' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.LabelInformationDetail',
-            False, 
-            [
-            _MetaInfoClassMember('l3-mtu', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                L3 MTU
-                ''',
-                'l3_mtu',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Label stack
-                ''',
-                'label_stack',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mac-size', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Length of L2 encapsulation
-                ''',
-                'mac_size',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Next hop interface name
-                ''',
-                'next_hop_interface_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-protocol', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The address family (V4/V6) 
-                ''',
-                'next_hop_protocol',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Next hop address in string format
-                ''',
-                'next_hop_string',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('nh-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Nexthop Id
-                ''',
-                'nh_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('route-download-priority', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Priority at which the label was downloaded
-                ''',
-                'route_download_priority',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('route-download-version', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Version of the route-download for the label
-                ''',
-                'route_download_version',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Status
-                ''',
-                'status',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-encapsulation-size', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total encapsulation size: L2 + MPLS
-                ''',
-                'total_encapsulation_size',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-bytes-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of Bytes switched
-                ''',
-                'transmit_number_of_bytes_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-packets-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of packets switched
-                ''',
-                'transmit_number_of_packets_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-tm-bytes-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of Traffic-Matrix Bytes switched
-                ''',
-                'transmit_number_of_tm_bytes_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-tm-packets-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of Traffic-Matrix packets switched
-                ''',
-                'transmit_number_of_tm_packets_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('version-priority-valid', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if the version/priority fields are
-                valid
-                ''',
-                'version_priority_valid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'label-information-detail',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.MpiInfo' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.MpiInfo',
-            False, 
-            [
-            _MetaInfoClassMember('backup-is-local', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                backup is local
-                ''',
-                'backup_is_local',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('bk-tos-mask', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bk tos mask
-                ''',
-                'bk_tos_mask',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('bkup-if-hdl', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bkup if hdl
-                ''',
-                'bkup_if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('bkup-if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bkup if node id
-                ''',
-                'bkup_if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                flags
-                ''',
-                'flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('if-hdl', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                if hdl
-                ''',
-                'if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                if node id
-                ''',
-                'if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('mcast-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                mcast id
-                ''',
-                'mcast_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('my-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                my node id
-                ''',
-                'my_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pd-ts-ms', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                pd ts ms
-                ''',
-                'pd_ts_ms',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pri-tos-mask', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                pri tos mask
-                ''',
-                'pri_tos_mask',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('primary-is-local', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                primary is local
-                ''',
-                'primary_is_local',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('via-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                via label
-                ''',
-                'via_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'mpi-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo',
-            False, 
-            [
-            _MetaInfoClassMember('app-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                App ID
-                ''',
-                'app_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('backup-path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
-                '''                backup path index
-                ''',
-                'backup_path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-nh-ptr', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                FRR next-hop object pointer
-                ''',
-                'frr_nh_ptr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('is-frr-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is FRR active?
-                ''',
-                'is_frr_active',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('is-pure-backup', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is pure backup path?
-                ''',
-                'is_pure_backup',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('is-srte', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is SRTE?
-                ''',
-                'is_srte',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-bridge-domain-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Bridge domain-ID
-                ''',
-                'label_bridge_domain_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-detail', REFERENCE_CLASS, 'LabelInformationDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.LabelInformationDetail', 
-                [], [], 
-                '''                Detail label info
-                ''',
-                'label_information_detail',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-encap-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Encap ID
-                ''',
-                'label_information_encap_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-protocol', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The address family (v4/v6) 
-                ''',
-                'label_information_next_hop_protocol',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Next hop address in string format
-                ''',
-                'label_information_next_hop_string',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                NHinfo Table ID
-                ''',
-                'label_information_next_hop_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                NHinfo Type
-                ''',
-                'label_information_next_hop_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                LabelInformationPathIndex
-                ''',
-                'label_information_path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-route-version', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The version of the route
-                ''',
-                'label_information_route_version',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-time-in-milli-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update in msec
-                ''',
-                'label_information_time_in_milli_seconds',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Label-Info type
-                ''',
-                'label_information_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-pw-xid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The XID of PW
-                ''',
-                'label_pw_xid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-shg-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The SHG-ID of PW
-                ''',
-                'label_shg_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-xid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The XID of Xconnect
-                ''',
-                'label_xid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('li-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the LI object
-                ''',
-                'li_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('li-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LI object refcounter
-                ''',
-                'li_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Local label
-                ''',
-                'local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mpi-info', REFERENCE_CLASS, 'MpiInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.MpiInfo', 
-                [], [], 
-                '''                The MPI info
-                ''',
-                'mpi_info',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mpls-adjacency-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                MPLS Adjacency flags
-                ''',
-                'mpls_adjacency_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('nhid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Path's NH Id
-                ''',
-                'nhid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing interface
-                ''',
-                'outgoing_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing label
-                ''',
-                'outgoing_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('outgoing-physical-interface', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing Physical Interface
-                ''',
-                'outgoing_physical_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PL path flags
-                ''',
-                'path_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
-                '''                path index
-                ''',
-                'path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pq-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PQ flags
-                ''',
-                'pq_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pq-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PQ label
-                ''',
-                'pq_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                PW-HE interface
-                ''',
-                'pwhe_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhecw-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                PW-HE CW setting
-                ''',
-                'pwhecw_enabled',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhev-ctype', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PW-HE VC type
-                ''',
-                'pwhev_ctype',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('sli-from-ldi', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Path learnt the LDI/used for Forwarding?
-                ''',
-                'sli_from_ldi',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('tunnel-id-present', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Tunnel id present?
-                ''',
-                'tunnel_id_present',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Tunnel Interface
-                ''',
-                'tunnel_interface_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Weight or load metric
-                ''',
-                'weight',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'fib-mpls-adj-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation',
-            False, 
-            [
-            _MetaInfoClassMember('fib-mpls-adj-info', REFERENCE_LIST, 'FibMplsAdjInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo', 
-                [], [], 
-                '''                fib mpls adj info
-                ''',
-                'fib_mpls_adj_info',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'label-information',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LdiInformation' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LdiInformation',
-            False, 
-            [
-            _MetaInfoClassMember('ldi-hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Hardware info
-                ''',
-                'ldi_hardware_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'ldi-information',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.MulticastInformation' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.MulticastInformation',
-            False, 
-            [
-            _MetaInfoClassMember('dependent-tunnel-ifh', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The interface handle of a dependent tunnel 
-                ''',
-                'dependent_tunnel_ifh',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('dependent-tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The Local Label of a dependant Tunnel 
-                ''',
-                'dependent_tunnel_local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-bridge-domain-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Bridge domain-ID
-                ''',
-                'label_bridge_domain_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-shg-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The SHG-ID of PW
-                ''',
-                'label_shg_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-xid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The XID of PW
-                ''',
-                'label_xid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-encap-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast ENCAP-ID 
-                ''',
-                'multicast_encap_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mol-base-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                MOL base flags
-                ''',
-                'multicast_mol_base_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mol-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                MOL flags
-                ''',
-                'multicast_mol_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mol-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                MOL reference count
-                ''',
-                'multicast_mol_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mpls-local-output-paths', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                num multicast mpls local output paths
-                ''',
-                'multicast_mpls_local_output_paths',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mpls-output-paths', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                num multicast mpls output paths 
-                ''',
-                'multicast_mpls_output_paths',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mpls-protocol-output-paths', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                num multicast mpls prot output paths 
-                ''',
-                'multicast_mpls_protocol_output_paths',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-platform-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                The multicast platform data
-                ''',
-                'multicast_platform_data',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-platform-data-length', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
-                '''                The multicast platform data len
-                ''',
-                'multicast_platform_data_length',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-rpf-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast RPF-ID 
-                ''',
-                'multicast_rpf_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                multicast mpls P2MP-TE tunnel id or MLDP Tunnel
-                LSMID on all nodes
-                ''',
-                'multicast_tunnel_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                multicast mpls tunnel ifh
-                ''',
-                'multicast_tunnel_interface_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-tunnel-lspvif', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                multicast LSPVIF for MLDP Tunnels
-                ''',
-                'multicast_tunnel_lspvif',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-tunnel-next-hop-information', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                multicast nhinfo for p2mp TE Head
-                ''',
-                'multicast_tunnel_next_hop_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-v4-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast IPv4 Table id
-                ''',
-                'multicast_v4_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-v6-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast IPv6 Table id
-                ''',
-                'multicast_v6_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'multicast-information',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV4Nbr' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV4Nbr',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-tbl-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                rpf tbl id
-                ''',
-                'rpf_tbl_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                rpf v4 addr
-                ''',
-                'rpf_v4_addr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf-v4-nbr',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV6Nbr' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV6Nbr',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-tbl-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                rpf tbl id
-                ''',
-                'rpf_tbl_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                rpf v6 addr
-                ''',
-                'rpf_v6_addr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf-v6-nbr',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfIfMap' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfIfMap',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-ifh', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                rpf ifh
-                ''',
-                'rpf_ifh',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                rpf path index
-                ''',
-                'rpf_path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf-if-map',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-create-ts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Time when the LRPF was created
-                ''',
-                'rpf_create_ts',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                RPF flags
-                ''',
-                'rpf_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-hardware', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Platform Hardware info
-                ''',
-                'rpf_hardware',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-if', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Array of interfaces in interface list
-                ''',
-                'rpf_if',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-if-map', REFERENCE_LIST, 'RpfIfMap' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfIfMap', 
-                [], [], 
-                '''                Array of nbr/interface mapping
-                ''',
-                'rpf_if_map',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-mod-ts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Last time the LRPF modified
-                ''',
-                'rpf_mod_ts',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-pd-ts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Last time the PD action was sent for the LRPF
-                ''',
-                'rpf_pd_ts',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-pl-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                RPF pathlist flags
-                ''',
-                'rpf_pl_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v4-nbr', REFERENCE_LIST, 'RpfV4Nbr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV4Nbr', 
-                [], [], 
-                '''                Array of V4 neighbours
-                ''',
-                'rpf_v4_nbr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v6-nbr', REFERENCE_LIST, 'RpfV6Nbr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV6Nbr', 
-                [], [], 
-                '''                Array of V6 neighbours
-                ''',
-                'rpf_v6_nbr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding',
-            False, 
-            [
-            _MetaInfoClassMember('afi-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The AFI table ID
-                ''',
-                'afi_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'EosEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'EosEnum', 
-                [], [], 
-                '''                End of stack flag
-                ''',
-                'eos',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('eos-bit', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                EOS bit
-                ''',
-                'eos_bit',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Hardware info
-                ''',
-                'hardware_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information', REFERENCE_CLASS, 'LabelInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation', 
-                [], [], 
-                '''                Label-info in FIB leaf
-                ''',
-                'label_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LDI flags
-                ''',
-                'ldi_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-information', REFERENCE_CLASS, 'LdiInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LdiInformation', 
-                [], [], 
-                '''                LDI-info in FIB leaf
-                ''',
-                'ldi_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the LDI
-                ''',
-                'ldi_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of references to the LDI
-                ''',
-                'ldi_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for LDI in msec
-                ''',
-                'ldi_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LDI type
-                ''',
-                'ldi_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The leaf flags
-                ''',
-                'leaf_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-local-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Local label
-                ''',
-                'leaf_local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-ptr', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The Leaf pointer
-                ''',
-                'leaf_ptr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of references to the leaf
-                ''',
-                'leaf_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-time-in-milli-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update in msec
-                ''',
-                'leaf_time_in_milli_seconds',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Local label value
-                ''',
-                'local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lspa-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LSPA flags
-                ''',
-                'lspa_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lspa-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for LSPA in msec
-                ''',
-                'lspa_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lw-ldi-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the LW-LDI
-                ''',
-                'lw_ldi_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lw-ldi-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LW-LDI refcounter
-                ''',
-                'lw_ldi_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lw-ldi-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LW-LDI type
-                ''',
-                'lw_ldi_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lw-shared-ldi-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the shared LDI in LW-LDI
-                ''',
-                'lw_shared_ldi_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lwldi-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for LW-LDI in msec
-                ''',
-                'lwldi_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-information', REFERENCE_CLASS, 'MulticastInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.MulticastInformation', 
-                [], [], 
-                '''                The multicast info
-                ''',
-                'multicast_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-label', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The unicast or multicast label
-                ''',
-                'multicast_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pathlist flags
-                ''',
-                'path_list_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-ldi-mask', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pathlist ldi mask
-                ''',
-                'path_list_ldi_mask',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the pathlist
-                ''',
-                'path_list_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of references to the pathlist
-                ''',
-                'path_list_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pl-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for PL in msec
-                ''',
-                'pl_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pl-time-stamp-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The type of time-stamp on PL
-                ''',
-                'pl_time_stamp_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhe-interface-list-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Interface list associated with PW-HE VC
-                imposition label
-                ''',
-                'pwhe_interface_list_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhe-interface-list-ptr', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Interface list ptr
-                ''',
-                'pwhe_interface_list_ptr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf', 
-                [], [], 
-                '''                RPF info
-                ''',
-                'rpf',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'forwarding',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.Forwardings' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.Forwardings',
-            False, 
-            [
-            _MetaInfoClassMember('forwarding', REFERENCE_LIST, 'Forwarding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding', 
-                [], [], 
-                '''                FIB MPLS forwarding information
-                ''',
-                'forwarding',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'forwardings',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.LabelInformationDetail' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.LabelInformationDetail',
-            False, 
-            [
-            _MetaInfoClassMember('l3-mtu', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                L3 MTU
-                ''',
-                'l3_mtu',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Label stack
-                ''',
-                'label_stack',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mac-size', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Length of L2 encapsulation
-                ''',
-                'mac_size',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Next hop interface name
-                ''',
-                'next_hop_interface_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-protocol', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The address family (V4/V6) 
-                ''',
-                'next_hop_protocol',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Next hop address in string format
-                ''',
-                'next_hop_string',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('nh-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Nexthop Id
-                ''',
-                'nh_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('route-download-priority', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Priority at which the label was downloaded
-                ''',
-                'route_download_priority',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('route-download-version', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Version of the route-download for the label
-                ''',
-                'route_download_version',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Status
-                ''',
-                'status',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-encapsulation-size', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total encapsulation size: L2 + MPLS
-                ''',
-                'total_encapsulation_size',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-bytes-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of Bytes switched
-                ''',
-                'transmit_number_of_bytes_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-packets-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of packets switched
-                ''',
-                'transmit_number_of_packets_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-tm-bytes-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of Traffic-Matrix Bytes switched
-                ''',
-                'transmit_number_of_tm_bytes_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-tm-packets-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of Traffic-Matrix packets switched
-                ''',
-                'transmit_number_of_tm_packets_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('version-priority-valid', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if the version/priority fields are
-                valid
-                ''',
-                'version_priority_valid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'label-information-detail',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.MpiInfo' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.MpiInfo',
-            False, 
-            [
-            _MetaInfoClassMember('backup-is-local', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                backup is local
-                ''',
-                'backup_is_local',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('bk-tos-mask', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bk tos mask
-                ''',
-                'bk_tos_mask',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('bkup-if-hdl', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bkup if hdl
-                ''',
-                'bkup_if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('bkup-if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bkup if node id
-                ''',
-                'bkup_if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                flags
-                ''',
-                'flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('if-hdl', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                if hdl
-                ''',
-                'if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                if node id
-                ''',
-                'if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('mcast-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                mcast id
-                ''',
-                'mcast_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('my-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                my node id
-                ''',
-                'my_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pd-ts-ms', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                pd ts ms
-                ''',
-                'pd_ts_ms',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pri-tos-mask', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                pri tos mask
-                ''',
-                'pri_tos_mask',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('primary-is-local', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                primary is local
-                ''',
-                'primary_is_local',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('via-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                via label
-                ''',
-                'via_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'mpi-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo',
-            False, 
-            [
-            _MetaInfoClassMember('app-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                App ID
-                ''',
-                'app_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('backup-path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
-                '''                backup path index
-                ''',
-                'backup_path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-nh-ptr', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                FRR next-hop object pointer
-                ''',
-                'frr_nh_ptr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('is-frr-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is FRR active?
-                ''',
-                'is_frr_active',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('is-pure-backup', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is pure backup path?
-                ''',
-                'is_pure_backup',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('is-srte', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is SRTE?
-                ''',
-                'is_srte',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-bridge-domain-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Bridge domain-ID
-                ''',
-                'label_bridge_domain_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-detail', REFERENCE_CLASS, 'LabelInformationDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.LabelInformationDetail', 
-                [], [], 
-                '''                Detail label info
-                ''',
-                'label_information_detail',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-encap-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Encap ID
-                ''',
-                'label_information_encap_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-protocol', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The address family (v4/v6) 
-                ''',
-                'label_information_next_hop_protocol',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Next hop address in string format
-                ''',
-                'label_information_next_hop_string',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                NHinfo Table ID
-                ''',
-                'label_information_next_hop_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                NHinfo Type
-                ''',
-                'label_information_next_hop_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                LabelInformationPathIndex
-                ''',
-                'label_information_path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-route-version', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The version of the route
-                ''',
-                'label_information_route_version',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-time-in-milli-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update in msec
-                ''',
-                'label_information_time_in_milli_seconds',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Label-Info type
-                ''',
-                'label_information_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-pw-xid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The XID of PW
-                ''',
-                'label_pw_xid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-shg-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The SHG-ID of PW
-                ''',
-                'label_shg_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-xid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The XID of Xconnect
-                ''',
-                'label_xid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('li-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the LI object
-                ''',
-                'li_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('li-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LI object refcounter
-                ''',
-                'li_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Local label
-                ''',
-                'local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mpi-info', REFERENCE_CLASS, 'MpiInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.MpiInfo', 
-                [], [], 
-                '''                The MPI info
-                ''',
-                'mpi_info',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mpls-adjacency-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                MPLS Adjacency flags
-                ''',
-                'mpls_adjacency_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('nhid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Path's NH Id
-                ''',
-                'nhid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing interface
-                ''',
-                'outgoing_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing label
-                ''',
-                'outgoing_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('outgoing-physical-interface', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing Physical Interface
-                ''',
-                'outgoing_physical_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PL path flags
-                ''',
-                'path_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
-                '''                path index
-                ''',
-                'path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pq-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PQ flags
-                ''',
-                'pq_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pq-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PQ label
-                ''',
-                'pq_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                PW-HE interface
-                ''',
-                'pwhe_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhecw-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                PW-HE CW setting
-                ''',
-                'pwhecw_enabled',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhev-ctype', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PW-HE VC type
-                ''',
-                'pwhev_ctype',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('sli-from-ldi', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Path learnt the LDI/used for Forwarding?
-                ''',
-                'sli_from_ldi',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('tunnel-id-present', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Tunnel id present?
-                ''',
-                'tunnel_id_present',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Tunnel Interface
-                ''',
-                'tunnel_interface_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Weight or load metric
-                ''',
-                'weight',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'fib-mpls-adj-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation',
-            False, 
-            [
-            _MetaInfoClassMember('fib-mpls-adj-info', REFERENCE_LIST, 'FibMplsAdjInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo', 
-                [], [], 
-                '''                fib mpls adj info
-                ''',
-                'fib_mpls_adj_info',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'label-information',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation',
-            False, 
-            [
-            _MetaInfoClassMember('ldi-hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Hardware info
-                ''',
-                'ldi_hardware_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'ldi-information',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation',
-            False, 
-            [
-            _MetaInfoClassMember('dependent-tunnel-ifh', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The interface handle of a dependent tunnel 
-                ''',
-                'dependent_tunnel_ifh',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('dependent-tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The Local Label of a dependant Tunnel 
-                ''',
-                'dependent_tunnel_local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-bridge-domain-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Bridge domain-ID
-                ''',
-                'label_bridge_domain_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-shg-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The SHG-ID of PW
-                ''',
-                'label_shg_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-xid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The XID of PW
-                ''',
-                'label_xid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-encap-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast ENCAP-ID 
-                ''',
-                'multicast_encap_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mol-base-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                MOL base flags
-                ''',
-                'multicast_mol_base_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mol-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                MOL flags
-                ''',
-                'multicast_mol_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mol-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                MOL reference count
-                ''',
-                'multicast_mol_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mpls-local-output-paths', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                num multicast mpls local output paths
-                ''',
-                'multicast_mpls_local_output_paths',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mpls-output-paths', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                num multicast mpls output paths 
-                ''',
-                'multicast_mpls_output_paths',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mpls-protocol-output-paths', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                num multicast mpls prot output paths 
-                ''',
-                'multicast_mpls_protocol_output_paths',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-platform-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                The multicast platform data
-                ''',
-                'multicast_platform_data',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-platform-data-length', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
-                '''                The multicast platform data len
-                ''',
-                'multicast_platform_data_length',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-rpf-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast RPF-ID 
-                ''',
-                'multicast_rpf_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                multicast mpls P2MP-TE tunnel id or MLDP Tunnel
-                LSMID on all nodes
-                ''',
-                'multicast_tunnel_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                multicast mpls tunnel ifh
-                ''',
-                'multicast_tunnel_interface_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-tunnel-lspvif', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                multicast LSPVIF for MLDP Tunnels
-                ''',
-                'multicast_tunnel_lspvif',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-tunnel-next-hop-information', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                multicast nhinfo for p2mp TE Head
-                ''',
-                'multicast_tunnel_next_hop_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-v4-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast IPv4 Table id
-                ''',
-                'multicast_v4_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-v6-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast IPv6 Table id
-                ''',
-                'multicast_v6_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'multicast-information',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV4Nbr' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV4Nbr',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-tbl-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                rpf tbl id
-                ''',
-                'rpf_tbl_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                rpf v4 addr
-                ''',
-                'rpf_v4_addr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf-v4-nbr',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV6Nbr' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV6Nbr',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-tbl-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                rpf tbl id
-                ''',
-                'rpf_tbl_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                rpf v6 addr
-                ''',
-                'rpf_v6_addr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf-v6-nbr',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfIfMap' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfIfMap',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-ifh', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                rpf ifh
-                ''',
-                'rpf_ifh',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                rpf path index
-                ''',
-                'rpf_path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf-if-map',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-create-ts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Time when the LRPF was created
-                ''',
-                'rpf_create_ts',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                RPF flags
-                ''',
-                'rpf_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-hardware', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Platform Hardware info
-                ''',
-                'rpf_hardware',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-if', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Array of interfaces in interface list
-                ''',
-                'rpf_if',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-if-map', REFERENCE_LIST, 'RpfIfMap' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfIfMap', 
-                [], [], 
-                '''                Array of nbr/interface mapping
-                ''',
-                'rpf_if_map',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-mod-ts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Last time the LRPF modified
-                ''',
-                'rpf_mod_ts',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-pd-ts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Last time the PD action was sent for the LRPF
-                ''',
-                'rpf_pd_ts',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-pl-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                RPF pathlist flags
-                ''',
-                'rpf_pl_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v4-nbr', REFERENCE_LIST, 'RpfV4Nbr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV4Nbr', 
-                [], [], 
-                '''                Array of V4 neighbours
-                ''',
-                'rpf_v4_nbr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v6-nbr', REFERENCE_LIST, 'RpfV6Nbr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV6Nbr', 
-                [], [], 
-                '''                Array of V6 neighbours
-                ''',
-                'rpf_v6_nbr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail',
-            False, 
-            [
-            _MetaInfoClassMember('afi-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The AFI table ID
-                ''',
-                'afi_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('eos', REFERENCE_ENUM_CLASS, 'EosEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'EosEnum', 
-                [], [], 
-                '''                End of stack flag
-                ''',
-                'eos',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('eos-bit', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                EOS bit
-                ''',
-                'eos_bit',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('hardware-information', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Hardware info
-                ''',
-                'hardware_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information', REFERENCE_CLASS, 'LabelInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation', 
-                [], [], 
-                '''                Label-info in FIB leaf
-                ''',
-                'label_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LDI flags
-                ''',
-                'ldi_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-information', REFERENCE_CLASS, 'LdiInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation', 
-                [], [], 
-                '''                LDI-info in FIB leaf
-                ''',
-                'ldi_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the LDI
-                ''',
-                'ldi_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of references to the LDI
-                ''',
-                'ldi_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for LDI in msec
-                ''',
-                'ldi_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LDI type
-                ''',
-                'ldi_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The leaf flags
-                ''',
-                'leaf_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-local-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Local label
-                ''',
-                'leaf_local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-ptr', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The Leaf pointer
-                ''',
-                'leaf_ptr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of references to the leaf
-                ''',
-                'leaf_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-time-in-milli-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update in msec
-                ''',
-                'leaf_time_in_milli_seconds',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Local label value
-                ''',
-                'local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lspa-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LSPA flags
-                ''',
-                'lspa_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lspa-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for LSPA in msec
-                ''',
-                'lspa_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lw-ldi-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the LW-LDI
-                ''',
-                'lw_ldi_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lw-ldi-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LW-LDI refcounter
-                ''',
-                'lw_ldi_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lw-ldi-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LW-LDI type
-                ''',
-                'lw_ldi_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lw-shared-ldi-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the shared LDI in LW-LDI
-                ''',
-                'lw_shared_ldi_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lwldi-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for LW-LDI in msec
-                ''',
-                'lwldi_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-information', REFERENCE_CLASS, 'MulticastInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation', 
-                [], [], 
-                '''                The multicast info
-                ''',
-                'multicast_information',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-label', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                The unicast or multicast label
-                ''',
-                'multicast_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pathlist flags
-                ''',
-                'path_list_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-ldi-mask', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pathlist ldi mask
-                ''',
-                'path_list_ldi_mask',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the pathlist
-                ''',
-                'path_list_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of references to the pathlist
-                ''',
-                'path_list_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pl-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for PL in msec
-                ''',
-                'pl_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pl-time-stamp-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The type of time-stamp on PL
-                ''',
-                'pl_time_stamp_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhe-interface-list-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Interface list associated with PW-HE VC
-                imposition label
-                ''',
-                'pwhe_interface_list_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhe-interface-list-ptr', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Interface list ptr
-                ''',
-                'pwhe_interface_list_ptr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf', 
-                [], [], 
-                '''                RPF info
-                ''',
-                'rpf',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'forwarding-detail',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib.ForwardingDetails' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib.ForwardingDetails',
-            False, 
-            [
-            _MetaInfoClassMember('forwarding-detail', REFERENCE_LIST, 'ForwardingDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail', 
-                [], [], 
-                '''                FIB MPLS forwarding details
-                ''',
-                'forwarding_detail',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'forwarding-details',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.LabelFib' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.LabelFib',
-            False, 
-            [
-            _MetaInfoClassMember('forwarding-details', REFERENCE_CLASS, 'ForwardingDetails' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.ForwardingDetails', 
-                [], [], 
-                '''                MPLS Forwarding Detail table
-                ''',
-                'forwarding_details',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('forwardings', REFERENCE_CLASS, 'Forwardings' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib.Forwardings', 
-                [], [], 
-                '''                Forwarding filtering details
-                ''',
-                'forwardings',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'label-fib',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo',
+    'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo',
             False, 
             [
             _MetaInfoClassMember('tli-flags', ATTRIBUTE, 'int' , None, None, 
@@ -10369,473 +9625,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.LabelInformationDetail' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.LabelInformationDetail',
-            False, 
-            [
-            _MetaInfoClassMember('l3-mtu', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                L3 MTU
-                ''',
-                'l3_mtu',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Label stack
-                ''',
-                'label_stack',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mac-size', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Length of L2 encapsulation
-                ''',
-                'mac_size',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Next hop interface name
-                ''',
-                'next_hop_interface_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-protocol', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The address family (V4/V6) 
-                ''',
-                'next_hop_protocol',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Next hop address in string format
-                ''',
-                'next_hop_string',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('nh-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Nexthop Id
-                ''',
-                'nh_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('route-download-priority', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Priority at which the label was downloaded
-                ''',
-                'route_download_priority',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('route-download-version', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Version of the route-download for the label
-                ''',
-                'route_download_version',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Status
-                ''',
-                'status',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-encapsulation-size', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total encapsulation size: L2 + MPLS
-                ''',
-                'total_encapsulation_size',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-bytes-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of Bytes switched
-                ''',
-                'transmit_number_of_bytes_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-packets-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of packets switched
-                ''',
-                'transmit_number_of_packets_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-tm-bytes-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of Traffic-Matrix Bytes switched
-                ''',
-                'transmit_number_of_tm_bytes_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('transmit-number-of-tm-packets-switched', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Number of Traffic-Matrix packets switched
-                ''',
-                'transmit_number_of_tm_packets_switched',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('version-priority-valid', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Indicates if the version/priority fields are
-                valid
-                ''',
-                'version_priority_valid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'label-information-detail',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.MpiInfo' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.MpiInfo',
-            False, 
-            [
-            _MetaInfoClassMember('backup-is-local', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                backup is local
-                ''',
-                'backup_is_local',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('bk-tos-mask', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bk tos mask
-                ''',
-                'bk_tos_mask',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('bkup-if-hdl', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bkup if hdl
-                ''',
-                'bkup_if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('bkup-if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                bkup if node id
-                ''',
-                'bkup_if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                flags
-                ''',
-                'flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('if-hdl', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                if hdl
-                ''',
-                'if_hdl',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('if-node-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                if node id
-                ''',
-                'if_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False, max_elements=10),
-            _MetaInfoClassMember('mcast-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                mcast id
-                ''',
-                'mcast_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('my-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                my node id
-                ''',
-                'my_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pd-ts-ms', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                pd ts ms
-                ''',
-                'pd_ts_ms',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pri-tos-mask', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                pri tos mask
-                ''',
-                'pri_tos_mask',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('primary-is-local', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                primary is local
-                ''',
-                'primary_is_local',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('via-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                via label
-                ''',
-                'via_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'mpi-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo',
-            False, 
-            [
-            _MetaInfoClassMember('app-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                App ID
-                ''',
-                'app_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('backup-path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
-                '''                backup path index
-                ''',
-                'backup_path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-nh-ptr', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                FRR next-hop object pointer
-                ''',
-                'frr_nh_ptr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('is-frr-active', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is FRR active?
-                ''',
-                'is_frr_active',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('is-pure-backup', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is pure backup path?
-                ''',
-                'is_pure_backup',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('is-srte', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Is SRTE?
-                ''',
-                'is_srte',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-bridge-domain-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Bridge domain-ID
-                ''',
-                'label_bridge_domain_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-detail', REFERENCE_CLASS, 'LabelInformationDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.LabelInformationDetail', 
-                [], [], 
-                '''                Detail label info
-                ''',
-                'label_information_detail',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-encap-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Encap ID
-                ''',
-                'label_information_encap_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-protocol', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The address family (v4/v6) 
-                ''',
-                'label_information_next_hop_protocol',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Next hop address in string format
-                ''',
-                'label_information_next_hop_string',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                NHinfo Table ID
-                ''',
-                'label_information_next_hop_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-next-hop-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                NHinfo Type
-                ''',
-                'label_information_next_hop_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                LabelInformationPathIndex
-                ''',
-                'label_information_path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-route-version', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The version of the route
-                ''',
-                'label_information_route_version',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-time-in-milli-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update in msec
-                ''',
-                'label_information_time_in_milli_seconds',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Label-Info type
-                ''',
-                'label_information_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-pw-xid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The XID of PW
-                ''',
-                'label_pw_xid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-shg-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The SHG-ID of PW
-                ''',
-                'label_shg_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-xid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The XID of Xconnect
-                ''',
-                'label_xid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('li-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the LI object
-                ''',
-                'li_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('li-reference-count', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The LI object refcounter
-                ''',
-                'li_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Local label
-                ''',
-                'local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mpi-info', REFERENCE_CLASS, 'MpiInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.MpiInfo', 
-                [], [], 
-                '''                The MPI info
-                ''',
-                'mpi_info',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mpls-adjacency-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                MPLS Adjacency flags
-                ''',
-                'mpls_adjacency_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('nhid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Path's NH Id
-                ''',
-                'nhid',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing interface
-                ''',
-                'outgoing_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing label
-                ''',
-                'outgoing_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('outgoing-physical-interface', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Outgoing Physical Interface
-                ''',
-                'outgoing_physical_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PL path flags
-                ''',
-                'path_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '255')], [], 
-                '''                path index
-                ''',
-                'path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pq-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PQ flags
-                ''',
-                'pq_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pq-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PQ label
-                ''',
-                'pq_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhe-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                PW-HE interface
-                ''',
-                'pwhe_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhecw-enabled', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                PW-HE CW setting
-                ''',
-                'pwhecw_enabled',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhev-ctype', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                PW-HE VC type
-                ''',
-                'pwhev_ctype',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('sli-from-ldi', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Path learnt the LDI/used for Forwarding?
-                ''',
-                'sli_from_ldi',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('tunnel-id-present', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Tunnel id present?
-                ''',
-                'tunnel_id_present',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Tunnel Interface
-                ''',
-                'tunnel_interface_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Weight or load metric
-                ''',
-                'weight',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'fib-mpls-adj-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation',
-            False, 
-            [
-            _MetaInfoClassMember('fib-mpls-adj-info', REFERENCE_LIST, 'FibMplsAdjInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo', 
-                [], [], 
-                '''                fib mpls adj info
-                ''',
-                'fib_mpls_adj_info',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'label-information',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation',
+    'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation',
             False, 
             [
             _MetaInfoClassMember('ldi-hardware-information', ATTRIBUTE, 'str' , None, None, 
@@ -10851,40 +9642,10 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation',
+    'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation',
             False, 
             [
-            _MetaInfoClassMember('dependent-tunnel-ifh', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The interface handle of a dependent tunnel 
-                ''',
-                'dependent_tunnel_ifh',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('dependent-tunnel-local-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The Local Label of a dependant Tunnel 
-                ''',
-                'dependent_tunnel_local_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-bridge-domain-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Bridge domain-ID
-                ''',
-                'label_bridge_domain_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-shg-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The SHG-ID of PW
-                ''',
-                'label_shg_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-xid', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The XID of PW
-                ''',
-                'label_xid',
-                'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('multicast-encap-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                The multicast ENCAP-ID 
@@ -10903,11 +9664,11 @@ _meta_table = {
                 ''',
                 'multicast_mol_flags',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-mol-reference-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('multicast-mol-referance-count', ATTRIBUTE, 'int' , None, None, 
                 [('0', '65535')], [], 
-                '''                MOL reference count
+                '''                MOL refcount
                 ''',
-                'multicast_mol_reference_count',
+                'multicast_mol_referance_count',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('multicast-mpls-local-output-paths', ATTRIBUTE, 'int' , None, None, 
                 [('0', '65535')], [], 
@@ -10952,11 +9713,11 @@ _meta_table = {
                 ''',
                 'multicast_tunnel_id',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-tunnel-interface-name', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('multicast-tunnel-interface-handler', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                multicast mpls tunnel ifh
+                '''                multicast mpls tunnel
                 ''',
-                'multicast_tunnel_interface_name',
+                'multicast_tunnel_interface_handler',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('multicast-tunnel-lspvif', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -10970,18 +9731,6 @@ _meta_table = {
                 ''',
                 'multicast_tunnel_next_hop_information',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-v4-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast IPv4 Table id
-                ''',
-                'multicast_v4_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-v6-table-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The multicast IPv6 Table id
-                ''',
-                'multicast_v6_table_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
             ],
             'Cisco-IOS-XR-fib-common-oper',
             'multicast-information',
@@ -10989,148 +9738,210 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV4Nbr' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV4Nbr',
+    'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail',
             False, 
             [
-            _MetaInfoClassMember('rpf-tbl-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('l3-mtu', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                rpf tbl id
+                '''                L3 MTU
                 ''',
-                'rpf_tbl_id',
+                'l3_mtu',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                rpf v4 addr
-                ''',
-                'rpf_v4_addr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf-v4-nbr',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV6Nbr' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV6Nbr',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-tbl-id', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                rpf tbl id
+                '''                Label stack
                 ''',
-                'rpf_tbl_id',
+                'label_stack',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                rpf v6 addr
-                ''',
-                'rpf_v6_addr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf-v6-nbr',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfIfMap' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfIfMap',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-ifh', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('mac-size', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                rpf ifh
+                '''                Length of L2 encapsulation
                 ''',
-                'rpf_ifh',
+                'mac_size',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-path-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                rpf path index
-                ''',
-                'rpf_path_index',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'rpf-if-map',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf',
-            False, 
-            [
-            _MetaInfoClassMember('rpf-create-ts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Time when the LRPF was created
-                ''',
-                'rpf_create_ts',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-flags', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                RPF flags
-                ''',
-                'rpf_flags',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-hardware', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
-                '''                Platform Hardware info
-                ''',
-                'rpf_hardware',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-if', REFERENCE_LEAFLIST, 'str' , None, None, 
+            _MetaInfoClassMember('next-hop-interface', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Array of interfaces in interface list
+                '''                Next hop interface
                 ''',
-                'rpf_if',
+                'next_hop_interface',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-if-map', REFERENCE_LIST, 'RpfIfMap' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfIfMap', 
+            _MetaInfoClassMember('next-hop-protocol', REFERENCE_ENUM_CLASS, 'ProtoEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'ProtoEnum', 
                 [], [], 
-                '''                Array of nbr/interface mapping
+                '''                The address family (V4/V6) 
                 ''',
-                'rpf_if_map',
+                'next_hop_protocol',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-mod-ts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Last time the LRPF modified
+            _MetaInfoClassMember('next-hop-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Next hop address in string format
                 ''',
-                'rpf_mod_ts',
+                'next_hop_string',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-pd-ts', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                Last time the PD action was sent for the LRPF
+            _MetaInfoClassMember('status', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Status
                 ''',
-                'rpf_pd_ts',
+                'status',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-pl-flags', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('total-encapsulation-size', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                RPF pathlist flags
+                '''                Total encapsulation size: L2 + MPLS
                 ''',
-                'rpf_pl_flags',
+                'total_encapsulation_size',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v4-nbr', REFERENCE_LIST, 'RpfV4Nbr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV4Nbr', 
-                [], [], 
-                '''                Array of V4 neighbours
+            _MetaInfoClassMember('transmit-number-of-bytes-switched', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Number of Bytes switched
                 ''',
-                'rpf_v4_nbr',
+                'transmit_number_of_bytes_switched',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf-v6-nbr', REFERENCE_LIST, 'RpfV6Nbr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV6Nbr', 
-                [], [], 
-                '''                Array of V6 neighbours
+            _MetaInfoClassMember('transmit-number-of-packets-switched', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Number of packets switched
                 ''',
-                'rpf_v6_nbr',
+                'transmit_number_of_packets_switched',
                 'Cisco-IOS-XR-fib-common-oper', False),
             ],
             'Cisco-IOS-XR-fib-common-oper',
-            'rpf',
+            'label-information-detail',
             _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg',
+    'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation',
+            False, 
+            [
+            _MetaInfoClassMember('label-information-detail', REFERENCE_CLASS, 'LabelInformationDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail', 
+                [], [], 
+                '''                Detail label info
+                ''',
+                'label_information_detail',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('label-information-next-hop-protocol', REFERENCE_ENUM_CLASS, 'ProtoEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'ProtoEnum', 
+                [], [], 
+                '''                The address family (v4/v6) 
+                ''',
+                'label_information_next_hop_protocol',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('label-information-next-hop-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Next hop address in string format
+                ''',
+                'label_information_next_hop_string',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('label-information-next-hop-type', REFERENCE_ENUM_CLASS, 'NextHopEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'NextHopEnum', 
+                [], [], 
+                '''                NHinfo Type
+                ''',
+                'label_information_next_hop_type',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('label-information-path-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LabelInformationPathIndex
+                ''',
+                'label_information_path_index',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('label-information-route-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                The version of the route
+                ''',
+                'label_information_route_version',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('label-information-time-in-milli-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                The time of last update in msec
+                ''',
+                'label_information_time_in_milli_seconds',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('label-information-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Label-Info type
+                ''',
+                'label_information_type',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Local label
+                ''',
+                'local_label',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('mpls-adjacency-flags', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                MPLS Adjacency flags
+                ''',
+                'mpls_adjacency_flags',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('outgoing-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Outgoing interface
+                ''',
+                'outgoing_interface',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('outgoing-interface-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Output Interface in string format
+                ''',
+                'outgoing_interface_string',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('outgoing-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Outgoing label
+                ''',
+                'outgoing_label',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('outgoing-label-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Output Label in string format
+                ''',
+                'outgoing_label_string',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('outgoing-physical-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Outgoing Physical Interface
+                ''',
+                'outgoing_physical_interface',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('prefix-or-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Prefix Or ID
+                ''',
+                'prefix_or_id',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('tunnel-id-present', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Tunnel id present?
+                ''',
+                'tunnel_id_present',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('tunnel-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Tunnel Interface
+                ''',
+                'tunnel_interface',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('tx-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Bytes transmitted per LSP
+                ''',
+                'tx_bytes',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('tx-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Packets transmitted per LSP
+                ''',
+                'tx_packets',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'label-information',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg',
             False, 
             [
             _MetaInfoClassMember('afi-table-id', ATTRIBUTE, 'int' , None, None, 
@@ -11151,9 +9962,9 @@ _meta_table = {
                 ''',
                 'hardware_information',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-information', REFERENCE_CLASS, 'LabelInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation', 
+            _MetaInfoClassMember('label-information', REFERENCE_LIST, 'LabelInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation', 
                 [], [], 
-                '''                Label-info in FIB leaf
+                '''                Label-infos in FIB leaf
                 ''',
                 'label_information',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -11163,7 +9974,7 @@ _meta_table = {
                 ''',
                 'ldi_flags',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-information', REFERENCE_CLASS, 'LdiInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation', 
+            _MetaInfoClassMember('ldi-information', REFERENCE_CLASS, 'LdiInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation', 
                 [], [], 
                 '''                LDI-info in FIB leaf
                 ''',
@@ -11175,17 +9986,11 @@ _meta_table = {
                 ''',
                 'ldi_pointer',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-reference-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('ldi-referance-count', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Number of references to the LDI
                 ''',
-                'ldi_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ldi-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for LDI in msec
-                ''',
-                'ldi_time_of_last_update_in_msec',
+                'ldi_referance_count',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('ldi-type', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -11205,17 +10010,11 @@ _meta_table = {
                 ''',
                 'leaf_local_label',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-ptr', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The Leaf pointer
-                ''',
-                'leaf_ptr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('leaf-reference-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('leaf-referance-count', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Number of references to the leaf
                 ''',
-                'leaf_reference_count',
+                'leaf_referance_count',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('leaf-time-in-milli-seconds', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
@@ -11229,23 +10028,17 @@ _meta_table = {
                 ''',
                 'lspa_flags',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lspa-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for LSPA in msec
-                ''',
-                'lspa_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('lw-ldi-pointer', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                The pointer to the LW-LDI
                 ''',
                 'lw_ldi_pointer',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lw-ldi-reference-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('lw-ldi-refernace-count', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                The LW-LDI refcounter
                 ''',
-                'lw_ldi_reference_count',
+                'lw_ldi_refernace_count',
                 'Cisco-IOS-XR-fib-common-oper', False),
             _MetaInfoClassMember('lw-ldi-type', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -11259,13 +10052,7 @@ _meta_table = {
                 ''',
                 'lw_shared_ldi_pointer',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lwldi-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for LW-LDI in msec
-                ''',
-                'lwldi_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-information', REFERENCE_CLASS, 'MulticastInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation', 
+            _MetaInfoClassMember('multicast-information', REFERENCE_CLASS, 'MulticastInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation', 
                 [], [], 
                 '''                The multicast info
                 ''',
@@ -11283,54 +10070,11 @@ _meta_table = {
                 ''',
                 'path_list_flags',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-ldi-mask', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pathlist ldi mask
-                ''',
-                'path_list_ldi_mask',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-pointer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The pointer to the pathlist
-                ''',
-                'path_list_pointer',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('path-list-reference-count', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('path-list-referance-count', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Number of references to the pathlist
                 ''',
-                'path_list_reference_count',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pl-time-of-last-update-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
-                '''                The time of last update for PL in msec
-                ''',
-                'pl_time_of_last_update_in_msec',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pl-time-stamp-type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                The type of time-stamp on PL
-                ''',
-                'pl_time_stamp_type',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhe-interface-list-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Interface list associated with PW-HE VC
-                imposition label
-                ''',
-                'pwhe_interface_list_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('pwhe-interface-list-ptr', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Interface list ptr
-                ''',
-                'pwhe_interface_list_ptr',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('rpf', REFERENCE_CLASS, 'Rpf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf', 
-                [], [], 
-                '''                RPF info
-                ''',
-                'rpf',
+                'path_list_referance_count',
                 'Cisco-IOS-XR-fib-common-oper', False),
             ],
             'Cisco-IOS-XR-fib-common-oper',
@@ -11339,8 +10083,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel',
+    'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -11349,13 +10093,13 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-fib-common-oper', True),
-            _MetaInfoClassMember('fwdg', REFERENCE_CLASS, 'Fwdg' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg', 
+            _MetaInfoClassMember('fwdg', REFERENCE_CLASS, 'Fwdg' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg', 
                 [], [], 
                 '''                Tunnel forwarding information
                 ''',
                 'fwdg',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('tunnel-info', REFERENCE_CLASS, 'TunnelInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo', 
+            _MetaInfoClassMember('tunnel-info', REFERENCE_CLASS, 'TunnelInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo', 
                 [], [], 
                 '''                Tunnel head information
                 ''',
@@ -11368,13 +10112,13 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel.ForwardingTunnels',
+    'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels',
             False, 
             [
-            _MetaInfoClassMember('forwarding-tunnel', REFERENCE_LIST, 'ForwardingTunnel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel', 
+            _MetaInfoClassMember('forwarding-tunnel', REFERENCE_LIST, 'ForwardingTunnel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel', 
                 [], [], 
-                '''                FIB MPLS Tunnels Interfaces operation
+                '''                Forwarding information for the TE tunnel
                 ''',
                 'forwarding_tunnel',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -11385,13 +10129,13 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.Tunnel' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.Tunnel',
+    'MplsForwarding.Nodes.Node.Tunnel' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.Tunnel',
             False, 
             [
-            _MetaInfoClassMember('forwarding-tunnels', REFERENCE_CLASS, 'ForwardingTunnels' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel.ForwardingTunnels', 
+            _MetaInfoClassMember('forwarding-tunnels', REFERENCE_CLASS, 'ForwardingTunnels' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels', 
                 [], [], 
-                '''                Forwarding details
+                '''                Forwarding details for TE tunnels
                 ''',
                 'forwarding_tunnels',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -11402,102 +10146,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary',
-            False, 
-            [
-            _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of FRR rewrites in Active state
-                ''',
-                'active',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('other', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of FRR rewrites in an unrecognized state
-                ''',
-                'other',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of FRR rewrites in Partial state
-                ''',
-                'partial',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of FRR rewrites in Ready state
-                ''',
-                'ready',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'frrdb-tunnel-head-summary',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary',
-            False, 
-            [
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface Name
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-fib-common-oper', True),
-            _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of FRR rewrites in Active state
-                ''',
-                'active',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('other', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of FRR rewrites in an unrecognized state
-                ''',
-                'other',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of FRR rewrites in Partial state
-                ''',
-                'partial',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of FRR rewrites in Ready state
-                ''',
-                'ready',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'frrdb-backup-interface-summary',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries',
-            False, 
-            [
-            _MetaInfoClassMember('frrdb-backup-interface-summary', REFERENCE_LIST, 'FrrdbBackupInterfaceSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary', 
-                [], [], 
-                '''                FIB MPLS FRR Database Backup Interface
-                Summary
-                ''',
-                'frrdb_backup_interface_summary',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'frrdb-backup-interface-summaries',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbSummary' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbSummary',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
@@ -11531,8 +10181,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -11572,14 +10222,14 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries',
             False, 
             [
-            _MetaInfoClassMember('frrdb-protected-interface-table-summary', REFERENCE_LIST, 'FrrdbProtectedInterfaceTableSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary', 
+            _MetaInfoClassMember('frrdb-protected-interface-table-summary', REFERENCE_LIST, 'FrrdbProtectedInterfaceTableSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary', 
                 [], [], 
-                '''                FIB MPLS FRR Database Protected Interface
-                Summary
+                '''                MPLS forwarding FRR Database Protected
+                Interface Summary
                 ''',
                 'frrdb_protected_interface_table_summary',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -11590,8 +10240,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
@@ -11625,8 +10275,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Head' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Head',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head',
             False, 
             [
             _MetaInfoClassMember('destination-prefix', ATTRIBUTE, 'str' , None, None, 
@@ -11648,8 +10298,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Midpoint' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Midpoint',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint',
             False, 
             [
             _MetaInfoClassMember('lspid', ATTRIBUTE, 'int' , None, None, 
@@ -11677,17 +10327,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId',
             False, 
             [
-            _MetaInfoClassMember('head', REFERENCE_CLASS, 'Head' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Head', 
+            _MetaInfoClassMember('head', REFERENCE_CLASS, 'Head' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head', 
                 [], [], 
                 '''                head
                 ''',
                 'head',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('midpoint', REFERENCE_CLASS, 'Midpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Midpoint', 
+            _MetaInfoClassMember('midpoint', REFERENCE_CLASS, 'Midpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint', 
                 [], [], 
                 '''                midpoint
                 ''',
@@ -11706,8 +10356,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Head' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Head',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head',
             False, 
             [
             _MetaInfoClassMember('destination-prefix', ATTRIBUTE, 'str' , None, None, 
@@ -11729,8 +10379,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Midpoint' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Midpoint',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint',
             False, 
             [
             _MetaInfoClassMember('lspid', ATTRIBUTE, 'int' , None, None, 
@@ -11758,17 +10408,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId',
             False, 
             [
-            _MetaInfoClassMember('head', REFERENCE_CLASS, 'Head' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Head', 
+            _MetaInfoClassMember('head', REFERENCE_CLASS, 'Head' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head', 
                 [], [], 
                 '''                head
                 ''',
                 'head',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('midpoint', REFERENCE_CLASS, 'Midpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Midpoint', 
+            _MetaInfoClassMember('midpoint', REFERENCE_CLASS, 'Midpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint', 
                 [], [], 
                 '''                midpoint
                 ''',
@@ -11787,8 +10437,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg',
             False, 
             [
             _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrStateEnum', 
@@ -11797,7 +10447,7 @@ _meta_table = {
                 ''',
                 'entry_frr_state',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-entry-id', REFERENCE_CLASS, 'FrrEntryId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId', 
+            _MetaInfoClassMember('frr-entry-id', REFERENCE_CLASS, 'FrrEntryId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId', 
                 [], [], 
                 '''                FRR entry ID
                 ''',
@@ -11858,23 +10508,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb',
             False, 
             [
-            _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Local label value
-                ''',
-                'local_label',
-                'Cisco-IOS-XR-fib-common-oper', True),
             _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrStateEnum', 
                 [], [], 
                 '''                MPLS FRR entry state
                 ''',
                 'entry_frr_state',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-entry-id', REFERENCE_CLASS, 'FrrEntryId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId', 
+            _MetaInfoClassMember('frr-entry-id', REFERENCE_CLASS, 'FrrEntryId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId', 
                 [], [], 
                 '''                FRR entry ID
                 ''',
@@ -11916,7 +10560,7 @@ _meta_table = {
                 ''',
                 'is_multicast_tunnel',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-leg', REFERENCE_LIST, 'MulticastLeg' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg', 
+            _MetaInfoClassMember('multicast-leg', REFERENCE_LIST, 'MulticastLeg' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg', 
                 [], [], 
                 '''                MCAST legs
                 ''',
@@ -11948,18 +10592,54 @@ _meta_table = {
                 'Cisco-IOS-XR-fib-common-oper', False),
             ],
             'Cisco-IOS-XR-fib-common-oper',
+            'frr-db',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint',
+            False, 
+            [
+            _MetaInfoClassMember('local-label', ATTRIBUTE, 'int' , None, None, 
+                [('16', '1048575')], [], 
+                '''                Local label value
+                ''',
+                'local_label',
+                'Cisco-IOS-XR-fib-common-oper', True),
+            _MetaInfoClassMember('frr-db', REFERENCE_CLASS, 'FrrDb' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb', 
+                [], [], 
+                '''                FRR DB
+                ''',
+                'frr_db',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('frr-lable-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                FRR label in string format
+                ''',
+                'frr_lable_string',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('outgoing-lable-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Output label in string format
+                ''',
+                'outgoing_lable_string',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
             'frrdb-tunnel-midpoint',
             _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints',
             False, 
             [
-            _MetaInfoClassMember('frrdb-tunnel-midpoint', REFERENCE_LIST, 'FrrdbTunnelMidpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint', 
+            _MetaInfoClassMember('frrdb-tunnel-midpoint', REFERENCE_LIST, 'FrrdbTunnelMidpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint', 
                 [], [], 
-                '''                FIB MPLS FRR Database Tunnel Midpoint Entry
+                '''                MPLS forwarding FRR Database Tunnel Midpoint
+                Entry
                 ''',
                 'frrdb_tunnel_midpoint',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -11970,8 +10650,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Head' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Head',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head',
             False, 
             [
             _MetaInfoClassMember('destination-prefix', ATTRIBUTE, 'str' , None, None, 
@@ -11993,8 +10673,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Midpoint' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Midpoint',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint',
             False, 
             [
             _MetaInfoClassMember('lspid', ATTRIBUTE, 'int' , None, None, 
@@ -12022,17 +10702,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId',
             False, 
             [
-            _MetaInfoClassMember('head', REFERENCE_CLASS, 'Head' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Head', 
+            _MetaInfoClassMember('head', REFERENCE_CLASS, 'Head' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head', 
                 [], [], 
                 '''                head
                 ''',
                 'head',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('midpoint', REFERENCE_CLASS, 'Midpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Midpoint', 
+            _MetaInfoClassMember('midpoint', REFERENCE_CLASS, 'Midpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint', 
                 [], [], 
                 '''                midpoint
                 ''',
@@ -12051,8 +10731,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Head' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Head',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head',
             False, 
             [
             _MetaInfoClassMember('destination-prefix', ATTRIBUTE, 'str' , None, None, 
@@ -12074,8 +10754,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Midpoint' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Midpoint',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint',
             False, 
             [
             _MetaInfoClassMember('lspid', ATTRIBUTE, 'int' , None, None, 
@@ -12103,17 +10783,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId',
             False, 
             [
-            _MetaInfoClassMember('head', REFERENCE_CLASS, 'Head' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Head', 
+            _MetaInfoClassMember('head', REFERENCE_CLASS, 'Head' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head', 
                 [], [], 
                 '''                head
                 ''',
                 'head',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('midpoint', REFERENCE_CLASS, 'Midpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Midpoint', 
+            _MetaInfoClassMember('midpoint', REFERENCE_CLASS, 'Midpoint' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint', 
                 [], [], 
                 '''                midpoint
                 ''',
@@ -12132,8 +10812,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg',
             False, 
             [
             _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrStateEnum', 
@@ -12142,7 +10822,7 @@ _meta_table = {
                 ''',
                 'entry_frr_state',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-entry-id', REFERENCE_CLASS, 'FrrEntryId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId', 
+            _MetaInfoClassMember('frr-entry-id', REFERENCE_CLASS, 'FrrEntryId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId', 
                 [], [], 
                 '''                FRR entry ID
                 ''',
@@ -12203,23 +10883,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb',
             False, 
             [
-            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface Name
-                ''',
-                'interface_name',
-                'Cisco-IOS-XR-fib-common-oper', True),
             _MetaInfoClassMember('entry-frr-state', REFERENCE_ENUM_CLASS, 'MgmtFibMplsFrrStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MgmtFibMplsFrrStateEnum', 
                 [], [], 
                 '''                MPLS FRR entry state
                 ''',
                 'entry_frr_state',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-entry-id', REFERENCE_CLASS, 'FrrEntryId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId', 
+            _MetaInfoClassMember('frr-entry-id', REFERENCE_CLASS, 'FrrEntryId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId', 
                 [], [], 
                 '''                FRR entry ID
                 ''',
@@ -12261,7 +10935,7 @@ _meta_table = {
                 ''',
                 'is_multicast_tunnel',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('multicast-leg', REFERENCE_LIST, 'MulticastLeg' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg', 
+            _MetaInfoClassMember('multicast-leg', REFERENCE_LIST, 'MulticastLeg' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg', 
                 [], [], 
                 '''                MCAST legs
                 ''',
@@ -12293,18 +10967,54 @@ _meta_table = {
                 'Cisco-IOS-XR-fib-common-oper', False),
             ],
             'Cisco-IOS-XR-fib-common-oper',
+            'frr-db',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface Name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-fib-common-oper', True),
+            _MetaInfoClassMember('frr-db', REFERENCE_CLASS, 'FrrDb' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb', 
+                [], [], 
+                '''                FRR DB
+                ''',
+                'frr_db',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('frr-lable-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                FRR label in string format
+                ''',
+                'frr_lable_string',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('outgoing-lable-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Output label in string format
+                ''',
+                'outgoing_lable_string',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
             'frrdb-tunnel-head',
             _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads',
             False, 
             [
-            _MetaInfoClassMember('frrdb-tunnel-head', REFERENCE_LIST, 'FrrdbTunnelHead' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead', 
+            _MetaInfoClassMember('frrdb-tunnel-head', REFERENCE_LIST, 'FrrdbTunnelHead' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead', 
                 [], [], 
-                '''                FIB MPLS FRR Database Tunnel Head Entry
+                '''                MPLS forwarding FRR Database Tunnel Head
+                Entry
                 ''',
                 'frrdb_tunnel_head',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -12315,51 +11025,149 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.FrrDatabase' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrDatabase',
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary',
             False, 
             [
-            _MetaInfoClassMember('frrdb-backup-interface-summaries', REFERENCE_CLASS, 'FrrdbBackupInterfaceSummaries' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries', 
+            _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of FRR rewrites in Active state
+                ''',
+                'active',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('other', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of FRR rewrites in an unrecognized state
+                ''',
+                'other',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of FRR rewrites in Partial state
+                ''',
+                'partial',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of FRR rewrites in Ready state
+                ''',
+                'ready',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'frrdb-tunnel-head-summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface Name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-fib-common-oper', True),
+            _MetaInfoClassMember('active', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of FRR rewrites in Active state
+                ''',
+                'active',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('other', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of FRR rewrites in an unrecognized state
+                ''',
+                'other',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('partial', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of FRR rewrites in Partial state
+                ''',
+                'partial',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            _MetaInfoClassMember('ready', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of FRR rewrites in Ready state
+                ''',
+                'ready',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'frrdb-backup-interface-summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries',
+            False, 
+            [
+            _MetaInfoClassMember('frrdb-backup-interface-summary', REFERENCE_LIST, 'FrrdbBackupInterfaceSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary', 
                 [], [], 
-                '''                FIB MPLS FRR Database Backup Interface
+                '''                MPLS forwarding FRR Database Backup
+                Interface Summary
+                ''',
+                'frrdb_backup_interface_summary',
+                'Cisco-IOS-XR-fib-common-oper', False),
+            ],
+            'Cisco-IOS-XR-fib-common-oper',
+            'frrdb-backup-interface-summaries',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
+        ),
+    },
+    'MplsForwarding.Nodes.Node.FrrDatabase' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node.FrrDatabase',
+            False, 
+            [
+            _MetaInfoClassMember('frrdb-backup-interface-summaries', REFERENCE_CLASS, 'FrrdbBackupInterfaceSummaries' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries', 
+                [], [], 
+                '''                MPLS forwarding FRR Database Backup Interface
                 Summary Table
                 ''',
                 'frrdb_backup_interface_summaries',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frrdb-protected-interface-table-summaries', REFERENCE_CLASS, 'FrrdbProtectedInterfaceTableSummaries' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries', 
+            _MetaInfoClassMember('frrdb-protected-interface-table-summaries', REFERENCE_CLASS, 'FrrdbProtectedInterfaceTableSummaries' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries', 
                 [], [], 
-                '''                FIB MPLS FRR Database Protected Interface
-                Summary Table
+                '''                MPLS forwarding FRR Database Protected
+                Interface Summary Table
                 ''',
                 'frrdb_protected_interface_table_summaries',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frrdb-summary', REFERENCE_CLASS, 'FrrdbSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbSummary', 
+            _MetaInfoClassMember('frrdb-summary', REFERENCE_CLASS, 'FrrdbSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary', 
                 [], [], 
-                '''                FIB MPLS FRR Database Summary
+                '''                MPLS forwarding FRR Database Summary
                 ''',
                 'frrdb_summary',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frrdb-tunnel-head-summary', REFERENCE_CLASS, 'FrrdbTunnelHeadSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary', 
+            _MetaInfoClassMember('frrdb-tunnel-head-summary', REFERENCE_CLASS, 'FrrdbTunnelHeadSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary', 
                 [], [], 
-                '''                FIB MPLS FRR Database Tunnel Head Summary
+                '''                MPLS forwarding FRR Database Tunnel Head
+                Summary
                 ''',
                 'frrdb_tunnel_head_summary',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frrdb-tunnel-heads', REFERENCE_CLASS, 'FrrdbTunnelHeads' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads', 
+            _MetaInfoClassMember('frrdb-tunnel-heads', REFERENCE_CLASS, 'FrrdbTunnelHeads' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads', 
                 [], [], 
-                '''                FIB MPLS FRR Database Tunnel Head Table
+                '''                MPLS forwarding FRR Database Tunnel Head
+                Table
                 ''',
                 'frrdb_tunnel_heads',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frrdb-tunnel-midpoint-summary', REFERENCE_CLASS, 'FrrdbTunnelMidpointSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary', 
+            _MetaInfoClassMember('frrdb-tunnel-midpoint-summary', REFERENCE_CLASS, 'FrrdbTunnelMidpointSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary', 
                 [], [], 
-                '''                FIB MPLS FRR Database Tunnel Midpoint Summary
+                '''                MPLS forwarding FRR Database Tunnel Midpoint
+                Summary
                 ''',
                 'frrdb_tunnel_midpoint_summary',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frrdb-tunnel-midpoints', REFERENCE_CLASS, 'FrrdbTunnelMidpoints' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints', 
+            _MetaInfoClassMember('frrdb-tunnel-midpoints', REFERENCE_CLASS, 'FrrdbTunnelMidpoints' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints', 
                 [], [], 
-                '''                FIB MPLS FRR Database Tunnel Midpoint Table
+                '''                MPLS forwarding FRR Database Tunnel Midpoint
+                Table
                 ''',
                 'frrdb_tunnel_midpoints',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -12370,334 +11178,43 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes.Node.ForwardingSummary' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.ForwardingSummary',
-            False, 
-            [
-            _MetaInfoClassMember('deleted-stale-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of delete stale label entries
-                ''',
-                'deleted_stale_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('highest-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Highest Label in use
-                ''',
-                'highest_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ignore-protect', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of TE tunnels treated as non-protected
-                ''',
-                'ignore_protect',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('ipv4-imposition-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of IPv4 imposition entries
-                ''',
-                'ipv4_imposition_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-switched-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of label swap/disposition entries
-                ''',
-                'label_switched_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lowest-label', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Lowest label in use
-                ''',
-                'lowest_label',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('lrpf-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of labels with RPF
-                ''',
-                'lrpf_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mte-head-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of MTE tunnel head entries
-                ''',
-                'mte_head_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mte-ll-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of MTE local entries
-                ''',
-                'mte_ll_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('mte-midpoint-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of MTE midpoint entries
-                ''',
-                'mte_midpoint_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('num-lsp', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of label switch paths
-                ''',
-                'num_lsp',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('protected-label-switched-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of FRR protected label swap/disposition
-                entries
-                ''',
-                'protected_label_switched_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('reserved-label-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of reserved label entries
-                ''',
-                'reserved_label_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('te-frr-head-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of TE FRR tunnel head imposition entries
-                ''',
-                'te_frr_head_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('te-frr-interface-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of TE FRR protected interface entries
-                ''',
-                'te_frr_interface_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('te-frr-internal-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of TE internal forwarding entries
-                ''',
-                'te_frr_internal_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('te-frr-mid-points-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of TE FRR MidPoints forwarding entries
-                ''',
-                'te_frr_mid_points_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('te-frr-next-hop-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of TE FRR protected next-hop entries
-                ''',
-                'te_frr_next_hop_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('te-head-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of TE tunnel head imposition entries
-                ''',
-                'te_head_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('te-internal-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of TE internal forwarding entries
-                ''',
-                'te_internal_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('te-mid-points-entries', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of TE MidPoints forwarding entries
-                ''',
-                'te_mid_points_entries',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-forwarding-update-messages', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total forwarding update messages from LSD to
-                LFDs
-                ''',
-                'total_forwarding_update_messages',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-forwarding-updates', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total forwarding updates from LSD to LFDs
-                ''',
-                'total_forwarding_updates',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-p2mp-forwarding-added-or-modify-messages', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total p2mp forwarding add/modify messages from
-                MRIB to LFDs
-                ''',
-                'total_p2mp_forwarding_added_or_modify_messages',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-p2mp-forwarding-delete-messages', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total p2mp forwarding del messages from MRIB to
-                LFDs
-                ''',
-                'total_p2mp_forwarding_delete_messages',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-p2mp-forwarding-drop-messages', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total p2mp forwarding messages dropped from MRIB
-                to LFDs
-                ''',
-                'total_p2mp_forwarding_drop_messages',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-p2mp-forwarding-updates', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total forwarding updates from MRIB to LFDs
-                ''',
-                'total_p2mp_forwarding_updates',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('total-p2mp-iir-forwarding-drop-messages', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Total IIR triggered p2mp forwarding MRIB
-                messages dropped
-                ''',
-                'total_p2mp_iir_forwarding_drop_messages',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'forwarding-summary',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.FrrLogs.FrrLog.StartTime' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrLogs.FrrLog.StartTime',
-            False, 
-            [
-            _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Nanoseconds part of time value
-                ''',
-                'nanoseconds',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Seconds part of time valueiin UTC
-                ''',
-                'seconds',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'start-time',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.FrrLogs.FrrLog' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrLogs.FrrLog',
-            False, 
-            [
-            _MetaInfoClassMember('event-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Event ID
-                ''',
-                'event_id',
-                'Cisco-IOS-XR-fib-common-oper', True),
-            _MetaInfoClassMember('fast-bundle-member-down-interface', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Fast Bundle Member Down Interface
-                ''',
-                'fast_bundle_member_down_interface',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-event-node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
-                '''                Node on which the FRR event happened
-                ''',
-                'frr_event_node_id',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('main-processing', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Main Processing for FRR
-                ''',
-                'main_processing',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('next-hop', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Next Hop
-                ''',
-                'next_hop',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('number-of-rewrites-affected', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Number of rewrites affected
-                ''',
-                'number_of_rewrites_affected',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('protected-frr-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Interface
-                ''',
-                'protected_frr_interface_name',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrLogs.FrrLog.StartTime', 
-                [], [], 
-                '''                Time of FRR event processing start, Seconds in
-                UTC, and Nano Seconds
-                ''',
-                'start_time',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('switching-time-nsecs', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                Time to switch rewrites [nsecs]
-                ''',
-                'switching_time_nsecs',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'frr-log',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node.FrrLogs' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node.FrrLogs',
-            False, 
-            [
-            _MetaInfoClassMember('frr-log', REFERENCE_LIST, 'FrrLog' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrLogs.FrrLog', 
-                [], [], 
-                '''                FRR Log information
-                ''',
-                'frr_log',
-                'Cisco-IOS-XR-fib-common-oper', False),
-            ],
-            'Cisco-IOS-XR-fib-common-oper',
-            'frr-logs',
-            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
-        ),
-    },
-    'FibMpls.Nodes.Node' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes.Node',
+    'MplsForwarding.Nodes.Node' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes.Node',
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
                 [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
-                '''                Node name
+                '''                Node ID
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-fib-common-oper', True),
-            _MetaInfoClassMember('forwarding-summary', REFERENCE_CLASS, 'ForwardingSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.ForwardingSummary', 
+            _MetaInfoClassMember('forwarding-summary', REFERENCE_CLASS, 'ForwardingSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.ForwardingSummary', 
                 [], [], 
-                '''                FIB MPLS forwarding summary
+                '''                MPLS forwarding summary
                 ''',
                 'forwarding_summary',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-database', REFERENCE_CLASS, 'FrrDatabase' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrDatabase', 
+            _MetaInfoClassMember('frr-database', REFERENCE_CLASS, 'FrrDatabase' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrDatabase', 
                 [], [], 
-                '''                FIB MPLS FRR Database
+                '''                MPLS forwarding FRR Database
                 ''',
                 'frr_database',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('frr-logs', REFERENCE_CLASS, 'FrrLogs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.FrrLogs', 
+            _MetaInfoClassMember('frr-logs', REFERENCE_CLASS, 'FrrLogs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.FrrLogs', 
                 [], [], 
                 '''                FRR Log Table
                 ''',
                 'frr_logs',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('label-fib', REFERENCE_CLASS, 'LabelFib' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.LabelFib', 
+            _MetaInfoClassMember('label-fib', REFERENCE_CLASS, 'LabelFib' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.LabelFib', 
                 [], [], 
                 '''                Labels For FIB
                 ''',
                 'label_fib',
                 'Cisco-IOS-XR-fib-common-oper', False),
-            _MetaInfoClassMember('tunnel', REFERENCE_CLASS, 'Tunnel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node.Tunnel', 
+            _MetaInfoClassMember('tunnel', REFERENCE_CLASS, 'Tunnel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node.Tunnel', 
                 [], [], 
-                '''                Tunnels Operations
+                '''                TE Tunnel information
                 ''',
                 'tunnel',
                 'Cisco-IOS-XR-fib-common-oper', False),
@@ -12708,11 +11225,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls.Nodes' : {
-        'meta_info' : _MetaInfoClass('FibMpls.Nodes',
+    'MplsForwarding.Nodes' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding.Nodes',
             False, 
             [
-            _MetaInfoClassMember('node', REFERENCE_LIST, 'Node' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes.Node', 
+            _MetaInfoClassMember('node', REFERENCE_LIST, 'Node' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes.Node', 
                 [], [], 
                 '''                Operational data for a specific Node
                 ''',
@@ -12725,11 +11242,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
     },
-    'FibMpls' : {
-        'meta_info' : _MetaInfoClass('FibMpls',
+    'MplsForwarding' : {
+        'meta_info' : _MetaInfoClass('MplsForwarding',
             False, 
             [
-            _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'FibMpls.Nodes', 
+            _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper', 'MplsForwarding.Nodes', 
                 [], [], 
                 '''                Table of Nodes
                 ''',
@@ -12737,7 +11254,7 @@ _meta_table = {
                 'Cisco-IOS-XR-fib-common-oper', False),
             ],
             'Cisco-IOS-XR-fib-common-oper',
-            'fib-mpls',
+            'mpls-forwarding',
             _yang_ns._namespaces['Cisco-IOS-XR-fib-common-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_oper'
         ),
@@ -12746,12 +11263,40 @@ _meta_table = {
 _meta_table['FibStatistics.Nodes.Node.Drops']['meta_info'].parent =_meta_table['FibStatistics.Nodes.Node']['meta_info']
 _meta_table['FibStatistics.Nodes.Node']['meta_info'].parent =_meta_table['FibStatistics.Nodes']['meta_info']
 _meta_table['FibStatistics.Nodes']['meta_info'].parent =_meta_table['FibStatistics']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfRetry']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Total.TotalCounters']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Total.TotalCounters.ArrayNumberOfObject']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Total.TotalCounters']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Total.CommonInfo']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Total']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Total.TotalCounters']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Total']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfRetry']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts.ArrayNumberOfObject']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.BaseObject']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.SummaryCounts']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_.Health']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.CommonInfo']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto.Summary_']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Protos.Proto']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary.Protos']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Total']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary.Protos']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.Summary']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.BaseObject']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto.ObjectHistory_']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos.ObjHistoryProto']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.ObjectHistory.ObjHistoryProtos']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_.ObjectHistory']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.Summary']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_.ObjectHistory']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Global_']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.IssuState.FisProtoState']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.IssuState']['meta_info']
-_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.ExclusiveLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
-_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.SharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
-_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.CrossSharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
-_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary.LabelSharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info']
-_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries.Summary']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo.SrShmState']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo.SrShmState']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo.SrShmState']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo.SrShmState']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceDetailInfo']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareIngressInfo']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceHardwareEgressInfo']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource.ResourceSummaryInfo']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.ExclusiveLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.SharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.CrossSharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary.LabelSharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries.FibSummary']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll.SesaPlSum']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log.FrrTimestamp']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs.Log']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog.FrrInterfaces.FrrInterface.Logs']['meta_info']
@@ -12770,8 +11315,12 @@ _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefix
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MoreDetailAboutPath']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath.MplsInformationForPath']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath.FibShTblPath']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information.Srv6Statistics']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject.SfecdLe']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.DetailFibEntryInformation']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.FibEntryPath']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.Srv6Information']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail.ExtensionObject']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails.IpPrefixDetail']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.ExclusiveLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary.SharedLoadSharingElement']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary']['meta_info']
@@ -12798,14 +11347,19 @@ _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixB
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MoreDetailAboutPath']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath.MplsInformationForPath']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath.FibShTblPath']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information.Srv6Statistics']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject.SfecdLe']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.DetailFibEntryInformation']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.FibEntryPath']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.Srv6Information']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief.ExtensionObject']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs.IpPrefixBrief']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixDetails']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.Summary']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.InterfaceInfos']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf.IpPrefixBriefs']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs.Vrf']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.NhIds.NhId']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.NhIds']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary.SesPlSum']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries.ExternalClientSummary']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState.FisProtoState']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.Misc.MiIssuState']['meta_info']
@@ -12830,17 +11384,22 @@ _meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict.Ext
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts.Conflict']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel.Conflicts']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.IssuState']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
-_meta_table['Fib.Nodes.Node.Protocols.Protocol.Summaries']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.Resource']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.FibSummaries']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalSummaryAll']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.FrrLog']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Vrfs']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
+_meta_table['Fib.Nodes.Node.Protocols.Protocol.NhIds']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.ExternalClientSummaries']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.Misc']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol.LocalLabel']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols.Protocol']['meta_info'].parent =_meta_table['Fib.Nodes.Node.Protocols']['meta_info']
+_meta_table['Fib.Nodes.Node.Global_']['meta_info'].parent =_meta_table['Fib.Nodes.Node']['meta_info']
 _meta_table['Fib.Nodes.Node.Protocols']['meta_info'].parent =_meta_table['Fib.Nodes.Node']['meta_info']
 _meta_table['Fib.Nodes.Node']['meta_info'].parent =_meta_table['Fib.Nodes']['meta_info']
 _meta_table['Fib.Nodes']['meta_info'].parent =_meta_table['Fib']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrLogs.FrrLog.StartTime']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrLogs.FrrLog']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrLogs.FrrLog']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrLogs']['meta_info']
 _meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.LabelInformationDetail']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation']['meta_info']
 _meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail']['meta_info']
 _meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail']['meta_info']
@@ -12857,79 +11416,45 @@ _meta_table['MplsForwarding.Nodes.Node.LabelFib.LabelSecurity.Summary']['meta_in
 _meta_table['MplsForwarding.Nodes.Node.LabelFib.ForwardingDetails']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.LabelFib']['meta_info']
 _meta_table['MplsForwarding.Nodes.Node.LabelFib.Informations']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.LabelFib']['meta_info']
 _meta_table['MplsForwarding.Nodes.Node.LabelFib.LabelSecurity']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.LabelFib']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.LabelInformationDetail']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.Tunnel.ForwardingTunnels']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.Tunnel']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Head']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId.Midpoint']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Head']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId.Midpoint']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg.FrrEntryId']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.FrrEntryId']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb.MulticastLeg']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrDb']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Head']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId.Midpoint']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Head']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId.Midpoint']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg.FrrEntryId']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.FrrEntryId']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb.MulticastLeg']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrDb']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbSummary']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeads']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node.FrrDatabase']['meta_info']
 _meta_table['MplsForwarding.Nodes.Node.ForwardingSummary']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrLogs']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node']['meta_info']
 _meta_table['MplsForwarding.Nodes.Node.LabelFib']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.Tunnel']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node']['meta_info']
+_meta_table['MplsForwarding.Nodes.Node.FrrDatabase']['meta_info'].parent =_meta_table['MplsForwarding.Nodes.Node']['meta_info']
 _meta_table['MplsForwarding.Nodes.Node']['meta_info'].parent =_meta_table['MplsForwarding.Nodes']['meta_info']
 _meta_table['MplsForwarding.Nodes']['meta_info'].parent =_meta_table['MplsForwarding']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.LabelInformationDetail']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo.MpiInfo']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation.FibMplsAdjInfo']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV4Nbr']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfV6Nbr']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf.RpfIfMap']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LabelInformation']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.LdiInformation']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.MulticastInformation']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding.Rpf']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings.Forwarding']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.LabelInformationDetail']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo.MpiInfo']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation.FibMplsAdjInfo']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV4Nbr']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfV6Nbr']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf.RpfIfMap']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LabelInformation']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.LdiInformation']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.MulticastInformation']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail.Rpf']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails.ForwardingDetail']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.Forwardings']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib.ForwardingDetails']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.LabelFib']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.LabelInformationDetail']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo.MpiInfo']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation.FibMplsAdjInfo']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV4Nbr']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfV6Nbr']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf.RpfIfMap']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LabelInformation']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.LdiInformation']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.MulticastInformation']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg.Rpf']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.TunnelInfo']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel.Fwdg']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels.ForwardingTunnel']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel.ForwardingTunnels']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.Tunnel']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries.FrrdbBackupInterfaceSummary']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries.FrrdbProtectedInterfaceTableSummary']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Head']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId.Midpoint']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Head']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId.Midpoint']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg.FrrEntryId']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.FrrEntryId']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint.MulticastLeg']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints.FrrdbTunnelMidpoint']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Head']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId.Midpoint']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Head']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId.Midpoint']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg.FrrEntryId']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.FrrEntryId']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead.MulticastLeg']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads.FrrdbTunnelHead']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeadSummary']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbBackupInterfaceSummaries']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbSummary']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbProtectedInterfaceTableSummaries']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpointSummary']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelMidpoints']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase.FrrdbTunnelHeads']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrDatabase']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrLogs.FrrLog.StartTime']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrLogs.FrrLog']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrLogs.FrrLog']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node.FrrLogs']['meta_info']
-_meta_table['FibMpls.Nodes.Node.LabelFib']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node']['meta_info']
-_meta_table['FibMpls.Nodes.Node.Tunnel']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrDatabase']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node']['meta_info']
-_meta_table['FibMpls.Nodes.Node.ForwardingSummary']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node']['meta_info']
-_meta_table['FibMpls.Nodes.Node.FrrLogs']['meta_info'].parent =_meta_table['FibMpls.Nodes.Node']['meta_info']
-_meta_table['FibMpls.Nodes.Node']['meta_info'].parent =_meta_table['FibMpls.Nodes']['meta_info']
-_meta_table['FibMpls.Nodes']['meta_info'].parent =_meta_table['FibMpls']['meta_info']

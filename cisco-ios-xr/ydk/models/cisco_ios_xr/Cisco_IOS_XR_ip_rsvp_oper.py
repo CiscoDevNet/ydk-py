@@ -13799,7 +13799,7 @@ class RsvpStandby(object):
                     	AccessList Name
                     	**type**\:  str
                     
-                    	**length:** 0..65
+                    	**length:** 1..65
                     
                     .. attribute:: dropped
                     
@@ -49652,7 +49652,7 @@ class Rsvp(object):
                     	AccessList Name
                     	**type**\:  str
                     
-                    	**length:** 0..65
+                    	**length:** 1..65
                     
                     .. attribute:: dropped
                     

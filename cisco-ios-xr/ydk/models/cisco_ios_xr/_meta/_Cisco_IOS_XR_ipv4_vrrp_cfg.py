@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Vrrp.Logging' : {
         'meta_info' : _MetaInfoClass('Vrrp.Logging',
@@ -124,7 +123,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('advertisement-time-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('100', '3000')], [], 
+                [('100', '40950')], [], 
                 '''                Advertisement time in milliseconds
                 ''',
                 'advertisement_time_in_msec',
@@ -302,7 +301,7 @@ _meta_table = {
                 'priority',
                 'Cisco-IOS-XR-ipv4-vrrp-cfg', False),
             _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 16)], [], 
+                [(1, 16)], [], 
                 '''                VRRP Session Name
                 ''',
                 'session_name',
@@ -564,7 +563,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('advertisement-time-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('100', '3000')], [], 
+                [('100', '40950')], [], 
                 '''                Advertisement time in milliseconds
                 ''',
                 'advertisement_time_in_msec',
@@ -763,7 +762,7 @@ _meta_table = {
                 'secondary_ipv4_addresses',
                 'Cisco-IOS-XR-ipv4-vrrp-cfg', False),
             _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 16)], [], 
+                [(1, 16)], [], 
                 '''                VRRP Session Name
                 ''',
                 'session_name',
@@ -927,7 +926,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('advertisement-time-in-msec', ATTRIBUTE, 'int' , None, None, 
-                [('100', '3000')], [], 
+                [('100', '40950')], [], 
                 '''                Advertisement time in milliseconds
                 ''',
                 'advertisement_time_in_msec',
@@ -1126,7 +1125,7 @@ _meta_table = {
                 'secondary_ipv4_addresses',
                 'Cisco-IOS-XR-ipv4-vrrp-cfg', False),
             _MetaInfoClassMember('session-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 16)], [], 
+                [(1, 16)], [], 
                 '''                VRRP Session Name
                 ''',
                 'session_name',

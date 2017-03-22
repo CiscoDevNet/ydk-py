@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'QosFieldNotSupportedEnum' : _MetaInfoEnum('QosFieldNotSupportedEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg',
         {
@@ -20,6 +19,9 @@ _meta_table = {
         }, 'Cisco-IOS-XR-qos-ma-cfg', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg']),
     'QosPolicyAccountEnum' : _MetaInfoEnum('QosPolicyAccountEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg',
         {
+            'layer1':'layer1',
+            'layer2':'layer2',
+            'nolayer2':'nolayer2',
             'user-defined':'user_defined',
         }, 'Cisco-IOS-XR-qos-ma-cfg', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg']),
     'Qos' : {

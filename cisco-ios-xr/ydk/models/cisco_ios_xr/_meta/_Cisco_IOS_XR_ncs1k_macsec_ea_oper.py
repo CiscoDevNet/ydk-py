@@ -8,17 +8,16 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Ncs1KCipherSuitEnum' : _MetaInfoEnum('Ncs1KCipherSuitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper',
         {
-            'gcm-aes-256':'GCM_AES_256',
-            'gcm-aes-128':'GCM_AES_128',
-            'gcm-aes-xpn-256':'GCM_AES_XPN_256',
+            'gcm-aes-256':'gcm_aes_256',
+            'gcm-aes-128':'gcm_aes_128',
+            'gcm-aes-xpn-256':'gcm_aes_xpn_256',
         }, 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-macsec-ea-oper']),
     'Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus.ActiveAssociation' : {
         'meta_info' : _MetaInfoClass('Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus.ActiveAssociation',
@@ -36,8 +35,8 @@ _meta_table = {
                 ''',
                 'device_association_number',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
-            _MetaInfoClassMember('key-crc', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+            _MetaInfoClassMember('key-crc', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
                 '''                32bit CRC of Programmed Key
                 ''',
                 'key_crc',
@@ -54,8 +53,8 @@ _meta_table = {
                 ''',
                 'short_secure_channel_id',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
-            _MetaInfoClassMember('xpn-salt', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+            _MetaInfoClassMember('xpn-salt', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
                 '''                XPN Salt
                 ''',
                 'xpn_salt',
@@ -113,8 +112,8 @@ _meta_table = {
                 ''',
                 'recent_packet_number',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
-            _MetaInfoClassMember('secure-channel-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
+            _MetaInfoClassMember('secure-channel-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 20)], [], 
                 '''                Secure Channel Id
                 ''',
                 'secure_channel_id',
@@ -148,8 +147,8 @@ _meta_table = {
                 ''',
                 'device_association_number',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
-            _MetaInfoClassMember('key-crc', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+            _MetaInfoClassMember('key-crc', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
                 '''                32bit CRC of Programmed Key
                 ''',
                 'key_crc',
@@ -166,8 +165,8 @@ _meta_table = {
                 ''',
                 'short_secure_channel_id',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
-            _MetaInfoClassMember('xpn-salt', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+            _MetaInfoClassMember('xpn-salt', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
                 '''                XPN Salt
                 ''',
                 'xpn_salt',
@@ -225,8 +224,8 @@ _meta_table = {
                 ''',
                 'recent_packet_number',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
-            _MetaInfoClassMember('secure-channel-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
+            _MetaInfoClassMember('secure-channel-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 20)], [], 
                 '''                Secure Channel Id
                 ''',
                 'secure_channel_id',
@@ -271,6 +270,12 @@ _meta_table = {
                 '''                Replay Window Size
                 ''',
                 'replay_window_size',
+                'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
+            _MetaInfoClassMember('secure-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Secure Mode
+                ''',
+                'secure_mode',
                 'Cisco-IOS-XR-ncs1k-macsec-ea-oper', False),
             ],
             'Cisco-IOS-XR-ncs1k-macsec-ea-oper',

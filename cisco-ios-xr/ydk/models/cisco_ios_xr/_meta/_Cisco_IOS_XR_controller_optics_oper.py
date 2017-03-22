@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'OpticsAmplifierGainRangeEnum' : _MetaInfoEnum('OpticsAmplifierGainRangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
         {
@@ -65,6 +64,14 @@ _meta_table = {
             'c-band-even':'c_band_even',
             'invalid-band':'invalid_band',
         }, 'Cisco-IOS-XR-controller-optics-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper']),
+    'FiberConnectorEnum' : _MetaInfoEnum('FiberConnectorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
+        {
+            'optics-connect-or-not-set':'optics_connect_or_not_set',
+            'optics-sc-connect-or':'optics_sc_connect_or',
+            'optics-lc-connect-or':'optics_lc_connect_or',
+            'optics-mpo-connect-or':'optics_mpo_connect_or',
+            'optics-undefined-connect-or':'optics_undefined_connect_or',
+        }, 'Cisco-IOS-XR-controller-optics-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper']),
     'OpticsFormFactorEnum' : _MetaInfoEnum('OpticsFormFactorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
         {
             'not-set':'not_set',
@@ -101,7 +108,6 @@ _meta_table = {
     'OpticsAmplifierSafetyControlModeEnum' : _MetaInfoEnum('OpticsAmplifierSafetyControlModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
         {
             'optics-amplifier-safety-mode-auto':'optics_amplifier_safety_mode_auto',
-            'optics-amplifier-safety-mode-manual':'optics_amplifier_safety_mode_manual',
             'optics-amplifier-safety-mode-disabled':'optics_amplifier_safety_mode_disabled',
         }, 'Cisco-IOS-XR-controller-optics-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper']),
     'OpticsLaserStateEnum' : _MetaInfoEnum('OpticsLaserStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
@@ -109,6 +115,7 @@ _meta_table = {
             'on':'on',
             'off':'off',
             'unknown':'unknown',
+            'apr':'apr',
         }, 'Cisco-IOS-XR-controller-optics-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper']),
     'OpticsFecEnum' : _MetaInfoEnum('OpticsFecEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
         {
@@ -119,13 +126,10 @@ _meta_table = {
             'fec-hg25-de':'fec_hg25_de',
             'fec-enabled':'fec_enabled',
         }, 'Cisco-IOS-XR-controller-optics-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper']),
-    'FiberConnectorEnum' : _MetaInfoEnum('FiberConnectorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
+    'OpticsPortStatusEnum' : _MetaInfoEnum('OpticsPortStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
         {
-            'optics-connect-or-not-set':'optics_connect_or_not_set',
-            'optics-sc-connect-or':'optics_sc_connect_or',
-            'optics-lc-connect-or':'optics_lc_connect_or',
-            'optics-mpo-connect-or':'optics_mpo_connect_or',
-            'optics-undefined-connect-or':'optics_undefined_connect_or',
+            'active':'active',
+            'standby':'standby',
         }, 'Cisco-IOS-XR-controller-optics-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper']),
     'OpticsPhyEnum' : _MetaInfoEnum('OpticsPhyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
         {
@@ -168,9 +172,19 @@ _meta_table = {
             'four-x-ten-gig-eacu-one-lanes':'four_x_ten_gig_eacu_one_lanes',
             'four-x-ten-gig-ecu-one-lanes':'four_x_ten_gig_ecu_one_lanes',
             'four-x-ten-gig-eaoc-one-lanes':'four_x_ten_gig_eaoc_one_lanes',
+            'twenty-five-gig-short-reach-one-lane':'twenty_five_gig_short_reach_one_lane',
+            'twenty-five-gig-long-reach-one-lane':'twenty_five_gig_long_reach_one_lane',
+            'twenty-five-gig-extended-reach-one-lane':'twenty_five_gig_extended_reach_one_lane',
+            'twenty-five-gig-copper-one-lane':'twenty_five_gig_copper_one_lane',
+            'twenty-five-gig-active-optical-one-lane':'twenty_five_gig_active_optical_one_lane',
             'hundred-gig-edwdm-two':'hundred_gig_edwdm_two',
             'fourty-gig-plr4-four-lanes':'fourty_gig_plr4_four_lanes',
             'fourty-gig-esr4-four-lanes':'fourty_gig_esr4_four_lanes',
+            'smsr-four-lanes':'smsr_four_lanes',
+            'trunk-port-cfp2':'trunk_port_cfp2',
+            'short-reach1-lane':'short_reach1_lane',
+            'inmd-reach1lane':'inmd_reach1lane',
+            'long-reach1-lane':'long_reach1_lane',
         }, 'Cisco-IOS-XR-controller-optics-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper']),
     'OpticsTasEnum' : _MetaInfoEnum('OpticsTasEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper',
         {
@@ -209,6 +223,9 @@ _meta_table = {
             'com':'com',
             'line':'line',
             'osc':'osc',
+            'com-check':'com_check',
+            'work':'work',
+            'prot':'prot',
         }, 'Cisco-IOS-XR-controller-optics-oper', _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper']),
     'OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo' : {
         'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo',
@@ -1586,6 +1603,336 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
     },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'low-tx-power',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'low-rx-power',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'rx-los-p',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'rx-loc',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'amp-gain-deg-low',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'amp-gain-deg-high',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'auto-laser-shut',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'auto-power-red',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'auto-ampli-ctrl-disabled',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'auto-ampli-ctrl-config-mismatch',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect',
+            False, 
+            [
+            _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Alarm counter
+                ''',
+                'counter',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('is-detected', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is defect detected?
+                ''',
+                'is_detected',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'switch-to-protect',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo',
+            False, 
+            [
+            _MetaInfoClassMember('amp-gain-deg-high', REFERENCE_CLASS, 'AmpGainDegHigh' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh', 
+                [], [], 
+                '''                Ampli Gain Deg High
+                ''',
+                'amp_gain_deg_high',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('amp-gain-deg-low', REFERENCE_CLASS, 'AmpGainDegLow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow', 
+                [], [], 
+                '''                Ampli Gain Deg Low
+                ''',
+                'amp_gain_deg_low',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('auto-ampli-ctrl-config-mismatch', REFERENCE_CLASS, 'AutoAmpliCtrlConfigMismatch' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch', 
+                [], [], 
+                '''                Auto Ampli Ctrl Config Mismatch
+                ''',
+                'auto_ampli_ctrl_config_mismatch',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('auto-ampli-ctrl-disabled', REFERENCE_CLASS, 'AutoAmpliCtrlDisabled' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled', 
+                [], [], 
+                '''                Auto Ampli Ctrl Disabled
+                ''',
+                'auto_ampli_ctrl_disabled',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('auto-laser-shut', REFERENCE_CLASS, 'AutoLaserShut' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut', 
+                [], [], 
+                '''                Auto Laser Shut
+                ''',
+                'auto_laser_shut',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('auto-power-red', REFERENCE_CLASS, 'AutoPowerRed' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed', 
+                [], [], 
+                '''                Auto Power Red
+                ''',
+                'auto_power_red',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('low-rx-power', REFERENCE_CLASS, 'LowRxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower', 
+                [], [], 
+                '''                Low Rx Power in uints of 0.1 dBm
+                ''',
+                'low_rx_power',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('low-tx-power', REFERENCE_CLASS, 'LowTxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower', 
+                [], [], 
+                '''                Low Tx Power in uints of 0.1 dBm
+                ''',
+                'low_tx_power',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('rx-loc', REFERENCE_CLASS, 'RxLoc' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc', 
+                [], [], 
+                '''                Rx LOC
+                ''',
+                'rx_loc',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('rx-los-p', REFERENCE_CLASS, 'RxLosP' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP', 
+                [], [], 
+                '''                Rx LOS_P
+                ''',
+                'rx_los_p',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('switch-to-protect', REFERENCE_CLASS, 'SwitchToProtect' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect', 
+                [], [], 
+                '''                Switch To Protect
+                ''',
+                'switch_to_protect',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            ],
+            'Cisco-IOS-XR-controller-optics-oper',
+            'ots-alarm-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
+        ),
+    },
     'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo' : {
         'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo',
             False, 
@@ -2422,7 +2769,7 @@ _meta_table = {
                 'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('laser-bias-current-percent', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                Laser Bias Current in units of percentage
+                '''                Laser Bias Current in units of 0.01 percentage
                 ''',
                 'laser_bias_current_percent',
                 'Cisco-IOS-XR-controller-optics-oper', False),
@@ -2577,6 +2924,12 @@ _meta_table = {
                 ''',
                 'cfg_tx_power_configurable',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('channel-power-max-delta-config-val', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                channel power max delta config val
+                ''',
+                'channel_power_max_delta_config_val',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('controller-state', REFERENCE_ENUM_CLASS, 'OpticsControllerStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsControllerStateEnum', 
                 [], [], 
                 '''                Optics controller state: Up, Down or
@@ -2688,12 +3041,26 @@ _meta_table = {
                 ''',
                 'lbc_th_high_default',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('lbc-th-high-warning-default', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                LBC high Warning threshold default value in unit
+                of 0.001mA
+                ''',
+                'lbc_th_high_warning_default',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('lbc-th-low-default', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                LBC low threshold default value in units of 0
                 .001mA
                 ''',
                 'lbc_th_low_default',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('lbc-th-low-warning-default', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                LBC low warning threshold default value in units
+                of 0.001mA
+                ''',
+                'lbc_th_low_warning_default',
                 'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('led-state', REFERENCE_ENUM_CLASS, 'OpticsLedStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsLedStateEnum', 
                 [], [], 
@@ -2755,6 +3122,12 @@ _meta_table = {
                 ''',
                 'osri_config_val',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('ots-alarm-info', REFERENCE_CLASS, 'OtsAlarmInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo', 
+                [], [], 
+                '''                Ots Alarm Information
+                ''',
+                'ots_alarm_info',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('phase-noise', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Phase Noise dB
@@ -2791,6 +3164,12 @@ _meta_table = {
                 ''',
                 'polarization_mode_dispersion',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('port-status', REFERENCE_ENUM_CLASS, 'OpticsPortStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsPortStatusEnum', 
+                [], [], 
+                '''                Showing port status
+                ''',
+                'port_status',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('port-type', REFERENCE_ENUM_CLASS, 'OpticsPortEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsPortEnum', 
                 [], [], 
                 '''                Showing port type
@@ -2803,17 +3182,37 @@ _meta_table = {
                 ''',
                 'rx_high_threshold',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('rx-high-warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Rx High Warning threshold value in units of 0
+                .1dBm
+                ''',
+                'rx_high_warning_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('rx-low-threshold', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                Rx Low threshold value in units of 0.1dBm
                 ''',
                 'rx_low_threshold',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('rx-low-warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Rx Low Warning threshold value in units of 0
+                .1dBm
+                ''',
+                'rx_low_warning_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('rx-power', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                Receive Power in 0.01 dB
                 ''',
                 'rx_power',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('rx-power-th-configurable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                rx power th configurable
+                ''',
+                'rx_power_th_configurable',
                 'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('rx-voa-attenuation', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
@@ -2846,11 +3245,31 @@ _meta_table = {
                 ''',
                 'temp_high_threshold',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('temp-high-warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Temp High warning threshold value in the units
+                of 0.01 C
+                ''',
+                'temp_high_warning_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('temp-low-threshold', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                Temp Low threshold value in the units 0.01 C
                 ''',
                 'temp_low_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('temp-low-warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Temp Low warning threshold value in the units 0
+                .01 C
+                ''',
+                'temp_low_warning_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('temperature', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Temperature value
+                ''',
+                'temperature',
                 'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('total-rx-power', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
@@ -2883,17 +3302,37 @@ _meta_table = {
                 ''',
                 'tx_high_threshold',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('tx-high-warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Tx High Warning threshold value in units of 0
+                .1dBm
+                ''',
+                'tx_high_warning_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('tx-low-threshold', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                Tx Low threshold value in units of 0.1dBm
                 ''',
                 'tx_low_threshold',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('tx-low-warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Tx Low Warning threshold value in units of 0
+                .1dBm
+                ''',
+                'tx_low_warning_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('tx-power', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                Transmit Power in 0.01 dB
                 ''',
                 'tx_power',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('tx-power-th-configurable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                tx power th configurable
+                ''',
+                'tx_power_th_configurable',
                 'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('tx-voa-attenuation', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
@@ -2913,11 +3352,29 @@ _meta_table = {
                 ''',
                 'volt_high_threshold',
                 'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('volt-high-warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Volt High warning threshold value
+                ''',
+                'volt_high_warning_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('volt-low-threshold', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                Volt Low threshold value
                 ''',
                 'volt_low_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('volt-low-warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Volt Low warning threshold value
+                ''',
+                'volt_low_warning_threshold',
+                'Cisco-IOS-XR-controller-optics-oper', False),
+            _MetaInfoClassMember('voltage', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Voltage value
+                ''',
+                'voltage',
                 'Cisco-IOS-XR-controller-optics-oper', False),
             ],
             'Cisco-IOS-XR-controller-optics-oper',
@@ -2926,8 +3383,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
     },
-    'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighRxPower' : {
-        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighRxPower',
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower',
             False, 
             [
             _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
@@ -2949,8 +3406,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
     },
-    'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowRxPower' : {
-        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowRxPower',
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower',
             False, 
             [
             _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
@@ -2972,8 +3429,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
     },
-    'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighTxPower' : {
-        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighTxPower',
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower',
             False, 
             [
             _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
@@ -2995,8 +3452,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
     },
-    'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowTxPower' : {
-        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowTxPower',
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower',
             False, 
             [
             _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
@@ -3018,8 +3475,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
     },
-    'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighLbc' : {
-        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighLbc',
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc',
             False, 
             [
             _MetaInfoClassMember('counter', ATTRIBUTE, 'int' , None, None, 
@@ -3041,35 +3498,35 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
     },
-    'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo' : {
-        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo',
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo',
             False, 
             [
-            _MetaInfoClassMember('high-lbc', REFERENCE_CLASS, 'HighLbc' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighLbc', 
+            _MetaInfoClassMember('high-lbc', REFERENCE_CLASS, 'HighLbc' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc', 
                 [], [], 
                 '''                High laser bias current
                 ''',
                 'high_lbc',
                 'Cisco-IOS-XR-controller-optics-oper', False),
-            _MetaInfoClassMember('high-rx-power', REFERENCE_CLASS, 'HighRxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighRxPower', 
+            _MetaInfoClassMember('high-rx-power', REFERENCE_CLASS, 'HighRxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower', 
                 [], [], 
                 '''                High Rx Power
                 ''',
                 'high_rx_power',
                 'Cisco-IOS-XR-controller-optics-oper', False),
-            _MetaInfoClassMember('high-tx-power', REFERENCE_CLASS, 'HighTxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighTxPower', 
+            _MetaInfoClassMember('high-tx-power', REFERENCE_CLASS, 'HighTxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower', 
                 [], [], 
                 '''                High Tx Power
                 ''',
                 'high_tx_power',
                 'Cisco-IOS-XR-controller-optics-oper', False),
-            _MetaInfoClassMember('low-rx-power', REFERENCE_CLASS, 'LowRxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowRxPower', 
+            _MetaInfoClassMember('low-rx-power', REFERENCE_CLASS, 'LowRxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower', 
                 [], [], 
                 '''                Low Rx Power
                 ''',
                 'low_rx_power',
                 'Cisco-IOS-XR-controller-optics-oper', False),
-            _MetaInfoClassMember('low-tx-power', REFERENCE_CLASS, 'LowTxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowTxPower', 
+            _MetaInfoClassMember('low-tx-power', REFERENCE_CLASS, 'LowTxPower' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower', 
                 [], [], 
                 '''                Low Tx Power
                 ''',
@@ -3082,11 +3539,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
     },
-    'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData' : {
-        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData',
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane',
             False, 
             [
-            _MetaInfoClassMember('lane-alarm-info', REFERENCE_CLASS, 'LaneAlarmInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo', 
+            _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Lane Index
+                ''',
+                'number',
+                'Cisco-IOS-XR-controller-optics-oper', True),
+            _MetaInfoClassMember('lane-alarm-info', REFERENCE_CLASS, 'LaneAlarmInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo', 
                 [], [], 
                 '''                Lane Alarm Information
                 ''',
@@ -3106,7 +3569,7 @@ _meta_table = {
                 'Cisco-IOS-XR-controller-optics-oper', False),
             _MetaInfoClassMember('laser-bias-current-percent', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
-                '''                Laser Bias Current in units of percentage
+                '''                Laser Bias Current in units of 0.01 percentage
                 ''',
                 'laser_bias_current_percent',
                 'Cisco-IOS-XR-controller-optics-oper', False),
@@ -3144,33 +3607,16 @@ _meta_table = {
                 'Cisco-IOS-XR-controller-optics-oper', False),
             ],
             'Cisco-IOS-XR-controller-optics-oper',
-            'lane-data',
-            _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
-        ),
-    },
-    'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane' : {
-        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane',
-            False, 
-            [
-            _MetaInfoClassMember('lane-data', REFERENCE_LIST, 'LaneData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData', 
-                [], [], 
-                '''                Lane information
-                ''',
-                'lane_data',
-                'Cisco-IOS-XR-controller-optics-oper', False),
-            ],
-            'Cisco-IOS-XR-controller-optics-oper',
             'optics-lane',
             _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
     },
-    'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable' : {
-        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable',
+    'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes' : {
+        'meta_info' : _MetaInfoClass('OpticsOper.OpticsPorts.OpticsPort.OpticsLanes',
             False, 
             [
-            _MetaInfoClassMember('optics-lane', REFERENCE_CLASS, 'OpticsLane' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane', 
+            _MetaInfoClassMember('optics-lane', REFERENCE_LIST, 'OpticsLane' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane', 
                 [], [], 
                 '''                Lane Information
                 ''',
@@ -3178,7 +3624,7 @@ _meta_table = {
                 'Cisco-IOS-XR-controller-optics-oper', False),
             ],
             'Cisco-IOS-XR-controller-optics-oper',
-            'optics-lane-table',
+            'optics-lanes',
             _yang_ns._namespaces['Cisco-IOS-XR-controller-optics-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper'
         ),
@@ -3281,11 +3727,11 @@ _meta_table = {
                 ''',
                 'optics_info',
                 'Cisco-IOS-XR-controller-optics-oper', False),
-            _MetaInfoClassMember('optics-lane-table', REFERENCE_CLASS, 'OpticsLaneTable' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable', 
+            _MetaInfoClassMember('optics-lanes', REFERENCE_CLASS, 'OpticsLanes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsOper.OpticsPorts.OpticsPort.OpticsLanes', 
                 [], [], 
                 '''                All Optics Port operational data
                 ''',
-                'optics_lane_table',
+                'optics_lanes',
                 'Cisco-IOS-XR-controller-optics-oper', False),
             ],
             'Cisco-IOS-XR-controller-optics-oper',
@@ -3374,6 +3820,17 @@ _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRem
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo']['meta_info']
@@ -3382,23 +3839,23 @@ _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info']
-_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighRxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo']['meta_info']
-_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowRxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo']['meta_info']
-_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighTxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo']['meta_info']
-_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.LowTxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo']['meta_info']
-_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo.HighLbc']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo']['meta_info']
-_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData.LaneAlarmInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData']['meta_info']
-_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane.LaneData']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane']['meta_info']
-_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable.OpticsLane']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort']['meta_info']
-_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLaneTable']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort']['meta_info']
+_meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsLanes']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts.OpticsPort']['meta_info']
 _meta_table['OpticsOper.OpticsPorts.OpticsPort']['meta_info'].parent =_meta_table['OpticsOper.OpticsPorts']['meta_info']
 _meta_table['OpticsOper.OpticsPorts']['meta_info'].parent =_meta_table['OpticsOper']['meta_info']

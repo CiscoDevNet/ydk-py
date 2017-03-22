@@ -112,6 +112,33 @@ class AaaConfigEnum(Enum):
         return meta._meta_table['AaaConfigEnum']
 
 
+class AaaDirectionEnum(Enum):
+    """
+    AaaDirectionEnum
+
+    Aaa direction
+
+    .. data:: inbound = 0
+
+    	Inbound
+
+    .. data:: outbound = 1
+
+    	Outbound
+
+    """
+
+    inbound = 0
+
+    outbound = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_protocol_radius_cfg as meta
+        return meta._meta_table['AaaDirectionEnum']
+
+
 class AaaDscpValueEnum(Enum):
     """
     AaaDscpValueEnum

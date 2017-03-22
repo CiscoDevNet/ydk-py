@@ -811,7 +811,7 @@ class ObjectGroup(object):
                 	Port object group name
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 .. attribute:: nested_groups
                 
@@ -885,7 +885,7 @@ class ObjectGroup(object):
                         	Nested object group
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         .. attribute:: nested_group_name_xr
                         
@@ -1272,7 +1272,7 @@ class ObjectGroup(object):
                         	Nested object group
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         .. attribute:: parent_name
                         
@@ -1512,7 +1512,7 @@ class ObjectGroup(object):
                     	IPv6 object group name \- maximum 64 characters
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: address_ranges
                     
@@ -1593,7 +1593,7 @@ class ObjectGroup(object):
                             	Enter the name of a nested object group
                             	**type**\:  str
                             
-                            	**length:** 0..64
+                            	**length:** 1..64
                             
                             .. attribute:: nested_group_name_xr
                             
@@ -1958,7 +1958,7 @@ class ObjectGroup(object):
                             	Nested object group
                             	**type**\:  str
                             
-                            	**length:** 0..64
+                            	**length:** 1..64
                             
                             .. attribute:: parent_name
                             
@@ -2281,7 +2281,7 @@ class ObjectGroup(object):
                     	IPv4 object group name \- maximum 64 characters
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: address_ranges
                     
@@ -2362,7 +2362,7 @@ class ObjectGroup(object):
                             	Nested object group
                             	**type**\:  str
                             
-                            	**length:** 0..64
+                            	**length:** 1..64
                             
                             .. attribute:: nested_group_name_xr
                             
@@ -2727,7 +2727,7 @@ class ObjectGroup(object):
                             	Nested object group
                             	**type**\:  str
                             
-                            	**length:** 0..64
+                            	**length:** 1..64
                             
                             .. attribute:: parent_name
                             

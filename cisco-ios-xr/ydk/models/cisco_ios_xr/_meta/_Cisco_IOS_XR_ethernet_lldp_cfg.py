@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Lldp.TlvSelect.SystemName' : {
         'meta_info' : _MetaInfoClass('Lldp.TlvSelect.SystemName',
@@ -162,6 +161,13 @@ _meta_table = {
                 globally
                 ''',
                 'enable_subintf',
+                'Cisco-IOS-XR-ethernet-lldp-cfg', False),
+            _MetaInfoClassMember('extended-show-width', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable or disable LLDP Show LLDP Neighbor
+                Extended Width
+                ''',
+                'extended_show_width',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             _MetaInfoClassMember('holdtime', ATTRIBUTE, 'int' , None, None, 
                 [('0', '65535')], [], 

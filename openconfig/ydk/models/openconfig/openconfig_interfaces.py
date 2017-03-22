@@ -967,8 +967,6 @@ class Interfaces(object):
                     
                     	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
                     
-                    	**default value**\: false
-                    
                     
 
                     """
@@ -1092,8 +1090,6 @@ class Interfaces(object):
                     	**range:** 0..4294967295
                     
                     	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
-                    
-                    	**default value**\: false
                     
                     
 
@@ -1687,7 +1683,7 @@ class Interfaces(object):
                     
                     .. attribute:: neighbor
                     
-                    	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
+                    	A list of mappings from IPv4 addresses to link\-layer addresses. Entries in this list are used as static entries in the ARP Cache
                     	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor>`
                     
                     .. attribute:: state
@@ -1777,14 +1773,14 @@ class Interfaces(object):
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv4 address on the interface
+                            	[adapted from IETF IP model RFC 7277] The IPv4 address on the interface
                             	**type**\:  str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: prefix_length
                             
-                            	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                            	[adapted from IETF IP model RFC 7277] The length of the subnet prefix
                             	**type**\:  int
                             
                             	**range:** 0..32
@@ -1836,7 +1832,7 @@ class Interfaces(object):
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv4 address on the interface
+                            	[adapted from IETF IP model RFC 7277] The IPv4 address on the interface
                             	**type**\:  str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -1848,7 +1844,7 @@ class Interfaces(object):
                             
                             .. attribute:: prefix_length
                             
-                            	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                            	[adapted from IETF IP model RFC 7277] The length of the subnet prefix
                             	**type**\:  int
                             
                             	**range:** 0..32
@@ -2524,7 +2520,6 @@ class Interfaces(object):
                         """
                         A list of mappings from IPv4 addresses to
                         link\-layer addresses.
-                        
                         Entries in this list are used as static entries in the
                         ARP Cache.
                         
@@ -2739,7 +2734,7 @@ class Interfaces(object):
                         
                         .. attribute:: mtu
                         
-                        	The size, in octets, of the largest IPv4 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                        	The size, in octets, of the largest IPv4 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
                         	**type**\:  int
                         
                         	**range:** 68..65535
@@ -2799,7 +2794,7 @@ class Interfaces(object):
                         
                         .. attribute:: mtu
                         
-                        	The size, in octets, of the largest IPv4 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                        	The size, in octets, of the largest IPv4 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
                         	**type**\:  int
                         
                         	**range:** 68..65535
@@ -2906,7 +2901,7 @@ class Interfaces(object):
                     
                     .. attribute:: neighbor
                     
-                    	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
+                    	A list of mappings from IPv6 addresses to link\-layer addresses. Entries in this list are used as static entries in the Neighbor Cache
                     	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor>`
                     
                     .. attribute:: state
@@ -2998,14 +2993,14 @@ class Interfaces(object):
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv6 address on the interface
+                            	[adapted from IETF IP model RFC 7277] The IPv6 address on the interface
                             	**type**\:  str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: prefix_length
                             
-                            	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                            	[adapted from IETF IP model RFC 7277] The length of the subnet prefix
                             	**type**\:  int
                             
                             	**range:** 0..128
@@ -3059,19 +3054,19 @@ class Interfaces(object):
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv6 address on the interface
+                            	[adapted from IETF IP model RFC 7277] The IPv6 address on the interface
                             	**type**\:  str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: origin
                             
-                            	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
+                            	[adapted from IETF IP model RFC 7277] The origin of this address, e.g., static, dhcp, etc
                             	**type**\:   :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                             
                             .. attribute:: prefix_length
                             
-                            	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                            	[adapted from IETF IP model RFC 7277] The length of the subnet prefix
                             	**type**\:  int
                             
                             	**range:** 0..128
@@ -3080,7 +3075,7 @@ class Interfaces(object):
                             
                             .. attribute:: status
                             
-                            	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
+                            	[adapted from IETF IP model RFC 7277] The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
                             	**type**\:   :py:class:`StatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.StatusEnum>`
                             
                             
@@ -3895,7 +3890,6 @@ class Interfaces(object):
                         """
                         A list of mappings from IPv6 addresses to
                         link\-layer addresses.
-                        
                         Entries in this list are used as static entries in the
                         Neighbor Cache.
                         
@@ -3941,14 +3935,14 @@ class Interfaces(object):
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor node
+                            	[adapted from IETF IP model RFC 7277] The IPv6 address of the neighbor node
                             	**type**\:  str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: link_layer_address
                             
-                            	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
+                            	[adapted from IETF IP model RFC 7277] The link\-layer address of the neighbor node
                             	**type**\:  str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
@@ -4002,19 +3996,19 @@ class Interfaces(object):
                             
                             .. attribute:: ip
                             
-                            	[adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor node
+                            	[adapted from IETF IP model RFC 7277] The IPv6 address of the neighbor node
                             	**type**\:  str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: is_router
                             
-                            	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
+                            	[adapted from IETF IP model RFC 7277] Indicates that the neighbor node acts as a router
                             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: link_layer_address
                             
-                            	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
+                            	[adapted from IETF IP model RFC 7277] The link\-layer address of the neighbor node
                             	**type**\:  str
                             
                             	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
@@ -4023,12 +4017,12 @@ class Interfaces(object):
                             
                             .. attribute:: neighbor_state
                             
-                            	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
+                            	[adapted from IETF IP model RFC 7277] The Neighbor Unreachability Detection state of this entry
                             	**type**\:   :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum>`
                             
                             .. attribute:: origin
                             
-                            	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
+                            	[adapted from IETF IP model RFC 7277] The origin of this neighbor entry
                             	**type**\:   :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                             
                             
@@ -4194,7 +4188,7 @@ class Interfaces(object):
                         
                         .. attribute:: dup_addr_detect_transmits
                         
-                        	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                        	[adapted from IETF IP model RFC 7277] The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -4203,14 +4197,14 @@ class Interfaces(object):
                         
                         .. attribute:: enabled
                         
-                        	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
+                        	[adapted from IETF IP model RFC 7277] Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                         	**type**\:  bool
                         
                         	**default value**\: true
                         
                         .. attribute:: mtu
                         
-                        	[adapted from IETF IP model RFC 7277]  The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                        	[adapted from IETF IP model RFC 7277] The size, in octets, of the largest IPv6 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
                         	**type**\:  int
                         
                         	**range:** 1280..4294967295
@@ -4267,7 +4261,7 @@ class Interfaces(object):
                         
                         .. attribute:: dup_addr_detect_transmits
                         
-                        	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                        	[adapted from IETF IP model RFC 7277] The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -4276,14 +4270,14 @@ class Interfaces(object):
                         
                         .. attribute:: enabled
                         
-                        	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
+                        	[adapted from IETF IP model RFC 7277] Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                         	**type**\:  bool
                         
                         	**default value**\: true
                         
                         .. attribute:: mtu
                         
-                        	[adapted from IETF IP model RFC 7277]  The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                        	[adapted from IETF IP model RFC 7277] The size, in octets, of the largest IPv6 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
                         	**type**\:  int
                         
                         	**range:** 1280..4294967295
@@ -4340,7 +4334,7 @@ class Interfaces(object):
                         
                         .. attribute:: config
                         
-                        	[adapted from IETF IP model RFC 7277]  Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862
+                        	[adapted from IETF IP model RFC 7277] Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862
                         	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config>`
                         
                         .. attribute:: state
@@ -4366,27 +4360,26 @@ class Interfaces(object):
                         class Config(object):
                             """
                             [adapted from IETF IP model RFC 7277]
-                            
                             Parameters to control the autoconfiguration of IPv6
                             addresses, as described in RFC 4862.
                             
                             .. attribute:: create_global_addresses
                             
-                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
+                            	[adapted from IETF IP model RFC 7277] If enabled, the host creates global addresses as described in RFC 4862
                             	**type**\:  bool
                             
                             	**default value**\: true
                             
                             .. attribute:: create_temporary_addresses
                             
-                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
+                            	[adapted from IETF IP model RFC 7277] If enabled, the host creates temporary addresses as described in RFC 4941
                             	**type**\:  bool
                             
                             	**default value**\: false
                             
                             .. attribute:: temporary_preferred_lifetime
                             
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                            	[adapted from IETF IP model RFC 7277] The time period during which the temporary address is preferred
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -4397,7 +4390,7 @@ class Interfaces(object):
                             
                             .. attribute:: temporary_valid_lifetime
                             
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                            	[adapted from IETF IP model RFC 7277] The time period during which the temporary address is valid
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -4460,21 +4453,21 @@ class Interfaces(object):
                             
                             .. attribute:: create_global_addresses
                             
-                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
+                            	[adapted from IETF IP model RFC 7277] If enabled, the host creates global addresses as described in RFC 4862
                             	**type**\:  bool
                             
                             	**default value**\: true
                             
                             .. attribute:: create_temporary_addresses
                             
-                            	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
+                            	[adapted from IETF IP model RFC 7277] If enabled, the host creates temporary addresses as described in RFC 4941
                             	**type**\:  bool
                             
                             	**default value**\: false
                             
                             .. attribute:: temporary_preferred_lifetime
                             
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                            	[adapted from IETF IP model RFC 7277] The time period during which the temporary address is preferred
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -4485,7 +4478,7 @@ class Interfaces(object):
                             
                             .. attribute:: temporary_valid_lifetime
                             
-                            	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                            	[adapted from IETF IP model RFC 7277] The time period during which the temporary address is valid
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -6818,7 +6811,7 @@ class Interfaces(object):
                 
                 .. attribute:: neighbor
                 
-                	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
+                	A list of mappings from IPv4 addresses to link\-layer addresses. Entries in this list are used as static entries in the ARP Cache
                 	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor>`
                 
                 .. attribute:: state
@@ -6908,14 +6901,14 @@ class Interfaces(object):
                         
                         .. attribute:: ip
                         
-                        	[adapted from IETF IP model RFC 7277]  The IPv4 address on the interface
+                        	[adapted from IETF IP model RFC 7277] The IPv4 address on the interface
                         	**type**\:  str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: prefix_length
                         
-                        	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                        	[adapted from IETF IP model RFC 7277] The length of the subnet prefix
                         	**type**\:  int
                         
                         	**range:** 0..32
@@ -6967,7 +6960,7 @@ class Interfaces(object):
                         
                         .. attribute:: ip
                         
-                        	[adapted from IETF IP model RFC 7277]  The IPv4 address on the interface
+                        	[adapted from IETF IP model RFC 7277] The IPv4 address on the interface
                         	**type**\:  str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
@@ -6979,7 +6972,7 @@ class Interfaces(object):
                         
                         .. attribute:: prefix_length
                         
-                        	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                        	[adapted from IETF IP model RFC 7277] The length of the subnet prefix
                         	**type**\:  int
                         
                         	**range:** 0..32
@@ -7655,7 +7648,6 @@ class Interfaces(object):
                     """
                     A list of mappings from IPv4 addresses to
                     link\-layer addresses.
-                    
                     Entries in this list are used as static entries in the
                     ARP Cache.
                     
@@ -7870,7 +7862,7 @@ class Interfaces(object):
                     
                     .. attribute:: mtu
                     
-                    	The size, in octets, of the largest IPv4 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                    	The size, in octets, of the largest IPv4 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
                     	**type**\:  int
                     
                     	**range:** 68..65535
@@ -7930,7 +7922,7 @@ class Interfaces(object):
                     
                     .. attribute:: mtu
                     
-                    	The size, in octets, of the largest IPv4 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                    	The size, in octets, of the largest IPv4 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
                     	**type**\:  int
                     
                     	**range:** 68..65535
@@ -8037,7 +8029,7 @@ class Interfaces(object):
                 
                 .. attribute:: neighbor
                 
-                	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
+                	A list of mappings from IPv6 addresses to link\-layer addresses. Entries in this list are used as static entries in the Neighbor Cache
                 	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor>`
                 
                 .. attribute:: state
@@ -8129,14 +8121,14 @@ class Interfaces(object):
                         
                         .. attribute:: ip
                         
-                        	[adapted from IETF IP model RFC 7277]  The IPv6 address on the interface
+                        	[adapted from IETF IP model RFC 7277] The IPv6 address on the interface
                         	**type**\:  str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: prefix_length
                         
-                        	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                        	[adapted from IETF IP model RFC 7277] The length of the subnet prefix
                         	**type**\:  int
                         
                         	**range:** 0..128
@@ -8190,19 +8182,19 @@ class Interfaces(object):
                         
                         .. attribute:: ip
                         
-                        	[adapted from IETF IP model RFC 7277]  The IPv6 address on the interface
+                        	[adapted from IETF IP model RFC 7277] The IPv6 address on the interface
                         	**type**\:  str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: origin
                         
-                        	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
+                        	[adapted from IETF IP model RFC 7277] The origin of this address, e.g., static, dhcp, etc
                         	**type**\:   :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                         
                         .. attribute:: prefix_length
                         
-                        	[adapted from IETF IP model RFC 7277]  The length of the subnet prefix
+                        	[adapted from IETF IP model RFC 7277] The length of the subnet prefix
                         	**type**\:  int
                         
                         	**range:** 0..128
@@ -8211,7 +8203,7 @@ class Interfaces(object):
                         
                         .. attribute:: status
                         
-                        	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
+                        	[adapted from IETF IP model RFC 7277] The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
                         	**type**\:   :py:class:`StatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.State.StatusEnum>`
                         
                         
@@ -9026,7 +9018,6 @@ class Interfaces(object):
                     """
                     A list of mappings from IPv6 addresses to
                     link\-layer addresses.
-                    
                     Entries in this list are used as static entries in the
                     Neighbor Cache.
                     
@@ -9072,14 +9063,14 @@ class Interfaces(object):
                         
                         .. attribute:: ip
                         
-                        	[adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor node
+                        	[adapted from IETF IP model RFC 7277] The IPv6 address of the neighbor node
                         	**type**\:  str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: link_layer_address
                         
-                        	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
+                        	[adapted from IETF IP model RFC 7277] The link\-layer address of the neighbor node
                         	**type**\:  str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
@@ -9133,19 +9124,19 @@ class Interfaces(object):
                         
                         .. attribute:: ip
                         
-                        	[adapted from IETF IP model RFC 7277]  The IPv6 address of the neighbor node
+                        	[adapted from IETF IP model RFC 7277] The IPv6 address of the neighbor node
                         	**type**\:  str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: is_router
                         
-                        	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
+                        	[adapted from IETF IP model RFC 7277] Indicates that the neighbor node acts as a router
                         	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: link_layer_address
                         
-                        	[adapted from IETF IP model RFC 7277]  The link\-layer address of the neighbor node
+                        	[adapted from IETF IP model RFC 7277] The link\-layer address of the neighbor node
                         	**type**\:  str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
@@ -9154,12 +9145,12 @@ class Interfaces(object):
                         
                         .. attribute:: neighbor_state
                         
-                        	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
+                        	[adapted from IETF IP model RFC 7277] The Neighbor Unreachability Detection state of this entry
                         	**type**\:   :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum>`
                         
                         .. attribute:: origin
                         
-                        	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
+                        	[adapted from IETF IP model RFC 7277] The origin of this neighbor entry
                         	**type**\:   :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                         
                         
@@ -9325,7 +9316,7 @@ class Interfaces(object):
                     
                     .. attribute:: dup_addr_detect_transmits
                     
-                    	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                    	[adapted from IETF IP model RFC 7277] The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -9334,14 +9325,14 @@ class Interfaces(object):
                     
                     .. attribute:: enabled
                     
-                    	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
+                    	[adapted from IETF IP model RFC 7277] Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                     	**type**\:  bool
                     
                     	**default value**\: true
                     
                     .. attribute:: mtu
                     
-                    	[adapted from IETF IP model RFC 7277]  The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                    	[adapted from IETF IP model RFC 7277] The size, in octets, of the largest IPv6 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
                     	**type**\:  int
                     
                     	**range:** 1280..4294967295
@@ -9398,7 +9389,7 @@ class Interfaces(object):
                     
                     .. attribute:: dup_addr_detect_transmits
                     
-                    	[adapted from IETF IP model RFC 7277]  The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
+                    	[adapted from IETF IP model RFC 7277] The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a tentative address.  A value of zero indicates that Duplicate Address Detection is not performed on tentative addresses.  A value of one indicates a single transmission with no follow\-up retransmissions
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -9407,14 +9398,14 @@ class Interfaces(object):
                     
                     .. attribute:: enabled
                     
-                    	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
+                    	[adapted from IETF IP model RFC 7277] Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                     	**type**\:  bool
                     
                     	**default value**\: true
                     
                     .. attribute:: mtu
                     
-                    	[adapted from IETF IP model RFC 7277]  The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
+                    	[adapted from IETF IP model RFC 7277] The size, in octets, of the largest IPv6 packet that the interface will send and receive. The server may restrict the allowed values for this leaf, depending on the interface's type. If this leaf is not configured, the operationally used MTU depends on the interface's type
                     	**type**\:  int
                     
                     	**range:** 1280..4294967295
@@ -9471,7 +9462,7 @@ class Interfaces(object):
                     
                     .. attribute:: config
                     
-                    	[adapted from IETF IP model RFC 7277]  Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862
+                    	[adapted from IETF IP model RFC 7277] Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862
                     	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf.Config>`
                     
                     .. attribute:: state
@@ -9497,27 +9488,26 @@ class Interfaces(object):
                     class Config(object):
                         """
                         [adapted from IETF IP model RFC 7277]
-                        
                         Parameters to control the autoconfiguration of IPv6
                         addresses, as described in RFC 4862.
                         
                         .. attribute:: create_global_addresses
                         
-                        	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
+                        	[adapted from IETF IP model RFC 7277] If enabled, the host creates global addresses as described in RFC 4862
                         	**type**\:  bool
                         
                         	**default value**\: true
                         
                         .. attribute:: create_temporary_addresses
                         
-                        	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
+                        	[adapted from IETF IP model RFC 7277] If enabled, the host creates temporary addresses as described in RFC 4941
                         	**type**\:  bool
                         
                         	**default value**\: false
                         
                         .. attribute:: temporary_preferred_lifetime
                         
-                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                        	[adapted from IETF IP model RFC 7277] The time period during which the temporary address is preferred
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -9528,7 +9518,7 @@ class Interfaces(object):
                         
                         .. attribute:: temporary_valid_lifetime
                         
-                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                        	[adapted from IETF IP model RFC 7277] The time period during which the temporary address is valid
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -9591,21 +9581,21 @@ class Interfaces(object):
                         
                         .. attribute:: create_global_addresses
                         
-                        	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
+                        	[adapted from IETF IP model RFC 7277] If enabled, the host creates global addresses as described in RFC 4862
                         	**type**\:  bool
                         
                         	**default value**\: true
                         
                         .. attribute:: create_temporary_addresses
                         
-                        	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
+                        	[adapted from IETF IP model RFC 7277] If enabled, the host creates temporary addresses as described in RFC 4941
                         	**type**\:  bool
                         
                         	**default value**\: false
                         
                         .. attribute:: temporary_preferred_lifetime
                         
-                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is preferred
+                        	[adapted from IETF IP model RFC 7277] The time period during which the temporary address is preferred
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -9616,7 +9606,7 @@ class Interfaces(object):
                         
                         .. attribute:: temporary_valid_lifetime
                         
-                        	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
+                        	[adapted from IETF IP model RFC 7277] The time period during which the temporary address is valid
                         	**type**\:  int
                         
                         	**range:** 0..4294967295

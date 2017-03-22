@@ -173,10 +173,10 @@ class Macsec(object):
         
         .. attribute:: name  <key>
         
-        	Name of the Policy
+        	Name of the Policy of maximum length 16
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+        	**length:** 1..16
         
         .. attribute:: cipher_suite
         
@@ -187,6 +187,16 @@ class Macsec(object):
         
         	Conf\-Offset of Policy
         	**type**\:   :py:class:`MacsecMkaConfOffsetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaConfOffsetEnum>`
+        
+        .. attribute:: delay_protection
+        
+        	TRUE enables data delay protection
+        	**type**\:  bool
+        
+        .. attribute:: include_icv_indicator
+        
+        	TRUE enables Include ICV Indicator paramset in MKPDU
+        	**type**\:  bool
         
         .. attribute:: key_server_priority
         
@@ -199,6 +209,15 @@ class Macsec(object):
         
         	Macsec policy exception for packets to be in clear
         	**type**\:   :py:class:`MacsecMkaPolicyExceptionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaPolicyExceptionEnum>`
+        
+        .. attribute:: sak_rekey_interval
+        
+        	Interval after which key\-server generates new SAK for a Secured Session
+        	**type**\:  int
+        
+        	**range:** 0..43200
+        
+        	**units**\: minute
         
         .. attribute:: security_policy
         
@@ -231,8 +250,11 @@ class Macsec(object):
             self.name = None
             self.cipher_suite = None
             self.conf_offset = None
+            self.delay_protection = None
+            self.include_icv_indicator = None
             self.key_server_priority = None
             self.policy_exception = None
+            self.sak_rekey_interval = None
             self.security_policy = None
             self.vlan_tags_in_clear = None
             self.window_size = None
@@ -260,10 +282,19 @@ class Macsec(object):
             if self.conf_offset is not None:
                 return True
 
+            if self.delay_protection is not None:
+                return True
+
+            if self.include_icv_indicator is not None:
+                return True
+
             if self.key_server_priority is not None:
                 return True
 
             if self.policy_exception is not None:
+                return True
+
+            if self.sak_rekey_interval is not None:
                 return True
 
             if self.security_policy is not None:

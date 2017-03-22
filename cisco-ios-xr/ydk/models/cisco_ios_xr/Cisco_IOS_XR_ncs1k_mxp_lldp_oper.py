@@ -335,22 +335,15 @@ class LldpSnoopData(object):
             
             	**length:** 0..40
             
-            .. attribute:: network_address
+            .. attribute:: network_addresses
             
-            	Management Address
-            	**type**\:   :py:class:`NetworkAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress>`
+            	Management Addresses
+            	**type**\:   :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses>`
             
             .. attribute:: port_description
             
             	Port Description
             	**type**\:  str
-            
-            .. attribute:: port_id_ckt
-            
-            	Outgoing port identifier circuit id
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
             
             .. attribute:: port_id_detail
             
@@ -399,10 +392,9 @@ class LldpSnoopData(object):
                 self.enabled_capabilities = None
                 self.hold_time = None
                 self.lldp_neighbor = None
-                self.network_address = LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress()
-                self.network_address.parent = self
+                self.network_addresses = LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses()
+                self.network_addresses.parent = self
                 self.port_description = None
-                self.port_id_ckt = None
                 self.port_id_detail = None
                 self.rx_lldp_pkts = None
                 self.source_mac = None
@@ -411,28 +403,14 @@ class LldpSnoopData(object):
                 self.system_name = None
 
 
-            class NetworkAddress(object):
+            class NetworkAddresses(object):
                 """
-                Management Address
+                Management Addresses
                 
-                .. attribute:: address
+                .. attribute:: lldp_addr_entry
                 
-                	Network layer address
-                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address>`
-                
-                .. attribute:: if_num
-                
-                	Interface num
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ma_subtype
-                
-                	MA sub type
-                	**type**\:  int
-                
-                	**range:** 0..255
+                	lldp addr entry
+                	**type**\: list of    :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry>`
                 
                 
 
@@ -443,34 +421,33 @@ class LldpSnoopData(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.address = LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address()
-                    self.address.parent = self
-                    self.if_num = None
-                    self.ma_subtype = None
+                    self.lldp_addr_entry = YList()
+                    self.lldp_addr_entry.parent = self
+                    self.lldp_addr_entry.name = 'lldp_addr_entry'
 
 
-                class Address(object):
+                class LldpAddrEntry(object):
                     """
-                    Network layer address
+                    lldp addr entry
                     
-                    .. attribute:: address_type
+                    .. attribute:: address
                     
-                    	AddressType
-                    	**type**\:   :py:class:`LldpL3AddrProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpL3AddrProtocolEnum>`
+                    	Network layer address
+                    	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address>`
                     
-                    .. attribute:: ipv4_address
+                    .. attribute:: if_num
                     
-                    	IPv4 address
-                    	**type**\:  str
+                    	Interface num
+                    	**type**\:  int
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: ipv6_address
+                    .. attribute:: ma_subtype
                     
-                    	IPv6 address
-                    	**type**\:  str
+                    	MA sub type
+                    	**type**\:  int
                     
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    	**range:** 0..255
                     
                     
 
@@ -481,16 +458,84 @@ class LldpSnoopData(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.address_type = None
-                        self.ipv4_address = None
-                        self.ipv6_address = None
+                        self.address = LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address()
+                        self.address.parent = self
+                        self.if_num = None
+                        self.ma_subtype = None
+
+
+                    class Address(object):
+                        """
+                        Network layer address
+                        
+                        .. attribute:: address_type
+                        
+                        	AddressType
+                        	**type**\:   :py:class:`LldpL3AddrProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpL3AddrProtocolEnum>`
+                        
+                        .. attribute:: ipv4_address
+                        
+                        	IPv4 address
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 address
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs1k-mxp-lldp-oper'
+                        _revision = '2016-10-13'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.address_type = None
+                            self.ipv4_address = None
+                            self.ipv6_address = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:address'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.address_type is not None:
+                                return True
+
+                            if self.ipv4_address is not None:
+                                return True
+
+                            if self.ipv6_address is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_lldp_oper as meta
+                            return meta._meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address']['meta_info']
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:address'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-addr-entry'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -499,13 +544,13 @@ class LldpSnoopData(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.address_type is not None:
+                        if self.address is not None and self.address._has_data():
                             return True
 
-                        if self.ipv4_address is not None:
+                        if self.if_num is not None:
                             return True
 
-                        if self.ipv6_address is not None:
+                        if self.ma_subtype is not None:
                             return True
 
                         return False
@@ -513,14 +558,14 @@ class LldpSnoopData(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_lldp_oper as meta
-                        return meta._meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address']['meta_info']
+                        return meta._meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry']['meta_info']
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:network-address'
+                    return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-lldp-oper:network-addresses'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -529,21 +574,17 @@ class LldpSnoopData(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.address is not None and self.address._has_data():
-                        return True
-
-                    if self.if_num is not None:
-                        return True
-
-                    if self.ma_subtype is not None:
-                        return True
+                    if self.lldp_addr_entry is not None:
+                        for child_ref in self.lldp_addr_entry:
+                            if child_ref._has_data():
+                                return True
 
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_lldp_oper as meta
-                    return meta._meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress']['meta_info']
+                    return meta._meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses']['meta_info']
 
             @property
             def _common_path(self):
@@ -577,13 +618,10 @@ class LldpSnoopData(object):
                 if self.lldp_neighbor is not None:
                     return True
 
-                if self.network_address is not None and self.network_address._has_data():
+                if self.network_addresses is not None and self.network_addresses._has_data():
                     return True
 
                 if self.port_description is not None:
-                    return True
-
-                if self.port_id_ckt is not None:
                     return True
 
                 if self.port_id_detail is not None:

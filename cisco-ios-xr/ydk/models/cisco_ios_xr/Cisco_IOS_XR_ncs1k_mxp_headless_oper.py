@@ -45,7 +45,7 @@ class HeadlessFuncData(object):
     """
 
     _prefix = 'ncs1k-mxp-headless-oper'
-    _revision = '2016-08-26'
+    _revision = '2016-09-13'
 
     def __init__(self):
         self.ethernet_port_names = HeadlessFuncData.EthernetPortNames()
@@ -69,7 +69,7 @@ class HeadlessFuncData(object):
         """
 
         _prefix = 'ncs1k-mxp-headless-oper'
-        _revision = '2016-08-26'
+        _revision = '2016-09-13'
 
         def __init__(self):
             self.parent = None
@@ -118,7 +118,7 @@ class HeadlessFuncData(object):
             """
 
             _prefix = 'ncs1k-mxp-headless-oper'
-            _revision = '2016-08-26'
+            _revision = '2016-09-13'
 
             def __init__(self):
                 self.parent = None
@@ -167,7 +167,7 @@ class HeadlessFuncData(object):
                 """
 
                 _prefix = 'ncs1k-mxp-headless-oper'
-                _revision = '2016-08-26'
+                _revision = '2016-09-13'
 
                 def __init__(self):
                     self.parent = None
@@ -285,7 +285,7 @@ class HeadlessFuncData(object):
         """
 
         _prefix = 'ncs1k-mxp-headless-oper'
-        _revision = '2016-08-26'
+        _revision = '2016-09-13'
 
         def __init__(self):
             self.parent = None
@@ -334,7 +334,7 @@ class HeadlessFuncData(object):
             """
 
             _prefix = 'ncs1k-mxp-headless-oper'
-            _revision = '2016-08-26'
+            _revision = '2016-09-13'
 
             def __init__(self):
                 self.parent = None
@@ -349,6 +349,13 @@ class HeadlessFuncData(object):
             class EtherStatistics(object):
                 """
                 Ether Statistics
+                
+                .. attribute:: rx8021q_pkt
+                
+                	Rx8021QPkt
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_bytes_good
                 
@@ -572,10 +579,11 @@ class HeadlessFuncData(object):
                 """
 
                 _prefix = 'ncs1k-mxp-headless-oper'
-                _revision = '2016-08-26'
+                _revision = '2016-09-13'
 
                 def __init__(self):
                     self.parent = None
+                    self.rx8021q_pkt = None
                     self.rx_bytes_good = None
                     self.rx_error_jabbers = None
                     self.rx_lldp_pkt = None
@@ -622,6 +630,9 @@ class HeadlessFuncData(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
+                    if self.rx8021q_pkt is not None:
+                        return True
+
                     if self.rx_bytes_good is not None:
                         return True
 

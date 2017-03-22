@@ -30,25 +30,25 @@ class EtherCtrlTransportModeEnum(Enum):
 
     Ether ctrl transport mode
 
-    .. data:: WAN = 1
+    .. data:: wan = 1
 
     	WAN
 
-    .. data:: OTNOPU1E = 2
+    .. data:: otnopu1e = 2
 
     	OTNOPUle
 
-    .. data:: OTNOPU2E = 3
+    .. data:: otnopu2e = 3
 
     	OTNOPU2e
 
     """
 
-    WAN = 1
+    wan = 1
 
-    OTNOPU1E = 2
+    otnopu1e = 2
 
-    OTNOPU2E = 3
+    otnopu2e = 3
 
 
     @staticmethod
@@ -63,13 +63,13 @@ class PermitPluggableEnum(Enum):
 
     Permit pluggable
 
-    .. data:: ALL = 1
+    .. data:: all = 1
 
     	ALL types
 
     """
 
-    ALL = 1
+    all = 1
 
 
     @staticmethod
@@ -84,13 +84,13 @@ class PermitPluggablePidEnum(Enum):
 
     Permit pluggable pid
 
-    .. data:: ALL = 1
+    .. data:: all = 1
 
     	ALL PIDs
 
     """
 
-    ALL = 1
+    all = 1
 
 
     @staticmethod

@@ -1300,6 +1300,33 @@ class OspfAreaModeEnum(Enum):
         return meta._meta_table['OspfAreaModeEnum']
 
 
+class OtnDestinationEnum(Enum):
+    """
+    OtnDestinationEnum
+
+    Otn destination
+
+    .. data:: number_ed = 0
+
+    	Destination numbered
+
+    .. data:: un_number_ed = 1
+
+    	Destination unnumbered
+
+    """
+
+    number_ed = 0
+
+    un_number_ed = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnDestinationEnum']
+
+
 class OtnPayloadEnum(Enum):
     """
     OtnPayloadEnum
@@ -1502,6 +1529,39 @@ class OtnSignaledBandwidthFlexFramingEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
         return meta._meta_table['OtnSignaledBandwidthFlexFramingEnum']
+
+
+class OtnStaticUniEnum(Enum):
+    """
+    OtnStaticUniEnum
+
+    Otn static uni
+
+    .. data:: unknown = 0
+
+    	Uni-Type None
+
+    .. data:: xc = 1
+
+    	Uni-Type XC
+
+    .. data:: termination = 2
+
+    	Uni-Type Termination
+
+    """
+
+    unknown = 0
+
+    xc = 1
+
+    termination = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+        return meta._meta_table['OtnStaticUniEnum']
 
 
 class PathInvalidationActionEnum(Enum):
@@ -1921,7 +1981,7 @@ class MplsTe(object):
                 	Tunnel name
                 	**type**\:  str
                 
-                	**length:** 0..59
+                	**length:** 1..59
                 
                 .. attribute:: tunnel_type  <key>
                 
@@ -3323,6 +3383,11 @@ class MplsTe(object):
                             	Enable autoroute announce
                             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
+                            .. attribute:: exclude_traffic
+                            
+                            	Exclude traffic on autorouted tunnel
+                            	**type**\:   :py:class:`ExcludeTraffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic>`
+                            
                             .. attribute:: include_ipv6
                             
                             	Specify that the tunnel should be an IPv6 autoroute announce also
@@ -3343,9 +3408,56 @@ class MplsTe(object):
                             def __init__(self):
                                 self.parent = None
                                 self.enable = None
+                                self.exclude_traffic = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic()
+                                self.exclude_traffic.parent = self
                                 self.include_ipv6 = None
                                 self.metric = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric()
                                 self.metric.parent = self
+
+
+                            class ExcludeTraffic(object):
+                                """
+                                Exclude traffic on autorouted tunnel
+                                
+                                .. attribute:: segment_routing
+                                
+                                	Exclude tunnel in IGP for SR prefixes
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-te-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.segment_routing = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:exclude-traffic'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.segment_routing is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                                    return meta._meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic']['meta_info']
 
 
                             class Metric(object):
@@ -3440,6 +3552,9 @@ class MplsTe(object):
                                 if not self.is_config():
                                     return False
                                 if self.enable is not None:
+                                    return True
+
+                                if self.exclude_traffic is not None and self.exclude_traffic._has_data():
                                     return True
 
                                 if self.include_ipv6 is not None:
@@ -5684,7 +5799,7 @@ class MplsTe(object):
                     	The name of the tunnel to be included in signalling messages
                     	**type**\:  str
                     
-                    	**length:** 0..254
+                    	**length:** 1..254
                     
                     .. attribute:: tunnel_id
                     
@@ -5806,7 +5921,7 @@ class MplsTe(object):
                             	The name of the XRO attribute set to be used for this path\-option
                             	**type**\:  str
                             
-                            	**length:** 0..64
+                            	**length:** 1..64
                             
                             .. attribute:: xro_type
                             
@@ -6340,6 +6455,11 @@ class MplsTe(object):
         
         	**default value**\: 120
         
+        .. attribute:: lsp_out_of_resource
+        
+        	Configure LSP OOR attributes in MPLS\-TE
+        	**type**\:   :py:class:`LspOutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.LspOutOfResource>`
+        
         .. attribute:: maximum_tunnels
         
         	The maximum number of tunnel heads that will be allowed
@@ -6494,6 +6614,8 @@ class MplsTe(object):
             self.log_preemption = None
             self.log_tail = None
             self.loose_path_retry_period = None
+            self.lsp_out_of_resource = MplsTe.GlobalAttributes.LspOutOfResource()
+            self.lsp_out_of_resource.parent = self
             self.maximum_tunnels = None
             self.mib = MplsTe.GlobalAttributes.Mib()
             self.mib.parent = self
@@ -7062,7 +7184,7 @@ class MplsTe(object):
                         	The name of auto\-mesh attribute set to be applied to this group
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         .. attribute:: create
                         
@@ -7074,7 +7196,7 @@ class MplsTe(object):
                         	The name of prefix\-list to be applied to this destination\-list
                         	**type**\:  str
                         
-                        	**length:** 0..32
+                        	**length:** 1..32
                         
                         .. attribute:: disable
                         
@@ -8015,7 +8137,7 @@ class MplsTe(object):
                     	SRLG membership name
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: admin_weight
                     
@@ -8712,7 +8834,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: affinity_mask
                     
@@ -8873,7 +8995,7 @@ class MplsTe(object):
                         	Path selection exclude list name configuration
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         
 
@@ -10883,7 +11005,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: affinity_mask
                     
@@ -12956,7 +13078,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: affinity_mask
                     
@@ -15273,7 +15395,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: affinity_mask
                     
@@ -17252,7 +17374,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: aps_protection_mode
                     
@@ -17350,7 +17472,7 @@ class MplsTe(object):
                             	Enter 64 characters for revert schedule name
                             	**type**\:  str
                             
-                            	**length:** 0..254
+                            	**length:** 1..254
                             
                             .. attribute:: revert_schedule_frequency
                             
@@ -17919,7 +18041,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: affinity_mask
                     
@@ -20084,7 +20206,7 @@ class MplsTe(object):
                     	Attribute Set Name
                     	**type**\:  str
                     
-                    	**length:** 0..64
+                    	**length:** 1..64
                     
                     .. attribute:: enable
                     
@@ -20846,7 +20968,7 @@ class MplsTe(object):
             	Keychain based authentication
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: logging
             
@@ -20916,7 +21038,7 @@ class MplsTe(object):
             	PCE speaker entity identifier
             	**type**\:  str
             
-            	**length:** 0..256
+            	**length:** 1..256
             
             .. attribute:: timer
             
@@ -21196,7 +21318,7 @@ class MplsTe(object):
                     	Keychain based authentication
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: password
                     
@@ -21441,6 +21563,172 @@ class MplsTe(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
                 return meta._meta_table['MplsTe.GlobalAttributes.PceAttributes']['meta_info']
+
+
+        class LspOutOfResource(object):
+            """
+            Configure LSP OOR attributes in MPLS\-TE
+            
+            .. attribute:: lsp_oor_red_state
+            
+            	Configuration for LSP OOR Red/Major State
+            	**type**\:   :py:class:`LspOorRedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState>`
+            
+            .. attribute:: lsp_oor_yellow_state
+            
+            	Configuration for LSP OOR Yellow/Minor State
+            	**type**\:   :py:class:`LspOorYellowState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-te-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.lsp_oor_red_state = MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState()
+                self.lsp_oor_red_state.parent = self
+                self.lsp_oor_yellow_state = MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState()
+                self.lsp_oor_yellow_state.parent = self
+
+
+            class LspOorRedState(object):
+                """
+                Configuration for LSP OOR Red/Major State
+                
+                .. attribute:: all_transit_lsp_threshold
+                
+                	Threshold for all transit LSPs
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: unprotected_transit_lsp_threshold
+                
+                	Threshold for unprotected transit LSPs
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.all_transit_lsp_threshold = None
+                    self.unprotected_transit_lsp_threshold = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:lsp-out-of-resource/Cisco-IOS-XR-mpls-te-cfg:lsp-oor-red-state'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.all_transit_lsp_threshold is not None:
+                        return True
+
+                    if self.unprotected_transit_lsp_threshold is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState']['meta_info']
+
+
+            class LspOorYellowState(object):
+                """
+                Configuration for LSP OOR Yellow/Minor State
+                
+                .. attribute:: all_transit_lsp_threshold
+                
+                	Threshold for all transit LSPs
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: unprotected_transit_lsp_threshold
+                
+                	Threshold for unprotected transit LSPs
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.all_transit_lsp_threshold = None
+                    self.unprotected_transit_lsp_threshold = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:lsp-out-of-resource/Cisco-IOS-XR-mpls-te-cfg:lsp-oor-yellow-state'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.all_transit_lsp_threshold is not None:
+                        return True
+
+                    if self.unprotected_transit_lsp_threshold is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                    return meta._meta_table['MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-mpls-te-cfg:mpls-te/Cisco-IOS-XR-mpls-te-cfg:global-attributes/Cisco-IOS-XR-mpls-te-cfg:lsp-out-of-resource'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.lsp_oor_red_state is not None and self.lsp_oor_red_state._has_data():
+                    return True
+
+                if self.lsp_oor_yellow_state is not None and self.lsp_oor_yellow_state._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                return meta._meta_table['MplsTe.GlobalAttributes.LspOutOfResource']['meta_info']
 
 
         class SoftPreemption(object):
@@ -22099,7 +22387,7 @@ class MplsTe(object):
                 	Affinity Name
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 .. attribute:: value
                 
@@ -22256,6 +22544,9 @@ class MplsTe(object):
                 return True
 
             if self.loose_path_retry_period is not None:
+                return True
+
+            if self.lsp_out_of_resource is not None and self.lsp_out_of_resource._has_data():
                 return True
 
             if self.maximum_tunnels is not None:
@@ -22941,7 +23232,7 @@ class MplsTe(object):
                 	Name of mid\-point
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 .. attribute:: destination
                 
@@ -24042,7 +24333,7 @@ class MplsTe(object):
                     	Process name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -24580,7 +24871,7 @@ class MplsTe(object):
                         	Tunnel name
                         	**type**\:  str
                         
-                        	**length:** 0..59
+                        	**length:** 1..59
                         
                         
 
@@ -24677,7 +24968,7 @@ class MplsTe(object):
                         	The name of attribute set to be applied to this auto backup lsp
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         .. attribute:: enable
                         
@@ -25071,7 +25362,7 @@ class MplsTe(object):
                 	Name of IGP instance
                 	**type**\:  str
                 
-                	**length:** 0..40
+                	**length:** 1..40
                 
                 .. attribute:: igp_type  <key>
                 
@@ -25734,9 +26025,7 @@ class MplsTe(object):
                 .. attribute:: destination
                 
                 	The existence of this configuration indicates the destination has been set for the tunnel
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination>`
                 
                 .. attribute:: enable
                 
@@ -25758,7 +26047,7 @@ class MplsTe(object):
                 	The name of the path\-protection profile to be included in signalling messages
                 	**type**\:  str
                 
-                	**length:** 0..64
+                	**length:** 1..64
                 
                 .. attribute:: path_selection_metric
                 
@@ -25800,7 +26089,7 @@ class MplsTe(object):
                 	The name of the tunnel to be included in signalling messages
                 	**type**\:  str
                 
-                	**length:** 0..254
+                	**length:** 1..254
                 
                 .. attribute:: standby_lsp_shutdown
                 
@@ -25823,7 +26112,8 @@ class MplsTe(object):
                     self.parent = None
                     self.tunnel_id = None
                     self.current_lsp_shutdown = None
-                    self.destination = None
+                    self.destination = MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination()
+                    self.destination.parent = self
                     self.enable = None
                     self.logging = MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging()
                     self.logging.parent = self
@@ -25912,6 +26202,74 @@ class MplsTe(object):
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
                         return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth']['meta_info']
+
+
+                class Destination(object):
+                    """
+                    The existence of this configuration indicates
+                    the destination has been set for the tunnel
+                    
+                    .. attribute:: destination
+                    
+                    	IPV4 tunnel destination
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: destination_type
+                    
+                    	Destination type whether it is unicast or unnumbered
+                    	**type**\:   :py:class:`OtnDestinationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnDestinationEnum>`
+                    
+                    .. attribute:: interface_if_index
+                    
+                    	Interface index of port
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-te-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.destination = None
+                        self.destination_type = None
+                        self.interface_if_index = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:destination'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.destination is not None:
+                            return True
+
+                        if self.destination_type is not None:
+                            return True
+
+                        if self.interface_if_index is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_cfg as meta
+                        return meta._meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination']['meta_info']
 
 
                 class ProtectionSwitching(object):
@@ -26136,7 +26494,7 @@ class MplsTe(object):
                         	The name of the XRO attribute set to be used for this path\-option
                         	**type**\:  str
                         
-                        	**length:** 0..64
+                        	**length:** 1..64
                         
                         .. attribute:: xro_type
                         
@@ -26254,12 +26612,22 @@ class MplsTe(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: egress_type
+                    
+                    	Egress type whether it is xconnect or terminated
+                    	**type**\:   :py:class:`OtnStaticUniEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUniEnum>`
+                    
                     .. attribute:: ingress_controller_name
                     
                     	Name of  ingress controller
                     	**type**\:  str
                     
-                    	**length:** 0..255
+                    	**length:** 1..255
+                    
+                    .. attribute:: ingress_type
+                    
+                    	Ingress type whether it is xconnect or terminated
+                    	**type**\:   :py:class:`OtnStaticUniEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.OtnStaticUniEnum>`
                     
                     
 
@@ -26271,7 +26639,9 @@ class MplsTe(object):
                     def __init__(self):
                         self.parent = None
                         self.egress_controller_if_index = None
+                        self.egress_type = None
                         self.ingress_controller_name = None
+                        self.ingress_type = None
 
                     @property
                     def _common_path(self):
@@ -26290,7 +26660,13 @@ class MplsTe(object):
                         if self.egress_controller_if_index is not None:
                             return True
 
+                        if self.egress_type is not None:
+                            return True
+
                         if self.ingress_controller_name is not None:
+                            return True
+
+                        if self.ingress_type is not None:
                             return True
 
                         return False
@@ -26320,7 +26696,7 @@ class MplsTe(object):
                     if self.current_lsp_shutdown is not None:
                         return True
 
-                    if self.destination is not None:
+                    if self.destination is not None and self.destination._has_data():
                         return True
 
                     if self.enable is not None:

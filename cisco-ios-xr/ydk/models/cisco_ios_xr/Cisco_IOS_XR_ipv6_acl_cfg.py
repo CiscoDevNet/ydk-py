@@ -82,7 +82,7 @@ class Ipv6AclAndPrefixList(object):
     """
 
     _prefix = 'ipv6-acl-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-11-07'
 
     def __init__(self):
         self.accesses = Ipv6AclAndPrefixList.Accesses()
@@ -107,7 +107,7 @@ class Ipv6AclAndPrefixList(object):
         """
 
         _prefix = 'ipv6-acl-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-11-07'
 
         def __init__(self):
             self.parent = None
@@ -125,7 +125,7 @@ class Ipv6AclAndPrefixList(object):
             	Name of a prefix list
             	**type**\:  str
             
-            	**length:** 0..65
+            	**length:** 1..65
             
             .. attribute:: prefix_list_entries
             
@@ -139,7 +139,7 @@ class Ipv6AclAndPrefixList(object):
             """
 
             _prefix = 'ipv6-acl-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-11-07'
 
             def __init__(self):
                 self.parent = None
@@ -168,7 +168,7 @@ class Ipv6AclAndPrefixList(object):
                 """
 
                 _prefix = 'ipv6-acl-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-11-07'
 
                 def __init__(self):
                     self.parent = None
@@ -265,7 +265,7 @@ class Ipv6AclAndPrefixList(object):
                     """
 
                     _prefix = 'ipv6-acl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-11-07'
 
                     def __init__(self):
                         self.parent = None
@@ -448,7 +448,7 @@ class Ipv6AclAndPrefixList(object):
         """
 
         _prefix = 'ipv6-acl-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-11-07'
 
         def __init__(self):
             self.parent = None
@@ -495,7 +495,7 @@ class Ipv6AclAndPrefixList(object):
         """
 
         _prefix = 'ipv6-acl-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-11-07'
 
         def __init__(self):
             self.parent = None
@@ -513,7 +513,7 @@ class Ipv6AclAndPrefixList(object):
             	Name of the access list
             	**type**\:  str
             
-            	**length:** 0..65
+            	**length:** 1..65
             
             .. attribute:: access_list_entries
             
@@ -525,7 +525,7 @@ class Ipv6AclAndPrefixList(object):
             """
 
             _prefix = 'ipv6-acl-cfg'
-            _revision = '2015-11-09'
+            _revision = '2016-11-07'
 
             def __init__(self):
                 self.parent = None
@@ -549,7 +549,7 @@ class Ipv6AclAndPrefixList(object):
                 """
 
                 _prefix = 'ipv6-acl-cfg'
-                _revision = '2015-11-09'
+                _revision = '2016-11-07'
 
                 def __init__(self):
                     self.parent = None
@@ -684,6 +684,33 @@ class Ipv6AclAndPrefixList(object):
                     
                     
                     ----
+                    .. attribute:: protocol2
+                    
+                    	Protocol2 to match
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:   :py:class:`Ipv6AclProtocolNumberEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclProtocolNumberEnum>`
+                    
+                    
+                    ----
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    
+                    ----
+                    .. attribute:: protocol_operator
+                    
+                    	Protocol operator. Leave unspecified if no protocol comparison is to be done
+                    	**type**\:   :py:class:`Ipv6AclOperatorEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclOperatorEnumEnum>`
+                    
+                    .. attribute:: qos_group
+                    
+                    	Set qos\-group number
+                    	**type**\:  int
+                    
+                    	**range:** 0..512
+                    
                     .. attribute:: remark
                     
                     	Comments or a description for the access list
@@ -730,12 +757,17 @@ class Ipv6AclAndPrefixList(object):
                     	TTL settings
                     	**type**\:   :py:class:`TimeToLive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg.Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive>`
                     
+                    .. attribute:: undetermined_transport
+                    
+                    	Enable undetermined\-transport
+                    	**type**\:  bool
+                    
                     
 
                     """
 
                     _prefix = 'ipv6-acl-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2016-11-07'
 
                     def __init__(self):
                         self.parent = None
@@ -762,6 +794,9 @@ class Ipv6AclAndPrefixList(object):
                         self.packet_length.parent = self
                         self.precedence = None
                         self.protocol = None
+                        self.protocol2 = None
+                        self.protocol_operator = None
+                        self.qos_group = None
                         self.remark = None
                         self.sequence_str = None
                         self.source_network = Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork()
@@ -774,6 +809,7 @@ class Ipv6AclAndPrefixList(object):
                         self.tcp.parent = self
                         self.time_to_live = Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive()
                         self.time_to_live.parent = self
+                        self.undetermined_transport = None
 
 
                     class SourceNetwork(object):
@@ -806,7 +842,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -875,7 +911,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -958,7 +994,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1041,7 +1077,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1094,7 +1130,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1140,7 +1176,7 @@ class Ipv6AclAndPrefixList(object):
                         ----
                         	**type**\:  int
                         
-                        	**range:** 0..32
+                        	**range:** 0..63
                         
                         
                         ----
@@ -1155,7 +1191,7 @@ class Ipv6AclAndPrefixList(object):
                         ----
                         	**type**\:  int
                         
-                        	**range:** 0..32
+                        	**range:** 0..63
                         
                         
                         ----
@@ -1169,7 +1205,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1236,7 +1272,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1303,7 +1339,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1371,7 +1407,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1410,7 +1446,7 @@ class Ipv6AclAndPrefixList(object):
                             """
 
                             _prefix = 'ipv6-acl-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-11-07'
 
                             def __init__(self):
                                 self.parent = None
@@ -1475,7 +1511,7 @@ class Ipv6AclAndPrefixList(object):
                             """
 
                             _prefix = 'ipv6-acl-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-11-07'
 
                             def __init__(self):
                                 self.parent = None
@@ -1540,7 +1576,7 @@ class Ipv6AclAndPrefixList(object):
                             """
 
                             _prefix = 'ipv6-acl-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2016-11-07'
 
                             def __init__(self):
                                 self.parent = None
@@ -1646,7 +1682,7 @@ class Ipv6AclAndPrefixList(object):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2016-11-07'
 
                         def __init__(self):
                             self.parent = None
@@ -1759,6 +1795,15 @@ class Ipv6AclAndPrefixList(object):
                         if self.protocol is not None:
                             return True
 
+                        if self.protocol2 is not None:
+                            return True
+
+                        if self.protocol_operator is not None:
+                            return True
+
+                        if self.qos_group is not None:
+                            return True
+
                         if self.remark is not None:
                             return True
 
@@ -1781,6 +1826,9 @@ class Ipv6AclAndPrefixList(object):
                             return True
 
                         if self.time_to_live is not None and self.time_to_live._has_data():
+                            return True
+
+                        if self.undetermined_transport is not None:
                             return True
 
                         return False

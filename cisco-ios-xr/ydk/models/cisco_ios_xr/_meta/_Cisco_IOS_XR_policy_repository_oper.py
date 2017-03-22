@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'GroupEnum' : _MetaInfoEnum('GroupEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
         {
@@ -607,6 +606,345 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-policy-repository-oper',
             'policies',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference',
+            False, 
+            [
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of policy
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
+                [], [], 
+                '''                Active, Inactive, or Unused
+                ''',
+                'status',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('used-directly', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the policy uses this object directly or
+                indirectly
+                ''',
+                'used_directly',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'reference',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy',
+            False, 
+            [
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference', 
+                [], [], 
+                '''                Information about policies referring to this
+                object
+                ''',
+                'reference',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'used-by',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding',
+            False, 
+            [
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
+                [], [], 
+                '''                Address Family Identifier
+                ''',
+                'af_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('aggregate-network-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Aggregate IP address or Network IP Address      
+                in IPv4 or IPv6 Format
+                ''',
+                'aggregate_network_address',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('area-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                OSPF Area ID in Decimal Integer Format
+                ''',
+                'area_id',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('attach-point', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of attach point where policy is attached
+                ''',
+                'attach_point',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('attached-policy', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The attached policy that (maybe indirectly) uses
+                the object in question
+                ''',
+                'attached_policy',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
+                [], [], 
+                '''                Direction In or Out
+                ''',
+                'direction',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
+                [], [], 
+                '''                Neighbor Group 
+                ''',
+                'group',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('group-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Neighbor Group Name
+                ''',
+                'group_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('instance', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Instance
+                ''',
+                'instance',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface Name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Neighbor IP Address
+                ''',
+                'neighbor_address',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
+                [], [], 
+                '''                Neighbor IP Address Family
+                ''',
+                'neighbor_af_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('propogate-from', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                ISIS Propogate From Level
+                ''',
+                'propogate_from',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('propogate-to', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                ISIS Propogate To Level
+                ''',
+                'propogate_to',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('proto-instance', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Protocol instance
+                ''',
+                'proto_instance',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('protocol', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Protocol to which policy attached
+                ''',
+                'protocol',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Policy that uses object in question
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
+                [], [], 
+                '''                Subsequent Address Family Identifier
+                ''',
+                'saf_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('source-protocol', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Source Protocol to redistribute,                
+                Source Protocol can be one of the following
+                values                               {all,
+                connected, local, static, bgp, rip, isis, ospf, 
+                ospfv3, eigrp, unknown }
+                ''',
+                'source_protocol',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'binding',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag.Sets_.Set.Attached',
+            False, 
+            [
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding', 
+                [], [], 
+                '''                bindings list
+                ''',
+                'binding',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'attached',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag.Sets_.Set',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-oper', True),
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag.Sets_.Set.Attached', 
+                [], [], 
+                '''                Information about where this policy or set is
+                attached
+                ''',
+                'attached',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy', 
+                [], [], 
+                '''                Policies that use this object, directly or
+                indirectly
+                ''',
+                'used_by',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag.Sets_',
+            False, 
+            [
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag.Sets_.Set', 
+                [], [], 
+                '''                Information about an individual set
+                ''',
+                'set',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag.Unused' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag.Unused',
+            False, 
+            [
+            _MetaInfoClassMember('object', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Policy objects
+                ''',
+                'object',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'unused',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag.Inactive' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag.Inactive',
+            False, 
+            [
+            _MetaInfoClassMember('object', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Policy objects
+                ''',
+                'object',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'inactive',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag.Active' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag.Active',
+            False, 
+            [
+            _MetaInfoClassMember('object', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Policy objects
+                ''',
+                'object',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'active',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Etag' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Etag',
+            False, 
+            [
+            _MetaInfoClassMember('active', REFERENCE_CLASS, 'Active' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag.Active', 
+                [], [], 
+                '''                All objects of a given type that are attached to
+                a protocol
+                ''',
+                'active',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('inactive', REFERENCE_CLASS, 'Inactive' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag.Inactive', 
+                [], [], 
+                '''                All objects of a given type that are not
+                attached to a protocol
+                ''',
+                'inactive',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag.Sets_', 
+                [], [], 
+                '''                Information about individual sets
+                ''',
+                'sets',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('unused', REFERENCE_CLASS, 'Unused' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag.Unused', 
+                [], [], 
+                '''                All objects of a given type that are not
+                referenced at all
+                ''',
+                'unused',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'etag',
             _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
@@ -3323,6 +3661,345 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
+    'RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference',
+            False, 
+            [
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of policy
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
+                [], [], 
+                '''                Active, Inactive, or Unused
+                ''',
+                'status',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('used-directly', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the policy uses this object directly or
+                indirectly
+                ''',
+                'used_directly',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'reference',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy',
+            False, 
+            [
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference', 
+                [], [], 
+                '''                Information about policies referring to this
+                object
+                ''',
+                'reference',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'used-by',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding',
+            False, 
+            [
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
+                [], [], 
+                '''                Address Family Identifier
+                ''',
+                'af_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('aggregate-network-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Aggregate IP address or Network IP Address      
+                in IPv4 or IPv6 Format
+                ''',
+                'aggregate_network_address',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('area-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                OSPF Area ID in Decimal Integer Format
+                ''',
+                'area_id',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('attach-point', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of attach point where policy is attached
+                ''',
+                'attach_point',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('attached-policy', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The attached policy that (maybe indirectly) uses
+                the object in question
+                ''',
+                'attached_policy',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
+                [], [], 
+                '''                Direction In or Out
+                ''',
+                'direction',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
+                [], [], 
+                '''                Neighbor Group 
+                ''',
+                'group',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('group-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Neighbor Group Name
+                ''',
+                'group_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('instance', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Instance
+                ''',
+                'instance',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface Name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Neighbor IP Address
+                ''',
+                'neighbor_address',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
+                [], [], 
+                '''                Neighbor IP Address Family
+                ''',
+                'neighbor_af_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('propogate-from', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                ISIS Propogate From Level
+                ''',
+                'propogate_from',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('propogate-to', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                ISIS Propogate To Level
+                ''',
+                'propogate_to',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('proto-instance', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Protocol instance
+                ''',
+                'proto_instance',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('protocol', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Protocol to which policy attached
+                ''',
+                'protocol',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Policy that uses object in question
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
+                [], [], 
+                '''                Subsequent Address Family Identifier
+                ''',
+                'saf_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('source-protocol', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Source Protocol to redistribute,                
+                Source Protocol can be one of the following
+                values                               {all,
+                connected, local, static, bgp, rip, isis, ospf, 
+                ospfv3, eigrp, unknown }
+                ''',
+                'source_protocol',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'binding',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Esi.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi.Sets_.Set.Attached',
+            False, 
+            [
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding', 
+                [], [], 
+                '''                bindings list
+                ''',
+                'binding',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'attached',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Esi.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi.Sets_.Set',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-oper', True),
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi.Sets_.Set.Attached', 
+                [], [], 
+                '''                Information about where this policy or set is
+                attached
+                ''',
+                'attached',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy', 
+                [], [], 
+                '''                Policies that use this object, directly or
+                indirectly
+                ''',
+                'used_by',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Esi.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi.Sets_',
+            False, 
+            [
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi.Sets_.Set', 
+                [], [], 
+                '''                Information about an individual set
+                ''',
+                'set',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Esi.Unused' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi.Unused',
+            False, 
+            [
+            _MetaInfoClassMember('object', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Policy objects
+                ''',
+                'object',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'unused',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Esi.Inactive' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi.Inactive',
+            False, 
+            [
+            _MetaInfoClassMember('object', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Policy objects
+                ''',
+                'object',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'inactive',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Esi.Active' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi.Active',
+            False, 
+            [
+            _MetaInfoClassMember('object', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Policy objects
+                ''',
+                'object',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'active',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Esi' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Esi',
+            False, 
+            [
+            _MetaInfoClassMember('active', REFERENCE_CLASS, 'Active' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi.Active', 
+                [], [], 
+                '''                All objects of a given type that are attached to
+                a protocol
+                ''',
+                'active',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('inactive', REFERENCE_CLASS, 'Inactive' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi.Inactive', 
+                [], [], 
+                '''                All objects of a given type that are not
+                attached to a protocol
+                ''',
+                'inactive',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi.Sets_', 
+                [], [], 
+                '''                Information about individual sets
+                ''',
+                'sets',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('unused', REFERENCE_CLASS, 'Unused' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi.Unused', 
+                [], [], 
+                '''                All objects of a given type that are not
+                referenced at all
+                ''',
+                'unused',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'esi',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
     'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference',
             False, 
@@ -4316,6 +4993,345 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
+    'RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference',
+            False, 
+            [
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of policy
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'ObjectStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'ObjectStatusEnum', 
+                [], [], 
+                '''                Active, Inactive, or Unused
+                ''',
+                'status',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('used-directly', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Whether the policy uses this object directly or
+                indirectly
+                ''',
+                'used_directly',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'reference',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy',
+            False, 
+            [
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference', 
+                [], [], 
+                '''                Information about policies referring to this
+                object
+                ''',
+                'reference',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'used-by',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding',
+            False, 
+            [
+            _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
+                [], [], 
+                '''                Address Family Identifier
+                ''',
+                'af_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('aggregate-network-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Aggregate IP address or Network IP Address      
+                in IPv4 or IPv6 Format
+                ''',
+                'aggregate_network_address',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('area-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                OSPF Area ID in Decimal Integer Format
+                ''',
+                'area_id',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('attach-point', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of attach point where policy is attached
+                ''',
+                'attach_point',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('attached-policy', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                The attached policy that (maybe indirectly) uses
+                the object in question
+                ''',
+                'attached_policy',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('direction', REFERENCE_ENUM_CLASS, 'AttachPointDirectionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AttachPointDirectionEnum', 
+                [], [], 
+                '''                Direction In or Out
+                ''',
+                'direction',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('group', REFERENCE_ENUM_CLASS, 'GroupEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'GroupEnum', 
+                [], [], 
+                '''                Neighbor Group 
+                ''',
+                'group',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('group-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Neighbor Group Name
+                ''',
+                'group_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('instance', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Instance
+                ''',
+                'instance',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface Name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Neighbor IP Address
+                ''',
+                'neighbor_address',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('neighbor-af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
+                [], [], 
+                '''                Neighbor IP Address Family
+                ''',
+                'neighbor_af_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('propogate-from', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                ISIS Propogate From Level
+                ''',
+                'propogate_from',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('propogate-to', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                ISIS Propogate To Level
+                ''',
+                'propogate_to',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('proto-instance', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Protocol instance
+                ''',
+                'proto_instance',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('protocol', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Protocol to which policy attached
+                ''',
+                'protocol',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Policy that uses object in question
+                ''',
+                'route_policy_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('saf-name', REFERENCE_ENUM_CLASS, 'SubAddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'SubAddressFamilyEnum', 
+                [], [], 
+                '''                Subsequent Address Family Identifier
+                ''',
+                'saf_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('source-protocol', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Source Protocol to redistribute,                
+                Source Protocol can be one of the following
+                values                               {all,
+                connected, local, static, bgp, rip, isis, ospf, 
+                ospfv3, eigrp, unknown }
+                ''',
+                'source_protocol',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'binding',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Mac.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac.Sets_.Set.Attached',
+            False, 
+            [
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding', 
+                [], [], 
+                '''                bindings list
+                ''',
+                'binding',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'attached',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Mac.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac.Sets_.Set',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-oper', True),
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac.Sets_.Set.Attached', 
+                [], [], 
+                '''                Information about where this policy or set is
+                attached
+                ''',
+                'attached',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy', 
+                [], [], 
+                '''                Policies that use this object, directly or
+                indirectly
+                ''',
+                'used_by',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Mac.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac.Sets_',
+            False, 
+            [
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac.Sets_.Set', 
+                [], [], 
+                '''                Information about an individual set
+                ''',
+                'set',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Mac.Unused' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac.Unused',
+            False, 
+            [
+            _MetaInfoClassMember('object', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Policy objects
+                ''',
+                'object',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'unused',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Mac.Inactive' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac.Inactive',
+            False, 
+            [
+            _MetaInfoClassMember('object', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Policy objects
+                ''',
+                'object',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'inactive',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Mac.Active' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac.Active',
+            False, 
+            [
+            _MetaInfoClassMember('object', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Policy objects
+                ''',
+                'object',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'active',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
+    'RoutingPolicy.Sets.Mac' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Mac',
+            False, 
+            [
+            _MetaInfoClassMember('active', REFERENCE_CLASS, 'Active' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac.Active', 
+                [], [], 
+                '''                All objects of a given type that are attached to
+                a protocol
+                ''',
+                'active',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('inactive', REFERENCE_CLASS, 'Inactive' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac.Inactive', 
+                [], [], 
+                '''                All objects of a given type that are not
+                attached to a protocol
+                ''',
+                'inactive',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac.Sets_', 
+                [], [], 
+                '''                Information about individual sets
+                ''',
+                'sets',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('unused', REFERENCE_CLASS, 'Unused' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac.Unused', 
+                [], [], 
+                '''                All objects of a given type that are not
+                referenced at all
+                ''',
+                'unused',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-oper',
+            'mac',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
+        ),
+    },
     'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference',
             False, 
@@ -4671,6 +5687,18 @@ _meta_table = {
                 ''',
                 'community',
                 'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('esi', REFERENCE_CLASS, 'Esi' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Esi', 
+                [], [], 
+                '''                Information about Esi sets
+                ''',
+                'esi',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('etag', REFERENCE_CLASS, 'Etag' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Etag', 
+                [], [], 
+                '''                Information about Etag sets
+                ''',
+                'etag',
+                'Cisco-IOS-XR-policy-repository-oper', False),
             _MetaInfoClassMember('extended-community-bandwidth', REFERENCE_CLASS, 'ExtendedCommunityBandwidth' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth', 
                 [], [], 
                 '''                Information about Extended Community Bandwidth
@@ -4708,6 +5736,12 @@ _meta_table = {
                 '''                Information about Extended Community SOO sets
                 ''',
                 'extended_community_soo',
+                'Cisco-IOS-XR-policy-repository-oper', False),
+            _MetaInfoClassMember('mac', REFERENCE_CLASS, 'Mac' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Mac', 
+                [], [], 
+                '''                Information about Mac sets
+                ''',
+                'mac',
                 'Cisco-IOS-XR-policy-repository-oper', False),
             _MetaInfoClassMember('ospf-area', REFERENCE_CLASS, 'OspfArea' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea', 
                 [], [], 
@@ -4787,6 +5821,15 @@ _meta_table['RoutingPolicy.Policies.RoutePolicies']['meta_info'].parent =_meta_t
 _meta_table['RoutingPolicy.Policies.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Policies']['meta_info']
 _meta_table['RoutingPolicy.Policies.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Policies']['meta_info']
 _meta_table['RoutingPolicy.Policies.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Policies']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Etag.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Etag.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Etag.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Etag']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Etag']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Etag']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Etag']['meta_info']
 _meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy']['meta_info']
 _meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached']['meta_info']
 _meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set']['meta_info']
@@ -4859,6 +5902,15 @@ _meta_table['RoutingPolicy.Sets.AsPath.Sets_']['meta_info'].parent =_meta_table[
 _meta_table['RoutingPolicy.Sets.AsPath.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
 _meta_table['RoutingPolicy.Sets.AsPath.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
 _meta_table['RoutingPolicy.Sets.AsPath.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Esi.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Esi.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Esi.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Esi']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Esi']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Esi']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Esi']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set']['meta_info']
@@ -4885,6 +5937,15 @@ _meta_table['RoutingPolicy.Sets.Rd.Sets_']['meta_info'].parent =_meta_table['Rou
 _meta_table['RoutingPolicy.Sets.Rd.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd']['meta_info']
 _meta_table['RoutingPolicy.Sets.Rd.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd']['meta_info']
 _meta_table['RoutingPolicy.Sets.Rd.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Mac.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Mac.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Mac.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Mac']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Mac']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Mac']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Mac']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set']['meta_info']
@@ -4894,6 +5955,7 @@ _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_']['meta_info'].paren
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info']
+_meta_table['RoutingPolicy.Sets.Etag']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.OspfArea']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
@@ -4902,9 +5964,11 @@ _meta_table['RoutingPolicy.Sets.Tag']['meta_info'].parent =_meta_table['RoutingP
 _meta_table['RoutingPolicy.Sets.Prefix']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.Community']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.AsPath']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.Esi']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityRt']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.Rd']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.Mac']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Limits']['meta_info'].parent =_meta_table['RoutingPolicy']['meta_info']
 _meta_table['RoutingPolicy.Policies']['meta_info'].parent =_meta_table['RoutingPolicy']['meta_info']

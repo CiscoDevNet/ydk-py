@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'PriorityEnum' : _MetaInfoEnum('PriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper',
         {
@@ -55,7 +54,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Group name
                 ''',
                 'group_name',
@@ -164,7 +163,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                SRLG name
                 ''',
                 'srlg_name',
@@ -210,7 +209,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                SRLG name
                 ''',
                 'srlg_name',
@@ -626,7 +625,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                SRLG name
                 ''',
                 'srlg_name',
@@ -771,7 +770,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                SRLG name
                 ''',
                 'srlg_name',

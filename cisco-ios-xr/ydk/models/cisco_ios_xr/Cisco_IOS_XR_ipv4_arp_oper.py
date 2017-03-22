@@ -331,6 +331,45 @@ class IpArpBagEncapEnum(Enum):
         return meta._meta_table['IpArpBagEncapEnum']
 
 
+class IpArpBagFlagsEnum(Enum):
+    """
+    IpArpBagFlagsEnum
+
+    ARP flags
+
+    .. data:: flag_none = 0
+
+    	No Flag
+
+    .. data:: flag_dynamic = 1
+
+    	Dynamic learnt entry
+
+    .. data:: flag_evpn_sync = 2
+
+    	EVPN Synced entry
+
+    .. data:: flag_max = 3
+
+    	Maximum Flag number
+
+    """
+
+    flag_none = 0
+
+    flag_dynamic = 1
+
+    flag_evpn_sync = 2
+
+    flag_max = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_arp_oper as meta
+        return meta._meta_table['IpArpBagFlagsEnum']
+
+
 class IpArpBagMediaEnum(Enum):
     """
     IpArpBagMediaEnum
@@ -422,15 +461,19 @@ class IpArpBagStateEnum(Enum):
 
     	VXLAN installed
 
-    .. data:: state_sat = 13
+    .. data:: state_evpn_sync = 13
+
+    	EVPN-SYNC installed
+
+    .. data:: state_sat = 14
 
     	Satellite installed
 
-    .. data:: state_r_sync = 14
+    .. data:: state_r_sync = 15
 
     	Geo-redundancy sync'ed
 
-    .. data:: state_max = 15
+    .. data:: state_max = 16
 
     	Maximum state number
 
@@ -462,11 +505,13 @@ class IpArpBagStateEnum(Enum):
 
     state_vxlan = 12
 
-    state_sat = 13
+    state_evpn_sync = 13
 
-    state_r_sync = 14
+    state_sat = 14
 
-    state_max = 15
+    state_r_sync = 15
+
+    state_max = 16
 
 
     @staticmethod
@@ -495,7 +540,7 @@ class ArpGmp(object):
     """
 
     _prefix = 'ipv4-arp-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-12-19'
 
     def __init__(self):
         self.vrf_infos = ArpGmp.VrfInfos()
@@ -518,7 +563,7 @@ class ArpGmp(object):
         """
 
         _prefix = 'ipv4-arp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -576,7 +621,7 @@ class ArpGmp(object):
             """
 
             _prefix = 'ipv4-arp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -665,7 +710,7 @@ class ArpGmp(object):
         """
 
         _prefix = 'ipv4-arp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -705,7 +750,7 @@ class ArpGmp(object):
             """
 
             _prefix = 'ipv4-arp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -733,7 +778,7 @@ class ArpGmp(object):
                 """
 
                 _prefix = 'ipv4-arp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -782,7 +827,7 @@ class ArpGmp(object):
                     """
 
                     _prefix = 'ipv4-arp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -871,7 +916,7 @@ class ArpGmp(object):
                 """
 
                 _prefix = 'ipv4-arp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -931,7 +976,7 @@ class ArpGmp(object):
                     """
 
                     _prefix = 'ipv4-arp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -1027,7 +1072,7 @@ class ArpGmp(object):
                 """
 
                 _prefix = 'ipv4-arp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -1079,7 +1124,7 @@ class ArpGmp(object):
                     """
 
                     _prefix = 'ipv4-arp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -1124,7 +1169,7 @@ class ArpGmp(object):
                         """
 
                         _prefix = 'ipv4-arp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-19'
 
                         def __init__(self):
                             self.parent = None
@@ -1325,7 +1370,7 @@ class Arp(object):
     """
 
     _prefix = 'ipv4-arp-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-12-19'
 
     def __init__(self):
         self.nodes = Arp.Nodes()
@@ -1346,7 +1391,7 @@ class Arp(object):
         """
 
         _prefix = 'ipv4-arp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-19'
 
         def __init__(self):
             self.parent = None
@@ -1401,7 +1446,7 @@ class Arp(object):
             """
 
             _prefix = 'ipv4-arp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-19'
 
             def __init__(self):
                 self.parent = None
@@ -1435,7 +1480,7 @@ class Arp(object):
                 """
 
                 _prefix = 'ipv4-arp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -1509,7 +1554,7 @@ class Arp(object):
                     """
 
                     _prefix = 'ipv4-arp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -1608,7 +1653,7 @@ class Arp(object):
                 """
 
                 _prefix = 'ipv4-arp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -1827,7 +1872,7 @@ class Arp(object):
                     """
 
                     _prefix = 'ipv4-arp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -2203,7 +2248,7 @@ class Arp(object):
                 """
 
                 _prefix = 'ipv4-arp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2357,7 +2402,7 @@ class Arp(object):
                 """
 
                 _prefix = 'ipv4-arp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2431,7 +2476,7 @@ class Arp(object):
                     """
 
                     _prefix = 'ipv4-arp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -2530,7 +2575,7 @@ class Arp(object):
                 """
 
                 _prefix = 'ipv4-arp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2569,6 +2614,11 @@ class Arp(object):
                     	Source encapsulation type
                     	**type**\:   :py:class:`IpArpBagEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagEncapEnum>`
                     
+                    .. attribute:: flag
+                    
+                    	Flags of this entry
+                    	**type**\:   :py:class:`IpArpBagFlagsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagFlagsEnum>`
+                    
                     .. attribute:: hardware_address
                     
                     	Hardware address
@@ -2598,7 +2648,7 @@ class Arp(object):
                     """
 
                     _prefix = 'ipv4-arp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None
@@ -2606,6 +2656,7 @@ class Arp(object):
                         self.interface_name = None
                         self.age = None
                         self.encapsulation_type = None
+                        self.flag = None
                         self.hardware_address = None
                         self.hardware_length = None
                         self.media_type = None
@@ -2639,6 +2690,9 @@ class Arp(object):
                             return True
 
                         if self.encapsulation_type is not None:
+                            return True
+
+                        if self.flag is not None:
                             return True
 
                         if self.hardware_address is not None:
@@ -2701,7 +2755,7 @@ class Arp(object):
                 """
 
                 _prefix = 'ipv4-arp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-19'
 
                 def __init__(self):
                     self.parent = None
@@ -2922,7 +2976,7 @@ class Arp(object):
                     """
 
                     _prefix = 'ipv4-arp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-19'
 
                     def __init__(self):
                         self.parent = None

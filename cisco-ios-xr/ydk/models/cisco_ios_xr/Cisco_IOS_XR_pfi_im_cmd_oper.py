@@ -388,7 +388,11 @@ class BmMbrStateReasonEnum(Enum):
 
     	LACP delay timer is running
 
-    .. data:: bm_mbr_state_reason_count = 74
+    .. data:: bm_mbr_state_reason_client_bundle_ctrl = 74
+
+    	Client has configured the bundle state Down
+
+    .. data:: bm_mbr_state_reason_count = 75
 
     	Enumeration maximum value
 
@@ -542,7 +546,9 @@ class BmMbrStateReasonEnum(Enum):
 
     bm_mbr_state_reason_timer_running = 73
 
-    bm_mbr_state_reason_count = 74
+    bm_mbr_state_reason_client_bundle_ctrl = 74
+
+    bm_mbr_state_reason_count = 75
 
 
     @staticmethod
@@ -4715,7 +4721,7 @@ class Interfaces(object):
     """
 
     _prefix = 'pfi-im-cmd-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-12-18'
 
     def __init__(self):
         self.interface_briefs = Interfaces.InterfaceBriefs()
@@ -4747,7 +4753,7 @@ class Interfaces(object):
         """
 
         _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-18'
 
         def __init__(self):
             self.parent = None
@@ -5016,7 +5022,7 @@ class Interfaces(object):
             """
 
             _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-18'
 
             def __init__(self):
                 self.parent = None
@@ -5147,7 +5153,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -5222,7 +5228,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -5269,7 +5275,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -5323,7 +5329,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -5386,7 +5392,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -5448,7 +5454,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -5512,7 +5518,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -5618,7 +5624,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -5715,7 +5721,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -5794,7 +5800,7 @@ class Interfaces(object):
                         """
 
                         _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-18'
 
                         def __init__(self):
                             self.parent = None
@@ -5836,7 +5842,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -5942,7 +5948,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -5977,7 +5983,7 @@ class Interfaces(object):
                                 """
 
                                 _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-18'
 
                                 def __init__(self):
                                     self.parent = None
@@ -6007,7 +6013,7 @@ class Interfaces(object):
                                     """
 
                                     _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-18'
 
                                     def __init__(self):
                                         self.parent = None
@@ -6092,7 +6098,7 @@ class Interfaces(object):
                                 """
 
                                 _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-18'
 
                                 def __init__(self):
                                     self.parent = None
@@ -6126,7 +6132,7 @@ class Interfaces(object):
                                     """
 
                                     _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-18'
 
                                     def __init__(self):
                                         self.parent = None
@@ -6214,7 +6220,7 @@ class Interfaces(object):
                                 """
 
                                 _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-18'
 
                                 def __init__(self):
                                     self.parent = None
@@ -6327,7 +6333,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -6484,7 +6490,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -6517,7 +6523,7 @@ class Interfaces(object):
                         """
 
                         _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-18'
 
                         def __init__(self):
                             self.parent = None
@@ -6685,7 +6691,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -6729,7 +6735,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -6768,7 +6774,7 @@ class Interfaces(object):
                         """
 
                         _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-18'
 
                         def __init__(self):
                             self.parent = None
@@ -6803,7 +6809,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -6853,7 +6859,7 @@ class Interfaces(object):
                                 """
 
                                 _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-18'
 
                                 def __init__(self):
                                     self.parent = None
@@ -6994,7 +7000,7 @@ class Interfaces(object):
                                     """
 
                                     _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-18'
 
                                     def __init__(self):
                                         self.parent = None
@@ -7064,7 +7070,7 @@ class Interfaces(object):
                                         """
 
                                         _prefix = 'pfi-im-cmd-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2016-12-18'
 
                                         def __init__(self):
                                             self.parent = None
@@ -7323,7 +7329,7 @@ class Interfaces(object):
                                     """
 
                                     _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-18'
 
                                     def __init__(self):
                                         self.parent = None
@@ -7393,7 +7399,7 @@ class Interfaces(object):
                                         """
 
                                         _prefix = 'pfi-im-cmd-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2016-12-18'
 
                                         def __init__(self):
                                             self.parent = None
@@ -7610,7 +7616,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -7669,7 +7675,7 @@ class Interfaces(object):
                                 """
 
                                 _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-18'
 
                                 def __init__(self):
                                     self.parent = None
@@ -7730,7 +7736,7 @@ class Interfaces(object):
                                     """
 
                                     _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-18'
 
                                     def __init__(self):
                                         self.parent = None
@@ -7879,7 +7885,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -8025,7 +8031,7 @@ class Interfaces(object):
                                 """
 
                                 _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-18'
 
                                 def __init__(self):
                                     self.parent = None
@@ -8103,7 +8109,7 @@ class Interfaces(object):
                                     """
 
                                     _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-18'
 
                                     def __init__(self):
                                         self.parent = None
@@ -8208,7 +8214,7 @@ class Interfaces(object):
                                     """
 
                                     _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-12-18'
 
                                     def __init__(self):
                                         self.parent = None
@@ -8395,7 +8401,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -8421,7 +8427,7 @@ class Interfaces(object):
                                 """
 
                                 _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-18'
 
                                 def __init__(self):
                                     self.parent = None
@@ -8552,7 +8558,7 @@ class Interfaces(object):
                         """
 
                         _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-18'
 
                         def __init__(self):
                             self.parent = None
@@ -8604,7 +8610,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -8684,7 +8690,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -8799,7 +8805,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -8934,7 +8940,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -9107,7 +9113,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -9172,7 +9178,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -9271,7 +9277,7 @@ class Interfaces(object):
                         """
 
                         _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-18'
 
                         def __init__(self):
                             self.parent = None
@@ -9380,7 +9386,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -9565,7 +9571,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -9693,7 +9699,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -9726,7 +9732,7 @@ class Interfaces(object):
                                 """
 
                                 _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-12-18'
 
                                 def __init__(self):
                                     self.parent = None
@@ -9816,7 +9822,7 @@ class Interfaces(object):
                             """
 
                             _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-12-18'
 
                             def __init__(self):
                                 self.parent = None
@@ -9947,7 +9953,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -9992,7 +9998,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -10031,6 +10037,13 @@ class Interfaces(object):
                     
                     	Tunnel destination IP address
                     	**type**\:   :py:class:`DestinationIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress>`
+                    
+                    .. attribute:: destination_ip_address_length
+                    
+                    	Tunnel destination IP address length
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
                     
                     .. attribute:: df_bit_state
                     
@@ -10085,6 +10098,13 @@ class Interfaces(object):
                     	Tunnel GRE Mode
                     	**type**\:   :py:class:`TunnelGreModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelGreModeEnum>`
                     
+                    .. attribute:: tunnel_mode_decap
+                    
+                    	Tunnel Mode Decap
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
                     .. attribute:: tunnel_tos
                     
                     	GRE tunnel TOS
@@ -10104,12 +10124,13 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
                         self.destination_ip_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress()
                         self.destination_ip_address.parent = self
+                        self.destination_ip_address_length = None
                         self.df_bit_state = None
                         self.keepalive_maximum_retry = None
                         self.keepalive_period = None
@@ -10120,6 +10141,7 @@ class Interfaces(object):
                         self.source_ip_address.parent = self
                         self.source_name = None
                         self.tunnel_mode = None
+                        self.tunnel_mode_decap = None
                         self.tunnel_tos = None
                         self.tunnel_ttl = None
 
@@ -10152,7 +10174,7 @@ class Interfaces(object):
                         """
 
                         _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-18'
 
                         def __init__(self):
                             self.parent = None
@@ -10219,7 +10241,7 @@ class Interfaces(object):
                         """
 
                         _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-18'
 
                         def __init__(self):
                             self.parent = None
@@ -10274,6 +10296,9 @@ class Interfaces(object):
                         if self.destination_ip_address is not None and self.destination_ip_address._has_data():
                             return True
 
+                        if self.destination_ip_address_length is not None:
+                            return True
+
                         if self.df_bit_state is not None:
                             return True
 
@@ -10299,6 +10324,9 @@ class Interfaces(object):
                             return True
 
                         if self.tunnel_mode is not None:
+                            return True
+
+                        if self.tunnel_mode_decap is not None:
                             return True
 
                         if self.tunnel_tos is not None:
@@ -10343,7 +10371,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -10421,7 +10449,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -10483,7 +10511,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -10679,7 +10707,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -10782,7 +10810,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -11068,7 +11096,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -11374,7 +11402,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -11531,7 +11559,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -11596,7 +11624,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -11675,7 +11703,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -11735,7 +11763,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -11773,7 +11801,7 @@ class Interfaces(object):
                         """
 
                         _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-18'
 
                         def __init__(self):
                             self.parent = None
@@ -11895,7 +11923,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -12118,7 +12146,7 @@ class Interfaces(object):
         """
 
         _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-18'
 
         def __init__(self):
             self.parent = None
@@ -12154,7 +12182,7 @@ class Interfaces(object):
             """
 
             _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-18'
 
             def __init__(self):
                 self.parent = None
@@ -12183,7 +12211,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -12231,7 +12259,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -12296,7 +12324,7 @@ class Interfaces(object):
                     """
 
                     _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-12-18'
 
                     def __init__(self):
                         self.parent = None
@@ -12343,7 +12371,7 @@ class Interfaces(object):
                         """
 
                         _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-12-18'
 
                         def __init__(self):
                             self.parent = None
@@ -12505,7 +12533,7 @@ class Interfaces(object):
         """
 
         _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-18'
 
         def __init__(self):
             self.parent = None
@@ -12610,7 +12638,7 @@ class Interfaces(object):
             """
 
             _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-18'
 
             def __init__(self):
                 self.parent = None
@@ -12736,7 +12764,7 @@ class Interfaces(object):
         """
 
         _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-18'
 
         def __init__(self):
             self.parent = None
@@ -12784,7 +12812,7 @@ class Interfaces(object):
             """
 
             _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-18'
 
             def __init__(self):
                 self.parent = None
@@ -12849,7 +12877,7 @@ class Interfaces(object):
             """
 
             _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-18'
 
             def __init__(self):
                 self.parent = None
@@ -12896,7 +12924,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None
@@ -13006,7 +13034,7 @@ class Interfaces(object):
         """
 
         _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-18'
 
         def __init__(self):
             self.parent = None
@@ -13053,7 +13081,7 @@ class Interfaces(object):
             """
 
             _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-18'
 
             def __init__(self):
                 self.parent = None
@@ -13143,7 +13171,7 @@ class Interfaces(object):
         """
 
         _prefix = 'pfi-im-cmd-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-12-18'
 
         def __init__(self):
             self.parent = None
@@ -13191,7 +13219,7 @@ class Interfaces(object):
             """
 
             _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-18'
 
             def __init__(self):
                 self.parent = None
@@ -13256,7 +13284,7 @@ class Interfaces(object):
             """
 
             _prefix = 'pfi-im-cmd-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-12-18'
 
             def __init__(self):
                 self.parent = None
@@ -13303,7 +13331,7 @@ class Interfaces(object):
                 """
 
                 _prefix = 'pfi-im-cmd-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-12-18'
 
                 def __init__(self):
                     self.parent = None

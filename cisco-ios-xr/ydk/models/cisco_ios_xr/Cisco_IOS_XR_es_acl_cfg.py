@@ -105,7 +105,7 @@ class EsAcl(object):
             	Name of the access list
             	**type**\:  str
             
-            	**length:** 0..65
+            	**length:** 1..65
             
             .. attribute:: access_list_entries
             

@@ -115,51 +115,55 @@ class BmBdlStateEnum(Enum):
 
     	The bundle is Down
 
-    .. data:: bm_bdl_state_ptnr_down = 2
+    .. data:: bm_bdl_state_client_down = 2
+
+    	The bundle is controlled by CLIENT Down
+
+    .. data:: bm_bdl_state_ptnr_down = 3
 
     	The bundle is Down on the partner device
 
-    .. data:: bm_bdl_state_bundle_shutdown = 3
+    .. data:: bm_bdl_state_bundle_shutdown = 4
 
     	Bundle shutdown has been configured
 
-    .. data:: bm_bdl_state_pe_isolated = 4
+    .. data:: bm_bdl_state_pe_isolated = 5
 
     	The bundle cannot contact the core
 
-    .. data:: bm_bdl_state_nak = 5
+    .. data:: bm_bdl_state_nak = 6
 
     	The state is disputed by a peer device
 
-    .. data:: bm_bdl_state_up_active = 6
+    .. data:: bm_bdl_state_up_active = 7
 
     	The bundle is Up
 
-    .. data:: bm_bdl_state_mlacp_hot_standby = 7
+    .. data:: bm_bdl_state_mlacp_hot_standby = 8
 
     	The bundle is Up, but is mLACP standby
 
-    .. data:: bm_bdl_state_mlacp_cold_standby = 8
+    .. data:: bm_bdl_state_mlacp_cold_standby = 9
 
     	The bundle is mLACP standby, but will not
 
     	eliminate traffic loss
 
-    .. data:: bm_bdl_state_unknown = 9
+    .. data:: bm_bdl_state_unknown = 10
 
     	The bundle state has not been determined
 
-    .. data:: bm_bdl_state_cold_standby = 10
+    .. data:: bm_bdl_state_cold_standby = 11
 
     	The bundle is standby, but will not eliminate
 
     	traffic loss
 
-    .. data:: bm_bdl_state_error_disabled = 11
+    .. data:: bm_bdl_state_error_disabled = 12
 
     	The bundle has been error-disabled
 
-    .. data:: bm_bdl_state_efd_disabled = 12
+    .. data:: bm_bdl_state_efd_disabled = 13
 
     	The bundle has been disabled by EFD
 
@@ -169,27 +173,29 @@ class BmBdlStateEnum(Enum):
 
     bm_bdl_state_down = 1
 
-    bm_bdl_state_ptnr_down = 2
+    bm_bdl_state_client_down = 2
 
-    bm_bdl_state_bundle_shutdown = 3
+    bm_bdl_state_ptnr_down = 3
 
-    bm_bdl_state_pe_isolated = 4
+    bm_bdl_state_bundle_shutdown = 4
 
-    bm_bdl_state_nak = 5
+    bm_bdl_state_pe_isolated = 5
 
-    bm_bdl_state_up_active = 6
+    bm_bdl_state_nak = 6
 
-    bm_bdl_state_mlacp_hot_standby = 7
+    bm_bdl_state_up_active = 7
 
-    bm_bdl_state_mlacp_cold_standby = 8
+    bm_bdl_state_mlacp_hot_standby = 8
 
-    bm_bdl_state_unknown = 9
+    bm_bdl_state_mlacp_cold_standby = 9
 
-    bm_bdl_state_cold_standby = 10
+    bm_bdl_state_unknown = 10
 
-    bm_bdl_state_error_disabled = 11
+    bm_bdl_state_cold_standby = 11
 
-    bm_bdl_state_efd_disabled = 12
+    bm_bdl_state_error_disabled = 12
+
+    bm_bdl_state_efd_disabled = 13
 
 
     @staticmethod
@@ -595,7 +601,11 @@ class BmMbrStateReasonEnum(Enum):
 
     	LACP delay timer is running
 
-    .. data:: bm_mbr_state_reason_count = 74
+    .. data:: bm_mbr_state_reason_client_bundle_ctrl = 74
+
+    	Client has configured the bundle state Down
+
+    .. data:: bm_mbr_state_reason_count = 75
 
     	Enumeration maximum value
 
@@ -749,7 +759,9 @@ class BmMbrStateReasonEnum(Enum):
 
     bm_mbr_state_reason_timer_running = 73
 
-    bm_mbr_state_reason_count = 74
+    bm_mbr_state_reason_client_bundle_ctrl = 74
+
+    bm_mbr_state_reason_count = 75
 
 
     @staticmethod

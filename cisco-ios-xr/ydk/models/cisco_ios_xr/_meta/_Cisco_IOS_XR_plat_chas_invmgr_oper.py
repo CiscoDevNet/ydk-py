@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'InvAdminStateEnum' : _MetaInfoEnum('InvAdminStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper',
         {
@@ -450,234 +449,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
     },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo',
-            False, 
-            [
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                describes in user-readable terms                
-                what the entity in question does
-                ''',
-                'description',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                firmware revision string
-                ''',
-                'firmware_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                hw revision string
-                ''',
-                'hardware_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                1 if Field Replaceable Unit 0, if not
-                ''',
-                'is_field_replaceable_unit',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                model name
-                ''',
-                'model_name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                name string for the entity
-                ''',
-                'name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                serial number
-                ''',
-                'serial_number',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                software revision string
-                ''',
-                'software_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                maps to the vendor OID string
-                ''',
-                'vendor_type',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'basic-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange',
-            False, 
-            [
-            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Nano-seconds
-                ''',
-                'time_in_nano_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Seconds
-                ''',
-                'time_in_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'last-operational-state-change',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime',
-            False, 
-            [
-            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Nano-seconds
-                ''',
-                'time_in_nano_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Seconds
-                ''',
-                'time_in_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'module-up-time',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo',
-            False, 
-            [
-            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange', 
-                [], [], 
-                '''                Time operational state is   last changed
-                ''',
-                'last_operational_state_change',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
-                [], [], 
-                '''                Administrative    state
-                ''',
-                'module_administrative_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
-                [], [], 
-                '''                Monitor state
-                ''',
-                'module_monitor_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                Operation state
-                ''',
-                'module_operational_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
-                [], [], 
-                '''                Power administrative state
-                ''',
-                'module_power_administrative_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
-                [], [], 
-                '''                Reset reason
-                ''',
-                'module_reset_reason',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime', 
-                [], [], 
-                '''                Module up time
-                ''',
-                'module_up_time',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'fru-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes',
-            False, 
-            [
-            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo', 
-                [], [], 
-                '''                Entity attributes
-                ''',
-                'basic_info',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo', 
-                [], [], 
-                '''                Field Replaceable Unit (FRU) attributes
-                ''',
-                'fru_info',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'attributes',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports',
-            False, 
-            [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Port name
-                ''',
-                'name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
-            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes', 
-                [], [], 
-                '''                Attributes
-                ''',
-                'attributes',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'ports',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses',
-            False, 
-            [
-            _MetaInfoClassMember('ports', REFERENCE_LIST, 'Ports' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports', 
-                [], [], 
-                '''                Port number
-                ''',
-                'ports',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'portses',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
     'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation' : {
         'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation',
             False, 
@@ -1065,8 +836,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
     },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo',
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo',
             False, 
             [
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
@@ -1131,8 +902,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
     },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange',
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange',
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
@@ -1154,8 +925,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
     },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime',
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime',
             False, 
             [
             _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
@@ -1177,11 +948,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
     },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo',
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo',
             False, 
             [
-            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange', 
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange', 
                 [], [], 
                 '''                Time operational state is   last changed
                 ''',
@@ -1217,7 +988,7 @@ _meta_table = {
                 ''',
                 'module_reset_reason',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime', 
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime', 
                 [], [], 
                 '''                Module up time
                 ''',
@@ -1230,17 +1001,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
     },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes',
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes',
             False, 
             [
-            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo', 
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo', 
                 [], [], 
                 '''                Entity attributes
                 ''',
                 'basic_info',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo', 
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo', 
                 [], [], 
                 '''                Field Replaceable Unit (FRU) attributes
                 ''',
@@ -1253,11 +1024,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
     },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port',
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor',
             False, 
             [
-            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes', 
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Sensor name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes', 
                 [], [], 
                 '''                Attributes
                 ''',
@@ -1265,7 +1042,726 @@ _meta_table = {
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             ],
             'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'port',
+            'sensor',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors',
+            False, 
+            [
+            _MetaInfoClassMember('sensor', REFERENCE_LIST, 'Sensor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor', 
+                [], [], 
+                '''                Sensor number
+                ''',
+                'sensor',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'sensors',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo',
+            False, 
+            [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms                
+                what the entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'basic-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'last-operational-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'module-up-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo',
+            False, 
+            [
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange', 
+                [], [], 
+                '''                Time operational state is   last changed
+                ''',
+                'last_operational_state_change',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
+                [], [], 
+                '''                Administrative    state
+                ''',
+                'module_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
+                [], [], 
+                '''                Monitor state
+                ''',
+                'module_monitor_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
+                '''                Operation state
+                ''',
+                'module_operational_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
+                [], [], 
+                '''                Power administrative state
+                ''',
+                'module_power_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
+                [], [], 
+                '''                Reset reason
+                ''',
+                'module_reset_reason',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime', 
+                [], [], 
+                '''                Module up time
+                ''',
+                'module_up_time',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'fru-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo', 
+                [], [], 
+                '''                Entity attributes
+                ''',
+                'basic_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo', 
+                [], [], 
+                '''                Field Replaceable Unit (FRU) attributes
+                ''',
+                'fru_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                HW component name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('sensors', REFERENCE_CLASS, 'Sensors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors', 
+                [], [], 
+                '''                Table of sensors
+                ''',
+                'sensors',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'hw-component',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents',
+            False, 
+            [
+            _MetaInfoClassMember('hw-component', REFERENCE_LIST, 'HwComponent' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent', 
+                [], [], 
+                '''                HW component number
+                ''',
+                'hw_component',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'hw-components',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo',
+            False, 
+            [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms                
+                what the entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'basic-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'last-operational-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'module-up-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo',
+            False, 
+            [
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange', 
+                [], [], 
+                '''                Time operational state is   last changed
+                ''',
+                'last_operational_state_change',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
+                [], [], 
+                '''                Administrative    state
+                ''',
+                'module_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
+                [], [], 
+                '''                Monitor state
+                ''',
+                'module_monitor_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
+                '''                Operation state
+                ''',
+                'module_operational_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
+                [], [], 
+                '''                Power administrative state
+                ''',
+                'module_power_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
+                [], [], 
+                '''                Reset reason
+                ''',
+                'module_reset_reason',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime', 
+                [], [], 
+                '''                Module up time
+                ''',
+                'module_up_time',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'fru-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo', 
+                [], [], 
+                '''                Entity attributes
+                ''',
+                'basic_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo', 
+                [], [], 
+                '''                Field Replaceable Unit (FRU) attributes
+                ''',
+                'fru_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Sensor name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'sensor',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors',
+            False, 
+            [
+            _MetaInfoClassMember('sensor', REFERENCE_LIST, 'Sensor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor', 
+                [], [], 
+                '''                Sensor number
+                ''',
+                'sensor',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'sensors',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo',
+            False, 
+            [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms                
+                what the entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'basic-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'last-operational-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'module-up-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo',
+            False, 
+            [
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange', 
+                [], [], 
+                '''                Time operational state is   last changed
+                ''',
+                'last_operational_state_change',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
+                [], [], 
+                '''                Administrative    state
+                ''',
+                'module_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
+                [], [], 
+                '''                Monitor state
+                ''',
+                'module_monitor_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
+                '''                Operation state
+                ''',
+                'module_operational_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
+                [], [], 
+                '''                Power administrative state
+                ''',
+                'module_power_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
+                [], [], 
+                '''                Reset reason
+                ''',
+                'module_reset_reason',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime', 
+                [], [], 
+                '''                Module up time
+                ''',
+                'module_up_time',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'fru-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo', 
+                [], [], 
+                '''                Entity attributes
+                ''',
+                'basic_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo', 
+                [], [], 
+                '''                Field Replaceable Unit (FRU) attributes
+                ''',
+                'fru_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Port name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hw-components', REFERENCE_CLASS, 'HwComponents' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents', 
+                [], [], 
+                '''                Table of  HW components 
+                ''',
+                'hw_components',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('sensors', REFERENCE_CLASS, 'Sensors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors', 
+                [], [], 
+                '''                Table of sensors
+                ''',
+                'sensors',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'ports',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses',
+            False, 
+            [
+            _MetaInfoClassMember('ports', REFERENCE_LIST, 'Ports' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports', 
+                [], [], 
+                '''                Port number
+                ''',
+                'ports',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'portses',
             _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
@@ -1702,11 +2198,11 @@ _meta_table = {
                 ''',
                 'attributes',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port', 
+            _MetaInfoClassMember('portses', REFERENCE_CLASS, 'Portses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses', 
                 [], [], 
-                '''                Port
+                '''                Table of spirit port slots
                 ''',
-                'port',
+                'portses',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('sensors', REFERENCE_CLASS, 'Sensors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors', 
                 [], [], 
@@ -2417,6 +2913,1404 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
     },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo',
+            False, 
+            [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms                
+                what the entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'basic-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'last-operational-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'module-up-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo',
+            False, 
+            [
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange', 
+                [], [], 
+                '''                Time operational state is   last changed
+                ''',
+                'last_operational_state_change',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
+                [], [], 
+                '''                Administrative    state
+                ''',
+                'module_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
+                [], [], 
+                '''                Monitor state
+                ''',
+                'module_monitor_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
+                '''                Operation state
+                ''',
+                'module_operational_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
+                [], [], 
+                '''                Power administrative state
+                ''',
+                'module_power_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
+                [], [], 
+                '''                Reset reason
+                ''',
+                'module_reset_reason',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime', 
+                [], [], 
+                '''                Module up time
+                ''',
+                'module_up_time',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'fru-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo', 
+                [], [], 
+                '''                Entity attributes
+                ''',
+                'basic_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo', 
+                [], [], 
+                '''                Field Replaceable Unit (FRU) attributes
+                ''',
+                'fru_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Sensor name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'sensor',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors',
+            False, 
+            [
+            _MetaInfoClassMember('sensor', REFERENCE_LIST, 'Sensor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor', 
+                [], [], 
+                '''                Sensor number
+                ''',
+                'sensor',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'sensors',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo',
+            False, 
+            [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms                
+                what the entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'basic-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'last-operational-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'module-up-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo',
+            False, 
+            [
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange', 
+                [], [], 
+                '''                Time operational state is   last changed
+                ''',
+                'last_operational_state_change',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
+                [], [], 
+                '''                Administrative    state
+                ''',
+                'module_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
+                [], [], 
+                '''                Monitor state
+                ''',
+                'module_monitor_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
+                '''                Operation state
+                ''',
+                'module_operational_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
+                [], [], 
+                '''                Power administrative state
+                ''',
+                'module_power_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
+                [], [], 
+                '''                Reset reason
+                ''',
+                'module_reset_reason',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime', 
+                [], [], 
+                '''                Module up time
+                ''',
+                'module_up_time',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'fru-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo', 
+                [], [], 
+                '''                Entity attributes
+                ''',
+                'basic_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo', 
+                [], [], 
+                '''                Field Replaceable Unit (FRU) attributes
+                ''',
+                'fru_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                HW component name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('sensors', REFERENCE_CLASS, 'Sensors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors', 
+                [], [], 
+                '''                Table of sensors
+                ''',
+                'sensors',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'hw-component',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents',
+            False, 
+            [
+            _MetaInfoClassMember('hw-component', REFERENCE_LIST, 'HwComponent' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent', 
+                [], [], 
+                '''                HW component number
+                ''',
+                'hw_component',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'hw-components',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo',
+            False, 
+            [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms                
+                what the entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'basic-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'last-operational-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'module-up-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo',
+            False, 
+            [
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange', 
+                [], [], 
+                '''                Time operational state is   last changed
+                ''',
+                'last_operational_state_change',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
+                [], [], 
+                '''                Administrative    state
+                ''',
+                'module_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
+                [], [], 
+                '''                Monitor state
+                ''',
+                'module_monitor_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
+                '''                Operation state
+                ''',
+                'module_operational_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
+                [], [], 
+                '''                Power administrative state
+                ''',
+                'module_power_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
+                [], [], 
+                '''                Reset reason
+                ''',
+                'module_reset_reason',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime', 
+                [], [], 
+                '''                Module up time
+                ''',
+                'module_up_time',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'fru-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo', 
+                [], [], 
+                '''                Entity attributes
+                ''',
+                'basic_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo', 
+                [], [], 
+                '''                Field Replaceable Unit (FRU) attributes
+                ''',
+                'fru_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Sensor name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'sensor',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors',
+            False, 
+            [
+            _MetaInfoClassMember('sensor', REFERENCE_LIST, 'Sensor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor', 
+                [], [], 
+                '''                Sensor number
+                ''',
+                'sensor',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'sensors',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo',
+            False, 
+            [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms                
+                what the entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'basic-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'last-operational-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'module-up-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo',
+            False, 
+            [
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange', 
+                [], [], 
+                '''                Time operational state is   last changed
+                ''',
+                'last_operational_state_change',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
+                [], [], 
+                '''                Administrative    state
+                ''',
+                'module_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
+                [], [], 
+                '''                Monitor state
+                ''',
+                'module_monitor_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
+                '''                Operation state
+                ''',
+                'module_operational_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
+                [], [], 
+                '''                Power administrative state
+                ''',
+                'module_power_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
+                [], [], 
+                '''                Reset reason
+                ''',
+                'module_reset_reason',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime', 
+                [], [], 
+                '''                Module up time
+                ''',
+                'module_up_time',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'fru-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo', 
+                [], [], 
+                '''                Entity attributes
+                ''',
+                'basic_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo', 
+                [], [], 
+                '''                Field Replaceable Unit (FRU) attributes
+                ''',
+                'fru_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Port name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hw-components', REFERENCE_CLASS, 'HwComponents' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents', 
+                [], [], 
+                '''                Table of  HW components 
+                ''',
+                'hw_components',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('sensors', REFERENCE_CLASS, 'Sensors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors', 
+                [], [], 
+                '''                Table of sensors
+                ''',
+                'sensors',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'ports',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses',
+            False, 
+            [
+            _MetaInfoClassMember('ports', REFERENCE_LIST, 'Ports' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports', 
+                [], [], 
+                '''                Port number
+                ''',
+                'ports',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'portses',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo',
+            False, 
+            [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms                
+                what the entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'basic-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'last-operational-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'module-up-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo',
+            False, 
+            [
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange', 
+                [], [], 
+                '''                Time operational state is   last changed
+                ''',
+                'last_operational_state_change',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
+                [], [], 
+                '''                Administrative    state
+                ''',
+                'module_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
+                [], [], 
+                '''                Monitor state
+                ''',
+                'module_monitor_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
+                '''                Operation state
+                ''',
+                'module_operational_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
+                [], [], 
+                '''                Power administrative state
+                ''',
+                'module_power_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
+                [], [], 
+                '''                Reset reason
+                ''',
+                'module_reset_reason',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime', 
+                [], [], 
+                '''                Module up time
+                ''',
+                'module_up_time',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'fru-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo', 
+                [], [], 
+                '''                Entity attributes
+                ''',
+                'basic_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo', 
+                [], [], 
+                '''                Field Replaceable Unit (FRU) attributes
+                ''',
+                'fru_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Sensor name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'sensor',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors',
+            False, 
+            [
+            _MetaInfoClassMember('sensor', REFERENCE_LIST, 'Sensor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor', 
+                [], [], 
+                '''                Sensor number
+                ''',
+                'sensor',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'sensors',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo',
+            False, 
+            [
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms                
+                what the entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'basic-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'last-operational-state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime',
+            False, 
+            [
+            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Nano-seconds
+                ''',
+                'time_in_nano_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time Value in Seconds
+                ''',
+                'time_in_seconds',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'module-up-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo',
+            False, 
+            [
+            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange', 
+                [], [], 
+                '''                Time operational state is   last changed
+                ''',
+                'last_operational_state_change',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
+                [], [], 
+                '''                Administrative    state
+                ''',
+                'module_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
+                [], [], 
+                '''                Monitor state
+                ''',
+                'module_monitor_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
+                [], [], 
+                '''                Operation state
+                ''',
+                'module_operational_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
+                [], [], 
+                '''                Power administrative state
+                ''',
+                'module_power_administrative_state',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
+                [], [], 
+                '''                Reset reason
+                ''',
+                'module_reset_reason',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime', 
+                [], [], 
+                '''                Module up time
+                ''',
+                'module_up_time',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'fru-info',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo', 
+                [], [], 
+                '''                Entity attributes
+                ''',
+                'basic_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo', 
+                [], [], 
+                '''                Field Replaceable Unit (FRU) attributes
+                ''',
+                'fru_info',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Port slot name
+                ''',
+                'name',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('portses', REFERENCE_CLASS, 'Portses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses', 
+                [], [], 
+                '''                Table of spirit port slots
+                ''',
+                'portses',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            _MetaInfoClassMember('sensors', REFERENCE_CLASS, 'Sensors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors', 
+                [], [], 
+                '''                Table of sensors
+                ''',
+                'sensors',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'port-slot',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
+    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots' : {
+        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots',
+            False, 
+            [
+            _MetaInfoClassMember('port-slot', REFERENCE_LIST, 'PortSlot' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot', 
+                [], [], 
+                '''                Port slot number
+                ''',
+                'port_slot',
+                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-plat-chas-invmgr-oper',
+            'port-slots',
+            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
+        ),
+    },
     'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo' : {
         'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo',
             False, 
@@ -2879,679 +4773,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
         ),
     },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo',
-            False, 
-            [
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                describes in user-readable terms                
-                what the entity in question does
-                ''',
-                'description',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                firmware revision string
-                ''',
-                'firmware_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                hw revision string
-                ''',
-                'hardware_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                1 if Field Replaceable Unit 0, if not
-                ''',
-                'is_field_replaceable_unit',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                model name
-                ''',
-                'model_name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                name string for the entity
-                ''',
-                'name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                serial number
-                ''',
-                'serial_number',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                software revision string
-                ''',
-                'software_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                maps to the vendor OID string
-                ''',
-                'vendor_type',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'basic-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange',
-            False, 
-            [
-            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Nano-seconds
-                ''',
-                'time_in_nano_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Seconds
-                ''',
-                'time_in_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'last-operational-state-change',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime',
-            False, 
-            [
-            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Nano-seconds
-                ''',
-                'time_in_nano_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Seconds
-                ''',
-                'time_in_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'module-up-time',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo',
-            False, 
-            [
-            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange', 
-                [], [], 
-                '''                Time operational state is   last changed
-                ''',
-                'last_operational_state_change',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
-                [], [], 
-                '''                Administrative    state
-                ''',
-                'module_administrative_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
-                [], [], 
-                '''                Monitor state
-                ''',
-                'module_monitor_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                Operation state
-                ''',
-                'module_operational_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
-                [], [], 
-                '''                Power administrative state
-                ''',
-                'module_power_administrative_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
-                [], [], 
-                '''                Reset reason
-                ''',
-                'module_reset_reason',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime', 
-                [], [], 
-                '''                Module up time
-                ''',
-                'module_up_time',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'fru-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes',
-            False, 
-            [
-            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo', 
-                [], [], 
-                '''                Entity attributes
-                ''',
-                'basic_info',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo', 
-                [], [], 
-                '''                Field Replaceable Unit (FRU) attributes
-                ''',
-                'fru_info',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'attributes',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port',
-            False, 
-            [
-            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes', 
-                [], [], 
-                '''                Attributes
-                ''',
-                'attributes',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'port',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo',
-            False, 
-            [
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                describes in user-readable terms                
-                what the entity in question does
-                ''',
-                'description',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                firmware revision string
-                ''',
-                'firmware_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                hw revision string
-                ''',
-                'hardware_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                1 if Field Replaceable Unit 0, if not
-                ''',
-                'is_field_replaceable_unit',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                model name
-                ''',
-                'model_name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                name string for the entity
-                ''',
-                'name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                serial number
-                ''',
-                'serial_number',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                software revision string
-                ''',
-                'software_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                maps to the vendor OID string
-                ''',
-                'vendor_type',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'basic-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange',
-            False, 
-            [
-            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Nano-seconds
-                ''',
-                'time_in_nano_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Seconds
-                ''',
-                'time_in_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'last-operational-state-change',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime',
-            False, 
-            [
-            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Nano-seconds
-                ''',
-                'time_in_nano_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Seconds
-                ''',
-                'time_in_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'module-up-time',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo',
-            False, 
-            [
-            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange', 
-                [], [], 
-                '''                Time operational state is   last changed
-                ''',
-                'last_operational_state_change',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
-                [], [], 
-                '''                Administrative    state
-                ''',
-                'module_administrative_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
-                [], [], 
-                '''                Monitor state
-                ''',
-                'module_monitor_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                Operation state
-                ''',
-                'module_operational_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
-                [], [], 
-                '''                Power administrative state
-                ''',
-                'module_power_administrative_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
-                [], [], 
-                '''                Reset reason
-                ''',
-                'module_reset_reason',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime', 
-                [], [], 
-                '''                Module up time
-                ''',
-                'module_up_time',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'fru-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes',
-            False, 
-            [
-            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo', 
-                [], [], 
-                '''                Entity attributes
-                ''',
-                'basic_info',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo', 
-                [], [], 
-                '''                Field Replaceable Unit (FRU) attributes
-                ''',
-                'fru_info',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'attributes',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor',
-            False, 
-            [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Sensor name
-                ''',
-                'name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
-            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes', 
-                [], [], 
-                '''                Attributes
-                ''',
-                'attributes',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'sensor',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors',
-            False, 
-            [
-            _MetaInfoClassMember('sensor', REFERENCE_LIST, 'Sensor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor', 
-                [], [], 
-                '''                Sensor number
-                ''',
-                'sensor',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'sensors',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo',
-            False, 
-            [
-            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                describes in user-readable terms                
-                what the entity in question does
-                ''',
-                'description',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                firmware revision string
-                ''',
-                'firmware_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                hw revision string
-                ''',
-                'hardware_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                1 if Field Replaceable Unit 0, if not
-                ''',
-                'is_field_replaceable_unit',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                model name
-                ''',
-                'model_name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                name string for the entity
-                ''',
-                'name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                serial number
-                ''',
-                'serial_number',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                software revision string
-                ''',
-                'software_revision',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
-                '''                maps to the vendor OID string
-                ''',
-                'vendor_type',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'basic-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange',
-            False, 
-            [
-            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Nano-seconds
-                ''',
-                'time_in_nano_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Seconds
-                ''',
-                'time_in_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'last-operational-state-change',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime',
-            False, 
-            [
-            _MetaInfoClassMember('time-in-nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Nano-seconds
-                ''',
-                'time_in_nano_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('time-in-seconds', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Time Value in Seconds
-                ''',
-                'time_in_seconds',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'module-up-time',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo',
-            False, 
-            [
-            _MetaInfoClassMember('last-operational-state-change', REFERENCE_CLASS, 'LastOperationalStateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange', 
-                [], [], 
-                '''                Time operational state is   last changed
-                ''',
-                'last_operational_state_change',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-administrative-state', REFERENCE_ENUM_CLASS, 'InvAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvAdminStateEnum', 
-                [], [], 
-                '''                Administrative    state
-                ''',
-                'module_administrative_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-monitor-state', REFERENCE_ENUM_CLASS, 'InvMonitorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvMonitorStateEnum', 
-                [], [], 
-                '''                Monitor state
-                ''',
-                'module_monitor_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
-                '''                Operation state
-                ''',
-                'module_operational_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-power-administrative-state', REFERENCE_ENUM_CLASS, 'InvPowerAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvPowerAdminStateEnum', 
-                [], [], 
-                '''                Power administrative state
-                ''',
-                'module_power_administrative_state',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-reset-reason', REFERENCE_ENUM_CLASS, 'InvResetReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'InvResetReasonEnum', 
-                [], [], 
-                '''                Reset reason
-                ''',
-                'module_reset_reason',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('module-up-time', REFERENCE_CLASS, 'ModuleUpTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime', 
-                [], [], 
-                '''                Module up time
-                ''',
-                'module_up_time',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'fru-info',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes',
-            False, 
-            [
-            _MetaInfoClassMember('basic-info', REFERENCE_CLASS, 'BasicInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo', 
-                [], [], 
-                '''                Entity attributes
-                ''',
-                'basic_info',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('fru-info', REFERENCE_CLASS, 'FruInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo', 
-                [], [], 
-                '''                Field Replaceable Unit (FRU) attributes
-                ''',
-                'fru_info',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'attributes',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot',
-            False, 
-            [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Port slot name
-                ''',
-                'name',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', True),
-            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes', 
-                [], [], 
-                '''                Attributes
-                ''',
-                'attributes',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('port', REFERENCE_CLASS, 'Port' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port', 
-                [], [], 
-                '''                Port
-                ''',
-                'port',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('sensors', REFERENCE_CLASS, 'Sensors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors', 
-                [], [], 
-                '''                Table of sensors
-                ''',
-                'sensors',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'port-slot',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
-    'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots' : {
-        'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots',
-            False, 
-            [
-            _MetaInfoClassMember('port-slot', REFERENCE_LIST, 'PortSlot' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot', 
-                [], [], 
-                '''                Port slot number
-                ''',
-                'port_slot',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            ],
-            'Cisco-IOS-XR-plat-chas-invmgr-oper',
-            'port-slots',
-            _yang_ns._namespaces['Cisco-IOS-XR-plat-chas-invmgr-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper'
-        ),
-    },
     'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo' : {
         'meta_info' : _MetaInfoClass('PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo',
             False, 
@@ -4001,12 +5222,6 @@ _meta_table = {
                 '''                Table of port slots
                 ''',
                 'port_slots',
-                'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
-            _MetaInfoClassMember('portses', REFERENCE_CLASS, 'Portses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses', 
-                [], [], 
-                '''                Table of spirit port slots
-                ''',
-                'portses',
                 'Cisco-IOS-XR-plat-chas-invmgr-oper', False),
             _MetaInfoClassMember('sensors', REFERENCE_CLASS, 'Sensors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper', 'PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors', 
                 [], [], 
@@ -4539,12 +5754,6 @@ _meta_table['Platform.Racks.Rack.Slots.Slot']['meta_info'].parent =_meta_table['
 _meta_table['Platform.Racks.Rack.Slots']['meta_info'].parent =_meta_table['Platform.Racks.Rack']['meta_info']
 _meta_table['Platform.Racks.Rack']['meta_info'].parent =_meta_table['Platform.Racks']['meta_info']
 _meta_table['Platform.Racks']['meta_info'].parent =_meta_table['Platform']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation']['meta_info']
@@ -4553,11 +5762,33 @@ _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformat
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.HwComponents']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Sensors']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses.Ports']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes']['meta_info']
@@ -4568,7 +5799,7 @@ _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Portses']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots']['meta_info']
@@ -4592,6 +5823,47 @@ _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors.Sensor']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Sensors']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents.HwComponent']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors.Sensor']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.HwComponents']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Sensors']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses.Ports']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Portses']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes']['meta_info']
@@ -4605,25 +5877,6 @@ _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwC
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes']['meta_info']
@@ -4634,11 +5887,10 @@ _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruIn
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info']
-_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info']
+_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info']
 _meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card']['meta_info'].parent =_meta_table['PlatformInventory.Racks.Rack.Slots.Slot.Cards']['meta_info']

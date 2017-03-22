@@ -47,6 +47,13 @@ class Lldp(object):
     
     	**default value**\: false
     
+    .. attribute:: extended_show_width
+    
+    	Enable or disable LLDP Show LLDP Neighbor Extended Width
+    	**type**\:  bool
+    
+    	**default value**\: false
+    
     .. attribute:: holdtime
     
     	Length  of time  (in sec) that receiver must keep this packet
@@ -89,6 +96,7 @@ class Lldp(object):
     def __init__(self):
         self.enable = None
         self.enable_subintf = None
+        self.extended_show_width = None
         self.holdtime = None
         self.reinit = None
         self.timer = None
@@ -440,6 +448,9 @@ class Lldp(object):
             return True
 
         if self.enable_subintf is not None:
+            return True
+
+        if self.extended_show_width is not None:
             return True
 
         if self.holdtime is not None:

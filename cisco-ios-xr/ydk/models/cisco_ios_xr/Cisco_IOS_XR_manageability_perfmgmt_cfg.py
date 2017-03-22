@@ -229,7 +229,7 @@ class PerfMgmt(object):
             	VRF name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: _is_presence
             
@@ -567,7 +567,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -590,7 +590,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -760,7 +760,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -783,7 +783,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -953,7 +953,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -976,7 +976,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -1146,7 +1146,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -1169,7 +1169,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -1339,7 +1339,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -1362,7 +1362,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -1532,7 +1532,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -1555,7 +1555,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -1725,7 +1725,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -1748,7 +1748,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -1918,7 +1918,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -1941,7 +1941,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -2111,7 +2111,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -2134,7 +2134,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -2304,7 +2304,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -2327,7 +2327,7 @@ class PerfMgmt(object):
                     	VRF group configured in regular expression to be applied
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -6364,7 +6364,7 @@ class PerfMgmt(object):
             	Regular expression group name
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: reg_exps
             
@@ -6424,7 +6424,7 @@ class PerfMgmt(object):
                     	Regular expression string to match
                     	**type**\:  str
                     
-                    	**length:** 0..128
+                    	**length:** 1..128
                     
                     	**mandatory**\: True
                     
@@ -6835,7 +6835,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -6851,7 +6851,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by VRF name regular expression 
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -11543,7 +11543,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -11559,7 +11559,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by VRF name regular expression 
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -16965,7 +16965,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by regular expression
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: sample_interval
                     
@@ -16981,7 +16981,7 @@ class PerfMgmt(object):
                     	Enable instance filtering by VRF name regular expression 
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 

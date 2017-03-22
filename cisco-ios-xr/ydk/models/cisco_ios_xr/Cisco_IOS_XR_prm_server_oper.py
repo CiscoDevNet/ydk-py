@@ -190,7 +190,7 @@ class HardwareModule(object):
                             	Accepted
                             	**type**\:  int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: burst
                             
@@ -218,7 +218,7 @@ class HardwareModule(object):
                             	Dropped
                             	**type**\:  int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: flow_rate
                             

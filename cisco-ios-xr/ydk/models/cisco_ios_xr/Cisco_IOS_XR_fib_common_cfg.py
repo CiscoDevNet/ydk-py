@@ -88,23 +88,28 @@ class Fib(object):
     	PBTS class configuration
     	**type**\:   :py:class:`PbtsForwardClassFallbacks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.PbtsForwardClassFallbacks>`
     
+    .. attribute:: platform
+    
+    	FIB platform parameters
+    	**type**\:   :py:class:`Platform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.Platform>`
+    
     .. attribute:: prefer_aib_routes
     
     	Set options for adjacency routes overriding RIB routes
-    	**type**\:  int
-    
-    	**range:** \-2147483648..2147483647
+    	**type**\:  bool
     
     
 
     """
 
     _prefix = 'fib-common-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-01-20'
 
     def __init__(self):
         self.pbts_forward_class_fallbacks = Fib.PbtsForwardClassFallbacks()
         self.pbts_forward_class_fallbacks.parent = self
+        self.platform = Fib.Platform()
+        self.platform.parent = self
         self.prefer_aib_routes = None
 
 
@@ -122,7 +127,7 @@ class Fib(object):
         """
 
         _prefix = 'fib-common-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-01-20'
 
         def __init__(self):
             self.parent = None
@@ -169,7 +174,7 @@ class Fib(object):
             """
 
             _prefix = 'fib-common-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-01-20'
 
             def __init__(self):
                 self.parent = None
@@ -235,6 +240,97 @@ class Fib(object):
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
             return meta._meta_table['Fib.PbtsForwardClassFallbacks']['meta_info']
 
+
+    class Platform(object):
+        """
+        FIB platform parameters
+        
+        .. attribute:: label_switched_multicast
+        
+        	Options for label\-switched\-multicast parameters
+        	**type**\:   :py:class:`LabelSwitchedMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.Platform.LabelSwitchedMulticast>`
+        
+        
+
+        """
+
+        _prefix = 'fib-common-cfg'
+        _revision = '2017-01-20'
+
+        def __init__(self):
+            self.parent = None
+            self.label_switched_multicast = Fib.Platform.LabelSwitchedMulticast()
+            self.label_switched_multicast.parent = self
+
+
+        class LabelSwitchedMulticast(object):
+            """
+            Options for label\-switched\-multicast parameters
+            
+            .. attribute:: frr_holdtime
+            
+            	Set time to keep FRR slots programmed post FRR
+            	**type**\:  int
+            
+            	**range:** 3..180
+            
+            	**units**\: second
+            
+            
+
+            """
+
+            _prefix = 'fib-common-cfg'
+            _revision = '2017-01-20'
+
+            def __init__(self):
+                self.parent = None
+                self.frr_holdtime = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-fib-common-cfg:fib/Cisco-IOS-XR-fib-common-cfg:platform/Cisco-IOS-XR-fib-common-cfg:label-switched-multicast'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.frr_holdtime is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
+                return meta._meta_table['Fib.Platform.LabelSwitchedMulticast']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-fib-common-cfg:fib/Cisco-IOS-XR-fib-common-cfg:platform'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.label_switched_multicast is not None and self.label_switched_multicast._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
+            return meta._meta_table['Fib.Platform']['meta_info']
+
     @property
     def _common_path(self):
 
@@ -248,6 +344,9 @@ class Fib(object):
         if not self.is_config():
             return False
         if self.pbts_forward_class_fallbacks is not None and self.pbts_forward_class_fallbacks._has_data():
+            return True
+
+        if self.platform is not None and self.platform._has_data():
             return True
 
         if self.prefer_aib_routes is not None:

@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'MacsecCtrlrCiphersuitEnum' : _MetaInfoEnum('MacsecCtrlrCiphersuitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper',
         {
@@ -205,6 +204,12 @@ _meta_table = {
                 '''                Replay Window Size
                 ''',
                 'replay_window_size',
+                'Cisco-IOS-XR-macsec-ctrlr-oper', False),
+            _MetaInfoClassMember('secure-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Secure Mode
+                ''',
+                'secure_mode',
                 'Cisco-IOS-XR-macsec-ctrlr-oper', False),
             _MetaInfoClassMember('state', REFERENCE_ENUM_CLASS, 'MacsecCtrlrStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper', 'MacsecCtrlrStateEnum', 
                 [], [], 

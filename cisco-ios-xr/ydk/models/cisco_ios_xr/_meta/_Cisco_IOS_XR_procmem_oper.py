@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'ProcessesMemory.Nodes.Node.ProcessIds.ProcessId' : {
         'meta_info' : _MetaInfoClass('ProcessesMemory.Nodes.Node.ProcessIds.ProcessId',
@@ -29,6 +28,12 @@ _meta_table = {
                 '''                Data Segment Size
                 ''',
                 'data_seg_size',
+                'Cisco-IOS-XR-procmem-oper', False),
+            _MetaInfoClassMember('dyn-limit', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Dynamic memory limit
+                ''',
+                'dyn_limit',
                 'Cisco-IOS-XR-procmem-oper', False),
             _MetaInfoClassMember('jid', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -48,11 +53,23 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-procmem-oper', False),
+            _MetaInfoClassMember('physical-mem', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Physical memory size
+                ''',
+                'physical_mem',
+                'Cisco-IOS-XR-procmem-oper', False),
             _MetaInfoClassMember('pid', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Process ID
                 ''',
                 'pid',
+                'Cisco-IOS-XR-procmem-oper', False),
+            _MetaInfoClassMember('shared-mem', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Shared memory size
+                ''',
+                'shared_mem',
                 'Cisco-IOS-XR-procmem-oper', False),
             _MetaInfoClassMember('stack-seg-size', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 

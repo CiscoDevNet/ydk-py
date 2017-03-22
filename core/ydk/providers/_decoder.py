@@ -40,7 +40,11 @@ class XmlDecoder(object):
         top_entity = self._get_top_entity(payload_tree)
         rt = payload_tree.getroottree().getroot()
         curr_rt = get_root(rt, top_entity, _yang_ns._namespaces)
-        XmlDecoder._bind_to_object_helper(curr_rt, top_entity)
+        try:
+            XmlDecoder._bind_to_object_helper(curr_rt, top_entity)
+        except Exception as e:
+            e.payload = payload
+            raise e
         return top_entity
 
     def get_top_container_for_namespace(self, namespace, text):
@@ -62,7 +66,11 @@ class XmlDecoder(object):
             return top_entity
         rt = etree.fromstring(payload.encode('utf-8')).getroottree().getroot()
         curr_rt = get_root(rt, top_entity, _yang_ns._namespaces)
-        XmlDecoder._bind_to_object_helper(curr_rt, top_entity, active_deviation_tables, pretty_p='|-')
+        try:
+            XmlDecoder._bind_to_object_helper(curr_rt, top_entity, active_deviation_tables, pretty_p='|-')
+        except Exception as e:
+            e.payload = payload
+            raise e
 
     @staticmethod
     def _bind_to_object_helper(root, entity, deviation_tables={}, pretty_p='|-'):

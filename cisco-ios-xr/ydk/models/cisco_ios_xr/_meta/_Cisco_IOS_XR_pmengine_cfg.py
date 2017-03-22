@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'OpticsThresholdEnum' : _MetaInfoEnum('OpticsThresholdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg',
         {
@@ -27,6 +26,8 @@ _meta_table = {
             'thresh-pdl-min':'thresh_pdl_min',
             'thresh-pcr-min':'thresh_pcr_min',
             'thresh-pn-min':'thresh_pn_min',
+            'thresh-rx-sig-pow-min':'thresh_rx_sig_pow_min',
+            'thresh-low-sig-freq-off-min':'thresh_low_sig_freq_off_min',
             'thresh-opt-max':'thresh_opt_max',
             'thresh-opr-max':'thresh_opr_max',
             'thresh-lbc-max':'thresh_lbc_max',
@@ -38,6 +39,8 @@ _meta_table = {
             'thresh-pdl-max':'thresh_pdl_max',
             'thresh-pcr-max':'thresh_pcr_max',
             'thresh-pn-max':'thresh_pn_max',
+            'thresh-rx-sig-pow-max':'thresh_rx_sig_pow_max',
+            'thresh-low-sig-freq-off-max':'thresh_low_sig_freq_off_max',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
     'OtnThresholdEnum' : _MetaInfoEnum('OtnThresholdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg',
         {
@@ -169,6 +172,8 @@ _meta_table = {
             'report-pdl-min':'report_pdl_min',
             'report-pcr-min':'report_pcr_min',
             'report-pn-min':'report_pn_min',
+            'report-rx-sig-pow-min':'report_rx_sig_pow_min',
+            'report-low-sig-freq-off-min':'report_low_sig_freq_off_min',
             'report-opt-max':'report_opt_max',
             'report-opr-max':'report_opr_max',
             'report-lbc-max':'report_lbc_max',
@@ -180,6 +185,8 @@ _meta_table = {
             'report-pdl-max':'report_pdl_max',
             'report-pcr-max':'report_pcr_max',
             'report-pn-max':'report_pn_max',
+            'report-rx-sig-pow-max':'report_rx_sig_pow_max',
+            'report-low-sig-freq-off-max':'report_low_sig_freq_off_max',
         }, 'Cisco-IOS-XR-pmengine-cfg', _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg']),
     'GfpReportEnum' : _MetaInfoEnum('GfpReportEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg',
         {

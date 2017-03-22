@@ -363,6 +363,69 @@ class AclPortOperatorEnum(Enum):
         return meta._meta_table['AclPortOperatorEnum']
 
 
+class AclPortOperatorEnum(Enum):
+    """
+    AclPortOperatorEnum
+
+    Acl port operator
+
+    .. data:: none = 0
+
+    	None
+
+    .. data:: eq = 1
+
+    	Equal
+
+    .. data:: gt = 2
+
+    	Greater than
+
+    .. data:: lt = 3
+
+    	Less than
+
+    .. data:: neq = 4
+
+    	Not Equal
+
+    .. data:: range = 5
+
+    	Range
+
+    .. data:: onebyte = 8
+
+    	One Byte
+
+    .. data:: twobytes = 9
+
+    	Two Bytes
+
+    """
+
+    none = 0
+
+    eq = 1
+
+    gt = 2
+
+    lt = 3
+
+    neq = 4
+
+    range = 5
+
+    onebyte = 8
+
+    twobytes = 9
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+        return meta._meta_table['AclPortOperatorEnum']
+
+
 class AclTcpflagsOperatorEnum(Enum):
     """
     AclTcpflagsOperatorEnum
@@ -623,7 +686,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of the prefix list
                 	**type**\:  str
                 
-                	**length:** 0..65
+                	**length:** 1..65
                 
                 .. attribute:: prefix_list_sequences
                 
@@ -938,7 +1001,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of the ACL
                 	**type**\:  str
                 
-                	**length:** 0..65
+                	**length:** 1..65
                 
                 .. attribute:: application_id
                 
@@ -1061,7 +1124,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of the Access List
                 	**type**\:  str
                 
-                	**length:** 0..65
+                	**length:** 1..65
                 
                 .. attribute:: access_list_sequences
                 
@@ -1245,9 +1308,16 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: is_ipv6_protocol2_type
+                        
+                        	Protocol 2
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
                         .. attribute:: is_ipv6_protocol_type
                         
-                        	IsIPV6ProtocolType
+                        	Protocol 1
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
@@ -1294,6 +1364,11 @@ class Ipv6AclAndPrefixList(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: is_protocol_operator
+                        
+                        	Protocol operator
+                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
                         
                         .. attribute:: is_source_address_in_numbers
                         
@@ -1383,6 +1458,13 @@ class Ipv6AclAndPrefixList(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        .. attribute:: qos_group
+                        
+                        	Set qos\-group
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
                         .. attribute:: sequence_str
                         
                         	Sequence String
@@ -1404,6 +1486,16 @@ class Ipv6AclAndPrefixList(object):
                         
                         	Source prefix object\-group
                         	**type**\:  str
+                        
+                        .. attribute:: udf
+                        
+                        	UDF
+                        	**type**\: list of    :py:class:`Udf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf>`
+                        
+                        .. attribute:: undetermined_transport
+                        
+                        	Undetermined transport option, TRUE if enabled
+                        	**type**\:  bool
                         
                         
 
@@ -1437,6 +1529,7 @@ class Ipv6AclAndPrefixList(object):
                             self.is_flow_id = None
                             self.is_header_matches = None
                             self.is_icmp_message_off = None
+                            self.is_ipv6_protocol2_type = None
                             self.is_ipv6_protocol_type = None
                             self.is_log_option = None
                             self.is_packet_allow_or_deny = None
@@ -1445,6 +1538,7 @@ class Ipv6AclAndPrefixList(object):
                             self.is_packet_length_start = None
                             self.is_precedence_present = None
                             self.is_precedence_value = None
+                            self.is_protocol_operator = None
                             self.is_source_address_in_numbers = None
                             self.is_source_address_prefix_length = None
                             self.is_source_operator = None
@@ -1461,10 +1555,15 @@ class Ipv6AclAndPrefixList(object):
                             self.next_hop_info.name = 'next_hop_info'
                             self.next_hop_type = None
                             self.no_stats = None
+                            self.qos_group = None
                             self.sequence_str = None
                             self.source_mask = None
                             self.source_port_group = None
                             self.source_prefix_group = None
+                            self.udf = YList()
+                            self.udf.parent = self
+                            self.udf.name = 'udf'
+                            self.undetermined_transport = None
 
 
                         class HwNextHopInfo(object):
@@ -1642,6 +1741,75 @@ class Ipv6AclAndPrefixList(object):
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
                                 return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo']['meta_info']
 
+
+                        class Udf(object):
+                            """
+                            UDF
+                            
+                            .. attribute:: udf_mask
+                            
+                            	UDF Mask
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: udf_name
+                            
+                            	UDF Name
+                            	**type**\:  str
+                            
+                            	**length:** 0..17
+                            
+                            .. attribute:: udf_value
+                            
+                            	UDF Value
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-acl-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.udf_mask = None
+                                self.udf_name = None
+                                self.udf_value = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:udf'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.udf_mask is not None:
+                                    return True
+
+                                if self.udf_name is not None:
+                                    return True
+
+                                if self.udf_value is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
+                                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf']['meta_info']
+
                         @property
                         def _common_path(self):
                             if self.parent is None:
@@ -1724,6 +1892,9 @@ class Ipv6AclAndPrefixList(object):
                             if self.is_icmp_message_off is not None:
                                 return True
 
+                            if self.is_ipv6_protocol2_type is not None:
+                                return True
+
                             if self.is_ipv6_protocol_type is not None:
                                 return True
 
@@ -1746,6 +1917,9 @@ class Ipv6AclAndPrefixList(object):
                                 return True
 
                             if self.is_precedence_value is not None:
+                                return True
+
+                            if self.is_protocol_operator is not None:
                                 return True
 
                             if self.is_source_address_in_numbers is not None:
@@ -1792,6 +1966,9 @@ class Ipv6AclAndPrefixList(object):
                             if self.no_stats is not None:
                                 return True
 
+                            if self.qos_group is not None:
+                                return True
+
                             if self.sequence_str is not None:
                                 return True
 
@@ -1802,6 +1979,14 @@ class Ipv6AclAndPrefixList(object):
                                 return True
 
                             if self.source_prefix_group is not None:
+                                return True
+
+                            if self.udf is not None:
+                                for child_ref in self.udf:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.undetermined_transport is not None:
                                 return True
 
                             return False
@@ -2291,7 +2476,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of the Access List
                 	**type**\:  str
                 
-                	**length:** 0..65
+                	**length:** 1..65
                 
                 .. attribute:: is_current_configured_ac_ls
                 
@@ -2474,7 +2659,7 @@ class Ipv6AclAndPrefixList(object):
                 	Name of a prefix list
                 	**type**\:  str
                 
-                	**length:** 0..65
+                	**length:** 1..65
                 
                 .. attribute:: is_current_configured_ac_ls
                 

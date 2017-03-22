@@ -19,6 +19,7 @@
 
 """
 from __future__ import unicode_literals
+from enum import Enum
 import logging
 import importlib
 
@@ -59,6 +60,8 @@ class ValueEncoder(object):
                     text = value
         elif member.mtype == REFERENCE_ENUM_CLASS or member.ptype.endswith('Enum'):
             enum_value = value
+            if isinstance(enum_value, Enum):
+                enum_value = value.name
             module = importlib.import_module(member.pmodule_name)
             enum_clazz = reduce(getattr, member.clazz_name.split('.'), module)
             literal_map = enum_clazz._meta_info().literal_map

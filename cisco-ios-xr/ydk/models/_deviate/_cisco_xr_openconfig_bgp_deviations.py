@@ -19,401 +19,321 @@ _deviation_table = {
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config.advertise_inactive_routes' : {
@@ -548,401 +468,321 @@ _deviation_table = {
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes.installed' : {
@@ -969,7 +809,13 @@ _deviation_table = {
     'Bgp.Neighbors.Neighbor.Config.peer_type' : {
         'deviation_typ' : 'not_supported',
     },
+    'Bgp.Neighbors.Neighbor.Config.remove_private_as' : {
+        'deviation_typ' : 'not_supported',
+    },
     'Bgp.Neighbors.Neighbor.Config.route_flap_damping' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'Bgp.Neighbors.Neighbor.Config.send_community' : {
         'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.ErrorHandling' : {
@@ -993,10 +839,22 @@ _deviation_table = {
     'Bgp.Neighbors.Neighbor.LoggingOptions' : {
         'deviation_typ' : 'not_supported',
     },
+    'Bgp.Neighbors.Neighbor.RouteReflector.Config.route_reflector_client' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'Bgp.Neighbors.Neighbor.RouteReflector.State.route_reflector_client' : {
+        'deviation_typ' : 'not_supported',
+    },
     'Bgp.Neighbors.Neighbor.State.peer_type' : {
         'deviation_typ' : 'not_supported',
     },
+    'Bgp.Neighbors.Neighbor.State.remove_private_as' : {
+        'deviation_typ' : 'not_supported',
+    },
     'Bgp.Neighbors.Neighbor.State.route_flap_damping' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'Bgp.Neighbors.Neighbor.State.send_community' : {
         'deviation_typ' : 'not_supported',
     },
     'Bgp.Neighbors.Neighbor.Timers.Config.connect_retry' : {
@@ -1050,401 +908,321 @@ _deviation_table = {
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State.max_prefixes' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
-            ('must', 'shutdown_threshold_pct and restart_timer'),
+            ('must', 'shutdown_threshold_pct'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State.restart_timer' : {
-        'deviation_typ' : 'add',
-        'keyword_value' : [
-            ('default', 0),
-            ('must', 'max_prefixes and shutdown_threshold_pct'),
-        ]
+        'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State.shutdown_threshold_pct' : {
         'deviation_typ' : 'add',
         'keyword_value' : [
             ('default', 75),
-            ('must', 'max_prefixes and restart_timer'),
+            ('must', 'max_prefixes'),
         ]
     },
     'Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config.advertise_inactive_routes' : {
@@ -1507,7 +1285,13 @@ _deviation_table = {
     'Bgp.PeerGroups.PeerGroup.Config.peer_type' : {
         'deviation_typ' : 'not_supported',
     },
+    'Bgp.PeerGroups.PeerGroup.Config.remove_private_as' : {
+        'deviation_typ' : 'not_supported',
+    },
     'Bgp.PeerGroups.PeerGroup.Config.route_flap_damping' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'Bgp.PeerGroups.PeerGroup.Config.send_community' : {
         'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.ErrorHandling.Config.treat_as_withdraw' : {
@@ -1528,10 +1312,22 @@ _deviation_table = {
     'Bgp.PeerGroups.PeerGroup.LoggingOptions.State.log_neighbor_state_changes' : {
         'deviation_typ' : 'not_supported',
     },
+    'Bgp.PeerGroups.PeerGroup.RouteReflector.Config.route_reflector_client' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'Bgp.PeerGroups.PeerGroup.RouteReflector.State.route_reflector_client' : {
+        'deviation_typ' : 'not_supported',
+    },
     'Bgp.PeerGroups.PeerGroup.State.peer_type' : {
         'deviation_typ' : 'not_supported',
     },
+    'Bgp.PeerGroups.PeerGroup.State.remove_private_as' : {
+        'deviation_typ' : 'not_supported',
+    },
     'Bgp.PeerGroups.PeerGroup.State.route_flap_damping' : {
+        'deviation_typ' : 'not_supported',
+    },
+    'Bgp.PeerGroups.PeerGroup.State.send_community' : {
         'deviation_typ' : 'not_supported',
     },
     'Bgp.PeerGroups.PeerGroup.State.total_paths' : {

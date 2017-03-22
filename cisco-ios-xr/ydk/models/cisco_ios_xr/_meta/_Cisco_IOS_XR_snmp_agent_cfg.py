@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'SnmpHashAlgorithmEnum' : _MetaInfoEnum('SnmpHashAlgorithmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg',
         {
@@ -272,7 +271,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('community-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 128)], [], 
+                [(1, 128)], [], 
                 '''                SNMP community string
                 ''',
                 'community_name',
@@ -722,20 +721,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('chassis-id', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
+                [(1, 255)], [], 
                 '''                String to uniquely identify this chassis
                 ''',
                 'chassis_id',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
             _MetaInfoClassMember('contact', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
+                [(1, 255)], [], 
                 '''                identification of the contact person for this
                 managed node
                 ''',
                 'contact',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
             _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [(0, 255)], [], 
+                [(1, 255)], [], 
                 '''                The physical location of this node
                 ''',
                 'location',
@@ -938,6 +937,97 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
+    'Snmp.Notification.FruControl' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.FruControl',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ciscoEntityFRUControlMIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-snmp-frucontrolmib-cfg', False),
+            ],
+            'Cisco-IOS-XR-snmp-frucontrolmib-cfg',
+            'fru-control',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-frucontrolmib-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Ntp' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Ntp',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ciscoNtpMIB notification configuration
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-ntp-cfg',
+            'ntp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.MplsL3Vpn' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsL3Vpn',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsL3VpnMIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-vpn-cfg', False),
+            _MetaInfoClassMember('max-threshold-cleared', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsL3VpnNumVrfRouteMaxThreshCleared
+                notification
+                ''',
+                'max_threshold_cleared',
+                'Cisco-IOS-XR-mpls-vpn-cfg', False),
+            _MetaInfoClassMember('max-threshold-exceeded', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsL3VpnVrfNumVrfRouteMaxThreshExceeded
+                notification
+                ''',
+                'max_threshold_exceeded',
+                'Cisco-IOS-XR-mpls-vpn-cfg', False),
+            _MetaInfoClassMember('max-threshold-reissue-notification-time', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Time interval (secs) for re-issuing
+                max-threshold notification
+                ''',
+                'max_threshold_reissue_notification_time',
+                'Cisco-IOS-XR-mpls-vpn-cfg', False),
+            _MetaInfoClassMember('mid-threshold-exceeded', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsL3VpnVrfRouteMidThreshExceeded
+                notification
+                ''',
+                'mid_threshold_exceeded',
+                'Cisco-IOS-XR-mpls-vpn-cfg', False),
+            _MetaInfoClassMember('vrf-down', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsL3VpnVrfDown notification
+                ''',
+                'vrf_down',
+                'Cisco-IOS-XR-mpls-vpn-cfg', False),
+            _MetaInfoClassMember('vrf-up', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsL3VpnVrfUp notification
+                ''',
+                'vrf_up',
+                'Cisco-IOS-XR-mpls-vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-vpn-cfg',
+            'mpls-l3vpn',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
     'Snmp.Notification.Vpls' : {
         'meta_info' : _MetaInfoClass('Snmp.Notification.Vpls',
             False, 
@@ -1006,6 +1096,480 @@ _meta_table = {
             'Cisco-IOS-XR-l2vpn-cfg',
             'l2vpn',
             _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Cfm' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Cfm',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable 802.1ag Connectivity Fault Management
+                MIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+            ],
+            'Cisco-IOS-XR-ethernet-cfm-cfg',
+            'cfm',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Hsrp' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Hsrp',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable CISCO-HSRP-MIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ipv4-hsrp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-hsrp-cfg',
+            'hsrp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-hsrp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.SelectiveVrfDownload' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.SelectiveVrfDownload',
+            False, 
+            [
+            _MetaInfoClassMember('role-change', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable csvdEntityRoleChangeNotification
+                notification
+                ''',
+                'role_change',
+                'Cisco-IOS-XR-infra-rsi-cfg', False),
+            ],
+            'Cisco-IOS-XR-infra-rsi-cfg',
+            'selective-vrf-download',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Bgp.Bgp4Mib' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp.Bgp4Mib',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only
+                notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('up-down', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only
+                up/down notifications
+                ''',
+                'up_down',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'bgp4mib',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Bgp.CiscoBgp4Mib' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp.CiscoBgp4Mib',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable CISCO-BGP4-MIB v2 notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('up-down', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable CISCO-BGP4-MIB v2 up/down notifications
+                ''',
+                'up_down',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'cisco-bgp4mib',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Bgp' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp',
+            False, 
+            [
+            _MetaInfoClassMember('bgp4mib', REFERENCE_CLASS, 'Bgp4Mib' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Bgp.Bgp4Mib', 
+                [], [], 
+                '''                Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only
+                notifications: bgpEstablishedNotification,
+                bgpBackwardTransNotification,
+                cbgpFsmStateChange, cbgpBackwardTransition,
+                cbgpPrefixThresholdExceeded,
+                cbgpPrefixThresholdClear.
+                ''',
+                'bgp4mib',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('cisco-bgp4mib', REFERENCE_CLASS, 'CiscoBgp4Mib' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Bgp.CiscoBgp4Mib', 
+                [], [], 
+                '''                Enable CISCO-BGP4-MIB v2 notifications:
+                cbgpPeer2EstablishedNotification,
+                cbgpPeer2BackwardTransNotification,
+                cbgpPeer2FsmStateChange,
+                cbgpPeer2BackwardTransition,
+                cbgpPeer2PrefixThresholdExceeded,
+                cbgpPeer2PrefixThresholdClear.
+                ''',
+                'cisco_bgp4mib',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-bgp-cfg',
+            'bgp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Bfd' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Bfd',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable CISCO-IETF-BFD-MIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ip-bfd-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-cfg',
+            'bfd',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Flash' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Flash',
+            False, 
+            [
+            _MetaInfoClassMember('insertion', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ciscoFlashDeviceInsertedNotif
+                notification
+                ''',
+                'insertion',
+                'Cisco-IOS-XR-flashmib-cfg', False),
+            _MetaInfoClassMember('removal', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ciscoFlashDeviceRemovedNotif
+                notification
+                ''',
+                'removal',
+                'Cisco-IOS-XR-flashmib-cfg', False),
+            ],
+            'Cisco-IOS-XR-flashmib-cfg',
+            'flash',
+            _yang_ns._namespaces['Cisco-IOS-XR-flashmib-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Ospfv3.Error' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Ospfv3.Error',
+            False, 
+            [
+            _MetaInfoClassMember('bad-packet', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3IfRxBadPacket notification
+                ''',
+                'bad_packet',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('config-error', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3IfConfigError notification
+                ''',
+                'config_error',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('virtual-bad-packet', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3VirtIfRxBadPacket notification
+                ''',
+                'virtual_bad_packet',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('virtual-config-error', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3VirtIfConfigError notification
+                ''',
+                'virtual_config_error',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-cfg',
+            'error',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Ospfv3.StateChange' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Ospfv3.StateChange',
+            False, 
+            [
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3IfStateChange notification
+                ''',
+                'interface',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('neighbor', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3NbrStateChange notification
+                ''',
+                'neighbor',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('nssa-translator', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3NssaTranslatorStatusChange
+                notification
+                ''',
+                'nssa_translator',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('restart', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3RestartStatusChange notification
+                ''',
+                'restart',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('restart-helper', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3NbrRestartHelperStatusChange
+                notification
+                ''',
+                'restart_helper',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('restart-virtual-helper', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3VirtNbrRestartHelperStatusChange
+                notification
+                ''',
+                'restart_virtual_helper',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('virtual-interface', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3VirtIfStateChange notification
+                ''',
+                'virtual_interface',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('virtual-neighbor', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ospfv3VirtNbrStateChange notification
+                ''',
+                'virtual_neighbor',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-cfg',
+            'state-change',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Ospfv3' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Ospfv3',
+            False, 
+            [
+            _MetaInfoClassMember('error', REFERENCE_CLASS, 'Error' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Ospfv3.Error', 
+                [], [], 
+                '''                SNMP notifications for OSPF errors
+                ''',
+                'error',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            _MetaInfoClassMember('state-change', REFERENCE_CLASS, 'StateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Ospfv3.StateChange', 
+                [], [], 
+                '''                SNMP notifications for OSPF state change
+                ''',
+                'state_change',
+                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-cfg',
+            'ospfv3',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Otn' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Otn',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ciscoOtnIfMIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-otnifmib-cfg', False),
+            ],
+            'Cisco-IOS-XR-otnifmib-cfg',
+            'otn',
+            _yang_ns._namespaces['Cisco-IOS-XR-otnifmib-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.MplsTeP2Mp' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsTeP2Mp',
+            False, 
+            [
+            _MetaInfoClassMember('down', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsTeP2mpTunnelDestDown notification
+                ''',
+                'down',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('up', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsTeP2mpTunnelDestUp notification
+                ''',
+                'up',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'mpls-te-p2mp',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.MplsTe.CiscoExtension' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsTe.CiscoExtension',
+            False, 
+            [
+            _MetaInfoClassMember('bringup-fail', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsTunnelBringupFail notification
+                ''',
+                'bringup_fail',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('insufficient-bandwidth', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsTunnelInsuffBW notification
+                ''',
+                'insufficient_bandwidth',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('preempt', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsTunnelPreempt notification
+                ''',
+                'preempt',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('re-route-pending', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsTunnelReRoutePending notification
+                ''',
+                're_route_pending',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('re-route-pending-clear', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsTunnelReRoutePendingClear
+                notification
+                ''',
+                're_route_pending_clear',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'cisco-extension',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.MplsTe' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsTe',
+            False, 
+            [
+            _MetaInfoClassMember('cisco', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable MPLS TE tunnel Cisco format (default
+                IETF) notification
+                ''',
+                'cisco',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('cisco-extension', REFERENCE_CLASS, 'CiscoExtension' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.MplsTe.CiscoExtension', 
+                [], [], 
+                '''                CISCO-MPLS-TE-STD-EXT-MIB notification
+                configuration
+                ''',
+                'cisco_extension',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('down', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsTunnelDown notification
+                ''',
+                'down',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('reoptimize', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsTunnelReoptimized notification
+                ''',
+                'reoptimize',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('reroute', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsTunnelRerouted notification
+                ''',
+                'reroute',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('up', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable mplsTunnelUp notification
+                ''',
+                'up',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'mpls-te',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.MplsFrr' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsFrr',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsFrrMIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('protected', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsFrrProtected notification
+                ''',
+                'protected',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('unprotected', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable cmplsFrrUnProtected notification
+                ''',
+                'unprotected',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'mpls-frr',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Sensor' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Sensor',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable entitySensorMIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-snmp-ciscosensormib-cfg', False),
+            ],
+            'Cisco-IOS-XR-snmp-ciscosensormib-cfg',
+            'sensor',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-ciscosensormib-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
@@ -1131,326 +1695,6 @@ _meta_table = {
             'Cisco-IOS-XR-clns-isis-cfg',
             'isis',
             _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.ConfigMan' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.ConfigMan',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ciscoConfigManMIB notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-config-mibs-cfg', False),
-            ],
-            'Cisco-IOS-XR-config-mibs-cfg',
-            'config-man',
-            _yang_ns._namespaces['Cisco-IOS-XR-config-mibs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Cfm' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Cfm',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable 802.1ag Connectivity Fault Management
-                MIB notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
-            ],
-            'Cisco-IOS-XR-ethernet-cfm-cfg',
-            'cfm',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Oam' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Oam',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable 802.3 OAM MIB notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
-            ],
-            'Cisco-IOS-XR-ethernet-link-oam-cfg',
-            'oam',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Flash' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Flash',
-            False, 
-            [
-            _MetaInfoClassMember('insertion', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ciscoFlashDeviceInsertedNotif
-                notification
-                ''',
-                'insertion',
-                'Cisco-IOS-XR-flashmib-cfg', False),
-            _MetaInfoClassMember('removal', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ciscoFlashDeviceRemovedNotif
-                notification
-                ''',
-                'removal',
-                'Cisco-IOS-XR-flashmib-cfg', False),
-            ],
-            'Cisco-IOS-XR-flashmib-cfg',
-            'flash',
-            _yang_ns._namespaces['Cisco-IOS-XR-flashmib-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.EntityRedundancy' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.EntityRedundancy',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable CISCO-ENTITY-REDUNDANCY-MIB notification
-                ''',
-                'enable',
-                'Cisco-IOS-XR-infra-ceredundancymib-cfg', False),
-            _MetaInfoClassMember('status', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable status change notification
-                ''',
-                'status',
-                'Cisco-IOS-XR-infra-ceredundancymib-cfg', False),
-            _MetaInfoClassMember('switchover', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable switchover notification
-                ''',
-                'switchover',
-                'Cisco-IOS-XR-infra-ceredundancymib-cfg', False),
-            ],
-            'Cisco-IOS-XR-infra-ceredundancymib-cfg',
-            'entity-redundancy',
-            _yang_ns._namespaces['Cisco-IOS-XR-infra-ceredundancymib-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.ConfigCopy' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.ConfigCopy',
-            False, 
-            [
-            _MetaInfoClassMember('completion', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ccCopyCompletion notification
-                ''',
-                'completion',
-                'Cisco-IOS-XR-infra-confcopymib-cfg', False),
-            ],
-            'Cisco-IOS-XR-infra-confcopymib-cfg',
-            'config-copy',
-            _yang_ns._namespaces['Cisco-IOS-XR-infra-confcopymib-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.SelectiveVrfDownload' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.SelectiveVrfDownload',
-            False, 
-            [
-            _MetaInfoClassMember('role-change', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable csvdEntityRoleChangeNotification
-                notification
-                ''',
-                'role_change',
-                'Cisco-IOS-XR-infra-rsi-cfg', False),
-            ],
-            'Cisco-IOS-XR-infra-rsi-cfg',
-            'selective-vrf-download',
-            _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.System' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.System',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ciscoSystemMIB notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-infra-systemmib-cfg', False),
-            ],
-            'Cisco-IOS-XR-infra-systemmib-cfg',
-            'system',
-            _yang_ns._namespaces['Cisco-IOS-XR-infra-systemmib-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Bfd' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Bfd',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable CISCO-IETF-BFD-MIB notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ip-bfd-cfg', False),
-            ],
-            'Cisco-IOS-XR-ip-bfd-cfg',
-            'bfd',
-            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Ntp' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Ntp',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ciscoNtpMIB notification configuration
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ip-ntp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ip-ntp-cfg',
-            'ntp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Rsvp' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Rsvp',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable all RSVP notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('lost-flow', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable lostFlow notification
-                ''',
-                'lost_flow',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            _MetaInfoClassMember('new-flow', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable newFlow notification
-                ''',
-                'new_flow',
-                'Cisco-IOS-XR-ip-rsvp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ip-rsvp-cfg',
-            'rsvp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Bgp.Bgp4Mib' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp.Bgp4Mib',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only
-                notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('up-down', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only
-                up/down notifications
-                ''',
-                'up_down',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'bgp4mib',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Bgp.CiscoBgp4Mib' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp.CiscoBgp4Mib',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable CISCO-BGP4-MIB v2 notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('up-down', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable CISCO-BGP4-MIB v2 up/down notifications
-                ''',
-                'up_down',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'cisco-bgp4mib',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Bgp' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Bgp',
-            False, 
-            [
-            _MetaInfoClassMember('bgp4mib', REFERENCE_CLASS, 'Bgp4Mib' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Bgp.Bgp4Mib', 
-                [], [], 
-                '''                Enable BGP4-MIB and CISCO-BGP4-MIB IPv4-only
-                notifications: bgpEstablishedNotification,
-                bgpBackwardTransNotification,
-                cbgpFsmStateChange, cbgpBackwardTransition,
-                cbgpPrefixThresholdExceeded,
-                cbgpPrefixThresholdClear.
-                ''',
-                'bgp4mib',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('cisco-bgp4mib', REFERENCE_CLASS, 'CiscoBgp4Mib' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Bgp.CiscoBgp4Mib', 
-                [], [], 
-                '''                Enable CISCO-BGP4-MIB v2 notifications:
-                cbgpPeer2EstablishedNotification,
-                cbgpPeer2BackwardTransNotification,
-                cbgpPeer2FsmStateChange,
-                cbgpPeer2BackwardTransition,
-                cbgpPeer2PrefixThresholdExceeded,
-                cbgpPeer2PrefixThresholdClear.
-                ''',
-                'cisco_bgp4mib',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'bgp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Hsrp' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Hsrp',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable CISCO-HSRP-MIB notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-hsrp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-hsrp-cfg',
-            'hsrp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-hsrp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
@@ -1617,140 +1861,20 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Notification.Vrrp' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Vrrp',
+    'Snmp.Notification.ConfigCopy' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.ConfigCopy',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('completion', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Enable VRRP-MIB notifications
+                '''                Enable ccCopyCompletion notification
                 ''',
-                'enable',
-                'Cisco-IOS-XR-ipv4-vrrp-cfg', False),
+                'completion',
+                'Cisco-IOS-XR-infra-confcopymib-cfg', False),
             ],
-            'Cisco-IOS-XR-ipv4-vrrp-cfg',
-            'vrrp',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Ospfv3.Error' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Ospfv3.Error',
-            False, 
-            [
-            _MetaInfoClassMember('bad-packet', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3IfRxBadPacket notification
-                ''',
-                'bad_packet',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('config-error', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3IfConfigError notification
-                ''',
-                'config_error',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('virtual-bad-packet', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3VirtIfRxBadPacket notification
-                ''',
-                'virtual_bad_packet',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('virtual-config-error', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3VirtIfConfigError notification
-                ''',
-                'virtual_config_error',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv6-ospfv3-cfg',
-            'error',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Ospfv3.StateChange' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Ospfv3.StateChange',
-            False, 
-            [
-            _MetaInfoClassMember('interface', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3IfStateChange notification
-                ''',
-                'interface',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('neighbor', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3NbrStateChange notification
-                ''',
-                'neighbor',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('nssa-translator', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3NssaTranslatorStatusChange
-                notification
-                ''',
-                'nssa_translator',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('restart', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3RestartStatusChange notification
-                ''',
-                'restart',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('restart-helper', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3NbrRestartHelperStatusChange
-                notification
-                ''',
-                'restart_helper',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('restart-virtual-helper', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3VirtNbrRestartHelperStatusChange
-                notification
-                ''',
-                'restart_virtual_helper',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('virtual-interface', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3VirtIfStateChange notification
-                ''',
-                'virtual_interface',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('virtual-neighbor', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ospfv3VirtNbrStateChange notification
-                ''',
-                'virtual_neighbor',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv6-ospfv3-cfg',
-            'state-change',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Ospfv3' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Ospfv3',
-            False, 
-            [
-            _MetaInfoClassMember('error', REFERENCE_CLASS, 'Error' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Ospfv3.Error', 
-                [], [], 
-                '''                SNMP notifications for OSPF errors
-                ''',
-                'error',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            _MetaInfoClassMember('state-change', REFERENCE_CLASS, 'StateChange' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.Ospfv3.StateChange', 
-                [], [], 
-                '''                SNMP notifications for OSPF state change
-                ''',
-                'state_change',
-                'Cisco-IOS-XR-ipv6-ospfv3-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv6-ospfv3-cfg',
-            'ospfv3',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-cfg'],
+            'Cisco-IOS-XR-infra-confcopymib-cfg',
+            'config-copy',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-confcopymib-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
@@ -1784,180 +1908,100 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Notification.MplsTeP2Mp' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsTeP2Mp',
-            False, 
-            [
-            _MetaInfoClassMember('down', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable cmplsTeP2mpTunnelDestDown notification
-                ''',
-                'down',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('up', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable cmplsTeP2mpTunnelDestUp notification
-                ''',
-                'up',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'mpls-te-p2mp',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.MplsTe.CiscoExtension' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsTe.CiscoExtension',
-            False, 
-            [
-            _MetaInfoClassMember('bringup-fail', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable cmplsTunnelBringupFail notification
-                ''',
-                'bringup_fail',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('insufficient-bandwidth', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable cmplsTunnelInsuffBW notification
-                ''',
-                'insufficient_bandwidth',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('preempt', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable cmplsTunnelPreempt notification
-                ''',
-                'preempt',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('re-route-pending', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable cmplsTunnelReRoutePending notification
-                ''',
-                're_route_pending',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('re-route-pending-clear', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable cmplsTunnelReRoutePendingClear
-                notification
-                ''',
-                're_route_pending_clear',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'cisco-extension',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.MplsTe' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsTe',
-            False, 
-            [
-            _MetaInfoClassMember('cisco', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable MPLS TE tunnel Cisco format (default
-                IETF) notification
-                ''',
-                'cisco',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('cisco-extension', REFERENCE_CLASS, 'CiscoExtension' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.MplsTe.CiscoExtension', 
-                [], [], 
-                '''                CISCO-MPLS-TE-STD-EXT-MIB notification
-                configuration
-                ''',
-                'cisco_extension',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('down', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable mplsTunnelDown notification
-                ''',
-                'down',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('reoptimize', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable mplsTunnelReoptimized notification
-                ''',
-                'reoptimize',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('reroute', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable mplsTunnelRerouted notification
-                ''',
-                'reroute',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('up', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable mplsTunnelUp notification
-                ''',
-                'up',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'mpls-te',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.MplsFrr' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.MplsFrr',
+    'Snmp.Notification.Vrrp' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Vrrp',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Enable cmplsFrrMIB notifications
+                '''                Enable VRRP-MIB notifications
                 ''',
                 'enable',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('protected', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable cmplsFrrProtected notification
-                ''',
-                'protected',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('unprotected', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable cmplsFrrUnProtected notification
-                ''',
-                'unprotected',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
+                'Cisco-IOS-XR-ipv4-vrrp-cfg', False),
             ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'mpls-frr',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+            'Cisco-IOS-XR-ipv4-vrrp-cfg',
+            'vrrp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-vrrp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Notification.Otn' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Otn',
+    'Snmp.Notification.Oam' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Oam',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Enable ciscoOtnIfMIB notifications
+                '''                Enable 802.3 OAM MIB notifications
                 ''',
                 'enable',
-                'Cisco-IOS-XR-otnifmib-cfg', False),
+                'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             ],
-            'Cisco-IOS-XR-otnifmib-cfg',
-            'otn',
-            _yang_ns._namespaces['Cisco-IOS-XR-otnifmib-cfg'],
+            'Cisco-IOS-XR-ethernet-link-oam-cfg',
+            'oam',
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Snmp.Notification.Sensor' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Sensor',
+    'Snmp.Notification.System' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.System',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
-                '''                Enable entitySensorMIB notifications
+                '''                Enable ciscoSystemMIB notifications
                 ''',
                 'enable',
-                'Cisco-IOS-XR-snmp-ciscosensormib-cfg', False),
+                'Cisco-IOS-XR-infra-systemmib-cfg', False),
             ],
-            'Cisco-IOS-XR-snmp-ciscosensormib-cfg',
-            'sensor',
-            _yang_ns._namespaces['Cisco-IOS-XR-snmp-ciscosensormib-cfg'],
+            'Cisco-IOS-XR-infra-systemmib-cfg',
+            'system',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-systemmib-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Syslog' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Syslog',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ciscoSyslogMIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-snmp-syslogmib-cfg', False),
+            ],
+            'Cisco-IOS-XR-snmp-syslogmib-cfg',
+            'syslog',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-syslogmib-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.EntityRedundancy' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.EntityRedundancy',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable CISCO-ENTITY-REDUNDANCY-MIB notification
+                ''',
+                'enable',
+                'Cisco-IOS-XR-infra-ceredundancymib-cfg', False),
+            _MetaInfoClassMember('status', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable status change notification
+                ''',
+                'status',
+                'Cisco-IOS-XR-infra-ceredundancymib-cfg', False),
+            _MetaInfoClassMember('switchover', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable switchover notification
+                ''',
+                'switchover',
+                'Cisco-IOS-XR-infra-ceredundancymib-cfg', False),
+            ],
+            'Cisco-IOS-XR-infra-ceredundancymib-cfg',
+            'entity-redundancy',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-ceredundancymib-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
@@ -1975,6 +2019,69 @@ _meta_table = {
             'Cisco-IOS-XR-snmp-entitymib-cfg',
             'entity',
             _yang_ns._namespaces['Cisco-IOS-XR-snmp-entitymib-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Rsvp' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Rsvp',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable all RSVP notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('lost-flow', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable lostFlow notification
+                ''',
+                'lost_flow',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            _MetaInfoClassMember('new-flow', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable newFlow notification
+                ''',
+                'new_flow',
+                'Cisco-IOS-XR-ip-rsvp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-rsvp-cfg',
+            'rsvp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.ConfigMan' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.ConfigMan',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ciscoConfigManMIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-config-mibs-cfg', False),
+            ],
+            'Cisco-IOS-XR-config-mibs-cfg',
+            'config-man',
+            _yang_ns._namespaces['Cisco-IOS-XR-config-mibs-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Snmp.Notification.Rf' : {
+        'meta_info' : _MetaInfoClass('Snmp.Notification.Rf',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable ciscoRFMIB notifications
+                ''',
+                'enable',
+                'Cisco-IOS-XR-snmp-mib-rfmib-cfg', False),
+            ],
+            'Cisco-IOS-XR-snmp-mib-rfmib-cfg',
+            'rf',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-mib-rfmib-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
@@ -1999,57 +2106,6 @@ _meta_table = {
             'Cisco-IOS-XR-snmp-entstatemib-cfg',
             'entity-state',
             _yang_ns._namespaces['Cisco-IOS-XR-snmp-entstatemib-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.FruControl' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.FruControl',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ciscoEntityFRUControlMIB notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-snmp-frucontrolmib-cfg', False),
-            ],
-            'Cisco-IOS-XR-snmp-frucontrolmib-cfg',
-            'fru-control',
-            _yang_ns._namespaces['Cisco-IOS-XR-snmp-frucontrolmib-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Rf' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Rf',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ciscoRFMIB notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-snmp-mib-rfmib-cfg', False),
-            ],
-            'Cisco-IOS-XR-snmp-mib-rfmib-cfg',
-            'rf',
-            _yang_ns._namespaces['Cisco-IOS-XR-snmp-mib-rfmib-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Snmp.Notification.Syslog' : {
-        'meta_info' : _MetaInfoClass('Snmp.Notification.Syslog',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable ciscoSyslogMIB notifications
-                ''',
-                'enable',
-                'Cisco-IOS-XR-snmp-syslogmib-cfg', False),
-            ],
-            'Cisco-IOS-XR-snmp-syslogmib-cfg',
-            'syslog',
-            _yang_ns._namespaces['Cisco-IOS-XR-snmp-syslogmib-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
@@ -2145,6 +2201,12 @@ _meta_table = {
                 ''',
                 'mpls_frr',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('mpls-l3vpn', REFERENCE_CLASS, 'MplsL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.MplsL3Vpn', 
+                [], [], 
+                '''                MPLS-L3VPN-STD-MIB notification configuration
+                ''',
+                'mpls_l3vpn',
+                'Cisco-IOS-XR-mpls-vpn-cfg', False),
             _MetaInfoClassMember('mpls-ldp', REFERENCE_CLASS, 'MplsLdp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Snmp.Notification.MplsLdp', 
                 [], [], 
                 '''                MPLS-LDP-STD-MIB notification configuration
@@ -2589,7 +2651,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Rule name
                 ''',
                 'name',
@@ -2635,7 +2697,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('rulename', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Rule name
                 ''',
                 'rulename',
@@ -2745,7 +2807,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Ruleset name
                 ''',
                 'name',
@@ -2867,7 +2929,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('schema-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                The name of the schema
                 ''',
                 'schema_name',
@@ -2886,7 +2948,7 @@ _meta_table = {
                 'poll_interval',
                 'Cisco-IOS-XR-snmp-agent-cfg', False),
             _MetaInfoClassMember('schema-object-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of an object List
                 ''',
                 'schema_object_list',
@@ -2960,7 +3022,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('object-list-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the object List
                 ''',
                 'object_list_name',
@@ -3006,7 +3068,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('schema-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Schema that contains objects to be
                 collected
                 ''',
@@ -3041,7 +3103,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('transfer-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of bulk transfer
                 ''',
                 'transfer_name',
@@ -3174,7 +3236,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('community-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 128)], [], 
+                [(1, 128)], [], 
                 '''                SNMP community map
                 ''',
                 'community_name',
@@ -3510,7 +3572,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('community-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 128)], [], 
+                [(1, 128)], [], 
                 '''                SNMPv2c community string or SNMPv3 user
                 ''',
                 'community_name',
@@ -3701,7 +3763,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('community-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 128)], [], 
+                [(1, 128)], [], 
                 '''                SNMPv1/v2c community string or SNMPv3 user
                 ''',
                 'community_name',
@@ -3996,7 +4058,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 128)], [], 
+                [(1, 128)], [], 
                 '''                Name of the group
                 ''',
                 'name',
@@ -4174,7 +4236,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('community-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 128)], [], 
+                [(1, 128)], [], 
                 '''                SNMPv2c community string or SNMPv3 user
                 ''',
                 'community_name',
@@ -4365,7 +4427,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('community-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 128)], [], 
+                [(1, 128)], [], 
                 '''                SNMPv1/v2c community string or SNMPv3 user
                 ''',
                 'community_name',
@@ -4823,176 +4885,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
-    'Mib.MplsTeMib' : {
-        'meta_info' : _MetaInfoClass('Mib.MplsTeMib',
-            False, 
-            [
-            _MetaInfoClassMember('cache-garbage-collect-timer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '3600')], [], 
-                '''                Configure the cache garbage collector time for
-                the mib.
-                ''',
-                'cache_garbage_collect_timer',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '600')], [], 
-                '''                Configure the cache time for the mib.
-                ''',
-                'cache_timer',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'mpls-te-mib',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Mib.MplsP2MpMib' : {
-        'meta_info' : _MetaInfoClass('Mib.MplsP2MpMib',
-            False, 
-            [
-            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '600')], [], 
-                '''                Configure the cache time for the mib.
-                ''',
-                'cache_timer',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'mpls-p2mp-mib',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Mib.MplsTeExtStdMib' : {
-        'meta_info' : _MetaInfoClass('Mib.MplsTeExtStdMib',
-            False, 
-            [
-            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '600')], [], 
-                '''                Configure the cache time for the mib.
-                ''',
-                'cache_timer',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'mpls-te-ext-std-mib',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Mib.MplsTeExtMib' : {
-        'meta_info' : _MetaInfoClass('Mib.MplsTeExtMib',
-            False, 
-            [
-            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '600')], [], 
-                '''                Configure the cache time for the mib.
-                ''',
-                'cache_timer',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'mpls-te-ext-mib',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Mib.MplsFrrMib' : {
-        'meta_info' : _MetaInfoClass('Mib.MplsFrrMib',
-            False, 
-            [
-            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
-                [('0', '600')], [], 
-                '''                Configure the cache time for the mib.
-                ''',
-                'cache_timer',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'mpls-frr-mib',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Mib.CbQosmib.Cache' : {
-        'meta_info' : _MetaInfoClass('Mib.CbQosmib.Cache',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable CBQoSMIB statistics data caching
-                ''',
-                'enable',
-                'Cisco-IOS-XR-qos-mibs-cfg', False),
-            _MetaInfoClassMember('refresh-time', ATTRIBUTE, 'int' , None, None, 
-                [('5', '60')], [], 
-                '''                Cache refresh time in seconds
-                ''',
-                'refresh_time',
-                'Cisco-IOS-XR-qos-mibs-cfg', False),
-            _MetaInfoClassMember('service-policy-count', ATTRIBUTE, 'int' , None, None, 
-                [('1', '5000')], [], 
-                '''                Maximum number of service policies to cache
-                the statistics for
-                ''',
-                'service_policy_count',
-                'Cisco-IOS-XR-qos-mibs-cfg', False),
-            ],
-            'Cisco-IOS-XR-qos-mibs-cfg',
-            'cache',
-            _yang_ns._namespaces['Cisco-IOS-XR-qos-mibs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Mib.CbQosmib' : {
-        'meta_info' : _MetaInfoClass('Mib.CbQosmib',
-            False, 
-            [
-            _MetaInfoClassMember('cache', REFERENCE_CLASS, 'Cache' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Mib.CbQosmib.Cache', 
-                [], [], 
-                '''                CBQoSMIB statistics data caching
-                ''',
-                'cache',
-                'Cisco-IOS-XR-qos-mibs-cfg', False),
-            _MetaInfoClassMember('member-interface-stats', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable bundle member interface statistics
-                retrieval.
-                ''',
-                'member_interface_stats',
-                'Cisco-IOS-XR-qos-mibs-cfg', False),
-            _MetaInfoClassMember('persist', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Persist CBQoSMIB config, service-policy and
-                object indices
-                ''',
-                'persist',
-                'Cisco-IOS-XR-qos-mibs-cfg', False),
-            ],
-            'Cisco-IOS-XR-qos-mibs-cfg',
-            'cb-qosmib',
-            _yang_ns._namespaces['Cisco-IOS-XR-qos-mibs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
-    'Mib.EntityMib' : {
-        'meta_info' : _MetaInfoClass('Mib.EntityMib',
-            False, 
-            [
-            _MetaInfoClassMember('entity-index-persistence', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable entPhysicalIndex persistence
-                ''',
-                'entity_index_persistence',
-                'Cisco-IOS-XR-snmp-entitymib-cfg', False),
-            ],
-            'Cisco-IOS-XR-snmp-entitymib-cfg',
-            'entity-mib',
-            _yang_ns._namespaces['Cisco-IOS-XR-snmp-entitymib-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
-        ),
-    },
     'Mib.InterfaceMib.Interfaces.Interface' : {
         'meta_info' : _MetaInfoClass('Mib.InterfaceMib.Interfaces.Interface',
             False, 
@@ -5181,6 +5073,176 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
         ),
     },
+    'Mib.MplsTeMib' : {
+        'meta_info' : _MetaInfoClass('Mib.MplsTeMib',
+            False, 
+            [
+            _MetaInfoClassMember('cache-garbage-collect-timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '3600')], [], 
+                '''                Configure the cache garbage collector time for
+                the mib.
+                ''',
+                'cache_garbage_collect_timer',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '600')], [], 
+                '''                Configure the cache time for the mib.
+                ''',
+                'cache_timer',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'mpls-te-mib',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Mib.MplsP2MpMib' : {
+        'meta_info' : _MetaInfoClass('Mib.MplsP2MpMib',
+            False, 
+            [
+            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '600')], [], 
+                '''                Configure the cache time for the mib.
+                ''',
+                'cache_timer',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'mpls-p2mp-mib',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Mib.MplsTeExtStdMib' : {
+        'meta_info' : _MetaInfoClass('Mib.MplsTeExtStdMib',
+            False, 
+            [
+            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '600')], [], 
+                '''                Configure the cache time for the mib.
+                ''',
+                'cache_timer',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'mpls-te-ext-std-mib',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Mib.MplsTeExtMib' : {
+        'meta_info' : _MetaInfoClass('Mib.MplsTeExtMib',
+            False, 
+            [
+            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '600')], [], 
+                '''                Configure the cache time for the mib.
+                ''',
+                'cache_timer',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'mpls-te-ext-mib',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Mib.MplsFrrMib' : {
+        'meta_info' : _MetaInfoClass('Mib.MplsFrrMib',
+            False, 
+            [
+            _MetaInfoClassMember('cache-timer', ATTRIBUTE, 'int' , None, None, 
+                [('0', '600')], [], 
+                '''                Configure the cache time for the mib.
+                ''',
+                'cache_timer',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'mpls-frr-mib',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Mib.CbQosmib.Cache' : {
+        'meta_info' : _MetaInfoClass('Mib.CbQosmib.Cache',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable CBQoSMIB statistics data caching
+                ''',
+                'enable',
+                'Cisco-IOS-XR-qos-mibs-cfg', False),
+            _MetaInfoClassMember('refresh-time', ATTRIBUTE, 'int' , None, None, 
+                [('5', '60')], [], 
+                '''                Cache refresh time in seconds
+                ''',
+                'refresh_time',
+                'Cisco-IOS-XR-qos-mibs-cfg', False),
+            _MetaInfoClassMember('service-policy-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '5000')], [], 
+                '''                Maximum number of service policies to cache
+                the statistics for
+                ''',
+                'service_policy_count',
+                'Cisco-IOS-XR-qos-mibs-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-mibs-cfg',
+            'cache',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-mibs-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Mib.CbQosmib' : {
+        'meta_info' : _MetaInfoClass('Mib.CbQosmib',
+            False, 
+            [
+            _MetaInfoClassMember('cache', REFERENCE_CLASS, 'Cache' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg', 'Mib.CbQosmib.Cache', 
+                [], [], 
+                '''                CBQoSMIB statistics data caching
+                ''',
+                'cache',
+                'Cisco-IOS-XR-qos-mibs-cfg', False),
+            _MetaInfoClassMember('member-interface-stats', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable bundle member interface statistics
+                retrieval.
+                ''',
+                'member_interface_stats',
+                'Cisco-IOS-XR-qos-mibs-cfg', False),
+            _MetaInfoClassMember('persist', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Persist CBQoSMIB config, service-policy and
+                object indices
+                ''',
+                'persist',
+                'Cisco-IOS-XR-qos-mibs-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-mibs-cfg',
+            'cb-qosmib',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-mibs-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
+    'Mib.EntityMib' : {
+        'meta_info' : _MetaInfoClass('Mib.EntityMib',
+            False, 
+            [
+            _MetaInfoClassMember('entity-index-persistence', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable entPhysicalIndex persistence
+                ''',
+                'entity_index_persistence',
+                'Cisco-IOS-XR-snmp-entitymib-cfg', False),
+            ],
+            'Cisco-IOS-XR-snmp-entitymib-cfg',
+            'entity-mib',
+            _yang_ns._namespaces['Cisco-IOS-XR-snmp-entitymib-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_cfg'
+        ),
+    },
     'Mib' : {
         'meta_info' : _MetaInfoClass('Mib',
             False, 
@@ -5267,44 +5329,45 @@ _meta_table['Snmp.Target.Targets.Target_']['meta_info'].parent =_meta_table['Snm
 _meta_table['Snmp.Target.Targets']['meta_info'].parent =_meta_table['Snmp.Target']['meta_info']
 _meta_table['Snmp.Notification.Bgp.Bgp4Mib']['meta_info'].parent =_meta_table['Snmp.Notification.Bgp']['meta_info']
 _meta_table['Snmp.Notification.Bgp.CiscoBgp4Mib']['meta_info'].parent =_meta_table['Snmp.Notification.Bgp']['meta_info']
+_meta_table['Snmp.Notification.Ospfv3.Error']['meta_info'].parent =_meta_table['Snmp.Notification.Ospfv3']['meta_info']
+_meta_table['Snmp.Notification.Ospfv3.StateChange']['meta_info'].parent =_meta_table['Snmp.Notification.Ospfv3']['meta_info']
+_meta_table['Snmp.Notification.MplsTe.CiscoExtension']['meta_info'].parent =_meta_table['Snmp.Notification.MplsTe']['meta_info']
 _meta_table['Snmp.Notification.Ospf.Lsa']['meta_info'].parent =_meta_table['Snmp.Notification.Ospf']['meta_info']
 _meta_table['Snmp.Notification.Ospf.StateChange']['meta_info'].parent =_meta_table['Snmp.Notification.Ospf']['meta_info']
 _meta_table['Snmp.Notification.Ospf.Retransmit']['meta_info'].parent =_meta_table['Snmp.Notification.Ospf']['meta_info']
 _meta_table['Snmp.Notification.Ospf.Error']['meta_info'].parent =_meta_table['Snmp.Notification.Ospf']['meta_info']
-_meta_table['Snmp.Notification.Ospfv3.Error']['meta_info'].parent =_meta_table['Snmp.Notification.Ospfv3']['meta_info']
-_meta_table['Snmp.Notification.Ospfv3.StateChange']['meta_info'].parent =_meta_table['Snmp.Notification.Ospfv3']['meta_info']
-_meta_table['Snmp.Notification.MplsTe.CiscoExtension']['meta_info'].parent =_meta_table['Snmp.Notification.MplsTe']['meta_info']
 _meta_table['Snmp.Notification.Snmp_']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.FruControl']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Ntp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.MplsL3Vpn']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Vpls']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.L2Vpn']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Isis']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.ConfigMan']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Cfm']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Oam']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Flash']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.EntityRedundancy']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.ConfigCopy']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.SelectiveVrfDownload']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.System']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Bfd']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Ntp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Rsvp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Bgp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Hsrp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Ospf']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Vrrp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.SelectiveVrfDownload']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Bgp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Bfd']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Flash']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Ospfv3']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.MplsLdp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Otn']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.MplsTeP2Mp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.MplsTe']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.MplsFrr']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Otn']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Sensor']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Entity']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.EntityState']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.FruControl']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
-_meta_table['Snmp.Notification.Rf']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Isis']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Ospf']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.ConfigCopy']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.MplsLdp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Vrrp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Oam']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.System']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Notification.Syslog']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.EntityRedundancy']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Entity']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Rsvp']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.ConfigMan']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.Rf']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
+_meta_table['Snmp.Notification.EntityState']['meta_info'].parent =_meta_table['Snmp.Notification']['meta_info']
 _meta_table['Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds.VarBind.Match']['meta_info'].parent =_meta_table['Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds.VarBind']['meta_info']
 _meta_table['Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds.VarBind']['meta_info'].parent =_meta_table['Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds']['meta_info']
 _meta_table['Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause.VarBinds']['meta_info'].parent =_meta_table['Snmp.Correlator.Rules.Rule.NonStateful.RootCauses.RootCause']['meta_info']
@@ -5392,13 +5455,14 @@ _meta_table['Snmp.Groups']['meta_info'].parent =_meta_table['Snmp']['meta_info']
 _meta_table['Snmp.TrapHosts']['meta_info'].parent =_meta_table['Snmp']['meta_info']
 _meta_table['Snmp.Contexts']['meta_info'].parent =_meta_table['Snmp']['meta_info']
 _meta_table['Snmp.ContextMappings']['meta_info'].parent =_meta_table['Snmp']['meta_info']
-_meta_table['Mib.CbQosmib.Cache']['meta_info'].parent =_meta_table['Mib.CbQosmib']['meta_info']
 _meta_table['Mib.InterfaceMib.Interfaces.Interface']['meta_info'].parent =_meta_table['Mib.InterfaceMib.Interfaces']['meta_info']
 _meta_table['Mib.InterfaceMib.Subsets.Subset.LinkUpDown']['meta_info'].parent =_meta_table['Mib.InterfaceMib.Subsets.Subset']['meta_info']
 _meta_table['Mib.InterfaceMib.Subsets.Subset']['meta_info'].parent =_meta_table['Mib.InterfaceMib.Subsets']['meta_info']
 _meta_table['Mib.InterfaceMib.Interfaces']['meta_info'].parent =_meta_table['Mib.InterfaceMib']['meta_info']
 _meta_table['Mib.InterfaceMib.Notification']['meta_info'].parent =_meta_table['Mib.InterfaceMib']['meta_info']
 _meta_table['Mib.InterfaceMib.Subsets']['meta_info'].parent =_meta_table['Mib.InterfaceMib']['meta_info']
+_meta_table['Mib.CbQosmib.Cache']['meta_info'].parent =_meta_table['Mib.CbQosmib']['meta_info']
+_meta_table['Mib.InterfaceMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.MplsTeMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.MplsP2MpMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.MplsTeExtStdMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
@@ -5406,4 +5470,3 @@ _meta_table['Mib.MplsTeExtMib']['meta_info'].parent =_meta_table['Mib']['meta_in
 _meta_table['Mib.MplsFrrMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.CbQosmib']['meta_info'].parent =_meta_table['Mib']['meta_info']
 _meta_table['Mib.EntityMib']['meta_info'].parent =_meta_table['Mib']['meta_info']
-_meta_table['Mib.InterfaceMib']['meta_info'].parent =_meta_table['Mib']['meta_info']

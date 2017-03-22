@@ -140,6 +140,13 @@ class ProcessesMemory(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: dyn_limit
+                    
+                    	Dynamic memory limit
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: jid
                     
                     	Job ID
@@ -159,9 +166,23 @@ class ProcessesMemory(object):
                     	Process name
                     	**type**\:  str
                     
+                    .. attribute:: physical_mem
+                    
+                    	Physical memory size
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: pid
                     
                     	Process ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: shared_mem
+                    
+                    	Shared memory size
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -191,10 +212,13 @@ class ProcessesMemory(object):
                         self.parent = None
                         self.process_id = None
                         self.data_seg_size = None
+                        self.dyn_limit = None
                         self.jid = None
                         self.malloc_size = None
                         self.name = None
+                        self.physical_mem = None
                         self.pid = None
+                        self.shared_mem = None
                         self.stack_seg_size = None
                         self.text_seg_size = None
 
@@ -220,6 +244,9 @@ class ProcessesMemory(object):
                         if self.data_seg_size is not None:
                             return True
 
+                        if self.dyn_limit is not None:
+                            return True
+
                         if self.jid is not None:
                             return True
 
@@ -229,7 +256,13 @@ class ProcessesMemory(object):
                         if self.name is not None:
                             return True
 
+                        if self.physical_mem is not None:
+                            return True
+
                         if self.pid is not None:
+                            return True
+
+                        if self.shared_mem is not None:
                             return True
 
                         if self.stack_seg_size is not None:

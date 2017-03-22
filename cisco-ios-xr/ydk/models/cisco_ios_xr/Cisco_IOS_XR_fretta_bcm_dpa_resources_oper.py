@@ -160,7 +160,7 @@ class Dpa(object):
                         	Resource type
                         	**type**\:  int
                         
-                        	**range:** 0..85
+                        	**range:** 0..106
                         
                         .. attribute:: is_global
                         

@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'SdrInventory.Racks.Rack.Slot.Card.Attributes' : {
         'meta_info' : _MetaInfoClass('SdrInventory.Racks.Rack.Slot.Card.Attributes',
@@ -30,17 +29,35 @@ _meta_table = {
                 ''',
                 'card_state',
                 'Cisco-IOS-XR-sdr-invmgr-oper', False),
+            _MetaInfoClassMember('card-state-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Card State String
+                ''',
+                'card_state_string',
+                'Cisco-IOS-XR-sdr-invmgr-oper', False),
             _MetaInfoClassMember('card-type', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                CardType
                 ''',
                 'card_type',
                 'Cisco-IOS-XR-sdr-invmgr-oper', False),
+            _MetaInfoClassMember('card-type-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Card Type String
+                ''',
+                'card_type_string',
+                'Cisco-IOS-XR-sdr-invmgr-oper', False),
             _MetaInfoClassMember('config-state', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                ConfigState
                 ''',
                 'config_state',
+                'Cisco-IOS-XR-sdr-invmgr-oper', False),
+            _MetaInfoClassMember('config-state-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Config State String
+                ''',
+                'config_state_string',
                 'Cisco-IOS-XR-sdr-invmgr-oper', False),
             _MetaInfoClassMember('ctype', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
@@ -53,6 +70,12 @@ _meta_table = {
                 '''                Monitor
                 ''',
                 'monitor',
+                'Cisco-IOS-XR-sdr-invmgr-oper', False),
+            _MetaInfoClassMember('node-name-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Node Name String
+                ''',
+                'node_name_string',
                 'Cisco-IOS-XR-sdr-invmgr-oper', False),
             _MetaInfoClassMember('pi-slot-number', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 

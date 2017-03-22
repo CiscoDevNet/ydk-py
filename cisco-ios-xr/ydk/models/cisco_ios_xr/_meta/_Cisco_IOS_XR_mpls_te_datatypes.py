@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'SrPrependEnum' : _MetaInfoEnum('SrPrependEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
         {
@@ -109,10 +108,11 @@ _meta_table = {
             'hex-value':'hex_value',
             'bit-position':'bit_position',
         }, 'Cisco-IOS-XR-mpls-te-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-datatypes']),
-    'MplsTeBandwidthDsteEnum' : _MetaInfoEnum('MplsTeBandwidthDsteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
+    'MplsTeOtnSncModeEnum' : _MetaInfoEnum('MplsTeOtnSncModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
         {
-            'standard-dste':'standard_dste',
-            'pre-standard-dste':'pre_standard_dste',
+            'snc-n':'snc_n',
+            'snc-i':'snc_i',
+            'snc-s':'snc_s',
         }, 'Cisco-IOS-XR-mpls-te-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-datatypes']),
     'MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum' : _MetaInfoEnum('MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
         {
@@ -190,11 +190,10 @@ _meta_table = {
             'keep-failed-lsp':'keep_failed_lsp',
             'delete-failed-lsp':'delete_failed_lsp',
         }, 'Cisco-IOS-XR-mpls-te-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-datatypes']),
-    'MplsTeOtnSncModeEnum' : _MetaInfoEnum('MplsTeOtnSncModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
+    'MplsTeBandwidthDsteEnum' : _MetaInfoEnum('MplsTeBandwidthDsteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
         {
-            'snc-n':'snc_n',
-            'snc-i':'snc_i',
-            'snc-s':'snc_s',
+            'standard-dste':'standard_dste',
+            'pre-standard-dste':'pre_standard_dste',
         }, 'Cisco-IOS-XR-mpls-te-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-datatypes']),
     'MplsTePathDiversityConformanceEnum' : _MetaInfoEnum('MplsTePathDiversityConformanceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
         {

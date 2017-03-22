@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'PmThresholdOpEnum' : _MetaInfoEnum('PmThresholdOpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg',
         {
@@ -47,7 +46,7 @@ _meta_table = {
                 'server_address',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -149,7 +148,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -168,7 +167,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -232,7 +231,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -251,7 +250,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -315,7 +314,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -334,7 +333,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -398,7 +397,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -417,7 +416,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -481,7 +480,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -500,7 +499,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -564,7 +563,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -583,7 +582,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -647,7 +646,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -666,7 +665,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -730,7 +729,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -749,7 +748,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -813,7 +812,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -832,7 +831,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -896,7 +895,7 @@ _meta_table = {
                 'history_persistent',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular
                 expression
                 ''',
@@ -915,7 +914,7 @@ _meta_table = {
                 'sample_size',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group configured in regular expression to
                 be applied
                 ''',
@@ -2620,7 +2619,7 @@ _meta_table = {
                 'reg_exp_index',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', True),
             _MetaInfoClassMember('reg-exp-string', ATTRIBUTE, 'str' , None, None, 
-                [(0, 128)], [], 
+                [(1, 128)], [], 
                 '''                Regular expression string to match
                 ''',
                 'reg_exp_string',
@@ -2654,7 +2653,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('reg-exp-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Regular expression group name
                 ''',
                 'reg_exp_group_name',
@@ -3847,7 +3846,7 @@ _meta_table = {
                 'output_underrun',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular expression
                 ''',
                 'reg_exp_group',
@@ -3859,7 +3858,7 @@ _meta_table = {
                 'sample_interval',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by VRF name regular
                 expression 
                 ''',
@@ -5573,7 +5572,7 @@ _meta_table = {
                 'output_total_errors',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular expression
                 ''',
                 'reg_exp_group',
@@ -5585,7 +5584,7 @@ _meta_table = {
                 'sample_interval',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by VRF name regular
                 expression 
                 ''',
@@ -8098,7 +8097,7 @@ _meta_table = {
                 'output_peak_rate',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('reg-exp-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by regular expression
                 ''',
                 'reg_exp_group',
@@ -8110,7 +8109,7 @@ _meta_table = {
                 'sample_interval',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('vrf-group', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Enable instance filtering by VRF name regular
                 expression 
                 ''',

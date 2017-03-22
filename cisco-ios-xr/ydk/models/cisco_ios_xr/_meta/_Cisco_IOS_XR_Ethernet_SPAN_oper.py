@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'ImStateEnumEnum' : _MetaInfoEnum('ImStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
@@ -79,7 +78,7 @@ _meta_table = {
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', True),
             _MetaInfoClassMember('session', ATTRIBUTE, 'str' , None, None, 
-                [(0, 79)], [], 
+                [(1, 79)], [], 
                 '''                Session Name
                 ''',
                 'session',
@@ -393,7 +392,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('session', ATTRIBUTE, 'str' , None, None, 
-                [(0, 79)], [], 
+                [(1, 79)], [], 
                 '''                Session Name
                 ''',
                 'session',
@@ -648,7 +647,7 @@ _meta_table = {
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', True),
             _MetaInfoClassMember('session', ATTRIBUTE, 'str' , None, None, 
-                [(0, 79)], [], 
+                [(1, 79)], [], 
                 '''                Session Name
                 ''',
                 'session',
@@ -713,6 +712,13 @@ _meta_table = {
                 '''                Source interface
                 ''',
                 'source_interface',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('source-interface-is-a-destination', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                This source interface is a destination for
+                another monitor-session
+                ''',
+                'source_interface_is_a_destination',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('source-interface-state', REFERENCE_ENUM_CLASS, 'ImStateEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'ImStateEnumEnum', 
                 [], [], 

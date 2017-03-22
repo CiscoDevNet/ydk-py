@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'FlowLabelTlvCodeEnum' : _MetaInfoEnum('FlowLabelTlvCodeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg',
         {
@@ -36,6 +35,10 @@ _meta_table = {
             'source-dest-mac':'source_dest_mac',
             'source-dest-ip':'source_dest_ip',
             'pseudowire-label':'pseudowire_label',
+        }, 'Cisco-IOS-XR-l2vpn-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg']),
+    'BdmacLearnEnum' : _MetaInfoEnum('BdmacLearnEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg',
+        {
+            'disable-learning':'disable_learning',
         }, 'Cisco-IOS-XR-l2vpn-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg']),
     'InterworkingEnum' : _MetaInfoEnum('InterworkingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg',
         {
@@ -177,6 +180,12 @@ _meta_table = {
         {
             'no-stitching':'no_stitching',
             'stitching':'stitching',
+        }, 'Cisco-IOS-XR-l2vpn-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg']),
+    'EthernetSegmentIdentifierEnum' : _MetaInfoEnum('EthernetSegmentIdentifierEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg',
+        {
+            'type0':'type0',
+            'legacy':'legacy',
+            'override':'override',
         }, 'Cisco-IOS-XR-l2vpn-cfg', _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg']),
     'ControlWordEnum' : _MetaInfoEnum('ControlWordEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg',
         {
@@ -482,7 +491,7 @@ _meta_table = {
                 'aps',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Ethernet ring protection instance
                 description
                 ''',
@@ -496,7 +505,7 @@ _meta_table = {
                 'inclusion_list',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('profile', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Ethernet ring protection instance profile
                 ''',
                 'profile',
@@ -531,8 +540,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
-    'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_' : {
-        'meta_info' : _MetaInfoClass('L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_',
+    'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.NoneOrVirtual' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.NoneOrVirtual',
             False, 
             [
             _MetaInfoClassMember('monitor', ATTRIBUTE, 'str' , None, None, 
@@ -543,13 +552,13 @@ _meta_table = {
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
-            'none',
+            'none-or-virtual',
             _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
-    'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.VirtualOrInterface' : {
-        'meta_info' : _MetaInfoClass('L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.VirtualOrInterface',
+    'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.Interface' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.Interface',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -566,7 +575,7 @@ _meta_table = {
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
-            'virtual-or-interface',
+            'interface',
             _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
@@ -581,17 +590,17 @@ _meta_table = {
                 ''',
                 'erp_port_type',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
-            _MetaInfoClassMember('none', REFERENCE_CLASS, 'None_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_', 
+            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.Interface', 
                 [], [], 
-                '''                none
+                '''                interface
                 ''',
-                'none',
+                'interface',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('virtual-or-interface', REFERENCE_LIST, 'VirtualOrInterface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.VirtualOrInterface', 
+            _MetaInfoClassMember('none-or-virtual', REFERENCE_CLASS, 'NoneOrVirtual' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.NoneOrVirtual', 
                 [], [], 
-                '''                virtual or interface
+                '''                none or virtual
                 ''',
-                'virtual_or_interface',
+                'none_or_virtual',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
@@ -622,7 +631,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('g8032-ring-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the G8032 ring
                 ''',
                 'g8032_ring_name',
@@ -837,7 +846,7 @@ _meta_table = {
                 'backup_mpls_static_labels',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('backup-pw-class', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                PW class template name to use for the
                 backup PW
                 ''',
@@ -1036,7 +1045,7 @@ _meta_table = {
                 'bandwidth',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('class', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the pseudowire class
                 ''',
                 'class_',
@@ -1163,7 +1172,7 @@ _meta_table = {
                 'backup_mpls_static_labels',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('backup-pw-class', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                PW class template name to use for the
                 backup PW
                 ''',
@@ -1363,7 +1372,7 @@ _meta_table = {
                 'bandwidth',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('class', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the pseudowire class
                 ''',
                 'class_',
@@ -1472,7 +1481,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Name of the monitor session
                 ''',
                 'name',
@@ -1536,7 +1545,7 @@ _meta_table = {
                 'sacid',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
             _MetaInfoClassMember('class', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the pseudowire class
                 ''',
                 'class_',
@@ -1616,7 +1625,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 38)], [], 
+                [(1, 38)], [], 
                 '''                Name of the point to point xconnect
                 ''',
                 'name',
@@ -1646,7 +1655,7 @@ _meta_table = {
                 'monitor_sessions',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('p2p-description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                cross connect description Name
                 ''',
                 'p2p_description',
@@ -1743,12 +1752,6 @@ _meta_table = {
                 '''                Export route policy
                 ''',
                 'export',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('import', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Import route policy
-                ''',
-                'import_',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
@@ -2040,7 +2043,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 26)], [], 
+                [(1, 26)], [], 
                 '''                Name of the multi point to multi point
                 xconnect
                 ''',
@@ -2118,7 +2121,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the xconnect group
                 ''',
                 'name',
@@ -2443,9 +2446,9 @@ _meta_table = {
                 ''',
                 'bd_mac_filters',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('bd-mac-learn', REFERENCE_ENUM_CLASS, 'MacLearnEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLearnEnum', 
+            _MetaInfoClassMember('bd-mac-learn', REFERENCE_ENUM_CLASS, 'BdmacLearnEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BdmacLearnEnum', 
                 [], [], 
-                '''                Enable Mac Learning
+                '''                Mac Learning Type
                 ''',
                 'bd_mac_learn',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
@@ -2523,6 +2526,23 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
+    'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup',
+            False, 
+            [
+            _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable split horizon group
+                ''',
+                'disable',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'pbb-edge-split-horizon-group',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
     'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping' : {
         'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping',
             False, 
@@ -2533,11 +2553,12 @@ _meta_table = {
                 ''',
                 'address',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
-            _MetaInfoClassMember('bmac', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('pbb-static-mac-mapping-bmac', ATTRIBUTE, 'str' , None, None, 
                 [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Backbone MAC address
+                '''                Static backbone MAC address to map
+                with
                 ''',
-                'bmac',
+                'pbb_static_mac_mapping_bmac',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
@@ -2723,7 +2744,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('core-bd-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 27)], [], 
+                [(1, 27)], [], 
                 '''                Core BD Name
                 ''',
                 'core_bd_name',
@@ -2741,7 +2762,7 @@ _meta_table = {
                 'pbb_edge_dhcp_profile',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('pbb-edge-igmp-profile', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach a IGMP Snooping profile
                 ''',
                 'pbb_edge_igmp_profile',
@@ -2751,6 +2772,12 @@ _meta_table = {
                 '''                MAC configuration commands
                 ''',
                 'pbb_edge_mac',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('pbb-edge-split-horizon-group', REFERENCE_CLASS, 'PbbEdgeSplitHorizonGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup', 
+                [], [], 
+                '''                Split Horizon Group
+                ''',
+                'pbb_edge_split_horizon_group',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('pbb-static-mac-mappings', REFERENCE_CLASS, 'PbbStaticMacMappings' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings', 
                 [], [], 
@@ -2953,7 +2980,7 @@ _meta_table = {
                 'pbb_core_evis',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('pbb-core-igmp-profile', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach a IGMP Snooping profile
                 ''',
                 'pbb_core_igmp_profile',
@@ -3036,6 +3063,128 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
             'bridge-domain-evis',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress',
+            False, 
+            [
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Static MAC address
+                ''',
+                'address',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'access-vfi-pseudowire-static-mac-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses',
+            False, 
+            [
+            _MetaInfoClassMember('access-vfi-pseudowire-static-mac-address', REFERENCE_LIST, 'AccessVfiPseudowireStaticMacAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress', 
+                [], [], 
+                '''                Static Mac Address Configuration
+                ''',
+                'access_vfi_pseudowire_static_mac_address',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'access-vfi-pseudowire-static-mac-addresses',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire',
+            False, 
+            [
+            _MetaInfoClassMember('neighbor', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Neighbor IP address
+                ''',
+                'neighbor',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Pseudowire ID
+                ''',
+                'pseudowire_id',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('access-vfi-pseudowire-static-mac-addresses', REFERENCE_CLASS, 'AccessVfiPseudowireStaticMacAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses', 
+                [], [], 
+                '''                Static Mac Address Table
+                ''',
+                'access_vfi_pseudowire_static_mac_addresses',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'access-vfi-pseudowire',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires',
+            False, 
+            [
+            _MetaInfoClassMember('access-vfi-pseudowire', REFERENCE_LIST, 'AccessVfiPseudowire' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire', 
+                [], [], 
+                '''                Pseudowire configuration
+                ''',
+                'access_vfi_pseudowire',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'access-vfi-pseudowires',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Name of the AccessVirtual Forwarding
+                Interface
+                ''',
+                'name',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('access-vfi-pseudowires', REFERENCE_CLASS, 'AccessVfiPseudowires' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires', 
+                [], [], 
+                '''                List of pseudowires
+                ''',
+                'access_vfi_pseudowires',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'access-vfi',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis',
+            False, 
+            [
+            _MetaInfoClassMember('access-vfi', REFERENCE_LIST, 'AccessVfi' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi', 
+                [], [], 
+                '''                Name of the Acess Virtual Forwarding
+                Interface
+                ''',
+                'access_vfi',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'access-vfis',
             _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
@@ -3470,7 +3619,7 @@ _meta_table = {
                 'pseudowire_id',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
             _MetaInfoClassMember('bridge-domain-backup-pw-class', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                PW class template name to use for this
                 pseudowire
                 ''',
@@ -3517,7 +3666,7 @@ _meta_table = {
                 'pseudowire_id',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
             _MetaInfoClassMember('bd-pw-class', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                PW class template name to use for this
                 pseudowire
                 ''',
@@ -3573,7 +3722,7 @@ _meta_table = {
                 'pseudowire_flooding_unknown_unicast',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('pseudowire-igmp-snoop', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach a IGMP Snooping profile
                 ''',
                 'pseudowire_igmp_snoop',
@@ -3592,7 +3741,7 @@ _meta_table = {
                 'pseudowire_mac',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('pseudowire-mld-snoop', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach a MLD Snooping profile
                 ''',
                 'pseudowire_mld_snoop',
@@ -3638,7 +3787,7 @@ _meta_table = {
                 'transport_name',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
             _MetaInfoClassMember('attribute-set-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Multicast P2MP TE Attribute Set Name
                 ''',
                 'attribute_set_name',
@@ -3833,7 +3982,7 @@ _meta_table = {
                 'pseudowire_static_mac_addresses',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('vfi-pw-class', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                PW class template name to use for this
                 pseudowire
                 ''',
@@ -3846,13 +3995,13 @@ _meta_table = {
                 'vfi_pw_dhcp_snoop',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('vfi-pw-igmp-snoop', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach a IGMP Snooping profile
                 ''',
                 'vfi_pw_igmp_snoop',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('vfi-pw-mld-snoop', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach a MLD Snooping profile
                 ''',
                 'vfi_pw_mld_snoop',
@@ -4265,7 +4414,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the Virtual Forwarding Interface
                 ''',
                 'name',
@@ -4750,7 +4899,7 @@ _meta_table = {
                 'interface_flooding_unknown_unicast',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('interface-igmp-snoop', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach a IGMP Snooping profile
                 ''',
                 'interface_igmp_snoop',
@@ -4768,7 +4917,7 @@ _meta_table = {
                 'interface_mac',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('interface-mld-snoop', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach a MLD Snooping profile
                 ''',
                 'interface_mld_snoop',
@@ -4942,6 +5091,23 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
+    'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup',
+            False, 
+            [
+            _MetaInfoClassMember('routed-interface-split-horizon-group-core', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configure BVI under SHG 1
+                ''',
+                'routed_interface_split_horizon_group_core',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'routed-interface-split-horizon-group',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
     'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface' : {
         'meta_info' : _MetaInfoClass('L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface',
             False, 
@@ -4952,6 +5118,12 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('routed-interface-split-horizon-group', REFERENCE_CLASS, 'RoutedInterfaceSplitHorizonGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup', 
+                [], [], 
+                '''                Routed interface split horizon group
+                ''',
+                'routed_interface_split_horizon_group',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
             'routed-interface',
@@ -4981,11 +5153,18 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 27)], [], 
+                [(1, 27)], [], 
                 '''                Name of the bridge domain
                 ''',
                 'name',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('access-vfis', REFERENCE_CLASS, 'AccessVfis' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis', 
+                [], [], 
+                '''                Specify the access virtual forwarding
+                interface name
+                ''',
+                'access_vfis',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('bd-attachment-circuits', REFERENCE_CLASS, 'BdAttachmentCircuits' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits', 
                 [], [], 
                 '''                Attachment Circuit table
@@ -5009,6 +5188,12 @@ _meta_table = {
                 '''                Storm Control
                 ''',
                 'bd_storm_controls',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bridge-description', ATTRIBUTE, 'str' , None, None, 
+                [(1, 64)], [], 
+                '''                Bridge-domain description Name
+                ''',
+                'bridge_description',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('bridge-domain-evis', REFERENCE_CLASS, 'BridgeDomainEvis' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis', 
                 [], [], 
@@ -5048,7 +5233,7 @@ _meta_table = {
                 'dai',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('dhcp', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                DHCPv4 Snooping profile name
                 ''',
                 'dhcp',
@@ -5066,7 +5251,7 @@ _meta_table = {
                 'flooding_unknown_unicast',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('igmp-snooping', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach IGMP Snooping Profile Name
                 ''',
                 'igmp_snooping',
@@ -5091,7 +5276,7 @@ _meta_table = {
                 'member_vnis',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('mld-snooping', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Attach MLD Snooping Profile Name
                 ''',
                 'mld_snooping',
@@ -5156,7 +5341,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the Bridge group
                 ''',
                 'name',
@@ -5242,7 +5427,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('l2tpv3-class-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the L2TPv3 class name
                 ''',
                 'l2tpv3_class_name',
@@ -5594,7 +5779,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the pseudowire class
                 ''',
                 'name',
@@ -5732,7 +5917,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 23)], [], 
+                [(1, 23)], [], 
                 '''                Name of the Flexible XConnect Service
                 ''',
                 'name',
@@ -5773,10 +5958,90 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
+    'L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Name of the attachment circuit interface
+                ''',
+                'name',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'vlan-aware-fxc-attachment-circuit',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits',
+            False, 
+            [
+            _MetaInfoClassMember('vlan-aware-fxc-attachment-circuit', REFERENCE_LIST, 'VlanAwareFxcAttachmentCircuit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit', 
+                [], [], 
+                '''                Attachment circuit interface
+                ''',
+                'vlan_aware_fxc_attachment_circuit',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'vlan-aware-fxc-attachment-circuits',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService',
+            False, 
+            [
+            _MetaInfoClassMember('eviid', ATTRIBUTE, 'int' , None, None, 
+                [('1', '65534')], [], 
+                '''                Ethernet VPN ID
+                ''',
+                'eviid',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('vlan-aware-fxc-attachment-circuits', REFERENCE_CLASS, 'VlanAwareFxcAttachmentCircuits' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits', 
+                [], [], 
+                '''                List of attachment circuits
+                ''',
+                'vlan_aware_fxc_attachment_circuits',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'vlan-aware-flexible-xconnect-service',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices' : {
+        'meta_info' : _MetaInfoClass('L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices',
+            False, 
+            [
+            _MetaInfoClassMember('vlan-aware-flexible-xconnect-service', REFERENCE_LIST, 'VlanAwareFlexibleXconnectService' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService', 
+                [], [], 
+                '''                Flexible XConnect Service
+                ''',
+                'vlan_aware_flexible_xconnect_service',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'vlan-aware-flexible-xconnect-services',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
     'L2Vpn.Database.FlexibleXconnectServiceTable' : {
         'meta_info' : _MetaInfoClass('L2Vpn.Database.FlexibleXconnectServiceTable',
             False, 
             [
+            _MetaInfoClassMember('vlan-aware-flexible-xconnect-services', REFERENCE_CLASS, 'VlanAwareFlexibleXconnectServices' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices', 
+                [], [], 
+                '''                List of Vlan-Aware Flexible XConnect Services
+                ''',
+                'vlan_aware_flexible_xconnect_services',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('vlan-unaware-flexible-xconnect-services', REFERENCE_CLASS, 'VlanUnawareFlexibleXconnectServices' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices', 
                 [], [], 
                 '''                List of Vlan-Unaware Flexible XConnect
@@ -5856,7 +6121,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('group-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('1', '4294967295')], [], 
                 '''                Group ID
                 ''',
                 'group_id',
@@ -6211,7 +6476,7 @@ _meta_table = {
                 'load_balance',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('mspw-description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                MS-PW global description
                 ''',
                 'mspw_description',
@@ -6334,7 +6599,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('generic-interface-list-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name of the interface list
                 ''',
                 'generic_interface_list_name',
@@ -6427,8 +6692,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
-    'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.TwoByteAsOrFourByteAs' : {
-        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.TwoByteAsOrFourByteAs',
+    'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs',
             False, 
             [
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
@@ -6443,38 +6708,33 @@ _meta_table = {
                 ''',
                 'as_index',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('format', REFERENCE_ENUM_CLASS, 'BgpRouteTargetFormatEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormatEnum', 
+                [], [], 
+                '''                Format of the route target
+                ''',
+                'format',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'BgpRouteTargetRoleEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRoleEnum', 
+                [], [], 
+                '''                Role of the router target type
+                ''',
+                'role',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('stitching', REFERENCE_ENUM_CLASS, 'BgpRouteTargetEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetEnum', 
+                [], [], 
+                '''                whether RT is Stitching RT
+                ''',
+                'stitching',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
-            'two-byte-as-or-four-byte-as',
+            'evpn-route-target-as',
             _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
-    'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.Ipv4Address' : {
-        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.Ipv4Address',
-            False, 
-            [
-            _MetaInfoClassMember('addr-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Addr index
-                ''',
-                'addr_index',
-                'Cisco-IOS-XR-l2vpn-cfg', True),
-            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPV4 address
-                ''',
-                'address',
-                'Cisco-IOS-XR-l2vpn-cfg', True),
-            ],
-            'Cisco-IOS-XR-l2vpn-cfg',
-            'ipv4-address',
-            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
-        ),
-    },
-    'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget' : {
-        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget',
+    'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone',
             False, 
             [
             _MetaInfoClassMember('format', REFERENCE_ENUM_CLASS, 'BgpRouteTargetFormatEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormatEnum', 
@@ -6495,21 +6755,50 @@ _meta_table = {
                 ''',
                 'stitching',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
-            _MetaInfoClassMember('ipv4-address', REFERENCE_LIST, 'Ipv4Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.Ipv4Address', 
-                [], [], 
-                '''                ipv4 address
-                ''',
-                'ipv4_address',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('two-byte-as-or-four-byte-as', REFERENCE_LIST, 'TwoByteAsOrFourByteAs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.TwoByteAsOrFourByteAs', 
-                [], [], 
-                '''                two byte as or four byte as
-                ''',
-                'two_byte_as_or_four_byte_as',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
-            'evpn-route-target',
+            'evpn-route-target-none',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address',
+            False, 
+            [
+            _MetaInfoClassMember('addr-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Addr index
+                ''',
+                'addr_index',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPV4 address
+                ''',
+                'address',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('format', REFERENCE_ENUM_CLASS, 'BgpRouteTargetFormatEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormatEnum', 
+                [], [], 
+                '''                Format of the route target
+                ''',
+                'format',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('role', REFERENCE_ENUM_CLASS, 'BgpRouteTargetRoleEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRoleEnum', 
+                [], [], 
+                '''                Role of the router target type
+                ''',
+                'role',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('stitching', REFERENCE_ENUM_CLASS, 'BgpRouteTargetEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetEnum', 
+                [], [], 
+                '''                whether RT is Stitching RT
+                ''',
+                'stitching',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-route-target-ipv4-address',
             _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
@@ -6518,11 +6807,23 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets',
             False, 
             [
-            _MetaInfoClassMember('evpn-route-target', REFERENCE_LIST, 'EvpnRouteTarget' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget', 
+            _MetaInfoClassMember('evpn-route-target-as', REFERENCE_LIST, 'EvpnRouteTargetAs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs', 
                 [], [], 
                 '''                Name of the Route Target
                 ''',
-                'evpn_route_target',
+                'evpn_route_target_as',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-route-target-ipv4-address', REFERENCE_LIST, 'EvpnRouteTargetIpv4Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address', 
+                [], [], 
+                '''                Name of the Route Target
+                ''',
+                'evpn_route_target_ipv4_address',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-route-target-none', REFERENCE_LIST, 'EvpnRouteTargetNone' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone', 
+                [], [], 
+                '''                Name of the Route Target
+                ''',
+                'evpn_route_target_none',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
@@ -6618,11 +6919,35 @@ _meta_table = {
                 ''',
                 'eviid',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('evi-advertise-mac', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Advertise MAC only routes
+                ''',
+                'evi_advertise_mac',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('evi-load-balancing', REFERENCE_CLASS, 'EviLoadBalancing' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.Evpnevis.Evpnevi.EviLoadBalancing', 
                 [], [], 
                 '''                Enter EVI Loadbalancing configuration submode
                 ''',
                 'evi_load_balancing',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evi-reorig-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable route re-origination
+                ''',
+                'evi_reorig_disable',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evi-stitching', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable RT stitching for MPLS fabric
+                ''',
+                'evi_stitching',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evi-unknown-unicast-flooding-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable Unknown Unicast Flooding on this EVI
+                ''',
+                'evi_unknown_unicast_flooding_disable',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('evpn-evi-cw-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -6631,7 +6956,7 @@ _meta_table = {
                 'evpn_evi_cw_disable',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('evpnevi-description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Description for EVPN EVI
                 ''',
                 'evpnevi_description',
@@ -6662,6 +6987,160 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-l2vpn-cfg',
             'evpnevis',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Virtual Forwarding Interface timers
+                ''',
+                'enable',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-virtual-access-vfi-peering', ATTRIBUTE, 'int' , None, None, 
+                [('0', '300')], [], 
+                '''                Virtual Forwarding Interface-specific
+                Peering timer
+                ''',
+                'evpn_virtual_access_vfi_peering',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-virtual-access-vfi-recovery', ATTRIBUTE, 'int' , None, None, 
+                [('20', '3600')], [], 
+                '''                Virtual Forwarding Interface-specific
+                Recovery timer
+                ''',
+                'evpn_virtual_access_vfi_recovery',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-virtual-access-vfi-timers',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier',
+            False, 
+            [
+            _MetaInfoClassMember('bytes01', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                Type 0's 1st Byte or Type Byte and 1st Byte
+                ''',
+                'bytes01',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes23', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                2nd and 3rd Bytes
+                ''',
+                'bytes23',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes45', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                4th and 5th Bytes
+                ''',
+                'bytes45',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes67', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                6th and 7th Bytes
+                ''',
+                'bytes67',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes89', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                8th and 9th Bytes
+                ''',
+                'bytes89',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'EthernetSegmentIdentifierEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentIdentifierEnum', 
+                [], [], 
+                '''                Ethernet segment identifier type
+                ''',
+                'type',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'identifier',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Ethernet Segment
+                ''',
+                'enable',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('es-import-route-target', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                ES-Import Route Target
+                ''',
+                'es_import_route_target',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('identifier', REFERENCE_CLASS, 'Identifier' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier', 
+                [], [], 
+                '''                Ethernet segment identifier
+                ''',
+                'identifier',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-virtual-ethernet-segment',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                Name of the Virtual Access VFI
+                ''',
+                'name',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('evpn-virtual-access-vfi-timers', REFERENCE_CLASS, 'EvpnVirtualAccessVfiTimers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers', 
+                [], [], 
+                '''                Enter Virtual Forwarding Interface timers
+                configuration submode
+                ''',
+                'evpn_virtual_access_vfi_timers',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-virtual-ethernet-segment', REFERENCE_CLASS, 'EvpnVirtualEthernetSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment', 
+                [], [], 
+                '''                Enter Ethernet Segment configuration submode
+                ''',
+                'evpn_virtual_ethernet_segment',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-virtual-access-vfi',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnVirtualAccessVfis' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessVfis',
+            False, 
+            [
+            _MetaInfoClassMember('evpn-virtual-access-vfi', REFERENCE_LIST, 'EvpnVirtualAccessVfi' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi', 
+                [], [], 
+                '''                Virtual Access VFI
+                ''',
+                'evpn_virtual_access_vfi',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-virtual-access-vfis',
             _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
@@ -6753,6 +7232,178 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
+    'Evpn.EvpnTables.EvpnLogging' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnLogging',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable EVPN Logging
+                ''',
+                'enable',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-df-election', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Designated Forwarder election logging
+                ''',
+                'evpn_df_election',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-logging',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.ManualServiceCarving.ServiceList' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.ManualServiceCarving.ServiceList',
+            False, 
+            [
+            _MetaInfoClassMember('primary', ATTRIBUTE, 'str' , None, None, 
+                [(1, 150)], [], 
+                '''                Primary services list
+                ''',
+                'primary',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('secondary', ATTRIBUTE, 'str' , None, None, 
+                [(1, 150)], [], 
+                '''                Secondary services list
+                ''',
+                'secondary',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'service-list',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.ManualServiceCarving' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.ManualServiceCarving',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Manual service carving
+                ''',
+                'enable',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('service-list', REFERENCE_CLASS, 'ServiceList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.ManualServiceCarving.ServiceList', 
+                [], [], 
+                '''                Manual service carving primary,secondary
+                lists
+                ''',
+                'service_list',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'manual-service-carving',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.Identifier' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.Identifier',
+            False, 
+            [
+            _MetaInfoClassMember('bytes01', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                Type 0's 1st Byte or Type Byte and 1st Byte
+                ''',
+                'bytes01',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes23', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                2nd and 3rd Bytes
+                ''',
+                'bytes23',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes45', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                4th and 5th Bytes
+                ''',
+                'bytes45',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes67', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                6th and 7th Bytes
+                ''',
+                'bytes67',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes89', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                8th and 9th Bytes
+                ''',
+                'bytes89',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'EthernetSegmentIdentifierEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentIdentifierEnum', 
+                [], [], 
+                '''                Ethernet segment identifier type
+                ''',
+                'type',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'identifier',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment',
+            False, 
+            [
+            _MetaInfoClassMember('backbone-source-mac', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Backbone Source MAC
+                ''',
+                'backbone_source_mac',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Ethernet Segment
+                ''',
+                'enable',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('es-import-route-target', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                ES-Import Route Target
+                ''',
+                'es_import_route_target',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('force-single-homed', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Force ethernet segment to remain
+                single-homed
+                ''',
+                'force_single_homed',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('identifier', REFERENCE_CLASS, 'Identifier' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.Identifier', 
+                [], [], 
+                '''                Ethernet segment identifier
+                ''',
+                'identifier',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('load-balancing-single-active', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable single-active load balancing mode
+                ''',
+                'load_balancing_single_active',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('manual-service-carving', REFERENCE_CLASS, 'ManualServiceCarving' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.ManualServiceCarving', 
+                [], [], 
+                '''                Enter Manual service carving configuration
+                submode
+                ''',
+                'manual_service_carving',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-interface-ethernet-segment',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
     'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers' : {
         'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers',
             False, 
@@ -6782,149 +7433,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
-    'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.IdentifierType0' : {
-        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.IdentifierType0',
-            False, 
-            [
-            _MetaInfoClassMember('bytes1', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
-                '''                Type 0's 1st Byte
-                ''',
-                'bytes1',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('bytes23', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
-                '''                Type 0's 2nd and 3rd Bytes
-                ''',
-                'bytes23',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('bytes45', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
-                '''                Type 0's 4th and 5th Bytes
-                ''',
-                'bytes45',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('bytes67', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
-                '''                Type 0's 6th and 7th Bytes
-                ''',
-                'bytes67',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('bytes89', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
-                '''                Type 0's 8th and 9th Bytes
-                ''',
-                'bytes89',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            ],
-            'Cisco-IOS-XR-l2vpn-cfg',
-            'identifier-type0',
-            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
-        ),
-    },
-    'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList' : {
-        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList',
-            False, 
-            [
-            _MetaInfoClassMember('primary', ATTRIBUTE, 'str' , None, None, 
-                [(0, 150)], [], 
-                '''                Primary services list
-                ''',
-                'primary',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('secondary', ATTRIBUTE, 'str' , None, None, 
-                [(0, 150)], [], 
-                '''                Secondary services list
-                ''',
-                'secondary',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            ],
-            'Cisco-IOS-XR-l2vpn-cfg',
-            'service-list',
-            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
-        ),
-    },
-    'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving' : {
-        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable Manual service carving
-                ''',
-                'enable',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('service-list', REFERENCE_CLASS, 'ServiceList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList', 
-                [], [], 
-                '''                Manual service carving primary,secondary
-                lists
-                ''',
-                'service_list',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            ],
-            'Cisco-IOS-XR-l2vpn-cfg',
-            'manual-service-carving',
-            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
-        ),
-    },
-    'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment' : {
-        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment',
-            False, 
-            [
-            _MetaInfoClassMember('backbone-source-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Backbone Source MAC
-                ''',
-                'backbone_source_mac',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable Ethernet Segment
-                ''',
-                'enable',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('es-import-route-target', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                ES-Import Route Target
-                ''',
-                'es_import_route_target',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('force-single-homed', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Force ethernet segment to remain
-                single-homed
-                ''',
-                'force_single_homed',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('identifier-type0', REFERENCE_CLASS, 'IdentifierType0' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.IdentifierType0', 
-                [], [], 
-                '''                Ethernet segment identifier (Type 0)
-                ''',
-                'identifier_type0',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('load-balancing-per-service', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable per service load balancing mode
-                ''',
-                'load_balancing_per_service',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            _MetaInfoClassMember('manual-service-carving', REFERENCE_CLASS, 'ManualServiceCarving' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving', 
-                [], [], 
-                '''                Enter Manual service carving configuration
-                submode
-                ''',
-                'manual_service_carving',
-                'Cisco-IOS-XR-l2vpn-cfg', False),
-            ],
-            'Cisco-IOS-XR-l2vpn-cfg',
-            'ethernet-segment',
-            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
-        ),
-    },
     'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface' : {
         'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnInterfaces.EvpnInterface',
             False, 
@@ -6935,11 +7443,11 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-l2vpn-cfg', True),
-            _MetaInfoClassMember('ethernet-segment', REFERENCE_CLASS, 'EthernetSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment', 
+            _MetaInfoClassMember('evpn-interface-ethernet-segment', REFERENCE_CLASS, 'EvpnInterfaceEthernetSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment', 
                 [], [], 
                 '''                Enter Ethernet Segment configuration submode
                 ''',
-                'ethernet_segment',
+                'evpn_interface_ethernet_segment',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('evpnac-timers', REFERENCE_CLASS, 'EvpnacTimers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers', 
                 [], [], 
@@ -6978,6 +7486,167 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
         ),
     },
+    'Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Virtual Access Pseudowire-specific
+                timers
+                ''',
+                'enable',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-virtual-access-pw-peering', ATTRIBUTE, 'int' , None, None, 
+                [('0', '300')], [], 
+                '''                Virtual Access Pseudowire-specific Peering
+                timer
+                ''',
+                'evpn_virtual_access_pw_peering',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-virtual-access-pw-recovery', ATTRIBUTE, 'int' , None, None, 
+                [('20', '3600')], [], 
+                '''                Virtual Access Pseudowire-specific Recovery
+                timer
+                ''',
+                'evpn_virtual_access_pw_recovery',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-virtual-access-pw-timers',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier',
+            False, 
+            [
+            _MetaInfoClassMember('bytes01', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                Type 0's 1st Byte or Type Byte and 1st Byte
+                ''',
+                'bytes01',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes23', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                2nd and 3rd Bytes
+                ''',
+                'bytes23',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes45', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                4th and 5th Bytes
+                ''',
+                'bytes45',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes67', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                6th and 7th Bytes
+                ''',
+                'bytes67',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('bytes89', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                8th and 9th Bytes
+                ''',
+                'bytes89',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'EthernetSegmentIdentifierEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentIdentifierEnum', 
+                [], [], 
+                '''                Ethernet segment identifier type
+                ''',
+                'type',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'identifier',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Ethernet Segment
+                ''',
+                'enable',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('es-import-route-target', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                ES-Import Route Target
+                ''',
+                'es_import_route_target',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('identifier', REFERENCE_CLASS, 'Identifier' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier', 
+                [], [], 
+                '''                Ethernet segment identifier
+                ''',
+                'identifier',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-virtual-ethernet-segment',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw',
+            False, 
+            [
+            _MetaInfoClassMember('neighbor', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Neighbor IP address
+                ''',
+                'neighbor',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Pseudowire ID
+                ''',
+                'pseudowire_id',
+                'Cisco-IOS-XR-l2vpn-cfg', True),
+            _MetaInfoClassMember('evpn-virtual-access-pw-timers', REFERENCE_CLASS, 'EvpnVirtualAccessPwTimers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers', 
+                [], [], 
+                '''                Enter Virtual Access Pseudowire-specific
+                timers configuration submode
+                ''',
+                'evpn_virtual_access_pw_timers',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-virtual-ethernet-segment', REFERENCE_CLASS, 'EvpnVirtualEthernetSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment', 
+                [], [], 
+                '''                Enter Ethernet Segment configuration submode
+                ''',
+                'evpn_virtual_ethernet_segment',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-virtual-access-pw',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
+    'Evpn.EvpnTables.EvpnVirtualAccessPws' : {
+        'meta_info' : _MetaInfoClass('Evpn.EvpnTables.EvpnVirtualAccessPws',
+            False, 
+            [
+            _MetaInfoClassMember('evpn-virtual-access-pw', REFERENCE_LIST, 'EvpnVirtualAccessPw' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw', 
+                [], [], 
+                '''                Virtual Access Pseudowire
+                ''',
+                'evpn_virtual_access_pw',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2vpn-cfg',
+            'evpn-virtual-access-pws',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2vpn-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg'
+        ),
+    },
     'Evpn.EvpnTables' : {
         'meta_info' : _MetaInfoClass('Evpn.EvpnTables',
             False, 
@@ -6994,11 +7663,36 @@ _meta_table = {
                 ''',
                 'evpn_load_balancing',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-logging', REFERENCE_CLASS, 'EvpnLogging' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnLogging', 
+                [], [], 
+                '''                Enter EVPN Logging configuration submode
+                ''',
+                'evpn_logging',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-source-interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Configure EVPN router-id implicitly through
+                Loopback Interface
+                ''',
+                'evpn_source_interface',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('evpn-timers', REFERENCE_CLASS, 'EvpnTimers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnTimers', 
                 [], [], 
                 '''                Enter EVPN timers configuration submode
                 ''',
                 'evpn_timers',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-virtual-access-pws', REFERENCE_CLASS, 'EvpnVirtualAccessPws' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessPws', 
+                [], [], 
+                '''                Virtual Access Pseudowire interfaces
+                ''',
+                'evpn_virtual_access_pws',
+                'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('evpn-virtual-access-vfis', REFERENCE_CLASS, 'EvpnVirtualAccessVfis' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnVirtualAccessVfis', 
+                [], [], 
+                '''                Virtual Access VFI interfaces
+                ''',
+                'evpn_virtual_access_vfis',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('evpnbgp-auto-discovery', REFERENCE_CLASS, 'EvpnbgpAutoDiscovery' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Evpn.EvpnTables.EvpnbgpAutoDiscovery', 
                 [], [], 
@@ -7050,8 +7744,8 @@ _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Po
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances']['meta_info']
-_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.None_']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info']
-_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.VirtualOrInterface']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info']
+_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.NoneOrVirtual']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info']
+_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1.Interface']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S.ErpPort1']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort1S']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpPort0S']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring']['meta_info']
 _meta_table['L2Vpn.Database.G8032Rings.G8032Ring.ErpInstances']['meta_info'].parent =_meta_table['L2Vpn.Database.G8032Rings.G8032Ring']['meta_info']
@@ -7121,6 +7815,7 @@ _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.B
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac']['meta_info']
+_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge']['meta_info']
@@ -7134,6 +7829,11 @@ _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.B
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis']['meta_info']
+_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses']['meta_info']
+_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire']['meta_info']
+_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires']['meta_info']
+_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi']['meta_info']
+_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes']['meta_info']
@@ -7195,6 +7895,7 @@ _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.B
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai']['meta_info']
+_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
@@ -7202,6 +7903,7 @@ _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.B
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
+_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
 _meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits']['meta_info'].parent =_meta_table['L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain']['meta_info']
@@ -7230,7 +7932,11 @@ _meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXcon
 _meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits']['meta_info'].parent =_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService']['meta_info']
 _meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns']['meta_info'].parent =_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService']['meta_info']
 _meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService']['meta_info'].parent =_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices']['meta_info']
+_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit']['meta_info'].parent =_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits']['meta_info']
+_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits']['meta_info'].parent =_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService']['meta_info']
+_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService']['meta_info'].parent =_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices']['meta_info']
 _meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices']['meta_info'].parent =_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable']['meta_info']
+_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices']['meta_info'].parent =_meta_table['L2Vpn.Database.FlexibleXconnectServiceTable']['meta_info']
 _meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface']['meta_info'].parent =_meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces']['meta_info']
 _meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces']['meta_info'].parent =_meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup']['meta_info']
 _meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup']['meta_info'].parent =_meta_table['L2Vpn.Database.Redundancy.IccpRedundancyGroups']['meta_info']
@@ -7257,24 +7963,35 @@ _meta_table['L2Vpn.Snmp']['meta_info'].parent =_meta_table['L2Vpn']['meta_info']
 _meta_table['GenericInterfaceLists.GenericInterface.Interfaces.Interface']['meta_info'].parent =_meta_table['GenericInterfaceLists.GenericInterface.Interfaces']['meta_info']
 _meta_table['GenericInterfaceLists.GenericInterface.Interfaces']['meta_info'].parent =_meta_table['GenericInterfaceLists.GenericInterface']['meta_info']
 _meta_table['GenericInterfaceLists.GenericInterface']['meta_info'].parent =_meta_table['GenericInterfaceLists']['meta_info']
-_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.TwoByteAsOrFourByteAs']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget']['meta_info']
-_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget.Ipv4Address']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget']['meta_info']
-_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTarget']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets']['meta_info']
+_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets']['meta_info']
+_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets']['meta_info']
+_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets']['meta_info']
 _meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteTargets']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery']['meta_info']
 _meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery.EvpnRouteDistinguisher']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery']['meta_info']
 _meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EviLoadBalancing']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi']['meta_info']
 _meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi.EvpnevibgpAutoDiscovery']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi']['meta_info']
 _meta_table['Evpn.EvpnTables.Evpnevis.Evpnevi']['meta_info'].parent =_meta_table['Evpn.EvpnTables.Evpnevis']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis']['meta_info']
 _meta_table['Evpn.EvpnTables.EvpnbgpAutoDiscovery.EvpnRouteDistinguisher']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnbgpAutoDiscovery']['meta_info']
-_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving']['meta_info']
-_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.IdentifierType0']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment']['meta_info']
-_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.ManualServiceCarving.ServiceList']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.ManualServiceCarving']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.ManualServiceCarving']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment.Identifier']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnInterfaceEthernetSegment']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface']['meta_info']
 _meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface']['meta_info']
-_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface']['meta_info']
 _meta_table['Evpn.EvpnTables.EvpnInterfaces.EvpnInterface']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnInterfaces']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw']['meta_info'].parent =_meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws']['meta_info']
 _meta_table['Evpn.EvpnTables.EvpnTimers']['meta_info'].parent =_meta_table['Evpn.EvpnTables']['meta_info']
 _meta_table['Evpn.EvpnTables.Evpnevis']['meta_info'].parent =_meta_table['Evpn.EvpnTables']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessVfis']['meta_info'].parent =_meta_table['Evpn.EvpnTables']['meta_info']
 _meta_table['Evpn.EvpnTables.EvpnLoadBalancing']['meta_info'].parent =_meta_table['Evpn.EvpnTables']['meta_info']
 _meta_table['Evpn.EvpnTables.EvpnbgpAutoDiscovery']['meta_info'].parent =_meta_table['Evpn.EvpnTables']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnLogging']['meta_info'].parent =_meta_table['Evpn.EvpnTables']['meta_info']
 _meta_table['Evpn.EvpnTables.EvpnInterfaces']['meta_info'].parent =_meta_table['Evpn.EvpnTables']['meta_info']
+_meta_table['Evpn.EvpnTables.EvpnVirtualAccessPws']['meta_info'].parent =_meta_table['Evpn.EvpnTables']['meta_info']
 _meta_table['Evpn.EvpnTables']['meta_info'].parent =_meta_table['Evpn']['meta_info']

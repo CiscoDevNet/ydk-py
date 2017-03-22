@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'IsdErrorEtEnum' : _MetaInfoEnum('IsdErrorEtEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper',
         {
@@ -262,15 +261,91 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper'
         ),
     },
+    'SoftwareInstall.Prepare.Rpm' : {
+        'meta_info' : _MetaInfoClass('SoftwareInstall.Prepare.Rpm',
+            False, 
+            [
+            _MetaInfoClassMember('package', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                package
+                ''',
+                'package',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-spirit-install-instmgr-oper',
+            'rpm',
+            _yang_ns._namespaces['Cisco-IOS-XR-spirit-install-instmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper'
+        ),
+    },
+    'SoftwareInstall.Prepare.Package' : {
+        'meta_info' : _MetaInfoClass('SoftwareInstall.Prepare.Package',
+            False, 
+            [
+            _MetaInfoClassMember('package', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                package
+                ''',
+                'package',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-spirit-install-instmgr-oper',
+            'package',
+            _yang_ns._namespaces['Cisco-IOS-XR-spirit-install-instmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper'
+        ),
+    },
     'SoftwareInstall.Prepare' : {
         'meta_info' : _MetaInfoClass('SoftwareInstall.Prepare',
             False, 
             [
-            _MetaInfoClassMember('log', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('activate-message', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                log
+                '''                ActivateMessage
                 ''',
-                'log',
+                'activate_message',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('no-prepare-done', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                NoPrepareDone
+                ''',
+                'no_prepare_done',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('package', REFERENCE_LIST, 'Package' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Prepare.Package', 
+                [], [], 
+                '''                package
+                ''',
+                'package',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('prepare-clean-message', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                PrepareCleanMessage
+                ''',
+                'prepare_clean_message',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('prepared-boot-image', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                PreparedBootImage
+                ''',
+                'prepared_boot_image',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('prepared-boot-partition', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                PreparedBootPartition
+                ''',
+                'prepared_boot_partition',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('restart-type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RestartType
+                ''',
+                'restart_type',
+                'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
+            _MetaInfoClassMember('rpm', REFERENCE_LIST, 'Rpm' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper', 'SoftwareInstall.Prepare.Rpm', 
+                [], [], 
+                '''                rpm
+                ''',
+                'rpm',
                 'Cisco-IOS-XR-spirit-install-instmgr-oper', False),
             ],
             'Cisco-IOS-XR-spirit-install-instmgr-oper',
@@ -983,6 +1058,8 @@ _meta_table['SoftwareInstall.Files.File']['meta_info'].parent =_meta_table['Soft
 _meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary']['meta_info'].parent =_meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog']['meta_info']
 _meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail']['meta_info'].parent =_meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog']['meta_info']
 _meta_table['SoftwareInstall.LastNOperationLogs.LastNOperationLog']['meta_info'].parent =_meta_table['SoftwareInstall.LastNOperationLogs']['meta_info']
+_meta_table['SoftwareInstall.Prepare.Rpm']['meta_info'].parent =_meta_table['SoftwareInstall.Prepare']['meta_info']
+_meta_table['SoftwareInstall.Prepare.Package']['meta_info'].parent =_meta_table['SoftwareInstall.Prepare']['meta_info']
 _meta_table['SoftwareInstall.Active.ActivePackageInfo']['meta_info'].parent =_meta_table['SoftwareInstall.Active']['meta_info']
 _meta_table['SoftwareInstall.Issu.Inventory.Invinfo']['meta_info'].parent =_meta_table['SoftwareInstall.Issu.Inventory']['meta_info']
 _meta_table['SoftwareInstall.Issu.Stage']['meta_info'].parent =_meta_table['SoftwareInstall.Issu']['meta_info']

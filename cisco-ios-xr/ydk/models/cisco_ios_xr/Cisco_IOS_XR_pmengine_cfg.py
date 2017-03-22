@@ -1524,139 +1524,163 @@ class OpticsReportEnum(Enum):
 
     Optics report
 
-    .. data:: report_opt_min = 65550
+    .. data:: report_opt_min = 65552
 
     	PM Optics opt min report
 
-    .. data:: report_opr_min = 65551
+    .. data:: report_opr_min = 65553
 
     	PM Optics opr min report
 
-    .. data:: report_lbc_min = 65552
+    .. data:: report_lbc_min = 65554
 
     	PM Optics lbc min report
 
-    .. data:: report_lbc_pc_min = 65553
+    .. data:: report_lbc_pc_min = 65555
 
     	PM Optics lbcpc min report
 
-    .. data:: report_cd_min = 65557
+    .. data:: report_cd_min = 65559
 
     	PM Optics cd min report
 
-    .. data:: report_dgd_min = 65558
+    .. data:: report_dgd_min = 65560
 
     	PM Optics dgd min report
 
-    .. data:: report_pmd_min = 65559
+    .. data:: report_pmd_min = 65561
 
     	PM Optics sopmd min report
 
-    .. data:: report_osnr_min = 65560
+    .. data:: report_osnr_min = 65562
 
     	PM Optics osnr min report
 
-    .. data:: report_pdl_min = 65561
+    .. data:: report_pdl_min = 65563
 
     	PM Optics pdl min report
 
-    .. data:: report_pcr_min = 65562
+    .. data:: report_pcr_min = 65564
 
     	PM Optics pcr min report
 
-    .. data:: report_pn_min = 65563
+    .. data:: report_pn_min = 65565
 
     	PM Optics pn min report
 
-    .. data:: report_opt_max = 65564
+    .. data:: report_rx_sig_pow_min = 65566
+
+    	PM Optics rx sig pow min report
+
+    .. data:: report_low_sig_freq_off_min = 65567
+
+    	PM Optics low sig freq off min report
+
+    .. data:: report_opt_max = 65568
 
     	PM Optics opt max report
 
-    .. data:: report_opr_max = 65565
+    .. data:: report_opr_max = 65569
 
     	PM Optics opr max report
 
-    .. data:: report_lbc_max = 65566
+    .. data:: report_lbc_max = 65570
 
     	PM Optics lbc max report
 
-    .. data:: report_lbc_pc_max = 65567
+    .. data:: report_lbc_pc_max = 65571
 
     	PM Optics lbcpc max report
 
-    .. data:: report_cd_max = 65571
+    .. data:: report_cd_max = 65575
 
     	PM Optics cd max report
 
-    .. data:: report_dgd_max = 65572
+    .. data:: report_dgd_max = 65576
 
     	PM Optics dgd max report
 
-    .. data:: report_pmd_max = 65573
+    .. data:: report_pmd_max = 65577
 
     	PM Optics sopmd max report
 
-    .. data:: report_osnr_max = 65574
+    .. data:: report_osnr_max = 65578
 
     	PM Optics osnr max report
 
-    .. data:: report_pdl_max = 65575
+    .. data:: report_pdl_max = 65579
 
     	PM Optics pdl max report
 
-    .. data:: report_pcr_max = 65576
+    .. data:: report_pcr_max = 65580
 
     	PM Optics pcr max report
 
-    .. data:: report_pn_max = 65577
+    .. data:: report_pn_max = 65581
 
     	PM Optics pn max report
 
+    .. data:: report_rx_sig_pow_max = 65582
+
+    	PM Optics rx sig pow max report
+
+    .. data:: report_low_sig_freq_off_max = 65583
+
+    	PM Optics low sig freq off max report
+
     """
 
-    report_opt_min = 65550
+    report_opt_min = 65552
 
-    report_opr_min = 65551
+    report_opr_min = 65553
 
-    report_lbc_min = 65552
+    report_lbc_min = 65554
 
-    report_lbc_pc_min = 65553
+    report_lbc_pc_min = 65555
 
-    report_cd_min = 65557
+    report_cd_min = 65559
 
-    report_dgd_min = 65558
+    report_dgd_min = 65560
 
-    report_pmd_min = 65559
+    report_pmd_min = 65561
 
-    report_osnr_min = 65560
+    report_osnr_min = 65562
 
-    report_pdl_min = 65561
+    report_pdl_min = 65563
 
-    report_pcr_min = 65562
+    report_pcr_min = 65564
 
-    report_pn_min = 65563
+    report_pn_min = 65565
 
-    report_opt_max = 65564
+    report_rx_sig_pow_min = 65566
 
-    report_opr_max = 65565
+    report_low_sig_freq_off_min = 65567
 
-    report_lbc_max = 65566
+    report_opt_max = 65568
 
-    report_lbc_pc_max = 65567
+    report_opr_max = 65569
 
-    report_cd_max = 65571
+    report_lbc_max = 65570
 
-    report_dgd_max = 65572
+    report_lbc_pc_max = 65571
 
-    report_pmd_max = 65573
+    report_cd_max = 65575
 
-    report_osnr_max = 65574
+    report_dgd_max = 65576
 
-    report_pdl_max = 65575
+    report_pmd_max = 65577
 
-    report_pcr_max = 65576
+    report_osnr_max = 65578
 
-    report_pn_max = 65577
+    report_pdl_max = 65579
+
+    report_pcr_max = 65580
+
+    report_pn_max = 65581
+
+    report_rx_sig_pow_max = 65582
+
+    report_low_sig_freq_off_max = 65583
 
 
     @staticmethod
@@ -1671,139 +1695,163 @@ class OpticsThresholdEnum(Enum):
 
     Optics threshold
 
-    .. data:: thresh_opt_min = 65550
+    .. data:: thresh_opt_min = 65552
 
     	PM Optics opt min threshold in dbm or uW
 
-    .. data:: thresh_opr_min = 65551
+    .. data:: thresh_opr_min = 65553
 
     	PM Optics opr min threshold in dbm or uW
 
-    .. data:: thresh_lbc_min = 65552
+    .. data:: thresh_lbc_min = 65554
 
     	PM Optics lbc min threshold
 
-    .. data:: thresh_lbc_pc_min = 65553
+    .. data:: thresh_lbc_pc_min = 65555
 
     	PM Optics lbcpc min threshold
 
-    .. data:: thresh_cd_min = 65557
+    .. data:: thresh_cd_min = 65559
 
     	PM Optics cd min threshold
 
-    .. data:: thresh_dgd_min = 65558
+    .. data:: thresh_dgd_min = 65560
 
     	PM Optics dgd min threshold
 
-    .. data:: thresh_pmd_min = 65559
+    .. data:: thresh_pmd_min = 65561
 
     	PM Optics sopmd min threshold
 
-    .. data:: thresh_osnr_min = 65560
+    .. data:: thresh_osnr_min = 65562
 
     	PM Optics osnr min threshold
 
-    .. data:: thresh_pdl_min = 65561
+    .. data:: thresh_pdl_min = 65563
 
     	PM Optics pdl min threshold
 
-    .. data:: thresh_pcr_min = 65562
+    .. data:: thresh_pcr_min = 65564
 
     	PM Optics pcr min threshold
 
-    .. data:: thresh_pn_min = 65563
+    .. data:: thresh_pn_min = 65565
 
     	PM Optics pn min threshold
 
-    .. data:: thresh_opt_max = 65564
+    .. data:: thresh_rx_sig_pow_min = 65566
+
+    	PM Optics rx sig pow min threshold
+
+    .. data:: thresh_low_sig_freq_off_min = 65567
+
+    	PM Optics low sig freq off min threshold
+
+    .. data:: thresh_opt_max = 65568
 
     	PM Optics opt max threshold in dbm or uW
 
-    .. data:: thresh_opr_max = 65565
+    .. data:: thresh_opr_max = 65569
 
     	PM Optics opr max threshold in dbm or uW
 
-    .. data:: thresh_lbc_max = 65566
+    .. data:: thresh_lbc_max = 65570
 
     	PM Optics lbc max threshold
 
-    .. data:: thresh_lbc_pc_max = 65567
+    .. data:: thresh_lbc_pc_max = 65571
 
     	PM Optics lbcpc max threshold
 
-    .. data:: thresh_cd_max = 65571
+    .. data:: thresh_cd_max = 65575
 
     	PM Optics cd max threshold
 
-    .. data:: thresh_dgd_max = 65572
+    .. data:: thresh_dgd_max = 65576
 
     	PM Optics dgd max threshold
 
-    .. data:: thresh_pmd_max = 65573
+    .. data:: thresh_pmd_max = 65577
 
     	PM Optics sopmd max threshold
 
-    .. data:: thresh_osnr_max = 65574
+    .. data:: thresh_osnr_max = 65578
 
     	PM Optics osnr max threshold
 
-    .. data:: thresh_pdl_max = 65575
+    .. data:: thresh_pdl_max = 65579
 
     	PM Optics pdl max threshold
 
-    .. data:: thresh_pcr_max = 65576
+    .. data:: thresh_pcr_max = 65580
 
     	PM Optics pcr max threshold
 
-    .. data:: thresh_pn_max = 65577
+    .. data:: thresh_pn_max = 65581
 
     	PM Optics pn max threshold
 
+    .. data:: thresh_rx_sig_pow_max = 65582
+
+    	PM Optics rx sig pow max threshold
+
+    .. data:: thresh_low_sig_freq_off_max = 65583
+
+    	PM Optics low sig freq off max threshold
+
     """
 
-    thresh_opt_min = 65550
+    thresh_opt_min = 65552
 
-    thresh_opr_min = 65551
+    thresh_opr_min = 65553
 
-    thresh_lbc_min = 65552
+    thresh_lbc_min = 65554
 
-    thresh_lbc_pc_min = 65553
+    thresh_lbc_pc_min = 65555
 
-    thresh_cd_min = 65557
+    thresh_cd_min = 65559
 
-    thresh_dgd_min = 65558
+    thresh_dgd_min = 65560
 
-    thresh_pmd_min = 65559
+    thresh_pmd_min = 65561
 
-    thresh_osnr_min = 65560
+    thresh_osnr_min = 65562
 
-    thresh_pdl_min = 65561
+    thresh_pdl_min = 65563
 
-    thresh_pcr_min = 65562
+    thresh_pcr_min = 65564
 
-    thresh_pn_min = 65563
+    thresh_pn_min = 65565
 
-    thresh_opt_max = 65564
+    thresh_rx_sig_pow_min = 65566
 
-    thresh_opr_max = 65565
+    thresh_low_sig_freq_off_min = 65567
 
-    thresh_lbc_max = 65566
+    thresh_opt_max = 65568
 
-    thresh_lbc_pc_max = 65567
+    thresh_opr_max = 65569
 
-    thresh_cd_max = 65571
+    thresh_lbc_max = 65570
 
-    thresh_dgd_max = 65572
+    thresh_lbc_pc_max = 65571
 
-    thresh_pmd_max = 65573
+    thresh_cd_max = 65575
 
-    thresh_osnr_max = 65574
+    thresh_dgd_max = 65576
 
-    thresh_pdl_max = 65575
+    thresh_pmd_max = 65577
 
-    thresh_pcr_max = 65576
+    thresh_osnr_max = 65578
 
-    thresh_pn_max = 65577
+    thresh_pdl_max = 65579
+
+    thresh_pcr_max = 65580
+
+    thresh_pn_max = 65581
+
+    thresh_rx_sig_pow_max = 65582
+
+    thresh_low_sig_freq_off_max = 65583
 
 
     @staticmethod

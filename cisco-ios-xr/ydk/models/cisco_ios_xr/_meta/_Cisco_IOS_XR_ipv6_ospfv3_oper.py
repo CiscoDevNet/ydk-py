@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Ospfv3LsaEnum' : _MetaInfoEnum('Ospfv3LsaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
@@ -60,23 +59,6 @@ _meta_table = {
             'empty-hellos':'empty_hellos',
             'quiet':'quiet',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'Ospfv3LsaInfoTypesEnum' : _MetaInfoEnum('Ospfv3LsaInfoTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
-        {
-            'mgmt-lsa-lsasum-type':'mgmt_lsa_lsasum_type',
-            'mgmt-lsa-link-type':'mgmt_lsa_link_type',
-            'mgmt-lsa-gr-type':'mgmt_lsa_gr_type',
-            'mgmt-lsa-rtr-type':'mgmt_lsa_rtr_type',
-            'mgmt-lsa-net-type':'mgmt_lsa_net_type',
-            'mgmt-lsa-iapfx-type':'mgmt_lsa_iapfx_type',
-            'mgmt-lsa-iartr-type':'mgmt_lsa_iartr_type',
-            'mgmt-lsa-nssaext-type':'mgmt_lsa_nssaext_type',
-            'mgmt-lsa-prefix-type':'mgmt_lsa_prefix_type',
-            'mgmt-lsa-ext-type':'mgmt_lsa_ext_type',
-            'mgmt-lsa-unk-link-type':'mgmt_lsa_unk_link_type',
-            'mgmt-lsa-unk-area-type':'mgmt_lsa_unk_area_type',
-            'mgmt-lsa-unk-as-type':'mgmt_lsa_unk_as_type',
-            'mgmt-lsa-unk-type':'mgmt_lsa_unk_type',
-        }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3GracefulRestartReasonEnum' : _MetaInfoEnum('Ospfv3GracefulRestartReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
             'grace-reason-unknown':'grace_reason_unknown',
@@ -94,6 +76,20 @@ _meta_table = {
             'secondary-path':'secondary_path',
             'srlg-disjoint':'srlg_disjoint',
             'tunnel':'tunnel',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
+    'OspfNsrSchedPriEnum' : _MetaInfoEnum('OspfNsrSchedPriEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
+        {
+            'ospf-nsr-stats-sched-pri-hi':'ospf_nsr_stats_sched_pri_hi',
+            'ospf-nsr-stats-sched-pri-med':'ospf_nsr_stats_sched_pri_med',
+            'ospf-nsr-stats-sched-pri-low':'ospf_nsr_stats_sched_pri_low',
+            'ospf-nsr-stats-sched-pri-max':'ospf_nsr_stats_sched_pri_max',
+        }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
+    'StubRouterModeEnum' : _MetaInfoEnum('StubRouterModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
+        {
+            'rbit':'rbit',
+            'v6bit':'v6bit',
+            'max-metric':'max_metric',
+            'none':'none',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3InterfaceEnum' : _MetaInfoEnum('Ospfv3InterfaceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
@@ -175,12 +171,22 @@ _meta_table = {
             'unknown-as':'unknown_as',
             'unknown-type':'unknown_type',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
-    'StubRouterModeEnum' : _MetaInfoEnum('StubRouterModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
+    'Ospfv3LsaInfoTypesEnum' : _MetaInfoEnum('Ospfv3LsaInfoTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'rbit':'rbit',
-            'v6bit':'v6bit',
-            'max-metric':'max_metric',
-            'none':'none',
+            'mgmt-lsa-lsasum-type':'mgmt_lsa_lsasum_type',
+            'mgmt-lsa-link-type':'mgmt_lsa_link_type',
+            'mgmt-lsa-gr-type':'mgmt_lsa_gr_type',
+            'mgmt-lsa-rtr-type':'mgmt_lsa_rtr_type',
+            'mgmt-lsa-net-type':'mgmt_lsa_net_type',
+            'mgmt-lsa-iapfx-type':'mgmt_lsa_iapfx_type',
+            'mgmt-lsa-iartr-type':'mgmt_lsa_iartr_type',
+            'mgmt-lsa-nssaext-type':'mgmt_lsa_nssaext_type',
+            'mgmt-lsa-prefix-type':'mgmt_lsa_prefix_type',
+            'mgmt-lsa-ext-type':'mgmt_lsa_ext_type',
+            'mgmt-lsa-unk-link-type':'mgmt_lsa_unk_link_type',
+            'mgmt-lsa-unk-area-type':'mgmt_lsa_unk_area_type',
+            'mgmt-lsa-unk-as-type':'mgmt_lsa_unk_as_type',
+            'mgmt-lsa-unk-type':'mgmt_lsa_unk_type',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'StubRouterAbrOffReasonEnum' : _MetaInfoEnum('StubRouterAbrOffReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
@@ -20610,6 +20616,798 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.ProtocolStats.ProtocolStat' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.ProtocolStats.ProtocolStat',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', True),
+            _MetaInfoClassMember('checksum-err', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Checksum Errors
+                ''',
+                'checksum_err',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description LSAs in
+                ''',
+                'dbdes_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description Packets in
+                ''',
+                'dbdes_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description LSAs out
+                ''',
+                'dbdes_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description Packets out
+                ''',
+                'dbdes_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dropped-in-gs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Dropped in GS
+                ''',
+                'dropped_in_gs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('hello-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Hello packets in
+                ''',
+                'hello_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('hello-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Hello Out Packets
+                ''',
+                'hello_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Ack LSAs in
+                ''',
+                'ls_ack_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Acks Packets in
+                ''',
+                'ls_ack_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Ack LSAs out
+                ''',
+                'ls_ack_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Ack Packets out
+                ''',
+                'ls_ack_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Requests in
+                ''',
+                'ls_req_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LSA Requests in
+                ''',
+                'ls_req_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Reuqests LSAs out
+                ''',
+                'ls_req_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Request Packets out
+                ''',
+                'ls_req_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-in-ignored', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Updates ignored
+                ''',
+                'ls_upd_in_ignored',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Updates LSAs in
+                ''',
+                'ls_upd_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Updates Packets in
+                ''',
+                'ls_upd_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Update LSAs out
+                ''',
+                'ls_upd_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Update Packets out
+                ''',
+                'ls_upd_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('total-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total inputs packets
+                ''',
+                'total_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('total-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total Out Packets
+                ''',
+                'total_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'protocol-stat',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.ProtocolStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.ProtocolStats',
+            False, 
+            [
+            _MetaInfoClassMember('protocol-stat', REFERENCE_LIST, 'ProtocolStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.ProtocolStats.ProtocolStat', 
+                [], [], 
+                '''                Protocol statistics for an interface
+                ''',
+                'protocol_stat',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'protocol-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfHeader.AreaSummary' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfHeader.AreaSummary',
+            False, 
+            [
+            _MetaInfoClassMember('area-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Area ID of the area SPF statistics
+                ''',
+                'area_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('sp-fs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of SPF calculations
+                ''',
+                'sp_fs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'area-summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfHeader' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfHeader',
+            False, 
+            [
+            _MetaInfoClassMember('area-summary', REFERENCE_LIST, 'AreaSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfHeader.AreaSummary', 
+                [], [], 
+                '''                List of Areas with SPF statistics
+                ''',
+                'area_summary',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('header-router-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Router ID
+                ''',
+                'header_router_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('header-sp-fs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of SPF calculations
+                ''',
+                'header_sp_fs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-header',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.GlobalTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.GlobalTime',
+            False, 
+            [
+            _MetaInfoClassMember('dijkstra', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Dijkstra time in msec
+                ''',
+                'dijkstra',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix processing time in msec
+                ''',
+                'external_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix deletion time in msec
+                ''',
+                'external_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Inter-prefix processing time in msec
+                ''',
+                'inter_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'inter_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix processing time in msec
+                ''',
+                'intra_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'intra_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-add', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB add processing time in msec
+                ''',
+                'rib_add',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB deletion time in msec
+                ''',
+                'rib_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'global-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.Lsa' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.Lsa',
+            False, 
+            [
+            _MetaInfoClassMember('lsa-advertising-router', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Advertising router ID
+                ''',
+                'lsa_advertising_router',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-area-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Area ID
+                ''',
+                'lsa_area_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-flush', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                If true, the LSA change is a flush
+                ''',
+                'lsa_flush',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSA ID
+                ''',
+                'lsa_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                LSA type
+                ''',
+                'lsa_type',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'lsa',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime',
+            False, 
+            [
+            _MetaInfoClassMember('dijkstra', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Dijkstra time in msec
+                ''',
+                'dijkstra',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix processing time in msec
+                ''',
+                'external_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix deletion time in msec
+                ''',
+                'external_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Inter-prefix processing time in msec
+                ''',
+                'inter_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'inter_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix processing time in msec
+                ''',
+                'intra_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'intra_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-add', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB add processing time in msec
+                ''',
+                'rib_add',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB deletion time in msec
+                ''',
+                'rib_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-stat-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat',
+            False, 
+            [
+            _MetaInfoClassMember('spf-stat-area-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Area ID for area of these SPF statistics
+                ''',
+                'spf_stat_area_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('spf-stat-lsa-type-count', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Counts of LSA types triggering an SPF
+                calculation
+                ''',
+                'spf_stat_lsa_type_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=8),
+            _MetaInfoClassMember('spf-stat-time', REFERENCE_CLASS, 'SpfStatTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime', 
+                [], [], 
+                '''                SPF time calculations
+                ''',
+                'spf_stat_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'area-stat',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime',
+            False, 
+            [
+            _MetaInfoClassMember('area-stat', REFERENCE_LIST, 'AreaStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat', 
+                [], [], 
+                '''                List of per-area SPF statistics
+                ''',
+                'area_stat',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('global-time', REFERENCE_CLASS, 'GlobalTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.GlobalTime', 
+                [], [], 
+                '''                Global SPF times
+                ''',
+                'global_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa', REFERENCE_LIST, 'Lsa' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.Lsa', 
+                [], [], 
+                '''                List of LSAs triggering the SPF calculation
+                ''',
+                'lsa',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=5),
+            _MetaInfoClassMember('lsa-changes', ATTRIBUTE, 'int' , None, None, 
+                [('-32768', '32767')], [], 
+                '''                Number of LSA changes triggering an SPF
+                calculation
+                ''',
+                'lsa_changes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('reason-flags', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Reasons for triggering an SPF calculation Bit 1
+                - Router LSA update Bit 2 - Network LSA update
+                Bit 3 - Inter-Area Prefix LSA update Bit 4 -
+                Inter-Area Router LSA update Bit 5 - AS External
+                LSA update Bit 6 - MOSPF LSA update Bit 7 - Type
+                7 AS External LSA update Bit 8 - Link LSA update
+                Bit 9 - Prefix LSA update
+                ''',
+                'reason_flags',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-add-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes added to RIB
+                ''',
+                'rib_add_routes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-delete-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes deleted from RIB
+                ''',
+                'rib_delete_routes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SPF calculation start time
+                ''',
+                'start_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-runtime',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats',
+            False, 
+            [
+            _MetaInfoClassMember('spf-header', REFERENCE_CLASS, 'SpfHeader' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfHeader', 
+                [], [], 
+                '''                SPF statistics header
+                ''',
+                'spf_header',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('spf-runtime', REFERENCE_LIST, 'SpfRuntime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime', 
+                [], [], 
+                '''                List of SPF run-time statistics
+                ''',
+                'spf_runtime',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.RawioStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.RawioStats',
+            False, 
+            [
+            _MetaInfoClassMember('in-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received Bytes
+                ''',
+                'in_bytes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-error-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Error Drops
+                ''',
+                'in_error_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-handle-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Handle Drops
+                ''',
+                'in_handle_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-ipsec-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In IPSEC Drops
+                ''',
+                'in_ipsec_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-long-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received Long Packets
+                ''',
+                'in_long_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-malloc-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Malloc Drops
+                ''',
+                'in_malloc_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received Packets
+                ''',
+                'in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-queue-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Queue Drops
+                ''',
+                'in_queue_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-short-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Short Drops
+                ''',
+                'in_short_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Sent Bytes
+                ''',
+                'out_bytes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-error-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Error Drops
+                ''',
+                'out_error_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-ipsec-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Out IPSEC Drops
+                ''',
+                'out_ipsec_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-nofd-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                No FileDescriptor Drops
+                ''',
+                'out_nofd_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-nopak-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                No Packet Buffers
+                ''',
+                'out_nopak_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Packets Sent
+                ''',
+                'out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-pakapi-errors', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                PAK API Errors
+                ''',
+                'out_pakapi_errors',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-close', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Raw Connections Close
+                ''',
+                'raw_conn_close',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-error', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Raw Connections Error
+                ''',
+                'raw_conn_error',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-open', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Raw Connections Open
+                ''',
+                'raw_conn_open',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-state', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Raw Connection State
+                ''',
+                'raw_conn_state',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'rawio-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.PrefixPriorityStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.PrefixPriorityStats',
+            False, 
+            [
+            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Critical priority classifications
+                ''',
+                'critical',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                High priority classifications
+                ''',
+                'high',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Low priority classifications
+                ''',
+                'low',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Medium priority classifications
+                ''',
+                'medium',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'prefix-priority-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.VrfRibBatchStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.VrfRibBatchStats',
+            False, 
+            [
+            _MetaInfoClassMember('batches-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of RIB batches sent
+                ''',
+                'batches_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('max-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Max No. of Routes in a batch
+                ''',
+                'max_routes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-add', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths added to RIB
+                ''',
+                'paths_add',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-add-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths add errors
+                ''',
+                'paths_add_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths del sent to RIB
+                ''',
+                'paths_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-del-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Paths del errors
+                ''',
+                'paths_del_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-pending', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths waiting to be sent to RIB
+                ''',
+                'paths_pending',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Paths sent to RIB
+                ''',
+                'paths_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('routes-pending', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No of Pending Routes
+                ''',
+                'routes_pending',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('routes-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Routes sent to RIB
+                ''',
+                'routes_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'vrf-rib-batch-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('prefix-priority-stats', REFERENCE_CLASS, 'PrefixPriorityStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.PrefixPriorityStats', 
+                [], [], 
+                '''                OSPF Prefix SPF Prioritization statistics
+                ''',
+                'prefix_priority_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('protocol-stats', REFERENCE_CLASS, 'ProtocolStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.ProtocolStats', 
+                [], [], 
+                '''                Protocol table
+                ''',
+                'protocol_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rawio-stats', REFERENCE_CLASS, 'RawioStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.RawioStats', 
+                [], [], 
+                '''                OSPF Prefix SPF Prioritization statistics
+                ''',
+                'rawio_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('spf-stats', REFERENCE_CLASS, 'SpfStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats', 
+                [], [], 
+                '''                OSPFv3 RIB batch statistics
+                ''',
+                'spf_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('vrf-rib-batch-stats', REFERENCE_CLASS, 'VrfRibBatchStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.VrfRibBatchStats', 
+                [], [], 
+                '''                OSPFv3 RIB batch statistics
+                ''',
+                'vrf_rib_batch_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'vrf-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
     'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Protocol' : {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Protocol',
             False, 
@@ -22995,6 +23793,12 @@ _meta_table = {
                 ''',
                 'virtual_link',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('vrf-statistics', REFERENCE_CLASS, 'VrfStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics', 
+                [], [], 
+                '''                Container for Statistics
+                ''',
+                'vrf_statistics',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ospfv3-oper',
             'vrf',
@@ -23016,6 +23820,2052 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv6-ospfv3-oper',
             'vrfs',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.NsrStats.NsrThdStats.NsrPri' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.NsrStats.NsrThdStats.NsrPri',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-sched-enq-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Event enqueue fails
+                ''',
+                'nsr_sched_enq_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-deqd', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events dequeued
+                ''',
+                'nsr_sched_evs_deqd',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-in-q', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Events pending
+                ''',
+                'nsr_sched_evs_in_q',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-qd', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events queued
+                ''',
+                'nsr_sched_evs_qd',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-max-evs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Max Queued
+                ''',
+                'nsr_sched_max_evs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-peak-q-len', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Peak queue length
+                ''',
+                'nsr_sched_peak_q_len',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-pri', REFERENCE_ENUM_CLASS, 'OspfNsrSchedPriEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfNsrSchedPriEnum', 
+                [], [], 
+                '''                Priority Type
+                ''',
+                'nsr_sched_pri',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-quant', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Priority Queue
+                ''',
+                'nsr_sched_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-remain-quant', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Remaining quantum
+                ''',
+                'nsr_sched_remain_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-pri',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.NsrStats.NsrThdStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.NsrStats.NsrThdStats',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-bad-pulses-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Bad pulses received
+                ''',
+                'nsr_bad_pulses_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-in-q', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Events pending
+                ''',
+                'nsr_events_in_q',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events processed
+                ''',
+                'nsr_events_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-tx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events to Router thread
+                ''',
+                'nsr_events_tx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-good-pulses-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Good pulses received
+                ''',
+                'nsr_good_pulses_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pri', REFERENCE_LIST, 'NsrPri' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.NsrStats.NsrThdStats.NsrPri', 
+                [], [], 
+                '''                nsr pri
+                ''',
+                'nsr_pri',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=3),
+            _MetaInfoClassMember('nsr-pulse-quant', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Events processed per pulse
+                ''',
+                'nsr_pulse_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pulse-tx-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Pulse send failures
+                ''',
+                'nsr_pulse_tx_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pulses-tx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Pulses to Router thread
+                ''',
+                'nsr_pulses_tx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-thd-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.NsrStats.NsrRtrThdSched.NsrPri' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.NsrStats.NsrRtrThdSched.NsrPri',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-sched-enq-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Event enqueue fails
+                ''',
+                'nsr_sched_enq_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-deqd', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events dequeued
+                ''',
+                'nsr_sched_evs_deqd',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-in-q', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Events pending
+                ''',
+                'nsr_sched_evs_in_q',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-qd', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events queued
+                ''',
+                'nsr_sched_evs_qd',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-max-evs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Max Queued
+                ''',
+                'nsr_sched_max_evs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-peak-q-len', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Peak queue length
+                ''',
+                'nsr_sched_peak_q_len',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-pri', REFERENCE_ENUM_CLASS, 'OspfNsrSchedPriEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfNsrSchedPriEnum', 
+                [], [], 
+                '''                Priority Type
+                ''',
+                'nsr_sched_pri',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-quant', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Priority Queue
+                ''',
+                'nsr_sched_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-remain-quant', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Remaining quantum
+                ''',
+                'nsr_sched_remain_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-pri',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.NsrStats.NsrRtrThdSched' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.NsrStats.NsrRtrThdSched',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-bad-pulses-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Bad pulses received
+                ''',
+                'nsr_bad_pulses_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-in-q', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Events pending
+                ''',
+                'nsr_events_in_q',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events processed
+                ''',
+                'nsr_events_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-tx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events to Router thread
+                ''',
+                'nsr_events_tx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-good-pulses-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Good pulses received
+                ''',
+                'nsr_good_pulses_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pri', REFERENCE_LIST, 'NsrPri' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.NsrStats.NsrRtrThdSched.NsrPri', 
+                [], [], 
+                '''                nsr pri
+                ''',
+                'nsr_pri',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=3),
+            _MetaInfoClassMember('nsr-pulse-quant', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Events processed per pulse
+                ''',
+                'nsr_pulse_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pulse-tx-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Pulse send failures
+                ''',
+                'nsr_pulse_tx_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pulses-tx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Pulses to Router thread
+                ''',
+                'nsr_pulses_tx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-rtr-thd-sched',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.NsrStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.NsrStats',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-conn-to-active-attempts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Attempts to connect to active
+                ''',
+                'nsr_conn_to_active_attempts',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-conn-to-active-closes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Conn to active closes
+                ''',
+                'nsr_conn_to_active_closes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-conn-to-active-errors', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Conn to active errors
+                ''',
+                'nsr_conn_to_active_errors',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-conn-to-active-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Failures to connect to active
+                ''',
+                'nsr_conn_to_active_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-conn-to-active-opens', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Conn to active opens
+                ''',
+                'nsr_conn_to_active_opens',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-fsm-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                FSM state
+                ''',
+                'nsr_fsm_state',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-intf-seq-no', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Interface TLV sequence no
+                ''',
+                'nsr_intf_seq_no',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-lsa-init-sync-pend-count', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Pending init-sync LSA msgs
+                ''',
+                'nsr_lsa_init_sync_pend_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-lsa-qad-mdata-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSA QAD pending msgs
+                ''',
+                'nsr_lsa_qad_mdata_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-lsa-qad-qid', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSA QAD queue id
+                ''',
+                'nsr_lsa_qad_qid',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-mtu', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Fabric MTU
+                ''',
+                'nsr_mtu',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-nbr-init-sync-pend-count', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Pending init-sync NBR msgs
+                ''',
+                'nsr_nbr_init_sync_pend_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-nbr-qad-mdata-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                NBR QAD pending msg
+                ''',
+                'nsr_nbr_qad_mdata_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-nbr-qad-qid', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                NBR QAD queue id
+                ''',
+                'nsr_nbr_qad_qid',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-nbr-seq-no', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Neighbor TLV sequence no
+                ''',
+                'nsr_nbr_seq_no',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-node-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                My nodeid
+                ''',
+                'nsr_node_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-peer-node-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Partner NodeID
+                ''',
+                'nsr_peer_node_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-peer-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Partner NSR version
+                ''',
+                'nsr_peer_version',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-revision', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                NSR revision
+                ''',
+                'nsr_revision',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-rtr-thd-sched', REFERENCE_CLASS, 'NsrRtrThdSched' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.NsrStats.NsrRtrThdSched', 
+                [], [], 
+                '''                Rtr thread NSR pulse handler stats
+                ''',
+                'nsr_rtr_thd_sched',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-thd-stats', REFERENCE_CLASS, 'NsrThdStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.NsrStats.NsrThdStats', 
+                [], [], 
+                '''                NSR thread scheduler stats
+                ''',
+                'nsr_thd_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-tmr-quant', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Timers processed per pulse
+                ''',
+                'nsr_tmr_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                NSR version
+                ''',
+                'nsr_version',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.RibThreadStats.ThreadQ' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.RibThreadStats.ThreadQ',
+            False, 
+            [
+            _MetaInfoClassMember('wq-dequeue-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Dequeue Errors
+                ''',
+                'wq_dequeue_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-dqtime', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Last Entry Dequeue
+                ''',
+                'wq_dqtime',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-eneueue-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Enqueue Errors
+                ''',
+                'wq_eneueue_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-eqtime', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Head Entry Enqueue
+                ''',
+                'wq_eqtime',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-first-eqtime', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                First Entry Enqueue
+                ''',
+                'wq_first_eqtime',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-len-cur', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Current Work Queue Length
+                ''',
+                'wq_len_cur',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-len-max', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Largest Work Queue Length
+                ''',
+                'wq_len_max',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-max-latency', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Max Time Entry Was In Q
+                ''',
+                'wq_max_latency',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-sum-latency', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Sum Latencies To Calc Average
+                ''',
+                'wq_sum_latency',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-total-dequeued', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total Entries Dequeued
+                ''',
+                'wq_total_dequeued',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-total-enqueued', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total Entries Enqueued
+                ''',
+                'wq_total_enqueued',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'thread-q',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.RibThreadStats.RibBaseTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.RibThreadStats.RibBaseTime',
+            False, 
+            [
+            _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Nano seconds 
+                ''',
+                'nanosecond',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('second', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Seconds 
+                ''',
+                'second',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'rib-base-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.RibThreadStats.Holdq' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.RibThreadStats.Holdq',
+            False, 
+            [
+            _MetaInfoClassMember('wq-dequeue-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Dequeue Errors
+                ''',
+                'wq_dequeue_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-dqtime', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Last Entry Dequeue
+                ''',
+                'wq_dqtime',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-eneueue-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Enqueue Errors
+                ''',
+                'wq_eneueue_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-eqtime', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Head Entry Enqueue
+                ''',
+                'wq_eqtime',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-first-eqtime', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                First Entry Enqueue
+                ''',
+                'wq_first_eqtime',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-len-cur', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Current Work Queue Length
+                ''',
+                'wq_len_cur',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-len-max', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Largest Work Queue Length
+                ''',
+                'wq_len_max',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-max-latency', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Max Time Entry Was In Q
+                ''',
+                'wq_max_latency',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-sum-latency', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Sum Latencies To Calc Average
+                ''',
+                'wq_sum_latency',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-total-dequeued', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total Entries Dequeued
+                ''',
+                'wq_total_dequeued',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-total-enqueued', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Total Entries Enqueued
+                ''',
+                'wq_total_enqueued',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'holdq',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.RibThreadStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.RibThreadStats',
+            False, 
+            [
+            _MetaInfoClassMember('holdq', REFERENCE_LIST, 'Holdq' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.RibThreadStats.Holdq', 
+                [], [], 
+                '''                holdq
+                ''',
+                'holdq',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=4),
+            _MetaInfoClassMember('rib-base-clock', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Rib Base Clock
+                ''',
+                'rib_base_clock',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-base-time', REFERENCE_CLASS, 'RibBaseTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.RibThreadStats.RibBaseTime', 
+                [], [], 
+                '''                rib base time
+                ''',
+                'rib_base_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-batch-backup', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Rib Batches Back up
+                ''',
+                'rib_batch_backup',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-batch-err', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Batch errors
+                ''',
+                'rib_batch_err',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-batch-limit', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Rib Batches Limit
+                ''',
+                'rib_batch_limit',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-batch-no-table', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Batches no table
+                ''',
+                'rib_batch_no_table',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-batch-ok', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Rib Batches Ok
+                ''',
+                'rib_batch_ok',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-batch-purged', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Rib batches purged
+                ''',
+                'rib_batch_purged',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-batch-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Rib batches sent
+                ''',
+                'rib_batch_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-batch-some-err', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Batches with some error
+                ''',
+                'rib_batch_some_err',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-drop-conn', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Rib drop connections
+                ''',
+                'rib_drop_conn',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-drop-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Rib drop version
+                ''',
+                'rib_drop_version',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-max-latency', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Max time entry was in queue
+                ''',
+                'rib_max_latency',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-path-err', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Route path errors
+                ''',
+                'rib_path_err',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-path-limit', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Route path limits
+                ''',
+                'rib_path_limit',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-route-err', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Route Errors
+                ''',
+                'rib_route_err',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-route-limit', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Route table limit
+                ''',
+                'rib_route_limit',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-route-some-err', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Route some errors
+                ''',
+                'rib_route_some_err',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-sum-latency', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Sum latencies to calc average
+                ''',
+                'rib_sum_latency',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('thread-q', REFERENCE_CLASS, 'ThreadQ' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.RibThreadStats.ThreadQ', 
+                [], [], 
+                '''                Inter Thread Queue
+                ''',
+                'thread_q',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-signals', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Signals sent to RIB Thread
+                ''',
+                'wq_signals',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('wq-thread-active', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                RIB Thread Active Indicator
+                ''',
+                'wq_thread_active',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'rib-thread-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.IssuStats.NsrThdStats.NsrPri' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.IssuStats.NsrThdStats.NsrPri',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-sched-enq-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Event enqueue fails
+                ''',
+                'nsr_sched_enq_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-deqd', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events dequeued
+                ''',
+                'nsr_sched_evs_deqd',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-in-q', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Events pending
+                ''',
+                'nsr_sched_evs_in_q',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-qd', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events queued
+                ''',
+                'nsr_sched_evs_qd',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-max-evs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Max Queued
+                ''',
+                'nsr_sched_max_evs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-peak-q-len', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Peak queue length
+                ''',
+                'nsr_sched_peak_q_len',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-pri', REFERENCE_ENUM_CLASS, 'OspfNsrSchedPriEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfNsrSchedPriEnum', 
+                [], [], 
+                '''                Priority Type
+                ''',
+                'nsr_sched_pri',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-quant', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Priority Queue
+                ''',
+                'nsr_sched_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-remain-quant', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Remaining quantum
+                ''',
+                'nsr_sched_remain_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-pri',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.IssuStats.NsrThdStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.IssuStats.NsrThdStats',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-bad-pulses-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Bad pulses received
+                ''',
+                'nsr_bad_pulses_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-in-q', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Events pending
+                ''',
+                'nsr_events_in_q',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events processed
+                ''',
+                'nsr_events_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-tx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events to Router thread
+                ''',
+                'nsr_events_tx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-good-pulses-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Good pulses received
+                ''',
+                'nsr_good_pulses_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pri', REFERENCE_LIST, 'NsrPri' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.IssuStats.NsrThdStats.NsrPri', 
+                [], [], 
+                '''                nsr pri
+                ''',
+                'nsr_pri',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=3),
+            _MetaInfoClassMember('nsr-pulse-quant', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Events processed per pulse
+                ''',
+                'nsr_pulse_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pulse-tx-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Pulse send failures
+                ''',
+                'nsr_pulse_tx_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pulses-tx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Pulses to Router thread
+                ''',
+                'nsr_pulses_tx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-thd-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.IssuStats.NsrRtrThdSched.NsrPri' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.IssuStats.NsrRtrThdSched.NsrPri',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-sched-enq-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Event enqueue fails
+                ''',
+                'nsr_sched_enq_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-deqd', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events dequeued
+                ''',
+                'nsr_sched_evs_deqd',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-in-q', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Events pending
+                ''',
+                'nsr_sched_evs_in_q',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-evs-qd', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events queued
+                ''',
+                'nsr_sched_evs_qd',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-max-evs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Max Queued
+                ''',
+                'nsr_sched_max_evs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-peak-q-len', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Peak queue length
+                ''',
+                'nsr_sched_peak_q_len',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-pri', REFERENCE_ENUM_CLASS, 'OspfNsrSchedPriEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'OspfNsrSchedPriEnum', 
+                [], [], 
+                '''                Priority Type
+                ''',
+                'nsr_sched_pri',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-quant', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Priority Queue
+                ''',
+                'nsr_sched_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-sched-remain-quant', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Remaining quantum
+                ''',
+                'nsr_sched_remain_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-pri',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.IssuStats.NsrRtrThdSched' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.IssuStats.NsrRtrThdSched',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-bad-pulses-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Bad pulses received
+                ''',
+                'nsr_bad_pulses_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-in-q', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Events pending
+                ''',
+                'nsr_events_in_q',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events processed
+                ''',
+                'nsr_events_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-events-tx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Events to Router thread
+                ''',
+                'nsr_events_tx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-good-pulses-rx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Good pulses received
+                ''',
+                'nsr_good_pulses_rx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pri', REFERENCE_LIST, 'NsrPri' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.IssuStats.NsrRtrThdSched.NsrPri', 
+                [], [], 
+                '''                nsr pri
+                ''',
+                'nsr_pri',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=3),
+            _MetaInfoClassMember('nsr-pulse-quant', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Events processed per pulse
+                ''',
+                'nsr_pulse_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pulse-tx-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Pulse send failures
+                ''',
+                'nsr_pulse_tx_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pulses-tx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Pulses to Router thread
+                ''',
+                'nsr_pulses_tx',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-rtr-thd-sched',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.IssuStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.IssuStats',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-conn-to-active-attempts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Attempts to connect to active
+                ''',
+                'nsr_conn_to_active_attempts',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-conn-to-active-closes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Conn to active closes
+                ''',
+                'nsr_conn_to_active_closes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-conn-to-active-errors', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Conn to active errors
+                ''',
+                'nsr_conn_to_active_errors',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-conn-to-active-fails', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Failures to connect to active
+                ''',
+                'nsr_conn_to_active_fails',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-conn-to-active-opens', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Conn to active opens
+                ''',
+                'nsr_conn_to_active_opens',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-fsm-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                FSM state
+                ''',
+                'nsr_fsm_state',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-intf-seq-no', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Interface TLV sequence no
+                ''',
+                'nsr_intf_seq_no',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-lsa-init-sync-pend-count', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Pending init-sync LSA msgs
+                ''',
+                'nsr_lsa_init_sync_pend_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-lsa-qad-mdata-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSA QAD pending msgs
+                ''',
+                'nsr_lsa_qad_mdata_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-lsa-qad-qid', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSA QAD queue id
+                ''',
+                'nsr_lsa_qad_qid',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-mtu', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Fabric MTU
+                ''',
+                'nsr_mtu',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-nbr-init-sync-pend-count', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Pending init-sync NBR msgs
+                ''',
+                'nsr_nbr_init_sync_pend_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-nbr-qad-mdata-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                NBR QAD pending msg
+                ''',
+                'nsr_nbr_qad_mdata_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-nbr-qad-qid', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                NBR QAD queue id
+                ''',
+                'nsr_nbr_qad_qid',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-nbr-seq-no', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Neighbor TLV sequence no
+                ''',
+                'nsr_nbr_seq_no',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-node-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                My nodeid
+                ''',
+                'nsr_node_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-peer-node-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Partner NodeID
+                ''',
+                'nsr_peer_node_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-peer-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Partner NSR version
+                ''',
+                'nsr_peer_version',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-revision', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                NSR revision
+                ''',
+                'nsr_revision',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-rtr-thd-sched', REFERENCE_CLASS, 'NsrRtrThdSched' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.IssuStats.NsrRtrThdSched', 
+                [], [], 
+                '''                Rtr thread NSR pulse handler stats
+                ''',
+                'nsr_rtr_thd_sched',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-thd-stats', REFERENCE_CLASS, 'NsrThdStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.IssuStats.NsrThdStats', 
+                [], [], 
+                '''                NSR thread scheduler stats
+                ''',
+                'nsr_thd_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-tmr-quant', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Timers processed per pulse
+                ''',
+                'nsr_tmr_quant',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-version', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                NSR version
+                ''',
+                'nsr_version',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'issu-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri.NumSentDrop' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri.NumSentDrop',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-pl-send-drop-array', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                nsr pl send drop array
+                ''',
+                'nsr_pl_send_drop_array',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=7),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'num-sent-drop',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri.NumRecvDrop' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri.NumRecvDrop',
+            False, 
+            [
+            _MetaInfoClassMember('nsr-pl-recv-drop-array', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                nsr pl recv drop array
+                ''',
+                'nsr_pl_recv_drop_array',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=15),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'num-recv-drop',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri',
+            False, 
+            [
+            _MetaInfoClassMember('num-recv', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total recvd
+                ''',
+                'num_recv',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=6),
+            _MetaInfoClassMember('num-recv-drop', REFERENCE_LIST, 'NumRecvDrop' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri.NumRecvDrop', 
+                [], [], 
+                '''                Recv Errors/drops
+                ''',
+                'num_recv_drop',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=6),
+            _MetaInfoClassMember('num-sent', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total sent
+                ''',
+                'num_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=5),
+            _MetaInfoClassMember('num-sent-drop', REFERENCE_LIST, 'NumSentDrop' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri.NumSentDrop', 
+                [], [], 
+                '''                Sent Error/drops
+                ''',
+                'num_sent_drop',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=5),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'ncd-pri',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.NsrPlStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.NsrPlStats',
+            False, 
+            [
+            _MetaInfoClassMember('ncd-pri', REFERENCE_LIST, 'NcdPri' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri', 
+                [], [], 
+                '''                ncd pri
+                ''',
+                'ncd_pri',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=2),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'nsr-pl-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.ProtocolStats.ProtocolStat' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.ProtocolStats.ProtocolStat',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', True),
+            _MetaInfoClassMember('checksum-err', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Checksum Errors
+                ''',
+                'checksum_err',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description LSAs in
+                ''',
+                'dbdes_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description Packets in
+                ''',
+                'dbdes_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description LSAs out
+                ''',
+                'dbdes_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description Packets out
+                ''',
+                'dbdes_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dropped-in-gs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Dropped in GS
+                ''',
+                'dropped_in_gs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('hello-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Hello packets in
+                ''',
+                'hello_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('hello-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Hello Out Packets
+                ''',
+                'hello_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Ack LSAs in
+                ''',
+                'ls_ack_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Acks Packets in
+                ''',
+                'ls_ack_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Ack LSAs out
+                ''',
+                'ls_ack_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Ack Packets out
+                ''',
+                'ls_ack_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Requests in
+                ''',
+                'ls_req_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LSA Requests in
+                ''',
+                'ls_req_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Reuqests LSAs out
+                ''',
+                'ls_req_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Request Packets out
+                ''',
+                'ls_req_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-in-ignored', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Updates ignored
+                ''',
+                'ls_upd_in_ignored',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Updates LSAs in
+                ''',
+                'ls_upd_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Updates Packets in
+                ''',
+                'ls_upd_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Update LSAs out
+                ''',
+                'ls_upd_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Update Packets out
+                ''',
+                'ls_upd_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('total-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total inputs packets
+                ''',
+                'total_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('total-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total Out Packets
+                ''',
+                'total_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'protocol-stat',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.ProtocolStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.ProtocolStats',
+            False, 
+            [
+            _MetaInfoClassMember('protocol-stat', REFERENCE_LIST, 'ProtocolStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.ProtocolStats.ProtocolStat', 
+                [], [], 
+                '''                Protocol statistics for an interface
+                ''',
+                'protocol_stat',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'protocol-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.SpfStats.SpfHeader.AreaSummary' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.SpfStats.SpfHeader.AreaSummary',
+            False, 
+            [
+            _MetaInfoClassMember('area-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Area ID of the area SPF statistics
+                ''',
+                'area_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('sp-fs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of SPF calculations
+                ''',
+                'sp_fs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'area-summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.SpfStats.SpfHeader' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.SpfStats.SpfHeader',
+            False, 
+            [
+            _MetaInfoClassMember('area-summary', REFERENCE_LIST, 'AreaSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.SpfStats.SpfHeader.AreaSummary', 
+                [], [], 
+                '''                List of Areas with SPF statistics
+                ''',
+                'area_summary',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('header-router-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Router ID
+                ''',
+                'header_router_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('header-sp-fs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of SPF calculations
+                ''',
+                'header_sp_fs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-header',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.GlobalTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.GlobalTime',
+            False, 
+            [
+            _MetaInfoClassMember('dijkstra', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Dijkstra time in msec
+                ''',
+                'dijkstra',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix processing time in msec
+                ''',
+                'external_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix deletion time in msec
+                ''',
+                'external_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Inter-prefix processing time in msec
+                ''',
+                'inter_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'inter_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix processing time in msec
+                ''',
+                'intra_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'intra_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-add', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB add processing time in msec
+                ''',
+                'rib_add',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB deletion time in msec
+                ''',
+                'rib_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'global-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.Lsa' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.Lsa',
+            False, 
+            [
+            _MetaInfoClassMember('lsa-advertising-router', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Advertising router ID
+                ''',
+                'lsa_advertising_router',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-area-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Area ID
+                ''',
+                'lsa_area_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-flush', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                If true, the LSA change is a flush
+                ''',
+                'lsa_flush',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSA ID
+                ''',
+                'lsa_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                LSA type
+                ''',
+                'lsa_type',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'lsa',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime',
+            False, 
+            [
+            _MetaInfoClassMember('dijkstra', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Dijkstra time in msec
+                ''',
+                'dijkstra',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix processing time in msec
+                ''',
+                'external_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix deletion time in msec
+                ''',
+                'external_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Inter-prefix processing time in msec
+                ''',
+                'inter_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'inter_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix processing time in msec
+                ''',
+                'intra_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'intra_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-add', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB add processing time in msec
+                ''',
+                'rib_add',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB deletion time in msec
+                ''',
+                'rib_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-stat-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.AreaStat' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.AreaStat',
+            False, 
+            [
+            _MetaInfoClassMember('spf-stat-area-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Area ID for area of these SPF statistics
+                ''',
+                'spf_stat_area_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('spf-stat-lsa-type-count', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Counts of LSA types triggering an SPF
+                calculation
+                ''',
+                'spf_stat_lsa_type_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=8),
+            _MetaInfoClassMember('spf-stat-time', REFERENCE_CLASS, 'SpfStatTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime', 
+                [], [], 
+                '''                SPF time calculations
+                ''',
+                'spf_stat_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'area-stat',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime',
+            False, 
+            [
+            _MetaInfoClassMember('area-stat', REFERENCE_LIST, 'AreaStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.AreaStat', 
+                [], [], 
+                '''                List of per-area SPF statistics
+                ''',
+                'area_stat',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('global-time', REFERENCE_CLASS, 'GlobalTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.GlobalTime', 
+                [], [], 
+                '''                Global SPF times
+                ''',
+                'global_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa', REFERENCE_LIST, 'Lsa' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.Lsa', 
+                [], [], 
+                '''                List of LSAs triggering the SPF calculation
+                ''',
+                'lsa',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=5),
+            _MetaInfoClassMember('lsa-changes', ATTRIBUTE, 'int' , None, None, 
+                [('-32768', '32767')], [], 
+                '''                Number of LSA changes triggering an SPF
+                calculation
+                ''',
+                'lsa_changes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('reason-flags', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Reasons for triggering an SPF calculation Bit 1
+                - Router LSA update Bit 2 - Network LSA update
+                Bit 3 - Inter-Area Prefix LSA update Bit 4 -
+                Inter-Area Router LSA update Bit 5 - AS External
+                LSA update Bit 6 - MOSPF LSA update Bit 7 - Type
+                7 AS External LSA update Bit 8 - Link LSA update
+                Bit 9 - Prefix LSA update
+                ''',
+                'reason_flags',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-add-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes added to RIB
+                ''',
+                'rib_add_routes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-delete-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes deleted from RIB
+                ''',
+                'rib_delete_routes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SPF calculation start time
+                ''',
+                'start_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-runtime',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.SpfStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.SpfStats',
+            False, 
+            [
+            _MetaInfoClassMember('spf-header', REFERENCE_CLASS, 'SpfHeader' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.SpfStats.SpfHeader', 
+                [], [], 
+                '''                SPF statistics header
+                ''',
+                'spf_header',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('spf-runtime', REFERENCE_LIST, 'SpfRuntime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime', 
+                [], [], 
+                '''                List of SPF run-time statistics
+                ''',
+                'spf_runtime',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.RawioStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.RawioStats',
+            False, 
+            [
+            _MetaInfoClassMember('in-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received Bytes
+                ''',
+                'in_bytes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-error-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Error Drops
+                ''',
+                'in_error_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-handle-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Handle Drops
+                ''',
+                'in_handle_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-ipsec-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In IPSEC Drops
+                ''',
+                'in_ipsec_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-long-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received Long Packets
+                ''',
+                'in_long_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-malloc-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Malloc Drops
+                ''',
+                'in_malloc_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received Packets
+                ''',
+                'in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-queue-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Queue Drops
+                ''',
+                'in_queue_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-short-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Short Drops
+                ''',
+                'in_short_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Sent Bytes
+                ''',
+                'out_bytes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-error-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Error Drops
+                ''',
+                'out_error_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-ipsec-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Out IPSEC Drops
+                ''',
+                'out_ipsec_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-nofd-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                No FileDescriptor Drops
+                ''',
+                'out_nofd_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-nopak-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                No Packet Buffers
+                ''',
+                'out_nopak_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Packets Sent
+                ''',
+                'out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-pakapi-errors', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                PAK API Errors
+                ''',
+                'out_pakapi_errors',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-close', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Raw Connections Close
+                ''',
+                'raw_conn_close',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-error', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Raw Connections Error
+                ''',
+                'raw_conn_error',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-open', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Raw Connections Open
+                ''',
+                'raw_conn_open',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-state', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Raw Connection State
+                ''',
+                'raw_conn_state',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'rawio-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.PrefixPriorityStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.PrefixPriorityStats',
+            False, 
+            [
+            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Critical priority classifications
+                ''',
+                'critical',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                High priority classifications
+                ''',
+                'high',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Low priority classifications
+                ''',
+                'low',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Medium priority classifications
+                ''',
+                'medium',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'prefix-priority-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics.VrfRibBatchStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics.VrfRibBatchStats',
+            False, 
+            [
+            _MetaInfoClassMember('batches-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of RIB batches sent
+                ''',
+                'batches_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('max-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Max No. of Routes in a batch
+                ''',
+                'max_routes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-add', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths added to RIB
+                ''',
+                'paths_add',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-add-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths add errors
+                ''',
+                'paths_add_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths del sent to RIB
+                ''',
+                'paths_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-del-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Paths del errors
+                ''',
+                'paths_del_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-pending', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths waiting to be sent to RIB
+                ''',
+                'paths_pending',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Paths sent to RIB
+                ''',
+                'paths_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('routes-pending', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No of Pending Routes
+                ''',
+                'routes_pending',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('routes-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Routes sent to RIB
+                ''',
+                'routes_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'vrf-rib-batch-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.Statistics' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('issu-stats', REFERENCE_CLASS, 'IssuStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.IssuStats', 
+                [], [], 
+                '''                OSPF ISSU statistics
+                ''',
+                'issu_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-pl-stats', REFERENCE_CLASS, 'NsrPlStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.NsrPlStats', 
+                [], [], 
+                '''                OSPF NSR packet library statistics
+                ''',
+                'nsr_pl_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('nsr-stats', REFERENCE_CLASS, 'NsrStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.NsrStats', 
+                [], [], 
+                '''                OSPF NSR statistics
+                ''',
+                'nsr_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('prefix-priority-stats', REFERENCE_CLASS, 'PrefixPriorityStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.PrefixPriorityStats', 
+                [], [], 
+                '''                OSPF Prefix SPF Prioritization statistics
+                ''',
+                'prefix_priority_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('protocol-stats', REFERENCE_CLASS, 'ProtocolStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.ProtocolStats', 
+                [], [], 
+                '''                Protocol table
+                ''',
+                'protocol_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rawio-stats', REFERENCE_CLASS, 'RawioStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.RawioStats', 
+                [], [], 
+                '''                OSPF Prefix SPF Prioritization statistics
+                ''',
+                'rawio_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-thread-stats', REFERENCE_CLASS, 'RibThreadStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.RibThreadStats', 
+                [], [], 
+                '''                OSPFv3 RIB thread statistics
+                ''',
+                'rib_thread_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('spf-stats', REFERENCE_CLASS, 'SpfStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.SpfStats', 
+                [], [], 
+                '''                OSPFv3 RIB batch statistics
+                ''',
+                'spf_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('vrf-rib-batch-stats', REFERENCE_CLASS, 'VrfRibBatchStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics.VrfRibBatchStats', 
+                [], [], 
+                '''                OSPFv3 RIB batch statistics
+                ''',
+                'vrf_rib_batch_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'statistics',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
@@ -43412,6 +46262,798 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.ProtocolStats.ProtocolStat' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.ProtocolStats.ProtocolStat',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', True),
+            _MetaInfoClassMember('checksum-err', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Checksum Errors
+                ''',
+                'checksum_err',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description LSAs in
+                ''',
+                'dbdes_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description Packets in
+                ''',
+                'dbdes_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description LSAs out
+                ''',
+                'dbdes_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dbdes-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Database Description Packets out
+                ''',
+                'dbdes_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('dropped-in-gs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Dropped in GS
+                ''',
+                'dropped_in_gs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('hello-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Hello packets in
+                ''',
+                'hello_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('hello-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Hello Out Packets
+                ''',
+                'hello_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Ack LSAs in
+                ''',
+                'ls_ack_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Acks Packets in
+                ''',
+                'ls_ack_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Ack LSAs out
+                ''',
+                'ls_ack_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-ack-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Ack Packets out
+                ''',
+                'ls_ack_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Requests in
+                ''',
+                'ls_req_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LSA Requests in
+                ''',
+                'ls_req_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Reuqests LSAs out
+                ''',
+                'ls_req_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-req-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Request Packets out
+                ''',
+                'ls_req_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-in-ignored', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Updates ignored
+                ''',
+                'ls_upd_in_ignored',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-in-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Updates LSAs in
+                ''',
+                'ls_upd_in_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Updates Packets in
+                ''',
+                'ls_upd_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-out-ls-as', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Update LSAs out
+                ''',
+                'ls_upd_out_ls_as',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('ls-upd-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                LS Update Packets out
+                ''',
+                'ls_upd_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('total-in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total inputs packets
+                ''',
+                'total_in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('total-out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total Out Packets
+                ''',
+                'total_out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'protocol-stat',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.ProtocolStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.ProtocolStats',
+            False, 
+            [
+            _MetaInfoClassMember('protocol-stat', REFERENCE_LIST, 'ProtocolStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.ProtocolStats.ProtocolStat', 
+                [], [], 
+                '''                Protocol statistics for an interface
+                ''',
+                'protocol_stat',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'protocol-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfHeader.AreaSummary' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfHeader.AreaSummary',
+            False, 
+            [
+            _MetaInfoClassMember('area-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Area ID of the area SPF statistics
+                ''',
+                'area_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('sp-fs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of SPF calculations
+                ''',
+                'sp_fs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'area-summary',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfHeader' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfHeader',
+            False, 
+            [
+            _MetaInfoClassMember('area-summary', REFERENCE_LIST, 'AreaSummary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfHeader.AreaSummary', 
+                [], [], 
+                '''                List of Areas with SPF statistics
+                ''',
+                'area_summary',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('header-router-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Router ID
+                ''',
+                'header_router_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('header-sp-fs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of SPF calculations
+                ''',
+                'header_sp_fs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-header',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.GlobalTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.GlobalTime',
+            False, 
+            [
+            _MetaInfoClassMember('dijkstra', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Dijkstra time in msec
+                ''',
+                'dijkstra',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix processing time in msec
+                ''',
+                'external_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix deletion time in msec
+                ''',
+                'external_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Inter-prefix processing time in msec
+                ''',
+                'inter_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'inter_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix processing time in msec
+                ''',
+                'intra_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'intra_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-add', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB add processing time in msec
+                ''',
+                'rib_add',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB deletion time in msec
+                ''',
+                'rib_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'global-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.Lsa' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.Lsa',
+            False, 
+            [
+            _MetaInfoClassMember('lsa-advertising-router', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Advertising router ID
+                ''',
+                'lsa_advertising_router',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-area-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Area ID
+                ''',
+                'lsa_area_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-flush', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                If true, the LSA change is a flush
+                ''',
+                'lsa_flush',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSA ID
+                ''',
+                'lsa_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                LSA type
+                ''',
+                'lsa_type',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'lsa',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime',
+            False, 
+            [
+            _MetaInfoClassMember('dijkstra', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Dijkstra time in msec
+                ''',
+                'dijkstra',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix processing time in msec
+                ''',
+                'external_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('external-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                External prefix deletion time in msec
+                ''',
+                'external_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Inter-prefix processing time in msec
+                ''',
+                'inter_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('inter-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'inter_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix processing time in msec
+                ''',
+                'intra_prefix',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('intra-prefix-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Intra-prefix deletion time in msec
+                ''',
+                'intra_prefix_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-add', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB add processing time in msec
+                ''',
+                'rib_add',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                RIB deletion time in msec
+                ''',
+                'rib_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-stat-time',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat',
+            False, 
+            [
+            _MetaInfoClassMember('spf-stat-area-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Area ID for area of these SPF statistics
+                ''',
+                'spf_stat_area_id',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('spf-stat-lsa-type-count', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Counts of LSA types triggering an SPF
+                calculation
+                ''',
+                'spf_stat_lsa_type_count',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=8),
+            _MetaInfoClassMember('spf-stat-time', REFERENCE_CLASS, 'SpfStatTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime', 
+                [], [], 
+                '''                SPF time calculations
+                ''',
+                'spf_stat_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'area-stat',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime',
+            False, 
+            [
+            _MetaInfoClassMember('area-stat', REFERENCE_LIST, 'AreaStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat', 
+                [], [], 
+                '''                List of per-area SPF statistics
+                ''',
+                'area_stat',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('global-time', REFERENCE_CLASS, 'GlobalTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.GlobalTime', 
+                [], [], 
+                '''                Global SPF times
+                ''',
+                'global_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('lsa', REFERENCE_LIST, 'Lsa' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.Lsa', 
+                [], [], 
+                '''                List of LSAs triggering the SPF calculation
+                ''',
+                'lsa',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False, max_elements=5),
+            _MetaInfoClassMember('lsa-changes', ATTRIBUTE, 'int' , None, None, 
+                [('-32768', '32767')], [], 
+                '''                Number of LSA changes triggering an SPF
+                calculation
+                ''',
+                'lsa_changes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('reason-flags', ATTRIBUTE, 'str' , None, None, 
+                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                '''                Reasons for triggering an SPF calculation Bit 1
+                - Router LSA update Bit 2 - Network LSA update
+                Bit 3 - Inter-Area Prefix LSA update Bit 4 -
+                Inter-Area Router LSA update Bit 5 - AS External
+                LSA update Bit 6 - MOSPF LSA update Bit 7 - Type
+                7 AS External LSA update Bit 8 - Link LSA update
+                Bit 9 - Prefix LSA update
+                ''',
+                'reason_flags',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-add-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes added to RIB
+                ''',
+                'rib_add_routes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rib-delete-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of routes deleted from RIB
+                ''',
+                'rib_delete_routes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('start-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SPF calculation start time
+                ''',
+                'start_time',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-runtime',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats',
+            False, 
+            [
+            _MetaInfoClassMember('spf-header', REFERENCE_CLASS, 'SpfHeader' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfHeader', 
+                [], [], 
+                '''                SPF statistics header
+                ''',
+                'spf_header',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('spf-runtime', REFERENCE_LIST, 'SpfRuntime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime', 
+                [], [], 
+                '''                List of SPF run-time statistics
+                ''',
+                'spf_runtime',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'spf-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.RawioStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.RawioStats',
+            False, 
+            [
+            _MetaInfoClassMember('in-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received Bytes
+                ''',
+                'in_bytes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-error-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Error Drops
+                ''',
+                'in_error_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-handle-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Handle Drops
+                ''',
+                'in_handle_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-ipsec-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In IPSEC Drops
+                ''',
+                'in_ipsec_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-long-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received Long Packets
+                ''',
+                'in_long_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-malloc-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Malloc Drops
+                ''',
+                'in_malloc_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Received Packets
+                ''',
+                'in_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-queue-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Queue Drops
+                ''',
+                'in_queue_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('in-short-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                In Short Drops
+                ''',
+                'in_short_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Sent Bytes
+                ''',
+                'out_bytes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-error-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Error Drops
+                ''',
+                'out_error_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-ipsec-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Out IPSEC Drops
+                ''',
+                'out_ipsec_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-nofd-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                No FileDescriptor Drops
+                ''',
+                'out_nofd_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-nopak-drops', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                No Packet Buffers
+                ''',
+                'out_nopak_drops',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Packets Sent
+                ''',
+                'out_packets',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('out-pakapi-errors', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                PAK API Errors
+                ''',
+                'out_pakapi_errors',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-close', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Raw Connections Close
+                ''',
+                'raw_conn_close',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-error', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Raw Connections Error
+                ''',
+                'raw_conn_error',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-open', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Raw Connections Open
+                ''',
+                'raw_conn_open',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('raw-conn-state', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Raw Connection State
+                ''',
+                'raw_conn_state',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'rawio-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.PrefixPriorityStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.PrefixPriorityStats',
+            False, 
+            [
+            _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Critical priority classifications
+                ''',
+                'critical',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                High priority classifications
+                ''',
+                'high',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Low priority classifications
+                ''',
+                'low',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Medium priority classifications
+                ''',
+                'medium',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'prefix-priority-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.VrfRibBatchStats' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.VrfRibBatchStats',
+            False, 
+            [
+            _MetaInfoClassMember('batches-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of RIB batches sent
+                ''',
+                'batches_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('max-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Max No. of Routes in a batch
+                ''',
+                'max_routes',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-add', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths added to RIB
+                ''',
+                'paths_add',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-add-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths add errors
+                ''',
+                'paths_add_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-del', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths del sent to RIB
+                ''',
+                'paths_del',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-del-errs', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Paths del errors
+                ''',
+                'paths_del_errs',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-pending', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of paths waiting to be sent to RIB
+                ''',
+                'paths_pending',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('paths-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Paths sent to RIB
+                ''',
+                'paths_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('routes-pending', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No of Pending Routes
+                ''',
+                'routes_pending',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('routes-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                No. of Routes sent to RIB
+                ''',
+                'routes_sent',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'vrf-rib-batch-stats',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
+    'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.VrfStatistics',
+            False, 
+            [
+            _MetaInfoClassMember('prefix-priority-stats', REFERENCE_CLASS, 'PrefixPriorityStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.PrefixPriorityStats', 
+                [], [], 
+                '''                OSPF Prefix SPF Prioritization statistics
+                ''',
+                'prefix_priority_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('protocol-stats', REFERENCE_CLASS, 'ProtocolStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.ProtocolStats', 
+                [], [], 
+                '''                Protocol table
+                ''',
+                'protocol_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('rawio-stats', REFERENCE_CLASS, 'RawioStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.RawioStats', 
+                [], [], 
+                '''                OSPF Prefix SPF Prioritization statistics
+                ''',
+                'rawio_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('spf-stats', REFERENCE_CLASS, 'SpfStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats', 
+                [], [], 
+                '''                OSPFv3 RIB batch statistics
+                ''',
+                'spf_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('vrf-rib-batch-stats', REFERENCE_CLASS, 'VrfRibBatchStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.VrfRibBatchStats', 
+                [], [], 
+                '''                OSPFv3 RIB batch statistics
+                ''',
+                'vrf_rib_batch_stats',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ospfv3-oper',
+            'vrf-statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
+        ),
+    },
     'Ospfv3.Processes.Process.DefaultVrf.Summary.Protocol' : {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Protocol',
             False, 
@@ -45791,6 +49433,12 @@ _meta_table = {
                 ''',
                 'virtual_link',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('vrf-statistics', REFERENCE_CLASS, 'VrfStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.VrfStatistics', 
+                [], [], 
+                '''                Container for Statistics
+                ''',
+                'vrf_statistics',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
             ],
             'Cisco-IOS-XR-ipv6-ospfv3-oper',
             'default-vrf',
@@ -45814,6 +49462,12 @@ _meta_table = {
                 (instance) in the OSPFv3 process
                 ''',
                 'default_vrf',
+                'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Statistics', 
+                [], [], 
+                '''                Container for Statistics
+                ''',
+                'statistics',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
             _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs', 
                 [], [], 
@@ -46133,6 +49787,19 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute.Ro
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute.RouteTopology']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute.RoutePath']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.ProtocolStats.ProtocolStat']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.ProtocolStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfHeader.AreaSummary']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfHeader']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.GlobalTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.Lsa']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfHeader']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats.SpfRuntime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.ProtocolStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.SpfStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.RawioStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.PrefixPriorityStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics.VrfRibBatchStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.PrimaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.SecondaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger']['meta_info']
@@ -46184,6 +49851,7 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas']['meta_info'].parent =_met
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.InternalRoutes']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ProtocolAreas']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VrfStatistics']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RetransmissionListProcessTable']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.BadChecksums']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
@@ -46193,6 +49861,37 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroutes']['meta_info'].paren
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.InterfaceBriefProcessTable']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.NsrStats.NsrThdStats.NsrPri']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.NsrStats.NsrThdStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.NsrStats.NsrRtrThdSched.NsrPri']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.NsrStats.NsrRtrThdSched']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.NsrStats.NsrThdStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.NsrStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.NsrStats.NsrRtrThdSched']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.NsrStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.RibThreadStats.ThreadQ']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.RibThreadStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.RibThreadStats.RibBaseTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.RibThreadStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.RibThreadStats.Holdq']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.RibThreadStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.IssuStats.NsrThdStats.NsrPri']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.IssuStats.NsrThdStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.IssuStats.NsrRtrThdSched.NsrPri']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.IssuStats.NsrRtrThdSched']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.IssuStats.NsrThdStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.IssuStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.IssuStats.NsrRtrThdSched']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.IssuStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri.NumSentDrop']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri.NumRecvDrop']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.NsrPlStats.NcdPri']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.NsrPlStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.ProtocolStats.ProtocolStat']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.ProtocolStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfHeader.AreaSummary']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfHeader']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.AreaStat']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.GlobalTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.Lsa']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime.AreaStat']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfHeader']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats.SpfRuntime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.NsrStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.RibThreadStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.IssuStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.NsrPlStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.ProtocolStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.SpfStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.RawioStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.PrefixPriorityStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics.VrfRibBatchStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes.SummaryPrefix']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.BorderRouters.BorderRouter.BorderRouterPath']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.BorderRouters.BorderRouter']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.BorderRouters.BorderRouter']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.BorderRouters']['meta_info']
@@ -46462,6 +50161,19 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute.
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute.RouteTopology']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute.RoutePath']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.ProtocolStats.ProtocolStat']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.ProtocolStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfHeader.AreaSummary']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfHeader']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat.SpfStatTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.GlobalTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.Lsa']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime.AreaStat']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfHeader']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats.SpfRuntime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.ProtocolStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.SpfStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.RawioStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.PrefixPriorityStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics.VrfRibBatchStats']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.PrimaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.SecondaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger']['meta_info']
@@ -46513,6 +50225,7 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas']['meta_info'].parent =_m
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.InternalRoutes']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ProtocolAreas']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.VrfStatistics']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.RetransmissionListProcessTable']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.BadChecksums']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
@@ -46522,6 +50235,7 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroutes']['meta_info'].par
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.InterfaceBriefProcessTable']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Statistics']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process']['meta_info']
 _meta_table['Ospfv3.Processes.Process']['meta_info'].parent =_meta_table['Ospfv3.Processes']['meta_info']
 _meta_table['Ospfv3.Processes']['meta_info'].parent =_meta_table['Ospfv3']['meta_info']

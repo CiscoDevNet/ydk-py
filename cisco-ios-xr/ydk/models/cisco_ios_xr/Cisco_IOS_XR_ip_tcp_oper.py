@@ -2973,7 +2973,7 @@ class TcpConnection(object):
                     
                     .. attribute:: synacl_match_pkts_dropped
                     
-                    	Received packets dropped     due to ACL DENY on SYN pkts
+                    	Received packets dropped due to ACL DENY on SYN pkts
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -4772,6 +4772,13 @@ class TcpConnection(object):
                     	Local address
                     	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress>`
                     
+                    .. attribute:: local_app_instance
+                    
+                    	Instance number of the local process
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: local_pid
                     
                     	Id of the local process
@@ -5229,6 +5236,7 @@ class TcpConnection(object):
                         self.last_ack_sent = None
                         self.local_address = TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress()
                         self.local_address.parent = self
+                        self.local_app_instance = None
                         self.local_pid = None
                         self.local_port = None
                         self.max_mss = None
@@ -6675,6 +6683,9 @@ class TcpConnection(object):
                             return True
 
                         if self.local_address is not None and self.local_address._has_data():
+                            return True
+
+                        if self.local_app_instance is not None:
                             return True
 
                         if self.local_pid is not None:

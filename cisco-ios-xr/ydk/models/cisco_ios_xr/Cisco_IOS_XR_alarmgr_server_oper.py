@@ -270,7 +270,7 @@ class AlarmGroupsEnum(Enum):
 
     .. data:: ots = 16
 
-    	Ots group of alarms
+    	OTS group of alarms
 
     .. data:: last = 17
 

@@ -5,27 +5,22 @@ component inventory, which can include hardware or software
 elements arranged in an arbitrary structure. The primary
 relationship supported by the model is containment, e.g.,
 components containing subcomponents.
-
 It is expected that this model reflects every field replacable
 unit on the device at a minimum (i.e., additional information
 may be supplied about non\-replacable components).
-
 Every element in the inventory is termed a 'component' with each
 component expected to have a unique name and type, and optionally
 a unique system\-assigned identifier and FRU number.  The
 uniqueness is guaranteed by the system within the device.
-
 Components may have properties defined by the system that are
 modeled as a list of key\-value pairs. These may or may not be
 user\-configurable.  The model provides a flag for the system
 to optionally indicate which properties are user configurable.
-
 Each component also has a list of 'subcomponents' which are
 references to other components. Appearance in a list of
 subcomponents indicates a containment relationship as described
 above.  For example, a linecard component may have a list of
 references to port components that reside on the linecard.
-
 This schema is generic to allow devices to express their own
 platform\-specific structure.  It may be augmented by additional
 component type\-specific schemas that provide a common structure
@@ -33,7 +28,6 @@ for well\-known component types.  In these cases, the system is
 expected to populate the common component schema, and may
 optionally also represent the component and its properties in the
 generic structure.
-
 The properties for each component may include dynamic values,
 e.g., in the 'state' part of the schema.  For example, a CPU
 component may report its utilization, temperature, or other
@@ -95,6 +89,11 @@ class Components(object):
         	Configuration data for each component
         	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.Config>`
         
+        .. attribute:: optical_channel
+        
+        	Enclosing container for the list of optical channels
+        	**type**\:   :py:class:`OpticalChannel <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel>`
+        
         .. attribute:: properties
         
         	Enclosing container 
@@ -127,6 +126,8 @@ class Components(object):
             self.name = None
             self.config = Components.Component.Config()
             self.config.parent = self
+            self.optical_channel = Components.Component.OpticalChannel()
+            self.optical_channel.parent = self
             self.properties = Components.Component.Properties()
             self.properties.parent = self
             self.state = Components.Component.State()
@@ -1690,6 +1691,883 @@ class Components(object):
                 from ydk.models.openconfig._meta import _openconfig_platform as meta
                 return meta._meta_table['Components.Component.Transceiver']['meta_info']
 
+
+        class OpticalChannel(object):
+            """
+            Enclosing container for the list of optical channels
+            
+            .. attribute:: config
+            
+            	Configuration data for optical channels
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.Config>`
+            
+            .. attribute:: state
+            
+            	Operational state data for optical channels
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State>`
+            
+            
+
+            """
+
+            _prefix = 'oc-opt-term'
+            _revision = '2016-06-17'
+
+            def __init__(self):
+                self.parent = None
+                self.config = Components.Component.OpticalChannel.Config()
+                self.config.parent = self
+                self.state = Components.Component.OpticalChannel.State()
+                self.state.parent = self
+
+
+            class Config(object):
+                """
+                Configuration data for optical channels
+                
+                .. attribute:: frequency
+                
+                	Frequency of the optical channel, expressed in MHz
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: line_port
+                
+                	Reference to the line\-side physical port that carries this optical channel.  The target port should be a component in the physical inventory data model
+                	**type**\:  str
+                
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+                
+                .. attribute:: operational_mode
+                
+                	Vendor\-specific mode identifier \-\- sets the operational mode for the channel
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: target_output_power
+                
+                	Target output optical power level of the optical channel, expressed in increments of 0.01 dBm (decibel\-milliwats)
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**units**\: dBm
+                
+                
+
+                """
+
+                _prefix = 'oc-opt-term'
+                _revision = '2016-06-17'
+
+                def __init__(self):
+                    self.parent = None
+                    self.frequency = None
+                    self.line_port = None
+                    self.operational_mode = None
+                    self.target_output_power = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/openconfig-terminal-device:config'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.frequency is not None:
+                        return True
+
+                    if self.line_port is not None:
+                        return True
+
+                    if self.operational_mode is not None:
+                        return True
+
+                    if self.target_output_power is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.openconfig._meta import _openconfig_platform as meta
+                    return meta._meta_table['Components.Component.OpticalChannel.Config']['meta_info']
+
+
+            class State(object):
+                """
+                Operational state data for optical channels
+                
+                .. attribute:: chromatic_dispersion
+                
+                	Chromatic Dispersion of an optical channel in ps/nm as reported by receiver
+                	**type**\:   :py:class:`ChromaticDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.ChromaticDispersion>`
+                
+                .. attribute:: frequency
+                
+                	Frequency of the optical channel, expressed in MHz
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: group_id
+                
+                	If the device places constraints on which optical channels must be managed together (e.g., transmitted on the same line port), it can indicate that by setting the group\-id to the same value across related optical channels
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: input_power
+                
+                	The input optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
+                	**type**\:   :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.InputPower>`
+                
+                .. attribute:: laser_bias_current
+                
+                	The current applied by the system to the transmit laser to achieve the output power.  The current is expressed in mA with up to one decimal precision. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
+                	**type**\:   :py:class:`LaserBiasCurrent <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.LaserBiasCurrent>`
+                
+                .. attribute:: line_port
+                
+                	Reference to the line\-side physical port that carries this optical channel.  The target port should be a component in the physical inventory data model
+                	**type**\:  str
+                
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+                
+                .. attribute:: operational_mode
+                
+                	Vendor\-specific mode identifier \-\- sets the operational mode for the channel
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: output_power
+                
+                	The output optical power of this port in units of 0.01dBm. If the port is an aggregate of multiple physical channels, this attribute is the total power or sum of all channels. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
+                	**type**\:   :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.OutputPower>`
+                
+                .. attribute:: polarization_dependent_loss
+                
+                	Polarization Dependent Loss of an optical channel in dB as reported by receiver
+                	**type**\:   :py:class:`PolarizationDependentLoss <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.PolarizationDependentLoss>`
+                
+                .. attribute:: polarization_mode_dispersion
+                
+                	Polarization Mode Dispersion of an optical channel in ps as reported by receiver
+                	**type**\:   :py:class:`PolarizationModeDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.PolarizationModeDispersion>`
+                
+                .. attribute:: second_order_polarization_mode_dispersion
+                
+                	Second Order Polarization Mode Dispersion of an optical channel in ps^2 as reported by receiver
+                	**type**\:   :py:class:`SecondOrderPolarizationModeDispersion <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion>`
+                
+                .. attribute:: target_output_power
+                
+                	Target output optical power level of the optical channel, expressed in increments of 0.01 dBm (decibel\-milliwats)
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**units**\: dBm
+                
+                
+
+                """
+
+                _prefix = 'oc-opt-term'
+                _revision = '2016-06-17'
+
+                def __init__(self):
+                    self.parent = None
+                    self.chromatic_dispersion = Components.Component.OpticalChannel.State.ChromaticDispersion()
+                    self.chromatic_dispersion.parent = self
+                    self.frequency = None
+                    self.group_id = None
+                    self.input_power = Components.Component.OpticalChannel.State.InputPower()
+                    self.input_power.parent = self
+                    self.laser_bias_current = Components.Component.OpticalChannel.State.LaserBiasCurrent()
+                    self.laser_bias_current.parent = self
+                    self.line_port = None
+                    self.operational_mode = None
+                    self.output_power = Components.Component.OpticalChannel.State.OutputPower()
+                    self.output_power.parent = self
+                    self.polarization_dependent_loss = Components.Component.OpticalChannel.State.PolarizationDependentLoss()
+                    self.polarization_dependent_loss.parent = self
+                    self.polarization_mode_dispersion = Components.Component.OpticalChannel.State.PolarizationModeDispersion()
+                    self.polarization_mode_dispersion.parent = self
+                    self.second_order_polarization_mode_dispersion = Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion()
+                    self.second_order_polarization_mode_dispersion.parent = self
+                    self.target_output_power = None
+
+
+                class OutputPower(object):
+                    """
+                    The output optical power of this port in units of 0.01dBm.
+                    If the port is an aggregate of multiple physical channels,
+                    this attribute is the total power or sum of all channels. If
+                    avg/min/max statistics are not supported, the target is
+                    expected to just supply the instant value
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statitic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-opt-term'
+                    _revision = '2016-06-17'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.avg = None
+                        self.instant = None
+                        self.max = None
+                        self.min = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/openconfig-terminal-device:output-power'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.avg is not None:
+                            return True
+
+                        if self.instant is not None:
+                            return True
+
+                        if self.max is not None:
+                            return True
+
+                        if self.min is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.openconfig._meta import _openconfig_platform as meta
+                        return meta._meta_table['Components.Component.OpticalChannel.State.OutputPower']['meta_info']
+
+
+                class InputPower(object):
+                    """
+                    The input optical power of this port in units of 0.01dBm.
+                    If the port is an aggregate of multiple physical channels,
+                    this attribute is the total power or sum of all channels.
+                    If avg/min/max statistics are not supported, the target is
+                    expected to just supply the instant value
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statitic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-opt-term'
+                    _revision = '2016-06-17'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.avg = None
+                        self.instant = None
+                        self.max = None
+                        self.min = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/openconfig-terminal-device:input-power'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.avg is not None:
+                            return True
+
+                        if self.instant is not None:
+                            return True
+
+                        if self.max is not None:
+                            return True
+
+                        if self.min is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.openconfig._meta import _openconfig_platform as meta
+                        return meta._meta_table['Components.Component.OpticalChannel.State.InputPower']['meta_info']
+
+
+                class LaserBiasCurrent(object):
+                    """
+                    The current applied by the system to the transmit laser to
+                    achieve the output power.  The current is expressed in mA
+                    with up to one decimal precision. If avg/min/max statistics
+                    are not supported, the target is expected to just supply
+                    the instant value
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statitic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-opt-term'
+                    _revision = '2016-06-17'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.avg = None
+                        self.instant = None
+                        self.max = None
+                        self.min = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/openconfig-terminal-device:laser-bias-current'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.avg is not None:
+                            return True
+
+                        if self.instant is not None:
+                            return True
+
+                        if self.max is not None:
+                            return True
+
+                        if self.min is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.openconfig._meta import _openconfig_platform as meta
+                        return meta._meta_table['Components.Component.OpticalChannel.State.LaserBiasCurrent']['meta_info']
+
+
+                class ChromaticDispersion(object):
+                    """
+                    Chromatic Dispersion of an optical channel
+                    in ps/nm as reported by receiver
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statitic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-opt-term'
+                    _revision = '2016-06-17'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.avg = None
+                        self.instant = None
+                        self.max = None
+                        self.min = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/openconfig-terminal-device:chromatic-dispersion'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.avg is not None:
+                            return True
+
+                        if self.instant is not None:
+                            return True
+
+                        if self.max is not None:
+                            return True
+
+                        if self.min is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.openconfig._meta import _openconfig_platform as meta
+                        return meta._meta_table['Components.Component.OpticalChannel.State.ChromaticDispersion']['meta_info']
+
+
+                class PolarizationModeDispersion(object):
+                    """
+                    Polarization Mode Dispersion of an optical channel
+                    in ps as reported by receiver
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statitic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-opt-term'
+                    _revision = '2016-06-17'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.avg = None
+                        self.instant = None
+                        self.max = None
+                        self.min = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/openconfig-terminal-device:polarization-mode-dispersion'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.avg is not None:
+                            return True
+
+                        if self.instant is not None:
+                            return True
+
+                        if self.max is not None:
+                            return True
+
+                        if self.min is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.openconfig._meta import _openconfig_platform as meta
+                        return meta._meta_table['Components.Component.OpticalChannel.State.PolarizationModeDispersion']['meta_info']
+
+
+                class SecondOrderPolarizationModeDispersion(object):
+                    """
+                    Second Order Polarization Mode Dispersion of an optical
+                    channel in ps^2 as reported by receiver
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statitic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-opt-term'
+                    _revision = '2016-06-17'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.avg = None
+                        self.instant = None
+                        self.max = None
+                        self.min = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/openconfig-terminal-device:second-order-polarization-mode-dispersion'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.avg is not None:
+                            return True
+
+                        if self.instant is not None:
+                            return True
+
+                        if self.max is not None:
+                            return True
+
+                        if self.min is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.openconfig._meta import _openconfig_platform as meta
+                        return meta._meta_table['Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion']['meta_info']
+
+
+                class PolarizationDependentLoss(object):
+                    """
+                    Polarization Dependent Loss of an optical channel
+                    in dB as reported by receiver
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statitic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-922337203685477580.8..922337203685477580.7
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-opt-term'
+                    _revision = '2016-06-17'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.avg = None
+                        self.instant = None
+                        self.max = None
+                        self.min = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/openconfig-terminal-device:polarization-dependent-loss'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.avg is not None:
+                            return True
+
+                        if self.instant is not None:
+                            return True
+
+                        if self.max is not None:
+                            return True
+
+                        if self.min is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.openconfig._meta import _openconfig_platform as meta
+                        return meta._meta_table['Components.Component.OpticalChannel.State.PolarizationDependentLoss']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/openconfig-terminal-device:state'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.chromatic_dispersion is not None and self.chromatic_dispersion._has_data():
+                        return True
+
+                    if self.frequency is not None:
+                        return True
+
+                    if self.group_id is not None:
+                        return True
+
+                    if self.input_power is not None and self.input_power._has_data():
+                        return True
+
+                    if self.laser_bias_current is not None and self.laser_bias_current._has_data():
+                        return True
+
+                    if self.line_port is not None:
+                        return True
+
+                    if self.operational_mode is not None:
+                        return True
+
+                    if self.output_power is not None and self.output_power._has_data():
+                        return True
+
+                    if self.polarization_dependent_loss is not None and self.polarization_dependent_loss._has_data():
+                        return True
+
+                    if self.polarization_mode_dispersion is not None and self.polarization_mode_dispersion._has_data():
+                        return True
+
+                    if self.second_order_polarization_mode_dispersion is not None and self.second_order_polarization_mode_dispersion._has_data():
+                        return True
+
+                    if self.target_output_power is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.openconfig._meta import _openconfig_platform as meta
+                    return meta._meta_table['Components.Component.OpticalChannel.State']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/openconfig-terminal-device:optical-channel'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.config is not None and self.config._has_data():
+                    return True
+
+                if self.state is not None and self.state._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.openconfig._meta import _openconfig_platform as meta
+                return meta._meta_table['Components.Component.OpticalChannel']['meta_info']
+
         @property
         def _common_path(self):
             if self.name is None:
@@ -1708,6 +2586,9 @@ class Components(object):
                 return True
 
             if self.config is not None and self.config._has_data():
+                return True
+
+            if self.optical_channel is not None and self.optical_channel._has_data():
                 return True
 
             if self.properties is not None and self.properties._has_data():

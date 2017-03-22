@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'OspfFastRerouteTiebreakersEnum' : _MetaInfoEnum('OspfFastRerouteTiebreakersEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
@@ -81,6 +80,7 @@ _meta_table = {
         {
             'protected':'protected',
             'all':'all',
+            'segment-routing':'segment_routing',
         }, 'Cisco-IOS-XR-ipv4-ospf-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg']),
     'OspfSegmentRoutingForwardingEnum' : _MetaInfoEnum('OspfSegmentRoutingForwardingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg',
         {
@@ -243,7 +243,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-id', ATTRIBUTE, 'int' , None, None, 
-                [('1', '65535')], [], 
+                [('0', '4294967295')], [], 
                 '''                Instance ID
                 ''',
                 'instance_id',
@@ -9098,6 +9098,31 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv4-ospf-cfg',
             'vrfs',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg'
+        ),
+    },
+    'Ospf.Processes.Process.GracefulShutdownTimers' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.GracefulShutdownTimers',
+            False, 
+            [
+            _MetaInfoClassMember('graceful-shutdown-initial-delay', ATTRIBUTE, 'int' , None, None, 
+                [('0', '90')], [], 
+                '''                Number of seconds to delay before beginning
+                graceful shutdown
+                ''',
+                'graceful_shutdown_initial_delay',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('graceful-shutdown-retain-routes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '90')], [], 
+                '''                Time to keep OSPF routes active after
+                graceful shutdown(in seconds)
+                ''',
+                'graceful_shutdown_retain_routes',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-ospf-cfg',
+            'graceful-shutdown-timers',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg'
         ),
@@ -17993,7 +18018,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('process-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Name for this OSPF process
                 ''',
                 'process_name',
@@ -18006,9 +18031,16 @@ _meta_table = {
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('distribute', REFERENCE_CLASS, 'Distribute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.Distribute', 
                 [], [], 
-                '''                Enable distribution of LSAs into BGP
+                '''                Enable distribution of link-state database
+                services
                 ''',
                 'distribute',
+                'Cisco-IOS-XR-ipv4-ospf-cfg', False),
+            _MetaInfoClassMember('graceful-shutdown-timers', REFERENCE_CLASS, 'GracefulShutdownTimers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'Ospf.Processes.Process.GracefulShutdownTimers', 
+                [], [], 
+                '''                Adjust routing timers
+                ''',
+                'graceful_shutdown_timers',
                 'Cisco-IOS-XR-ipv4-ospf-cfg', False),
             _MetaInfoClassMember('nsr', REFERENCE_ENUM_CLASS, 'NsrEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg', 'NsrEnum', 
                 [], [], 
@@ -18660,6 +18692,7 @@ _meta_table['Ospf.Processes.Process.DefaultVrf.Timers']['meta_info'].parent =_me
 _meta_table['Ospf.Processes.Process.Snmp']['meta_info'].parent =_meta_table['Ospf.Processes.Process']['meta_info']
 _meta_table['Ospf.Processes.Process.Distribute']['meta_info'].parent =_meta_table['Ospf.Processes.Process']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs']['meta_info'].parent =_meta_table['Ospf.Processes.Process']['meta_info']
+_meta_table['Ospf.Processes.Process.GracefulShutdownTimers']['meta_info'].parent =_meta_table['Ospf.Processes.Process']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf']['meta_info'].parent =_meta_table['Ospf.Processes.Process']['meta_info']
 _meta_table['Ospf.Processes.Process']['meta_info'].parent =_meta_table['Ospf.Processes']['meta_info']
 _meta_table['Ospf.Processes']['meta_info'].parent =_meta_table['Ospf']['meta_info']

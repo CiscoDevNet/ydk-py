@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'CardResetReasonEnum' : _MetaInfoEnum('CardResetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
@@ -47,48 +46,6 @@ _meta_table = {
             'minor':'minor',
             'major':'major',
             'critical':'critical',
-        }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
-    'InvCardStateEnum' : _MetaInfoEnum('InvCardStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
-        {
-            'inv-card-not-present':'inv_card_not_present',
-            'inv-card-present':'inv_card_present',
-            'inv-card-reset':'inv_card_reset',
-            'inv-card-booting':'inv_card_booting',
-            'inv-card-mbi-booting':'inv_card_mbi_booting',
-            'inv-card-running-mbi':'inv_card_running_mbi',
-            'inv-card-running-ena':'inv_card_running_ena',
-            'inv-card-bring-down':'inv_card_bring_down',
-            'inv-card-ena-failure':'inv_card_ena_failure',
-            'inv-card-f-diag-run':'inv_card_f_diag_run',
-            'inv-card-f-diag-failure':'inv_card_f_diag_failure',
-            'inv-card-powered':'inv_card_powered',
-            'inv-card-unpowered':'inv_card_unpowered',
-            'inv-card-mdr':'inv_card_mdr',
-            'inv-card-mdr-running-mbi':'inv_card_mdr_running_mbi',
-            'inv-card-main-t-mode':'inv_card_main_t_mode',
-            'inv-card-admin-down':'inv_card_admin_down',
-            'inv-card-no-mon':'inv_card_no_mon',
-            'inv-card-unknown':'inv_card_unknown',
-            'inv-card-failed':'inv_card_failed',
-            'inv-card-ok':'inv_card_ok',
-            'inv-card-missing':'inv_card_missing',
-            'inv-card-field-diag-downloading':'inv_card_field_diag_downloading',
-            'inv-card-field-diag-unmonitor':'inv_card_field_diag_unmonitor',
-            'inv-card-fabric-field-diag-unmonitor':'inv_card_fabric_field_diag_unmonitor',
-            'inv-card-field-diag-rp-launching':'inv_card_field_diag_rp_launching',
-            'inv-card-field-diag-running':'inv_card_field_diag_running',
-            'inv-card-field-diag-pass':'inv_card_field_diag_pass',
-            'inv-card-field-diag-fail':'inv_card_field_diag_fail',
-            'inv-card-field-diag-timeout':'inv_card_field_diag_timeout',
-            'inv-card-disabled':'inv_card_disabled',
-            'inv-card-spa-booting':'inv_card_spa_booting',
-            'inv-card-not-allowed-online':'inv_card_not_allowed_online',
-            'inv-card-stopped':'inv_card_stopped',
-            'inv-card-incompatible-fw-ver':'inv_card_incompatible_fw_ver',
-            'inv-card-fpd-hold':'inv_card_fpd_hold',
-            'inv-card-node-prep':'inv_card_node_prep',
-            'inv-card-updating-fpd':'inv_card_updating_fpd',
-            'inv-card-num-states':'inv_card_num_states',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
     'SensorDataEnum' : _MetaInfoEnum('SensorDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper',
         {
@@ -128,6 +85,341 @@ _meta_table = {
             'dbm':'dbm',
             'db':'db',
         }, 'Cisco-IOS-XR-invmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper']),
+    'Inventory.Entities.Entity.Subentities.Subentity' : {
+        'meta_info' : _MetaInfoClass('Inventory.Entities.Entity.Subentities.Subentity',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Subentity name
+                ''',
+                'name',
+                'Cisco-IOS-XR-invmgr-oper', True),
+            _MetaInfoClassMember('name-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Subentity name
+                ''',
+                'name_xr',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-invmgr-oper',
+            'subentity',
+            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
+        ),
+    },
+    'Inventory.Entities.Entity.Subentities' : {
+        'meta_info' : _MetaInfoClass('Inventory.Entities.Entity.Subentities',
+            False, 
+            [
+            _MetaInfoClassMember('subentity', REFERENCE_LIST, 'Subentity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Entities.Entity.Subentities.Subentity', 
+                [], [], 
+                '''                Subentity name
+                ''',
+                'subentity',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-invmgr-oper',
+            'subentities',
+            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
+        ),
+    },
+    'Inventory.Entities.Entity.Attributes.InvBasicBag' : {
+        'meta_info' : _MetaInfoClass('Inventory.Entities.Entity.Attributes.InvBasicBag',
+            False, 
+            [
+            _MetaInfoClassMember('alias', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                useful for storing an entity alias 
+                ''',
+                'alias',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('asset-id-str', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                asset Identification string
+                ''',
+                'asset_id_str',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('asset-identification', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                asset Identification
+                ''',
+                'asset_identification',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('ceport', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if ce port found, 0 if not
+                ''',
+                'ceport',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('chip-hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                chip module hw revision string
+                ''',
+                'chip_hardware_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('composite-class-code', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Major&minor class of the entity
+                ''',
+                'composite_class_code',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                describes in user-readable terms       what the
+                entity in question does
+                ''',
+                'description',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('environmental-monitor-path', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                sysdb name of sensor in the envmon EDM
+                ''',
+                'environmental_monitor_path',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('firmware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                firmware revision string
+                ''',
+                'firmware_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                indicates if this entity is group       or not
+                ''',
+                'group_flag',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('hardware-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                hw revision string
+                ''',
+                'hardware_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('is-field-replaceable-unit', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if Field Replaceable Unit 0, if not
+                ''',
+                'is_field_replaceable_unit',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('manufacturer-asset-tags', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Manufacture Asset Tags
+                ''',
+                'manufacturer_asset_tags',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('manufacturer-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                manufacturer's name
+                ''',
+                'manufacturer_name',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Size of memory associated with       the entity
+                where applicable
+                ''',
+                'memory_size',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('model-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                model name
+                ''',
+                'model_name',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                name string for the entity
+                ''',
+                'name',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('new-deviation-number', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                integer value for New Deviation Number 0x88
+                ''',
+                'new_deviation_number',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('physical-layer-interface-module-type', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                integer value for plim type if     applicable to
+                this entity
+                ''',
+                'physical_layer_interface_module_type',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('redundancystate', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                integer value for Redundancy State if    
+                applicable to this entity
+                ''',
+                'redundancystate',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('serial-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                serial number
+                ''',
+                'serial_number',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('software-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                software revision string
+                ''',
+                'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if UnrecognizedFRU and 0 for recognizedFRU
+                ''',
+                'unrecognized_fru',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('vendor-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                maps to the vendor OID string
+                ''',
+                'vendor_type',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('xr-scoped', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                1 if xr scoped, 0 if not
+                ''',
+                'xr_scoped',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-invmgr-oper',
+            'inv-basic-bag',
+            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
+        ),
+    },
+    'Inventory.Entities.Entity.Attributes.InvAssetBag' : {
+        'meta_info' : _MetaInfoClass('Inventory.Entities.Entity.Attributes.InvAssetBag',
+            False, 
+            [
+            _MetaInfoClassMember('manufacturer-assembly-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                Manufacture Assembly number
+                ''',
+                'manufacturer_assembly_number',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('manufacturer-assembly-revision', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                Manufacture assembly revision
+                ''',
+                'manufacturer_assembly_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                Common Language Equipment           Identifier
+                number
+                ''',
+                'manufacturer_common_language_equipment_identifier',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('manufacturer-firmware-identifier', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                
+                ''',
+                'manufacturer_firmware_identifier',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('manufacturer-software-identifier', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                
+                ''',
+                'manufacturer_software_identifier',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                String containing OEM information           if
+                applicable
+                ''',
+                'original_equipment_manufacturer_string',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('part-number', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                
+                ''',
+                'part_number',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-invmgr-oper',
+            'inv-asset-bag',
+            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
+        ),
+    },
+    'Inventory.Entities.Entity.Attributes' : {
+        'meta_info' : _MetaInfoClass('Inventory.Entities.Entity.Attributes',
+            False, 
+            [
+            _MetaInfoClassMember('inv-asset-bag', REFERENCE_CLASS, 'InvAssetBag' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Entities.Entity.Attributes.InvAssetBag', 
+                [], [], 
+                '''                Inventory Asset Bag
+                ''',
+                'inv_asset_bag',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('inv-basic-bag', REFERENCE_CLASS, 'InvBasicBag' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Entities.Entity.Attributes.InvBasicBag', 
+                [], [], 
+                '''                Inventory Basic Bag
+                ''',
+                'inv_basic_bag',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-invmgr-oper',
+            'attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
+        ),
+    },
+    'Inventory.Entities.Entity' : {
+        'meta_info' : _MetaInfoClass('Inventory.Entities.Entity',
+            False, 
+            [
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Entity name
+                ''',
+                'name',
+                'Cisco-IOS-XR-invmgr-oper', True),
+            _MetaInfoClassMember('attributes', REFERENCE_CLASS, 'Attributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Entities.Entity.Attributes', 
+                [], [], 
+                '''                Attributes
+                ''',
+                'attributes',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('subentities', REFERENCE_CLASS, 'Subentities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Entities.Entity.Subentities', 
+                [], [], 
+                '''                SubEntities Table
+                ''',
+                'subentities',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-invmgr-oper',
+            'entity',
+            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
+        ),
+    },
+    'Inventory.Entities' : {
+        'meta_info' : _MetaInfoClass('Inventory.Entities',
+            False, 
+            [
+            _MetaInfoClassMember('entity', REFERENCE_LIST, 'Entity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Entities.Entity', 
+                [], [], 
+                '''                Entity name
+                ''',
+                'entity',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            ],
+            'Cisco-IOS-XR-invmgr-oper',
+            'entities',
+            _yang_ns._namespaces['Cisco-IOS-XR-invmgr-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper'
+        ),
+    },
     'Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfo' : {
         'meta_info' : _MetaInfoClass('Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfo',
             False, 
@@ -374,7 +666,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -393,7 +685,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -887,8 +1179,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -923,8 +1215,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -978,7 +1270,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -997,7 +1289,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -1027,7 +1319,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -1075,6 +1367,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1577,7 +1875,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -1601,7 +1899,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -1899,7 +2197,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -1918,7 +2216,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -2412,8 +2710,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -2448,8 +2746,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -2503,7 +2801,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -2522,7 +2820,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -2552,7 +2850,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -2600,6 +2898,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3102,7 +3406,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -3126,7 +3430,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -3430,7 +3734,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -3449,7 +3753,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -3943,8 +4247,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -3979,8 +4283,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -4034,7 +4338,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -4053,7 +4357,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -4083,7 +4387,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -4131,6 +4435,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4633,7 +4943,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -4657,7 +4967,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -4961,7 +5271,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -4980,7 +5290,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -5474,8 +5784,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -5510,8 +5820,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -5565,7 +5875,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -5584,7 +5894,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -5614,7 +5924,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -5662,6 +5972,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6164,7 +6480,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -6188,7 +6504,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -6492,7 +6808,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -6511,7 +6827,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -7005,8 +7321,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -7041,8 +7357,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -7096,7 +7412,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -7115,7 +7431,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -7145,7 +7461,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -7193,6 +7509,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7695,7 +8017,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -7719,7 +8041,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -8023,7 +8345,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -8042,7 +8364,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -8536,8 +8858,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -8572,8 +8894,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -8627,7 +8949,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -8646,7 +8968,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -8676,7 +8998,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -8724,6 +9046,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9226,7 +9554,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -9250,7 +9578,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -9554,7 +9882,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -9573,7 +9901,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -10067,8 +10395,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -10103,8 +10431,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -10158,7 +10486,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -10177,7 +10505,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -10207,7 +10535,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -10255,6 +10583,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -10757,7 +11091,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -10781,7 +11115,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -11085,7 +11419,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -11104,7 +11438,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -11598,8 +11932,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -11634,8 +11968,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -11689,7 +12023,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -11708,7 +12042,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -11738,7 +12072,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -11786,6 +12120,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -12288,7 +12628,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -12312,7 +12652,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -12616,7 +12956,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -12635,7 +12975,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -13129,8 +13469,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -13165,8 +13505,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -13220,7 +13560,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -13239,7 +13579,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -13269,7 +13609,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -13317,6 +13657,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -13819,7 +14165,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -13843,7 +14189,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -14147,7 +14493,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -14166,7 +14512,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -14660,8 +15006,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -14696,8 +15042,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -14751,7 +15097,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -14770,7 +15116,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -14800,7 +15146,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -14848,6 +15194,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -15350,7 +15702,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -15374,7 +15726,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -15678,7 +16030,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -15697,7 +16049,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -16191,8 +16543,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -16227,8 +16579,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -16282,7 +16634,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -16301,7 +16653,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -16331,7 +16683,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -16379,6 +16731,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -16881,7 +17239,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -16905,7 +17263,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -17209,7 +17567,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -17228,7 +17586,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -17722,8 +18080,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -17758,8 +18116,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -17813,7 +18171,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -17832,7 +18190,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -17862,7 +18220,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -17910,6 +18268,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -18412,7 +18776,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -18436,7 +18800,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -18740,7 +19104,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -18759,7 +19123,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -19253,8 +19617,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -19289,8 +19653,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -19344,7 +19708,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -19363,7 +19727,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -19393,7 +19757,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -19441,6 +19805,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -19943,7 +20313,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -19967,7 +20337,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -20265,7 +20635,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -20284,7 +20654,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -20778,8 +21148,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -20814,8 +21184,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -20869,7 +21239,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -20888,7 +21258,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -20918,7 +21288,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -20966,6 +21336,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -21468,7 +21844,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -21492,7 +21868,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -21796,7 +22172,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -21815,7 +22191,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -22309,8 +22685,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -22345,8 +22721,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -22400,7 +22776,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -22419,7 +22795,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -22449,7 +22825,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -22497,6 +22873,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -22999,7 +23381,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -23023,7 +23405,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -23327,7 +23709,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -23346,7 +23728,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -23840,8 +24222,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -23876,8 +24258,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -23931,7 +24313,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -23950,7 +24332,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -23980,7 +24362,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -24028,6 +24410,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -24530,7 +24918,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -24554,7 +24942,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -24858,7 +25246,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -24877,7 +25265,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -25371,8 +25759,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -25407,8 +25795,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -25462,7 +25850,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -25481,7 +25869,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -25511,7 +25899,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -25559,6 +25947,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -26061,7 +26455,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -26085,7 +26479,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -26389,7 +26783,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -26408,7 +26802,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -26902,8 +27296,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -26938,8 +27332,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -26993,7 +27387,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -27012,7 +27406,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -27042,7 +27436,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -27090,6 +27484,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -27592,7 +27992,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -27616,7 +28016,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -27920,7 +28320,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -27939,7 +28339,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -28433,8 +28833,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -28469,8 +28869,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -28524,7 +28924,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -28543,7 +28943,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -28573,7 +28973,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -28621,6 +29021,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -29123,7 +29529,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -29147,7 +29553,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -29451,7 +29857,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -29470,7 +29876,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -29964,8 +30370,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -30000,8 +30406,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -30055,7 +30461,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -30074,7 +30480,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -30104,7 +30510,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -30152,6 +30558,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -30654,7 +31066,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -30678,7 +31090,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -30982,7 +31394,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -31001,7 +31413,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -31495,8 +31907,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -31531,8 +31943,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -31586,7 +31998,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -31605,7 +32017,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -31635,7 +32047,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -31683,6 +32095,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -32185,7 +32603,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -32209,7 +32627,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -32513,7 +32931,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -32532,7 +32950,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -33026,8 +33444,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -33062,8 +33480,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -33117,7 +33535,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -33136,7 +33554,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -33166,7 +33584,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -33214,6 +33632,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -33716,7 +34140,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -33740,7 +34164,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -34044,7 +34468,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -34063,7 +34487,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -34557,8 +34981,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -34593,8 +35017,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -34648,7 +35072,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -34667,7 +35091,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -34697,7 +35121,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -34745,6 +35169,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -35247,7 +35677,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -35271,7 +35701,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -35575,7 +36005,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -35594,7 +36024,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -36088,8 +36518,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -36124,8 +36554,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -36179,7 +36609,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -36198,7 +36628,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -36228,7 +36658,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -36276,6 +36706,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -36778,7 +37214,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -36802,7 +37238,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -37106,7 +37542,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -37125,7 +37561,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -37619,8 +38055,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -37655,8 +38091,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -37710,7 +38146,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -37729,7 +38165,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -37759,7 +38195,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -37807,6 +38243,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -38309,7 +38751,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -38333,7 +38775,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -38631,7 +39073,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -38650,7 +39092,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -39144,8 +39586,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -39180,8 +39622,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -39235,7 +39677,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -39254,7 +39696,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -39284,7 +39726,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -39332,6 +39774,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -39834,7 +40282,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -39858,7 +40306,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -40162,7 +40610,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -40181,7 +40629,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -40675,8 +41123,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -40711,8 +41159,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -40766,7 +41214,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -40785,7 +41233,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -40815,7 +41263,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -40863,6 +41311,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -41365,7 +41819,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -41389,7 +41843,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -41693,7 +42147,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -41712,7 +42166,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -42206,8 +42660,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -42242,8 +42696,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -42297,7 +42751,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -42316,7 +42770,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -42346,7 +42800,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -42394,6 +42848,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -42896,7 +43356,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -42920,7 +43380,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -43224,7 +43684,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -43243,7 +43703,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -43737,8 +44197,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -43773,8 +44233,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -43828,7 +44288,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -43847,7 +44307,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -43877,7 +44337,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -43925,6 +44385,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -44427,7 +44893,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -44451,7 +44917,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -44755,7 +45221,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -44774,7 +45240,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -45268,8 +45734,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -45304,8 +45770,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -45359,7 +45825,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -45378,7 +45844,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -45408,7 +45874,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -45456,6 +45922,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -45958,7 +46430,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -45982,7 +46454,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -46286,7 +46758,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -46305,7 +46777,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -46799,8 +47271,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -46835,8 +47307,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -46890,7 +47362,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -46909,7 +47381,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -46939,7 +47411,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -46987,6 +47459,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -47489,7 +47967,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -47513,7 +47991,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -47817,7 +48295,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -47836,7 +48314,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -48330,8 +48808,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -48366,8 +48844,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -48421,7 +48899,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -48440,7 +48918,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -48470,7 +48948,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -48518,6 +48996,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -49020,7 +49504,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -49044,7 +49528,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -49348,7 +49832,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -49367,7 +49851,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -49861,8 +50345,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -49897,8 +50381,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -49952,7 +50436,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -49971,7 +50455,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -50001,7 +50485,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -50049,6 +50533,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -50551,7 +51041,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -50575,7 +51065,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -50879,7 +51369,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -50898,7 +51388,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -51392,8 +51882,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -51428,8 +51918,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -51483,7 +51973,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -51502,7 +51992,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -51532,7 +52022,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -51580,6 +52070,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -52082,7 +52578,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -52106,7 +52602,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -52410,7 +52906,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -52429,7 +52925,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -52923,8 +53419,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -52959,8 +53455,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -53014,7 +53510,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -53033,7 +53529,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -53063,7 +53559,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -53111,6 +53607,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -53613,7 +54115,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -53637,7 +54139,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -53941,7 +54443,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -53960,7 +54462,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -54454,8 +54956,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -54490,8 +54992,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -54545,7 +55047,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -54564,7 +55066,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -54594,7 +55096,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -54642,6 +55144,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -55144,7 +55652,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -55168,7 +55676,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -55472,7 +55980,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('manufacturer-common-language-equipment-identifier', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                Common Language Equipment 						    Identifier
+                '''                Common Language Equipment           Identifier
                 number
                 ''',
                 'manufacturer_common_language_equipment_identifier',
@@ -55491,7 +55999,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('original-equipment-manufacturer-string', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                String containing OEM information 						    if
+                '''                String containing OEM information           if
                 applicable
                 ''',
                 'original_equipment_manufacturer_string',
@@ -55985,8 +56493,8 @@ _meta_table = {
                 ''',
                 'card_monitor_state',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('card-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('card-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                card operation state
                 ''',
                 'card_operational_state',
@@ -56021,8 +56529,8 @@ _meta_table = {
                 ''',
                 'power_current_measurement',
                 'Cisco-IOS-XR-invmgr-oper', False),
-            _MetaInfoClassMember('power-operational-state', REFERENCE_ENUM_CLASS, 'InvCardStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'InvCardStateEnum', 
-                [], [], 
+            _MetaInfoClassMember('power-operational-state', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
                 '''                Power operation state
                 ''',
                 'power_operational_state',
@@ -56076,7 +56584,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
-                '''                describes in user-readable terms 						what the
+                '''                describes in user-readable terms       what the
                 entity in question does
                 ''',
                 'description',
@@ -56095,7 +56603,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('group-flag', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                indicates if this entity is group 						or not
+                '''                indicates if this entity is group       or not
                 ''',
                 'group_flag',
                 'Cisco-IOS-XR-invmgr-oper', False),
@@ -56125,7 +56633,7 @@ _meta_table = {
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('memory-size', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Size of memory associated with 						the entity
+                '''                Size of memory associated with       the entity
                 where applicable
                 ''',
                 'memory_size',
@@ -56173,6 +56681,12 @@ _meta_table = {
                 '''                software revision string
                 ''',
                 'software_revision',
+                'Cisco-IOS-XR-invmgr-oper', False),
+            _MetaInfoClassMember('unique-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Unique id for an entity
+                ''',
+                'unique_id',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('unrecognized-fru', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -56675,7 +57189,7 @@ _meta_table = {
                 'module_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                Node ID Tuple
                 ''',
                 'node_id',
@@ -56699,7 +57213,7 @@ _meta_table = {
                 'vm_done',
                 'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('vm-node-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+                [('0', '4294967295')], [], 
                 '''                VM Node ID Tuple
                 ''',
                 'vm_node_id',
@@ -56773,6 +57287,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Inventory',
             False, 
             [
+            _MetaInfoClassMember('entities', REFERENCE_CLASS, 'Entities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Entities', 
+                [], [], 
+                '''                Entities Table
+                ''',
+                'entities',
+                'Cisco-IOS-XR-invmgr-oper', False),
             _MetaInfoClassMember('racks', REFERENCE_CLASS, 'Racks' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_invmgr_oper', 'Inventory.Racks', 
                 [], [], 
                 '''                RackTable
@@ -56787,6 +57307,12 @@ _meta_table = {
         ),
     },
 }
+_meta_table['Inventory.Entities.Entity.Subentities.Subentity']['meta_info'].parent =_meta_table['Inventory.Entities.Entity.Subentities']['meta_info']
+_meta_table['Inventory.Entities.Entity.Attributes.InvBasicBag']['meta_info'].parent =_meta_table['Inventory.Entities.Entity.Attributes']['meta_info']
+_meta_table['Inventory.Entities.Entity.Attributes.InvAssetBag']['meta_info'].parent =_meta_table['Inventory.Entities.Entity.Attributes']['meta_info']
+_meta_table['Inventory.Entities.Entity.Subentities']['meta_info'].parent =_meta_table['Inventory.Entities.Entity']['meta_info']
+_meta_table['Inventory.Entities.Entity.Attributes']['meta_info'].parent =_meta_table['Inventory.Entities.Entity']['meta_info']
+_meta_table['Inventory.Entities.Entity']['meta_info'].parent =_meta_table['Inventory.Entities']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfoXml.Threshold.ThresholdArray']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfoXml.Threshold']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfoXml.Threshold']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.EnvSensorInfoXml']['meta_info']
 _meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.Threshold.MajorLo.ThreshBag']['meta_info'].parent =_meta_table['Inventory.Racks.Rack.Entity.Slot.Tsi1S.Tsi1.Tsi2S.Tsi2.Tsi3S.Tsi3.Tsi4S.Tsi4.Tsi5S.Tsi5.Tsi6S.Tsi6.Tsi7S.Tsi7.Tsi8S.Tsi8.Tsi9S.Tsi9.Tsi10S.Tsi10.Tsi11S.Tsi11.Attributes.Threshold.MajorLo']['meta_info']
@@ -57859,4 +58385,5 @@ _meta_table['Inventory.Racks.Rack.Powershelf']['meta_info'].parent =_meta_table[
 _meta_table['Inventory.Racks.Rack.Fantray']['meta_info'].parent =_meta_table['Inventory.Racks.Rack']['meta_info']
 _meta_table['Inventory.Racks.Rack.Attributes']['meta_info'].parent =_meta_table['Inventory.Racks.Rack']['meta_info']
 _meta_table['Inventory.Racks.Rack']['meta_info'].parent =_meta_table['Inventory.Racks']['meta_info']
+_meta_table['Inventory.Entities']['meta_info'].parent =_meta_table['Inventory']['meta_info']
 _meta_table['Inventory.Racks']['meta_info'].parent =_meta_table['Inventory']['meta_info']

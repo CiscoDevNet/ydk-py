@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'RoutingPolicy.RoutePolicies.RoutePolicy' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.RoutePolicies.RoutePolicy',
@@ -50,6 +49,46 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-policy-repository-cfg',
             'route-policies',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('etag-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Etag Set
+                ''',
+                'etag_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'prepend-etag-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.PrependEtagSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.PrependEtagSets',
+            False, 
+            [
+            _MetaInfoClassMember('prepend-etag-set', REFERENCE_LIST, 'PrependEtagSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet', 
+                [], [], 
+                '''                Prepend the entries to the existing set
+                ''',
+                'prepend_etag_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'prepend-etag-sets',
             _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
         ),
@@ -94,6 +133,126 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
         ),
     },
+    'RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('etag-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Etag Set
+                ''',
+                'etag_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'append-etag-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.AppendEtagSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AppendEtagSets',
+            False, 
+            [
+            _MetaInfoClassMember('append-etag-set', REFERENCE_LIST, 'AppendEtagSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet', 
+                [], [], 
+                '''                Append the entries to the existing set
+                ''',
+                'append_etag_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'append-etag-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('etag-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Etag Set
+                ''',
+                'etag_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'remove-etag-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.RemoveEtagSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.RemoveEtagSets',
+            False, 
+            [
+            _MetaInfoClassMember('remove-etag-set', REFERENCE_LIST, 'RemoveEtagSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet', 
+                [], [], 
+                '''                Remove the entries from the existing set
+                ''',
+                'remove_etag_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'remove-etag-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.MacSets.MacSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.MacSets.MacSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('mac-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Mac Set
+                ''',
+                'mac_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'mac-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.MacSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.MacSets',
+            False, 
+            [
+            _MetaInfoClassMember('mac-set', REFERENCE_LIST, 'MacSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.MacSets.MacSet', 
+                [], [], 
+                '''                Information about an individual set
+                ''',
+                'mac_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'mac-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
     'RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet',
             False, 
@@ -130,6 +289,46 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-policy-repository-cfg',
             'extended-community-opaque-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.PrependMacSets.PrependMacSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.PrependMacSets.PrependMacSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('mac-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Mac Set
+                ''',
+                'mac_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'prepend-mac-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.PrependMacSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.PrependMacSets',
+            False, 
+            [
+            _MetaInfoClassMember('prepend-mac-set', REFERENCE_LIST, 'PrependMacSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependMacSets.PrependMacSet', 
+                [], [], 
+                '''                Prepend the entries to the existing set
+                ''',
+                'prepend_mac_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'prepend-mac-sets',
             _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
         ),
@@ -189,6 +388,46 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
         ),
     },
+    'RoutingPolicy.Sets.AppendMacSets.AppendMacSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AppendMacSets.AppendMacSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('mac-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Mac Set
+                ''',
+                'mac_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'append-mac-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.AppendMacSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AppendMacSets',
+            False, 
+            [
+            _MetaInfoClassMember('append-mac-set', REFERENCE_LIST, 'AppendMacSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.AppendMacSets.AppendMacSet', 
+                [], [], 
+                '''                Append the entries to the existing set
+                ''',
+                'append_mac_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'append-mac-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
     'RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet',
             False, 
@@ -229,6 +468,46 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
         ),
     },
+    'RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('mac-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Mac Set
+                ''',
+                'mac_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'remove-mac-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.RemoveMacSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.RemoveMacSets',
+            False, 
+            [
+            _MetaInfoClassMember('remove-mac-set', REFERENCE_LIST, 'RemoveMacSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet', 
+                [], [], 
+                '''                Remove the entries from the existing set
+                ''',
+                'remove_mac_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'remove-mac-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
     'RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet',
             False, 
@@ -265,6 +544,166 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-policy-repository-cfg',
             'extended-community-soo-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.EsiSets.EsiSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.EsiSets.EsiSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('esi-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Esi Set
+                ''',
+                'esi_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'esi-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.EsiSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.EsiSets',
+            False, 
+            [
+            _MetaInfoClassMember('esi-set', REFERENCE_LIST, 'EsiSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.EsiSets.EsiSet', 
+                [], [], 
+                '''                Information about an individual set
+                ''',
+                'esi_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'esi-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('esi-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Esi Set
+                ''',
+                'esi_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'prepend-esi-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.PrependEsiSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.PrependEsiSets',
+            False, 
+            [
+            _MetaInfoClassMember('prepend-esi-set', REFERENCE_LIST, 'PrependEsiSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet', 
+                [], [], 
+                '''                Prepend the entries to the existing set
+                ''',
+                'prepend_esi_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'prepend-esi-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('esi-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Esi Set
+                ''',
+                'esi_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'append-esi-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.AppendEsiSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AppendEsiSets',
+            False, 
+            [
+            _MetaInfoClassMember('append-esi-set', REFERENCE_LIST, 'AppendEsiSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet', 
+                [], [], 
+                '''                Append the entries to the existing set
+                ''',
+                'append_esi_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'append-esi-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('esi-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Esi Set
+                ''',
+                'esi_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'remove-esi-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.RemoveEsiSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.RemoveEsiSets',
+            False, 
+            [
+            _MetaInfoClassMember('remove-esi-set', REFERENCE_LIST, 'RemoveEsiSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet', 
+                [], [], 
+                '''                Remove the entries from the existing set
+                ''',
+                'remove_esi_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'remove-esi-sets',
             _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
         ),
@@ -526,6 +965,46 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
         ),
     },
+    'RoutingPolicy.Sets.EtagSets.EtagSet' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.EtagSets.EtagSet',
+            False, 
+            [
+            _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Set name
+                ''',
+                'set_name',
+                'Cisco-IOS-XR-policy-repository-cfg', True),
+            _MetaInfoClassMember('etag-set-as-text', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Etag Set
+                ''',
+                'etag_set_as_text',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'etag-set',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
+    'RoutingPolicy.Sets.EtagSets' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.EtagSets',
+            False, 
+            [
+            _MetaInfoClassMember('etag-set', REFERENCE_LIST, 'EtagSet' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.EtagSets.EtagSet', 
+                [], [], 
+                '''                Information about an individual set
+                ''',
+                'etag_set',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            ],
+            'Cisco-IOS-XR-policy-repository-cfg',
+            'etag-sets',
+            _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg'
+        ),
+    },
     'RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet',
             False, 
@@ -570,6 +1049,24 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Sets',
             False, 
             [
+            _MetaInfoClassMember('append-esi-sets', REFERENCE_CLASS, 'AppendEsiSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.AppendEsiSets', 
+                [], [], 
+                '''                Information about Esi sets
+                ''',
+                'append_esi_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('append-etag-sets', REFERENCE_CLASS, 'AppendEtagSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.AppendEtagSets', 
+                [], [], 
+                '''                Information about Etag sets
+                ''',
+                'append_etag_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('append-mac-sets', REFERENCE_CLASS, 'AppendMacSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.AppendMacSets', 
+                [], [], 
+                '''                Information about Mac sets
+                ''',
+                'append_mac_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
             _MetaInfoClassMember('as-path-sets', REFERENCE_CLASS, 'AsPathSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.AsPathSets', 
                 [], [], 
                 '''                Information about AS Path sets
@@ -581,6 +1078,18 @@ _meta_table = {
                 '''                Information about Community sets
                 ''',
                 'community_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('esi-sets', REFERENCE_CLASS, 'EsiSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.EsiSets', 
+                [], [], 
+                '''                Information about Esi sets
+                ''',
+                'esi_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('etag-sets', REFERENCE_CLASS, 'EtagSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.EtagSets', 
+                [], [], 
+                '''                Information about Etag sets
+                ''',
+                'etag_sets',
                 'Cisco-IOS-XR-policy-repository-cfg', False),
             _MetaInfoClassMember('extended-community-bandwidth-sets', REFERENCE_CLASS, 'ExtendedCommunityBandwidthSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.ExtendedCommunityBandwidthSets', 
                 [], [], 
@@ -618,6 +1127,12 @@ _meta_table = {
                 ''',
                 'extended_community_soo_sets',
                 'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('mac-sets', REFERENCE_CLASS, 'MacSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.MacSets', 
+                [], [], 
+                '''                Information about Mac sets
+                ''',
+                'mac_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
             _MetaInfoClassMember('ospf-area-sets', REFERENCE_CLASS, 'OspfAreaSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.OspfAreaSets', 
                 [], [], 
                 '''                Information about OSPF Area sets
@@ -636,11 +1151,47 @@ _meta_table = {
                 ''',
                 'prefix_sets',
                 'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('prepend-esi-sets', REFERENCE_CLASS, 'PrependEsiSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependEsiSets', 
+                [], [], 
+                '''                Information about Esi sets
+                ''',
+                'prepend_esi_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('prepend-etag-sets', REFERENCE_CLASS, 'PrependEtagSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependEtagSets', 
+                [], [], 
+                '''                Information about Etag sets
+                ''',
+                'prepend_etag_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('prepend-mac-sets', REFERENCE_CLASS, 'PrependMacSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.PrependMacSets', 
+                [], [], 
+                '''                Information about Mac sets
+                ''',
+                'prepend_mac_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
             _MetaInfoClassMember('rd-sets', REFERENCE_CLASS, 'RdSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RdSets', 
                 [], [], 
                 '''                Information about RD sets
                 ''',
                 'rd_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('remove-esi-sets', REFERENCE_CLASS, 'RemoveEsiSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveEsiSets', 
+                [], [], 
+                '''                Information about Esi sets
+                ''',
+                'remove_esi_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('remove-etag-sets', REFERENCE_CLASS, 'RemoveEtagSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveEtagSets', 
+                [], [], 
+                '''                Information about Etag sets
+                ''',
+                'remove_etag_sets',
+                'Cisco-IOS-XR-policy-repository-cfg', False),
+            _MetaInfoClassMember('remove-mac-sets', REFERENCE_CLASS, 'RemoveMacSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.RemoveMacSets', 
+                [], [], 
+                '''                Information about Mac sets
+                ''',
+                'remove_mac_sets',
                 'Cisco-IOS-XR-policy-repository-cfg', False),
             _MetaInfoClassMember('tag-sets', REFERENCE_CLASS, 'TagSets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_cfg', 'RoutingPolicy.Sets.TagSets', 
                 [], [], 
@@ -717,23 +1268,46 @@ _meta_table = {
     },
 }
 _meta_table['RoutingPolicy.RoutePolicies.RoutePolicy']['meta_info'].parent =_meta_table['RoutingPolicy.RoutePolicies']['meta_info']
+_meta_table['RoutingPolicy.Sets.PrependEtagSets.PrependEtagSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.PrependEtagSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.PrefixSets.PrefixSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.PrefixSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.AppendEtagSets.AppendEtagSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AppendEtagSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.RemoveEtagSets.RemoveEtagSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.RemoveEtagSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.MacSets.MacSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.MacSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaqueSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.PrependMacSets.PrependMacSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.PrependMacSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfAreaSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.AppendMacSets.AppendMacSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AppendMacSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCostSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.RemoveMacSets.RemoveMacSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.RemoveMacSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySooSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.EsiSets.EsiSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.EsiSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.PrependEsiSets.PrependEsiSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.PrependEsiSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.AppendEsiSets.AppendEsiSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AppendEsiSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.RemoveEsiSets.RemoveEsiSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.RemoveEsiSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNhSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.RdSets.RdSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.RdSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidthSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.CommunitySets.CommunitySet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.CommunitySets']['meta_info']
 _meta_table['RoutingPolicy.Sets.AsPathSets.AsPathSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPathSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.TagSets.TagSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.TagSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.EtagSets.EtagSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.EtagSets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRtSets']['meta_info']
+_meta_table['RoutingPolicy.Sets.PrependEtagSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.PrefixSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.AppendEtagSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.RemoveEtagSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.MacSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaqueSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.PrependMacSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.OspfAreaSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.AppendMacSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCostSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.RemoveMacSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySooSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.EsiSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.PrependEsiSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.AppendEsiSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.RemoveEsiSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNhSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.RdSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.PolicyGlobalSetTable']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
@@ -741,6 +1315,7 @@ _meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidthSets']['meta_info'].pa
 _meta_table['RoutingPolicy.Sets.CommunitySets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.AsPathSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.TagSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
+_meta_table['RoutingPolicy.Sets.EtagSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityRtSets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets']['meta_info']
 _meta_table['RoutingPolicy.RoutePolicies']['meta_info'].parent =_meta_table['RoutingPolicy']['meta_info']
 _meta_table['RoutingPolicy.Sets']['meta_info'].parent =_meta_table['RoutingPolicy']['meta_info']

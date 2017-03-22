@@ -95,12 +95,12 @@ class Mfwd(object):
         
         .. attribute:: ipv4
         
-        	VRF table for IPV4 commands
+        	IPV4 commands in the default context
         	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv4>`
         
         .. attribute:: ipv6
         
-        	VRF table for IPV6 commands
+        	IPV6 commands in the default context
         	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg.Mfwd.DefaultContext.Ipv6>`
         
         .. attribute:: _is_presence
@@ -128,7 +128,7 @@ class Mfwd(object):
 
         class Ipv6(object):
             """
-            VRF table for IPV6 commands
+            IPV6 commands in the default context
             
             .. attribute:: accounting
             
@@ -188,11 +188,6 @@ class Mfwd(object):
             	Enable IP multicast routing and forwarding
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: nsf
-            
-            	Configure IP Multicast NSF state
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: rate_per_route
             
             	Enable per (S,G) rate calculation
@@ -223,7 +218,6 @@ class Mfwd(object):
                 self.mofrr_lockout_timer_config = None
                 self.mofrr_loss_detection_timer_config = None
                 self.multicast_forwarding = None
-                self.nsf = None
                 self.rate_per_route = None
                 self.static_rpf_rules = Mfwd.DefaultContext.Ipv6.StaticRpfRules()
                 self.static_rpf_rules.parent = self
@@ -423,6 +417,8 @@ class Mfwd(object):
                     	Boundary for administratively scoped multicast addresses
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: enable_on_interface
                     
                     	Enable or disable IP multicast on the interface
@@ -548,9 +544,6 @@ class Mfwd(object):
                 if self.multicast_forwarding is not None:
                     return True
 
-                if self.nsf is not None:
-                    return True
-
                 if self.rate_per_route is not None:
                     return True
 
@@ -567,7 +560,7 @@ class Mfwd(object):
 
         class Ipv4(object):
             """
-            VRF table for IPV4 commands
+            IPV4 commands in the default context
             
             .. attribute:: accounting
             
@@ -627,11 +620,6 @@ class Mfwd(object):
             	Enable IP multicast routing and forwarding
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: nsf
-            
-            	Configure IP Multicast NSF state
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: out_of_memory_handling
             
             	Enable out\-of\-memory handling
@@ -667,7 +655,6 @@ class Mfwd(object):
                 self.mofrr_lockout_timer_config = None
                 self.mofrr_loss_detection_timer_config = None
                 self.multicast_forwarding = None
-                self.nsf = None
                 self.out_of_memory_handling = None
                 self.rate_per_route = None
                 self.static_rpf_rules = Mfwd.DefaultContext.Ipv4.StaticRpfRules()
@@ -868,6 +855,8 @@ class Mfwd(object):
                     	Boundary for administratively scoped multicast addresses
                     	**type**\:  str
                     
+                    	**length:** 1..64
+                    
                     .. attribute:: enable_on_interface
                     
                     	Enable or disable IP multicast on the interface
@@ -993,9 +982,6 @@ class Mfwd(object):
                 if self.multicast_forwarding is not None:
                     return True
 
-                if self.nsf is not None:
-                    return True
-
                 if self.out_of_memory_handling is not None:
                     return True
 
@@ -1072,7 +1058,7 @@ class Mfwd(object):
             	VRF Name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            	**length:** 1..32
             
             .. attribute:: ipv4
             
@@ -1114,20 +1100,6 @@ class Mfwd(object):
                 	Configure all interfaces for multicast routing and forwarding
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
-                .. attribute:: forwarding_latency
-                
-                	Knob to delay traffic being forwarded on a route
-                	**type**\:  int
-                
-                	**range:** 5..500
-                
-                	**units**\: millisecond
-                
-                .. attribute:: interface_inheritance_disable
-                
-                	Disable interface inheritance configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
                 .. attribute:: interfaces
                 
                 	Interface\-level Configuration
@@ -1138,33 +1110,9 @@ class Mfwd(object):
                 	Enable logging trap event
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
-                .. attribute:: maximum_checking_disable
-                
-                	Disable state limit maximum checking
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: mofrr_lockout_timer_config
-                
-                	Mofrr Lockout timer value
-                	**type**\:  int
-                
-                	**range:** 1..3600
-                
-                .. attribute:: mofrr_loss_detection_timer_config
-                
-                	Mofrr Loss Detection timer value
-                	**type**\:  int
-                
-                	**range:** 1..3600
-                
                 .. attribute:: multicast_forwarding
                 
                 	Enable IP multicast routing and forwarding
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: nsf
-                
-                	Configure IP Multicast NSF state
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: rate_per_route
@@ -1188,16 +1136,10 @@ class Mfwd(object):
                     self.parent = None
                     self.accounting = None
                     self.enable_on_all_interfaces = None
-                    self.forwarding_latency = None
-                    self.interface_inheritance_disable = None
                     self.interfaces = Mfwd.Vrfs.Vrf.Ipv6.Interfaces()
                     self.interfaces.parent = self
                     self.log_traps = None
-                    self.maximum_checking_disable = None
-                    self.mofrr_lockout_timer_config = None
-                    self.mofrr_loss_detection_timer_config = None
                     self.multicast_forwarding = None
-                    self.nsf = None
                     self.rate_per_route = None
                     self.static_rpf_rules = Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules()
                     self.static_rpf_rules.parent = self
@@ -1401,6 +1343,8 @@ class Mfwd(object):
                         	Boundary for administratively scoped multicast addresses
                         	**type**\:  str
                         
+                        	**length:** 1..64
+                        
                         .. attribute:: enable_on_interface
                         
                         	Enable or disable IP multicast on the interface
@@ -1508,31 +1452,13 @@ class Mfwd(object):
                     if self.enable_on_all_interfaces is not None:
                         return True
 
-                    if self.forwarding_latency is not None:
-                        return True
-
-                    if self.interface_inheritance_disable is not None:
-                        return True
-
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
                     if self.log_traps is not None:
                         return True
 
-                    if self.maximum_checking_disable is not None:
-                        return True
-
-                    if self.mofrr_lockout_timer_config is not None:
-                        return True
-
-                    if self.mofrr_loss_detection_timer_config is not None:
-                        return True
-
                     if self.multicast_forwarding is not None:
-                        return True
-
-                    if self.nsf is not None:
                         return True
 
                     if self.rate_per_route is not None:
@@ -1563,20 +1489,6 @@ class Mfwd(object):
                 	Configure all interfaces for multicast routing and forwarding
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
-                .. attribute:: forwarding_latency
-                
-                	Knob to delay traffic being forwarded on a route
-                	**type**\:  int
-                
-                	**range:** 5..500
-                
-                	**units**\: millisecond
-                
-                .. attribute:: interface_inheritance_disable
-                
-                	Disable interface inheritance configuration
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
                 .. attribute:: interfaces
                 
                 	Interface\-level Configuration
@@ -1587,38 +1499,9 @@ class Mfwd(object):
                 	Enable logging trap event
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
-                .. attribute:: maximum_checking_disable
-                
-                	Disable state limit maximum checking
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: mofrr_lockout_timer_config
-                
-                	Mofrr Lockout timer value
-                	**type**\:  int
-                
-                	**range:** 1..3600
-                
-                .. attribute:: mofrr_loss_detection_timer_config
-                
-                	Mofrr Loss Detection timer value
-                	**type**\:  int
-                
-                	**range:** 1..3600
-                
                 .. attribute:: multicast_forwarding
                 
                 	Enable IP multicast routing and forwarding
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: nsf
-                
-                	Configure IP Multicast NSF state
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: out_of_memory_handling
-                
-                	Enable out\-of\-memory handling
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: rate_per_route
@@ -1642,17 +1525,10 @@ class Mfwd(object):
                     self.parent = None
                     self.accounting = None
                     self.enable_on_all_interfaces = None
-                    self.forwarding_latency = None
-                    self.interface_inheritance_disable = None
                     self.interfaces = Mfwd.Vrfs.Vrf.Ipv4.Interfaces()
                     self.interfaces.parent = self
                     self.log_traps = None
-                    self.maximum_checking_disable = None
-                    self.mofrr_lockout_timer_config = None
-                    self.mofrr_loss_detection_timer_config = None
                     self.multicast_forwarding = None
-                    self.nsf = None
-                    self.out_of_memory_handling = None
                     self.rate_per_route = None
                     self.static_rpf_rules = Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules()
                     self.static_rpf_rules.parent = self
@@ -1856,6 +1732,8 @@ class Mfwd(object):
                         	Boundary for administratively scoped multicast addresses
                         	**type**\:  str
                         
+                        	**length:** 1..64
+                        
                         .. attribute:: enable_on_interface
                         
                         	Enable or disable IP multicast on the interface
@@ -1963,34 +1841,13 @@ class Mfwd(object):
                     if self.enable_on_all_interfaces is not None:
                         return True
 
-                    if self.forwarding_latency is not None:
-                        return True
-
-                    if self.interface_inheritance_disable is not None:
-                        return True
-
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
                     if self.log_traps is not None:
                         return True
 
-                    if self.maximum_checking_disable is not None:
-                        return True
-
-                    if self.mofrr_lockout_timer_config is not None:
-                        return True
-
-                    if self.mofrr_loss_detection_timer_config is not None:
-                        return True
-
                     if self.multicast_forwarding is not None:
-                        return True
-
-                    if self.nsf is not None:
-                        return True
-
-                    if self.out_of_memory_handling is not None:
                         return True
 
                     if self.rate_per_route is not None:

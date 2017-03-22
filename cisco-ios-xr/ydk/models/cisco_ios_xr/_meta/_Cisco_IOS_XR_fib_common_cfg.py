@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'FibPbtsFallbackEnum' : _MetaInfoEnum('FibPbtsFallbackEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg',
         {
@@ -83,6 +82,40 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg'
         ),
     },
+    'Fib.Platform.LabelSwitchedMulticast' : {
+        'meta_info' : _MetaInfoClass('Fib.Platform.LabelSwitchedMulticast',
+            False, 
+            [
+            _MetaInfoClassMember('frr-holdtime', ATTRIBUTE, 'int' , None, None, 
+                [('3', '180')], [], 
+                '''                Set time to keep FRR slots programmed post FRR
+                ''',
+                'frr_holdtime',
+                'Cisco-IOS-XR-fib-common-cfg', False),
+            ],
+            'Cisco-IOS-XR-fib-common-cfg',
+            'label-switched-multicast',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg'
+        ),
+    },
+    'Fib.Platform' : {
+        'meta_info' : _MetaInfoClass('Fib.Platform',
+            False, 
+            [
+            _MetaInfoClassMember('label-switched-multicast', REFERENCE_CLASS, 'LabelSwitchedMulticast' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg', 'Fib.Platform.LabelSwitchedMulticast', 
+                [], [], 
+                '''                Options for label-switched-multicast parameters
+                ''',
+                'label_switched_multicast',
+                'Cisco-IOS-XR-fib-common-cfg', False),
+            ],
+            'Cisco-IOS-XR-fib-common-cfg',
+            'platform',
+            _yang_ns._namespaces['Cisco-IOS-XR-fib-common-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg'
+        ),
+    },
     'Fib' : {
         'meta_info' : _MetaInfoClass('Fib',
             False, 
@@ -93,8 +126,14 @@ _meta_table = {
                 ''',
                 'pbts_forward_class_fallbacks',
                 'Cisco-IOS-XR-fib-common-cfg', False),
-            _MetaInfoClassMember('prefer-aib-routes', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
+            _MetaInfoClassMember('platform', REFERENCE_CLASS, 'Platform' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg', 'Fib.Platform', 
+                [], [], 
+                '''                FIB platform parameters
+                ''',
+                'platform',
+                'Cisco-IOS-XR-fib-common-cfg', False),
+            _MetaInfoClassMember('prefer-aib-routes', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
                 '''                Set options for adjacency routes overriding RIB
                 routes
                 ''',
@@ -109,4 +148,6 @@ _meta_table = {
     },
 }
 _meta_table['Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback']['meta_info'].parent =_meta_table['Fib.PbtsForwardClassFallbacks']['meta_info']
+_meta_table['Fib.Platform.LabelSwitchedMulticast']['meta_info'].parent =_meta_table['Fib.Platform']['meta_info']
 _meta_table['Fib.PbtsForwardClassFallbacks']['meta_info'].parent =_meta_table['Fib']['meta_info']
+_meta_table['Fib.Platform']['meta_info'].parent =_meta_table['Fib']['meta_info']

@@ -233,7 +233,7 @@ class Crypto(object):
             	Source interface VRF for ssh client sessions
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: dscp
             
@@ -304,6 +304,11 @@ class Crypto(object):
             """
             Provide SSH server service
             
+            .. attribute:: disable
+            
+            	disable
+            	**type**\:   :py:class:`Disable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Disable>`
+            
             .. attribute:: dscp
             
             	Cisco sshd DSCP value
@@ -338,6 +343,24 @@ class Crypto(object):
             	**range:** 1..600
             
             	**default value**\: 60
+            
+            .. attribute:: rekey_time
+            
+            	Time Period in minutes, defalut 60
+            	**type**\:  int
+            
+            	**range:** 30..1440
+            
+            	**default value**\: 60
+            
+            .. attribute:: rekey_volume
+            
+            	Configure volume\-based rekey for SSH
+            	**type**\:  int
+            
+            	**range:** 1024..4095
+            
+            	**default value**\: 1024
             
             .. attribute:: session_limit
             
@@ -374,17 +397,110 @@ class Crypto(object):
 
             def __init__(self):
                 self.parent = None
+                self.disable = Crypto.Ssh.Server.Disable()
+                self.disable.parent = self
                 self.dscp = None
                 self.logging = None
                 self.netconf = None
                 self.netconf_vrf_table = Crypto.Ssh.Server.NetconfVrfTable()
                 self.netconf_vrf_table.parent = self
                 self.rate_limit = None
+                self.rekey_time = None
+                self.rekey_volume = None
                 self.session_limit = None
                 self.timeout = None
                 self.v2 = None
                 self.vrf_table = Crypto.Ssh.Server.VrfTable()
                 self.vrf_table.parent = self
+
+
+            class Disable(object):
+                """
+                disable
+                
+                .. attribute:: hmac
+                
+                	hmac
+                	**type**\:   :py:class:`Hmac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg.Crypto.Ssh.Server.Disable.Hmac>`
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.hmac = Crypto.Ssh.Server.Disable.Hmac()
+                    self.hmac.parent = self
+
+
+                class Hmac(object):
+                    """
+                    hmac
+                    
+                    .. attribute:: hmac_sha512
+                    
+                    	Disable Hmac\-sha2\-512 negotiation
+                    	**type**\:  bool
+                    
+                    	**default value**\: false
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-cfg'
+                    _revision = '2015-07-30'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.hmac_sha512 = None
+
+                    @property
+                    def _common_path(self):
+
+                        return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:server/Cisco-IOS-XR-crypto-ssh-cfg:disable/Cisco-IOS-XR-crypto-ssh-cfg:hmac'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.hmac_sha512 is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
+                        return meta._meta_table['Crypto.Ssh.Server.Disable.Hmac']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-crypto-sam-cfg:crypto/Cisco-IOS-XR-crypto-ssh-cfg:ssh/Cisco-IOS-XR-crypto-ssh-cfg:server/Cisco-IOS-XR-crypto-ssh-cfg:disable'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.hmac is not None and self.hmac._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_sam_cfg as meta
+                    return meta._meta_table['Crypto.Ssh.Server.Disable']['meta_info']
 
 
             class VrfTable(object):
@@ -419,7 +535,7 @@ class Crypto(object):
                     	Enter VRF name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: enable
                     
@@ -433,14 +549,14 @@ class Crypto(object):
                     	SSH v4 access\-list name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: ipv6_access_list
                     
                     	SSH v6 access\-list name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -546,7 +662,7 @@ class Crypto(object):
                     	Enter VRF name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: enable
                     
@@ -560,14 +676,14 @@ class Crypto(object):
                     	SSH v4 access\-list name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     .. attribute:: ipv6_access_list
                     
                     	SSH v6 access\-list name
                     	**type**\:  str
                     
-                    	**length:** 0..32
+                    	**length:** 1..32
                     
                     
 
@@ -652,6 +768,9 @@ class Crypto(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
+                if self.disable is not None and self.disable._has_data():
+                    return True
+
                 if self.dscp is not None:
                     return True
 
@@ -665,6 +784,12 @@ class Crypto(object):
                     return True
 
                 if self.rate_limit is not None:
+                    return True
+
+                if self.rekey_time is not None:
+                    return True
+
+                if self.rekey_volume is not None:
                     return True
 
                 if self.session_limit is not None:

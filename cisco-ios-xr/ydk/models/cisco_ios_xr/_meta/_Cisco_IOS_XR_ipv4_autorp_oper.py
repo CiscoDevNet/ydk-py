@@ -8,19 +8,42 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'AutorpProtocolModeEnum' : _MetaInfoEnum('AutorpProtocolModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper',
         {
             'sparse':'sparse',
             'bidirectional':'bidirectional',
         }, 'Cisco-IOS-XR-ipv4-autorp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper']),
-    'AutoRp.Standby.CandidateRps.CandidateRp' : {
-        'meta_info' : _MetaInfoClass('AutoRp.Standby.CandidateRps.CandidateRp',
+    'AutoRp.Standby.CandidateRp.Traffic' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Standby.CandidateRp.Traffic',
+            False, 
+            [
+            _MetaInfoClassMember('active-sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets sent in active role
+                ''',
+                'active_sent_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('standby-sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets dropped in send path in
+                standby role
+                ''',
+                'standby_sent_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv4-autorp-oper',
+            'traffic',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
+        ),
+    },
+    'AutoRp.Standby.CandidateRp.Rps.Rp' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Standby.CandidateRp.Rps.Rp',
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
@@ -67,24 +90,84 @@ _meta_table = {
                 'Cisco-IOS-XR-ipv4-autorp-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-autorp-oper',
+            'rp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
+        ),
+    },
+    'AutoRp.Standby.CandidateRp.Rps' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Standby.CandidateRp.Rps',
+            False, 
+            [
+            _MetaInfoClassMember('rp', REFERENCE_LIST, 'Rp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Standby.CandidateRp.Rps.Rp', 
+                [], [], 
+                '''                AutoRP Candidate RP Entry
+                ''',
+                'rp',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv4-autorp-oper',
+            'rps',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
+        ),
+    },
+    'AutoRp.Standby.CandidateRp' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Standby.CandidateRp',
+            False, 
+            [
+            _MetaInfoClassMember('rps', REFERENCE_CLASS, 'Rps' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Standby.CandidateRp.Rps', 
+                [], [], 
+                '''                AutoRP Candidate RP Table
+                ''',
+                'rps',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('traffic', REFERENCE_CLASS, 'Traffic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Standby.CandidateRp.Traffic', 
+                [], [], 
+                '''                AutoRP Candidate Traffic Counters
+                ''',
+                'traffic',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv4-autorp-oper',
             'candidate-rp',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
         ),
     },
-    'AutoRp.Standby.CandidateRps' : {
-        'meta_info' : _MetaInfoClass('AutoRp.Standby.CandidateRps',
+    'AutoRp.Standby.MappingAgent.Traffic' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Standby.MappingAgent.Traffic',
             False, 
             [
-            _MetaInfoClassMember('candidate-rp', REFERENCE_LIST, 'CandidateRp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Standby.CandidateRps.CandidateRp', 
-                [], [], 
-                '''                AutoRP Candidate RP Entry
+            _MetaInfoClassMember('active-received-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets received in active role
                 ''',
-                'candidate_rp',
+                'active_received_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('active-sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets sent in active role
+                ''',
+                'active_sent_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('standby-received-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets dropped in receive path in
+                standby role
+                ''',
+                'standby_received_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('standby-sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets dropped in send path in
+                standby role
+                ''',
+                'standby_sent_packets',
                 'Cisco-IOS-XR-ipv4-autorp-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-autorp-oper',
-            'candidate-rps',
+            'traffic',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
         ),
@@ -246,6 +329,12 @@ _meta_table = {
                 ''',
                 'summary',
                 'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('traffic', REFERENCE_CLASS, 'Traffic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Standby.MappingAgent.Traffic', 
+                [], [], 
+                '''                AutoRP Mapping Agent Traffic Counters
+                ''',
+                'traffic',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-autorp-oper',
             'mapping-agent',
@@ -257,11 +346,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('AutoRp.Standby',
             False, 
             [
-            _MetaInfoClassMember('candidate-rps', REFERENCE_CLASS, 'CandidateRps' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Standby.CandidateRps', 
+            _MetaInfoClassMember('candidate-rp', REFERENCE_CLASS, 'CandidateRp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Standby.CandidateRp', 
                 [], [], 
-                '''                AutoRP Candidate RP Table
+                '''                AutoRP Candidate RP
                 ''',
-                'candidate_rps',
+                'candidate_rp',
                 'Cisco-IOS-XR-ipv4-autorp-oper', False),
             _MetaInfoClassMember('mapping-agent', REFERENCE_CLASS, 'MappingAgent' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Standby.MappingAgent', 
                 [], [], 
@@ -276,8 +365,32 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
         ),
     },
-    'AutoRp.Active.CandidateRps.CandidateRp' : {
-        'meta_info' : _MetaInfoClass('AutoRp.Active.CandidateRps.CandidateRp',
+    'AutoRp.Active.CandidateRp.Traffic' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Active.CandidateRp.Traffic',
+            False, 
+            [
+            _MetaInfoClassMember('active-sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets sent in active role
+                ''',
+                'active_sent_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('standby-sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets dropped in send path in
+                standby role
+                ''',
+                'standby_sent_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv4-autorp-oper',
+            'traffic',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
+        ),
+    },
+    'AutoRp.Active.CandidateRp.Rps.Rp' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Active.CandidateRp.Rps.Rp',
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
@@ -324,24 +437,84 @@ _meta_table = {
                 'Cisco-IOS-XR-ipv4-autorp-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-autorp-oper',
+            'rp',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
+        ),
+    },
+    'AutoRp.Active.CandidateRp.Rps' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Active.CandidateRp.Rps',
+            False, 
+            [
+            _MetaInfoClassMember('rp', REFERENCE_LIST, 'Rp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Active.CandidateRp.Rps.Rp', 
+                [], [], 
+                '''                AutoRP Candidate RP Entry
+                ''',
+                'rp',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv4-autorp-oper',
+            'rps',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
+        ),
+    },
+    'AutoRp.Active.CandidateRp' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Active.CandidateRp',
+            False, 
+            [
+            _MetaInfoClassMember('rps', REFERENCE_CLASS, 'Rps' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Active.CandidateRp.Rps', 
+                [], [], 
+                '''                AutoRP Candidate RP Table
+                ''',
+                'rps',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('traffic', REFERENCE_CLASS, 'Traffic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Active.CandidateRp.Traffic', 
+                [], [], 
+                '''                AutoRP Candidate Traffic Counters
+                ''',
+                'traffic',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv4-autorp-oper',
             'candidate-rp',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
         ),
     },
-    'AutoRp.Active.CandidateRps' : {
-        'meta_info' : _MetaInfoClass('AutoRp.Active.CandidateRps',
+    'AutoRp.Active.MappingAgent.Traffic' : {
+        'meta_info' : _MetaInfoClass('AutoRp.Active.MappingAgent.Traffic',
             False, 
             [
-            _MetaInfoClassMember('candidate-rp', REFERENCE_LIST, 'CandidateRp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Active.CandidateRps.CandidateRp', 
-                [], [], 
-                '''                AutoRP Candidate RP Entry
+            _MetaInfoClassMember('active-received-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets received in active role
                 ''',
-                'candidate_rp',
+                'active_received_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('active-sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets sent in active role
+                ''',
+                'active_sent_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('standby-received-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets dropped in receive path in
+                standby role
+                ''',
+                'standby_received_packets',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('standby-sent-packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of packets dropped in send path in
+                standby role
+                ''',
+                'standby_sent_packets',
                 'Cisco-IOS-XR-ipv4-autorp-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-autorp-oper',
-            'candidate-rps',
+            'traffic',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper'
         ),
@@ -503,6 +676,12 @@ _meta_table = {
                 ''',
                 'summary',
                 'Cisco-IOS-XR-ipv4-autorp-oper', False),
+            _MetaInfoClassMember('traffic', REFERENCE_CLASS, 'Traffic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Active.MappingAgent.Traffic', 
+                [], [], 
+                '''                AutoRP Mapping Agent Traffic Counters
+                ''',
+                'traffic',
+                'Cisco-IOS-XR-ipv4-autorp-oper', False),
             ],
             'Cisco-IOS-XR-ipv4-autorp-oper',
             'mapping-agent',
@@ -514,11 +693,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('AutoRp.Active',
             False, 
             [
-            _MetaInfoClassMember('candidate-rps', REFERENCE_CLASS, 'CandidateRps' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Active.CandidateRps', 
+            _MetaInfoClassMember('candidate-rp', REFERENCE_CLASS, 'CandidateRp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Active.CandidateRp', 
                 [], [], 
-                '''                AutoRP Candidate RP Table
+                '''                AutoRP Candidate RP
                 ''',
-                'candidate_rps',
+                'candidate_rp',
                 'Cisco-IOS-XR-ipv4-autorp-oper', False),
             _MetaInfoClassMember('mapping-agent', REFERENCE_CLASS, 'MappingAgent' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutoRp.Active.MappingAgent', 
                 [], [], 
@@ -557,19 +736,25 @@ _meta_table = {
         ),
     },
 }
-_meta_table['AutoRp.Standby.CandidateRps.CandidateRp']['meta_info'].parent =_meta_table['AutoRp.Standby.CandidateRps']['meta_info']
+_meta_table['AutoRp.Standby.CandidateRp.Rps.Rp']['meta_info'].parent =_meta_table['AutoRp.Standby.CandidateRp.Rps']['meta_info']
+_meta_table['AutoRp.Standby.CandidateRp.Traffic']['meta_info'].parent =_meta_table['AutoRp.Standby.CandidateRp']['meta_info']
+_meta_table['AutoRp.Standby.CandidateRp.Rps']['meta_info'].parent =_meta_table['AutoRp.Standby.CandidateRp']['meta_info']
 _meta_table['AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range']['meta_info'].parent =_meta_table['AutoRp.Standby.MappingAgent.RpAddresses.RpAddress']['meta_info']
 _meta_table['AutoRp.Standby.MappingAgent.RpAddresses.RpAddress']['meta_info'].parent =_meta_table['AutoRp.Standby.MappingAgent.RpAddresses']['meta_info']
+_meta_table['AutoRp.Standby.MappingAgent.Traffic']['meta_info'].parent =_meta_table['AutoRp.Standby.MappingAgent']['meta_info']
 _meta_table['AutoRp.Standby.MappingAgent.RpAddresses']['meta_info'].parent =_meta_table['AutoRp.Standby.MappingAgent']['meta_info']
 _meta_table['AutoRp.Standby.MappingAgent.Summary']['meta_info'].parent =_meta_table['AutoRp.Standby.MappingAgent']['meta_info']
-_meta_table['AutoRp.Standby.CandidateRps']['meta_info'].parent =_meta_table['AutoRp.Standby']['meta_info']
+_meta_table['AutoRp.Standby.CandidateRp']['meta_info'].parent =_meta_table['AutoRp.Standby']['meta_info']
 _meta_table['AutoRp.Standby.MappingAgent']['meta_info'].parent =_meta_table['AutoRp.Standby']['meta_info']
-_meta_table['AutoRp.Active.CandidateRps.CandidateRp']['meta_info'].parent =_meta_table['AutoRp.Active.CandidateRps']['meta_info']
+_meta_table['AutoRp.Active.CandidateRp.Rps.Rp']['meta_info'].parent =_meta_table['AutoRp.Active.CandidateRp.Rps']['meta_info']
+_meta_table['AutoRp.Active.CandidateRp.Traffic']['meta_info'].parent =_meta_table['AutoRp.Active.CandidateRp']['meta_info']
+_meta_table['AutoRp.Active.CandidateRp.Rps']['meta_info'].parent =_meta_table['AutoRp.Active.CandidateRp']['meta_info']
 _meta_table['AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range']['meta_info'].parent =_meta_table['AutoRp.Active.MappingAgent.RpAddresses.RpAddress']['meta_info']
 _meta_table['AutoRp.Active.MappingAgent.RpAddresses.RpAddress']['meta_info'].parent =_meta_table['AutoRp.Active.MappingAgent.RpAddresses']['meta_info']
+_meta_table['AutoRp.Active.MappingAgent.Traffic']['meta_info'].parent =_meta_table['AutoRp.Active.MappingAgent']['meta_info']
 _meta_table['AutoRp.Active.MappingAgent.RpAddresses']['meta_info'].parent =_meta_table['AutoRp.Active.MappingAgent']['meta_info']
 _meta_table['AutoRp.Active.MappingAgent.Summary']['meta_info'].parent =_meta_table['AutoRp.Active.MappingAgent']['meta_info']
-_meta_table['AutoRp.Active.CandidateRps']['meta_info'].parent =_meta_table['AutoRp.Active']['meta_info']
+_meta_table['AutoRp.Active.CandidateRp']['meta_info'].parent =_meta_table['AutoRp.Active']['meta_info']
 _meta_table['AutoRp.Active.MappingAgent']['meta_info'].parent =_meta_table['AutoRp.Active']['meta_info']
 _meta_table['AutoRp.Standby']['meta_info'].parent =_meta_table['AutoRp']['meta_info']
 _meta_table['AutoRp.Active']['meta_info'].parent =_meta_table['AutoRp']['meta_info']

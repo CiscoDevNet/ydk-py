@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag' : {
         'meta_info' : _MetaInfoClass('Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag',
@@ -112,11 +111,17 @@ _meta_table = {
                 ''',
                 'confidentiality_offset',
                 'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
-            _MetaInfoClassMember('delay-protect', ATTRIBUTE, 'bool' , None, None, 
+            _MetaInfoClassMember('delay-protection', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                Delay Protect
                 ''',
-                'delay_protect',
+                'delay_protection',
+                'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
+            _MetaInfoClassMember('include-icv-indicator', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                IncludeICVIndicator
+                ''',
+                'include_icv_indicator',
                 'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
             _MetaInfoClassMember('inherited-policy', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -135,12 +140,6 @@ _meta_table = {
                 '''                macsec configured interface
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
-            _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Key Chain name
-                ''',
-                'key_chain',
                 'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
             _MetaInfoClassMember('mac-sec-desired', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -278,6 +277,12 @@ _meta_table = {
                 '''                SSCI of the Local TxSC
                 ''',
                 'ssci',
+                'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
+            _MetaInfoClassMember('time-to-sak-rekey', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Next SAK Rekey time in Sec
+                ''',
+                'time_to_sak_rekey',
                 'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
             _MetaInfoClassMember('virtual-port-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -425,6 +430,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Macsec.Mka.Interfaces.Interface.Session.Ca',
             False, 
             [
+            _MetaInfoClassMember('authentication-mode', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                CA Authentication Mode
+                :PRIMARY-PSK/FALLBACK-PSK/EAP
+                ''',
+                'authentication_mode',
+                'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
             _MetaInfoClassMember('authenticator', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                authenticator
@@ -454,6 +466,12 @@ _meta_table = {
                 '''                Is Key Server
                 ''',
                 'is_key_server',
+                'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
+            _MetaInfoClassMember('key-chain', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Key Chain name
+                ''',
+                'key_chain',
                 'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
             _MetaInfoClassMember('live-peer', REFERENCE_LIST, 'LivePeer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper', 'Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer', 
                 [], [], 

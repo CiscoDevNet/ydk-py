@@ -354,9 +354,13 @@ class BgpReorgOptEnum(Enum):
 
     	Advertise local routes
 
-    .. data:: bgp_cfg_adv_def_imp_disable = 5
+    .. data:: bgp_cfg_adv_def_vrf_imp_disable = 5
 
     	Disable adv of Def VRF Imported routes
+
+    .. data:: bgp_cfg_adv_vrf_re_imp_disable = 6
+
+    	Disable adv of VRF ReImported routes
 
     """
 
@@ -368,7 +372,9 @@ class BgpReorgOptEnum(Enum):
 
     bgp_cfg_adv_local = 4
 
-    bgp_cfg_adv_def_imp_disable = 5
+    bgp_cfg_adv_def_vrf_imp_disable = 5
+
+    bgp_cfg_adv_vrf_re_imp_disable = 6
 
 
     @staticmethod
@@ -594,6 +600,60 @@ class BgpVrfRouteTargetEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
         return meta._meta_table['BgpVrfRouteTargetEnum']
+
+
+class BmpPolicySelectEnum(Enum):
+    """
+    BmpPolicySelectEnum
+
+    Bmp policy select
+
+    .. data:: pre_policy = 1
+
+    	Pickup routes before policy application
+
+    .. data:: post_policy = 2
+
+    	Pickup routes after policy application
+
+    """
+
+    pre_policy = 1
+
+    post_policy = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BmpPolicySelectEnum']
+
+
+class BmpRouteDirectionEnum(Enum):
+    """
+    BmpRouteDirectionEnum
+
+    Bmp route direction
+
+    .. data:: inbound = 1
+
+    	Pickup routes at inbound direction from peer
+
+    .. data:: outbound = 2
+
+    	Pickup routes at outbound direction to peer
+
+    """
+
+    inbound = 1
+
+    outbound = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BmpRouteDirectionEnum']
 
 
 
@@ -885,13 +945,6 @@ class Bgp(object):
                             	Allow redistribution of iBGP into IGPs (dangerous)
                             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
-                            .. attribute:: label_mode
-                            
-                            	MPLS/VPN label allocation mode
-                            	**type**\:   :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.LabelMode>`
-                            
-                            	**status**\: obsolete
-                            
                             .. attribute:: local_preference
                             
                             	Configure default local preference
@@ -970,8 +1023,6 @@ class Bgp(object):
                                 self.global_timers = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers()
                                 self.global_timers.parent = self
                                 self.igp_redist_internal = None
-                                self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.LabelMode()
-                                self.label_mode.parent = self
                                 self.local_preference = None
                                 self.mpls_activated_interfaces = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces()
                                 self.mpls_activated_interfaces.parent = self
@@ -1087,60 +1138,6 @@ class Bgp(object):
                                     return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher']['meta_info']
 
 
-                            class LabelMode(object):
-                                """
-                                MPLS/VPN label allocation mode
-                                
-                                .. attribute:: label_allocation_mode
-                                
-                                	Label allocation mode\: per\-ce  Set per CE label mode, per\-vrf Set per VRF label mode
-                                	**type**\:  str
-                                
-                                .. attribute:: route_policy_name
-                                
-                                	Label mode route policy name
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2015-08-27'
-
-                                def __init__(self):
-                                    self.parent = None
-                                    self.label_allocation_mode = None
-                                    self.route_policy_name = None
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:label-mode'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.label_allocation_mode is not None:
-                                        return True
-
-                                    if self.route_policy_name is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.LabelMode']['meta_info']
-
-
                             class VrfGlobalAfs(object):
                                 """
                                 Global VRF\-specific configuration
@@ -1187,6 +1184,11 @@ class Bgp(object):
                                     
                                     	Advertise additional paths Send capability
                                     	**type**\:   :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
+                                    
+                                    .. attribute:: advertise_local_labeled_route_safi_unicast
+                                    
+                                    	Enable/disable advertisement of routes with local\-label via Unicast SAFI
+                                    	**type**\:   :py:class:`BgpAdvertiseLocalLabeledRouteCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAdvertiseLocalLabeledRouteCfgEnum>`
                                     
                                     .. attribute:: aggregate_addresses
                                     
@@ -1377,6 +1379,7 @@ class Bgp(object):
                                         self.additional_paths_selection = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection()
                                         self.additional_paths_selection.parent = self
                                         self.additional_paths_send = None
+                                        self.advertise_local_labeled_route_safi_unicast = None
                                         self.aggregate_addresses = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses()
                                         self.aggregate_addresses.parent = self
                                         self.allocate_label = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel()
@@ -3109,6 +3112,9 @@ class Bgp(object):
                                         if self.additional_paths_send is not None:
                                             return True
 
+                                        if self.advertise_local_labeled_route_safi_unicast is not None:
+                                            return True
+
                                         if self.aggregate_addresses is not None and self.aggregate_addresses._has_data():
                                             return True
 
@@ -3671,9 +3677,6 @@ class Bgp(object):
                                 if self.igp_redist_internal is not None:
                                     return True
 
-                                if self.label_mode is not None and self.label_mode._has_data():
-                                    return True
-
                                 if self.local_preference is not None:
                                     return True
 
@@ -3715,6 +3718,11 @@ class Bgp(object):
                             	A particular VRF peer
                             	**type**\: list of    :py:class:`VrfNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor>`
                             
+                            .. attribute:: vrf_neighbor_prefix_length
+                            
+                            	A particular VRF peer
+                            	**type**\: list of    :py:class:`VrfNeighborPrefixLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength>`
+                            
                             
 
                             """
@@ -3727,6 +3735,9 @@ class Bgp(object):
                                 self.vrf_neighbor = YList()
                                 self.vrf_neighbor.parent = self
                                 self.vrf_neighbor.name = 'vrf_neighbor'
+                                self.vrf_neighbor_prefix_length = YList()
+                                self.vrf_neighbor_prefix_length.parent = self
+                                self.vrf_neighbor_prefix_length.name = 'vrf_neighbor_prefix_length'
 
 
                             class VrfNeighbor(object):
@@ -3828,6 +3839,15 @@ class Bgp(object):
                                 	Graceful Maintenance mode
                                 	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance>`
                                 
+                                .. attribute:: idle_watch_time
+                                
+                                	Time to wait for deleteing IDLE state Dynamic peer
+                                	**type**\:  int
+                                
+                                	**range:** 30..1800
+                                
+                                	**units**\: second
+                                
                                 .. attribute:: ignore_connected_check_ebgp
                                 
                                 	TRUE to disable the connected nexthop check for this peer.FALSE to enable the connected nexthop check for this peer
@@ -3852,6 +3872,13 @@ class Bgp(object):
                                 
                                 	Specify a local\-as number
                                 	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs>`
+                                
+                                .. attribute:: max_peers
+                                
+                                	Set Maximum Peers in Dynamic Range
+                                	**type**\:  int
+                                
+                                	**range:** 1..4096
                                 
                                 .. attribute:: msg_log_in
                                 
@@ -3919,6 +3946,11 @@ class Bgp(object):
                                 
                                 	Set remote AS
                                 	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs>`
+                                
+                                .. attribute:: remote_as_list
+                                
+                                	Remote\-as\-list group name
+                                	**type**\:  str
                                 
                                 .. attribute:: send_buffer_size
                                 
@@ -4016,6 +4048,7 @@ class Bgp(object):
                                     self.enforce_first_as = None
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
+                                    self.idle_watch_time = None
                                     self.ignore_connected_check_ebgp = None
                                     self.internal_vpn_client_ibgpce = None
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain()
@@ -4024,6 +4057,7 @@ class Bgp(object):
                                     self.local_address.parent = self
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs()
                                     self.local_as.parent = self
+                                    self.max_peers = None
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut()
@@ -4041,6 +4075,7 @@ class Bgp(object):
                                     self.receive_buffer_size.parent = self
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs()
                                     self.remote_as.parent = self
+                                    self.remote_as_list = None
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize()
                                     self.send_buffer_size.parent = self
                                     self.session_group_add_member = None
@@ -4134,6 +4169,11 @@ class Bgp(object):
                                         	Advertise Of Local Routes to the peer with different RT
                                         	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn>`
                                         
+                                        .. attribute:: advertise_local_labeled_route
+                                        
+                                        	Enable/disable advertisement of routes with local\-label
+                                        	**type**\:   :py:class:`BgpAdvertiseLocalLabeledRouteCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAdvertiseLocalLabeledRouteCfgEnum>`
+                                        
                                         .. attribute:: advertise_local_v4
                                         
                                         	Advertise Of Local Routes to the peer with different RT
@@ -4165,6 +4205,16 @@ class Bgp(object):
                                         
                                         	Advertise Translated Routes to the peer
                                         	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6>`
                                         
                                         .. attribute:: af_group
                                         
@@ -4352,6 +4402,7 @@ class Bgp(object):
                                             self.advertise_l2vpnevpn.parent = self
                                             self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn()
                                             self.advertise_local_l2vpnevpn.parent = self
+                                            self.advertise_local_labeled_route = None
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6()
@@ -4362,6 +4413,10 @@ class Bgp(object):
                                             self.advertise_v4.parent = self
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
+                                            self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4()
+                                            self.advertise_vrf_imp_disable_v4.parent = self
+                                            self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6()
+                                            self.advertise_vrf_imp_disable_v6.parent = self
                                             self.af_group = None
                                             self.aigp = None
                                             self.aigp_cost_community = None
@@ -4492,15 +4547,15 @@ class Bgp(object):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
                                             .. attribute:: af_name
                                             
                                             	Address family
                                             	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
-                                            
-                                            .. attribute:: reorg_option
-                                            
-                                            	Reorigination option
-                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
@@ -4516,8 +4571,8 @@ class Bgp(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.adv_option = None
                                                 self.af_name = None
-                                                self.reorg_option = None
                                                 self.rt_type = None
 
                                             @property
@@ -4534,10 +4589,10 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.af_name is not None:
+                                                if self.adv_option is not None:
                                                     return True
 
-                                                if self.reorg_option is not None:
+                                                if self.af_name is not None:
                                                     return True
 
                                                 if self.rt_type is not None:
@@ -4792,15 +4847,15 @@ class Bgp(object):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
                                             .. attribute:: af_name
                                             
                                             	Address family
                                             	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
-                                            
-                                            .. attribute:: reorg_option
-                                            
-                                            	Reorigination option
-                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
@@ -4816,8 +4871,8 @@ class Bgp(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.adv_option = None
                                                 self.af_name = None
-                                                self.reorg_option = None
                                                 self.rt_type = None
 
                                             @property
@@ -4834,10 +4889,10 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.af_name is not None:
+                                                if self.adv_option is not None:
                                                     return True
 
-                                                if self.reorg_option is not None:
+                                                if self.af_name is not None:
                                                     return True
 
                                                 if self.rt_type is not None:
@@ -5452,6 +5507,69 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration']['meta_info']
 
 
+                                        class AdvertiseVrfImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6']['meta_info']
+
+
                                         class AdvertiseV4(object):
                                             """
                                             Advertise Translated Routes to the peer
@@ -5644,6 +5762,69 @@ class Bgp(object):
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath']['meta_info']
 
+
+                                        class AdvertiseVrfImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -5687,6 +5868,9 @@ class Bgp(object):
                                             if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
                                                 return True
 
+                                            if self.advertise_local_labeled_route is not None:
+                                                return True
+
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
                                                 return True
 
@@ -5703,6 +5887,12 @@ class Bgp(object):
                                                 return True
 
                                             if self.advertise_v6 is not None and self.advertise_v6._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v4 is not None and self.advertise_vrf_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v6 is not None and self.advertise_vrf_imp_disable_v6._has_data():
                                                 return True
 
                                             if self.af_group is not None:
@@ -7296,6 +7486,9 @@ class Bgp(object):
                                     if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
                                         return True
 
+                                    if self.idle_watch_time is not None:
+                                        return True
+
                                     if self.ignore_connected_check_ebgp is not None:
                                         return True
 
@@ -7309,6 +7502,9 @@ class Bgp(object):
                                         return True
 
                                     if self.local_as is not None and self.local_as._has_data():
+                                        return True
+
+                                    if self.max_peers is not None:
                                         return True
 
                                     if self.msg_log_in is not None and self.msg_log_in._has_data():
@@ -7342,6 +7538,9 @@ class Bgp(object):
                                         return True
 
                                     if self.remote_as is not None and self.remote_as._has_data():
+                                        return True
+
+                                    if self.remote_as_list is not None:
                                         return True
 
                                     if self.send_buffer_size is not None and self.send_buffer_size._has_data():
@@ -7390,6 +7589,3869 @@ class Bgp(object):
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
                                     return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor']['meta_info']
 
+
+                            class VrfNeighborPrefixLength(object):
+                                """
+                                A particular VRF peer
+                                
+                                .. attribute:: neighbor_address  <key>
+                                
+                                	Neighbor address
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
+                                .. attribute:: prefix_length  <key>
+                                
+                                	Prefix length
+                                	**type**\:  int
+                                
+                                	**range:** 0..127
+                                
+                                .. attribute:: additional_paths_receive_capability
+                                
+                                	Advertise additional paths Receive capability
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                
+                                .. attribute:: additional_paths_send_capability
+                                
+                                	Advertise additional paths Send capability
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                
+                                .. attribute:: advertisement_interval
+                                
+                                	Minimum interval between sending BGP routing updates
+                                	**type**\:   :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval>`
+                                
+                                	**presence node**\: True
+                                
+                                .. attribute:: bfd_enable_modes
+                                
+                                	Strict mode, Default mode or Disable to prevent inheritance from a parent
+                                	**type**\:   :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
+                                
+                                .. attribute:: bfd_minimum_interval
+                                
+                                	Hello interval for BFD sessions created by BGP
+                                	**type**\:  int
+                                
+                                	**range:** 3..30000
+                                
+                                	**units**\: millisecond
+                                
+                                .. attribute:: bfd_multiplier
+                                
+                                	Detection multiplier for BFD sessions created by BGP
+                                	**type**\:  int
+                                
+                                	**range:** 2..16
+                                
+                                .. attribute:: bmp_activates
+                                
+                                	Enable BMP logging for this neighbor
+                                	**type**\:   :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates>`
+                                
+                                .. attribute:: description
+                                
+                                	Up to 80 characters describing this neighbor
+                                	**type**\:  str
+                                
+                                .. attribute:: ebgp_multihop
+                                
+                                	Allow EBGP neighbors not on directly connected networks
+                                	**type**\:   :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop>`
+                                
+                                .. attribute:: ebgp_recv_dmz
+                                
+                                	TRUE to receive DMZ link bandwidth from ebgp peer. FALSE to not receive from ebgp peer and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: ebgp_send_dmz_enable_modes
+                                
+                                	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
+                                	**type**\:   :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                
+                                .. attribute:: egress_peer_engineering
+                                
+                                	TRUE to enable egress peer engineering FALSE to disable egress peer engineering and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: enforce_first_as
+                                
+                                	TRUE to enforce first AS; FALSE to not enforce first AS
+                                	**type**\:  bool
+                                
+                                .. attribute:: graceful_maintenance
+                                
+                                	Graceful Maintenance mode
+                                	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance>`
+                                
+                                .. attribute:: idle_watch_time
+                                
+                                	Time to wait for deleteing IDLE state Dynamic peer
+                                	**type**\:  int
+                                
+                                	**range:** 30..1800
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: ignore_connected_check_ebgp
+                                
+                                	TRUE to disable the connected nexthop check for this peer.FALSE to enable the connected nexthop check for this peer
+                                	**type**\:  bool
+                                
+                                .. attribute:: internal_vpn_client_ibgpce
+                                
+                                	TRUE to preserve the CE path attributes.FALSE to override CE path attributes
+                                	**type**\:  bool
+                                
+                                .. attribute:: keychain
+                                
+                                	Set or disable keychain based authentication
+                                	**type**\:   :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain>`
+                                
+                                .. attribute:: local_address
+                                
+                                	Local ip address
+                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress>`
+                                
+                                .. attribute:: local_as
+                                
+                                	Specify a local\-as number
+                                	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs>`
+                                
+                                .. attribute:: max_peers
+                                
+                                	Set Maximum Peers in Dynamic Range
+                                	**type**\:  int
+                                
+                                	**range:** 1..4096
+                                
+                                .. attribute:: msg_log_in
+                                
+                                	Message log inbound
+                                	**type**\:   :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn>`
+                                
+                                .. attribute:: msg_log_out
+                                
+                                	Message log outbound
+                                	**type**\:   :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut>`
+                                
+                                .. attribute:: neighbor_cluster_id
+                                
+                                	Neighbor Cluster\-id
+                                	**type**\:   :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId>`
+                                
+                                .. attribute:: neighbor_graceful_restart
+                                
+                                	TRUE to Enable graceful restart support for neighbor.  FALSE to disable graceful restart support for neighbor
+                                	**type**\:  bool
+                                
+                                .. attribute:: neighbor_graceful_restart_stalepath_time
+                                
+                                	Maximum time to wait for restart of GR capable peer
+                                	**type**\:  int
+                                
+                                	**range:** 1..4095
+                                
+                                	**units**\: second
+                                
+                                	**default value**\: 360
+                                
+                                .. attribute:: neighbor_graceful_restart_time
+                                
+                                	Restart time advertised to neighbor
+                                	**type**\:  int
+                                
+                                	**range:** 1..4095
+                                
+                                	**units**\: second
+                                
+                                	**default value**\: 120
+                                
+                                .. attribute:: neighbor_group_add_member
+                                
+                                	Inherit configuration from a neighbor\-group
+                                	**type**\:  str
+                                
+                                .. attribute:: password
+                                
+                                	Set or disable a password
+                                	**type**\:   :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password>`
+                                
+                                .. attribute:: propagate_dmz_link_bandwidth
+                                
+                                	TRUE to propagate DMZ link bandwidth.  FALSE to not propagate and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: receive_buffer_size
+                                
+                                	Set socket receive buffer size and BGP read buffer size
+                                	**type**\:   :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize>`
+                                
+                                .. attribute:: remote_as
+                                
+                                	Set remote AS
+                                	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs>`
+                                
+                                .. attribute:: remote_as_list
+                                
+                                	Remote\-as\-list group name
+                                	**type**\:  str
+                                
+                                .. attribute:: send_buffer_size
+                                
+                                	Set socket send buffer size and BGP write buffer size
+                                	**type**\:   :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize>`
+                                
+                                .. attribute:: session_group_add_member
+                                
+                                	Inherit address\-family independent config from a session\-group
+                                	**type**\:  str
+                                
+                                .. attribute:: session_open_mode
+                                
+                                	TCP mode to be used to establish BGP session
+                                	**type**\:   :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                
+                                	**default value**\: either
+                                
+                                .. attribute:: shutdown
+                                
+                                	TRUE to shutdown this entity, FALSE to prevent this entity from being shutdown even if the parent is
+                                	**type**\:  bool
+                                
+                                .. attribute:: suppress_all_capabilities
+                                
+                                	TRUE to suppress all capabilities. FALSE to not suppress and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: suppress_four_byte_as_capability
+                                
+                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: tcpmss
+                                
+                                	TCP Maximum segment size
+                                	**type**\:   :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss>`
+                                
+                                .. attribute:: timers
+                                
+                                	BGP per neighbor timers
+                                	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers>`
+                                
+                                .. attribute:: tos
+                                
+                                	TOS (Type Of Service)
+                                	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos>`
+                                
+                                .. attribute:: ttl_security
+                                
+                                	TRUE to enable BGP TTL Security.  FALSE to not enable it and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: update_in_filtering
+                                
+                                	Inbound update filtering
+                                	**type**\:   :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering>`
+                                
+                                .. attribute:: update_source_interface
+                                
+                                	Select an interface to configure
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                .. attribute:: vrf_neighbor_afs
+                                
+                                	Address family type of a VRF neighbor
+                                	**type**\:   :py:class:`VrfNeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-bgp-cfg'
+                                _revision = '2015-08-27'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.neighbor_address = None
+                                    self.prefix_length = None
+                                    self.additional_paths_receive_capability = None
+                                    self.additional_paths_send_capability = None
+                                    self.advertisement_interval = None
+                                    self.bfd_enable_modes = None
+                                    self.bfd_minimum_interval = None
+                                    self.bfd_multiplier = None
+                                    self.bmp_activates = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates()
+                                    self.bmp_activates.parent = self
+                                    self.description = None
+                                    self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop()
+                                    self.ebgp_multihop.parent = self
+                                    self.ebgp_recv_dmz = None
+                                    self.ebgp_send_dmz_enable_modes = None
+                                    self.egress_peer_engineering = None
+                                    self.enforce_first_as = None
+                                    self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance()
+                                    self.graceful_maintenance.parent = self
+                                    self.idle_watch_time = None
+                                    self.ignore_connected_check_ebgp = None
+                                    self.internal_vpn_client_ibgpce = None
+                                    self.keychain = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain()
+                                    self.keychain.parent = self
+                                    self.local_address = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress()
+                                    self.local_address.parent = self
+                                    self.local_as = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs()
+                                    self.local_as.parent = self
+                                    self.max_peers = None
+                                    self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn()
+                                    self.msg_log_in.parent = self
+                                    self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut()
+                                    self.msg_log_out.parent = self
+                                    self.neighbor_cluster_id = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId()
+                                    self.neighbor_cluster_id.parent = self
+                                    self.neighbor_graceful_restart = None
+                                    self.neighbor_graceful_restart_stalepath_time = None
+                                    self.neighbor_graceful_restart_time = None
+                                    self.neighbor_group_add_member = None
+                                    self.password = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password()
+                                    self.password.parent = self
+                                    self.propagate_dmz_link_bandwidth = None
+                                    self.receive_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize()
+                                    self.receive_buffer_size.parent = self
+                                    self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs()
+                                    self.remote_as.parent = self
+                                    self.remote_as_list = None
+                                    self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize()
+                                    self.send_buffer_size.parent = self
+                                    self.session_group_add_member = None
+                                    self.session_open_mode = None
+                                    self.shutdown = None
+                                    self.suppress_all_capabilities = None
+                                    self.suppress_four_byte_as_capability = None
+                                    self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss()
+                                    self.tcpmss.parent = self
+                                    self.timers = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers()
+                                    self.timers.parent = self
+                                    self.tos = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos()
+                                    self.tos.parent = self
+                                    self.ttl_security = None
+                                    self.update_in_filtering = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering()
+                                    self.update_in_filtering.parent = self
+                                    self.update_source_interface = None
+                                    self.vrf_neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs()
+                                    self.vrf_neighbor_afs.parent = self
+
+
+                                class VrfNeighborAfs(object):
+                                    """
+                                    Address family type of a VRF neighbor
+                                    
+                                    .. attribute:: vrf_neighbor_af
+                                    
+                                    	Address family type of a VRF neighbor
+                                    	**type**\: list of    :py:class:`VrfNeighborAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.vrf_neighbor_af = YList()
+                                        self.vrf_neighbor_af.parent = self
+                                        self.vrf_neighbor_af.name = 'vrf_neighbor_af'
+
+
+                                    class VrfNeighborAf(object):
+                                        """
+                                        Address family type of a VRF neighbor
+                                        
+                                        .. attribute:: af_name  <key>
+                                        
+                                        	BGP neighbor address family
+                                        	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                        
+                                        .. attribute:: accept_own
+                                        
+                                        	Handle self\-originated routes with Accept\-Own community. Valid for following neighbor address\-families\: VPNv4Unicast, VPNv6Unicast
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: accept_route_legacy_rt
+                                        
+                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: activate
+                                        
+                                        	Activate an address family for this neighbor. Deletion of this object causes deletion of all the objects under NeighborAF/VRFNeighborAF/NeighborGroupAF associated with this object
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_def_imp_disable_v4
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_def_imp_disable_v6
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6>`
+                                        
+                                        .. attribute:: advertise_disable
+                                        
+                                        	Disable Advertise Of Routes to the peer
+                                        	**type**\:   :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable>`
+                                        
+                                        .. attribute:: advertise_l2vpnevpn
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:   :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2Vpnevpn>`
+                                        
+                                        .. attribute:: advertise_local_l2vpnevpn
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn>`
+                                        
+                                        .. attribute:: advertise_local_labeled_route
+                                        
+                                        	Enable/disable advertisement of routes with local\-label
+                                        	**type**\:   :py:class:`BgpAdvertiseLocalLabeledRouteCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAdvertiseLocalLabeledRouteCfgEnum>`
+                                        
+                                        .. attribute:: advertise_local_v4
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:   :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4>`
+                                        
+                                        .. attribute:: advertise_local_v6
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:   :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6>`
+                                        
+                                        .. attribute:: advertise_orf
+                                        
+                                        	Advertise ORF capability to the peer
+                                        	**type**\:   :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        
+                                        	**default value**\: none
+                                        
+                                        .. attribute:: advertise_permanent_network
+                                        
+                                        	Advertise Permanent Networks to the peer
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_v4
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:   :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4>`
+                                        
+                                        .. attribute:: advertise_v6
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6>`
+                                        
+                                        .. attribute:: af_group
+                                        
+                                        	Inherit configuration for this address\-family from an AF\-group
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: aigp
+                                        
+                                        	Enable Accumulated IGP Metric for this neighbor
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        
+                                        .. attribute:: aigp_cost_community
+                                        
+                                        	Send AIGP value in Cost Community. 
+                                        	**type**\:   :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity>`
+                                        
+                                        	**presence node**\: True
+                                        
+                                        .. attribute:: aigp_send_med
+                                        
+                                        	Enable/Disable sending AIGP in MED 
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        
+                                        .. attribute:: allow_as_in
+                                        
+                                        	Allow as\-path with my AS present in it
+                                        	**type**\:  int
+                                        
+                                        	**range:** 1..10
+                                        
+                                        	**default value**\: 3
+                                        
+                                        .. attribute:: as_override
+                                        
+                                        	TRUE to override matching AS\-number while sending update. FALSE to prevent as\-override from being inherited from the parent
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: true
+                                        
+                                        .. attribute:: default_originate
+                                        
+                                        	Originate default route to this neighbor
+                                        	**type**\:   :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate>`
+                                        
+                                        .. attribute:: default_weight
+                                        
+                                        	Set default weight for routes from this neighbor/neighbor\-group/af\-group
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: encapsulation_type
+                                        
+                                        	Encapsulation type for this neighbor
+                                        	**type**\:   :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
+                                        
+                                        .. attribute:: flowspec_validation
+                                        
+                                        	Config Flowspec validation for this neighbor
+                                        	**type**\:   :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
+                                        
+                                        .. attribute:: import_
+                                        
+                                        	Import Reorigination options for Routes from the peer
+                                        	**type**\:   :py:class:`Import_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import_>`
+                                        
+                                        .. attribute:: maximum_prefixes
+                                        
+                                        	Maximum number of prefixes to accept from this peer
+                                        	**type**\:   :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes>`
+                                        
+                                        	**presence node**\: True
+                                        
+                                        .. attribute:: multipath
+                                        
+                                        	Allow paths from this neighbor to be eligible for selective multipath
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: neighbor_af_long_lived_graceful_restart_capable
+                                        
+                                        	TRUE to treat neighbor as Long\-lived Graceful\-restart capable. FALSE to rely on capability negotiation
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: neighbor_af_long_lived_graceful_restart_stale_time
+                                        
+                                        	Maximum time to wait before purging long lived routes
+                                        	**type**\:   :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime>`
+                                        
+                                        .. attribute:: next_hop_self
+                                        
+                                        	Disable the next hop calculation and  insert your own address in the nexthop field of advertised routes you learned from the neighbor
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: next_hop_unchanged
+                                        
+                                        	TRUE to disable overwriting of next hop before advertising to eBGP peers. FALSE to prevent next\-hop\-unchanged from being inherited
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: next_hop_unchanged_multipath
+                                        
+                                        	TRUE to disable overwriting of next hop for multipaths. FALSE to prevent next\-hop\-unchanged for multipaths
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: prefix_orf_policy
+                                        
+                                        	Prefix ORF policy name for incoming updates
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: remove_private_as_entire_as_path
+                                        
+                                        	Remove private AS number from outbound updates
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath>`
+                                        
+                                        	**presence node**\: True
+                                        
+                                        .. attribute:: remove_private_as_entire_as_path_inbound
+                                        
+                                        	Remove private AS number from inbound updates
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound>`
+                                        
+                                        	**presence node**\: True
+                                        
+                                        .. attribute:: route_policy_in
+                                        
+                                        	Route policy name to apply to inbound routes
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: route_policy_out
+                                        
+                                        	Route policy name to apply to outbound routes
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: route_reflector_client
+                                        
+                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: send_community_ebgp
+                                        
+                                        	TRUE to send communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: send_community_ebgp_graceful_shutdown
+                                        
+                                        	TRUE to send communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: send_ext_community_ebgp
+                                        
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: site_of_origin
+                                        
+                                        	Site\-of\-Origin extended community associated with the neighbor
+                                        	**type**\:   :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin>`
+                                        
+                                        .. attribute:: soft_reconfiguration
+                                        
+                                        	Enable/disable inbound soft reconfiguration for this neighbor/neighbor\-group/af\-group
+                                        	**type**\:   :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.af_name = None
+                                            self.accept_own = None
+                                            self.accept_route_legacy_rt = None
+                                            self.activate = None
+                                            self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4()
+                                            self.advertise_def_imp_disable_v4.parent = self
+                                            self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6()
+                                            self.advertise_def_imp_disable_v6.parent = self
+                                            self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable()
+                                            self.advertise_disable.parent = self
+                                            self.advertise_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2Vpnevpn()
+                                            self.advertise_l2vpnevpn.parent = self
+                                            self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn()
+                                            self.advertise_local_l2vpnevpn.parent = self
+                                            self.advertise_local_labeled_route = None
+                                            self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4()
+                                            self.advertise_local_v4.parent = self
+                                            self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6()
+                                            self.advertise_local_v6.parent = self
+                                            self.advertise_orf = None
+                                            self.advertise_permanent_network = None
+                                            self.advertise_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4()
+                                            self.advertise_v4.parent = self
+                                            self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6()
+                                            self.advertise_v6.parent = self
+                                            self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4()
+                                            self.advertise_vrf_imp_disable_v4.parent = self
+                                            self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6()
+                                            self.advertise_vrf_imp_disable_v6.parent = self
+                                            self.af_group = None
+                                            self.aigp = None
+                                            self.aigp_cost_community = None
+                                            self.aigp_send_med = None
+                                            self.allow_as_in = None
+                                            self.as_override = None
+                                            self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate()
+                                            self.default_originate.parent = self
+                                            self.default_weight = None
+                                            self.encapsulation_type = None
+                                            self.flowspec_validation = None
+                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import_()
+                                            self.import_.parent = self
+                                            self.maximum_prefixes = None
+                                            self.multipath = None
+                                            self.neighbor_af_long_lived_graceful_restart_capable = None
+                                            self.neighbor_af_long_lived_graceful_restart_stale_time = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime()
+                                            self.neighbor_af_long_lived_graceful_restart_stale_time.parent = self
+                                            self.next_hop_self = None
+                                            self.next_hop_unchanged = None
+                                            self.next_hop_unchanged_multipath = None
+                                            self.prefix_orf_policy = None
+                                            self.remove_private_as_entire_as_path = None
+                                            self.remove_private_as_entire_as_path_inbound = None
+                                            self.route_policy_in = None
+                                            self.route_policy_out = None
+                                            self.route_reflector_client = None
+                                            self.send_community_ebgp = None
+                                            self.send_community_ebgp_graceful_shutdown = None
+                                            self.send_ext_community_ebgp = None
+                                            self.site_of_origin = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin()
+                                            self.site_of_origin.parent = self
+                                            self.soft_reconfiguration = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration()
+                                            self.soft_reconfiguration.parent = self
+
+
+                                        class AigpCostCommunity(object):
+                                            """
+                                            Send AIGP value in Cost Community. 
+                                            
+                                            .. attribute:: cost_community_id
+                                            
+                                            	Cost Community ID
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: cost_community_poi_type
+                                            
+                                            	Cost Community POI
+                                            	**type**\:   :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	TRUE to enable sending cost community, FALSE otherwise 
+                                            	**type**\:  bool
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: transitive
+                                            
+                                            	True to send transitive cost community FALSE otherwise
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            This class is a :ref:`presence class<presence-class>`
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self._is_presence = True
+                                                self.cost_community_id = None
+                                                self.cost_community_poi_type = None
+                                                self.enable = None
+                                                self.transitive = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:aigp-cost-community'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self._is_presence:
+                                                    return True
+                                                if self.cost_community_id is not None:
+                                                    return True
+
+                                                if self.cost_community_poi_type is not None:
+                                                    return True
+
+                                                if self.enable is not None:
+                                                    return True
+
+                                                if self.transitive is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity']['meta_info']
+
+
+                                        class AdvertiseDefImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6']['meta_info']
+
+
+                                        class AdvertiseDisable(object):
+                                            """
+                                            Disable Advertise Of Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-disable'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable']['meta_info']
+
+
+                                        class MaximumPrefixes(object):
+                                            """
+                                            Maximum number of prefixes to accept from this
+                                            peer
+                                            
+                                            .. attribute:: discard_extra_paths
+                                            
+                                            	Discard extra paths when limit is exceeded
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: prefix_limit
+                                            
+                                            	Maximum prefixes limit
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..4294967295
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: restart_time
+                                            
+                                            	Restart interval
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            	**default value**\: 0
+                                            
+                                            .. attribute:: warning_only
+                                            
+                                            	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: warning_percentage
+                                            
+                                            	Threshold value (%) at which to generate a warning message
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..100
+                                            
+                                            	**default value**\: 75
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            This class is a :ref:`presence class<presence-class>`
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self._is_presence = True
+                                                self.discard_extra_paths = None
+                                                self.prefix_limit = None
+                                                self.restart_time = None
+                                                self.warning_only = None
+                                                self.warning_percentage = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:maximum-prefixes'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self._is_presence:
+                                                    return True
+                                                if self.discard_extra_paths is not None:
+                                                    return True
+
+                                                if self.prefix_limit is not None:
+                                                    return True
+
+                                                if self.restart_time is not None:
+                                                    return True
+
+                                                if self.warning_only is not None:
+                                                    return True
+
+                                                if self.warning_percentage is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes']['meta_info']
+
+
+                                        class RemovePrivateAsEntireAsPathInbound(object):
+                                            """
+                                            Remove private AS number from inbound updates
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	TRUE to remove private AS from inbound updates. FALSE to prevent remove\-private\-AS from being inherited
+                                            	**type**\:  bool
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: entire
+                                            
+                                            	TRUE to remove private AS from inbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            This class is a :ref:`presence class<presence-class>`
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self._is_presence = True
+                                                self.enable = None
+                                                self.entire = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:remove-private-as-entire-as-path-inbound'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self._is_presence:
+                                                    return True
+                                                if self.enable is not None:
+                                                    return True
+
+                                                if self.entire is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
+
+
+                                        class AdvertiseDefImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4']['meta_info']
+
+
+                                        class AdvertiseL2Vpnevpn(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2Vpnevpn']['meta_info']
+
+
+                                        class AdvertiseLocalL2Vpnevpn(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn']['meta_info']
+
+
+                                        class NeighborAfLongLivedGracefulRestartStaleTime(object):
+                                            """
+                                            Maximum time to wait before purging long lived
+                                            routes
+                                            
+                                            .. attribute:: stale_time_accept
+                                            
+                                            	Max time (seconds)
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..16777215
+                                            
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
+                                            
+                                            .. attribute:: stale_time_send
+                                            
+                                            	Max time (seconds)
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..16777215
+                                            
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.stale_time_accept = None
+                                                self.stale_time_send = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:neighbor-af-long-lived-graceful-restart-stale-time'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.stale_time_accept is not None:
+                                                    return True
+
+                                                if self.stale_time_send is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime']['meta_info']
+
+
+                                        class SiteOfOrigin(object):
+                                            """
+                                            Site\-of\-Origin extended community associated
+                                            with the neighbor
+                                            
+                                            .. attribute:: address
+                                            
+                                            	IP address
+                                            	**type**\:  str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: address_index
+                                            
+                                            	IP address Index
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            .. attribute:: as_
+                                            
+                                            	AS number
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: as_index
+                                            
+                                            	AS number Index
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: as_xx
+                                            
+                                            	AS number
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: type
+                                            
+                                            	Type of Extended community
+                                            	**type**\:   :py:class:`BgpSiteOfOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.address = None
+                                                self.address_index = None
+                                                self.as_ = None
+                                                self.as_index = None
+                                                self.as_xx = None
+                                                self.type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:site-of-origin'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.address is not None:
+                                                    return True
+
+                                                if self.address_index is not None:
+                                                    return True
+
+                                                if self.as_ is not None:
+                                                    return True
+
+                                                if self.as_index is not None:
+                                                    return True
+
+                                                if self.as_xx is not None:
+                                                    return True
+
+                                                if self.type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin']['meta_info']
+
+
+                                        class AdvertiseV6(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6']['meta_info']
+
+
+                                        class AdvertiseLocalV6(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6']['meta_info']
+
+
+                                        class Import_(object):
+                                            """
+                                            Import Reorigination options for Routes from the
+                                            peer
+                                            
+                                            .. attribute:: import_reoriginate
+                                            
+                                            	TRUE to Reoriginate imported routes, FALSE to not Reoriginate imported routes \- not supported
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: import_reoriginate_stitching
+                                            
+                                            	TRUE to Reoriginate imported routes with Stitching RTs, FALSE to Reoriginate imported routes with normal RTs
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: import_stitching
+                                            
+                                            	TRUE to Import with Stitching RTs, FALSE to Import with normal RTs
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.import_reoriginate = None
+                                                self.import_reoriginate_stitching = None
+                                                self.import_stitching = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:import'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.import_reoriginate is not None:
+                                                    return True
+
+                                                if self.import_reoriginate_stitching is not None:
+                                                    return True
+
+                                                if self.import_stitching is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import_']['meta_info']
+
+
+                                        class DefaultOriginate(object):
+                                            """
+                                            Originate default route to this neighbor
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	FALSE to prevent default\-originate from, being inherited from a parent. TRUE otherwise
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: route_policy_name
+                                            
+                                            	Route policy name to specify criteria to originate default
+                                            	**type**\:  str
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.enable = None
+                                                self.route_policy_name = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:default-originate'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.enable is not None:
+                                                    return True
+
+                                                if self.route_policy_name is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate']['meta_info']
+
+
+                                        class SoftReconfiguration(object):
+                                            """
+                                            Enable/disable inbound soft reconfiguration for
+                                            this neighbor/neighbor\-group/af\-group
+                                            
+                                            .. attribute:: inbound_soft
+                                            
+                                            	FALSE to prohibit inbound soft reconfiguration. TRUE otherwise
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: soft_always
+                                            
+                                            	TRUE to always use soft reconfig, even if route refresh is supported.  FALSE otherwise
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.inbound_soft = None
+                                                self.soft_always = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:soft-reconfiguration'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.inbound_soft is not None:
+                                                    return True
+
+                                                if self.soft_always is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration']['meta_info']
+
+
+                                        class AdvertiseVrfImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6']['meta_info']
+
+
+                                        class AdvertiseV4(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4']['meta_info']
+
+
+                                        class AdvertiseLocalV4(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4']['meta_info']
+
+
+                                        class RemovePrivateAsEntireAsPath(object):
+                                            """
+                                            Remove private AS number from outbound updates
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	TRUE to remove private AS from outbound updates .  FALSE to prevent remove\-private\-AS from being inherited
+                                            	**type**\:  bool
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: entire
+                                            
+                                            	TRUE to remove private AS from outbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            This class is a :ref:`presence class<presence-class>`
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self._is_presence = True
+                                                self.enable = None
+                                                self.entire = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:remove-private-as-entire-as-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self._is_presence:
+                                                    return True
+                                                if self.enable is not None:
+                                                    return True
+
+                                                if self.entire is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath']['meta_info']
+
+
+                                        class AdvertiseVrfImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            if self.af_name is None:
+                                                raise YPYModelError('Key property af_name is None')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:vrf-neighbor-af[Cisco-IOS-XR-ipv4-bgp-cfg:af-name = ' + str(self.af_name) + ']'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.af_name is not None:
+                                                return True
+
+                                            if self.accept_own is not None:
+                                                return True
+
+                                            if self.accept_route_legacy_rt is not None:
+                                                return True
+
+                                            if self.activate is not None:
+                                                return True
+
+                                            if self.advertise_def_imp_disable_v4 is not None and self.advertise_def_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_def_imp_disable_v6 is not None and self.advertise_def_imp_disable_v6._has_data():
+                                                return True
+
+                                            if self.advertise_disable is not None and self.advertise_disable._has_data():
+                                                return True
+
+                                            if self.advertise_l2vpnevpn is not None and self.advertise_l2vpnevpn._has_data():
+                                                return True
+
+                                            if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
+                                                return True
+
+                                            if self.advertise_local_labeled_route is not None:
+                                                return True
+
+                                            if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
+                                                return True
+
+                                            if self.advertise_local_v6 is not None and self.advertise_local_v6._has_data():
+                                                return True
+
+                                            if self.advertise_orf is not None:
+                                                return True
+
+                                            if self.advertise_permanent_network is not None:
+                                                return True
+
+                                            if self.advertise_v4 is not None and self.advertise_v4._has_data():
+                                                return True
+
+                                            if self.advertise_v6 is not None and self.advertise_v6._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v4 is not None and self.advertise_vrf_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v6 is not None and self.advertise_vrf_imp_disable_v6._has_data():
+                                                return True
+
+                                            if self.af_group is not None:
+                                                return True
+
+                                            if self.aigp is not None:
+                                                return True
+
+                                            if self.aigp_cost_community is not None and self.aigp_cost_community._has_data():
+                                                return True
+
+                                            if self.aigp_send_med is not None:
+                                                return True
+
+                                            if self.allow_as_in is not None:
+                                                return True
+
+                                            if self.as_override is not None:
+                                                return True
+
+                                            if self.default_originate is not None and self.default_originate._has_data():
+                                                return True
+
+                                            if self.default_weight is not None:
+                                                return True
+
+                                            if self.encapsulation_type is not None:
+                                                return True
+
+                                            if self.flowspec_validation is not None:
+                                                return True
+
+                                            if self.import_ is not None and self.import_._has_data():
+                                                return True
+
+                                            if self.maximum_prefixes is not None and self.maximum_prefixes._has_data():
+                                                return True
+
+                                            if self.multipath is not None:
+                                                return True
+
+                                            if self.neighbor_af_long_lived_graceful_restart_capable is not None:
+                                                return True
+
+                                            if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time._has_data():
+                                                return True
+
+                                            if self.next_hop_self is not None:
+                                                return True
+
+                                            if self.next_hop_unchanged is not None:
+                                                return True
+
+                                            if self.next_hop_unchanged_multipath is not None:
+                                                return True
+
+                                            if self.prefix_orf_policy is not None:
+                                                return True
+
+                                            if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path._has_data():
+                                                return True
+
+                                            if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound._has_data():
+                                                return True
+
+                                            if self.route_policy_in is not None:
+                                                return True
+
+                                            if self.route_policy_out is not None:
+                                                return True
+
+                                            if self.route_reflector_client is not None:
+                                                return True
+
+                                            if self.send_community_ebgp is not None:
+                                                return True
+
+                                            if self.send_community_ebgp_graceful_shutdown is not None:
+                                                return True
+
+                                            if self.send_ext_community_ebgp is not None:
+                                                return True
+
+                                            if self.site_of_origin is not None and self.site_of_origin._has_data():
+                                                return True
+
+                                            if self.soft_reconfiguration is not None and self.soft_reconfiguration._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:vrf-neighbor-afs'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.vrf_neighbor_af is not None:
+                                            for child_ref in self.vrf_neighbor_af:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs']['meta_info']
+
+
+                                class LocalAddress(object):
+                                    """
+                                    Local ip address
+                                    
+                                    .. attribute:: local_address_disable
+                                    
+                                    	TRUE to prevent this entity from having a local address if the parent has one.FALSE to specify local ip address
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: local_ip_address
+                                    
+                                    	Local ip address for neighbor
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.local_address_disable = None
+                                        self.local_ip_address = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:local-address'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.local_address_disable is not None:
+                                            return True
+
+                                        if self.local_ip_address is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress']['meta_info']
+
+
+                                class BmpActivates(object):
+                                    """
+                                    Enable BMP logging for this neighbor
+                                    
+                                    .. attribute:: bmp_activate
+                                    
+                                    	Enable BMP logging for this particular server
+                                    	**type**\: list of    :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.bmp_activate = YList()
+                                        self.bmp_activate.parent = self
+                                        self.bmp_activate.name = 'bmp_activate'
+
+
+                                    class BmpActivate(object):
+                                        """
+                                        Enable BMP logging for this particular server
+                                        
+                                        .. attribute:: server_id  <key>
+                                        
+                                        	BMP Server ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 1..8
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.server_id = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            if self.server_id is None:
+                                                raise YPYModelError('Key property server_id is None')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:bmp-activate[Cisco-IOS-XR-ipv4-bgp-cfg:server-id = ' + str(self.server_id) + ']'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.server_id is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:bmp-activates'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.bmp_activate is not None:
+                                            for child_ref in self.bmp_activate:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates']['meta_info']
+
+
+                                class EbgpMultihop(object):
+                                    """
+                                    Allow EBGP neighbors not on directly connected
+                                    networks
+                                    
+                                    .. attribute:: max_hop_count
+                                    
+                                    	Maximum hop count
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..255
+                                    
+                                    	**default value**\: 255
+                                    
+                                    .. attribute:: mpls_deactivation
+                                    
+                                    	TRUE to not enable MPLS and NULL rewrite
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.max_hop_count = None
+                                        self.mpls_deactivation = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ebgp-multihop'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.max_hop_count is not None:
+                                            return True
+
+                                        if self.mpls_deactivation is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop']['meta_info']
+
+
+                                class RemoteAs(object):
+                                    """
+                                    Set remote AS
+                                    
+                                    .. attribute:: as_xx
+                                    
+                                    	xx of AS number xx.yy
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: as_yy
+                                    
+                                    	yy of AS number xx.yy
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.as_xx = None
+                                        self.as_yy = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:remote-as'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.as_xx is not None:
+                                            return True
+
+                                        if self.as_yy is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs']['meta_info']
+
+
+                                class LocalAs(object):
+                                    """
+                                    Specify a local\-as number
+                                    
+                                    .. attribute:: as_xx
+                                    
+                                    	xx of AS number xx.yy
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: as_yy
+                                    
+                                    	yy of AS number xx.yy
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: disable
+                                    
+                                    	Disable Local AS and prevent it from being inherited from a parent
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: dual_as
+                                    
+                                    	Dual\-AS mode
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: no_prepend
+                                    
+                                    	Do not prepend Local AS to announcements from this neighbor
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: replace_as
+                                    
+                                    	Prepend only Local AS to announcements from this neighbor
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.as_xx = None
+                                        self.as_yy = None
+                                        self.disable = None
+                                        self.dual_as = None
+                                        self.no_prepend = None
+                                        self.replace_as = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:local-as'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.as_xx is not None:
+                                            return True
+
+                                        if self.as_yy is not None:
+                                            return True
+
+                                        if self.disable is not None:
+                                            return True
+
+                                        if self.dual_as is not None:
+                                            return True
+
+                                        if self.no_prepend is not None:
+                                            return True
+
+                                        if self.replace_as is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs']['meta_info']
+
+
+                                class Password(object):
+                                    """
+                                    Set or disable a password
+                                    
+                                    .. attribute:: password
+                                    
+                                    	The neighbor password.  Leave unspecified when disabling the password
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (!.+)\|([^!].+)
+                                    
+                                    .. attribute:: password_disable
+                                    
+                                    	TRUE to prevent this entity from having a password even if the parent has one.  FALSEto specify a password
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.password = None
+                                        self.password_disable = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:password'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.password is not None:
+                                            return True
+
+                                        if self.password_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password']['meta_info']
+
+
+                                class AdvertisementInterval(object):
+                                    """
+                                    Minimum interval between sending BGP routing
+                                    updates
+                                    
+                                    .. attribute:: minimum_interval
+                                    
+                                    	Minimum advertisement interval time, secs part
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..600
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    	**units**\: second
+                                    
+                                    .. attribute:: minimum_interval_msecs
+                                    
+                                    	Minimum advertisement interval time, msecs part
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..999
+                                    
+                                    	**units**\: millisecond
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self._is_presence = True
+                                        self.minimum_interval = None
+                                        self.minimum_interval_msecs = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertisement-interval'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self._is_presence:
+                                            return True
+                                        if self.minimum_interval is not None:
+                                            return True
+
+                                        if self.minimum_interval_msecs is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval']['meta_info']
+
+
+                                class NeighborClusterId(object):
+                                    """
+                                    Neighbor Cluster\-id
+                                    
+                                    .. attribute:: cluster_id_address
+                                    
+                                    	Route\-Reflector Cluster ID in IPV4 address format
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: cluster_id_number
+                                    
+                                    	Route\-Reflector Cluster ID as 32 bit quantity
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.cluster_id_address = None
+                                        self.cluster_id_number = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:neighbor-cluster-id'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.cluster_id_address is not None:
+                                            return True
+
+                                        if self.cluster_id_number is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId']['meta_info']
+
+
+                                class Tcpmss(object):
+                                    """
+                                    TCP Maximum segment size
+                                    
+                                    .. attribute:: mss
+                                    
+                                    	Maximum Segment Size
+                                    	**type**\:  int
+                                    
+                                    	**range:** 68..10000
+                                    
+                                    .. attribute:: tcpmss_disable
+                                    
+                                    	TRUE, to prevent inheritance ofTCP MSS valuefrom its parents.FALSE, otherwise
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.mss = None
+                                        self.tcpmss_disable = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:tcpmss'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.mss is not None:
+                                            return True
+
+                                        if self.tcpmss_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss']['meta_info']
+
+
+                                class Tos(object):
+                                    """
+                                    TOS (Type Of Service)
+                                    
+                                    .. attribute:: type
+                                    
+                                    	Set type of service
+                                    	**type**\:   :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
+                                    
+                                    .. attribute:: value
+                                    
+                                    	TOS value to set
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\:   :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
+                                    
+                                    
+                                    ----
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..63
+                                    
+                                    
+                                    ----
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.type = None
+                                        self.value = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:tos'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.type is not None:
+                                            return True
+
+                                        if self.value is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos']['meta_info']
+
+
+                                class UpdateInFiltering(object):
+                                    """
+                                    Inbound update filtering
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Configure inbound update filtering
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: update_in_filtering_attribute_filter_group
+                                    
+                                    	Attribute\-filter group name for update filtering
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: update_in_filtering_message_buffers
+                                    
+                                    	Message buffers to store filtered updates
+                                    	**type**\:   :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    
+                                    	**presence node**\: True
+                                    
+                                    .. attribute:: update_in_filtering_syslog_disable
+                                    
+                                    	Disable inbound update filtering syslog messages
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.enable = None
+                                        self.update_in_filtering_attribute_filter_group = None
+                                        self.update_in_filtering_message_buffers = None
+                                        self.update_in_filtering_syslog_disable = None
+
+
+                                    class UpdateInFilteringMessageBuffers(object):
+                                        """
+                                        Message buffers to store filtered updates
+                                        
+                                        .. attribute:: non_circular_buffer
+                                        
+                                        	TRUE to configure non\-circular buffer
+                                        	**type**\:  bool
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: number_of_buffers
+                                        
+                                        	Number of message buffers
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..25
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
+                                        
+
+                                        This class is a :ref:`presence class<presence-class>`
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self._is_presence = True
+                                            self.non_circular_buffer = None
+                                            self.number_of_buffers = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:update-in-filtering-message-buffers'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self._is_presence:
+                                                return True
+                                            if self.non_circular_buffer is not None:
+                                                return True
+
+                                            if self.number_of_buffers is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:update-in-filtering'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.enable is not None:
+                                            return True
+
+                                        if self.update_in_filtering_attribute_filter_group is not None:
+                                            return True
+
+                                        if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers._has_data():
+                                            return True
+
+                                        if self.update_in_filtering_syslog_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering']['meta_info']
+
+
+                                class MsgLogOut(object):
+                                    """
+                                    Message log outbound
+                                    
+                                    .. attribute:: msg_buf_count
+                                    
+                                    	Outbound message log buffer size
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..100
+                                    
+                                    .. attribute:: msg_log_disable
+                                    
+                                    	Disable inbound message logging
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: msg_log_inherit_disable
+                                    
+                                    	TRUE, to prevent this entity from having a outbound message logging if parent has one
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.msg_buf_count = None
+                                        self.msg_log_disable = None
+                                        self.msg_log_inherit_disable = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:msg-log-out'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.msg_buf_count is not None:
+                                            return True
+
+                                        if self.msg_log_disable is not None:
+                                            return True
+
+                                        if self.msg_log_inherit_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut']['meta_info']
+
+
+                                class ReceiveBufferSize(object):
+                                    """
+                                    Set socket receive buffer size and BGP read
+                                    buffer size
+                                    
+                                    .. attribute:: bgp_receive_size
+                                    
+                                    	BGP read buffer size in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 512..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
+                                    .. attribute:: socket_receive_size
+                                    
+                                    	Receive socket buffer size in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 512..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 32768
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.bgp_receive_size = None
+                                        self.socket_receive_size = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:receive-buffer-size'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.bgp_receive_size is not None:
+                                            return True
+
+                                        if self.socket_receive_size is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize']['meta_info']
+
+
+                                class MsgLogIn(object):
+                                    """
+                                    Message log inbound
+                                    
+                                    .. attribute:: msg_buf_count
+                                    
+                                    	Inbound message log buffer size
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..100
+                                    
+                                    .. attribute:: msg_log_disable
+                                    
+                                    	Disable inbound message logging
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: msg_log_inherit_disable
+                                    
+                                    	TRUE, to prevent this entity from having a inbound message logging if parent has one
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.msg_buf_count = None
+                                        self.msg_log_disable = None
+                                        self.msg_log_inherit_disable = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:msg-log-in'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.msg_buf_count is not None:
+                                            return True
+
+                                        if self.msg_log_disable is not None:
+                                            return True
+
+                                        if self.msg_log_inherit_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn']['meta_info']
+
+
+                                class SendBufferSize(object):
+                                    """
+                                    Set socket send buffer size and BGP write buffer
+                                    size
+                                    
+                                    .. attribute:: bgp_send_size
+                                    
+                                    	BGP write buffer size in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 4096..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
+                                    .. attribute:: socket_send_size
+                                    
+                                    	Send socket buffer size in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 4096..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 24576
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.bgp_send_size = None
+                                        self.socket_send_size = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:send-buffer-size'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.bgp_send_size is not None:
+                                            return True
+
+                                        if self.socket_send_size is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize']['meta_info']
+
+
+                                class Timers(object):
+                                    """
+                                    BGP per neighbor timers.
+                                    
+                                    .. attribute:: hold_time
+                                    
+                                    	Hold time.  Specify 0 to disable keepalives/hold time
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    	**default value**\: 180
+                                    
+                                    .. attribute:: keepalive_interval
+                                    
+                                    	Keepalive interval
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    	**default value**\: 60
+                                    
+                                    .. attribute:: min_accept_hold_time
+                                    
+                                    	Minimum acceptable hold time.  Specify 0 to disable keepalives/hold time
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    	**default value**\: 3
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.hold_time = None
+                                        self.keepalive_interval = None
+                                        self.min_accept_hold_time = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:timers'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.hold_time is not None:
+                                            return True
+
+                                        if self.keepalive_interval is not None:
+                                            return True
+
+                                        if self.min_accept_hold_time is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers']['meta_info']
+
+
+                                class Keychain(object):
+                                    """
+                                    Set or disable keychain based authentication
+                                    
+                                    .. attribute:: keychain_disable
+                                    
+                                    	TRUE to prevent this entity from having a keychain based authentication even if the parent has one.FALSE to specify a keychain name
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: keychain_name
+                                    
+                                    	Name of the keychain associated with neighbor
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.keychain_disable = None
+                                        self.keychain_name = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:keychain'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.keychain_disable is not None:
+                                            return True
+
+                                        if self.keychain_name is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain']['meta_info']
+
+
+                                class GracefulMaintenance(object):
+                                    """
+                                    Graceful Maintenance mode
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enter Graceful Maintenance mode to configure parametrs
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: graceful_maintenance_activate
+                                    
+                                    	Initiate the graceful shutdown procedure
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: graceful_maintenance_as_prepends
+                                    
+                                    	Number of times to prepend local AS number to the AS path
+                                    	**type**\:   :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
+                                    
+                                    .. attribute:: graceful_maintenance_local_preference
+                                    
+                                    	Set Local Preference to advertise routes with
+                                    	**type**\:   :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.enable = None
+                                        self.graceful_maintenance_activate = None
+                                        self.graceful_maintenance_as_prepends = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends()
+                                        self.graceful_maintenance_as_prepends.parent = self
+                                        self.graceful_maintenance_local_preference = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference()
+                                        self.graceful_maintenance_local_preference.parent = self
+
+
+                                    class GracefulMaintenanceLocalPreference(object):
+                                        """
+                                        Set Local Preference to advertise routes with
+                                        
+                                        .. attribute:: gshut_loc_pref_disable
+                                        
+                                        	TRUE, to prevent inheritance of Local Pref value from its parents.FALSE, otherwise
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: local_preference
+                                        
+                                        	Local Preference Value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.gshut_loc_pref_disable = None
+                                            self.local_preference = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:graceful-maintenance-local-preference'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.gshut_loc_pref_disable is not None:
+                                                return True
+
+                                            if self.local_preference is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference']['meta_info']
+
+
+                                    class GracefulMaintenanceAsPrepends(object):
+                                        """
+                                        Number of times to prepend local AS number to
+                                        the AS path
+                                        
+                                        .. attribute:: as_prepends
+                                        
+                                        	number of times AS prepends
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..6
+                                        
+                                        .. attribute:: gshut_prepends_disable
+                                        
+                                        	TRUE, to prevent inheritance of AS Prepends value from its parents.FALSE, otherwise
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.as_prepends = None
+                                            self.gshut_prepends_disable = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:graceful-maintenance-as-prepends'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.as_prepends is not None:
+                                                return True
+
+                                            if self.gshut_prepends_disable is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:graceful-maintenance'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.enable is not None:
+                                            return True
+
+                                        if self.graceful_maintenance_activate is not None:
+                                            return True
+
+                                        if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends._has_data():
+                                            return True
+
+                                        if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference._has_data():
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    if self.neighbor_address is None:
+                                        raise YPYModelError('Key property neighbor_address is None')
+                                    if self.prefix_length is None:
+                                        raise YPYModelError('Key property prefix_length is None')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:vrf-neighbor-prefix-length[Cisco-IOS-XR-ipv4-bgp-cfg:neighbor-address = ' + str(self.neighbor_address) + '][Cisco-IOS-XR-ipv4-bgp-cfg:prefix-length = ' + str(self.prefix_length) + ']'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.neighbor_address is not None:
+                                        return True
+
+                                    if self.prefix_length is not None:
+                                        return True
+
+                                    if self.additional_paths_receive_capability is not None:
+                                        return True
+
+                                    if self.additional_paths_send_capability is not None:
+                                        return True
+
+                                    if self.advertisement_interval is not None and self.advertisement_interval._has_data():
+                                        return True
+
+                                    if self.bfd_enable_modes is not None:
+                                        return True
+
+                                    if self.bfd_minimum_interval is not None:
+                                        return True
+
+                                    if self.bfd_multiplier is not None:
+                                        return True
+
+                                    if self.bmp_activates is not None and self.bmp_activates._has_data():
+                                        return True
+
+                                    if self.description is not None:
+                                        return True
+
+                                    if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
+                                        return True
+
+                                    if self.ebgp_recv_dmz is not None:
+                                        return True
+
+                                    if self.ebgp_send_dmz_enable_modes is not None:
+                                        return True
+
+                                    if self.egress_peer_engineering is not None:
+                                        return True
+
+                                    if self.enforce_first_as is not None:
+                                        return True
+
+                                    if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
+                                        return True
+
+                                    if self.idle_watch_time is not None:
+                                        return True
+
+                                    if self.ignore_connected_check_ebgp is not None:
+                                        return True
+
+                                    if self.internal_vpn_client_ibgpce is not None:
+                                        return True
+
+                                    if self.keychain is not None and self.keychain._has_data():
+                                        return True
+
+                                    if self.local_address is not None and self.local_address._has_data():
+                                        return True
+
+                                    if self.local_as is not None and self.local_as._has_data():
+                                        return True
+
+                                    if self.max_peers is not None:
+                                        return True
+
+                                    if self.msg_log_in is not None and self.msg_log_in._has_data():
+                                        return True
+
+                                    if self.msg_log_out is not None and self.msg_log_out._has_data():
+                                        return True
+
+                                    if self.neighbor_cluster_id is not None and self.neighbor_cluster_id._has_data():
+                                        return True
+
+                                    if self.neighbor_graceful_restart is not None:
+                                        return True
+
+                                    if self.neighbor_graceful_restart_stalepath_time is not None:
+                                        return True
+
+                                    if self.neighbor_graceful_restart_time is not None:
+                                        return True
+
+                                    if self.neighbor_group_add_member is not None:
+                                        return True
+
+                                    if self.password is not None and self.password._has_data():
+                                        return True
+
+                                    if self.propagate_dmz_link_bandwidth is not None:
+                                        return True
+
+                                    if self.receive_buffer_size is not None and self.receive_buffer_size._has_data():
+                                        return True
+
+                                    if self.remote_as is not None and self.remote_as._has_data():
+                                        return True
+
+                                    if self.remote_as_list is not None:
+                                        return True
+
+                                    if self.send_buffer_size is not None and self.send_buffer_size._has_data():
+                                        return True
+
+                                    if self.session_group_add_member is not None:
+                                        return True
+
+                                    if self.session_open_mode is not None:
+                                        return True
+
+                                    if self.shutdown is not None:
+                                        return True
+
+                                    if self.suppress_all_capabilities is not None:
+                                        return True
+
+                                    if self.suppress_four_byte_as_capability is not None:
+                                        return True
+
+                                    if self.tcpmss is not None and self.tcpmss._has_data():
+                                        return True
+
+                                    if self.timers is not None and self.timers._has_data():
+                                        return True
+
+                                    if self.tos is not None and self.tos._has_data():
+                                        return True
+
+                                    if self.ttl_security is not None:
+                                        return True
+
+                                    if self.update_in_filtering is not None and self.update_in_filtering._has_data():
+                                        return True
+
+                                    if self.update_source_interface is not None:
+                                        return True
+
+                                    if self.vrf_neighbor_afs is not None and self.vrf_neighbor_afs._has_data():
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength']['meta_info']
+
                             @property
                             def _common_path(self):
                                 if self.parent is None:
@@ -7406,6 +11468,11 @@ class Bgp(object):
                                     return False
                                 if self.vrf_neighbor is not None:
                                     for child_ref in self.vrf_neighbor:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.vrf_neighbor_prefix_length is not None:
+                                    for child_ref in self.vrf_neighbor_prefix_length:
                                         if child_ref._has_data():
                                             return True
 
@@ -7557,6 +11624,11 @@ class Bgp(object):
                             	A particular BGP peer
                             	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor>`
                             
+                            .. attribute:: neighbor_prefix_length
+                            
+                            	A particular BGP peer
+                            	**type**\: list of    :py:class:`NeighborPrefixLength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength>`
+                            
                             
 
                             """
@@ -7569,6 +11641,9 @@ class Bgp(object):
                                 self.neighbor = YList()
                                 self.neighbor.parent = self
                                 self.neighbor.name = 'neighbor'
+                                self.neighbor_prefix_length = YList()
+                                self.neighbor_prefix_length.parent = self
+                                self.neighbor_prefix_length.name = 'neighbor_prefix_length'
 
 
                             class Neighbor(object):
@@ -7670,6 +11745,15 @@ class Bgp(object):
                                 	Graceful Maintenance mode
                                 	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance>`
                                 
+                                .. attribute:: idle_watch_time
+                                
+                                	Time to wait for deleteing IDLE state Dynamic peer
+                                	**type**\:  int
+                                
+                                	**range:** 30..1800
+                                
+                                	**units**\: second
+                                
                                 .. attribute:: ignore_connected_check_ebgp
                                 
                                 	TRUE to disable the connected nexthop check for this peer.FALSE to enable the connected nexthop check for this peer
@@ -7694,6 +11778,13 @@ class Bgp(object):
                                 
                                 	Specify a local\-as number
                                 	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs>`
+                                
+                                .. attribute:: max_peers
+                                
+                                	Set Maximum Peers in Dynamic Range
+                                	**type**\:  int
+                                
+                                	**range:** 1..4096
                                 
                                 .. attribute:: msg_log_in
                                 
@@ -7766,6 +11857,11 @@ class Bgp(object):
                                 
                                 	Set remote AS
                                 	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs>`
+                                
+                                .. attribute:: remote_as_list
+                                
+                                	Remote\-as\-list group name
+                                	**type**\:  str
                                 
                                 .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                 
@@ -7868,6 +11964,7 @@ class Bgp(object):
                                     self.enforce_first_as = None
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
+                                    self.idle_watch_time = None
                                     self.ignore_connected_check_ebgp = None
                                     self.internal_vpn_client_ibgpce = None
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain()
@@ -7876,6 +11973,7 @@ class Bgp(object):
                                     self.local_address.parent = self
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs()
                                     self.local_as.parent = self
+                                    self.max_peers = None
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut()
@@ -7895,6 +11993,7 @@ class Bgp(object):
                                     self.receive_buffer_size.parent = self
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs()
                                     self.remote_as.parent = self
+                                    self.remote_as_list = None
                                     self.rpki_bestpath_origin_as_allow_invalid = None
                                     self.rpki_origin_as_validation_disable = None
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize()
@@ -7988,6 +12087,11 @@ class Bgp(object):
                                         	Advertise Of Local Routes to the peer with different RT
                                         	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn>`
                                         
+                                        .. attribute:: advertise_local_labeled_route
+                                        
+                                        	Enable/disable advertisement of routes with local\-label
+                                        	**type**\:   :py:class:`BgpAdvertiseLocalLabeledRouteCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAdvertiseLocalLabeledRouteCfgEnum>`
+                                        
                                         .. attribute:: advertise_local_v4
                                         
                                         	Advertise Of Local Routes to the peer with different RT
@@ -8019,6 +12123,16 @@ class Bgp(object):
                                         
                                         	Advertise Translated Routes to the peer
                                         	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6>`
                                         
                                         .. attribute:: af_group
                                         
@@ -8221,6 +12335,7 @@ class Bgp(object):
                                             self.advertise_l2vpnevpn.parent = self
                                             self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn()
                                             self.advertise_local_l2vpnevpn.parent = self
+                                            self.advertise_local_labeled_route = None
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6()
@@ -8231,6 +12346,10 @@ class Bgp(object):
                                             self.advertise_v4.parent = self
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
+                                            self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4()
+                                            self.advertise_vrf_imp_disable_v4.parent = self
+                                            self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6()
+                                            self.advertise_vrf_imp_disable_v6.parent = self
                                             self.af_group = None
                                             self.aigp = None
                                             self.aigp_cost_community = None
@@ -8363,15 +12482,15 @@ class Bgp(object):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
                                             .. attribute:: af_name
                                             
                                             	Address family
                                             	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
-                                            
-                                            .. attribute:: reorg_option
-                                            
-                                            	Reorigination option
-                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
@@ -8387,8 +12506,8 @@ class Bgp(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.adv_option = None
                                                 self.af_name = None
-                                                self.reorg_option = None
                                                 self.rt_type = None
 
                                             @property
@@ -8405,10 +12524,10 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.af_name is not None:
+                                                if self.adv_option is not None:
                                                     return True
 
-                                                if self.reorg_option is not None:
+                                                if self.af_name is not None:
                                                     return True
 
                                                 if self.rt_type is not None:
@@ -8663,15 +12782,15 @@ class Bgp(object):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
                                             .. attribute:: af_name
                                             
                                             	Address family
                                             	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
-                                            
-                                            .. attribute:: reorg_option
-                                            
-                                            	Reorigination option
-                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
@@ -8687,8 +12806,8 @@ class Bgp(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.adv_option = None
                                                 self.af_name = None
-                                                self.reorg_option = None
                                                 self.rt_type = None
 
                                             @property
@@ -8705,10 +12824,10 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.af_name is not None:
+                                                if self.adv_option is not None:
                                                     return True
 
-                                                if self.reorg_option is not None:
+                                                if self.af_name is not None:
                                                     return True
 
                                                 if self.rt_type is not None:
@@ -9222,6 +13341,69 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration']['meta_info']
 
 
+                                        class AdvertiseVrfImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6']['meta_info']
+
+
                                         class AdvertiseV4(object):
                                             """
                                             Advertise Translated Routes to the peer
@@ -9414,6 +13596,69 @@ class Bgp(object):
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath']['meta_info']
 
+
+                                        class AdvertiseVrfImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -9457,6 +13702,9 @@ class Bgp(object):
                                             if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
                                                 return True
 
+                                            if self.advertise_local_labeled_route is not None:
+                                                return True
+
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
                                                 return True
 
@@ -9473,6 +13721,12 @@ class Bgp(object):
                                                 return True
 
                                             if self.advertise_v6 is not None and self.advertise_v6._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v4 is not None and self.advertise_vrf_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v6 is not None and self.advertise_vrf_imp_disable_v6._has_data():
                                                 return True
 
                                             if self.af_group is not None:
@@ -11075,6 +15329,9 @@ class Bgp(object):
                                     if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
                                         return True
 
+                                    if self.idle_watch_time is not None:
+                                        return True
+
                                     if self.ignore_connected_check_ebgp is not None:
                                         return True
 
@@ -11088,6 +15345,9 @@ class Bgp(object):
                                         return True
 
                                     if self.local_as is not None and self.local_as._has_data():
+                                        return True
+
+                                    if self.max_peers is not None:
                                         return True
 
                                     if self.msg_log_in is not None and self.msg_log_in._has_data():
@@ -11124,6 +15384,9 @@ class Bgp(object):
                                         return True
 
                                     if self.remote_as is not None and self.remote_as._has_data():
+                                        return True
+
+                                    if self.remote_as_list is not None:
                                         return True
 
                                     if self.rpki_bestpath_origin_as_allow_invalid is not None:
@@ -11175,6 +15438,3812 @@ class Bgp(object):
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
                                     return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor']['meta_info']
 
+
+                            class NeighborPrefixLength(object):
+                                """
+                                A particular BGP peer
+                                
+                                .. attribute:: neighbor_address  <key>
+                                
+                                	Neighbor address
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
+                                .. attribute:: prefix_length  <key>
+                                
+                                	Prefix length
+                                	**type**\:  int
+                                
+                                	**range:** 0..127
+                                
+                                .. attribute:: additional_paths_receive_capability
+                                
+                                	Advertise additional paths Receive capability
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                
+                                .. attribute:: additional_paths_send_capability
+                                
+                                	Advertise additional paths Send capability
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                
+                                .. attribute:: advertisement_interval
+                                
+                                	Minimum interval between sending BGP routing updates
+                                	**type**\:   :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval>`
+                                
+                                	**presence node**\: True
+                                
+                                .. attribute:: bfd_enable_modes
+                                
+                                	Strict mode, Default mode or Disable to prevent inheritance from a parent
+                                	**type**\:   :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
+                                
+                                .. attribute:: bfd_minimum_interval
+                                
+                                	Hello interval for BFD sessions created by BGP
+                                	**type**\:  int
+                                
+                                	**range:** 3..30000
+                                
+                                	**units**\: millisecond
+                                
+                                .. attribute:: bfd_multiplier
+                                
+                                	Detection multiplier for BFD sessions created by BGP
+                                	**type**\:  int
+                                
+                                	**range:** 2..16
+                                
+                                .. attribute:: bmp_activates
+                                
+                                	Enable BMP logging for this neighbor
+                                	**type**\:   :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates>`
+                                
+                                .. attribute:: description
+                                
+                                	Up to 80 characters describing this neighbor
+                                	**type**\:  str
+                                
+                                .. attribute:: ebgp_multihop
+                                
+                                	Allow EBGP neighbors not on directly connected networks
+                                	**type**\:   :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop>`
+                                
+                                .. attribute:: ebgp_recv_dmz
+                                
+                                	TRUE to receive DMZ link bandwidth from ebgp peer. FALSE to not receive from ebgp peer and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: ebgp_send_dmz_enable_modes
+                                
+                                	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
+                                	**type**\:   :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                
+                                .. attribute:: egress_peer_engineering
+                                
+                                	TRUE to enable egress peer engineering FALSE to disable egress peer engineering and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: enforce_first_as
+                                
+                                	TRUE to enforce first AS; FALSE to not enforce first AS
+                                	**type**\:  bool
+                                
+                                .. attribute:: graceful_maintenance
+                                
+                                	Graceful Maintenance mode
+                                	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance>`
+                                
+                                .. attribute:: idle_watch_time
+                                
+                                	Time to wait for deleteing IDLE state Dynamic peer
+                                	**type**\:  int
+                                
+                                	**range:** 30..1800
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: ignore_connected_check_ebgp
+                                
+                                	TRUE to disable the connected nexthop check for this peer.FALSE to enable the connected nexthop check for this peer
+                                	**type**\:  bool
+                                
+                                .. attribute:: internal_vpn_client_ibgpce
+                                
+                                	TRUE to preserve the CE path attributes.FALSE to override CE path attributes
+                                	**type**\:  bool
+                                
+                                .. attribute:: keychain
+                                
+                                	Set or disable keychain based authentication
+                                	**type**\:   :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain>`
+                                
+                                .. attribute:: local_address
+                                
+                                	Local ip address
+                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress>`
+                                
+                                .. attribute:: local_as
+                                
+                                	Specify a local\-as number
+                                	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs>`
+                                
+                                .. attribute:: max_peers
+                                
+                                	Set Maximum Peers in Dynamic Range
+                                	**type**\:  int
+                                
+                                	**range:** 1..4096
+                                
+                                .. attribute:: msg_log_in
+                                
+                                	Message log inbound
+                                	**type**\:   :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn>`
+                                
+                                .. attribute:: msg_log_out
+                                
+                                	Message log outbound
+                                	**type**\:   :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut>`
+                                
+                                .. attribute:: neighbor_afs
+                                
+                                	BGP neighbor AF configuration table
+                                	**type**\:   :py:class:`NeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs>`
+                                
+                                .. attribute:: neighbor_cluster_id
+                                
+                                	Neighbor Cluster\-id
+                                	**type**\:   :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId>`
+                                
+                                .. attribute:: neighbor_graceful_restart
+                                
+                                	TRUE to Enable graceful restart support for neighbor.  FALSE to disable graceful restart support for neighbor
+                                	**type**\:  bool
+                                
+                                .. attribute:: neighbor_graceful_restart_stalepath_time
+                                
+                                	Maximum time to wait for restart of GR capable peer
+                                	**type**\:  int
+                                
+                                	**range:** 1..4095
+                                
+                                	**units**\: second
+                                
+                                	**default value**\: 360
+                                
+                                .. attribute:: neighbor_graceful_restart_time
+                                
+                                	Restart time advertised to neighbor
+                                	**type**\:  int
+                                
+                                	**range:** 1..4095
+                                
+                                	**units**\: second
+                                
+                                	**default value**\: 120
+                                
+                                .. attribute:: neighbor_group_add_member
+                                
+                                	Inherit configuration from a neighbor\-group
+                                	**type**\:  str
+                                
+                                .. attribute:: password
+                                
+                                	Set or disable a password
+                                	**type**\:   :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password>`
+                                
+                                .. attribute:: propagate_dmz_link_bandwidth
+                                
+                                	TRUE to propagate DMZ link bandwidth.  FALSE to not propagate and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: receive_buffer_size
+                                
+                                	Set socket receive buffer size and BGP read buffer size
+                                	**type**\:   :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize>`
+                                
+                                .. attribute:: remote_as
+                                
+                                	Set remote AS
+                                	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs>`
+                                
+                                .. attribute:: remote_as_list
+                                
+                                	Remote\-as\-list group name
+                                	**type**\:  str
+                                
+                                .. attribute:: rpki_bestpath_origin_as_allow_invalid
+                                
+                                	RPKI bestpath origin\-AS allow invalid
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: rpki_origin_as_validation_disable
+                                
+                                	RPKI origin\-AS validation disable
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: send_buffer_size
+                                
+                                	Set socket send buffer size and BGP write buffer size
+                                	**type**\:   :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize>`
+                                
+                                .. attribute:: session_group_add_member
+                                
+                                	Inherit address\-family independent config from a session\-group
+                                	**type**\:  str
+                                
+                                .. attribute:: session_open_mode
+                                
+                                	TCP mode to be used to establish BGP session
+                                	**type**\:   :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                
+                                	**default value**\: either
+                                
+                                .. attribute:: shutdown
+                                
+                                	TRUE to shutdown this entity, FALSE to prevent this entity from being shutdown even if the parent is
+                                	**type**\:  bool
+                                
+                                .. attribute:: suppress_all_capabilities
+                                
+                                	TRUE to suppress all capabilities. FALSE to not suppress and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: suppress_four_byte_as_capability
+                                
+                                	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: tcpmss
+                                
+                                	TCP Maximum segment size
+                                	**type**\:   :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss>`
+                                
+                                .. attribute:: timers
+                                
+                                	BGP per neighbor timers
+                                	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers>`
+                                
+                                .. attribute:: tos
+                                
+                                	TOS (Type Of Service)
+                                	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos>`
+                                
+                                .. attribute:: ttl_security
+                                
+                                	TRUE to enable BGP TTL Security.  FALSE to not enable it and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: update_in_filtering
+                                
+                                	Inbound update filtering
+                                	**type**\:   :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering>`
+                                
+                                .. attribute:: update_source_interface
+                                
+                                	Select an interface to configure
+                                	**type**\:  str
+                                
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-bgp-cfg'
+                                _revision = '2015-08-27'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.neighbor_address = None
+                                    self.prefix_length = None
+                                    self.additional_paths_receive_capability = None
+                                    self.additional_paths_send_capability = None
+                                    self.advertisement_interval = None
+                                    self.bfd_enable_modes = None
+                                    self.bfd_minimum_interval = None
+                                    self.bfd_multiplier = None
+                                    self.bmp_activates = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates()
+                                    self.bmp_activates.parent = self
+                                    self.description = None
+                                    self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop()
+                                    self.ebgp_multihop.parent = self
+                                    self.ebgp_recv_dmz = None
+                                    self.ebgp_send_dmz_enable_modes = None
+                                    self.egress_peer_engineering = None
+                                    self.enforce_first_as = None
+                                    self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance()
+                                    self.graceful_maintenance.parent = self
+                                    self.idle_watch_time = None
+                                    self.ignore_connected_check_ebgp = None
+                                    self.internal_vpn_client_ibgpce = None
+                                    self.keychain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain()
+                                    self.keychain.parent = self
+                                    self.local_address = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress()
+                                    self.local_address.parent = self
+                                    self.local_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs()
+                                    self.local_as.parent = self
+                                    self.max_peers = None
+                                    self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn()
+                                    self.msg_log_in.parent = self
+                                    self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut()
+                                    self.msg_log_out.parent = self
+                                    self.neighbor_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs()
+                                    self.neighbor_afs.parent = self
+                                    self.neighbor_cluster_id = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId()
+                                    self.neighbor_cluster_id.parent = self
+                                    self.neighbor_graceful_restart = None
+                                    self.neighbor_graceful_restart_stalepath_time = None
+                                    self.neighbor_graceful_restart_time = None
+                                    self.neighbor_group_add_member = None
+                                    self.password = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password()
+                                    self.password.parent = self
+                                    self.propagate_dmz_link_bandwidth = None
+                                    self.receive_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize()
+                                    self.receive_buffer_size.parent = self
+                                    self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs()
+                                    self.remote_as.parent = self
+                                    self.remote_as_list = None
+                                    self.rpki_bestpath_origin_as_allow_invalid = None
+                                    self.rpki_origin_as_validation_disable = None
+                                    self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize()
+                                    self.send_buffer_size.parent = self
+                                    self.session_group_add_member = None
+                                    self.session_open_mode = None
+                                    self.shutdown = None
+                                    self.suppress_all_capabilities = None
+                                    self.suppress_four_byte_as_capability = None
+                                    self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss()
+                                    self.tcpmss.parent = self
+                                    self.timers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers()
+                                    self.timers.parent = self
+                                    self.tos = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos()
+                                    self.tos.parent = self
+                                    self.ttl_security = None
+                                    self.update_in_filtering = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering()
+                                    self.update_in_filtering.parent = self
+                                    self.update_source_interface = None
+
+
+                                class NeighborAfs(object):
+                                    """
+                                    BGP neighbor AF configuration table
+                                    
+                                    .. attribute:: neighbor_af
+                                    
+                                    	Address family type of neighbor
+                                    	**type**\: list of    :py:class:`NeighborAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.neighbor_af = YList()
+                                        self.neighbor_af.parent = self
+                                        self.neighbor_af.name = 'neighbor_af'
+
+
+                                    class NeighborAf(object):
+                                        """
+                                        Address family type of neighbor
+                                        
+                                        .. attribute:: af_name  <key>
+                                        
+                                        	BGP neighbor address family
+                                        	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                        
+                                        .. attribute:: accept_own
+                                        
+                                        	Handle self\-originated routes with Accept\-Own community. Valid for following neighbor address\-families\: VPNv4Unicast, VPNv6Unicast
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: accept_route_legacy_rt
+                                        
+                                        	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: activate
+                                        
+                                        	Activate an address family for this neighbor. Deletion of this object causes deletion of all the objects under NeighborAF/VRFNeighborAF/NeighborGroupAF associated with this object
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_def_imp_disable_v4
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_def_imp_disable_v6
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6>`
+                                        
+                                        .. attribute:: advertise_disable
+                                        
+                                        	Disable Advertise Of Routes to the peer
+                                        	**type**\:   :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable>`
+                                        
+                                        .. attribute:: advertise_l2vpnevpn
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:   :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2Vpnevpn>`
+                                        
+                                        .. attribute:: advertise_local_l2vpnevpn
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn>`
+                                        
+                                        .. attribute:: advertise_local_labeled_route
+                                        
+                                        	Enable/disable advertisement of routes with local\-label
+                                        	**type**\:   :py:class:`BgpAdvertiseLocalLabeledRouteCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAdvertiseLocalLabeledRouteCfgEnum>`
+                                        
+                                        .. attribute:: advertise_local_v4
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:   :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4>`
+                                        
+                                        .. attribute:: advertise_local_v6
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:   :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6>`
+                                        
+                                        .. attribute:: advertise_orf
+                                        
+                                        	Advertise ORF capability to the peer
+                                        	**type**\:   :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        
+                                        	**default value**\: none
+                                        
+                                        .. attribute:: advertise_permanent_network
+                                        
+                                        	Advertise Permanent Networks to the peer
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: advertise_v4
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:   :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4>`
+                                        
+                                        .. attribute:: advertise_v6
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6>`
+                                        
+                                        .. attribute:: af_group
+                                        
+                                        	Inherit configuration for this address\-family from an AF\-group
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: aigp
+                                        
+                                        	Enable Accumulated IGP Metric for this neighbor
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        
+                                        .. attribute:: aigp_cost_community
+                                        
+                                        	Send AIGP value in Cost Community. 
+                                        	**type**\:   :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity>`
+                                        
+                                        	**presence node**\: True
+                                        
+                                        .. attribute:: aigp_send_med
+                                        
+                                        	Enable/Disable sending AIGP in MED 
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        
+                                        .. attribute:: allow_as_in
+                                        
+                                        	Allow as\-path with my AS present in it
+                                        	**type**\:  int
+                                        
+                                        	**range:** 1..10
+                                        
+                                        	**default value**\: 3
+                                        
+                                        .. attribute:: as_override
+                                        
+                                        	TRUE to override matching AS\-number while sending update. FALSE to prevent as\-override from being inherited from the parent
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: true
+                                        
+                                        .. attribute:: default_originate
+                                        
+                                        	Originate default route to this neighbor
+                                        	**type**\:   :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate>`
+                                        
+                                        .. attribute:: default_weight
+                                        
+                                        	Set default weight for routes from this neighbor/neighbor\-group/af\-group
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        .. attribute:: encapsulation_type
+                                        
+                                        	Encapsulation type for this neighbor
+                                        	**type**\:   :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
+                                        
+                                        .. attribute:: flowspec_validation
+                                        
+                                        	Config Flowspec validation for this neighbor
+                                        	**type**\:   :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
+                                        
+                                        .. attribute:: import_
+                                        
+                                        	Import Reorigination options for Routes from the peer
+                                        	**type**\:   :py:class:`Import_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import_>`
+                                        
+                                        .. attribute:: l2vpn_signalling
+                                        
+                                        	Disable signalling type on the peer
+                                        	**type**\:   :py:class:`BgpSignalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
+                                        
+                                        .. attribute:: maximum_prefixes
+                                        
+                                        	Maximum number of prefixes to accept from this peer
+                                        	**type**\:   :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes>`
+                                        
+                                        	**presence node**\: True
+                                        
+                                        .. attribute:: multipath
+                                        
+                                        	Allow paths from this neighbor to be eligible for selective multipath
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: neighbor_af_long_lived_graceful_restart_capable
+                                        
+                                        	TRUE to treat neighbor as Long\-lived Graceful\-restart capable. FALSE to rely on capability negotiation
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: neighbor_af_long_lived_graceful_restart_stale_time
+                                        
+                                        	Maximum time to wait before purging long lived routes
+                                        	**type**\:   :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime>`
+                                        
+                                        .. attribute:: next_hop_self
+                                        
+                                        	Disable the next hop calculation and  insert your own address in the nexthop field of advertised routes you learned from the neighbor
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: next_hop_unchanged
+                                        
+                                        	TRUE to disable overwriting of next hop before advertising to eBGP peers. FALSE to prevent next\-hop\-unchanged from being inherited
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: next_hop_unchanged_multipath
+                                        
+                                        	TRUE to disable overwriting of next hop for multipaths. FALSE to prevent next\-hop\-unchanged for multipaths
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: prefix_orf_policy
+                                        
+                                        	Prefix ORF policy name for incoming updates
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: remove_private_as_entire_as_path
+                                        
+                                        	Remove private AS number from outbound updates
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath>`
+                                        
+                                        	**presence node**\: True
+                                        
+                                        .. attribute:: remove_private_as_entire_as_path_inbound
+                                        
+                                        	Remove private AS number from inbound updates
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound>`
+                                        
+                                        	**presence node**\: True
+                                        
+                                        .. attribute:: route_policy_in
+                                        
+                                        	Route policy name to apply to inbound routes
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: route_policy_out
+                                        
+                                        	Route policy name to apply to outbound routes
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: route_reflector_client
+                                        
+                                        	TRUE to configure as a route\-reflector\-client.  FALSE to prevent route\-reflector\-client from being inherited
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: rpki_bestpath_origin_as_allow_invalid
+                                        
+                                        	RPKI bestpath origin\-AS allow invalid
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: rpki_origin_as_validation_disable
+                                        
+                                        	RPKI origin\-AS validation disable
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: send_community_ebgp
+                                        
+                                        	TRUE to send communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: send_community_ebgp_graceful_shutdown
+                                        
+                                        	TRUE to send communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: send_ext_community_ebgp
+                                        
+                                        	TRUE to send extended communities to the external neighbor/neighbor\-group/af\-group.  FALSE not to send and to prevent inheritance from a parent
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: send_multicast_attr
+                                        
+                                        	Config send multicast attribute for this neighbor
+                                        	**type**\:   :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
+                                        
+                                        .. attribute:: soft_reconfiguration
+                                        
+                                        	Enable/disable inbound soft reconfiguration for this neighbor/neighbor\-group/af\-group
+                                        	**type**\:   :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.af_name = None
+                                            self.accept_own = None
+                                            self.accept_route_legacy_rt = None
+                                            self.activate = None
+                                            self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4()
+                                            self.advertise_def_imp_disable_v4.parent = self
+                                            self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6()
+                                            self.advertise_def_imp_disable_v6.parent = self
+                                            self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable()
+                                            self.advertise_disable.parent = self
+                                            self.advertise_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2Vpnevpn()
+                                            self.advertise_l2vpnevpn.parent = self
+                                            self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn()
+                                            self.advertise_local_l2vpnevpn.parent = self
+                                            self.advertise_local_labeled_route = None
+                                            self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4()
+                                            self.advertise_local_v4.parent = self
+                                            self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6()
+                                            self.advertise_local_v6.parent = self
+                                            self.advertise_orf = None
+                                            self.advertise_permanent_network = None
+                                            self.advertise_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4()
+                                            self.advertise_v4.parent = self
+                                            self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6()
+                                            self.advertise_v6.parent = self
+                                            self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4()
+                                            self.advertise_vrf_imp_disable_v4.parent = self
+                                            self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6()
+                                            self.advertise_vrf_imp_disable_v6.parent = self
+                                            self.af_group = None
+                                            self.aigp = None
+                                            self.aigp_cost_community = None
+                                            self.aigp_send_med = None
+                                            self.allow_as_in = None
+                                            self.as_override = None
+                                            self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate()
+                                            self.default_originate.parent = self
+                                            self.default_weight = None
+                                            self.encapsulation_type = None
+                                            self.flowspec_validation = None
+                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import_()
+                                            self.import_.parent = self
+                                            self.l2vpn_signalling = None
+                                            self.maximum_prefixes = None
+                                            self.multipath = None
+                                            self.neighbor_af_long_lived_graceful_restart_capable = None
+                                            self.neighbor_af_long_lived_graceful_restart_stale_time = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime()
+                                            self.neighbor_af_long_lived_graceful_restart_stale_time.parent = self
+                                            self.next_hop_self = None
+                                            self.next_hop_unchanged = None
+                                            self.next_hop_unchanged_multipath = None
+                                            self.prefix_orf_policy = None
+                                            self.remove_private_as_entire_as_path = None
+                                            self.remove_private_as_entire_as_path_inbound = None
+                                            self.route_policy_in = None
+                                            self.route_policy_out = None
+                                            self.route_reflector_client = None
+                                            self.rpki_bestpath_origin_as_allow_invalid = None
+                                            self.rpki_origin_as_validation_disable = None
+                                            self.send_community_ebgp = None
+                                            self.send_community_ebgp_graceful_shutdown = None
+                                            self.send_ext_community_ebgp = None
+                                            self.send_multicast_attr = None
+                                            self.soft_reconfiguration = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration()
+                                            self.soft_reconfiguration.parent = self
+
+
+                                        class AigpCostCommunity(object):
+                                            """
+                                            Send AIGP value in Cost Community. 
+                                            
+                                            .. attribute:: cost_community_id
+                                            
+                                            	Cost Community ID
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..255
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: cost_community_poi_type
+                                            
+                                            	Cost Community POI
+                                            	**type**\:   :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	TRUE to enable sending cost community, FALSE otherwise 
+                                            	**type**\:  bool
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: transitive
+                                            
+                                            	True to send transitive cost community FALSE otherwise
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            This class is a :ref:`presence class<presence-class>`
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self._is_presence = True
+                                                self.cost_community_id = None
+                                                self.cost_community_poi_type = None
+                                                self.enable = None
+                                                self.transitive = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:aigp-cost-community'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self._is_presence:
+                                                    return True
+                                                if self.cost_community_id is not None:
+                                                    return True
+
+                                                if self.cost_community_poi_type is not None:
+                                                    return True
+
+                                                if self.enable is not None:
+                                                    return True
+
+                                                if self.transitive is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity']['meta_info']
+
+
+                                        class AdvertiseDefImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6']['meta_info']
+
+
+                                        class AdvertiseDisable(object):
+                                            """
+                                            Disable Advertise Of Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-disable'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable']['meta_info']
+
+
+                                        class MaximumPrefixes(object):
+                                            """
+                                            Maximum number of prefixes to accept from this
+                                            peer
+                                            
+                                            .. attribute:: discard_extra_paths
+                                            
+                                            	Discard extra paths when limit is exceeded
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: prefix_limit
+                                            
+                                            	Maximum prefixes limit
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..4294967295
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: restart_time
+                                            
+                                            	Restart interval
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..65535
+                                            
+                                            	**default value**\: 0
+                                            
+                                            .. attribute:: warning_only
+                                            
+                                            	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: warning_percentage
+                                            
+                                            	Threshold value (%) at which to generate a warning message
+                                            	**type**\:  int
+                                            
+                                            	**range:** 1..100
+                                            
+                                            	**default value**\: 75
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            This class is a :ref:`presence class<presence-class>`
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self._is_presence = True
+                                                self.discard_extra_paths = None
+                                                self.prefix_limit = None
+                                                self.restart_time = None
+                                                self.warning_only = None
+                                                self.warning_percentage = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:maximum-prefixes'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self._is_presence:
+                                                    return True
+                                                if self.discard_extra_paths is not None:
+                                                    return True
+
+                                                if self.prefix_limit is not None:
+                                                    return True
+
+                                                if self.restart_time is not None:
+                                                    return True
+
+                                                if self.warning_only is not None:
+                                                    return True
+
+                                                if self.warning_percentage is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes']['meta_info']
+
+
+                                        class RemovePrivateAsEntireAsPathInbound(object):
+                                            """
+                                            Remove private AS number from inbound updates
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	TRUE to remove private AS from inbound updates. FALSE to prevent remove\-private\-AS from being inherited
+                                            	**type**\:  bool
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: entire
+                                            
+                                            	TRUE to remove private AS from inbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            This class is a :ref:`presence class<presence-class>`
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self._is_presence = True
+                                                self.enable = None
+                                                self.entire = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:remove-private-as-entire-as-path-inbound'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self._is_presence:
+                                                    return True
+                                                if self.enable is not None:
+                                                    return True
+
+                                                if self.entire is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
+
+
+                                        class AdvertiseDefImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4']['meta_info']
+
+
+                                        class AdvertiseL2Vpnevpn(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2Vpnevpn']['meta_info']
+
+
+                                        class AdvertiseLocalL2Vpnevpn(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn']['meta_info']
+
+
+                                        class NeighborAfLongLivedGracefulRestartStaleTime(object):
+                                            """
+                                            Maximum time to wait before purging long lived
+                                            routes
+                                            
+                                            .. attribute:: stale_time_accept
+                                            
+                                            	Max time (seconds)
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..16777215
+                                            
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
+                                            
+                                            .. attribute:: stale_time_send
+                                            
+                                            	Max time (seconds)
+                                            	**type**\:  int
+                                            
+                                            	**range:** 0..16777215
+                                            
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.stale_time_accept = None
+                                                self.stale_time_send = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:neighbor-af-long-lived-graceful-restart-stale-time'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.stale_time_accept is not None:
+                                                    return True
+
+                                                if self.stale_time_send is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime']['meta_info']
+
+
+                                        class AdvertiseV6(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6']['meta_info']
+
+
+                                        class AdvertiseLocalV6(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6']['meta_info']
+
+
+                                        class Import_(object):
+                                            """
+                                            Import Reorigination options for Routes from the
+                                            peer
+                                            
+                                            .. attribute:: import_reoriginate
+                                            
+                                            	TRUE to Reoriginate imported routes, FALSE to not Reoriginate imported routes \- not supported
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: import_reoriginate_stitching
+                                            
+                                            	TRUE to Reoriginate imported routes with Stitching RTs, FALSE to Reoriginate imported routes with normal RTs
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: import_stitching
+                                            
+                                            	TRUE to Import with Stitching RTs, FALSE to Import with normal RTs
+                                            	**type**\:  bool
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.import_reoriginate = None
+                                                self.import_reoriginate_stitching = None
+                                                self.import_stitching = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:import'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.import_reoriginate is not None:
+                                                    return True
+
+                                                if self.import_reoriginate_stitching is not None:
+                                                    return True
+
+                                                if self.import_stitching is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import_']['meta_info']
+
+
+                                        class DefaultOriginate(object):
+                                            """
+                                            Originate default route to this neighbor
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	FALSE to prevent default\-originate from, being inherited from a parent. TRUE otherwise
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: route_policy_name
+                                            
+                                            	Route policy name to specify criteria to originate default
+                                            	**type**\:  str
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.enable = None
+                                                self.route_policy_name = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:default-originate'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.enable is not None:
+                                                    return True
+
+                                                if self.route_policy_name is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate']['meta_info']
+
+
+                                        class SoftReconfiguration(object):
+                                            """
+                                            Enable/disable inbound soft reconfiguration for
+                                            this neighbor/neighbor\-group/af\-group
+                                            
+                                            .. attribute:: inbound_soft
+                                            
+                                            	FALSE to prohibit inbound soft reconfiguration. TRUE otherwise
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            .. attribute:: soft_always
+                                            
+                                            	TRUE to always use soft reconfig, even if route refresh is supported.  FALSE otherwise
+                                            	**type**\:  bool
+                                            
+                                            	**default value**\: false
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.inbound_soft = None
+                                                self.soft_always = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:soft-reconfiguration'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.inbound_soft is not None:
+                                                    return True
+
+                                                if self.soft_always is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration']['meta_info']
+
+
+                                        class AdvertiseVrfImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6']['meta_info']
+
+
+                                        class AdvertiseV4(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4']['meta_info']
+
+
+                                        class AdvertiseLocalV4(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4']['meta_info']
+
+
+                                        class RemovePrivateAsEntireAsPath(object):
+                                            """
+                                            Remove private AS number from outbound updates
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	TRUE to remove private AS from outbound updates .  FALSE to prevent remove\-private\-AS from being inherited
+                                            	**type**\:  bool
+                                            
+                                            	**mandatory**\: True
+                                            
+                                            .. attribute:: entire
+                                            
+                                            	TRUE to remove private AS from outbound updates if all ASes in aspath areprivate. FALSE to prevent remove\-private\-ASfrom being inherited
+                                            	**type**\:  bool
+                                            
+                                            .. attribute:: _is_presence
+                                            
+                                            	Is present if this instance represents presence container else not
+                                            	**type**\: bool
+                                            
+                                            
+
+                                            This class is a :ref:`presence class<presence-class>`
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self._is_presence = True
+                                                self.enable = None
+                                                self.entire = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:remove-private-as-entire-as-path'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self._is_presence:
+                                                    return True
+                                                if self.enable is not None:
+                                                    return True
+
+                                                if self.entire is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath']['meta_info']
+
+
+                                        class AdvertiseVrfImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4']['meta_info']
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            if self.af_name is None:
+                                                raise YPYModelError('Key property af_name is None')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:neighbor-af[Cisco-IOS-XR-ipv4-bgp-cfg:af-name = ' + str(self.af_name) + ']'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.af_name is not None:
+                                                return True
+
+                                            if self.accept_own is not None:
+                                                return True
+
+                                            if self.accept_route_legacy_rt is not None:
+                                                return True
+
+                                            if self.activate is not None:
+                                                return True
+
+                                            if self.advertise_def_imp_disable_v4 is not None and self.advertise_def_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_def_imp_disable_v6 is not None and self.advertise_def_imp_disable_v6._has_data():
+                                                return True
+
+                                            if self.advertise_disable is not None and self.advertise_disable._has_data():
+                                                return True
+
+                                            if self.advertise_l2vpnevpn is not None and self.advertise_l2vpnevpn._has_data():
+                                                return True
+
+                                            if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
+                                                return True
+
+                                            if self.advertise_local_labeled_route is not None:
+                                                return True
+
+                                            if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
+                                                return True
+
+                                            if self.advertise_local_v6 is not None and self.advertise_local_v6._has_data():
+                                                return True
+
+                                            if self.advertise_orf is not None:
+                                                return True
+
+                                            if self.advertise_permanent_network is not None:
+                                                return True
+
+                                            if self.advertise_v4 is not None and self.advertise_v4._has_data():
+                                                return True
+
+                                            if self.advertise_v6 is not None and self.advertise_v6._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v4 is not None and self.advertise_vrf_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v6 is not None and self.advertise_vrf_imp_disable_v6._has_data():
+                                                return True
+
+                                            if self.af_group is not None:
+                                                return True
+
+                                            if self.aigp is not None:
+                                                return True
+
+                                            if self.aigp_cost_community is not None and self.aigp_cost_community._has_data():
+                                                return True
+
+                                            if self.aigp_send_med is not None:
+                                                return True
+
+                                            if self.allow_as_in is not None:
+                                                return True
+
+                                            if self.as_override is not None:
+                                                return True
+
+                                            if self.default_originate is not None and self.default_originate._has_data():
+                                                return True
+
+                                            if self.default_weight is not None:
+                                                return True
+
+                                            if self.encapsulation_type is not None:
+                                                return True
+
+                                            if self.flowspec_validation is not None:
+                                                return True
+
+                                            if self.import_ is not None and self.import_._has_data():
+                                                return True
+
+                                            if self.l2vpn_signalling is not None:
+                                                return True
+
+                                            if self.maximum_prefixes is not None and self.maximum_prefixes._has_data():
+                                                return True
+
+                                            if self.multipath is not None:
+                                                return True
+
+                                            if self.neighbor_af_long_lived_graceful_restart_capable is not None:
+                                                return True
+
+                                            if self.neighbor_af_long_lived_graceful_restart_stale_time is not None and self.neighbor_af_long_lived_graceful_restart_stale_time._has_data():
+                                                return True
+
+                                            if self.next_hop_self is not None:
+                                                return True
+
+                                            if self.next_hop_unchanged is not None:
+                                                return True
+
+                                            if self.next_hop_unchanged_multipath is not None:
+                                                return True
+
+                                            if self.prefix_orf_policy is not None:
+                                                return True
+
+                                            if self.remove_private_as_entire_as_path is not None and self.remove_private_as_entire_as_path._has_data():
+                                                return True
+
+                                            if self.remove_private_as_entire_as_path_inbound is not None and self.remove_private_as_entire_as_path_inbound._has_data():
+                                                return True
+
+                                            if self.route_policy_in is not None:
+                                                return True
+
+                                            if self.route_policy_out is not None:
+                                                return True
+
+                                            if self.route_reflector_client is not None:
+                                                return True
+
+                                            if self.rpki_bestpath_origin_as_allow_invalid is not None:
+                                                return True
+
+                                            if self.rpki_origin_as_validation_disable is not None:
+                                                return True
+
+                                            if self.send_community_ebgp is not None:
+                                                return True
+
+                                            if self.send_community_ebgp_graceful_shutdown is not None:
+                                                return True
+
+                                            if self.send_ext_community_ebgp is not None:
+                                                return True
+
+                                            if self.send_multicast_attr is not None:
+                                                return True
+
+                                            if self.soft_reconfiguration is not None and self.soft_reconfiguration._has_data():
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:neighbor-afs'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.neighbor_af is not None:
+                                            for child_ref in self.neighbor_af:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs']['meta_info']
+
+
+                                class LocalAddress(object):
+                                    """
+                                    Local ip address
+                                    
+                                    .. attribute:: local_address_disable
+                                    
+                                    	TRUE to prevent this entity from having a local address if the parent has one.FALSE to specify local ip address
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: local_ip_address
+                                    
+                                    	Local ip address for neighbor
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.local_address_disable = None
+                                        self.local_ip_address = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:local-address'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.local_address_disable is not None:
+                                            return True
+
+                                        if self.local_ip_address is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress']['meta_info']
+
+
+                                class BmpActivates(object):
+                                    """
+                                    Enable BMP logging for this neighbor
+                                    
+                                    .. attribute:: bmp_activate
+                                    
+                                    	Enable BMP logging for this particular server
+                                    	**type**\: list of    :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.bmp_activate = YList()
+                                        self.bmp_activate.parent = self
+                                        self.bmp_activate.name = 'bmp_activate'
+
+
+                                    class BmpActivate(object):
+                                        """
+                                        Enable BMP logging for this particular server
+                                        
+                                        .. attribute:: server_id  <key>
+                                        
+                                        	BMP Server ID
+                                        	**type**\:  int
+                                        
+                                        	**range:** 1..8
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.server_id = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            if self.server_id is None:
+                                                raise YPYModelError('Key property server_id is None')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:bmp-activate[Cisco-IOS-XR-ipv4-bgp-cfg:server-id = ' + str(self.server_id) + ']'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.server_id is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:bmp-activates'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.bmp_activate is not None:
+                                            for child_ref in self.bmp_activate:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates']['meta_info']
+
+
+                                class EbgpMultihop(object):
+                                    """
+                                    Allow EBGP neighbors not on directly connected
+                                    networks
+                                    
+                                    .. attribute:: max_hop_count
+                                    
+                                    	Maximum hop count
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..255
+                                    
+                                    	**default value**\: 255
+                                    
+                                    .. attribute:: mpls_deactivation
+                                    
+                                    	TRUE to not enable MPLS and NULL rewrite
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.max_hop_count = None
+                                        self.mpls_deactivation = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ebgp-multihop'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.max_hop_count is not None:
+                                            return True
+
+                                        if self.mpls_deactivation is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop']['meta_info']
+
+
+                                class RemoteAs(object):
+                                    """
+                                    Set remote AS
+                                    
+                                    .. attribute:: as_xx
+                                    
+                                    	xx of AS number xx.yy
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: as_yy
+                                    
+                                    	yy of AS number xx.yy
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.as_xx = None
+                                        self.as_yy = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:remote-as'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.as_xx is not None:
+                                            return True
+
+                                        if self.as_yy is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs']['meta_info']
+
+
+                                class LocalAs(object):
+                                    """
+                                    Specify a local\-as number
+                                    
+                                    .. attribute:: as_xx
+                                    
+                                    	xx of AS number xx.yy
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: as_yy
+                                    
+                                    	yy of AS number xx.yy
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    .. attribute:: disable
+                                    
+                                    	Disable Local AS and prevent it from being inherited from a parent
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: dual_as
+                                    
+                                    	Dual\-AS mode
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: no_prepend
+                                    
+                                    	Do not prepend Local AS to announcements from this neighbor
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: replace_as
+                                    
+                                    	Prepend only Local AS to announcements from this neighbor
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.as_xx = None
+                                        self.as_yy = None
+                                        self.disable = None
+                                        self.dual_as = None
+                                        self.no_prepend = None
+                                        self.replace_as = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:local-as'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.as_xx is not None:
+                                            return True
+
+                                        if self.as_yy is not None:
+                                            return True
+
+                                        if self.disable is not None:
+                                            return True
+
+                                        if self.dual_as is not None:
+                                            return True
+
+                                        if self.no_prepend is not None:
+                                            return True
+
+                                        if self.replace_as is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs']['meta_info']
+
+
+                                class Password(object):
+                                    """
+                                    Set or disable a password
+                                    
+                                    .. attribute:: password
+                                    
+                                    	The neighbor password.  Leave unspecified when disabling the password
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (!.+)\|([^!].+)
+                                    
+                                    .. attribute:: password_disable
+                                    
+                                    	TRUE to prevent this entity from having a password even if the parent has one.  FALSEto specify a password
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.password = None
+                                        self.password_disable = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:password'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.password is not None:
+                                            return True
+
+                                        if self.password_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password']['meta_info']
+
+
+                                class AdvertisementInterval(object):
+                                    """
+                                    Minimum interval between sending BGP routing
+                                    updates
+                                    
+                                    .. attribute:: minimum_interval
+                                    
+                                    	Minimum advertisement interval time, secs part
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..600
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    	**units**\: second
+                                    
+                                    .. attribute:: minimum_interval_msecs
+                                    
+                                    	Minimum advertisement interval time, msecs part
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..999
+                                    
+                                    	**units**\: millisecond
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self._is_presence = True
+                                        self.minimum_interval = None
+                                        self.minimum_interval_msecs = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertisement-interval'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self._is_presence:
+                                            return True
+                                        if self.minimum_interval is not None:
+                                            return True
+
+                                        if self.minimum_interval_msecs is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval']['meta_info']
+
+
+                                class NeighborClusterId(object):
+                                    """
+                                    Neighbor Cluster\-id
+                                    
+                                    .. attribute:: cluster_id_address
+                                    
+                                    	Route\-Reflector Cluster ID in IPV4 address format
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: cluster_id_number
+                                    
+                                    	Route\-Reflector Cluster ID as 32 bit quantity
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.cluster_id_address = None
+                                        self.cluster_id_number = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:neighbor-cluster-id'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.cluster_id_address is not None:
+                                            return True
+
+                                        if self.cluster_id_number is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId']['meta_info']
+
+
+                                class Tcpmss(object):
+                                    """
+                                    TCP Maximum segment size
+                                    
+                                    .. attribute:: mss
+                                    
+                                    	Maximum Segment Size
+                                    	**type**\:  int
+                                    
+                                    	**range:** 68..10000
+                                    
+                                    .. attribute:: tcpmss_disable
+                                    
+                                    	TRUE, to prevent inheritance ofTCP MSS valuefrom its parents.FALSE, otherwise
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.mss = None
+                                        self.tcpmss_disable = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:tcpmss'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.mss is not None:
+                                            return True
+
+                                        if self.tcpmss_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss']['meta_info']
+
+
+                                class Tos(object):
+                                    """
+                                    TOS (Type Of Service)
+                                    
+                                    .. attribute:: type
+                                    
+                                    	Set type of service
+                                    	**type**\:   :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
+                                    
+                                    .. attribute:: value
+                                    
+                                    	TOS value to set
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\:   :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
+                                    
+                                    
+                                    ----
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..63
+                                    
+                                    
+                                    ----
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.type = None
+                                        self.value = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:tos'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.type is not None:
+                                            return True
+
+                                        if self.value is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos']['meta_info']
+
+
+                                class UpdateInFiltering(object):
+                                    """
+                                    Inbound update filtering
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Configure inbound update filtering
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: update_in_filtering_attribute_filter_group
+                                    
+                                    	Attribute\-filter group name for update filtering
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: update_in_filtering_message_buffers
+                                    
+                                    	Message buffers to store filtered updates
+                                    	**type**\:   :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    
+                                    	**presence node**\: True
+                                    
+                                    .. attribute:: update_in_filtering_syslog_disable
+                                    
+                                    	Disable inbound update filtering syslog messages
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.enable = None
+                                        self.update_in_filtering_attribute_filter_group = None
+                                        self.update_in_filtering_message_buffers = None
+                                        self.update_in_filtering_syslog_disable = None
+
+
+                                    class UpdateInFilteringMessageBuffers(object):
+                                        """
+                                        Message buffers to store filtered updates
+                                        
+                                        .. attribute:: non_circular_buffer
+                                        
+                                        	TRUE to configure non\-circular buffer
+                                        	**type**\:  bool
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: number_of_buffers
+                                        
+                                        	Number of message buffers
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..25
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
+                                        
+
+                                        This class is a :ref:`presence class<presence-class>`
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self._is_presence = True
+                                            self.non_circular_buffer = None
+                                            self.number_of_buffers = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:update-in-filtering-message-buffers'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self._is_presence:
+                                                return True
+                                            if self.non_circular_buffer is not None:
+                                                return True
+
+                                            if self.number_of_buffers is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:update-in-filtering'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.enable is not None:
+                                            return True
+
+                                        if self.update_in_filtering_attribute_filter_group is not None:
+                                            return True
+
+                                        if self.update_in_filtering_message_buffers is not None and self.update_in_filtering_message_buffers._has_data():
+                                            return True
+
+                                        if self.update_in_filtering_syslog_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering']['meta_info']
+
+
+                                class MsgLogOut(object):
+                                    """
+                                    Message log outbound
+                                    
+                                    .. attribute:: msg_buf_count
+                                    
+                                    	Outbound message log buffer size
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..100
+                                    
+                                    .. attribute:: msg_log_disable
+                                    
+                                    	Disable inbound message logging
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: msg_log_inherit_disable
+                                    
+                                    	TRUE, to prevent this entity from having a outbound message logging if parent has one
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.msg_buf_count = None
+                                        self.msg_log_disable = None
+                                        self.msg_log_inherit_disable = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:msg-log-out'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.msg_buf_count is not None:
+                                            return True
+
+                                        if self.msg_log_disable is not None:
+                                            return True
+
+                                        if self.msg_log_inherit_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut']['meta_info']
+
+
+                                class ReceiveBufferSize(object):
+                                    """
+                                    Set socket receive buffer size and BGP read
+                                    buffer size
+                                    
+                                    .. attribute:: bgp_receive_size
+                                    
+                                    	BGP read buffer size in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 512..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
+                                    .. attribute:: socket_receive_size
+                                    
+                                    	Receive socket buffer size in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 512..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 32768
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.bgp_receive_size = None
+                                        self.socket_receive_size = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:receive-buffer-size'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.bgp_receive_size is not None:
+                                            return True
+
+                                        if self.socket_receive_size is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize']['meta_info']
+
+
+                                class MsgLogIn(object):
+                                    """
+                                    Message log inbound
+                                    
+                                    .. attribute:: msg_buf_count
+                                    
+                                    	Inbound message log buffer size
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..100
+                                    
+                                    .. attribute:: msg_log_disable
+                                    
+                                    	Disable inbound message logging
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: msg_log_inherit_disable
+                                    
+                                    	TRUE, to prevent this entity from having a inbound message logging if parent has one
+                                    	**type**\:  bool
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.msg_buf_count = None
+                                        self.msg_log_disable = None
+                                        self.msg_log_inherit_disable = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:msg-log-in'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.msg_buf_count is not None:
+                                            return True
+
+                                        if self.msg_log_disable is not None:
+                                            return True
+
+                                        if self.msg_log_inherit_disable is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn']['meta_info']
+
+
+                                class SendBufferSize(object):
+                                    """
+                                    Set socket send buffer size and BGP write buffer
+                                    size
+                                    
+                                    .. attribute:: bgp_send_size
+                                    
+                                    	BGP write buffer size in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 4096..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
+                                    .. attribute:: socket_send_size
+                                    
+                                    	Send socket buffer size in bytes
+                                    	**type**\:  int
+                                    
+                                    	**range:** 4096..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 24576
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.bgp_send_size = None
+                                        self.socket_send_size = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:send-buffer-size'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.bgp_send_size is not None:
+                                            return True
+
+                                        if self.socket_send_size is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize']['meta_info']
+
+
+                                class Timers(object):
+                                    """
+                                    BGP per neighbor timers.
+                                    
+                                    .. attribute:: hold_time
+                                    
+                                    	Hold time.  Specify 0 to disable keepalives/hold time
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    	**default value**\: 180
+                                    
+                                    .. attribute:: keepalive_interval
+                                    
+                                    	Keepalive interval
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    	**default value**\: 60
+                                    
+                                    .. attribute:: min_accept_hold_time
+                                    
+                                    	Minimum acceptable hold time.  Specify 0 to disable keepalives/hold time
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    	**default value**\: 3
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.hold_time = None
+                                        self.keepalive_interval = None
+                                        self.min_accept_hold_time = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:timers'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.hold_time is not None:
+                                            return True
+
+                                        if self.keepalive_interval is not None:
+                                            return True
+
+                                        if self.min_accept_hold_time is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers']['meta_info']
+
+
+                                class Keychain(object):
+                                    """
+                                    Set or disable keychain based authentication
+                                    
+                                    .. attribute:: keychain_disable
+                                    
+                                    	TRUE to prevent this entity from having a keychain based authentication even if the parent has one.FALSE to specify a keychain name
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: keychain_name
+                                    
+                                    	Name of the keychain associated with neighbor
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.keychain_disable = None
+                                        self.keychain_name = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:keychain'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.keychain_disable is not None:
+                                            return True
+
+                                        if self.keychain_name is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain']['meta_info']
+
+
+                                class GracefulMaintenance(object):
+                                    """
+                                    Graceful Maintenance mode
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enter Graceful Maintenance mode to configure parametrs
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: graceful_maintenance_activate
+                                    
+                                    	Initiate the graceful shutdown procedure
+                                    	**type**\:  bool
+                                    
+                                    .. attribute:: graceful_maintenance_as_prepends
+                                    
+                                    	Number of times to prepend local AS number to the AS path
+                                    	**type**\:   :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
+                                    
+                                    .. attribute:: graceful_maintenance_local_preference
+                                    
+                                    	Set Local Preference to advertise routes with
+                                    	**type**\:   :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.enable = None
+                                        self.graceful_maintenance_activate = None
+                                        self.graceful_maintenance_as_prepends = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends()
+                                        self.graceful_maintenance_as_prepends.parent = self
+                                        self.graceful_maintenance_local_preference = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference()
+                                        self.graceful_maintenance_local_preference.parent = self
+
+
+                                    class GracefulMaintenanceLocalPreference(object):
+                                        """
+                                        Set Local Preference to advertise routes with
+                                        
+                                        .. attribute:: gshut_loc_pref_disable
+                                        
+                                        	TRUE, to prevent inheritance of Local Pref value from its parents.FALSE, otherwise
+                                        	**type**\:  bool
+                                        
+                                        .. attribute:: local_preference
+                                        
+                                        	Local Preference Value
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.gshut_loc_pref_disable = None
+                                            self.local_preference = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:graceful-maintenance-local-preference'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.gshut_loc_pref_disable is not None:
+                                                return True
+
+                                            if self.local_preference is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference']['meta_info']
+
+
+                                    class GracefulMaintenanceAsPrepends(object):
+                                        """
+                                        Number of times to prepend local AS number to
+                                        the AS path
+                                        
+                                        .. attribute:: as_prepends
+                                        
+                                        	number of times AS prepends
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..6
+                                        
+                                        .. attribute:: gshut_prepends_disable
+                                        
+                                        	TRUE, to prevent inheritance of AS Prepends value from its parents.FALSE, otherwise
+                                        	**type**\:  bool
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.as_prepends = None
+                                            self.gshut_prepends_disable = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:graceful-maintenance-as-prepends'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.as_prepends is not None:
+                                                return True
+
+                                            if self.gshut_prepends_disable is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:graceful-maintenance'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.enable is not None:
+                                            return True
+
+                                        if self.graceful_maintenance_activate is not None:
+                                            return True
+
+                                        if self.graceful_maintenance_as_prepends is not None and self.graceful_maintenance_as_prepends._has_data():
+                                            return True
+
+                                        if self.graceful_maintenance_local_preference is not None and self.graceful_maintenance_local_preference._has_data():
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    if self.neighbor_address is None:
+                                        raise YPYModelError('Key property neighbor_address is None')
+                                    if self.prefix_length is None:
+                                        raise YPYModelError('Key property prefix_length is None')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:neighbor-prefix-length[Cisco-IOS-XR-ipv4-bgp-cfg:neighbor-address = ' + str(self.neighbor_address) + '][Cisco-IOS-XR-ipv4-bgp-cfg:prefix-length = ' + str(self.prefix_length) + ']'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.neighbor_address is not None:
+                                        return True
+
+                                    if self.prefix_length is not None:
+                                        return True
+
+                                    if self.additional_paths_receive_capability is not None:
+                                        return True
+
+                                    if self.additional_paths_send_capability is not None:
+                                        return True
+
+                                    if self.advertisement_interval is not None and self.advertisement_interval._has_data():
+                                        return True
+
+                                    if self.bfd_enable_modes is not None:
+                                        return True
+
+                                    if self.bfd_minimum_interval is not None:
+                                        return True
+
+                                    if self.bfd_multiplier is not None:
+                                        return True
+
+                                    if self.bmp_activates is not None and self.bmp_activates._has_data():
+                                        return True
+
+                                    if self.description is not None:
+                                        return True
+
+                                    if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
+                                        return True
+
+                                    if self.ebgp_recv_dmz is not None:
+                                        return True
+
+                                    if self.ebgp_send_dmz_enable_modes is not None:
+                                        return True
+
+                                    if self.egress_peer_engineering is not None:
+                                        return True
+
+                                    if self.enforce_first_as is not None:
+                                        return True
+
+                                    if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
+                                        return True
+
+                                    if self.idle_watch_time is not None:
+                                        return True
+
+                                    if self.ignore_connected_check_ebgp is not None:
+                                        return True
+
+                                    if self.internal_vpn_client_ibgpce is not None:
+                                        return True
+
+                                    if self.keychain is not None and self.keychain._has_data():
+                                        return True
+
+                                    if self.local_address is not None and self.local_address._has_data():
+                                        return True
+
+                                    if self.local_as is not None and self.local_as._has_data():
+                                        return True
+
+                                    if self.max_peers is not None:
+                                        return True
+
+                                    if self.msg_log_in is not None and self.msg_log_in._has_data():
+                                        return True
+
+                                    if self.msg_log_out is not None and self.msg_log_out._has_data():
+                                        return True
+
+                                    if self.neighbor_afs is not None and self.neighbor_afs._has_data():
+                                        return True
+
+                                    if self.neighbor_cluster_id is not None and self.neighbor_cluster_id._has_data():
+                                        return True
+
+                                    if self.neighbor_graceful_restart is not None:
+                                        return True
+
+                                    if self.neighbor_graceful_restart_stalepath_time is not None:
+                                        return True
+
+                                    if self.neighbor_graceful_restart_time is not None:
+                                        return True
+
+                                    if self.neighbor_group_add_member is not None:
+                                        return True
+
+                                    if self.password is not None and self.password._has_data():
+                                        return True
+
+                                    if self.propagate_dmz_link_bandwidth is not None:
+                                        return True
+
+                                    if self.receive_buffer_size is not None and self.receive_buffer_size._has_data():
+                                        return True
+
+                                    if self.remote_as is not None and self.remote_as._has_data():
+                                        return True
+
+                                    if self.remote_as_list is not None:
+                                        return True
+
+                                    if self.rpki_bestpath_origin_as_allow_invalid is not None:
+                                        return True
+
+                                    if self.rpki_origin_as_validation_disable is not None:
+                                        return True
+
+                                    if self.send_buffer_size is not None and self.send_buffer_size._has_data():
+                                        return True
+
+                                    if self.session_group_add_member is not None:
+                                        return True
+
+                                    if self.session_open_mode is not None:
+                                        return True
+
+                                    if self.shutdown is not None:
+                                        return True
+
+                                    if self.suppress_all_capabilities is not None:
+                                        return True
+
+                                    if self.suppress_four_byte_as_capability is not None:
+                                        return True
+
+                                    if self.tcpmss is not None and self.tcpmss._has_data():
+                                        return True
+
+                                    if self.timers is not None and self.timers._has_data():
+                                        return True
+
+                                    if self.tos is not None and self.tos._has_data():
+                                        return True
+
+                                    if self.ttl_security is not None:
+                                        return True
+
+                                    if self.update_in_filtering is not None and self.update_in_filtering._has_data():
+                                        return True
+
+                                    if self.update_source_interface is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength']['meta_info']
+
                             @property
                             def _common_path(self):
                                 if self.parent is None:
@@ -11191,6 +19260,11 @@ class Bgp(object):
                                     return False
                                 if self.neighbor is not None:
                                     for child_ref in self.neighbor:
+                                        if child_ref._has_data():
+                                            return True
+
+                                if self.neighbor_prefix_length is not None:
+                                    for child_ref in self.neighbor_prefix_length:
                                         if child_ref._has_data():
                                             return True
 
@@ -11319,6 +19393,15 @@ class Bgp(object):
                                 	Graceful Maintenance mode
                                 	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance>`
                                 
+                                .. attribute:: idle_watch_time
+                                
+                                	Time to wait for deleteing IDLE state Dynamic peer
+                                	**type**\:  int
+                                
+                                	**range:** 30..1800
+                                
+                                	**units**\: second
+                                
                                 .. attribute:: ignore_connected_check_ebgp
                                 
                                 	TRUE to disable the connected nexthop check for this peer.FALSE to enable the connected nexthop check for this peer
@@ -11343,6 +19426,13 @@ class Bgp(object):
                                 
                                 	Specify a local\-as number
                                 	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs>`
+                                
+                                .. attribute:: max_peers
+                                
+                                	Set Maximum Peers in Dynamic Range
+                                	**type**\:  int
+                                
+                                	**range:** 1..4096
                                 
                                 .. attribute:: msg_log_in
                                 
@@ -11415,6 +19505,11 @@ class Bgp(object):
                                 
                                 	Set remote AS
                                 	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs>`
+                                
+                                .. attribute:: remote_as_list
+                                
+                                	Remote\-as\-list group name
+                                	**type**\:  str
                                 
                                 .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                 
@@ -11518,6 +19613,7 @@ class Bgp(object):
                                     self.enforce_first_as = None
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
+                                    self.idle_watch_time = None
                                     self.ignore_connected_check_ebgp = None
                                     self.internal_vpn_client_ibgpce = None
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain()
@@ -11526,6 +19622,7 @@ class Bgp(object):
                                     self.local_address.parent = self
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs()
                                     self.local_as.parent = self
+                                    self.max_peers = None
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut()
@@ -11545,6 +19642,7 @@ class Bgp(object):
                                     self.receive_buffer_size.parent = self
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs()
                                     self.remote_as.parent = self
+                                    self.remote_as_list = None
                                     self.rpki_bestpath_origin_as_allow_invalid = None
                                     self.rpki_origin_as_validation_disable = None
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize()
@@ -11638,6 +19736,11 @@ class Bgp(object):
                                         	Advertise Of Local Routes to the peer with different RT
                                         	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2Vpnevpn>`
                                         
+                                        .. attribute:: advertise_local_labeled_route
+                                        
+                                        	Enable/disable advertisement of routes with local\-label
+                                        	**type**\:   :py:class:`BgpAdvertiseLocalLabeledRouteCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAdvertiseLocalLabeledRouteCfgEnum>`
+                                        
                                         .. attribute:: advertise_local_v4
                                         
                                         	Advertise Of Local Routes to the peer with different RT
@@ -11669,6 +19772,16 @@ class Bgp(object):
                                         
                                         	Advertise Translated Routes to the peer
                                         	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6>`
                                         
                                         .. attribute:: af_group
                                         
@@ -11876,6 +19989,7 @@ class Bgp(object):
                                             self.advertise_l2vpnevpn.parent = self
                                             self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2Vpnevpn()
                                             self.advertise_local_l2vpnevpn.parent = self
+                                            self.advertise_local_labeled_route = None
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6()
@@ -11886,6 +20000,10 @@ class Bgp(object):
                                             self.advertise_v4.parent = self
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
+                                            self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4()
+                                            self.advertise_vrf_imp_disable_v4.parent = self
+                                            self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6()
+                                            self.advertise_vrf_imp_disable_v6.parent = self
                                             self.af_group = None
                                             self.aigp = None
                                             self.aigp_cost_community = None
@@ -12020,15 +20138,15 @@ class Bgp(object):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
                                             .. attribute:: af_name
                                             
                                             	Address family
                                             	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
-                                            
-                                            .. attribute:: reorg_option
-                                            
-                                            	Reorigination option
-                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
@@ -12044,8 +20162,8 @@ class Bgp(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.adv_option = None
                                                 self.af_name = None
-                                                self.reorg_option = None
                                                 self.rt_type = None
 
                                             @property
@@ -12062,10 +20180,10 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.af_name is not None:
+                                                if self.adv_option is not None:
                                                     return True
 
-                                                if self.reorg_option is not None:
+                                                if self.af_name is not None:
                                                     return True
 
                                                 if self.rt_type is not None:
@@ -12320,15 +20438,15 @@ class Bgp(object):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
                                             .. attribute:: af_name
                                             
                                             	Address family
                                             	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
-                                            
-                                            .. attribute:: reorg_option
-                                            
-                                            	Reorigination option
-                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
@@ -12344,8 +20462,8 @@ class Bgp(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.adv_option = None
                                                 self.af_name = None
-                                                self.reorg_option = None
                                                 self.rt_type = None
 
                                             @property
@@ -12362,10 +20480,10 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.af_name is not None:
+                                                if self.adv_option is not None:
                                                     return True
 
-                                                if self.reorg_option is not None:
+                                                if self.af_name is not None:
                                                     return True
 
                                                 if self.rt_type is not None:
@@ -12980,6 +21098,69 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration']['meta_info']
 
 
+                                        class AdvertiseVrfImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6']['meta_info']
+
+
                                         class AdvertiseV4(object):
                                             """
                                             Advertise Translated Routes to the peer
@@ -13172,6 +21353,69 @@ class Bgp(object):
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath']['meta_info']
 
+
+                                        class AdvertiseVrfImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -13215,6 +21459,9 @@ class Bgp(object):
                                             if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
                                                 return True
 
+                                            if self.advertise_local_labeled_route is not None:
+                                                return True
+
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
                                                 return True
 
@@ -13231,6 +21478,12 @@ class Bgp(object):
                                                 return True
 
                                             if self.advertise_v6 is not None and self.advertise_v6._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v4 is not None and self.advertise_vrf_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v6 is not None and self.advertise_vrf_imp_disable_v6._has_data():
                                                 return True
 
                                             if self.af_group is not None:
@@ -14839,6 +23092,9 @@ class Bgp(object):
                                     if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
                                         return True
 
+                                    if self.idle_watch_time is not None:
+                                        return True
+
                                     if self.ignore_connected_check_ebgp is not None:
                                         return True
 
@@ -14852,6 +23108,9 @@ class Bgp(object):
                                         return True
 
                                     if self.local_as is not None and self.local_as._has_data():
+                                        return True
+
+                                    if self.max_peers is not None:
                                         return True
 
                                     if self.msg_log_in is not None and self.msg_log_in._has_data():
@@ -14888,6 +23147,9 @@ class Bgp(object):
                                         return True
 
                                     if self.remote_as is not None and self.remote_as._has_data():
+                                        return True
+
+                                    if self.remote_as_list is not None:
                                         return True
 
                                     if self.rpki_bestpath_origin_as_allow_invalid is not None:
@@ -15086,6 +23348,11 @@ class Bgp(object):
                                         	Advertise Of Local Routes to the peer with different RT
                                         	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2Vpnevpn>`
                                         
+                                        .. attribute:: advertise_local_labeled_route
+                                        
+                                        	Enable/disable advertisement of routes with local\-label
+                                        	**type**\:   :py:class:`BgpAdvertiseLocalLabeledRouteCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAdvertiseLocalLabeledRouteCfgEnum>`
+                                        
                                         .. attribute:: advertise_local_v4
                                         
                                         	Advertise Of Local Routes to the peer with different RT
@@ -15117,6 +23384,16 @@ class Bgp(object):
                                         
                                         	Advertise Translated Routes to the peer
                                         	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v4
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_vrf_imp_disable_v6
+                                        
+                                        	Disable Advertise Of VRF ReImported Routes
+                                        	**type**\:   :py:class:`AdvertiseVrfImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6>`
                                         
                                         .. attribute:: af_group
                                         
@@ -15328,6 +23605,7 @@ class Bgp(object):
                                             self.advertise_l2vpnevpn.parent = self
                                             self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2Vpnevpn()
                                             self.advertise_local_l2vpnevpn.parent = self
+                                            self.advertise_local_labeled_route = None
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6()
@@ -15338,6 +23616,10 @@ class Bgp(object):
                                             self.advertise_v4.parent = self
                                             self.advertise_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6()
                                             self.advertise_v6.parent = self
+                                            self.advertise_vrf_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4()
+                                            self.advertise_vrf_imp_disable_v4.parent = self
+                                            self.advertise_vrf_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6()
+                                            self.advertise_vrf_imp_disable_v6.parent = self
                                             self.af_group = None
                                             self.aigp = None
                                             self.aigp_cost_community = None
@@ -15473,15 +23755,15 @@ class Bgp(object):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
                                             .. attribute:: af_name
                                             
                                             	Address family
                                             	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
-                                            
-                                            .. attribute:: reorg_option
-                                            
-                                            	Reorigination option
-                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
@@ -15497,8 +23779,8 @@ class Bgp(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.adv_option = None
                                                 self.af_name = None
-                                                self.reorg_option = None
                                                 self.rt_type = None
 
                                             @property
@@ -15515,10 +23797,10 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.af_name is not None:
+                                                if self.adv_option is not None:
                                                     return True
 
-                                                if self.reorg_option is not None:
+                                                if self.af_name is not None:
                                                     return True
 
                                                 if self.rt_type is not None:
@@ -15773,15 +24055,15 @@ class Bgp(object):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
                                             
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
                                             .. attribute:: af_name
                                             
                                             	Address family
                                             	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
-                                            
-                                            .. attribute:: reorg_option
-                                            
-                                            	Reorigination option
-                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
@@ -15797,8 +24079,8 @@ class Bgp(object):
 
                                             def __init__(self):
                                                 self.parent = None
+                                                self.adv_option = None
                                                 self.af_name = None
-                                                self.reorg_option = None
                                                 self.rt_type = None
 
                                             @property
@@ -15815,10 +24097,10 @@ class Bgp(object):
                                             def _has_data(self):
                                                 if not self.is_config():
                                                     return False
-                                                if self.af_name is not None:
+                                                if self.adv_option is not None:
                                                     return True
 
-                                                if self.reorg_option is not None:
+                                                if self.af_name is not None:
                                                     return True
 
                                                 if self.rt_type is not None:
@@ -16433,6 +24715,69 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration']['meta_info']
 
 
+                                        class AdvertiseVrfImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6']['meta_info']
+
+
                                         class AdvertiseV4(object):
                                             """
                                             Advertise Translated Routes to the peer
@@ -16625,6 +24970,69 @@ class Bgp(object):
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath']['meta_info']
 
+
+                                        class AdvertiseVrfImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of VRF ReImported Routes
+                                            
+                                            .. attribute:: adv_option
+                                            
+                                            	Advertise option
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.adv_option = None
+                                                self.af_name = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-vrf-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.adv_option is not None:
+                                                    return True
+
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4']['meta_info']
+
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
@@ -16665,6 +25073,9 @@ class Bgp(object):
                                             if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
                                                 return True
 
+                                            if self.advertise_local_labeled_route is not None:
+                                                return True
+
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
                                                 return True
 
@@ -16681,6 +25092,12 @@ class Bgp(object):
                                                 return True
 
                                             if self.advertise_v6 is not None and self.advertise_v6._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v4 is not None and self.advertise_vrf_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_vrf_imp_disable_v6 is not None and self.advertise_vrf_imp_disable_v6._has_data():
                                                 return True
 
                                             if self.af_group is not None:
@@ -16991,6 +25408,15 @@ class Bgp(object):
                                 	Graceful Maintenance mode
                                 	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance>`
                                 
+                                .. attribute:: idle_watch_time
+                                
+                                	Time to wait for deleteing IDLE state Dynamic peer
+                                	**type**\:  int
+                                
+                                	**range:** 30..1800
+                                
+                                	**units**\: second
+                                
                                 .. attribute:: ignore_connected_check_ebgp
                                 
                                 	TRUE to disable the connected nexthop check for this peer.FALSE to enable the connected nexthop check for this peer
@@ -17015,6 +25441,13 @@ class Bgp(object):
                                 
                                 	Specify a local\-as number
                                 	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs>`
+                                
+                                .. attribute:: max_peers
+                                
+                                	Set Maximum Peers in Dynamic Range
+                                	**type**\:  int
+                                
+                                	**range:** 1..4096
                                 
                                 .. attribute:: msg_log_in
                                 
@@ -17077,6 +25510,11 @@ class Bgp(object):
                                 
                                 	Set remote AS
                                 	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs>`
+                                
+                                .. attribute:: remote_as_list
+                                
+                                	Remote\-as\-list group name
+                                	**type**\:  str
                                 
                                 .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                 
@@ -17180,6 +25618,7 @@ class Bgp(object):
                                     self.enforce_first_as = None
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance()
                                     self.graceful_maintenance.parent = self
+                                    self.idle_watch_time = None
                                     self.ignore_connected_check_ebgp = None
                                     self.internal_vpn_client_ibgpce = None
                                     self.keychain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain()
@@ -17188,6 +25627,7 @@ class Bgp(object):
                                     self.local_address.parent = self
                                     self.local_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs()
                                     self.local_as.parent = self
+                                    self.max_peers = None
                                     self.msg_log_in = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn()
                                     self.msg_log_in.parent = self
                                     self.msg_log_out = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut()
@@ -17204,6 +25644,7 @@ class Bgp(object):
                                     self.receive_buffer_size.parent = self
                                     self.remote_as = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs()
                                     self.remote_as.parent = self
+                                    self.remote_as_list = None
                                     self.rpki_bestpath_origin_as_allow_invalid = None
                                     self.rpki_origin_as_validation_disable = None
                                     self.send_buffer_size = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize()
@@ -18698,6 +27139,9 @@ class Bgp(object):
                                     if self.graceful_maintenance is not None and self.graceful_maintenance._has_data():
                                         return True
 
+                                    if self.idle_watch_time is not None:
+                                        return True
+
                                     if self.ignore_connected_check_ebgp is not None:
                                         return True
 
@@ -18711,6 +27155,9 @@ class Bgp(object):
                                         return True
 
                                     if self.local_as is not None and self.local_as._has_data():
+                                        return True
+
+                                    if self.max_peers is not None:
                                         return True
 
                                     if self.msg_log_in is not None and self.msg_log_in._has_data():
@@ -18741,6 +27188,9 @@ class Bgp(object):
                                         return True
 
                                     if self.remote_as is not None and self.remote_as._has_data():
+                                        return True
+
+                                    if self.remote_as_list is not None:
                                         return True
 
                                     if self.rpki_bestpath_origin_as_allow_invalid is not None:
@@ -18860,6 +27310,11 @@ class Bgp(object):
                         
                         	AS League
                         	**type**\:   :py:class:`AsLeague <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague>`
+                        
+                        .. attribute:: as_list_groups
+                        
+                        	AS\-list group lists
+                        	**type**\:   :py:class:`AsListGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups>`
                         
                         .. attribute:: attribute_filter_groups
                         
@@ -19222,6 +27677,8 @@ class Bgp(object):
                             self.parent = None
                             self.as_league = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague()
                             self.as_league.parent = self
+                            self.as_list_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups()
+                            self.as_list_groups.parent = self
                             self.attribute_filter_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups()
                             self.attribute_filter_groups.parent = self
                             self.best_path_aigp_ignore = None
@@ -19901,6 +28358,234 @@ class Bgp(object):
                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers']['meta_info']
 
 
+                        class AsListGroups(object):
+                            """
+                            AS\-list group lists
+                            
+                            .. attribute:: as_list_group
+                            
+                            	AS\-List group
+                            	**type**\: list of    :py:class:`AsListGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups.AsListGroup>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-bgp-cfg'
+                            _revision = '2015-08-27'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.as_list_group = YList()
+                                self.as_list_group.parent = self
+                                self.as_list_group.name = 'as_list_group'
+
+
+                            class AsListGroup(object):
+                                """
+                                AS\-List group
+                                
+                                .. attribute:: as_list_group_name  <key>
+                                
+                                	Group name
+                                	**type**\:  str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                .. attribute:: ases
+                                
+                                	AS list
+                                	**type**\:   :py:class:`Ases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups.AsListGroup.Ases>`
+                                
+                                .. attribute:: enable
+                                
+                                	AS\-List group creation
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-bgp-cfg'
+                                _revision = '2015-08-27'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.as_list_group_name = None
+                                    self.ases = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups.AsListGroup.Ases()
+                                    self.ases.parent = self
+                                    self.enable = None
+
+
+                                class Ases(object):
+                                    """
+                                    AS list
+                                    
+                                    .. attribute:: as_
+                                    
+                                    	AS\-List group
+                                    	**type**\: list of    :py:class:`As_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups.AsListGroup.Ases.As_>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.as_ = YList()
+                                        self.as_.parent = self
+                                        self.as_.name = 'as_'
+
+
+                                    class As_(object):
+                                        """
+                                        AS\-List group
+                                        
+                                        .. attribute:: as_xx  <key>
+                                        
+                                        	xx of AS number/confed peer xx.yy
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: as_yy  <key>
+                                        
+                                        	yy of AS number/confed peer xx.yy
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self.as_xx = None
+                                            self.as_yy = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                            if self.as_xx is None:
+                                                raise YPYModelError('Key property as_xx is None')
+                                            if self.as_yy is None:
+                                                raise YPYModelError('Key property as_yy is None')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as[Cisco-IOS-XR-ipv4-bgp-cfg:as-xx = ' + str(self.as_xx) + '][Cisco-IOS-XR-ipv4-bgp-cfg:as-yy = ' + str(self.as_yy) + ']'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self.as_xx is not None:
+                                                return True
+
+                                            if self.as_yy is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups.AsListGroup.Ases.As_']['meta_info']
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ases'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.as_ is not None:
+                                            for child_ref in self.as_:
+                                                if child_ref._has_data():
+                                                    return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups.AsListGroup.Ases']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    if self.as_list_group_name is None:
+                                        raise YPYModelError('Key property as_list_group_name is None')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-list-group[Cisco-IOS-XR-ipv4-bgp-cfg:as-list-group-name = ' + str(self.as_list_group_name) + ']'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.as_list_group_name is not None:
+                                        return True
+
+                                    if self.ases is not None and self.ases._has_data():
+                                        return True
+
+                                    if self.enable is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups.AsListGroup']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:as-list-groups'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.as_list_group is not None:
+                                    for child_ref in self.as_list_group:
+                                        if child_ref._has_data():
+                                            return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsListGroups']['meta_info']
+
+
                         class Limits(object):
                             """
                             Maximum number that can be configured
@@ -20460,6 +29145,11 @@ class Bgp(object):
                                 	Advertise additional paths Send capability
                                 	**type**\:   :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                 
+                                .. attribute:: advertise_local_labeled_route_safi_unicast
+                                
+                                	Enable/disable advertisement of routes with local\-label via Unicast SAFI
+                                	**type**\:   :py:class:`BgpAdvertiseLocalLabeledRouteCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAdvertiseLocalLabeledRouteCfgEnum>`
+                                
                                 .. attribute:: aggregate_addresses
                                 
                                 	Configure BGP aggregate entries
@@ -20791,6 +29481,11 @@ class Bgp(object):
                                 
                                 	**default value**\: 32
                                 
+                                .. attribute:: use_igpsr_label
+                                
+                                	Use IGP SR label for resolution configuration
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
                                 .. attribute:: vrf_all
                                 
                                 	Configurations to be inherited to all vrfs
@@ -20815,6 +29510,7 @@ class Bgp(object):
                                     self.additional_paths_selection = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AdditionalPathsSelection()
                                     self.additional_paths_selection.parent = self
                                     self.additional_paths_send = None
+                                    self.advertise_local_labeled_route_safi_unicast = None
                                     self.aggregate_addresses = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses()
                                     self.aggregate_addresses.parent = self
                                     self.allocate_label = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AllocateLabel()
@@ -20877,6 +29573,7 @@ class Bgp(object):
                                     self.update_limit_address_family = None
                                     self.update_limit_sub_group_ebgp = None
                                     self.update_limit_sub_group_ibgp = None
+                                    self.use_igpsr_label = None
                                     self.vrf_all = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll()
                                     self.vrf_all.parent = self
                                     self.wait_rib_install = None
@@ -23430,6 +32127,9 @@ class Bgp(object):
                                     if self.additional_paths_send is not None:
                                         return True
 
+                                    if self.advertise_local_labeled_route_safi_unicast is not None:
+                                        return True
+
                                     if self.aggregate_addresses is not None and self.aggregate_addresses._has_data():
                                         return True
 
@@ -23581,6 +32281,9 @@ class Bgp(object):
                                         return True
 
                                     if self.update_limit_sub_group_ibgp is not None:
+                                        return True
+
+                                    if self.use_igpsr_label is not None:
                                         return True
 
                                     if self.vrf_all is not None and self.vrf_all._has_data():
@@ -24157,6 +32860,9 @@ class Bgp(object):
                             if self.as_league is not None and self.as_league._has_data():
                                 return True
 
+                            if self.as_list_groups is not None and self.as_list_groups._has_data():
+                                return True
+
                             if self.attribute_filter_groups is not None and self.attribute_filter_groups._has_data():
                                 return True
 
@@ -24522,7 +33228,25 @@ class BmpServers(object):
         	BMP Server ID
         	**type**\:  int
         
-        	**range:** 1..8
+        	**range:** 1..9
+        
+        .. attribute:: bmptcp_keep_alive
+        
+        	configure TCP keep alives to be exchanged between client and server. Default=1000
+        	**type**\:  int
+        
+        	**range:** 0..7200
+        
+        	**units**\: second
+        
+        .. attribute:: bmptcp_maximum_segment_size
+        
+        	configure TCP maximum segment size. Default=16384
+        	**type**\:  int
+        
+        	**range:** 68..10000
+        
+        	**units**\: byte
         
         .. attribute:: create
         
@@ -24571,6 +33295,11 @@ class BmpServers(object):
         
         	**units**\: megabyte
         
+        .. attribute:: route_monitoring
+        
+        	Enable Route Monitoring capability for the BMP servers. BGP update messages messages will be regenrated with a table walk 
+        	**type**\:   :py:class:`RouteMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer.RouteMonitoring>`
+        
         .. attribute:: shutdown
         
         	TRUE to shutdown the BMP Server ConnectionFALSE to bring back the BMP Server Connection
@@ -24612,6 +33341,8 @@ class BmpServers(object):
         def __init__(self):
             self.parent = None
             self.server_id = None
+            self.bmptcp_keep_alive = None
+            self.bmptcp_maximum_segment_size = None
             self.create = None
             self.description = None
             self.flapping_delay = None
@@ -24621,6 +33352,8 @@ class BmpServers(object):
             self.initial_refresh_delay = BmpServers.BmpServer.InitialRefreshDelay()
             self.initial_refresh_delay.parent = self
             self.maximum_buffer_size = None
+            self.route_monitoring = BmpServers.BmpServer.RouteMonitoring()
+            self.route_monitoring.parent = self
             self.shutdown = None
             self.status_report_interval = None
             self.tos = BmpServers.BmpServer.Tos()
@@ -24746,6 +33479,64 @@ class BmpServers(object):
                 return meta._meta_table['BmpServers.BmpServer.HostPort']['meta_info']
 
 
+        class RouteMonitoring(object):
+            """
+            Enable Route Monitoring capability for the BMP
+            servers.
+            BGP update messages messages will be
+            regenrated with a table walk
+            
+            
+            .. attribute:: direction
+            
+            	Specify if the routes should be picked up at inbound or outbound direction
+            	**type**\:   :py:class:`BmpRouteDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpRouteDirectionEnum>`
+            
+            .. attribute:: policy
+            
+            	Specify if the routes packed in update messages should be before or after the application of route\-policy
+            	**type**\:   :py:class:`BmpPolicySelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpPolicySelectEnum>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-bgp-cfg'
+            _revision = '2015-08-27'
+
+            def __init__(self):
+                self.parent = None
+                self.direction = None
+                self.policy = None
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:route-monitoring'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.direction is not None:
+                    return True
+
+                if self.policy is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                return meta._meta_table['BmpServers.BmpServer.RouteMonitoring']['meta_info']
+
+
         class Tos(object):
             """
             TOS (Type Of Service)
@@ -24826,6 +33617,12 @@ class BmpServers(object):
             if self.server_id is not None:
                 return True
 
+            if self.bmptcp_keep_alive is not None:
+                return True
+
+            if self.bmptcp_maximum_segment_size is not None:
+                return True
+
             if self.create is not None:
                 return True
 
@@ -24845,6 +33642,9 @@ class BmpServers(object):
                 return True
 
             if self.maximum_buffer_size is not None:
+                return True
+
+            if self.route_monitoring is not None and self.route_monitoring._has_data():
                 return True
 
             if self.shutdown is not None:

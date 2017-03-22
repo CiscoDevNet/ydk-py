@@ -26,147 +26,6 @@ from ydk.errors import YPYError, YPYModelError
 
 
 
-class EtherLinkOamEventActionEnum1Enum(Enum):
-    """
-    EtherLinkOamEventActionEnum1Enum
-
-    Ether link oam event action enum1
-
-    .. data:: error_disable = 2
-
-    	Disable the interface
-
-    .. data:: log = 3
-
-    	Log the event
-
-    """
-
-    error_disable = 2
-
-    log = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamEventActionEnum1Enum']
-
-
-class EtherLinkOamEventActionEnum2Enum(Enum):
-    """
-    EtherLinkOamEventActionEnum2Enum
-
-    Ether link oam event action enum2
-
-    .. data:: disable = 1
-
-    	Perform no action
-
-    .. data:: error_disable = 2
-
-    	Disable the interface
-
-    """
-
-    disable = 1
-
-    error_disable = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamEventActionEnum2Enum']
-
-
-class EtherLinkOamEventActionEnum4Enum(Enum):
-    """
-    EtherLinkOamEventActionEnum4Enum
-
-    Ether link oam event action enum4
-
-    .. data:: disable = 1
-
-    	Perform no action
-
-    """
-
-    disable = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamEventActionEnum4Enum']
-
-
-class EtherLinkOamEventActionEnum5Enum(Enum):
-    """
-    EtherLinkOamEventActionEnum5Enum
-
-    Ether link oam event action enum5
-
-    .. data:: disable = 1
-
-    	Perform no action
-
-    .. data:: error_disable = 2
-
-    	Disable the interface
-
-    .. data:: efd = 4
-
-    	EFD the interface
-
-    """
-
-    disable = 1
-
-    error_disable = 2
-
-    efd = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamEventActionEnum5Enum']
-
-
-class EtherLinkOamEventActionEnum6Enum(Enum):
-    """
-    EtherLinkOamEventActionEnum6Enum
-
-    Ether link oam event action enum6
-
-    .. data:: disable = 1
-
-    	Perform no action
-
-    .. data:: log = 3
-
-    	Log the event
-
-    .. data:: efd = 4
-
-    	EFD the interface
-
-    """
-
-    disable = 1
-
-    log = 3
-
-    efd = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamEventActionEnum6Enum']
-
-
 class EtherLinkOamEventActionEnumEfdEnum(Enum):
     """
     EtherLinkOamEventActionEnumEfdEnum
@@ -266,11 +125,11 @@ class EtherLinkOamEventActionPrimEnumEnum(Enum):
         return meta._meta_table['EtherLinkOamEventActionPrimEnumEnum']
 
 
-class EtherLinkOamInterfaceHelloIntervalEnumEnum(Enum):
+class EtherLinkOamHelloIntervalEnumEnum(Enum):
     """
-    EtherLinkOamInterfaceHelloIntervalEnumEnum
+    EtherLinkOamHelloIntervalEnumEnum
 
-    Ether link oam interface hello interval enum
+    Ether link oam hello interval enum
 
     .. data:: Y_1s = 0
 
@@ -290,14 +149,14 @@ class EtherLinkOamInterfaceHelloIntervalEnumEnum(Enum):
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamInterfaceHelloIntervalEnumEnum']
+        return meta._meta_table['EtherLinkOamHelloIntervalEnumEnum']
 
 
-class EtherLinkOamInterfaceModeEnumEnum(Enum):
+class EtherLinkOamModeEnumEnum(Enum):
     """
-    EtherLinkOamInterfaceModeEnumEnum
+    EtherLinkOamModeEnumEnum
 
-    Ether link oam interface mode enum
+    Ether link oam mode enum
 
     .. data:: passive = 0
 
@@ -317,14 +176,14 @@ class EtherLinkOamInterfaceModeEnumEnum(Enum):
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamInterfaceModeEnumEnum']
+        return meta._meta_table['EtherLinkOamModeEnumEnum']
 
 
-class EtherLinkOamInterfaceRequireModeEnumEnum(Enum):
+class EtherLinkOamRequireModeEnumEnum(Enum):
     """
-    EtherLinkOamInterfaceRequireModeEnumEnum
+    EtherLinkOamRequireModeEnumEnum
 
-    Ether link oam interface require mode enum
+    Ether link oam require mode enum
 
     .. data:: passive = 0
 
@@ -350,76 +209,154 @@ class EtherLinkOamInterfaceRequireModeEnumEnum(Enum):
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamInterfaceRequireModeEnumEnum']
+        return meta._meta_table['EtherLinkOamRequireModeEnumEnum']
 
 
-class EtherLinkOamProfileHelloIntervalEnumEnum(Enum):
+class EtherLinkOamThresholdUnitsFramesEnumEnum(Enum):
     """
-    EtherLinkOamProfileHelloIntervalEnumEnum
+    EtherLinkOamThresholdUnitsFramesEnumEnum
 
-    Ether link oam profile hello interval enum
+    Ether link oam threshold units frames enum
 
-    .. data:: Y_100ms = 1
+    .. data:: frames = 3
 
-    	100 ms OAM hello interval
+    	Define threshold in frames
+
+    .. data:: ppm = 4
+
+    	Define threshold in parts per million
 
     """
 
-    Y_100ms = 1
+    frames = 3
+
+    ppm = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamProfileHelloIntervalEnumEnum']
+        return meta._meta_table['EtherLinkOamThresholdUnitsFramesEnumEnum']
 
 
-class EtherLinkOamProfileModeEnumEnum(Enum):
+class EtherLinkOamThresholdUnitsSymbolsEnumEnum(Enum):
     """
-    EtherLinkOamProfileModeEnumEnum
+    EtherLinkOamThresholdUnitsSymbolsEnumEnum
 
-    Ether link oam profile mode enum
+    Ether link oam threshold units symbols enum
 
-    .. data:: passive = 0
+    .. data:: symbols = 2
 
-    	Ethernet Link OAM Passive mode
+    	Define threshold in symbols
+
+    .. data:: ppm = 4
+
+    	Define threshold in parts per million
 
     """
 
-    passive = 0
+    symbols = 2
+
+    ppm = 4
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamProfileModeEnumEnum']
+        return meta._meta_table['EtherLinkOamThresholdUnitsSymbolsEnumEnum']
 
 
-class EtherLinkOamProfileRequireModeEnumEnum(Enum):
+class EtherLinkOamThresholdWindowMultiplierEnumEnum(Enum):
     """
-    EtherLinkOamProfileRequireModeEnumEnum
+    EtherLinkOamThresholdWindowMultiplierEnumEnum
 
-    Ether link oam profile require mode enum
+    Ether link oam threshold window multiplier enum
 
-    .. data:: passive = 0
+    .. data:: none = 0
 
-    	Ethernet Link OAM Passive mode
+    	Do not use a multiplier
 
-    .. data:: active = 1
+    .. data:: thousand = 1
 
-    	Ethernet Link OAM Active mode
+    	Use multiplier of 1000
+
+    .. data:: million = 2
+
+    	Use multiplier of 1,000,000
+
+    .. data:: billion = 3
+
+    	Use multiplier of 1,000,000,000
 
     """
 
-    passive = 0
+    none = 0
 
-    active = 1
+    thousand = 1
+
+    million = 2
+
+    billion = 3
 
 
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
-        return meta._meta_table['EtherLinkOamProfileRequireModeEnumEnum']
+        return meta._meta_table['EtherLinkOamThresholdWindowMultiplierEnumEnum']
+
+
+class EtherLinkOamWindowUnitsFramesEnumEnum(Enum):
+    """
+    EtherLinkOamWindowUnitsFramesEnumEnum
+
+    Ether link oam window units frames enum
+
+    .. data:: milliseconds = 1
+
+    	Define window in milliseconds
+
+    .. data:: frames = 3
+
+    	Define window in frames
+
+    """
+
+    milliseconds = 1
+
+    frames = 3
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
+        return meta._meta_table['EtherLinkOamWindowUnitsFramesEnumEnum']
+
+
+class EtherLinkOamWindowUnitsSymbolsEnumEnum(Enum):
+    """
+    EtherLinkOamWindowUnitsSymbolsEnumEnum
+
+    Ether link oam window units symbols enum
+
+    .. data:: milliseconds = 1
+
+    	Define window in milliseconds
+
+    .. data:: symbols = 2
+
+    	Define window in symbols
+
+    """
+
+    milliseconds = 1
+
+    symbols = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_link_oam_cfg as meta
+        return meta._meta_table['EtherLinkOamWindowUnitsSymbolsEnumEnum']
 
 
 

@@ -24,12 +24,8 @@ from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
 
-INSTALL_REQUIREMENTS = ['ecdsa==0.13',
-                        'enum34==1.1.3',
+INSTALL_REQUIREMENTS = ['enum34==1.1.3',
                         'lxml==3.4.4',
-                        'paramiko==1.15.2',
-                        'pyang==1.6',
-                        'pycrypto==2.6.1',
                         'ncclient>=0.4.7',
                         'ydk>=0.5.2']
 
@@ -46,21 +42,13 @@ YDK_PACKAGES = find_packages(exclude=['contrib', 'docs*', 'tests*',
                                       'ncclient', 'samples'])
 
 
-LONG_DESCRIPTION = '''
-                   The YANG Development Kit (YDK) is a Software Development Kit
-                    that provides API's that are modeled in YANG. The main goal
-                    of YDK is to reduce the learning curve of YANG data models by
-                    expressing the model semantics in an API and abstracting
-                    protocol/encoding details. YDK is composed of a core package
-                    that defines services and providers, plus one or more module
-                    bundles that are based on YANG models. Each module bundle
-                    is generated using a bundle profile and the ydk-gen tool.
-                   '''
+DESCRIPTION = "YDK bundle for IETF models"
+LONG_DESCRIPTION = "This YANG Development Kit (YDK) bundle provides APIs for IETF YANG models. YDK facilitates the use of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles.  This YDK bundle for IETF models uses the YDK core package."
 
 setup(
     name=NMSP_PKG_NAME,
     version=NMSP_PKG_VERSION,
-    description='YDK Python SDK',
+    description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     url='https://github.com/CiscoDevNet/ydk-py',
     author='Cisco Systems',

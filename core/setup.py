@@ -32,15 +32,11 @@ NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
 # Define and modify version number and package name here,
 # Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
-VERSION = '0.5.3'
-INSTALL_REQUIREMENTS = ['ecdsa==0.13',
-                        'enum34==1.1.3',
+VERSION = '0.5.4'
+INSTALL_REQUIREMENTS = ['enum34==1.1.3',
                         'lxml==3.4.4',
-                        'paramiko==1.15.2',
-                        'pyang==1.6',
-                        'pycrypto==2.6.1',
                         'ncclient>=0.4.7',
-                        'pybind11==1.8.1']
+                        'pybind11==2.0.1']
 
 
 LONG_DESCRIPTION = '''
@@ -50,8 +46,7 @@ LONG_DESCRIPTION = '''
                     expressing the model semantics in an API and abstracting
                     protocol/encoding details. YDK is composed of a core package
                     that defines services and providers, plus one or more module
-                    bundles that are based on YANG models. Each module bundle
-                    is generated using a bundle profile and the ydk-gen tool.
+                    bundles that are based on YANG models.
                    '''
 
 
@@ -81,7 +76,7 @@ class YdkBuildExtension(build_ext):
             import pybind11
         except ImportError:
             import pip
-            pip.main(['install', 'pybind11==1.8.1'])
+            pip.main(['install', 'pybind11==2.0.1'])
             import pybind11
 
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
@@ -92,7 +87,8 @@ class YdkBuildExtension(build_ext):
                       '-DPYTHON_LIBRARY={0}'.format(
                                       get_python_library()),
                       '-DPYTHON_INCLUDE={0}'.format(
-                                      get_python_include())]
+                                      get_python_include()),
+                      '-DCMAKE_BUILD_TYPE=Release']
 
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)
@@ -104,7 +100,7 @@ class YdkBuildExtension(build_ext):
 def get_python_version():
     python_version = sysconfig.get_config_var('LDVERSION')
     if python_version is None or len(python_version) == 0:
-        python_version = sysconfig.get_config_var('VERSION')        
+        python_version = sysconfig.get_config_var('VERSION')
     return python_version
 
 

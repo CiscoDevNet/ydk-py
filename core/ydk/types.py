@@ -316,7 +316,8 @@ class YLeafList(YList):
 
     def append(self, item):
         if item in self:
-            raise YPYModelError("{} already in list".format(item))
+            index = self.index(item)
+            raise YPYModelError("Value {} already in leaf-list: {}".format(item, self[index].name))
         lst_item = YListItem(item, self.parent, self.name)
         super(YLeafList, self).append(lst_item)
 
@@ -339,7 +340,8 @@ class YLeafList(YList):
 
     def insert(self, key, item):
         if item in self:
-            raise YPYModelError("{} already in list".format(item))
+            index = self.index(item)
+            raise YPYModelError("Value {} already in leaf-list: {}".format(item, self[index].name))
         lst_item = YListItem(item, self.parent, self.name)
         super(YLeafList, self).insert(key, lst_item)
 
@@ -349,7 +351,7 @@ class YLeafList(YList):
             if i.item == item:
                 return idx
             idx += 1
-        raise ValueError("{} is not in list".format(item))
+        raise ValueError("{} is not in leaf-list".format(item))
 
     def count(self, item):
         cnt = 0

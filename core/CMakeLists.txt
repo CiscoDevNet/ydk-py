@@ -10,7 +10,7 @@ set(python_src python.cpp)
 # set default build type if not specified by user
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
-set(CMAKE_CXX_FLAGS_DEBUG   "-g -O0")
+set(CMAKE_CXX_FLAGS_DEBUG   "-g -O0 -fprofile-arcs -ftest-coverage")
 
 # Find dependent libraries
 find_library(ydk_location ydk)
@@ -39,22 +39,12 @@ else()
     message( FATAL_ERROR "-DPYBIND11_INCLUDE not specified." )
 endif()
 
-find_package(Boost REQUIRED)
-find_package(Boost COMPONENTS log system filesystem REQUIRED)
-
-set(BOOST_INCLUDE_DIRS ${boost_installation_prefix}/include)
-include_directories(SYSTEM ${BOOST_INCLUDE_DIR} ${PYTHON_INCLUDE} ${PYBIND11_INCLUDE})
+include_directories(SYSTEM ${PYTHON_INCLUDE} ${PYBIND11_INCLUDE})
 
 # set default build type if not specified by user
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE debug)
 endif()
-
-set(Boost_USE_STATIC_LIBS        OFF)
-set(Boost_USE_MULTITHREADED      ON)
-set(Boost_USE_STATIC_RUNTIME     OFF)
-set(BOOST_ALL_DYN_LINK           ON)   # force dynamic linking for all libraries
-set(Boost_NO_BOOST_CMAKE         ON)
 
 add_library(ydk_ MODULE ${python_src})
 set_target_properties(ydk_ PROPERTIES PREFIX "")
@@ -63,9 +53,6 @@ if(WIN32 AND NOT CYGWIN)
 else()
     set_target_properties(ydk_ PROPERTIES SUFFIX ".so")
 endif()
-
-target_compile_definitions(ydk_ PRIVATE "BOOST_ALL_DYN_LINK=1")
-target_compile_definitions(ydk_ PRIVATE "BOOST_LOG_DYN_LINK=1")
 
 set_property(TARGET ydk_ PROPERTY CXX_STANDARD 14)
 set_property(TARGET ydk_ PROPERTY CXX_STANDARD_REQUIRED ON)
@@ -79,6 +66,5 @@ target_link_libraries(ydk_
             ${xslt_location}
             ${ssh_location}
             ${PYTHON_LIBRARY}
-            ${Boost_LIBRARIES}            
             -rdynamic
             )

@@ -47,6 +47,27 @@ class HostReachProtocolEnum(Enum):
         return meta._meta_table['HostReachProtocolEnum']
 
 
+class LoadBalanceEnumEnum(Enum):
+    """
+    LoadBalanceEnumEnum
+
+    Load balance enum
+
+    .. data:: per_evi = 1
+
+    	Per evi load balance mode
+
+    """
+
+    per_evi = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_cfg as meta
+        return meta._meta_table['LoadBalanceEnumEnum']
+
+
 class OverlayEncapEnumEnum(Enum):
     """
     OverlayEncapEnumEnum
@@ -72,6 +93,27 @@ class OverlayEncapEnumEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_cfg as meta
         return meta._meta_table['OverlayEncapEnumEnum']
+
+
+class UnknownUnicastFloodingEnumEnum(Enum):
+    """
+    UnknownUnicastFloodingEnumEnum
+
+    Unknown unicast flooding enum
+
+    .. data:: suppress_uuf = 1
+
+    	Suppress unknown unicast flooding
+
+    """
+
+    suppress_uuf = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_cfg as meta
+        return meta._meta_table['UnknownUnicastFloodingEnumEnum']
 
 
 class VxlanUdpPortEnumEnum(Enum):

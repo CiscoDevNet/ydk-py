@@ -1,7 +1,6 @@
 """ openconfig_if_ip 
 
 Model for managing IP interfaces.
-
 This model reuses most of the IETF YANG model for IP management
 described by RFC 7277.  The primary differences are in the
 structure of configuration and state data.

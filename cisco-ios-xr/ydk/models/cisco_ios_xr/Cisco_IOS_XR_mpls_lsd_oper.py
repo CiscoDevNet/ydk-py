@@ -55,9 +55,9 @@ class MgmtLsdAppEnum(Enum):
 
     	TE Control
 
-    .. data:: mgmt_lsd_app_type_te_int = 6
+    .. data:: mgmt_lsd_app_type_app_controller = 6
 
-    	TE Internal
+    	App Controller
 
     .. data:: mgmt_lsd_app_type_bgp_ipv4 = 7
 
@@ -125,7 +125,7 @@ class MgmtLsdAppEnum(Enum):
 
     mgmt_lsd_app_type_te = 5
 
-    mgmt_lsd_app_type_te_int = 6
+    mgmt_lsd_app_type_app_controller = 6
 
     mgmt_lsd_app_type_bgp_ipv4 = 7
 
@@ -5895,6 +5895,13 @@ class MplsLsdNodes(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: sr_local_label
+                                
+                                	SR related Local label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: table_id
                                 
                                 	Table ID
@@ -5920,6 +5927,7 @@ class MplsLsdNodes(object):
                                     self.parent = None
                                     self.prefix = None
                                     self.prefix_length = None
+                                    self.sr_local_label = None
                                     self.table_id = None
                                     self.version = None
 
@@ -5941,6 +5949,9 @@ class MplsLsdNodes(object):
                                         return True
 
                                     if self.prefix_length is not None:
+                                        return True
+
+                                    if self.sr_local_label is not None:
                                         return True
 
                                     if self.table_id is not None:
@@ -9094,6 +9105,13 @@ class MplsLsdNodes(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: sr_local_label
+                                
+                                	SR related Local label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: table_id
                                 
                                 	Table ID
@@ -9119,6 +9137,7 @@ class MplsLsdNodes(object):
                                     self.parent = None
                                     self.prefix = None
                                     self.prefix_length = None
+                                    self.sr_local_label = None
                                     self.table_id = None
                                     self.version = None
 
@@ -9140,6 +9159,9 @@ class MplsLsdNodes(object):
                                         return True
 
                                     if self.prefix_length is not None:
+                                        return True
+
+                                    if self.sr_local_label is not None:
                                         return True
 
                                     if self.table_id is not None:
@@ -12559,6 +12581,13 @@ class MplsLsdNodes(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: sr_local_label
+                                
+                                	SR related Local label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: table_id
                                 
                                 	Table ID
@@ -12584,6 +12613,7 @@ class MplsLsdNodes(object):
                                     self.parent = None
                                     self.prefix = None
                                     self.prefix_length = None
+                                    self.sr_local_label = None
                                     self.table_id = None
                                     self.version = None
 
@@ -12605,6 +12635,9 @@ class MplsLsdNodes(object):
                                         return True
 
                                     if self.prefix_length is not None:
+                                        return True
+
+                                    if self.sr_local_label is not None:
                                         return True
 
                                     if self.table_id is not None:
@@ -15758,6 +15791,13 @@ class MplsLsdNodes(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: sr_local_label
+                                
+                                	SR related Local label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: table_id
                                 
                                 	Table ID
@@ -15783,6 +15823,7 @@ class MplsLsdNodes(object):
                                     self.parent = None
                                     self.prefix = None
                                     self.prefix_length = None
+                                    self.sr_local_label = None
                                     self.table_id = None
                                     self.version = None
 
@@ -15804,6 +15845,9 @@ class MplsLsdNodes(object):
                                         return True
 
                                     if self.prefix_length is not None:
+                                        return True
+
+                                    if self.sr_local_label is not None:
                                         return True
 
                                     if self.table_id is not None:
@@ -19206,6 +19250,13 @@ class MplsLsdNodes(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: sr_local_label
+                                
+                                	SR related Local label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: table_id
                                 
                                 	Table ID
@@ -19231,6 +19282,7 @@ class MplsLsdNodes(object):
                                     self.parent = None
                                     self.prefix = None
                                     self.prefix_length = None
+                                    self.sr_local_label = None
                                     self.table_id = None
                                     self.version = None
 
@@ -19252,6 +19304,9 @@ class MplsLsdNodes(object):
                                         return True
 
                                     if self.prefix_length is not None:
+                                        return True
+
+                                    if self.sr_local_label is not None:
                                         return True
 
                                     if self.table_id is not None:
@@ -22405,6 +22460,13 @@ class MplsLsdNodes(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: sr_local_label
+                                
+                                	SR related Local label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: table_id
                                 
                                 	Table ID
@@ -22430,6 +22492,7 @@ class MplsLsdNodes(object):
                                     self.parent = None
                                     self.prefix = None
                                     self.prefix_length = None
+                                    self.sr_local_label = None
                                     self.table_id = None
                                     self.version = None
 
@@ -22451,6 +22514,9 @@ class MplsLsdNodes(object):
                                         return True
 
                                     if self.prefix_length is not None:
+                                        return True
+
+                                    if self.sr_local_label is not None:
                                         return True
 
                                     if self.table_id is not None:
@@ -25846,6 +25912,13 @@ class MplsLsdNodes(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: sr_local_label
+                                
+                                	SR related Local label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: table_id
                                 
                                 	Table ID
@@ -25871,6 +25944,7 @@ class MplsLsdNodes(object):
                                     self.parent = None
                                     self.prefix = None
                                     self.prefix_length = None
+                                    self.sr_local_label = None
                                     self.table_id = None
                                     self.version = None
 
@@ -25892,6 +25966,9 @@ class MplsLsdNodes(object):
                                         return True
 
                                     if self.prefix_length is not None:
+                                        return True
+
+                                    if self.sr_local_label is not None:
                                         return True
 
                                     if self.table_id is not None:
@@ -29045,6 +29122,13 @@ class MplsLsdNodes(object):
                                 
                                 	**range:** 0..255
                                 
+                                .. attribute:: sr_local_label
+                                
+                                	SR related Local label
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: table_id
                                 
                                 	Table ID
@@ -29070,6 +29154,7 @@ class MplsLsdNodes(object):
                                     self.parent = None
                                     self.prefix = None
                                     self.prefix_length = None
+                                    self.sr_local_label = None
                                     self.table_id = None
                                     self.version = None
 
@@ -29091,6 +29176,9 @@ class MplsLsdNodes(object):
                                         return True
 
                                     if self.prefix_length is not None:
+                                        return True
+
+                                    if self.sr_local_label is not None:
                                         return True
 
                                     if self.table_id is not None:
@@ -39190,6 +39278,13 @@ class MplsLsd(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: sr_local_label
+                            
+                            	SR related Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: table_id
                             
                             	Table ID
@@ -39215,6 +39310,7 @@ class MplsLsd(object):
                                 self.parent = None
                                 self.prefix = None
                                 self.prefix_length = None
+                                self.sr_local_label = None
                                 self.table_id = None
                                 self.version = None
 
@@ -39236,6 +39332,9 @@ class MplsLsd(object):
                                     return True
 
                                 if self.prefix_length is not None:
+                                    return True
+
+                                if self.sr_local_label is not None:
                                     return True
 
                                 if self.table_id is not None:
@@ -42389,6 +42488,13 @@ class MplsLsd(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: sr_local_label
+                            
+                            	SR related Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: table_id
                             
                             	Table ID
@@ -42414,6 +42520,7 @@ class MplsLsd(object):
                                 self.parent = None
                                 self.prefix = None
                                 self.prefix_length = None
+                                self.sr_local_label = None
                                 self.table_id = None
                                 self.version = None
 
@@ -42435,6 +42542,9 @@ class MplsLsd(object):
                                     return True
 
                                 if self.prefix_length is not None:
+                                    return True
+
+                                if self.sr_local_label is not None:
                                     return True
 
                                 if self.table_id is not None:
@@ -45846,6 +45956,13 @@ class MplsLsd(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: sr_local_label
+                            
+                            	SR related Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: table_id
                             
                             	Table ID
@@ -45871,6 +45988,7 @@ class MplsLsd(object):
                                 self.parent = None
                                 self.prefix = None
                                 self.prefix_length = None
+                                self.sr_local_label = None
                                 self.table_id = None
                                 self.version = None
 
@@ -45890,6 +46008,9 @@ class MplsLsd(object):
                                     return True
 
                                 if self.prefix_length is not None:
+                                    return True
+
+                                if self.sr_local_label is not None:
                                     return True
 
                                 if self.table_id is not None:
@@ -48963,6 +49084,13 @@ class MplsLsd(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: sr_local_label
+                            
+                            	SR related Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: table_id
                             
                             	Table ID
@@ -48988,6 +49116,7 @@ class MplsLsd(object):
                                 self.parent = None
                                 self.prefix = None
                                 self.prefix_length = None
+                                self.sr_local_label = None
                                 self.table_id = None
                                 self.version = None
 
@@ -49007,6 +49136,9 @@ class MplsLsd(object):
                                     return True
 
                                 if self.prefix_length is not None:
+                                    return True
+
+                                if self.sr_local_label is not None:
                                     return True
 
                                 if self.table_id is not None:
@@ -52341,6 +52473,13 @@ class MplsLsd(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: sr_local_label
+                            
+                            	SR related Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: table_id
                             
                             	Table ID
@@ -52366,6 +52505,7 @@ class MplsLsd(object):
                                 self.parent = None
                                 self.prefix = None
                                 self.prefix_length = None
+                                self.sr_local_label = None
                                 self.table_id = None
                                 self.version = None
 
@@ -52387,6 +52527,9 @@ class MplsLsd(object):
                                     return True
 
                                 if self.prefix_length is not None:
+                                    return True
+
+                                if self.sr_local_label is not None:
                                     return True
 
                                 if self.table_id is not None:
@@ -55540,6 +55683,13 @@ class MplsLsd(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: sr_local_label
+                            
+                            	SR related Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: table_id
                             
                             	Table ID
@@ -55565,6 +55715,7 @@ class MplsLsd(object):
                                 self.parent = None
                                 self.prefix = None
                                 self.prefix_length = None
+                                self.sr_local_label = None
                                 self.table_id = None
                                 self.version = None
 
@@ -55586,6 +55737,9 @@ class MplsLsd(object):
                                     return True
 
                                 if self.prefix_length is not None:
+                                    return True
+
+                                if self.sr_local_label is not None:
                                     return True
 
                                 if self.table_id is not None:
@@ -58977,6 +59131,13 @@ class MplsLsd(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: sr_local_label
+                            
+                            	SR related Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: table_id
                             
                             	Table ID
@@ -59002,6 +59163,7 @@ class MplsLsd(object):
                                 self.parent = None
                                 self.prefix = None
                                 self.prefix_length = None
+                                self.sr_local_label = None
                                 self.table_id = None
                                 self.version = None
 
@@ -59023,6 +59185,9 @@ class MplsLsd(object):
                                     return True
 
                                 if self.prefix_length is not None:
+                                    return True
+
+                                if self.sr_local_label is not None:
                                     return True
 
                                 if self.table_id is not None:
@@ -62176,6 +62341,13 @@ class MplsLsd(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: sr_local_label
+                            
+                            	SR related Local label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: table_id
                             
                             	Table ID
@@ -62201,6 +62373,7 @@ class MplsLsd(object):
                                 self.parent = None
                                 self.prefix = None
                                 self.prefix_length = None
+                                self.sr_local_label = None
                                 self.table_id = None
                                 self.version = None
 
@@ -62222,6 +62395,9 @@ class MplsLsd(object):
                                     return True
 
                                 if self.prefix_length is not None:
+                                    return True
+
+                                if self.sr_local_label is not None:
                                     return True
 
                                 if self.table_id is not None:

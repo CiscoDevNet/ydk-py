@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'EndPortEnum' : _MetaInfoEnum('EndPortEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper',
         {
@@ -137,7 +136,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nested-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Nested object group
                 ''',
                 'nested_group_name',
@@ -320,7 +319,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Nested object group
                 ''',
                 'parent_group_name',
@@ -360,7 +359,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Port object group name
                 ''',
                 'object_name',
@@ -435,7 +434,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nested-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Enter the name of a nested object group
                 ''',
                 'nested_group_name',
@@ -579,7 +578,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Nested object group
                 ''',
                 'parent_group_name',
@@ -659,7 +658,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                IPv6 object group name - maximum 64
                 characters
                 ''',
@@ -741,7 +740,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nested-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Nested object group
                 ''',
                 'nested_group_name',
@@ -885,7 +884,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('parent-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                Nested object group
                 ''',
                 'parent_group_name',
@@ -965,7 +964,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('object-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                IPv4 object group name - maximum 64
                 characters
                 ''',

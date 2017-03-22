@@ -490,6 +490,11 @@ class RedundancyGroupManager(object):
                 	ICCP member configuration
                 	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
                 
+                .. attribute:: mlacp
+                
+                	Multi\-chassis Link Aggregation Control Protocol commands
+                	**type**\:   :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp>`
+                
                 .. attribute:: mode
                 
                 	ICCP mode
@@ -515,6 +520,8 @@ class RedundancyGroupManager(object):
                     self.isolation_recovery_delay = None
                     self.members = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members()
                     self.members.parent = self
+                    self.mlacp = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp()
+                    self.mlacp.parent = self
                     self.mode = None
                     self.nv_satellite = RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite()
                     self.nv_satellite.parent = self
@@ -762,6 +769,87 @@ class RedundancyGroupManager(object):
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
                         return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite']['meta_info']
 
+
+                class Mlacp(object):
+                    """
+                    Multi\-chassis Link Aggregation Control Protocol
+                    commands
+                    
+                    .. attribute:: connect_timeout
+                    
+                    	Number of seconds to wait before assuming mLACP peer is down
+                    	**type**\:  int
+                    
+                    	**range:** 0..65534
+                    
+                    .. attribute:: node
+                    
+                    	Unique identifier for this system in the ICCP Group
+                    	**type**\:  int
+                    
+                    	**range:** 0..7
+                    
+                    .. attribute:: system_mac
+                    
+                    	Unique LACP identifier for this system
+                    	**type**\:  str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    .. attribute:: system_priority
+                    
+                    	Priority for this system. Lower value is higher priority
+                    	**type**\:  int
+                    
+                    	**range:** 1..65535
+                    
+                    
+
+                    """
+
+                    _prefix = 'bundlemgr-cfg'
+                    _revision = '2016-12-16'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.connect_timeout = None
+                        self.node = None
+                        self.system_mac = None
+                        self.system_priority = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-bundlemgr-cfg:mlacp'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.connect_timeout is not None:
+                            return True
+
+                        if self.node is not None:
+                            return True
+
+                        if self.system_mac is not None:
+                            return True
+
+                        if self.system_priority is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                        return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.group_number is None:
@@ -786,6 +874,9 @@ class RedundancyGroupManager(object):
                         return True
 
                     if self.members is not None and self.members._has_data():
+                        return True
+
+                    if self.mlacp is not None and self.mlacp._has_data():
                         return True
 
                     if self.mode is not None:

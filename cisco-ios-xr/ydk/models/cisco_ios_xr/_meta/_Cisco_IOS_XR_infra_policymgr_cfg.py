@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'EventTypeEnum' : _MetaInfoEnum('EventTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
@@ -337,12 +336,12 @@ _meta_table = {
                 ''',
                 'destination_address_ipv6',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('destination-mac', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('destination-mac', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Match destination MAC address.
                 ''',
                 'destination_mac',
-                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+                'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('destination-port', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match destination port. 
@@ -644,12 +643,12 @@ _meta_table = {
                 ''',
                 'source_address_ipv6',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('source-mac', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('source-mac', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Match source MAC address.
                 ''',
                 'source_mac',
-                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+                'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('source-port', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match source port. 
@@ -678,7 +677,7 @@ _meta_table = {
             _MetaInfoClassMember('traffic-class', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match Traffic Class.
-                Should be value 0..7 or range.
+                Should be value 0..63 or range.
                 ''',
                 'traffic_class',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
@@ -944,12 +943,12 @@ _meta_table = {
                 ''',
                 'destination_address_ipv6',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('destination-mac', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('destination-mac', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Match destination MAC address.
                 ''',
                 'destination_mac',
-                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+                'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('destination-port', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match destination port. 
@@ -1251,12 +1250,12 @@ _meta_table = {
                 ''',
                 'source_address_ipv6',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
-            _MetaInfoClassMember('source-mac', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('source-mac', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], [], 
                 '''                Match source MAC address.
                 ''',
                 'source_mac',
-                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+                'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('source-port', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match source port. 
@@ -1285,7 +1284,7 @@ _meta_table = {
             _MetaInfoClassMember('traffic-class', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [], ['(\\d+)|(\\d+\\-\\d+)'], 
                 '''                Match Traffic Class.
-                Should be value 0..7 or range.
+                Should be value 0..63 or range.
                 ''',
                 'traffic_class',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
@@ -2165,7 +2164,7 @@ _meta_table = {
                 'srp_priority',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('traffic-class', ATTRIBUTE, 'int' , None, None, 
-                [('0', '7')], [], 
+                [('0', '63')], [], 
                 '''                Sets the Traffic class identifiers on IPv4 or MPLS packets.
                 ''',
                 'traffic_class',
@@ -2416,7 +2415,7 @@ _meta_table = {
                 'srp_priority',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('traffic-class', ATTRIBUTE, 'int' , None, None, 
-                [('0', '7')], [], 
+                [('0', '63')], [], 
                 '''                Sets the Traffic class identifiers on IPv4 or MPLS packets.
                 ''',
                 'traffic_class',
@@ -2604,7 +2603,7 @@ _meta_table = {
                 'srp_priority',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('traffic-class', ATTRIBUTE, 'int' , None, None, 
-                [('0', '7')], [], 
+                [('0', '63')], [], 
                 '''                Sets the Traffic class identifiers on IPv4 or MPLS packets.
                 ''',
                 'traffic_class',
@@ -2792,7 +2791,7 @@ _meta_table = {
                 'srp_priority',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             _MetaInfoClassMember('traffic-class', ATTRIBUTE, 'int' , None, None, 
-                [('0', '7')], [], 
+                [('0', '63')], [], 
                 '''                Sets the Traffic class identifiers on IPv4 or MPLS packets.
                 ''',
                 'traffic_class',

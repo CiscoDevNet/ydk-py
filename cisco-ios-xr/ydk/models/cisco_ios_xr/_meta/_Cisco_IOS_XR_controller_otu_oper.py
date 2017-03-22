@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'OtuStateEtEnum' : _MetaInfoEnum('OtuStateEtEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper',
         {
@@ -163,6 +162,12 @@ _meta_table = {
                 ''',
                 'dapi',
                 'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('full-tti-ascii-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                full tti ascii String 
+                ''',
+                'full_tti_ascii_string',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('operator-specific', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [('0', '255')], [], 
                 '''                rec String 
@@ -192,6 +197,12 @@ _meta_table = {
                 ''',
                 'dapi',
                 'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('full-tti-ascii-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                full tti ascii String 
+                ''',
+                'full_tti_ascii_string',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('operator-specific', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [('0', '255')], [], 
                 '''                rec String 
@@ -220,6 +231,12 @@ _meta_table = {
                 '''                exp String 
                 ''',
                 'dapi',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('full-tti-ascii-string', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                full tti ascii String 
+                ''',
+                'full_tti_ascii_string',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('operator-specific', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [('0', '255')], [], 
@@ -274,6 +291,24 @@ _meta_table = {
                 ''',
                 'rec',
                 'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('remote-host-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Remote host name
+                ''',
+                'remote_host_name',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('remote-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Remote Interface Name
+                ''',
+                'remote_interface',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('remote-ip-addr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Remote host ip
+                ''',
+                'remote_ip_addr',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('tx', REFERENCE_CLASS, 'Tx' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.TtiMode.Tx', 
                 [], [], 
                 '''                String Sent
@@ -291,7 +326,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo',
             False, 
             [
-            _MetaInfoClassMember('srlg', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('set-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Array to maintain set id number
+                ''',
+                'set_id',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('srlg', REFERENCE_LEAFLIST, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Shared Risk Link Group information expressed in
                 integer format
@@ -1035,6 +1076,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info.Proactive',
             False, 
             [
+            _MetaInfoClassMember('config-sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
+                [], [], 
+                '''                Sec State
+                ''',
+                'config_sec_state',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('inherit-sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
+                [], [], 
+                '''                Secondary Admin State
+                ''',
+                'inherit_sec_state',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('proactive-fsm-if-state', REFERENCE_ENUM_CLASS, 'OtuPpIntfStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuPpIntfStateEnum', 
                 [], [], 
                 '''                Proactive FSM IF State
@@ -1070,12 +1123,6 @@ _meta_table = {
                 '''                Revert threshold power
                 ''',
                 'rvrt_thresh_power',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
-                [], [], 
-                '''                Secondary Admin State
-                ''',
-                'sec_state',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('trig-thresh-coeff', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
@@ -1129,6 +1176,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Otu.Controllers.Controller.Info',
             False, 
             [
+            _MetaInfoClassMember('auto-tti-flag', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Auto tti flag
+                ''',
+                'auto_tti_flag',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('config-sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
+                [], [], 
+                '''                Sec State
+                ''',
+                'config_sec_state',
+                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('derivedstate-mode', REFERENCE_ENUM_CLASS, 'OtuDerStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuDerStateEnum', 
                 [], [], 
                 '''                Derived State
@@ -1170,6 +1229,12 @@ _meta_table = {
                 '''                GMPLS TCM ID
                 ''',
                 'gmpls_tvm_id',
+                'Cisco-IOS-XR-controller-otu-oper', False),
+            _MetaInfoClassMember('inherit-sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
+                [], [], 
+                '''                Sec State
+                ''',
+                'inherit_sec_state',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('local', REFERENCE_CLASS, 'Local' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'Otu.Controllers.Controller.Info.Local', 
                 [], [], 
@@ -1267,35 +1332,11 @@ _meta_table = {
                 ''',
                 'remote',
                 'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('remote-host-ip', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Remote host ip
-                ''',
-                'remote_host_ip',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('remote-host-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Remote host name
-                ''',
-                'remote_host_name',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('remote-intf-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Remote Interface Name
-                ''',
-                'remote_intf_name',
-                'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('sd', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
                 '''                SD in the form of 1.0E - <SD>
                 ''',
                 'sd',
-                'Cisco-IOS-XR-controller-otu-oper', False),
-            _MetaInfoClassMember('sec-state', REFERENCE_ENUM_CLASS, 'OtuSecStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecStateEnum', 
-                [], [], 
-                '''                Sec State
-                ''',
-                'sec_state',
                 'Cisco-IOS-XR-controller-otu-oper', False),
             _MetaInfoClassMember('sf', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 

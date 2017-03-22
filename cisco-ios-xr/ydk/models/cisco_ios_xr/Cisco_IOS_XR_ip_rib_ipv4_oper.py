@@ -895,6 +895,13 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: v6_information_source
+                                                    
+                                                    	V6 Infosource
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
                                                     .. attribute:: v6_nexthop
                                                     
                                                     	V6 nexthop
@@ -955,6 +962,7 @@ class RibStdby(object):
                                                         self.source_asrt_present = None
                                                         self.source_rd_present = None
                                                         self.tunnel_id = None
+                                                        self.v6_information_source = None
                                                         self.v6_nexthop = None
                                                         self.vrf_import_rt_present = None
 
@@ -1079,6 +1087,9 @@ class RibStdby(object):
                                                             return True
 
                                                         if self.tunnel_id is not None:
+                                                            return True
+
+                                                        if self.v6_information_source is not None:
                                                             return True
 
                                                         if self.v6_nexthop is not None:
@@ -1843,6 +1854,13 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: v6_information_source
+                                                    
+                                                    	V6 Infosource
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
                                                     .. attribute:: v6_nexthop
                                                     
                                                     	V6 nexthop
@@ -1903,6 +1921,7 @@ class RibStdby(object):
                                                         self.source_asrt_present = None
                                                         self.source_rd_present = None
                                                         self.tunnel_id = None
+                                                        self.v6_information_source = None
                                                         self.v6_nexthop = None
                                                         self.vrf_import_rt_present = None
 
@@ -2027,6 +2046,9 @@ class RibStdby(object):
                                                             return True
 
                                                         if self.tunnel_id is not None:
+                                                            return True
+
+                                                        if self.v6_information_source is not None:
                                                             return True
 
                                                         if self.v6_nexthop is not None:
@@ -2820,6 +2842,13 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: v6_information_source
+                                                        
+                                                        	V6 Infosource
+                                                        	**type**\:  str
+                                                        
+                                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                        
                                                         .. attribute:: v6_nexthop
                                                         
                                                         	V6 nexthop
@@ -2880,6 +2909,7 @@ class RibStdby(object):
                                                             self.source_asrt_present = None
                                                             self.source_rd_present = None
                                                             self.tunnel_id = None
+                                                            self.v6_information_source = None
                                                             self.v6_nexthop = None
                                                             self.vrf_import_rt_present = None
 
@@ -3004,6 +3034,9 @@ class RibStdby(object):
                                                                 return True
 
                                                             if self.tunnel_id is not None:
+                                                                return True
+
+                                                            if self.v6_information_source is not None:
                                                                 return True
 
                                                             if self.v6_nexthop is not None:
@@ -3761,6 +3794,13 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: v6_information_source
+                                                        
+                                                        	V6 Infosource
+                                                        	**type**\:  str
+                                                        
+                                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                        
                                                         .. attribute:: v6_nexthop
                                                         
                                                         	V6 nexthop
@@ -3821,6 +3861,7 @@ class RibStdby(object):
                                                             self.source_asrt_present = None
                                                             self.source_rd_present = None
                                                             self.tunnel_id = None
+                                                            self.v6_information_source = None
                                                             self.v6_nexthop = None
                                                             self.vrf_import_rt_present = None
 
@@ -3945,6 +3986,9 @@ class RibStdby(object):
                                                                 return True
 
                                                             if self.tunnel_id is not None:
+                                                                return True
+
+                                                            if self.v6_information_source is not None:
                                                                 return True
 
                                                             if self.v6_nexthop is not None:
@@ -4703,6 +4747,13 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: v6_information_source
+                                                        
+                                                        	V6 Infosource
+                                                        	**type**\:  str
+                                                        
+                                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                        
                                                         .. attribute:: v6_nexthop
                                                         
                                                         	V6 nexthop
@@ -4763,6 +4814,7 @@ class RibStdby(object):
                                                             self.source_asrt_present = None
                                                             self.source_rd_present = None
                                                             self.tunnel_id = None
+                                                            self.v6_information_source = None
                                                             self.v6_nexthop = None
                                                             self.vrf_import_rt_present = None
 
@@ -4887,6 +4939,9 @@ class RibStdby(object):
                                                                 return True
 
                                                             if self.tunnel_id is not None:
+                                                                return True
+
+                                                            if self.v6_information_source is not None:
                                                                 return True
 
                                                             if self.v6_nexthop is not None:
@@ -5637,6 +5692,13 @@ class RibStdby(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: v6_information_source
+                                                        
+                                                        	V6 Infosource
+                                                        	**type**\:  str
+                                                        
+                                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                        
                                                         .. attribute:: v6_nexthop
                                                         
                                                         	V6 nexthop
@@ -5697,6 +5759,7 @@ class RibStdby(object):
                                                             self.source_asrt_present = None
                                                             self.source_rd_present = None
                                                             self.tunnel_id = None
+                                                            self.v6_information_source = None
                                                             self.v6_nexthop = None
                                                             self.vrf_import_rt_present = None
 
@@ -5821,6 +5884,9 @@ class RibStdby(object):
                                                                 return True
 
                                                             if self.tunnel_id is not None:
+                                                                return True
+
+                                                            if self.v6_information_source is not None:
                                                                 return True
 
                                                             if self.v6_nexthop is not None:
@@ -6949,6 +7015,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -7009,6 +7082,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -7133,6 +7207,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -8148,6 +8225,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -8208,6 +8292,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -8332,6 +8417,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -9347,6 +9435,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -9407,6 +9502,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -9531,6 +9627,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -10547,6 +10646,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -10607,6 +10713,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -10731,6 +10838,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -11746,6 +11856,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -11806,6 +11923,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -11930,6 +12048,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -12954,6 +13075,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -13014,6 +13142,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -13138,6 +13267,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -14160,6 +14292,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -14220,6 +14359,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -14344,6 +14484,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -15368,6 +15511,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -15428,6 +15578,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -15552,6 +15703,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -16574,6 +16728,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -16634,6 +16795,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -16758,6 +16920,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -17773,6 +17938,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -17833,6 +18005,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -17957,6 +18130,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -18981,6 +19157,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -19041,6 +19224,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -19165,6 +19349,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -20201,6 +20388,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -20261,6 +20455,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -20385,6 +20580,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -21355,6 +21553,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -21415,6 +21620,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -21539,6 +21745,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -22508,6 +22717,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -22568,6 +22784,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -22692,6 +22909,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -23722,6 +23942,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -23782,6 +24009,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -23906,6 +24134,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -24937,6 +25168,13 @@ class RibStdby(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -24997,6 +25235,7 @@ class RibStdby(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -25121,6 +25360,9 @@ class RibStdby(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -26155,6 +26397,13 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: v6_information_source
+                                                    
+                                                    	V6 Infosource
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
                                                     .. attribute:: v6_nexthop
                                                     
                                                     	V6 nexthop
@@ -26215,6 +26464,7 @@ class RibStdby(object):
                                                         self.source_asrt_present = None
                                                         self.source_rd_present = None
                                                         self.tunnel_id = None
+                                                        self.v6_information_source = None
                                                         self.v6_nexthop = None
                                                         self.vrf_import_rt_present = None
 
@@ -26339,6 +26589,9 @@ class RibStdby(object):
                                                             return True
 
                                                         if self.tunnel_id is not None:
+                                                            return True
+
+                                                        if self.v6_information_source is not None:
                                                             return True
 
                                                         if self.v6_nexthop is not None:
@@ -27106,6 +27359,13 @@ class RibStdby(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: v6_information_source
+                                                    
+                                                    	V6 Infosource
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
                                                     .. attribute:: v6_nexthop
                                                     
                                                     	V6 nexthop
@@ -27166,6 +27426,7 @@ class RibStdby(object):
                                                         self.source_asrt_present = None
                                                         self.source_rd_present = None
                                                         self.tunnel_id = None
+                                                        self.v6_information_source = None
                                                         self.v6_nexthop = None
                                                         self.vrf_import_rt_present = None
 
@@ -27290,6 +27551,9 @@ class RibStdby(object):
                                                             return True
 
                                                         if self.tunnel_id is not None:
+                                                            return True
+
+                                                        if self.v6_information_source is not None:
                                                             return True
 
                                                         if self.v6_nexthop is not None:
@@ -30353,6 +30617,13 @@ class RibStdby(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: v6_information_source
+                                
+                                	V6 Infosource
+                                	**type**\:  str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
                                 .. attribute:: v6_nexthop
                                 
                                 	V6 nexthop
@@ -30413,6 +30684,7 @@ class RibStdby(object):
                                     self.source_asrt_present = None
                                     self.source_rd_present = None
                                     self.tunnel_id = None
+                                    self.v6_information_source = None
                                     self.v6_nexthop = None
                                     self.vrf_import_rt_present = None
 
@@ -30537,6 +30809,9 @@ class RibStdby(object):
                                         return True
 
                                     if self.tunnel_id is not None:
+                                        return True
+
+                                    if self.v6_information_source is not None:
                                         return True
 
                                     if self.v6_nexthop is not None:
@@ -31709,6 +31984,13 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: v6_information_source
+                                                    
+                                                    	V6 Infosource
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
                                                     .. attribute:: v6_nexthop
                                                     
                                                     	V6 nexthop
@@ -31769,6 +32051,7 @@ class Rib(object):
                                                         self.source_asrt_present = None
                                                         self.source_rd_present = None
                                                         self.tunnel_id = None
+                                                        self.v6_information_source = None
                                                         self.v6_nexthop = None
                                                         self.vrf_import_rt_present = None
 
@@ -31893,6 +32176,9 @@ class Rib(object):
                                                             return True
 
                                                         if self.tunnel_id is not None:
+                                                            return True
+
+                                                        if self.v6_information_source is not None:
                                                             return True
 
                                                         if self.v6_nexthop is not None:
@@ -32657,6 +32943,13 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: v6_information_source
+                                                    
+                                                    	V6 Infosource
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
                                                     .. attribute:: v6_nexthop
                                                     
                                                     	V6 nexthop
@@ -32717,6 +33010,7 @@ class Rib(object):
                                                         self.source_asrt_present = None
                                                         self.source_rd_present = None
                                                         self.tunnel_id = None
+                                                        self.v6_information_source = None
                                                         self.v6_nexthop = None
                                                         self.vrf_import_rt_present = None
 
@@ -32841,6 +33135,9 @@ class Rib(object):
                                                             return True
 
                                                         if self.tunnel_id is not None:
+                                                            return True
+
+                                                        if self.v6_information_source is not None:
                                                             return True
 
                                                         if self.v6_nexthop is not None:
@@ -33634,6 +33931,13 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: v6_information_source
+                                                        
+                                                        	V6 Infosource
+                                                        	**type**\:  str
+                                                        
+                                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                        
                                                         .. attribute:: v6_nexthop
                                                         
                                                         	V6 nexthop
@@ -33694,6 +33998,7 @@ class Rib(object):
                                                             self.source_asrt_present = None
                                                             self.source_rd_present = None
                                                             self.tunnel_id = None
+                                                            self.v6_information_source = None
                                                             self.v6_nexthop = None
                                                             self.vrf_import_rt_present = None
 
@@ -33818,6 +34123,9 @@ class Rib(object):
                                                                 return True
 
                                                             if self.tunnel_id is not None:
+                                                                return True
+
+                                                            if self.v6_information_source is not None:
                                                                 return True
 
                                                             if self.v6_nexthop is not None:
@@ -34575,6 +34883,13 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: v6_information_source
+                                                        
+                                                        	V6 Infosource
+                                                        	**type**\:  str
+                                                        
+                                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                        
                                                         .. attribute:: v6_nexthop
                                                         
                                                         	V6 nexthop
@@ -34635,6 +34950,7 @@ class Rib(object):
                                                             self.source_asrt_present = None
                                                             self.source_rd_present = None
                                                             self.tunnel_id = None
+                                                            self.v6_information_source = None
                                                             self.v6_nexthop = None
                                                             self.vrf_import_rt_present = None
 
@@ -34759,6 +35075,9 @@ class Rib(object):
                                                                 return True
 
                                                             if self.tunnel_id is not None:
+                                                                return True
+
+                                                            if self.v6_information_source is not None:
                                                                 return True
 
                                                             if self.v6_nexthop is not None:
@@ -35517,6 +35836,13 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: v6_information_source
+                                                        
+                                                        	V6 Infosource
+                                                        	**type**\:  str
+                                                        
+                                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                        
                                                         .. attribute:: v6_nexthop
                                                         
                                                         	V6 nexthop
@@ -35577,6 +35903,7 @@ class Rib(object):
                                                             self.source_asrt_present = None
                                                             self.source_rd_present = None
                                                             self.tunnel_id = None
+                                                            self.v6_information_source = None
                                                             self.v6_nexthop = None
                                                             self.vrf_import_rt_present = None
 
@@ -35701,6 +36028,9 @@ class Rib(object):
                                                                 return True
 
                                                             if self.tunnel_id is not None:
+                                                                return True
+
+                                                            if self.v6_information_source is not None:
                                                                 return True
 
                                                             if self.v6_nexthop is not None:
@@ -36451,6 +36781,13 @@ class Rib(object):
                                                         
                                                         	**range:** 0..4294967295
                                                         
+                                                        .. attribute:: v6_information_source
+                                                        
+                                                        	V6 Infosource
+                                                        	**type**\:  str
+                                                        
+                                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                        
                                                         .. attribute:: v6_nexthop
                                                         
                                                         	V6 nexthop
@@ -36511,6 +36848,7 @@ class Rib(object):
                                                             self.source_asrt_present = None
                                                             self.source_rd_present = None
                                                             self.tunnel_id = None
+                                                            self.v6_information_source = None
                                                             self.v6_nexthop = None
                                                             self.vrf_import_rt_present = None
 
@@ -36635,6 +36973,9 @@ class Rib(object):
                                                                 return True
 
                                                             if self.tunnel_id is not None:
+                                                                return True
+
+                                                            if self.v6_information_source is not None:
                                                                 return True
 
                                                             if self.v6_nexthop is not None:
@@ -37763,6 +38104,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -37823,6 +38171,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -37947,6 +38296,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -38962,6 +39314,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -39022,6 +39381,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -39146,6 +39506,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -40161,6 +40524,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -40221,6 +40591,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -40345,6 +40716,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -41361,6 +41735,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -41421,6 +41802,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -41545,6 +41927,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -42560,6 +42945,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -42620,6 +43012,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -42744,6 +43137,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -43768,6 +44164,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -43828,6 +44231,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -43952,6 +44356,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -44974,6 +45381,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -45034,6 +45448,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -45158,6 +45573,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -46182,6 +46600,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -46242,6 +46667,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -46366,6 +46792,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -47388,6 +47817,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -47448,6 +47884,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -47572,6 +48009,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -48587,6 +49027,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -48647,6 +49094,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -48771,6 +49219,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -49795,6 +50246,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -49855,6 +50313,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -49979,6 +50438,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -51015,6 +51477,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -51075,6 +51544,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -51199,6 +51669,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -52169,6 +52642,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -52229,6 +52709,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -52353,6 +52834,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -53322,6 +53806,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -53382,6 +53873,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -53506,6 +53998,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -54536,6 +55031,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -54596,6 +55098,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -54720,6 +55223,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -55751,6 +56257,13 @@ class Rib(object):
                                                                 
                                                                 	**range:** 0..4294967295
                                                                 
+                                                                .. attribute:: v6_information_source
+                                                                
+                                                                	V6 Infosource
+                                                                	**type**\:  str
+                                                                
+                                                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                                
                                                                 .. attribute:: v6_nexthop
                                                                 
                                                                 	V6 nexthop
@@ -55811,6 +56324,7 @@ class Rib(object):
                                                                     self.source_asrt_present = None
                                                                     self.source_rd_present = None
                                                                     self.tunnel_id = None
+                                                                    self.v6_information_source = None
                                                                     self.v6_nexthop = None
                                                                     self.vrf_import_rt_present = None
 
@@ -55935,6 +56449,9 @@ class Rib(object):
                                                                         return True
 
                                                                     if self.tunnel_id is not None:
+                                                                        return True
+
+                                                                    if self.v6_information_source is not None:
                                                                         return True
 
                                                                     if self.v6_nexthop is not None:
@@ -56969,6 +57486,13 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: v6_information_source
+                                                    
+                                                    	V6 Infosource
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
                                                     .. attribute:: v6_nexthop
                                                     
                                                     	V6 nexthop
@@ -57029,6 +57553,7 @@ class Rib(object):
                                                         self.source_asrt_present = None
                                                         self.source_rd_present = None
                                                         self.tunnel_id = None
+                                                        self.v6_information_source = None
                                                         self.v6_nexthop = None
                                                         self.vrf_import_rt_present = None
 
@@ -57153,6 +57678,9 @@ class Rib(object):
                                                             return True
 
                                                         if self.tunnel_id is not None:
+                                                            return True
+
+                                                        if self.v6_information_source is not None:
                                                             return True
 
                                                         if self.v6_nexthop is not None:
@@ -57920,6 +58448,13 @@ class Rib(object):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    .. attribute:: v6_information_source
+                                                    
+                                                    	V6 Infosource
+                                                    	**type**\:  str
+                                                    
+                                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                    
                                                     .. attribute:: v6_nexthop
                                                     
                                                     	V6 nexthop
@@ -57980,6 +58515,7 @@ class Rib(object):
                                                         self.source_asrt_present = None
                                                         self.source_rd_present = None
                                                         self.tunnel_id = None
+                                                        self.v6_information_source = None
                                                         self.v6_nexthop = None
                                                         self.vrf_import_rt_present = None
 
@@ -58104,6 +58640,9 @@ class Rib(object):
                                                             return True
 
                                                         if self.tunnel_id is not None:
+                                                            return True
+
+                                                        if self.v6_information_source is not None:
                                                             return True
 
                                                         if self.v6_nexthop is not None:
@@ -61167,6 +61706,13 @@ class Rib(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: v6_information_source
+                                
+                                	V6 Infosource
+                                	**type**\:  str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
                                 .. attribute:: v6_nexthop
                                 
                                 	V6 nexthop
@@ -61227,6 +61773,7 @@ class Rib(object):
                                     self.source_asrt_present = None
                                     self.source_rd_present = None
                                     self.tunnel_id = None
+                                    self.v6_information_source = None
                                     self.v6_nexthop = None
                                     self.vrf_import_rt_present = None
 
@@ -61351,6 +61898,9 @@ class Rib(object):
                                         return True
 
                                     if self.tunnel_id is not None:
+                                        return True
+
+                                    if self.v6_information_source is not None:
                                         return True
 
                                     if self.v6_nexthop is not None:

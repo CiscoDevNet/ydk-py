@@ -56,11 +56,29 @@ class QosPolicyAccountEnum(Enum):
 
     Qos policy account
 
+    .. data:: layer1 = 8
+
+    	Turn on Layer 1 accounting
+
+    .. data:: layer2 = 1
+
+    	Turn on Layer 2 accounting
+
+    .. data:: nolayer2 = 2
+
+    	Turn on Layer 2 accounting
+
     .. data:: user_defined = 4
 
     	User defined accounting
 
     """
+
+    layer1 = 8
+
+    layer2 = 1
+
+    nolayer2 = 2
 
     user_defined = 4
 
@@ -88,7 +106,7 @@ class Qos(object):
     """
 
     _prefix = 'qos-ma-cfg'
-    _revision = '2016-03-03'
+    _revision = '2016-12-23'
 
     def __init__(self):
         self.fabric_service_policy = None

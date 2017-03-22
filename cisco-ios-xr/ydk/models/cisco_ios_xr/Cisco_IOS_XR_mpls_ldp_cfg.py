@@ -28,6 +28,33 @@ from ydk.errors import YPYError, YPYModelError
 
 
 
+class MldpPolicyModeEnum(Enum):
+    """
+    MldpPolicyModeEnum
+
+    Mldp policy mode
+
+    .. data:: inbound = 1
+
+    	Inbound route policy
+
+    .. data:: outbound = 2
+
+    	Outbound route policy
+
+    """
+
+    inbound = 1
+
+    outbound = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+        return meta._meta_table['MldpPolicyModeEnum']
+
+
 class MplsLdpAdvertiseBgpaclEnum(Enum):
     """
     MplsLdpAdvertiseBgpaclEnum
@@ -6844,12 +6871,17 @@ class MplsLdp(object):
                     	VRF Name
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    	**length:** 1..32
                     
                     .. attribute:: afs
                     
                     	Address Family specific operational data
                     	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs>`
+                    
+                    .. attribute:: enable
+                    
+                    	Enable Multicast Label Distribution Protocol (mLDP)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -6863,6 +6895,7 @@ class MplsLdp(object):
                         self.vrf_name = None
                         self.afs = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs()
                         self.afs.parent = self
+                        self.enable = None
 
 
                     class Afs(object):
@@ -6927,6 +6960,16 @@ class MplsLdp(object):
                             	MPLS mLDP MoFRR
                             	**type**\:   :py:class:`MoFrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr>`
                             
+                            .. attribute:: neighbor_policies
+                            
+                            	MLDP neighbor policies
+                            	**type**\:   :py:class:`NeighborPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies>`
+                            
+                            .. attribute:: recursive_forwarding
+                            
+                            	Enable recursive forwarding
+                            	**type**\:   :py:class:`RecursiveForwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding>`
+                            
                             
 
                             """
@@ -6947,16 +6990,27 @@ class MplsLdp(object):
                                 self.mldp_rib_unicast_always = None
                                 self.mo_frr = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr()
                                 self.mo_frr.parent = self
+                                self.neighbor_policies = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies()
+                                self.neighbor_policies.parent = self
+                                self.recursive_forwarding = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding()
+                                self.recursive_forwarding.parent = self
 
 
-                            class MldpRecursiveFec(object):
+                            class RecursiveForwarding(object):
                                 """
-                                MPLS mLDP Recursive FEC
+                                Enable recursive forwarding
                                 
-                                .. attribute:: enable_mldp_recursive_fec
+                                .. attribute:: enable
                                 
-                                	Enable MPLS mLDP Recursive FEC
+                                	Enable recursive forwarding
                                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: policy
+                                
+                                	Recursive forwarding policy name
+                                	**type**\:  str
+                                
+                                	**length:** 1..64
                                 
                                 
 
@@ -6967,7 +7021,64 @@ class MplsLdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.enable_mldp_recursive_fec = None
+                                    self.enable = None
+                                    self.policy = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:recursive-forwarding'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.enable is not None:
+                                        return True
+
+                                    if self.policy is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.RecursiveForwarding']['meta_info']
+
+
+                            class MldpRecursiveFec(object):
+                                """
+                                MPLS mLDP Recursive FEC
+                                
+                                .. attribute:: enable
+                                
+                                	Enable MPLS mLDP Recursive FEC
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: policy
+                                
+                                	Route policy name
+                                	**type**\:  str
+                                
+                                	**length:** 1..64
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-ldp-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.enable = None
+                                    self.policy = None
 
                                 @property
                                 def _common_path(self):
@@ -6983,7 +7094,10 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.enable_mldp_recursive_fec is not None:
+                                    if self.enable is not None:
+                                        return True
+
+                                    if self.policy is not None:
                                         return True
 
                                     return False
@@ -6994,14 +7108,14 @@ class MplsLdp(object):
                                     return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec']['meta_info']
 
 
-                            class MoFrr(object):
+                            class NeighborPolicies(object):
                                 """
-                                MPLS mLDP MoFRR
+                                MLDP neighbor policies
                                 
-                                .. attribute:: enable_mo_frr
+                                .. attribute:: neighbor_policy
                                 
-                                	Enable MPLS mLDP MoFRR
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                	Route Policy
+                                	**type**\: list of    :py:class:`NeighborPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy>`
                                 
                                 
 
@@ -7012,7 +7126,147 @@ class MplsLdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.enable_mo_frr = None
+                                    self.neighbor_policy = YList()
+                                    self.neighbor_policy.parent = self
+                                    self.neighbor_policy.name = 'neighbor_policy'
+
+
+                                class NeighborPolicy(object):
+                                    """
+                                    Route Policy
+                                    
+                                    .. attribute:: policy_mode  <key>
+                                    
+                                    	Inbound/Outbound Policy
+                                    	**type**\:   :py:class:`MldpPolicyModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MldpPolicyModeEnum>`
+                                    
+                                    .. attribute:: root_address  <key>
+                                    
+                                    	Neighbor Address
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
+                                    	**type**\:  str
+                                    
+                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    
+                                    ----
+                                    .. attribute:: route_policy
+                                    
+                                    	Route policy name
+                                    	**type**\:  str
+                                    
+                                    	**length:** 1..64
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'mpls-ldp-cfg'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self.policy_mode = None
+                                        self.root_address = None
+                                        self.route_policy = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        if self.policy_mode is None:
+                                            raise YPYModelError('Key property policy_mode is None')
+                                        if self.root_address is None:
+                                            raise YPYModelError('Key property root_address is None')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:neighbor-policy[Cisco-IOS-XR-mpls-ldp-cfg:policy-mode = ' + str(self.policy_mode) + '][Cisco-IOS-XR-mpls-ldp-cfg:root-address = ' + str(self.root_address) + ']'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self.policy_mode is not None:
+                                            return True
+
+                                        if self.root_address is not None:
+                                            return True
+
+                                        if self.route_policy is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                        return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy']['meta_info']
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:neighbor-policies'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.neighbor_policy is not None:
+                                        for child_ref in self.neighbor_policy:
+                                            if child_ref._has_data():
+                                                return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies']['meta_info']
+
+
+                            class MoFrr(object):
+                                """
+                                MPLS mLDP MoFRR
+                                
+                                .. attribute:: enable
+                                
+                                	Enable MPLS mLDP MoFRR
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: policy
+                                
+                                	Route policy name
+                                	**type**\:  str
+                                
+                                	**length:** 1..64
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-ldp-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.enable = None
+                                    self.policy = None
 
                                 @property
                                 def _common_path(self):
@@ -7028,7 +7282,10 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.enable_mo_frr is not None:
+                                    if self.enable is not None:
+                                        return True
+
+                                    if self.policy is not None:
                                         return True
 
                                     return False
@@ -7042,6 +7299,13 @@ class MplsLdp(object):
                             class MakeBeforeBreak(object):
                                 """
                                 MPLS mLDP Make\-Before\-Break configuration
+                                
+                                .. attribute:: policy
+                                
+                                	Route policy name
+                                	**type**\:  str
+                                
+                                	**length:** 1..64
                                 
                                 .. attribute:: signaling
                                 
@@ -7057,6 +7321,7 @@ class MplsLdp(object):
 
                                 def __init__(self):
                                     self.parent = None
+                                    self.policy = None
                                     self.signaling = MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling()
                                     self.signaling.parent = self
 
@@ -7136,6 +7401,9 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
+                                    if self.policy is not None:
+                                        return True
+
                                     if self.signaling is not None and self.signaling._has_data():
                                         return True
 
@@ -7151,7 +7419,7 @@ class MplsLdp(object):
                                 """
                                 MPLS mLDP CSC
                                 
-                                .. attribute:: enable_csc
+                                .. attribute:: enable
                                 
                                 	Enable MPLS mLDP CSC
                                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
@@ -7165,7 +7433,7 @@ class MplsLdp(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.enable_csc = None
+                                    self.enable = None
 
                                 @property
                                 def _common_path(self):
@@ -7181,7 +7449,7 @@ class MplsLdp(object):
                                 def _has_data(self):
                                     if not self.is_config():
                                         return False
-                                    if self.enable_csc is not None:
+                                    if self.enable is not None:
                                         return True
 
                                     return False
@@ -7226,6 +7494,12 @@ class MplsLdp(object):
                                     return True
 
                                 if self.mo_frr is not None and self.mo_frr._has_data():
+                                    return True
+
+                                if self.neighbor_policies is not None and self.neighbor_policies._has_data():
+                                    return True
+
+                                if self.recursive_forwarding is not None and self.recursive_forwarding._has_data():
                                     return True
 
                                 return False
@@ -7279,6 +7553,9 @@ class MplsLdp(object):
                             return True
 
                         if self.afs is not None and self.afs._has_data():
+                            return True
+
+                        if self.enable is not None:
                             return True
 
                         return False
@@ -7397,6 +7674,16 @@ class MplsLdp(object):
                         	MPLS mLDP MoFRR
                         	**type**\:   :py:class:`MoFrr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr>`
                         
+                        .. attribute:: neighbor_policies
+                        
+                        	MLDP neighbor policies
+                        	**type**\:   :py:class:`NeighborPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies>`
+                        
+                        .. attribute:: recursive_forwarding
+                        
+                        	Enable recursive forwarding
+                        	**type**\:   :py:class:`RecursiveForwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding>`
+                        
                         
 
                         """
@@ -7417,16 +7704,27 @@ class MplsLdp(object):
                             self.mldp_rib_unicast_always = None
                             self.mo_frr = MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr()
                             self.mo_frr.parent = self
+                            self.neighbor_policies = MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies()
+                            self.neighbor_policies.parent = self
+                            self.recursive_forwarding = MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding()
+                            self.recursive_forwarding.parent = self
 
 
-                        class MldpRecursiveFec(object):
+                        class RecursiveForwarding(object):
                             """
-                            MPLS mLDP Recursive FEC
+                            Enable recursive forwarding
                             
-                            .. attribute:: enable_mldp_recursive_fec
+                            .. attribute:: enable
                             
-                            	Enable MPLS mLDP Recursive FEC
+                            	Enable recursive forwarding
                             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: policy
+                            
+                            	Recursive forwarding policy name
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
                             
                             
 
@@ -7437,7 +7735,64 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.enable_mldp_recursive_fec = None
+                                self.enable = None
+                                self.policy = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:recursive-forwarding'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.enable is not None:
+                                    return True
+
+                                if self.policy is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.RecursiveForwarding']['meta_info']
+
+
+                        class MldpRecursiveFec(object):
+                            """
+                            MPLS mLDP Recursive FEC
+                            
+                            .. attribute:: enable
+                            
+                            	Enable MPLS mLDP Recursive FEC
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: policy
+                            
+                            	Route policy name
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-ldp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.enable = None
+                                self.policy = None
 
                             @property
                             def _common_path(self):
@@ -7453,7 +7808,10 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.enable_mldp_recursive_fec is not None:
+                                if self.enable is not None:
+                                    return True
+
+                                if self.policy is not None:
                                     return True
 
                                 return False
@@ -7464,14 +7822,14 @@ class MplsLdp(object):
                                 return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec']['meta_info']
 
 
-                        class MoFrr(object):
+                        class NeighborPolicies(object):
                             """
-                            MPLS mLDP MoFRR
+                            MLDP neighbor policies
                             
-                            .. attribute:: enable_mo_frr
+                            .. attribute:: neighbor_policy
                             
-                            	Enable MPLS mLDP MoFRR
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	Route Policy
+                            	**type**\: list of    :py:class:`NeighborPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy>`
                             
                             
 
@@ -7482,7 +7840,147 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.enable_mo_frr = None
+                                self.neighbor_policy = YList()
+                                self.neighbor_policy.parent = self
+                                self.neighbor_policy.name = 'neighbor_policy'
+
+
+                            class NeighborPolicy(object):
+                                """
+                                Route Policy
+                                
+                                .. attribute:: policy_mode  <key>
+                                
+                                	Inbound/Outbound Policy
+                                	**type**\:   :py:class:`MldpPolicyModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg.MldpPolicyModeEnum>`
+                                
+                                .. attribute:: root_address  <key>
+                                
+                                	Neighbor Address
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                
+                                ----
+                                .. attribute:: route_policy
+                                
+                                	Route policy name
+                                	**type**\:  str
+                                
+                                	**length:** 1..64
+                                
+                                	**mandatory**\: True
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-ldp-cfg'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.policy_mode = None
+                                    self.root_address = None
+                                    self.route_policy = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    if self.policy_mode is None:
+                                        raise YPYModelError('Key property policy_mode is None')
+                                    if self.root_address is None:
+                                        raise YPYModelError('Key property root_address is None')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:neighbor-policy[Cisco-IOS-XR-mpls-ldp-cfg:policy-mode = ' + str(self.policy_mode) + '][Cisco-IOS-XR-mpls-ldp-cfg:root-address = ' + str(self.root_address) + ']'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return True
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.policy_mode is not None:
+                                        return True
+
+                                    if self.root_address is not None:
+                                        return True
+
+                                    if self.route_policy is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                    return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-ldp-cfg:neighbor-policies'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.neighbor_policy is not None:
+                                    for child_ref in self.neighbor_policy:
+                                        if child_ref._has_data():
+                                            return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg as meta
+                                return meta._meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies']['meta_info']
+
+
+                        class MoFrr(object):
+                            """
+                            MPLS mLDP MoFRR
+                            
+                            .. attribute:: enable
+                            
+                            	Enable MPLS mLDP MoFRR
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: policy
+                            
+                            	Route policy name
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-ldp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.enable = None
+                                self.policy = None
 
                             @property
                             def _common_path(self):
@@ -7498,7 +7996,10 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.enable_mo_frr is not None:
+                                if self.enable is not None:
+                                    return True
+
+                                if self.policy is not None:
                                     return True
 
                                 return False
@@ -7512,6 +8013,13 @@ class MplsLdp(object):
                         class MakeBeforeBreak(object):
                             """
                             MPLS mLDP Make\-Before\-Break configuration
+                            
+                            .. attribute:: policy
+                            
+                            	Route policy name
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
                             
                             .. attribute:: signaling
                             
@@ -7527,6 +8035,7 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.policy = None
                                 self.signaling = MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling()
                                 self.signaling.parent = self
 
@@ -7606,6 +8115,9 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.policy is not None:
+                                    return True
+
                                 if self.signaling is not None and self.signaling._has_data():
                                     return True
 
@@ -7621,7 +8133,7 @@ class MplsLdp(object):
                             """
                             MPLS mLDP CSC
                             
-                            .. attribute:: enable_csc
+                            .. attribute:: enable
                             
                             	Enable MPLS mLDP CSC
                             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
@@ -7635,7 +8147,7 @@ class MplsLdp(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.enable_csc = None
+                                self.enable = None
 
                             @property
                             def _common_path(self):
@@ -7651,7 +8163,7 @@ class MplsLdp(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.enable_csc is not None:
+                                if self.enable is not None:
                                     return True
 
                                 return False
@@ -7694,6 +8206,12 @@ class MplsLdp(object):
                                 return True
 
                             if self.mo_frr is not None and self.mo_frr._has_data():
+                                return True
+
+                            if self.neighbor_policies is not None and self.neighbor_policies._has_data():
+                                return True
+
+                            if self.recursive_forwarding is not None and self.recursive_forwarding._has_data():
                                 return True
 
                             return False
@@ -7778,7 +8296,7 @@ class MplsLdp(object):
                     
                     .. attribute:: notifications
                     
-                    	MPLS mLDP logging notificataions
+                    	MPLS mLDP logging notifications
                     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     

@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'VrfAddressFamilyEnum' : _MetaInfoEnum('VrfAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg',
         {
@@ -38,13 +37,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vpn-index', ATTRIBUTE, 'int' , None, None, 
-                [('0', '16777215')], [], 
+                [('0', '4294967295')], [], 
                 '''                Index of VPNID Index
                 ''',
                 'vpn_index',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('vpn-oui', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
+                [('0', '16777215')], [], 
                 '''                OUI of VPNID OUI
                 ''',
                 'vpn_oui',
@@ -53,29 +52,6 @@ _meta_table = {
             'Cisco-IOS-XR-infra-rsi-cfg',
             'vpn-id',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
-        ),
-    },
-    'Vrfs.Vrf.Afs.Af.MaximumPrefix' : {
-        'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.MaximumPrefix',
-            False, 
-            [
-            _MetaInfoClassMember('mid-threshold', ATTRIBUTE, 'int' , None, None, 
-                [('1', '100')], [], 
-                '''                Mid-threshold (% of maximum)
-                ''',
-                'mid_threshold',
-                'Cisco-IOS-XR-ip-rib-cfg', False),
-            _MetaInfoClassMember('prefix-limit', ATTRIBUTE, 'int' , None, None, 
-                [('32', '5000000')], [], 
-                '''                Set table's maximum prefix limit
-                ''',
-                'prefix_limit',
-                'Cisco-IOS-XR-ip-rib-cfg', False),
-            ],
-            'Cisco-IOS-XR-ip-rib-cfg',
-            'maximum-prefix',
-            _yang_ns._namespaces['Cisco-IOS-XR-ip-rib-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
         ),
     },
@@ -450,6 +426,14 @@ _meta_table = {
                 ''',
                 'import_route_targets',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('import-vrf-options', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE Enable advertising imported paths to
+                PEsFALSE Disable advertising imported paths to
+                PEs
+                ''',
+                'import_vrf_options',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('vrf-to-global-export-route-policy', REFERENCE_CLASS, 'VrfToGlobalExportRoutePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy', 
                 [], [], 
                 '''                Route policy for vrf to global export filtering
@@ -460,6 +444,29 @@ _meta_table = {
             'Cisco-IOS-XR-ipv4-bgp-cfg',
             'bgp',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
+        ),
+    },
+    'Vrfs.Vrf.Afs.Af.MaximumPrefix' : {
+        'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.MaximumPrefix',
+            False, 
+            [
+            _MetaInfoClassMember('mid-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('1', '100')], [], 
+                '''                Mid-threshold (% of maximum)
+                ''',
+                'mid_threshold',
+                'Cisco-IOS-XR-ip-rib-cfg', False),
+            _MetaInfoClassMember('prefix-limit', ATTRIBUTE, 'int' , None, None, 
+                [('32', '5000000')], [], 
+                '''                Set table's maximum prefix limit
+                ''',
+                'prefix_limit',
+                'Cisco-IOS-XR-ip-rib-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-rib-cfg',
+            'maximum-prefix',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rib-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
         ),
     },
@@ -480,7 +487,7 @@ _meta_table = {
                 'saf_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
             _MetaInfoClassMember('topology-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 244)], [], 
+                [(1, 244)], [], 
                 '''                Topology name
                 ''',
                 'topology_name',
@@ -590,7 +597,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -608,13 +615,13 @@ _meta_table = {
                 'create',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
-                [(0, 244)], [], 
+                [(1, 244)], [], 
                 '''                A textual description of the VRF
                 ''',
                 'description',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
             _MetaInfoClassMember('fallback-vrf', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                Fallback VRF
                 ''',
                 'fallback_vrf',
@@ -685,7 +692,7 @@ _meta_table = {
                 'saf_name',
                 'Cisco-IOS-XR-infra-rsi-cfg', True),
             _MetaInfoClassMember('topology-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 244)], [], 
+                [(1, 244)], [], 
                 '''                Topology name
                 ''',
                 'topology_name',
@@ -881,7 +888,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                SRLG name
                 ''',
                 'srlg_name',
@@ -979,7 +986,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
+                [(1, 64)], [], 
                 '''                SRLG name
                 ''',
                 'srlg_name',
@@ -1245,7 +1252,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -1279,7 +1286,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-group-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 32)], [], 
+                [(1, 32)], [], 
                 '''                VRF group name
                 ''',
                 'vrf_group_name',
@@ -1351,8 +1358,8 @@ _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets']['meta_info'].parent =_meta
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
-_meta_table['Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
+_meta_table['Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs']['meta_info']
 _meta_table['Vrfs.Vrf.MulticastHost.Ipv4']['meta_info'].parent =_meta_table['Vrfs.Vrf.MulticastHost']['meta_info']
 _meta_table['Vrfs.Vrf.MulticastHost.Ipv6']['meta_info'].parent =_meta_table['Vrfs.Vrf.MulticastHost']['meta_info']

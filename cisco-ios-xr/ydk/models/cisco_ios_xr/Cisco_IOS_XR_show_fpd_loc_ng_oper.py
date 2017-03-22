@@ -113,7 +113,7 @@ class ShowFpd(object):
             	Fpd location
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: fpd
             
@@ -144,7 +144,7 @@ class ShowFpd(object):
                 	Fpd Name
                 	**type**\:  str
                 
-                	**length:** 0..32
+                	**length:** 1..32
                 
                 .. attribute:: fpd_info_detaile
                 
@@ -544,7 +544,7 @@ class ShowFpd(object):
             	Fpd location
             	**type**\:  str
             
-            	**length:** 0..32
+            	**length:** 1..32
             
             .. attribute:: help_fpd
             

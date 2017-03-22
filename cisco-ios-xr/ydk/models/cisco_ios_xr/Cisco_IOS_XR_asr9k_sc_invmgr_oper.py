@@ -183,255 +183,6 @@ class CardResetReasonEnum(Enum):
         return meta._meta_table['CardResetReasonEnum']
 
 
-class InvCardStateEnum(Enum):
-    """
-    InvCardStateEnum
-
-    Inv card state
-
-    .. data:: inv_card_not_present = 0
-
-    	inv card not present
-
-    .. data:: inv_card_present = 1
-
-    	inv card present
-
-    .. data:: inv_card_reset = 2
-
-    	inv card reset
-
-    .. data:: inv_card_booting = 3
-
-    	inv card booting
-
-    .. data:: inv_card_mbi_booting = 4
-
-    	inv card mbi booting
-
-    .. data:: inv_card_running_mbi = 5
-
-    	inv card running mbi
-
-    .. data:: inv_card_running_ena = 6
-
-    	inv card running ena
-
-    .. data:: inv_card_bring_down = 7
-
-    	inv card bring down
-
-    .. data:: inv_card_ena_failure = 8
-
-    	inv card ena failure
-
-    .. data:: inv_card_f_diag_run = 9
-
-    	inv card f diag run
-
-    .. data:: inv_card_f_diag_failure = 10
-
-    	inv card f diag failure
-
-    .. data:: inv_card_powered = 11
-
-    	inv card powered
-
-    .. data:: inv_card_unpowered = 12
-
-    	inv card unpowered
-
-    .. data:: inv_card_mdr = 13
-
-    	inv card mdr
-
-    .. data:: inv_card_mdr_running_mbi = 14
-
-    	inv card mdr running mbi
-
-    .. data:: inv_card_main_t_mode = 15
-
-    	inv card main t mode
-
-    .. data:: inv_card_admin_down = 16
-
-    	inv card admin down
-
-    .. data:: inv_card_no_mon = 17
-
-    	inv card no mon
-
-    .. data:: inv_card_unknown = 18
-
-    	inv card unknown
-
-    .. data:: inv_card_failed = 19
-
-    	inv card failed
-
-    .. data:: inv_card_ok = 20
-
-    	inv card ok
-
-    .. data:: inv_card_missing = 21
-
-    	inv card missing
-
-    .. data:: inv_card_field_diag_downloading = 22
-
-    	inv card field diag downloading
-
-    .. data:: inv_card_field_diag_unmonitor = 23
-
-    	inv card field diag unmonitor
-
-    .. data:: inv_card_fabric_field_diag_unmonitor = 24
-
-    	inv card fabric field diag unmonitor
-
-    .. data:: inv_card_field_diag_rp_launching = 25
-
-    	inv card field diag rp launching
-
-    .. data:: inv_card_field_diag_running = 26
-
-    	inv card field diag running
-
-    .. data:: inv_card_field_diag_pass = 27
-
-    	inv card field diag pass
-
-    .. data:: inv_card_field_diag_fail = 28
-
-    	inv card field diag fail
-
-    .. data:: inv_card_field_diag_timeout = 29
-
-    	inv card field diag timeout
-
-    .. data:: inv_card_disabled = 30
-
-    	inv card disabled
-
-    .. data:: inv_card_spa_booting = 31
-
-    	inv card spa booting
-
-    .. data:: inv_card_not_allowed_online = 32
-
-    	inv card not allowed online
-
-    .. data:: inv_card_stopped = 33
-
-    	inv card stopped
-
-    .. data:: inv_card_incompatible_fw_ver = 34
-
-    	inv card incompatible fw ver
-
-    .. data:: inv_card_fpd_hold = 35
-
-    	inv card fpd hold
-
-    .. data:: inv_card_node_prep = 36
-
-    	inv card node prep
-
-    .. data:: inv_card_updating_fpd = 37
-
-    	inv card updating fpd
-
-    .. data:: inv_card_num_states = 38
-
-    	inv card num states
-
-    """
-
-    inv_card_not_present = 0
-
-    inv_card_present = 1
-
-    inv_card_reset = 2
-
-    inv_card_booting = 3
-
-    inv_card_mbi_booting = 4
-
-    inv_card_running_mbi = 5
-
-    inv_card_running_ena = 6
-
-    inv_card_bring_down = 7
-
-    inv_card_ena_failure = 8
-
-    inv_card_f_diag_run = 9
-
-    inv_card_f_diag_failure = 10
-
-    inv_card_powered = 11
-
-    inv_card_unpowered = 12
-
-    inv_card_mdr = 13
-
-    inv_card_mdr_running_mbi = 14
-
-    inv_card_main_t_mode = 15
-
-    inv_card_admin_down = 16
-
-    inv_card_no_mon = 17
-
-    inv_card_unknown = 18
-
-    inv_card_failed = 19
-
-    inv_card_ok = 20
-
-    inv_card_missing = 21
-
-    inv_card_field_diag_downloading = 22
-
-    inv_card_field_diag_unmonitor = 23
-
-    inv_card_fabric_field_diag_unmonitor = 24
-
-    inv_card_field_diag_rp_launching = 25
-
-    inv_card_field_diag_running = 26
-
-    inv_card_field_diag_pass = 27
-
-    inv_card_field_diag_fail = 28
-
-    inv_card_field_diag_timeout = 29
-
-    inv_card_disabled = 30
-
-    inv_card_spa_booting = 31
-
-    inv_card_not_allowed_online = 32
-
-    inv_card_stopped = 33
-
-    inv_card_incompatible_fw_ver = 34
-
-    inv_card_fpd_hold = 35
-
-    inv_card_node_prep = 36
-
-    inv_card_updating_fpd = 37
-
-    inv_card_num_states = 38
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_invmgr_oper as meta
-        return meta._meta_table['InvCardStateEnum']
-
-
 
 class Inventory(object):
     """
@@ -447,7 +198,7 @@ class Inventory(object):
     """
 
     _prefix = 'asr9k-sc-invmgr-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-01-04'
 
     def __init__(self):
         self.racks = Inventory.Racks()
@@ -468,7 +219,7 @@ class Inventory(object):
         """
 
         _prefix = 'asr9k-sc-invmgr-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-01-04'
 
         def __init__(self):
             self.parent = None
@@ -498,7 +249,7 @@ class Inventory(object):
             """
 
             _prefix = 'asr9k-sc-invmgr-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-01-04'
 
             def __init__(self):
                 self.parent = None
@@ -521,7 +272,7 @@ class Inventory(object):
                 """
 
                 _prefix = 'asr9k-sc-invmgr-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-01-04'
 
                 def __init__(self):
                     self.parent = None
@@ -556,7 +307,7 @@ class Inventory(object):
                     """
 
                     _prefix = 'asr9k-sc-invmgr-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-01-04'
 
                     def __init__(self):
                         self.parent = None
@@ -581,7 +332,7 @@ class Inventory(object):
                         """
 
                         _prefix = 'asr9k-sc-invmgr-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-04'
 
                         def __init__(self):
                             self.parent = None
@@ -631,7 +382,7 @@ class Inventory(object):
                             """
 
                             _prefix = 'asr9k-sc-invmgr-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-04'
 
                             def __init__(self):
                                 self.parent = None
@@ -663,7 +414,7 @@ class Inventory(object):
                                 """
 
                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-04'
 
                                 def __init__(self):
                                     self.parent = None
@@ -698,7 +449,7 @@ class Inventory(object):
                                     """
 
                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-04'
 
                                     def __init__(self):
                                         self.parent = None
@@ -733,7 +484,7 @@ class Inventory(object):
                                         """
 
                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-04'
 
                                         def __init__(self):
                                             self.parent = None
@@ -760,7 +511,7 @@ class Inventory(object):
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -790,7 +541,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -818,7 +569,7 @@ class Inventory(object):
                                                     """
 
                                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-04'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -874,7 +625,7 @@ class Inventory(object):
                                                         
                                                         .. attribute:: description
                                                         
-                                                        	describes in user\-readable terms 						what the entity in question does
+                                                        	describes in user\-readable terms       what the entity in question does
                                                         	**type**\:  str
                                                         
                                                         	**length:** 0..255
@@ -895,7 +646,7 @@ class Inventory(object):
                                                         
                                                         .. attribute:: group_flag
                                                         
-                                                        	indicates if this entity is group 						or not
+                                                        	indicates if this entity is group       or not
                                                         	**type**\:  bool
                                                         
                                                         .. attribute:: hardware_revision
@@ -926,7 +677,7 @@ class Inventory(object):
                                                         
                                                         .. attribute:: memory_size
                                                         
-                                                        	Size of memory associated with 						the entity where applicable
+                                                        	Size of memory associated with       the entity where applicable
                                                         	**type**\:  int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -980,6 +731,13 @@ class Inventory(object):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        .. attribute:: unique_id
+                                                        
+                                                        	Unique id for an entity
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
                                                         .. attribute:: unrecognized_fru
                                                         
                                                         	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -1002,7 +760,7 @@ class Inventory(object):
                                                         """
 
                                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-04'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -1028,6 +786,7 @@ class Inventory(object):
                                                             self.redundancystate = None
                                                             self.serial_number = None
                                                             self.software_revision = None
+                                                            self.unique_id = None
                                                             self.unrecognized_fru = None
                                                             self.vendor_type = None
                                                             self.xr_scoped = None
@@ -1112,6 +871,9 @@ class Inventory(object):
                                                             if self.software_revision is not None:
                                                                 return True
 
+                                                            if self.unique_id is not None:
+                                                                return True
+
                                                             if self.unrecognized_fru is not None:
                                                                 return True
 
@@ -1151,7 +913,9 @@ class Inventory(object):
                                                         .. attribute:: card_operational_state
                                                         
                                                         	card operation state
-                                                        	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
                                                         
                                                         .. attribute:: card_reset_reason
                                                         
@@ -1185,14 +949,16 @@ class Inventory(object):
                                                         .. attribute:: power_operational_state
                                                         
                                                         	Power operation state
-                                                        	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
                                                         
                                                         
 
                                                         """
 
                                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-04'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -1236,7 +1002,7 @@ class Inventory(object):
                                                             """
 
                                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                                            _revision = '2015-11-09'
+                                                            _revision = '2017-01-04'
 
                                                             def __init__(self):
                                                                 self.parent = None
@@ -1298,7 +1064,7 @@ class Inventory(object):
                                                             """
 
                                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                                            _revision = '2015-11-09'
+                                                            _revision = '2017-01-04'
 
                                                             def __init__(self):
                                                                 self.parent = None
@@ -1478,7 +1244,7 @@ class Inventory(object):
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -1513,7 +1279,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -1538,7 +1304,7 @@ class Inventory(object):
                                                     """
 
                                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-04'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -1565,7 +1331,7 @@ class Inventory(object):
                                                         """
 
                                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-04'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -1621,7 +1387,7 @@ class Inventory(object):
                                                             
                                                             .. attribute:: description
                                                             
-                                                            	describes in user\-readable terms 						what the entity in question does
+                                                            	describes in user\-readable terms       what the entity in question does
                                                             	**type**\:  str
                                                             
                                                             	**length:** 0..255
@@ -1642,7 +1408,7 @@ class Inventory(object):
                                                             
                                                             .. attribute:: group_flag
                                                             
-                                                            	indicates if this entity is group 						or not
+                                                            	indicates if this entity is group       or not
                                                             	**type**\:  bool
                                                             
                                                             .. attribute:: hardware_revision
@@ -1673,7 +1439,7 @@ class Inventory(object):
                                                             
                                                             .. attribute:: memory_size
                                                             
-                                                            	Size of memory associated with 						the entity where applicable
+                                                            	Size of memory associated with       the entity where applicable
                                                             	**type**\:  int
                                                             
                                                             	**range:** \-2147483648..2147483647
@@ -1727,6 +1493,13 @@ class Inventory(object):
                                                             
                                                             	**length:** 0..255
                                                             
+                                                            .. attribute:: unique_id
+                                                            
+                                                            	Unique id for an entity
+                                                            	**type**\:  int
+                                                            
+                                                            	**range:** \-2147483648..2147483647
+                                                            
                                                             .. attribute:: unrecognized_fru
                                                             
                                                             	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -1749,7 +1522,7 @@ class Inventory(object):
                                                             """
 
                                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                                            _revision = '2015-11-09'
+                                                            _revision = '2017-01-04'
 
                                                             def __init__(self):
                                                                 self.parent = None
@@ -1775,6 +1548,7 @@ class Inventory(object):
                                                                 self.redundancystate = None
                                                                 self.serial_number = None
                                                                 self.software_revision = None
+                                                                self.unique_id = None
                                                                 self.unrecognized_fru = None
                                                                 self.vendor_type = None
                                                                 self.xr_scoped = None
@@ -1859,6 +1633,9 @@ class Inventory(object):
                                                                 if self.software_revision is not None:
                                                                     return True
 
+                                                                if self.unique_id is not None:
+                                                                    return True
+
                                                                 if self.unrecognized_fru is not None:
                                                                     return True
 
@@ -1898,7 +1675,9 @@ class Inventory(object):
                                                             .. attribute:: card_operational_state
                                                             
                                                             	card operation state
-                                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                            	**type**\:  int
+                                                            
+                                                            	**range:** \-2147483648..2147483647
                                                             
                                                             .. attribute:: card_reset_reason
                                                             
@@ -1932,14 +1711,16 @@ class Inventory(object):
                                                             .. attribute:: power_operational_state
                                                             
                                                             	Power operation state
-                                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                            	**type**\:  int
+                                                            
+                                                            	**range:** \-2147483648..2147483647
                                                             
                                                             
 
                                                             """
 
                                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                                            _revision = '2015-11-09'
+                                                            _revision = '2017-01-04'
 
                                                             def __init__(self):
                                                                 self.parent = None
@@ -1983,7 +1764,7 @@ class Inventory(object):
                                                                 """
 
                                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                                _revision = '2015-11-09'
+                                                                _revision = '2017-01-04'
 
                                                                 def __init__(self):
                                                                     self.parent = None
@@ -2045,7 +1826,7 @@ class Inventory(object):
                                                                 """
 
                                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                                _revision = '2015-11-09'
+                                                                _revision = '2017-01-04'
 
                                                                 def __init__(self):
                                                                     self.parent = None
@@ -2198,7 +1979,7 @@ class Inventory(object):
                                                     """
 
                                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-04'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -2254,7 +2035,7 @@ class Inventory(object):
                                                         
                                                         .. attribute:: description
                                                         
-                                                        	describes in user\-readable terms 						what the entity in question does
+                                                        	describes in user\-readable terms       what the entity in question does
                                                         	**type**\:  str
                                                         
                                                         	**length:** 0..255
@@ -2275,7 +2056,7 @@ class Inventory(object):
                                                         
                                                         .. attribute:: group_flag
                                                         
-                                                        	indicates if this entity is group 						or not
+                                                        	indicates if this entity is group       or not
                                                         	**type**\:  bool
                                                         
                                                         .. attribute:: hardware_revision
@@ -2306,7 +2087,7 @@ class Inventory(object):
                                                         
                                                         .. attribute:: memory_size
                                                         
-                                                        	Size of memory associated with 						the entity where applicable
+                                                        	Size of memory associated with       the entity where applicable
                                                         	**type**\:  int
                                                         
                                                         	**range:** \-2147483648..2147483647
@@ -2360,6 +2141,13 @@ class Inventory(object):
                                                         
                                                         	**length:** 0..255
                                                         
+                                                        .. attribute:: unique_id
+                                                        
+                                                        	Unique id for an entity
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
+                                                        
                                                         .. attribute:: unrecognized_fru
                                                         
                                                         	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -2382,7 +2170,7 @@ class Inventory(object):
                                                         """
 
                                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-04'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -2408,6 +2196,7 @@ class Inventory(object):
                                                             self.redundancystate = None
                                                             self.serial_number = None
                                                             self.software_revision = None
+                                                            self.unique_id = None
                                                             self.unrecognized_fru = None
                                                             self.vendor_type = None
                                                             self.xr_scoped = None
@@ -2492,6 +2281,9 @@ class Inventory(object):
                                                             if self.software_revision is not None:
                                                                 return True
 
+                                                            if self.unique_id is not None:
+                                                                return True
+
                                                             if self.unrecognized_fru is not None:
                                                                 return True
 
@@ -2531,7 +2323,9 @@ class Inventory(object):
                                                         .. attribute:: card_operational_state
                                                         
                                                         	card operation state
-                                                        	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
                                                         
                                                         .. attribute:: card_reset_reason
                                                         
@@ -2565,14 +2359,16 @@ class Inventory(object):
                                                         .. attribute:: power_operational_state
                                                         
                                                         	Power operation state
-                                                        	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                        	**type**\:  int
+                                                        
+                                                        	**range:** \-2147483648..2147483647
                                                         
                                                         
 
                                                         """
 
                                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-04'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -2616,7 +2412,7 @@ class Inventory(object):
                                                             """
 
                                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                                            _revision = '2015-11-09'
+                                                            _revision = '2017-01-04'
 
                                                             def __init__(self):
                                                                 self.parent = None
@@ -2678,7 +2474,7 @@ class Inventory(object):
                                                             """
 
                                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                                            _revision = '2015-11-09'
+                                                            _revision = '2017-01-04'
 
                                                             def __init__(self):
                                                                 self.parent = None
@@ -2865,7 +2661,7 @@ class Inventory(object):
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -2921,7 +2717,7 @@ class Inventory(object):
                                                 
                                                 .. attribute:: description
                                                 
-                                                	describes in user\-readable terms 						what the entity in question does
+                                                	describes in user\-readable terms       what the entity in question does
                                                 	**type**\:  str
                                                 
                                                 	**length:** 0..255
@@ -2942,7 +2738,7 @@ class Inventory(object):
                                                 
                                                 .. attribute:: group_flag
                                                 
-                                                	indicates if this entity is group 						or not
+                                                	indicates if this entity is group       or not
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: hardware_revision
@@ -2973,7 +2769,7 @@ class Inventory(object):
                                                 
                                                 .. attribute:: memory_size
                                                 
-                                                	Size of memory associated with 						the entity where applicable
+                                                	Size of memory associated with       the entity where applicable
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -3027,6 +2823,13 @@ class Inventory(object):
                                                 
                                                 	**length:** 0..255
                                                 
+                                                .. attribute:: unique_id
+                                                
+                                                	Unique id for an entity
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
                                                 .. attribute:: unrecognized_fru
                                                 
                                                 	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -3049,7 +2852,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -3075,6 +2878,7 @@ class Inventory(object):
                                                     self.redundancystate = None
                                                     self.serial_number = None
                                                     self.software_revision = None
+                                                    self.unique_id = None
                                                     self.unrecognized_fru = None
                                                     self.vendor_type = None
                                                     self.xr_scoped = None
@@ -3159,6 +2963,9 @@ class Inventory(object):
                                                     if self.software_revision is not None:
                                                         return True
 
+                                                    if self.unique_id is not None:
+                                                        return True
+
                                                     if self.unrecognized_fru is not None:
                                                         return True
 
@@ -3198,7 +3005,9 @@ class Inventory(object):
                                                 .. attribute:: card_operational_state
                                                 
                                                 	card operation state
-                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
                                                 
                                                 .. attribute:: card_reset_reason
                                                 
@@ -3232,14 +3041,16 @@ class Inventory(object):
                                                 .. attribute:: power_operational_state
                                                 
                                                 	Power operation state
-                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
                                                 
                                                 
 
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -3283,7 +3094,7 @@ class Inventory(object):
                                                     """
 
                                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-04'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -3345,7 +3156,7 @@ class Inventory(object):
                                                     """
 
                                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-04'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -3504,7 +3315,7 @@ class Inventory(object):
                                         """
 
                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-04'
 
                                         def __init__(self):
                                             self.parent = None
@@ -3560,7 +3371,7 @@ class Inventory(object):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms 						what the entity in question does
+                                            	describes in user\-readable terms       what the entity in question does
                                             	**type**\:  str
                                             
                                             	**length:** 0..255
@@ -3581,7 +3392,7 @@ class Inventory(object):
                                             
                                             .. attribute:: group_flag
                                             
-                                            	indicates if this entity is group 						or not
+                                            	indicates if this entity is group       or not
                                             	**type**\:  bool
                                             
                                             .. attribute:: hardware_revision
@@ -3612,7 +3423,7 @@ class Inventory(object):
                                             
                                             .. attribute:: memory_size
                                             
-                                            	Size of memory associated with 						the entity where applicable
+                                            	Size of memory associated with       the entity where applicable
                                             	**type**\:  int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -3666,6 +3477,13 @@ class Inventory(object):
                                             
                                             	**length:** 0..255
                                             
+                                            .. attribute:: unique_id
+                                            
+                                            	Unique id for an entity
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
                                             .. attribute:: unrecognized_fru
                                             
                                             	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -3688,7 +3506,7 @@ class Inventory(object):
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -3714,6 +3532,7 @@ class Inventory(object):
                                                 self.redundancystate = None
                                                 self.serial_number = None
                                                 self.software_revision = None
+                                                self.unique_id = None
                                                 self.unrecognized_fru = None
                                                 self.vendor_type = None
                                                 self.xr_scoped = None
@@ -3798,6 +3617,9 @@ class Inventory(object):
                                                 if self.software_revision is not None:
                                                     return True
 
+                                                if self.unique_id is not None:
+                                                    return True
+
                                                 if self.unrecognized_fru is not None:
                                                     return True
 
@@ -3837,7 +3659,9 @@ class Inventory(object):
                                             .. attribute:: card_operational_state
                                             
                                             	card operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: card_reset_reason
                                             
@@ -3871,14 +3695,16 @@ class Inventory(object):
                                             .. attribute:: power_operational_state
                                             
                                             	Power operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
                                             
                                             
 
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -3922,7 +3748,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -3984,7 +3810,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -4167,7 +3993,7 @@ class Inventory(object):
                                 """
 
                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-04'
 
                                 def __init__(self):
                                     self.parent = None
@@ -4202,7 +4028,7 @@ class Inventory(object):
                                     """
 
                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-04'
 
                                     def __init__(self):
                                         self.parent = None
@@ -4228,7 +4054,7 @@ class Inventory(object):
                                         """
 
                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-04'
 
                                         def __init__(self):
                                             self.parent = None
@@ -4258,7 +4084,7 @@ class Inventory(object):
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -4286,7 +4112,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -4342,7 +4168,7 @@ class Inventory(object):
                                                     
                                                     .. attribute:: description
                                                     
-                                                    	describes in user\-readable terms 						what the entity in question does
+                                                    	describes in user\-readable terms       what the entity in question does
                                                     	**type**\:  str
                                                     
                                                     	**length:** 0..255
@@ -4363,7 +4189,7 @@ class Inventory(object):
                                                     
                                                     .. attribute:: group_flag
                                                     
-                                                    	indicates if this entity is group 						or not
+                                                    	indicates if this entity is group       or not
                                                     	**type**\:  bool
                                                     
                                                     .. attribute:: hardware_revision
@@ -4394,7 +4220,7 @@ class Inventory(object):
                                                     
                                                     .. attribute:: memory_size
                                                     
-                                                    	Size of memory associated with 						the entity where applicable
+                                                    	Size of memory associated with       the entity where applicable
                                                     	**type**\:  int
                                                     
                                                     	**range:** \-2147483648..2147483647
@@ -4448,6 +4274,13 @@ class Inventory(object):
                                                     
                                                     	**length:** 0..255
                                                     
+                                                    .. attribute:: unique_id
+                                                    
+                                                    	Unique id for an entity
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** \-2147483648..2147483647
+                                                    
                                                     .. attribute:: unrecognized_fru
                                                     
                                                     	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -4470,7 +4303,7 @@ class Inventory(object):
                                                     """
 
                                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-04'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -4496,6 +4329,7 @@ class Inventory(object):
                                                         self.redundancystate = None
                                                         self.serial_number = None
                                                         self.software_revision = None
+                                                        self.unique_id = None
                                                         self.unrecognized_fru = None
                                                         self.vendor_type = None
                                                         self.xr_scoped = None
@@ -4580,6 +4414,9 @@ class Inventory(object):
                                                         if self.software_revision is not None:
                                                             return True
 
+                                                        if self.unique_id is not None:
+                                                            return True
+
                                                         if self.unrecognized_fru is not None:
                                                             return True
 
@@ -4619,7 +4456,9 @@ class Inventory(object):
                                                     .. attribute:: card_operational_state
                                                     
                                                     	card operation state
-                                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** \-2147483648..2147483647
                                                     
                                                     .. attribute:: card_reset_reason
                                                     
@@ -4653,14 +4492,16 @@ class Inventory(object):
                                                     .. attribute:: power_operational_state
                                                     
                                                     	Power operation state
-                                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                    	**type**\:  int
+                                                    
+                                                    	**range:** \-2147483648..2147483647
                                                     
                                                     
 
                                                     """
 
                                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-04'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -4704,7 +4545,7 @@ class Inventory(object):
                                                         """
 
                                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-04'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -4766,7 +4607,7 @@ class Inventory(object):
                                                         """
 
                                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                                        _revision = '2015-11-09'
+                                                        _revision = '2017-01-04'
 
                                                         def __init__(self):
                                                             self.parent = None
@@ -4950,7 +4791,7 @@ class Inventory(object):
                                         """
 
                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-04'
 
                                         def __init__(self):
                                             self.parent = None
@@ -5006,7 +4847,7 @@ class Inventory(object):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms 						what the entity in question does
+                                            	describes in user\-readable terms       what the entity in question does
                                             	**type**\:  str
                                             
                                             	**length:** 0..255
@@ -5027,7 +4868,7 @@ class Inventory(object):
                                             
                                             .. attribute:: group_flag
                                             
-                                            	indicates if this entity is group 						or not
+                                            	indicates if this entity is group       or not
                                             	**type**\:  bool
                                             
                                             .. attribute:: hardware_revision
@@ -5058,7 +4899,7 @@ class Inventory(object):
                                             
                                             .. attribute:: memory_size
                                             
-                                            	Size of memory associated with 						the entity where applicable
+                                            	Size of memory associated with       the entity where applicable
                                             	**type**\:  int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -5112,6 +4953,13 @@ class Inventory(object):
                                             
                                             	**length:** 0..255
                                             
+                                            .. attribute:: unique_id
+                                            
+                                            	Unique id for an entity
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
                                             .. attribute:: unrecognized_fru
                                             
                                             	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -5134,7 +4982,7 @@ class Inventory(object):
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -5160,6 +5008,7 @@ class Inventory(object):
                                                 self.redundancystate = None
                                                 self.serial_number = None
                                                 self.software_revision = None
+                                                self.unique_id = None
                                                 self.unrecognized_fru = None
                                                 self.vendor_type = None
                                                 self.xr_scoped = None
@@ -5244,6 +5093,9 @@ class Inventory(object):
                                                 if self.software_revision is not None:
                                                     return True
 
+                                                if self.unique_id is not None:
+                                                    return True
+
                                                 if self.unrecognized_fru is not None:
                                                     return True
 
@@ -5283,7 +5135,9 @@ class Inventory(object):
                                             .. attribute:: card_operational_state
                                             
                                             	card operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: card_reset_reason
                                             
@@ -5317,14 +5171,16 @@ class Inventory(object):
                                             .. attribute:: power_operational_state
                                             
                                             	Power operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
                                             
                                             
 
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -5368,7 +5224,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -5430,7 +5286,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -5613,7 +5469,7 @@ class Inventory(object):
                                 """
 
                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-04'
 
                                 def __init__(self):
                                     self.parent = None
@@ -5643,7 +5499,7 @@ class Inventory(object):
                                     """
 
                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-04'
 
                                     def __init__(self):
                                         self.parent = None
@@ -5671,7 +5527,7 @@ class Inventory(object):
                                         """
 
                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-04'
 
                                         def __init__(self):
                                             self.parent = None
@@ -5727,7 +5583,7 @@ class Inventory(object):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms 						what the entity in question does
+                                            	describes in user\-readable terms       what the entity in question does
                                             	**type**\:  str
                                             
                                             	**length:** 0..255
@@ -5748,7 +5604,7 @@ class Inventory(object):
                                             
                                             .. attribute:: group_flag
                                             
-                                            	indicates if this entity is group 						or not
+                                            	indicates if this entity is group       or not
                                             	**type**\:  bool
                                             
                                             .. attribute:: hardware_revision
@@ -5779,7 +5635,7 @@ class Inventory(object):
                                             
                                             .. attribute:: memory_size
                                             
-                                            	Size of memory associated with 						the entity where applicable
+                                            	Size of memory associated with       the entity where applicable
                                             	**type**\:  int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -5833,6 +5689,13 @@ class Inventory(object):
                                             
                                             	**length:** 0..255
                                             
+                                            .. attribute:: unique_id
+                                            
+                                            	Unique id for an entity
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
                                             .. attribute:: unrecognized_fru
                                             
                                             	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -5855,7 +5718,7 @@ class Inventory(object):
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -5881,6 +5744,7 @@ class Inventory(object):
                                                 self.redundancystate = None
                                                 self.serial_number = None
                                                 self.software_revision = None
+                                                self.unique_id = None
                                                 self.unrecognized_fru = None
                                                 self.vendor_type = None
                                                 self.xr_scoped = None
@@ -5965,6 +5829,9 @@ class Inventory(object):
                                                 if self.software_revision is not None:
                                                     return True
 
+                                                if self.unique_id is not None:
+                                                    return True
+
                                                 if self.unrecognized_fru is not None:
                                                     return True
 
@@ -6004,7 +5871,9 @@ class Inventory(object):
                                             .. attribute:: card_operational_state
                                             
                                             	card operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: card_reset_reason
                                             
@@ -6038,14 +5907,16 @@ class Inventory(object):
                                             .. attribute:: power_operational_state
                                             
                                             	Power operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
                                             
                                             
 
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -6089,7 +5960,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -6151,7 +6022,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -6331,7 +6202,7 @@ class Inventory(object):
                                 """
 
                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-04'
 
                                 def __init__(self):
                                     self.parent = None
@@ -6366,7 +6237,7 @@ class Inventory(object):
                                     """
 
                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-04'
 
                                     def __init__(self):
                                         self.parent = None
@@ -6391,7 +6262,7 @@ class Inventory(object):
                                         """
 
                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-04'
 
                                         def __init__(self):
                                             self.parent = None
@@ -6418,7 +6289,7 @@ class Inventory(object):
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -6474,7 +6345,7 @@ class Inventory(object):
                                                 
                                                 .. attribute:: description
                                                 
-                                                	describes in user\-readable terms 						what the entity in question does
+                                                	describes in user\-readable terms       what the entity in question does
                                                 	**type**\:  str
                                                 
                                                 	**length:** 0..255
@@ -6495,7 +6366,7 @@ class Inventory(object):
                                                 
                                                 .. attribute:: group_flag
                                                 
-                                                	indicates if this entity is group 						or not
+                                                	indicates if this entity is group       or not
                                                 	**type**\:  bool
                                                 
                                                 .. attribute:: hardware_revision
@@ -6526,7 +6397,7 @@ class Inventory(object):
                                                 
                                                 .. attribute:: memory_size
                                                 
-                                                	Size of memory associated with 						the entity where applicable
+                                                	Size of memory associated with       the entity where applicable
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
@@ -6580,6 +6451,13 @@ class Inventory(object):
                                                 
                                                 	**length:** 0..255
                                                 
+                                                .. attribute:: unique_id
+                                                
+                                                	Unique id for an entity
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
+                                                
                                                 .. attribute:: unrecognized_fru
                                                 
                                                 	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -6602,7 +6480,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -6628,6 +6506,7 @@ class Inventory(object):
                                                     self.redundancystate = None
                                                     self.serial_number = None
                                                     self.software_revision = None
+                                                    self.unique_id = None
                                                     self.unrecognized_fru = None
                                                     self.vendor_type = None
                                                     self.xr_scoped = None
@@ -6712,6 +6591,9 @@ class Inventory(object):
                                                     if self.software_revision is not None:
                                                         return True
 
+                                                    if self.unique_id is not None:
+                                                        return True
+
                                                     if self.unrecognized_fru is not None:
                                                         return True
 
@@ -6751,7 +6633,9 @@ class Inventory(object):
                                                 .. attribute:: card_operational_state
                                                 
                                                 	card operation state
-                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
                                                 
                                                 .. attribute:: card_reset_reason
                                                 
@@ -6785,14 +6669,16 @@ class Inventory(object):
                                                 .. attribute:: power_operational_state
                                                 
                                                 	Power operation state
-                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                                	**type**\:  int
+                                                
+                                                	**range:** \-2147483648..2147483647
                                                 
                                                 
 
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -6836,7 +6722,7 @@ class Inventory(object):
                                                     """
 
                                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-04'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -6898,7 +6784,7 @@ class Inventory(object):
                                                     """
 
                                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-01-04'
 
                                                     def __init__(self):
                                                         self.parent = None
@@ -7051,7 +6937,7 @@ class Inventory(object):
                                         """
 
                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-04'
 
                                         def __init__(self):
                                             self.parent = None
@@ -7107,7 +6993,7 @@ class Inventory(object):
                                             
                                             .. attribute:: description
                                             
-                                            	describes in user\-readable terms 						what the entity in question does
+                                            	describes in user\-readable terms       what the entity in question does
                                             	**type**\:  str
                                             
                                             	**length:** 0..255
@@ -7128,7 +7014,7 @@ class Inventory(object):
                                             
                                             .. attribute:: group_flag
                                             
-                                            	indicates if this entity is group 						or not
+                                            	indicates if this entity is group       or not
                                             	**type**\:  bool
                                             
                                             .. attribute:: hardware_revision
@@ -7159,7 +7045,7 @@ class Inventory(object):
                                             
                                             .. attribute:: memory_size
                                             
-                                            	Size of memory associated with 						the entity where applicable
+                                            	Size of memory associated with       the entity where applicable
                                             	**type**\:  int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -7213,6 +7099,13 @@ class Inventory(object):
                                             
                                             	**length:** 0..255
                                             
+                                            .. attribute:: unique_id
+                                            
+                                            	Unique id for an entity
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
+                                            
                                             .. attribute:: unrecognized_fru
                                             
                                             	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -7235,7 +7128,7 @@ class Inventory(object):
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -7261,6 +7154,7 @@ class Inventory(object):
                                                 self.redundancystate = None
                                                 self.serial_number = None
                                                 self.software_revision = None
+                                                self.unique_id = None
                                                 self.unrecognized_fru = None
                                                 self.vendor_type = None
                                                 self.xr_scoped = None
@@ -7345,6 +7239,9 @@ class Inventory(object):
                                                 if self.software_revision is not None:
                                                     return True
 
+                                                if self.unique_id is not None:
+                                                    return True
+
                                                 if self.unrecognized_fru is not None:
                                                     return True
 
@@ -7384,7 +7281,9 @@ class Inventory(object):
                                             .. attribute:: card_operational_state
                                             
                                             	card operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
                                             
                                             .. attribute:: card_reset_reason
                                             
@@ -7418,14 +7317,16 @@ class Inventory(object):
                                             .. attribute:: power_operational_state
                                             
                                             	Power operation state
-                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:  int
+                                            
+                                            	**range:** \-2147483648..2147483647
                                             
                                             
 
                                             """
 
                                             _prefix = 'asr9k-sc-invmgr-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-01-04'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -7469,7 +7370,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -7531,7 +7432,7 @@ class Inventory(object):
                                                 """
 
                                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-01-04'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -7718,7 +7619,7 @@ class Inventory(object):
                                 """
 
                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-04'
 
                                 def __init__(self):
                                     self.parent = None
@@ -7774,7 +7675,7 @@ class Inventory(object):
                                     
                                     .. attribute:: description
                                     
-                                    	describes in user\-readable terms 						what the entity in question does
+                                    	describes in user\-readable terms       what the entity in question does
                                     	**type**\:  str
                                     
                                     	**length:** 0..255
@@ -7795,7 +7696,7 @@ class Inventory(object):
                                     
                                     .. attribute:: group_flag
                                     
-                                    	indicates if this entity is group 						or not
+                                    	indicates if this entity is group       or not
                                     	**type**\:  bool
                                     
                                     .. attribute:: hardware_revision
@@ -7826,7 +7727,7 @@ class Inventory(object):
                                     
                                     .. attribute:: memory_size
                                     
-                                    	Size of memory associated with 						the entity where applicable
+                                    	Size of memory associated with       the entity where applicable
                                     	**type**\:  int
                                     
                                     	**range:** \-2147483648..2147483647
@@ -7880,6 +7781,13 @@ class Inventory(object):
                                     
                                     	**length:** 0..255
                                     
+                                    .. attribute:: unique_id
+                                    
+                                    	Unique id for an entity
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
                                     .. attribute:: unrecognized_fru
                                     
                                     	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -7902,7 +7810,7 @@ class Inventory(object):
                                     """
 
                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-04'
 
                                     def __init__(self):
                                         self.parent = None
@@ -7928,6 +7836,7 @@ class Inventory(object):
                                         self.redundancystate = None
                                         self.serial_number = None
                                         self.software_revision = None
+                                        self.unique_id = None
                                         self.unrecognized_fru = None
                                         self.vendor_type = None
                                         self.xr_scoped = None
@@ -8012,6 +7921,9 @@ class Inventory(object):
                                         if self.software_revision is not None:
                                             return True
 
+                                        if self.unique_id is not None:
+                                            return True
+
                                         if self.unrecognized_fru is not None:
                                             return True
 
@@ -8051,7 +7963,9 @@ class Inventory(object):
                                     .. attribute:: card_operational_state
                                     
                                     	card operation state
-                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: card_reset_reason
                                     
@@ -8085,14 +7999,16 @@ class Inventory(object):
                                     .. attribute:: power_operational_state
                                     
                                     	Power operation state
-                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
                                     
                                     
 
                                     """
 
                                     _prefix = 'asr9k-sc-invmgr-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-01-04'
 
                                     def __init__(self):
                                         self.parent = None
@@ -8136,7 +8052,7 @@ class Inventory(object):
                                         """
 
                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-04'
 
                                         def __init__(self):
                                             self.parent = None
@@ -8198,7 +8114,7 @@ class Inventory(object):
                                         """
 
                                         _prefix = 'asr9k-sc-invmgr-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-01-04'
 
                                         def __init__(self):
                                             self.parent = None
@@ -8394,7 +8310,7 @@ class Inventory(object):
                         """
 
                         _prefix = 'asr9k-sc-invmgr-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-01-04'
 
                         def __init__(self):
                             self.parent = None
@@ -8450,7 +8366,7 @@ class Inventory(object):
                             
                             .. attribute:: description
                             
-                            	describes in user\-readable terms 						what the entity in question does
+                            	describes in user\-readable terms       what the entity in question does
                             	**type**\:  str
                             
                             	**length:** 0..255
@@ -8471,7 +8387,7 @@ class Inventory(object):
                             
                             .. attribute:: group_flag
                             
-                            	indicates if this entity is group 						or not
+                            	indicates if this entity is group       or not
                             	**type**\:  bool
                             
                             .. attribute:: hardware_revision
@@ -8502,7 +8418,7 @@ class Inventory(object):
                             
                             .. attribute:: memory_size
                             
-                            	Size of memory associated with 						the entity where applicable
+                            	Size of memory associated with       the entity where applicable
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
@@ -8556,6 +8472,13 @@ class Inventory(object):
                             
                             	**length:** 0..255
                             
+                            .. attribute:: unique_id
+                            
+                            	Unique id for an entity
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
                             .. attribute:: unrecognized_fru
                             
                             	1 if UnrecognizedFRU and 0 for recognizedFRU
@@ -8578,7 +8501,7 @@ class Inventory(object):
                             """
 
                             _prefix = 'asr9k-sc-invmgr-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-04'
 
                             def __init__(self):
                                 self.parent = None
@@ -8604,6 +8527,7 @@ class Inventory(object):
                                 self.redundancystate = None
                                 self.serial_number = None
                                 self.software_revision = None
+                                self.unique_id = None
                                 self.unrecognized_fru = None
                                 self.vendor_type = None
                                 self.xr_scoped = None
@@ -8688,6 +8612,9 @@ class Inventory(object):
                                 if self.software_revision is not None:
                                     return True
 
+                                if self.unique_id is not None:
+                                    return True
+
                                 if self.unrecognized_fru is not None:
                                     return True
 
@@ -8727,7 +8654,9 @@ class Inventory(object):
                             .. attribute:: card_operational_state
                             
                             	card operation state
-                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
                             
                             .. attribute:: card_reset_reason
                             
@@ -8761,14 +8690,16 @@ class Inventory(object):
                             .. attribute:: power_operational_state
                             
                             	Power operation state
-                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper.InvCardStateEnum>`
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
                             
                             
 
                             """
 
                             _prefix = 'asr9k-sc-invmgr-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-01-04'
 
                             def __init__(self):
                                 self.parent = None
@@ -8812,7 +8743,7 @@ class Inventory(object):
                                 """
 
                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-04'
 
                                 def __init__(self):
                                     self.parent = None
@@ -8874,7 +8805,7 @@ class Inventory(object):
                                 """
 
                                 _prefix = 'asr9k-sc-invmgr-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-01-04'
 
                                 def __init__(self):
                                     self.parent = None

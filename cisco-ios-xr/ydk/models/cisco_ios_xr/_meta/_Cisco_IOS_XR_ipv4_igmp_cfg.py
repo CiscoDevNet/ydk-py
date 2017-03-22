@@ -8,23 +8,23 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'IgmpFilterEnum' : _MetaInfoEnum('IgmpFilterEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg',
         {
             'include':'include',
             'exclude':'exclude',
+            'star-g':'star_g',
         }, 'Cisco-IOS-XR-ipv4-igmp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg']),
     'Igmp.Vrfs.Vrf.Traffic' : {
         'meta_info' : _MetaInfoClass('Igmp.Vrfs.Vrf.Traffic',
             False, 
             [
             _MetaInfoClassMember('profile', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Configure the route-policy profile
                 ''',
                 'profile',
@@ -41,7 +41,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access-list to account for
                 ''',
                 'access_list_name',
@@ -72,7 +72,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying tracking group range
                 ''',
                 'access_list_name',
@@ -96,7 +96,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group range
                 ''',
                 'access_group',
@@ -176,7 +176,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
                 ]),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group
                 ''',
                 'access_list_name',
@@ -219,55 +219,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv4-igmp-cfg',
             'maximum',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
-        ),
-    },
-    'Igmp.Vrfs.Vrf.UnicastQosAdjust' : {
-        'meta_info' : _MetaInfoClass('Igmp.Vrfs.Vrf.UnicastQosAdjust',
-            False, 
-            [
-            _MetaInfoClassMember('adjustment-delay', ATTRIBUTE, 'int' , None, None, 
-                [('0', '10')], [], 
-                '''                Configure the QoS delay before programming (in
-                seconds)
-                ''',
-                'adjustment_delay',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('download-interval', ATTRIBUTE, 'int' , None, None, 
-                [('10', '500')], [], 
-                '''                Configure the QoS download interval (in
-                milliseconds)
-                ''',
-                'download_interval',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('hold-off', ATTRIBUTE, 'int' , None, None, 
-                [('5', '1800')], [], 
-                '''                Configure the QoS hold off time (in seconds)
-                ''',
-                'hold_off',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-igmp-cfg',
-            'unicast-qos-adjust',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
-        ),
-    },
-    'Igmp.Vrfs.Vrf.Accounting' : {
-        'meta_info' : _MetaInfoClass('Igmp.Vrfs.Vrf.Accounting',
-            False, 
-            [
-            _MetaInfoClassMember('max-history', ATTRIBUTE, 'int' , None, None, 
-                [('0', '365')], [], 
-                '''                Configure IGMP accounting Maximum History
-                setting
-                ''',
-                'max_history',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-igmp-cfg',
-            'accounting',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
         ),
@@ -333,19 +284,19 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
-                '''                IP source address
+                '''                Optional IP source address
                 ''',
                 'source_address',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
                     _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                         [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP source address
+                        '''                        Optional IP source address
                         ''',
                         'source_address',
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
                     _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                         [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP source address
+                        '''                        Optional IP source address
                         ''',
                         'source_address',
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
@@ -413,14 +364,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -481,14 +433,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -568,14 +521,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -636,14 +590,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -723,14 +678,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -829,14 +785,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -911,7 +868,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access-list to account for
                 ''',
                 'access_list_name',
@@ -942,7 +899,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying tracking group range
                 ''',
                 'access_list_name',
@@ -972,7 +929,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True),
             _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group range
                 ''',
                 'access_group',
@@ -1062,18 +1019,11 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [(1, 32)], [], 
                 '''                Name for this vrf
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True),
-            _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Igmp.Vrfs.Vrf.Accounting', 
-                [], [], 
-                '''                Configure IGMP accounting for logging join/leave
-                records
-                ''',
-                'accounting',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('inheritable-defaults', REFERENCE_CLASS, 'InheritableDefaults' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Igmp.Vrfs.Vrf.InheritableDefaults', 
                 [], [], 
                 '''                Inheritable Defaults
@@ -1116,13 +1066,6 @@ _meta_table = {
                 ''',
                 'traffic',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('unicast-qos-adjust', REFERENCE_CLASS, 'UnicastQosAdjust' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Igmp.Vrfs.Vrf.UnicastQosAdjust', 
-                [], [], 
-                '''                Configure IGMP QoS shapers for subscriber
-                interfaces
-                ''',
-                'unicast_qos_adjust',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-igmp-cfg',
             'vrf',
@@ -1164,12 +1107,61 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
         ),
     },
+    'Igmp.DefaultContext.UnicastQosAdjust' : {
+        'meta_info' : _MetaInfoClass('Igmp.DefaultContext.UnicastQosAdjust',
+            False, 
+            [
+            _MetaInfoClassMember('adjustment-delay', ATTRIBUTE, 'int' , None, None, 
+                [('0', '10')], [], 
+                '''                Configure the QoS delay before programming (in
+                seconds)
+                ''',
+                'adjustment_delay',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('download-interval', ATTRIBUTE, 'int' , None, None, 
+                [('10', '500')], [], 
+                '''                Configure the QoS download interval (in
+                milliseconds)
+                ''',
+                'download_interval',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('hold-off', ATTRIBUTE, 'int' , None, None, 
+                [('5', '1800')], [], 
+                '''                Configure the QoS hold off time (in seconds)
+                ''',
+                'hold_off',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'unicast-qos-adjust',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Igmp.DefaultContext.Accounting' : {
+        'meta_info' : _MetaInfoClass('Igmp.DefaultContext.Accounting',
+            False, 
+            [
+            _MetaInfoClassMember('max-history', ATTRIBUTE, 'int' , None, None, 
+                [('0', '365')], [], 
+                '''                Configure IGMP accounting Maximum History
+                setting
+                ''',
+                'max_history',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'accounting',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
     'Igmp.DefaultContext.Traffic' : {
         'meta_info' : _MetaInfoClass('Igmp.DefaultContext.Traffic',
             False, 
             [
             _MetaInfoClassMember('profile', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Configure the route-policy profile
                 ''',
                 'profile',
@@ -1186,7 +1178,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access-list to account for
                 ''',
                 'access_list_name',
@@ -1217,7 +1209,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying tracking group range
                 ''',
                 'access_list_name',
@@ -1241,7 +1233,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group range
                 ''',
                 'access_group',
@@ -1321,7 +1313,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
                 ]),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group
                 ''',
                 'access_list_name',
@@ -1364,55 +1356,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv4-igmp-cfg',
             'maximum',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
-        ),
-    },
-    'Igmp.DefaultContext.UnicastQosAdjust' : {
-        'meta_info' : _MetaInfoClass('Igmp.DefaultContext.UnicastQosAdjust',
-            False, 
-            [
-            _MetaInfoClassMember('adjustment-delay', ATTRIBUTE, 'int' , None, None, 
-                [('0', '10')], [], 
-                '''                Configure the QoS delay before programming (in
-                seconds)
-                ''',
-                'adjustment_delay',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('download-interval', ATTRIBUTE, 'int' , None, None, 
-                [('10', '500')], [], 
-                '''                Configure the QoS download interval (in
-                milliseconds)
-                ''',
-                'download_interval',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('hold-off', ATTRIBUTE, 'int' , None, None, 
-                [('5', '1800')], [], 
-                '''                Configure the QoS hold off time (in seconds)
-                ''',
-                'hold_off',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-igmp-cfg',
-            'unicast-qos-adjust',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
-        ),
-    },
-    'Igmp.DefaultContext.Accounting' : {
-        'meta_info' : _MetaInfoClass('Igmp.DefaultContext.Accounting',
-            False, 
-            [
-            _MetaInfoClassMember('max-history', ATTRIBUTE, 'int' , None, None, 
-                [('0', '365')], [], 
-                '''                Configure IGMP accounting Maximum History
-                setting
-                ''',
-                'max_history',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-igmp-cfg',
-            'accounting',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
         ),
@@ -1478,19 +1421,19 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
-                '''                IP source address
+                '''                Optional IP source address
                 ''',
                 'source_address',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
                     _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                         [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP source address
+                        '''                        Optional IP source address
                         ''',
                         'source_address',
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
                     _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                         [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP source address
+                        '''                        Optional IP source address
                         ''',
                         'source_address',
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
@@ -1558,14 +1501,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -1626,14 +1570,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -1713,14 +1658,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -1781,14 +1727,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -1868,14 +1815,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -1974,14 +1922,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -2056,7 +2005,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access-list to account for
                 ''',
                 'access_list_name',
@@ -2087,7 +2036,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying tracking group range
                 ''',
                 'access_list_name',
@@ -2117,7 +2066,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True),
             _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group range
                 ''',
                 'access_group',
@@ -2208,8 +2157,8 @@ _meta_table = {
             [
             _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Igmp.DefaultContext.Accounting', 
                 [], [], 
-                '''                Configure IGMP accounting for logging join/leave
-                records
+                '''                Configure IGMP accounting for logging
+                join/leave records
                 ''',
                 'accounting',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -2373,7 +2322,7 @@ _meta_table = {
                 'amtttl',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('gateway-filter', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list for Gateway Filter
                 ''',
                 'gateway_filter',
@@ -2434,7 +2383,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('profile', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Configure the route-policy profile
                 ''',
                 'profile',
@@ -2451,7 +2400,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access-list to account for
                 ''',
                 'access_list_name',
@@ -2482,7 +2431,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying tracking group range
                 ''',
                 'access_list_name',
@@ -2506,7 +2455,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group range
                 ''',
                 'access_group',
@@ -2586,7 +2535,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
                 ]),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group
                 ''',
                 'access_list_name',
@@ -2629,55 +2578,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv4-igmp-cfg',
             'maximum',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
-        ),
-    },
-    'Mld.Vrfs.Vrf.UnicastQosAdjust' : {
-        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.UnicastQosAdjust',
-            False, 
-            [
-            _MetaInfoClassMember('adjustment-delay', ATTRIBUTE, 'int' , None, None, 
-                [('0', '10')], [], 
-                '''                Configure the QoS delay before programming (in
-                seconds)
-                ''',
-                'adjustment_delay',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('download-interval', ATTRIBUTE, 'int' , None, None, 
-                [('10', '500')], [], 
-                '''                Configure the QoS download interval (in
-                milliseconds)
-                ''',
-                'download_interval',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('hold-off', ATTRIBUTE, 'int' , None, None, 
-                [('5', '1800')], [], 
-                '''                Configure the QoS hold off time (in seconds)
-                ''',
-                'hold_off',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-igmp-cfg',
-            'unicast-qos-adjust',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
-        ),
-    },
-    'Mld.Vrfs.Vrf.Accounting' : {
-        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Accounting',
-            False, 
-            [
-            _MetaInfoClassMember('max-history', ATTRIBUTE, 'int' , None, None, 
-                [('0', '365')], [], 
-                '''                Configure IGMP accounting Maximum History
-                setting
-                ''',
-                'max_history',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-igmp-cfg',
-            'accounting',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
         ),
@@ -2743,19 +2643,19 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
-                '''                IP source address
+                '''                Optional IP source address
                 ''',
                 'source_address',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
                     _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                         [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP source address
+                        '''                        Optional IP source address
                         ''',
                         'source_address',
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
                     _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                         [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP source address
+                        '''                        Optional IP source address
                         ''',
                         'source_address',
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
@@ -2823,14 +2723,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -2891,14 +2792,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -2978,14 +2880,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -3046,14 +2949,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -3133,14 +3037,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -3239,14 +3144,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -3321,7 +3227,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access-list to account for
                 ''',
                 'access_list_name',
@@ -3352,7 +3258,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying tracking group range
                 ''',
                 'access_list_name',
@@ -3382,7 +3288,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True),
             _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group range
                 ''',
                 'access_group',
@@ -3472,18 +3378,11 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [(1, 32)], [], 
                 '''                Name for this vrf
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True),
-            _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Accounting', 
-                [], [], 
-                '''                Configure IGMP accounting for logging join/leave
-                records
-                ''',
-                'accounting',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('inheritable-defaults', REFERENCE_CLASS, 'InheritableDefaults' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.InheritableDefaults', 
                 [], [], 
                 '''                Inheritable Defaults
@@ -3526,13 +3425,6 @@ _meta_table = {
                 ''',
                 'traffic',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('unicast-qos-adjust', REFERENCE_CLASS, 'UnicastQosAdjust' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.UnicastQosAdjust', 
-                [], [], 
-                '''                Configure IGMP QoS shapers for subscriber
-                interfaces
-                ''',
-                'unicast_qos_adjust',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-igmp-cfg',
             'vrf',
@@ -3574,12 +3466,61 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
         ),
     },
+    'Mld.DefaultContext.UnicastQosAdjust' : {
+        'meta_info' : _MetaInfoClass('Mld.DefaultContext.UnicastQosAdjust',
+            False, 
+            [
+            _MetaInfoClassMember('adjustment-delay', ATTRIBUTE, 'int' , None, None, 
+                [('0', '10')], [], 
+                '''                Configure the QoS delay before programming (in
+                seconds)
+                ''',
+                'adjustment_delay',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('download-interval', ATTRIBUTE, 'int' , None, None, 
+                [('10', '500')], [], 
+                '''                Configure the QoS download interval (in
+                milliseconds)
+                ''',
+                'download_interval',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('hold-off', ATTRIBUTE, 'int' , None, None, 
+                [('5', '1800')], [], 
+                '''                Configure the QoS hold off time (in seconds)
+                ''',
+                'hold_off',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'unicast-qos-adjust',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.DefaultContext.Accounting' : {
+        'meta_info' : _MetaInfoClass('Mld.DefaultContext.Accounting',
+            False, 
+            [
+            _MetaInfoClassMember('max-history', ATTRIBUTE, 'int' , None, None, 
+                [('0', '365')], [], 
+                '''                Configure IGMP accounting Maximum History
+                setting
+                ''',
+                'max_history',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'accounting',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
     'Mld.DefaultContext.Traffic' : {
         'meta_info' : _MetaInfoClass('Mld.DefaultContext.Traffic',
             False, 
             [
             _MetaInfoClassMember('profile', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Configure the route-policy profile
                 ''',
                 'profile',
@@ -3596,7 +3537,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access-list to account for
                 ''',
                 'access_list_name',
@@ -3627,7 +3568,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying tracking group range
                 ''',
                 'access_list_name',
@@ -3651,7 +3592,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group range
                 ''',
                 'access_group',
@@ -3731,7 +3672,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
                 ]),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group
                 ''',
                 'access_list_name',
@@ -3774,55 +3715,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv4-igmp-cfg',
             'maximum',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
-        ),
-    },
-    'Mld.DefaultContext.UnicastQosAdjust' : {
-        'meta_info' : _MetaInfoClass('Mld.DefaultContext.UnicastQosAdjust',
-            False, 
-            [
-            _MetaInfoClassMember('adjustment-delay', ATTRIBUTE, 'int' , None, None, 
-                [('0', '10')], [], 
-                '''                Configure the QoS delay before programming (in
-                seconds)
-                ''',
-                'adjustment_delay',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('download-interval', ATTRIBUTE, 'int' , None, None, 
-                [('10', '500')], [], 
-                '''                Configure the QoS download interval (in
-                milliseconds)
-                ''',
-                'download_interval',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            _MetaInfoClassMember('hold-off', ATTRIBUTE, 'int' , None, None, 
-                [('5', '1800')], [], 
-                '''                Configure the QoS hold off time (in seconds)
-                ''',
-                'hold_off',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-igmp-cfg',
-            'unicast-qos-adjust',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
-        ),
-    },
-    'Mld.DefaultContext.Accounting' : {
-        'meta_info' : _MetaInfoClass('Mld.DefaultContext.Accounting',
-            False, 
-            [
-            _MetaInfoClassMember('max-history', ATTRIBUTE, 'int' , None, None, 
-                [('0', '365')], [], 
-                '''                Configure IGMP accounting Maximum History
-                setting
-                ''',
-                'max_history',
-                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
-            ],
-            'Cisco-IOS-XR-ipv4-igmp-cfg',
-            'accounting',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
         ),
@@ -3888,19 +3780,19 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
-                '''                IP source address
+                '''                Optional IP source address
                 ''',
                 'source_address',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
                     _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                         [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP source address
+                        '''                        Optional IP source address
                         ''',
                         'source_address',
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
                     _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
                         [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP source address
+                        '''                        Optional IP source address
                         ''',
                         'source_address',
                         'Cisco-IOS-XR-ipv4-igmp-cfg', True),
@@ -3968,14 +3860,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -4036,14 +3929,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -4123,14 +4017,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -4191,14 +4086,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -4278,14 +4174,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -4384,14 +4281,15 @@ _meta_table = {
                 ]),
             _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of groups to join if mask is present.
+                '''                Number of groups to join (do not set without
+                GroupAddressMask)
                 ''',
                 'group_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
                 [('1', '512')], [], 
-                '''                Number of sources to join if mask is present
-                .
+                '''                Number of sources to join (do not set
+                without SourceAddressMask)
                 ''',
                 'source_count',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -4466,7 +4364,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access-list to account for
                 ''',
                 'access_list_name',
@@ -4497,7 +4395,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying tracking group range
                 ''',
                 'access_list_name',
@@ -4527,7 +4425,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', True),
             _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(1, 64)], [], 
                 '''                Access list specifying access group range
                 ''',
                 'access_group',
@@ -4618,8 +4516,8 @@ _meta_table = {
             [
             _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.DefaultContext.Accounting', 
                 [], [], 
-                '''                Configure IGMP accounting for logging join/leave
-                records
+                '''                Configure IGMP accounting for logging
+                join/leave records
                 ''',
                 'accounting',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
@@ -4729,8 +4627,6 @@ _meta_table['Igmp.Vrfs.Vrf.Traffic']['meta_info'].parent =_meta_table['Igmp.Vrfs
 _meta_table['Igmp.Vrfs.Vrf.InheritableDefaults']['meta_info'].parent =_meta_table['Igmp.Vrfs.Vrf']['meta_info']
 _meta_table['Igmp.Vrfs.Vrf.SsmAccessGroups']['meta_info'].parent =_meta_table['Igmp.Vrfs.Vrf']['meta_info']
 _meta_table['Igmp.Vrfs.Vrf.Maximum']['meta_info'].parent =_meta_table['Igmp.Vrfs.Vrf']['meta_info']
-_meta_table['Igmp.Vrfs.Vrf.UnicastQosAdjust']['meta_info'].parent =_meta_table['Igmp.Vrfs.Vrf']['meta_info']
-_meta_table['Igmp.Vrfs.Vrf.Accounting']['meta_info'].parent =_meta_table['Igmp.Vrfs.Vrf']['meta_info']
 _meta_table['Igmp.Vrfs.Vrf.Interfaces']['meta_info'].parent =_meta_table['Igmp.Vrfs.Vrf']['meta_info']
 _meta_table['Igmp.Vrfs.Vrf']['meta_info'].parent =_meta_table['Igmp.Vrfs']['meta_info']
 _meta_table['Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor']['meta_info'].parent =_meta_table['Igmp.DefaultContext.InheritableDefaults']['meta_info']
@@ -4750,12 +4646,12 @@ _meta_table['Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceO
 _meta_table['Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking']['meta_info'].parent =_meta_table['Igmp.DefaultContext.Interfaces.Interface']['meta_info']
 _meta_table['Igmp.DefaultContext.Interfaces.Interface']['meta_info'].parent =_meta_table['Igmp.DefaultContext.Interfaces']['meta_info']
 _meta_table['Igmp.DefaultContext.Nsf']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
+_meta_table['Igmp.DefaultContext.UnicastQosAdjust']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
+_meta_table['Igmp.DefaultContext.Accounting']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
 _meta_table['Igmp.DefaultContext.Traffic']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
 _meta_table['Igmp.DefaultContext.InheritableDefaults']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
 _meta_table['Igmp.DefaultContext.SsmAccessGroups']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
 _meta_table['Igmp.DefaultContext.Maximum']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
-_meta_table['Igmp.DefaultContext.UnicastQosAdjust']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
-_meta_table['Igmp.DefaultContext.Accounting']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
 _meta_table['Igmp.DefaultContext.Interfaces']['meta_info'].parent =_meta_table['Igmp.DefaultContext']['meta_info']
 _meta_table['Igmp.Vrfs']['meta_info'].parent =_meta_table['Igmp']['meta_info']
 _meta_table['Igmp.DefaultContext']['meta_info'].parent =_meta_table['Igmp']['meta_info']
@@ -4781,8 +4677,6 @@ _meta_table['Mld.Vrfs.Vrf.Traffic']['meta_info'].parent =_meta_table['Mld.Vrfs.V
 _meta_table['Mld.Vrfs.Vrf.InheritableDefaults']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
 _meta_table['Mld.Vrfs.Vrf.SsmAccessGroups']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
 _meta_table['Mld.Vrfs.Vrf.Maximum']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
-_meta_table['Mld.Vrfs.Vrf.UnicastQosAdjust']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
-_meta_table['Mld.Vrfs.Vrf.Accounting']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
 _meta_table['Mld.Vrfs.Vrf.Interfaces']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
 _meta_table['Mld.Vrfs.Vrf']['meta_info'].parent =_meta_table['Mld.Vrfs']['meta_info']
 _meta_table['Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor']['meta_info'].parent =_meta_table['Mld.DefaultContext.InheritableDefaults']['meta_info']
@@ -4802,12 +4696,12 @@ _meta_table['Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOo
 _meta_table['Mld.DefaultContext.Interfaces.Interface.ExplicitTracking']['meta_info'].parent =_meta_table['Mld.DefaultContext.Interfaces.Interface']['meta_info']
 _meta_table['Mld.DefaultContext.Interfaces.Interface']['meta_info'].parent =_meta_table['Mld.DefaultContext.Interfaces']['meta_info']
 _meta_table['Mld.DefaultContext.Nsf']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
+_meta_table['Mld.DefaultContext.UnicastQosAdjust']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
+_meta_table['Mld.DefaultContext.Accounting']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
 _meta_table['Mld.DefaultContext.Traffic']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
 _meta_table['Mld.DefaultContext.InheritableDefaults']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
 _meta_table['Mld.DefaultContext.SsmAccessGroups']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
 _meta_table['Mld.DefaultContext.Maximum']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
-_meta_table['Mld.DefaultContext.UnicastQosAdjust']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
-_meta_table['Mld.DefaultContext.Accounting']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
 _meta_table['Mld.DefaultContext.Interfaces']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
 _meta_table['Mld.Vrfs']['meta_info'].parent =_meta_table['Mld']['meta_info']
 _meta_table['Mld.DefaultContext']['meta_info'].parent =_meta_table['Mld']['meta_info']

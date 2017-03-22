@@ -681,6 +681,11 @@ class Syslog(object):
         	Remote logging statistics
         	**type**\: list of    :py:class:`RemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.RemoteLoggingStat>`
         
+        .. attribute:: tls_remote_logging_stat
+        
+        	TLS Remote logging statistics
+        	**type**\: list of    :py:class:`TlsRemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TlsRemoteLoggingStat>`
+        
         .. attribute:: trap_logging_stats
         
         	Trap logging statistics
@@ -709,6 +714,9 @@ class Syslog(object):
             self.remote_logging_stat = YList()
             self.remote_logging_stat.parent = self
             self.remote_logging_stat.name = 'remote_logging_stat'
+            self.tls_remote_logging_stat = YList()
+            self.tls_remote_logging_stat.parent = self
+            self.tls_remote_logging_stat.name = 'tls_remote_logging_stat'
             self.trap_logging_stats = Syslog.LoggingStatistics.TrapLoggingStats()
             self.trap_logging_stats.parent = self
 
@@ -1147,6 +1155,60 @@ class Syslog(object):
                 return meta._meta_table['Syslog.LoggingStatistics.RemoteLoggingStat']['meta_info']
 
 
+        class TlsRemoteLoggingStat(object):
+            """
+            TLS Remote logging statistics
+            
+            .. attribute:: message_count
+            
+            	Message count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: remote_host_name
+            
+            	TLS Remote hostname
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                self.parent = None
+                self.message_count = None
+                self.remote_host_name = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-infra-syslog-oper:syslog/Cisco-IOS-XR-infra-syslog-oper:logging-statistics/Cisco-IOS-XR-infra-syslog-oper:tls-remote-logging-stat'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.message_count is not None:
+                    return True
+
+                if self.remote_host_name is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_syslog_oper as meta
+                return meta._meta_table['Syslog.LoggingStatistics.TlsRemoteLoggingStat']['meta_info']
+
+
         class FileLoggingStat(object):
             """
             File logging statistics
@@ -1231,6 +1293,11 @@ class Syslog(object):
 
             if self.remote_logging_stat is not None:
                 for child_ref in self.remote_logging_stat:
+                    if child_ref._has_data():
+                        return True
+
+            if self.tls_remote_logging_stat is not None:
+                for child_ref in self.tls_remote_logging_stat:
                     if child_ref._has_data():
                         return True
 

@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'SliceStateEnum' : _MetaInfoEnum('SliceStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
@@ -73,7 +72,7 @@ _meta_table = {
             'asic-s13':'asic_s13',
             'asic-s2':'asic_s2',
             'asic-b2b':'asic_b2b',
-            'asic-unknown':'asic_unknown',
+            'asic-type-unknown':'asic_type_unknown',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'AsicOperStateEnum' : _MetaInfoEnum('AsicOperStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
@@ -473,6 +472,12 @@ _meta_table = {
                 ''',
                 'admin_state',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
+            _MetaInfoClassMember('correctable-errors', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                correctable errors
+                ''',
+                'correctable_errors',
+                'Cisco-IOS-XR-dnx-driver-oper', False),
             _MetaInfoClassMember('error-state', REFERENCE_ENUM_CLASS, 'LinkErrorStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkErrorStateEnum', 
                 [], [], 
                 '''                Error State
@@ -551,6 +556,12 @@ _meta_table = {
                 ''',
                 'this_link',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
+            _MetaInfoClassMember('uncorrectable-errors', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                uncorrectable errors
+                ''',
+                'uncorrectable_errors',
+                'Cisco-IOS-XR-dnx-driver-oper', False),
             ],
             'Cisco-IOS-XR-dnx-driver-oper',
             'rx-link',
@@ -563,7 +574,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('end-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '35')], [], 
+                [('0', '47')], [], 
                 '''                End number
                 ''',
                 'end_number',
@@ -575,7 +586,7 @@ _meta_table = {
                 'rx_link',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
             _MetaInfoClassMember('start-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '35')], [], 
+                [('0', '47')], [], 
                 '''                Start number
                 ''',
                 'start_number',
@@ -1102,6 +1113,12 @@ _meta_table = {
                 ''',
                 'exp_asic_avail_mask',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
+            _MetaInfoClassMember('fabric-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                fabric mode
+                ''',
+                'fabric_mode',
+                'Cisco-IOS-XR-dnx-driver-oper', False),
             _MetaInfoClassMember('fc-mode', REFERENCE_ENUM_CLASS, 'FcModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'FcModeEnum', 
                 [], [], 
                 '''                FC Mode
@@ -1210,6 +1227,12 @@ _meta_table = {
                 ''',
                 'issu_role',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
+            _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                node id
+                ''',
+                'node_id',
+                'Cisco-IOS-XR-dnx-driver-oper', False),
             _MetaInfoClassMember('num-cm-conn-reqs', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
                 '''                num cm conn reqs
@@ -1257,12 +1280,6 @@ _meta_table = {
                 '''                num pm conn reqs
                 ''',
                 'num_pm_conn_reqs',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('rack-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                rack name
-                ''',
-                'rack_name',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
             _MetaInfoClassMember('rack-num', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
@@ -1728,13 +1745,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('end-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '35')], [], 
+                [('0', '47')], [], 
                 '''                End number
                 ''',
                 'end_number',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
             _MetaInfoClassMember('start-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '35')], [], 
+                [('0', '47')], [], 
                 '''                Start number
                 ''',
                 'start_number',
@@ -2438,6 +2455,12 @@ _meta_table = {
                 ''',
                 'exp_asic_avail_mask',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
+            _MetaInfoClassMember('fabric-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                fabric mode
+                ''',
+                'fabric_mode',
+                'Cisco-IOS-XR-dnx-driver-oper', False),
             _MetaInfoClassMember('fc-mode', REFERENCE_ENUM_CLASS, 'FcModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'FcModeEnum', 
                 [], [], 
                 '''                FC Mode
@@ -2546,6 +2569,12 @@ _meta_table = {
                 ''',
                 'issu_role',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
+            _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                node id
+                ''',
+                'node_id',
+                'Cisco-IOS-XR-dnx-driver-oper', False),
             _MetaInfoClassMember('num-cm-conn-reqs', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
                 '''                num cm conn reqs
@@ -2593,12 +2622,6 @@ _meta_table = {
                 '''                num pm conn reqs
                 ''',
                 'num_pm_conn_reqs',
-                'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('rack-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                rack name
-                ''',
-                'rack_name',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
             _MetaInfoClassMember('rack-num', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
@@ -2722,7 +2745,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('field-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 51)], [], 
+                [(0, 80)], [], 
                 '''                Field Name
                 ''',
                 'field_name',
@@ -2751,7 +2774,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('block-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 11)], [], 
+                [(0, 10)], [], 
                 '''                Block Name
                 ''',
                 'block_name',
@@ -2784,7 +2807,7 @@ _meta_table = {
                 '''                block info
                 ''',
                 'block_info',
-                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=15),
+                'Cisco-IOS-XR-dnx-driver-oper', False, max_elements=22),
             _MetaInfoClassMember('num-blocks', ATTRIBUTE, 'int' , None, None, 
                 [('0', '255')], [], 
                 '''                Num Blocks

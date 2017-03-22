@@ -311,7 +311,7 @@ class Hsrp(object):
                             	HSRP Session name (for MGO)
                             	**type**\:  str
                             
-                            	**length:** 0..16
+                            	**length:** 1..16
                             
                             .. attribute:: timers
                             
@@ -1805,7 +1805,7 @@ class Hsrp(object):
                             	Authentication string
                             	**type**\:  str
                             
-                            	**length:** 0..8
+                            	**length:** 1..8
                             
                             	**default value**\: cisco
                             
@@ -1847,7 +1847,7 @@ class Hsrp(object):
                             	HSRP Session name (for MGO)
                             	**type**\:  str
                             
-                            	**length:** 0..16
+                            	**length:** 1..16
                             
                             .. attribute:: timers
                             
@@ -2654,7 +2654,7 @@ class Hsrp(object):
                             	HSRP Session name (for MGO)
                             	**type**\:  str
                             
-                            	**length:** 0..16
+                            	**length:** 1..16
                             
                             .. attribute:: timers
                             

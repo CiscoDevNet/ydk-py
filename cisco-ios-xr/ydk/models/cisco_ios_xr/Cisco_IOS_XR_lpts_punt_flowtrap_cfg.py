@@ -30,10 +30,6 @@ class LptsPuntFlowtrapProtoIdEnum(Enum):
 
     Lpts punt flowtrap proto id
 
-    .. data:: default = 0
-
-    	All protocols
-
     .. data:: arp = 1
 
     	ARP
@@ -70,9 +66,19 @@ class LptsPuntFlowtrapProtoIdEnum(Enum):
 
     	Unclassified Source
 
-    """
+    .. data:: ospf = 10
 
-    default = 0
+    	OSPF
+
+    .. data:: bgp = 11
+
+    	BGP
+
+    .. data:: default = 12
+
+    	All protocols
+
+    """
 
     arp = 1
 
@@ -91,6 +97,12 @@ class LptsPuntFlowtrapProtoIdEnum(Enum):
     l2tp = 8
 
     unclassified = 9
+
+    ospf = 10
+
+    bgp = 11
+
+    default = 12
 
 
     @staticmethod

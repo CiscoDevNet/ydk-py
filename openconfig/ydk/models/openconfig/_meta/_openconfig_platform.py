@@ -8,11 +8,10 @@ from enum import Enum
 
 from ydk._core._dm_meta_info import _MetaInfoClassMember, _MetaInfoClass, _MetaInfoEnum
 from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION
+from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, REFERENCE_LEAFLIST,     REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
-
 _meta_table = {
     'Components.Component.Config' : {
         'meta_info' : _MetaInfoClass('Components.Component.Config',
@@ -859,6 +858,440 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_platform'
         ),
     },
+    'Components.Component.OpticalChannel.Config' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel.Config',
+            False, 
+            [
+            _MetaInfoClassMember('frequency', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Frequency of the optical channel, expressed in MHz
+                ''',
+                'frequency',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('line-port', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reference to the line-side physical port that carries
+                this optical channel.  The target port should be
+                a component in the physical inventory data model.
+                ''',
+                'line_port',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('operational-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Vendor-specific mode identifier -- sets the operational
+                mode for the channel
+                ''',
+                'operational_mode',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('target-output-power', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Target output optical power level of the optical channel,
+                expressed in increments of 0.01 dBm (decibel-milliwats)
+                ''',
+                'target_output_power',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'config',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
+    'Components.Component.OpticalChannel.State.OutputPower' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel.State.OutputPower',
+            False, 
+            [
+            _MetaInfoClassMember('avg', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The arithmetic mean value of the statistic over the
+                sampling period.
+                ''',
+                'avg',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('instant', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The instantaneous value of the statistic.
+                ''',
+                'instant',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('max', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The maximum value of the statitic over the sampling
+                period
+                ''',
+                'max',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The minimum value of the statistic over the sampling
+                period
+                ''',
+                'min',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'output-power',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
+    'Components.Component.OpticalChannel.State.InputPower' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel.State.InputPower',
+            False, 
+            [
+            _MetaInfoClassMember('avg', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The arithmetic mean value of the statistic over the
+                sampling period.
+                ''',
+                'avg',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('instant', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The instantaneous value of the statistic.
+                ''',
+                'instant',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('max', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The maximum value of the statitic over the sampling
+                period
+                ''',
+                'max',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The minimum value of the statistic over the sampling
+                period
+                ''',
+                'min',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'input-power',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
+    'Components.Component.OpticalChannel.State.LaserBiasCurrent' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel.State.LaserBiasCurrent',
+            False, 
+            [
+            _MetaInfoClassMember('avg', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The arithmetic mean value of the statistic over the
+                sampling period.
+                ''',
+                'avg',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('instant', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The instantaneous value of the statistic.
+                ''',
+                'instant',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('max', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The maximum value of the statitic over the sampling
+                period
+                ''',
+                'max',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The minimum value of the statistic over the sampling
+                period
+                ''',
+                'min',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'laser-bias-current',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
+    'Components.Component.OpticalChannel.State.ChromaticDispersion' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel.State.ChromaticDispersion',
+            False, 
+            [
+            _MetaInfoClassMember('avg', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The arithmetic mean value of the statistic over the
+                sampling period.
+                ''',
+                'avg',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('instant', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The instantaneous value of the statistic.
+                ''',
+                'instant',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('max', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The maximum value of the statitic over the sampling
+                period
+                ''',
+                'max',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The minimum value of the statistic over the sampling
+                period
+                ''',
+                'min',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'chromatic-dispersion',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
+    'Components.Component.OpticalChannel.State.PolarizationModeDispersion' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel.State.PolarizationModeDispersion',
+            False, 
+            [
+            _MetaInfoClassMember('avg', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The arithmetic mean value of the statistic over the
+                sampling period.
+                ''',
+                'avg',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('instant', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The instantaneous value of the statistic.
+                ''',
+                'instant',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('max', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The maximum value of the statitic over the sampling
+                period
+                ''',
+                'max',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The minimum value of the statistic over the sampling
+                period
+                ''',
+                'min',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'polarization-mode-dispersion',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
+    'Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion',
+            False, 
+            [
+            _MetaInfoClassMember('avg', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The arithmetic mean value of the statistic over the
+                sampling period.
+                ''',
+                'avg',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('instant', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The instantaneous value of the statistic.
+                ''',
+                'instant',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('max', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The maximum value of the statitic over the sampling
+                period
+                ''',
+                'max',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The minimum value of the statistic over the sampling
+                period
+                ''',
+                'min',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'second-order-polarization-mode-dispersion',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
+    'Components.Component.OpticalChannel.State.PolarizationDependentLoss' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel.State.PolarizationDependentLoss',
+            False, 
+            [
+            _MetaInfoClassMember('avg', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The arithmetic mean value of the statistic over the
+                sampling period.
+                ''',
+                'avg',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('instant', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The instantaneous value of the statistic.
+                ''',
+                'instant',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('max', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The maximum value of the statitic over the sampling
+                period
+                ''',
+                'max',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('min', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-922337203685477580.8', '922337203685477580.7')], [], 
+                '''                The minimum value of the statistic over the sampling
+                period
+                ''',
+                'min',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'polarization-dependent-loss',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
+    'Components.Component.OpticalChannel.State' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel.State',
+            False, 
+            [
+            _MetaInfoClassMember('chromatic-dispersion', REFERENCE_CLASS, 'ChromaticDispersion' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel.State.ChromaticDispersion', 
+                [], [], 
+                '''                Chromatic Dispersion of an optical channel
+                in ps/nm as reported by receiver
+                ''',
+                'chromatic_dispersion',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('frequency', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Frequency of the optical channel, expressed in MHz
+                ''',
+                'frequency',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('group-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                If the device places constraints on which optical
+                channels must be managed together (e.g., transmitted on the
+                same line port), it can indicate that by setting the group-id
+                to the same value across related optical channels.
+                ''',
+                'group_id',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('input-power', REFERENCE_CLASS, 'InputPower' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel.State.InputPower', 
+                [], [], 
+                '''                The input optical power of this port in units of 0.01dBm.
+                If the port is an aggregate of multiple physical channels,
+                this attribute is the total power or sum of all channels.
+                If avg/min/max statistics are not supported, the target is
+                expected to just supply the instant value
+                ''',
+                'input_power',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('laser-bias-current', REFERENCE_CLASS, 'LaserBiasCurrent' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel.State.LaserBiasCurrent', 
+                [], [], 
+                '''                The current applied by the system to the transmit laser to
+                achieve the output power.  The current is expressed in mA
+                with up to one decimal precision. If avg/min/max statistics
+                are not supported, the target is expected to just supply
+                the instant value
+                ''',
+                'laser_bias_current',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('line-port', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Reference to the line-side physical port that carries
+                this optical channel.  The target port should be
+                a component in the physical inventory data model.
+                ''',
+                'line_port',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('operational-mode', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Vendor-specific mode identifier -- sets the operational
+                mode for the channel
+                ''',
+                'operational_mode',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('output-power', REFERENCE_CLASS, 'OutputPower' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel.State.OutputPower', 
+                [], [], 
+                '''                The output optical power of this port in units of 0.01dBm.
+                If the port is an aggregate of multiple physical channels,
+                this attribute is the total power or sum of all channels. If
+                avg/min/max statistics are not supported, the target is
+                expected to just supply the instant value
+                ''',
+                'output_power',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('polarization-dependent-loss', REFERENCE_CLASS, 'PolarizationDependentLoss' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel.State.PolarizationDependentLoss', 
+                [], [], 
+                '''                Polarization Dependent Loss of an optical channel
+                in dB as reported by receiver
+                ''',
+                'polarization_dependent_loss',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('polarization-mode-dispersion', REFERENCE_CLASS, 'PolarizationModeDispersion' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel.State.PolarizationModeDispersion', 
+                [], [], 
+                '''                Polarization Mode Dispersion of an optical channel
+                in ps as reported by receiver
+                ''',
+                'polarization_mode_dispersion',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('second-order-polarization-mode-dispersion', REFERENCE_CLASS, 'SecondOrderPolarizationModeDispersion' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion', 
+                [], [], 
+                '''                Second Order Polarization Mode Dispersion of an optical
+                channel in ps^2 as reported by receiver
+                ''',
+                'second_order_polarization_mode_dispersion',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('target-output-power', ATTRIBUTE, 'Decimal64' , None, None, 
+                [('-92233720368547758.08', '92233720368547758.07')], [], 
+                '''                Target output optical power level of the optical channel,
+                expressed in increments of 0.01 dBm (decibel-milliwats)
+                ''',
+                'target_output_power',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'state',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
+    'Components.Component.OpticalChannel' : {
+        'meta_info' : _MetaInfoClass('Components.Component.OpticalChannel',
+            False, 
+            [
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel.Config', 
+                [], [], 
+                '''                Configuration data for optical channels
+                ''',
+                'config',
+                'openconfig-terminal-device', False),
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel.State', 
+                [], [], 
+                '''                Operational state data for optical channels
+                ''',
+                'state',
+                'openconfig-terminal-device', False),
+            ],
+            'openconfig-terminal-device',
+            'optical-channel',
+            _yang_ns._namespaces['openconfig-terminal-device'],
+        'ydk.models.openconfig.openconfig_platform'
+        ),
+    },
     'Components.Component' : {
         'meta_info' : _MetaInfoClass('Components.Component',
             False, 
@@ -875,6 +1308,12 @@ _meta_table = {
                 ''',
                 'config',
                 'openconfig-platform', False),
+            _MetaInfoClassMember('optical-channel', REFERENCE_CLASS, 'OpticalChannel' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.OpticalChannel', 
+                [], [], 
+                '''                Enclosing container for the list of optical channels
+                ''',
+                'optical_channel',
+                'openconfig-terminal-device', False),
             _MetaInfoClassMember('properties', REFERENCE_CLASS, 'Properties' , 'ydk.models.openconfig.openconfig_platform', 'Components.Component.Properties', 
                 [], [], 
                 '''                Enclosing container 
@@ -939,9 +1378,19 @@ _meta_table['Components.Component.Transceiver.PhysicalChannels.Channel']['meta_i
 _meta_table['Components.Component.Transceiver.Config']['meta_info'].parent =_meta_table['Components.Component.Transceiver']['meta_info']
 _meta_table['Components.Component.Transceiver.State']['meta_info'].parent =_meta_table['Components.Component.Transceiver']['meta_info']
 _meta_table['Components.Component.Transceiver.PhysicalChannels']['meta_info'].parent =_meta_table['Components.Component.Transceiver']['meta_info']
+_meta_table['Components.Component.OpticalChannel.State.OutputPower']['meta_info'].parent =_meta_table['Components.Component.OpticalChannel.State']['meta_info']
+_meta_table['Components.Component.OpticalChannel.State.InputPower']['meta_info'].parent =_meta_table['Components.Component.OpticalChannel.State']['meta_info']
+_meta_table['Components.Component.OpticalChannel.State.LaserBiasCurrent']['meta_info'].parent =_meta_table['Components.Component.OpticalChannel.State']['meta_info']
+_meta_table['Components.Component.OpticalChannel.State.ChromaticDispersion']['meta_info'].parent =_meta_table['Components.Component.OpticalChannel.State']['meta_info']
+_meta_table['Components.Component.OpticalChannel.State.PolarizationModeDispersion']['meta_info'].parent =_meta_table['Components.Component.OpticalChannel.State']['meta_info']
+_meta_table['Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion']['meta_info'].parent =_meta_table['Components.Component.OpticalChannel.State']['meta_info']
+_meta_table['Components.Component.OpticalChannel.State.PolarizationDependentLoss']['meta_info'].parent =_meta_table['Components.Component.OpticalChannel.State']['meta_info']
+_meta_table['Components.Component.OpticalChannel.Config']['meta_info'].parent =_meta_table['Components.Component.OpticalChannel']['meta_info']
+_meta_table['Components.Component.OpticalChannel.State']['meta_info'].parent =_meta_table['Components.Component.OpticalChannel']['meta_info']
 _meta_table['Components.Component.Config']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
 _meta_table['Components.Component.State']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
 _meta_table['Components.Component.Properties']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
 _meta_table['Components.Component.Subcomponents']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
 _meta_table['Components.Component.Transceiver']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
+_meta_table['Components.Component.OpticalChannel']['meta_info'].parent =_meta_table['Components.Component']['meta_info']
 _meta_table['Components.Component']['meta_info'].parent =_meta_table['Components']['meta_info']
