@@ -173,11 +173,13 @@ class CRUDService(Service):
     def _perform_read_filter_check(self, read_filter):
         if read_filter is None:
             self.service_logger.error('Passed in a None filter')
-            raise YPYServiceError('Filter cannot be None')
+            err_msg = "'filter' cannot be None"
+            raise YPYServiceError(error_msg=err_msg)
 
         if not isinstance(read_filter, YList) and not hasattr(read_filter, '_meta_info'):
             self.service_logger.error('Illegal filter type passed in for read')
-            raise YPYServiceError('Illegal filter')
+            err_msg = "Illegal 'filter'"
+            raise YPYServiceError(error_msg=err_msg)
 
     def _entity_exists(self, provider, entity):
         if None in (provider, entity):
@@ -191,8 +193,9 @@ class CRUDService(Service):
         )
 
         if not read_entity._has_data():
-            self.service_logger.error('Entity does not exist on remote server. Cannot perform update operations.')
-            raise YPYServiceError('Entity does not exist on remote server. Cannot perform update operation.')
+            self.service_logger.error('Entity does not exist on remote server - cannot perform update operation')
+            err_msg = "'entity' does not exist on remote server - cannot perform update operation"
+            raise YPYServiceError(error_msg=err_msg)
 
         return True
 

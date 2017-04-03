@@ -445,7 +445,7 @@ class GetConfigRpc(object):
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                    raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
                 return self.parent.is_config()
 
             def _has_data(self):
@@ -475,7 +475,7 @@ class GetConfigRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -526,7 +526,7 @@ class GetConfigRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -783,7 +783,7 @@ class EditConfigRpc(object):
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                    raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
                 return self.parent.is_config()
 
             def _has_data(self):
@@ -810,7 +810,7 @@ class EditConfigRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -969,7 +969,7 @@ class CopyConfigRpc(object):
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                    raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
                 return self.parent.is_config()
 
             def _has_data(self):
@@ -1047,7 +1047,7 @@ class CopyConfigRpc(object):
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                    raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
                 return self.parent.is_config()
 
             def _has_data(self):
@@ -1083,7 +1083,7 @@ class CopyConfigRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -1207,7 +1207,7 @@ class DeleteConfigRpc(object):
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                    raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
                 return self.parent.is_config()
 
             def _has_data(self):
@@ -1234,7 +1234,7 @@ class DeleteConfigRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -1359,7 +1359,7 @@ class LockRpc(object):
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                    raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
                 return self.parent.is_config()
 
             def _has_data(self):
@@ -1389,7 +1389,7 @@ class LockRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -1514,7 +1514,7 @@ class UnlockRpc(object):
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                    raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
                 return self.parent.is_config()
 
             def _has_data(self):
@@ -1544,7 +1544,7 @@ class UnlockRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -1647,7 +1647,7 @@ class GetRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -1695,7 +1695,7 @@ class GetRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -1827,7 +1827,7 @@ class KillSessionRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -1938,7 +1938,7 @@ class CommitRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -2076,7 +2076,7 @@ class CancelCommitRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
@@ -2212,7 +2212,7 @@ class ValidateRpc(object):
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 if self.parent is None:
-                    raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                    raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
                 return self.parent.is_config()
 
             def _has_data(self):
@@ -2248,7 +2248,7 @@ class ValidateRpc(object):
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
+                raise YPYError(error_msg='Parent reference is needed to determine if entity has configuration data')
             return self.parent.is_config()
 
         def _has_data(self):
