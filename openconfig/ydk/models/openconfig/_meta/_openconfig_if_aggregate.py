@@ -18,16 +18,6 @@ _meta_table = {
             'LACP':'LACP',
             'STATIC':'STATIC',
         }, 'openconfig-if-aggregate', _yang_ns._namespaces['openconfig-if-aggregate']),
-    'LacpTimeoutTypeEnum' : _MetaInfoEnum('LacpTimeoutTypeEnum', 'ydk.models.openconfig.openconfig_if_aggregate',
-        {
-            'LONG':'LONG',
-            'SHORT':'SHORT',
-        }, 'openconfig-if-aggregate', _yang_ns._namespaces['openconfig-if-aggregate']),
-    'LacpPeriodTypeEnum' : _MetaInfoEnum('LacpPeriodTypeEnum', 'ydk.models.openconfig.openconfig_if_aggregate',
-        {
-            'FAST':'FAST',
-            'SLOW':'SLOW',
-        }, 'openconfig-if-aggregate', _yang_ns._namespaces['openconfig-if-aggregate']),
     'LacpActivityTypeEnum' : _MetaInfoEnum('LacpActivityTypeEnum', 'ydk.models.openconfig.openconfig_if_aggregate',
         {
             'ACTIVE':'ACTIVE',
@@ -37,5 +27,15 @@ _meta_table = {
         {
             'IN_SYNC':'IN_SYNC',
             'OUT_SYNC':'OUT_SYNC',
+        }, 'openconfig-if-aggregate', _yang_ns._namespaces['openconfig-if-aggregate']),
+    'LacpTimeoutTypeEnum' : _MetaInfoEnum('LacpTimeoutTypeEnum', 'ydk.models.openconfig.openconfig_if_aggregate',
+        {
+            'LONG':'LONG',
+            'SHORT':'SHORT',
+        }, 'openconfig-if-aggregate', _yang_ns._namespaces['openconfig-if-aggregate']),
+    'LacpPeriodTypeEnum' : _MetaInfoEnum('LacpPeriodTypeEnum', 'ydk.models.openconfig.openconfig_if_aggregate',
+        {
+            'FAST':'FAST',
+            'SLOW':'SLOW',
         }, 'openconfig-if-aggregate', _yang_ns._namespaces['openconfig-if-aggregate']),
 }

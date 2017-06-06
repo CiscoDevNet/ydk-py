@@ -23,14 +23,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'], 
+                [], [b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'], 
                 '''                Source address to match, leave unspecified
                 for any.
                 ''',
                 'source_address',
                 'Cisco-IOS-XR-es-acl-cfg', False),
             _MetaInfoClassMember('source-wild-card-bits', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'], 
+                [], [b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'], 
                 '''                Wildcard bits to apply to source address
                 (if specified), leave unspecified for no
                 wildcarding.
@@ -49,14 +49,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'], 
+                [], [b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'], 
                 '''                Destination address to match (if a protocol
                 was specified), leave unspecified for any.
                 ''',
                 'destination_address',
                 'Cisco-IOS-XR-es-acl-cfg', False),
             _MetaInfoClassMember('destination-wild-card-bits', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'], 
+                [], [b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'], 
                 '''                Wildcard bits to apply to destination address
                 (if specified), leave unspecified for no
                 wildcarding.

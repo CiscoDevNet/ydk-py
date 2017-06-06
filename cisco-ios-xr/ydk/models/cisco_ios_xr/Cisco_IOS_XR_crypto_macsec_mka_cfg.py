@@ -271,8 +271,6 @@ class Macsec(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.name is not None:
                 return True
 
@@ -323,8 +321,6 @@ class Macsec(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.policy is not None:
             for child_ref in self.policy:
                 if child_ref._has_data():

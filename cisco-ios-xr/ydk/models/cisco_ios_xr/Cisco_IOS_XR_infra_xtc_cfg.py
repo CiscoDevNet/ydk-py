@@ -428,8 +428,6 @@ class Pce(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.exclude_any is not None:
                                     return True
 
@@ -501,8 +499,6 @@ class Pce(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.hold_priority is not None:
@@ -530,8 +526,6 @@ class Pce(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.affinity is not None and self.affinity._has_data():
                                 return True
 
@@ -568,8 +562,6 @@ class Pce(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -604,8 +596,6 @@ class Pce(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_name is not None:
                         for child_ref in self.lsp_name:
                             if child_ref._has_data():
@@ -630,8 +620,6 @@ class Pce(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.address is not None:
                     return True
 
@@ -658,8 +646,6 @@ class Pce(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.pcc_address is not None:
                 for child_ref in self.pcc_address:
                     if child_ref._has_data():
@@ -709,8 +695,6 @@ class Pce(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.fallback is not None:
                 return True
 
@@ -779,8 +763,6 @@ class Pce(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.difference is not None:
                 return True
 
@@ -855,8 +837,6 @@ class Pce(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.address is not None:
                     return True
 
@@ -877,8 +857,6 @@ class Pce(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.state_sync is not None:
                 for child_ref in self.state_sync:
                     if child_ref._has_data():
@@ -928,8 +906,6 @@ class Pce(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.strict_sid_only is not None:
                 return True
 
@@ -1004,8 +980,6 @@ class Pce(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.keepalive is not None:
                 return True
 
@@ -1083,8 +1057,6 @@ class Pce(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.netconf_ssh_password is not None:
                     return True
 
@@ -1108,8 +1080,6 @@ class Pce(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.netconf_ssh is not None and self.netconf_ssh._has_data():
                 return True
 
@@ -1170,17 +1140,17 @@ class Pce(object):
                 """
                 Association Group Configuration
                 
-                .. attribute:: dp_type  <key>
-                
-                	Disjoiness type
-                	**type**\:   :py:class:`PceDisjointPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PceDisjointPathEnum>`
-                
                 .. attribute:: group_id  <key>
                 
                 	Group ID
                 	**type**\:  int
                 
                 	**range:** 1..65535
+                
+                .. attribute:: dp_type  <key>
+                
+                	Disjoiness type
+                	**type**\:   :py:class:`PceDisjointPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg.PceDisjointPathEnum>`
                 
                 .. attribute:: sub_id  <key>
                 
@@ -1203,33 +1173,31 @@ class Pce(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.dp_type = None
                     self.group_id = None
+                    self.dp_type = None
                     self.sub_id = None
                     self.strict = None
 
                 @property
                 def _common_path(self):
-                    if self.dp_type is None:
-                        raise YPYModelError('Key property dp_type is None')
                     if self.group_id is None:
                         raise YPYModelError('Key property group_id is None')
+                    if self.dp_type is None:
+                        raise YPYModelError('Key property dp_type is None')
                     if self.sub_id is None:
                         raise YPYModelError('Key property sub_id is None')
 
-                    return '/Cisco-IOS-XR-infra-xtc-cfg:pce/Cisco-IOS-XR-infra-xtc-cfg:disjoint-path/Cisco-IOS-XR-infra-xtc-cfg:groups/Cisco-IOS-XR-infra-xtc-cfg:group[Cisco-IOS-XR-infra-xtc-cfg:dp-type = ' + str(self.dp_type) + '][Cisco-IOS-XR-infra-xtc-cfg:group-id = ' + str(self.group_id) + '][Cisco-IOS-XR-infra-xtc-cfg:sub-id = ' + str(self.sub_id) + ']'
+                    return '/Cisco-IOS-XR-infra-xtc-cfg:pce/Cisco-IOS-XR-infra-xtc-cfg:disjoint-path/Cisco-IOS-XR-infra-xtc-cfg:groups/Cisco-IOS-XR-infra-xtc-cfg:group[Cisco-IOS-XR-infra-xtc-cfg:group-id = ' + str(self.group_id) + '][Cisco-IOS-XR-infra-xtc-cfg:dp-type = ' + str(self.dp_type) + '][Cisco-IOS-XR-infra-xtc-cfg:sub-id = ' + str(self.sub_id) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.dp_type is not None:
+                    if self.group_id is not None:
                         return True
 
-                    if self.group_id is not None:
+                    if self.dp_type is not None:
                         return True
 
                     if self.sub_id is not None:
@@ -1255,8 +1223,6 @@ class Pce(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group is not None:
                     for child_ref in self.group:
                         if child_ref._has_data():
@@ -1279,8 +1245,6 @@ class Pce(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.groups is not None and self.groups._has_data():
                 return True
 
@@ -1446,8 +1410,6 @@ class Pce(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -1482,8 +1444,6 @@ class Pce(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.path_hop is not None:
                         for child_ref in self.path_hop:
                             if child_ref._has_data():
@@ -1508,8 +1468,6 @@ class Pce(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -1536,8 +1494,6 @@ class Pce(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.explicit_path is not None:
                 for child_ref in self.explicit_path:
                     if child_ref._has_data():
@@ -1560,8 +1516,6 @@ class Pce(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.backoff is not None and self.backoff._has_data():
             return True
 

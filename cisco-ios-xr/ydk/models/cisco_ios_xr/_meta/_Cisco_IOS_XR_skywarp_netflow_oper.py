@@ -375,7 +375,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('exporter-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Exporter name
                 ''',
                 'exporter_name',
@@ -432,7 +432,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node location
                 ''',
                 'node',

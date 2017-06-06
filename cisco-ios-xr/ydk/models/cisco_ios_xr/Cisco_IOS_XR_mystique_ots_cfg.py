@@ -281,8 +281,6 @@ class HardwareModule(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.grid_mode is not None:
                         return True
 
@@ -338,8 +336,6 @@ class HardwareModule(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lockout_from is not None:
                         return True
 
@@ -367,8 +363,6 @@ class HardwareModule(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.slot_id is not None:
                     return True
 
@@ -397,8 +391,6 @@ class HardwareModule(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.location is not None:
                 return True
 
@@ -424,8 +416,6 @@ class HardwareModule(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.node is not None:
             for child_ref in self.node:
                 if child_ref._has_data():

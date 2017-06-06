@@ -273,8 +273,6 @@ class ExplicitPaths(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -312,8 +310,6 @@ class ExplicitPaths(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.identifier_id is not None:
                     return True
 
@@ -342,8 +338,6 @@ class ExplicitPaths(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.identifier is not None:
                 for child_ref in self.identifier:
                     if child_ref._has_data():
@@ -490,8 +484,6 @@ class ExplicitPaths(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -529,8 +521,6 @@ class ExplicitPaths(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.path_name is not None:
                     return True
 
@@ -559,8 +549,6 @@ class ExplicitPaths(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.name is not None:
                 for child_ref in self.name:
                     if child_ref._has_data():
@@ -583,8 +571,6 @@ class ExplicitPaths(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.identifiers is not None and self.identifiers._has_data():
             return True
 

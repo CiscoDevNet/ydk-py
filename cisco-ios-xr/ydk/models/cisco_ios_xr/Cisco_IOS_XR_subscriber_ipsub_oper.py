@@ -471,8 +471,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fsol_bytes is not None:
                                     return True
 
@@ -531,8 +529,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fsol_bytes is not None:
                                     return True
 
@@ -558,8 +554,6 @@ class IpSubscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dhcp is not None and self.dhcp._has_data():
                                 return True
 
@@ -647,8 +641,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fsol_bytes is not None:
                                     return True
 
@@ -707,8 +699,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fsol_bytes is not None:
                                     return True
 
@@ -734,8 +724,6 @@ class IpSubscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dhcp is not None and self.dhcp._has_data():
                                 return True
 
@@ -761,8 +749,6 @@ class IpSubscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.initiators is not None and self.initiators._has_data():
                             return True
 
@@ -984,8 +970,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adding_adjacency is not None:
                                     return True
 
@@ -1185,8 +1169,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adding_adjacency is not None:
                                     return True
 
@@ -1251,8 +1233,6 @@ class IpSubscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dhcp is not None and self.dhcp._has_data():
                                 return True
 
@@ -1442,8 +1422,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adding_adjacency is not None:
                                     return True
 
@@ -1643,8 +1621,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adding_adjacency is not None:
                                     return True
 
@@ -1709,8 +1685,6 @@ class IpSubscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dhcp is not None and self.dhcp._has_data():
                                 return True
 
@@ -1736,8 +1710,6 @@ class IpSubscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.initiators is not None and self.initiators._has_data():
                             return True
 
@@ -1806,8 +1778,6 @@ class IpSubscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interfaces is not None:
                             return True
 
@@ -1839,8 +1809,6 @@ class IpSubscriber(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_interface_summary is not None and self.access_interface_summary._has_data():
                         return True
 
@@ -2080,8 +2048,6 @@ class IpSubscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_name is not None:
                                 return True
 
@@ -2134,8 +2100,6 @@ class IpSubscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_name is not None:
                                 return True
 
@@ -2163,8 +2127,6 @@ class IpSubscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2250,8 +2212,6 @@ class IpSubscriber(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -2505,8 +2465,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fsol_bytes is not None:
                                     return True
 
@@ -2651,8 +2609,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fsol_bytes is not None:
                                     return True
 
@@ -2702,8 +2658,6 @@ class IpSubscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dhcp is not None and self.dhcp._has_data():
                                 return True
 
@@ -2855,8 +2809,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fsol_bytes is not None:
                                     return True
 
@@ -3001,8 +2953,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fsol_bytes is not None:
                                     return True
 
@@ -3052,8 +3002,6 @@ class IpSubscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dhcp is not None and self.dhcp._has_data():
                                 return True
 
@@ -3132,8 +3080,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.per_vlan is not None:
                                     return True
 
@@ -3179,8 +3125,6 @@ class IpSubscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.per_vlan is not None:
                                     return True
 
@@ -3203,8 +3147,6 @@ class IpSubscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.total is not None and self.total._has_data():
                                 return True
 
@@ -3232,8 +3174,6 @@ class IpSubscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3283,8 +3223,6 @@ class IpSubscriber(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_interface is not None:
                         for child_ref in self.access_interface:
                             if child_ref._has_data():
@@ -3309,8 +3247,6 @@ class IpSubscriber(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -3340,8 +3276,6 @@ class IpSubscriber(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3364,8 +3298,6 @@ class IpSubscriber(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

@@ -314,8 +314,6 @@ class Mlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.duplex is not None:
                                     return True
 
@@ -375,8 +373,6 @@ class Mlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.reg is not None:
                                     for child in self.reg:
                                         if child is not None:
@@ -426,8 +422,6 @@ class Mlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.reg is not None:
                                     for child in self.reg:
                                         if child is not None:
@@ -477,8 +471,6 @@ class Mlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.reg is not None:
                                     for child in self.reg:
                                         if child is not None:
@@ -503,8 +495,6 @@ class Mlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -550,8 +540,6 @@ class Mlan(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.number is not None:
                             return True
 
@@ -577,8 +565,6 @@ class Mlan(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.port_status_number is not None:
                         for child_ref in self.port_status_number:
                             if child_ref._has_data():
@@ -694,8 +680,6 @@ class Mlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reg is not None:
                                 for child in self.reg:
                                     if child is not None:
@@ -745,8 +729,6 @@ class Mlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reg is not None:
                                 for child in self.reg:
                                     if child is not None:
@@ -842,8 +824,6 @@ class Mlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.cpu_mac is not None:
                                 return True
 
@@ -884,8 +864,6 @@ class Mlan(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rate_limit is not None:
                             return True
 
@@ -917,8 +895,6 @@ class Mlan(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.switch_status is not None and self.switch_status._has_data():
                         return True
 
@@ -1319,8 +1295,6 @@ class Mlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.collisions is not None:
                                     return True
 
@@ -1445,8 +1419,6 @@ class Mlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mlan_stats is not None and self.mlan_stats._has_data():
                                 return True
 
@@ -1474,8 +1446,6 @@ class Mlan(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.number is not None:
                             return True
 
@@ -1501,8 +1471,6 @@ class Mlan(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.port_counters_number is not None:
                         for child_ref in self.port_counters_number:
                             if child_ref._has_data():
@@ -1673,8 +1641,6 @@ class Mlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.db_num is not None:
                                     return True
 
@@ -1714,8 +1680,6 @@ class Mlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.atu is not None and self.atu._has_data():
                                 return True
 
@@ -1743,8 +1707,6 @@ class Mlan(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.entry is not None:
                             return True
 
@@ -1770,8 +1732,6 @@ class Mlan(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.atu_entry_number is not None:
                         for child_ref in self.atu_entry_number:
                             if child_ref._has_data():
@@ -1796,8 +1756,6 @@ class Mlan(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     return True
 
@@ -1830,8 +1788,6 @@ class Mlan(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1854,8 +1810,6 @@ class Mlan(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

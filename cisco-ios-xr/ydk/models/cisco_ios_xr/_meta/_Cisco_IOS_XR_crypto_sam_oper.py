@@ -13,6 +13,18 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'LogTablesEnum' : _MetaInfoEnum('LogTablesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper',
+        {
+            'unkown':'unkown',
+            'memory-digest-table':'memory_digest_table',
+            'system-database-digest':'system_database_digest',
+            'sam-tables':'sam_tables',
+        }, 'Cisco-IOS-XR-crypto-sam-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-sam-oper']),
+    'CertificateIssuerEnum' : _MetaInfoEnum('CertificateIssuerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper',
+        {
+            'unknown':'unknown',
+            'code-signing-server-certificate-authority':'code_signing_server_certificate_authority',
+        }, 'Cisco-IOS-XR-crypto-sam-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-sam-oper']),
     'LogErrorEnum' : _MetaInfoEnum('LogErrorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper',
         {
             'unknown':'unknown',
@@ -42,18 +54,6 @@ _meta_table = {
             'sam-log-file-recovered-from-system-database':'sam_log_file_recovered_from_system_database',
             'validated-elf':'validated_elf',
             'namespace-deleted-recovered-by-sam':'namespace_deleted_recovered_by_sam',
-        }, 'Cisco-IOS-XR-crypto-sam-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-sam-oper']),
-    'CertificateIssuerEnum' : _MetaInfoEnum('CertificateIssuerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper',
-        {
-            'unknown':'unknown',
-            'code-signing-server-certificate-authority':'code_signing_server_certificate_authority',
-        }, 'Cisco-IOS-XR-crypto-sam-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-sam-oper']),
-    'LogTablesEnum' : _MetaInfoEnum('LogTablesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper',
-        {
-            'unkown':'unkown',
-            'memory-digest-table':'memory_digest_table',
-            'system-database-digest':'system_database_digest',
-            'sam-tables':'sam_tables',
         }, 'Cisco-IOS-XR-crypto-sam-oper', _yang_ns._namespaces['Cisco-IOS-XR-crypto-sam-oper']),
     'Sam.SystemInformation' : {
         'meta_info' : _MetaInfoClass('Sam.SystemInformation',
@@ -409,7 +409,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('device-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Specify device name
                 ''',
                 'device_name',

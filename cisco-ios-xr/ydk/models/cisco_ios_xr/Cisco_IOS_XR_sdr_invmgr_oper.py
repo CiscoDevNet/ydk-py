@@ -311,8 +311,6 @@ class SdrInventory(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.card_admin_state is not None:
                                 return True
 
@@ -376,8 +374,6 @@ class SdrInventory(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -405,8 +401,6 @@ class SdrInventory(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -434,8 +428,6 @@ class SdrInventory(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -461,8 +453,6 @@ class SdrInventory(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
@@ -485,8 +475,6 @@ class SdrInventory(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.racks is not None and self.racks._has_data():
             return True
 

@@ -321,8 +321,6 @@ class L2Tp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address_check is not None:
                             return True
 
@@ -345,8 +343,6 @@ class L2Tp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip is not None and self.ip._has_data():
                         return True
 
@@ -467,8 +463,6 @@ class L2Tp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.maximum is not None:
                                 return True
 
@@ -494,8 +488,6 @@ class L2Tp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.retry is not None:
                             return True
 
@@ -552,8 +544,6 @@ class L2Tp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.maximum is not None:
                             return True
 
@@ -579,8 +569,6 @@ class L2Tp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.initial is not None and self.initial._has_data():
                         return True
 
@@ -630,8 +618,6 @@ class L2Tp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accounting is not None:
                         return True
 
@@ -745,8 +731,6 @@ class L2Tp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.secret_name is not None:
                                 return True
 
@@ -772,8 +756,6 @@ class L2Tp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.secret is not None:
                             for child_ref in self.secret:
                                 if child_ref._has_data():
@@ -798,8 +780,6 @@ class L2Tp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.check_disable is not None:
                         return True
 
@@ -851,8 +831,6 @@ class L2Tp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tos is not None:
                         return True
 
@@ -875,8 +853,6 @@ class L2Tp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.class_name is not None:
                     return True
 
@@ -942,8 +918,6 @@ class L2Tp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.class_ is not None:
                 for child_ref in self.class_:
                     if child_ref._has_data():
@@ -966,8 +940,6 @@ class L2Tp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.classes is not None and self.classes._has_data():
             return True
 

@@ -33,26 +33,6 @@ from ydk.errors import YPYError, YPYModelError
 
 
 
-class RadiusAuthenticationTypeIdentity(object):
-    """
-    Base identity for RADIUS authentication types.
-    
-    
-
-    """
-
-    _prefix = 'sys'
-    _revision = '2014-08-06'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_system as meta
-        return meta._meta_table['RadiusAuthenticationTypeIdentity']['meta_info']
-
-
 class AuthenticationMethodIdentity(object):
     """
     Base identity for user authentication methods.
@@ -71,6 +51,26 @@ class AuthenticationMethodIdentity(object):
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_system as meta
         return meta._meta_table['AuthenticationMethodIdentity']['meta_info']
+
+
+class RadiusAuthenticationTypeIdentity(object):
+    """
+    Base identity for RADIUS authentication types.
+    
+    
+
+    """
+
+    _prefix = 'sys'
+    _revision = '2014-08-06'
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_system as meta
+        return meta._meta_table['RadiusAuthenticationTypeIdentity']['meta_info']
 
 
 class System(object):
@@ -183,8 +183,6 @@ class System(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.timezone_name is not None:
                 return True
 
@@ -411,8 +409,6 @@ class System(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -438,8 +434,6 @@ class System(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -472,8 +466,6 @@ class System(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.enabled is not None:
@@ -630,8 +622,6 @@ class System(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -657,8 +647,6 @@ class System(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -721,8 +709,6 @@ class System(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.attempts is not None:
                     return True
 
@@ -746,8 +732,6 @@ class System(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.options is not None and self.options._has_data():
                 return True
 
@@ -921,8 +905,6 @@ class System(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address is not None:
                         return True
 
@@ -951,8 +933,6 @@ class System(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -1016,8 +996,6 @@ class System(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.attempts is not None:
                     return True
 
@@ -1041,8 +1019,6 @@ class System(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.options is not None and self.options._has_data():
                 return True
 
@@ -1180,8 +1156,6 @@ class System(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -1210,8 +1184,6 @@ class System(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -1240,8 +1212,6 @@ class System(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.user is not None:
                 for child_ref in self.user:
                     if child_ref._has_data():
@@ -1269,8 +1239,6 @@ class System(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.authentication is not None and self.authentication._has_data():
             return True
 
@@ -1380,8 +1348,6 @@ class SystemState(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.machine is not None:
                 return True
 
@@ -1442,8 +1408,6 @@ class SystemState(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.boot_datetime is not None:
                 return True
 
@@ -1467,8 +1431,6 @@ class SystemState(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.clock is not None and self.clock._has_data():
             return True
 
@@ -1547,8 +1509,6 @@ class SetCurrentDatetimeRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.current_datetime is not None:
                 return True
 
@@ -1569,8 +1529,6 @@ class SetCurrentDatetimeRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1609,8 +1567,6 @@ class SystemRestartRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -1646,14 +1602,54 @@ class SystemShutdownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_system as meta
         return meta._meta_table['SystemShutdownRpc']['meta_info']
+
+
+class LocalUsersIdentity(AuthenticationMethodIdentity):
+    """
+    Indicates password\-based authentication of locally
+    configured users.
+    
+    
+
+    """
+
+    _prefix = 'sys'
+    _revision = '2014-08-06'
+
+    def __init__(self):
+        AuthenticationMethodIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_system as meta
+        return meta._meta_table['LocalUsersIdentity']['meta_info']
+
+
+class RadiusPapIdentity(RadiusAuthenticationTypeIdentity):
+    """
+    The device requests Password Authentication Protocol (PAP)
+    authentication from the RADIUS server.
+    
+    
+
+    """
+
+    _prefix = 'sys'
+    _revision = '2014-08-06'
+
+    def __init__(self):
+        RadiusAuthenticationTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_system as meta
+        return meta._meta_table['RadiusPapIdentity']['meta_info']
 
 
 class RadiusChapIdentity(RadiusAuthenticationTypeIdentity):
@@ -1695,47 +1691,5 @@ class RadiusIdentity(AuthenticationMethodIdentity):
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_system as meta
         return meta._meta_table['RadiusIdentity']['meta_info']
-
-
-class RadiusPapIdentity(RadiusAuthenticationTypeIdentity):
-    """
-    The device requests Password Authentication Protocol (PAP)
-    authentication from the RADIUS server.
-    
-    
-
-    """
-
-    _prefix = 'sys'
-    _revision = '2014-08-06'
-
-    def __init__(self):
-        RadiusAuthenticationTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_system as meta
-        return meta._meta_table['RadiusPapIdentity']['meta_info']
-
-
-class LocalUsersIdentity(AuthenticationMethodIdentity):
-    """
-    Indicates password\-based authentication of locally
-    configured users.
-    
-    
-
-    """
-
-    _prefix = 'sys'
-    _revision = '2014-08-06'
-
-    def __init__(self):
-        AuthenticationMethodIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_system as meta
-        return meta._meta_table['LocalUsersIdentity']['meta_info']
 
 

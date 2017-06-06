@@ -17,18 +17,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Accountings.Accounting',
             False, 
             [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Named accounting list
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-lib-cfg', True),
             _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                exec:Account exec sessions, commands: Account
                 CLI commands
                 ''',
                 'type',
+                'Cisco-IOS-XR-aaa-lib-cfg', True),
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Named accounting list
+                ''',
+                'listname',
                 'Cisco-IOS-XR-aaa-lib-cfg', True),
             _MetaInfoClassMember('broadcast', REFERENCE_ENUM_CLASS, 'AaaAccountingBroadcastEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaAccountingBroadcastEnum', 
                 [], [], 
@@ -88,18 +88,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Authorizations.Authorization',
             False, 
             [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                List name for AAA authorization
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-lib-cfg', True),
             _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                network: Authorize IKE requests, commands:
                 Authorize CLI commands
                 ''',
                 'type',
+                'Cisco-IOS-XR-aaa-lib-cfg', True),
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                List name for AAA authorization
+                ''',
+                'listname',
                 'Cisco-IOS-XR-aaa-lib-cfg', True),
             _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
                 [], [], 
@@ -181,18 +181,18 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Authentications.Authentication',
             False, 
             [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                List name for AAA authentication
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-lib-cfg', True),
             _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                login: Authenticate login sessions, ppp:
                 Authenticate ppp sessions
                 ''',
                 'type',
+                'Cisco-IOS-XR-aaa-lib-cfg', True),
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                List name for AAA authentication
+                ''',
+                'listname',
                 'Cisco-IOS-XR-aaa-lib-cfg', True),
             _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
                 [], [], 
@@ -230,6 +230,898 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
+    'Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
+                '''                Set authorization lists
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Named authorization list
+                ''',
+                'listname',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
+                [], [], 
+                '''                Method Types
+                ''',
+                'method',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
+            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Server group names
+                ''',
+                'server_group_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'policy-if-author',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.PolicyIfAuthors' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.PolicyIfAuthors',
+            False, 
+            [
+            _MetaInfoClassMember('policy-if-author', REFERENCE_LIST, 'PolicyIfAuthor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor', 
+                [], [], 
+                '''                Configurations related to authorization
+                ''',
+                'policy_if_author',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'policy-if-authors',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.Accountings.Accounting' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Accountings.Accounting',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
+                '''                Set accounting lists
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Named accounting list
+                ''',
+                'listname',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('broadcast', REFERENCE_ENUM_CLASS, 'AaaAccountingBroadcastEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaAccountingBroadcastEnum', 
+                [], [], 
+                '''                Broadcast
+                ''',
+                'broadcast',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
+                [], [], 
+                '''                Method Types
+                ''',
+                'method',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Server group names
+                ''',
+                'server_group_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'accounting',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.Accountings' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Accountings',
+            False, 
+            [
+            _MetaInfoClassMember('accounting', REFERENCE_LIST, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Accountings.Accounting', 
+                [], [], 
+                '''                Configurations related to accounting
+                ''',
+                'accounting',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'accountings',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.ServiceAccounting' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.ServiceAccounting',
+            False, 
+            [
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AaaServiceAccountingEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_aaacore_cfg', 'AaaServiceAccountingEnum', 
+                [], [], 
+                '''                Send extended/brief service accounting records
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'service-accounting',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
+                '''                Set authorization lists
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Named authorization list
+                ''',
+                'listname',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
+                [], [], 
+                '''                Method Types
+                ''',
+                'method',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
+            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Server group names
+                ''',
+                'server_group_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'prepaid-author',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.PrepaidAuthors' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.PrepaidAuthors',
+            False, 
+            [
+            _MetaInfoClassMember('prepaid-author', REFERENCE_LIST, 'PrepaidAuthor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor', 
+                [], [], 
+                '''                Configurations related to authorization
+                ''',
+                'prepaid_author',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'prepaid-authors',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.Authorizations.Authorization' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Authorizations.Authorization',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
+                '''                Set authorization lists
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Named authorization list
+                ''',
+                'listname',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
+                [], [], 
+                '''                Method Types
+                ''',
+                'method',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
+            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Server group names
+                ''',
+                'server_group_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'authorization',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.Authorizations' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Authorizations',
+            False, 
+            [
+            _MetaInfoClassMember('authorization', REFERENCE_LIST, 'Authorization' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Authorizations.Authorization', 
+                [], [], 
+                '''                Configurations related to authorization
+                ''',
+                'authorization',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'authorizations',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.Authentications.Authentication' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Authentications.Authentication',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
+                '''                Set authentication lists
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Named authentication list
+                ''',
+                'listname',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
+                [], [], 
+                '''                Method Types
+                ''',
+                'method',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
+            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Server group names
+                ''',
+                'server_group_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'authentication',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber.Authentications' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Authentications',
+            False, 
+            [
+            _MetaInfoClassMember('authentication', REFERENCE_LIST, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Authentications.Authentication', 
+                [], [], 
+                '''                Configurations related to authentication
+                ''',
+                'authentication',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'authentications',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaSubscriber' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber',
+            False, 
+            [
+            _MetaInfoClassMember('accountings', REFERENCE_CLASS, 'Accountings' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Accountings', 
+                [], [], 
+                '''                AAA accounting
+                ''',
+                'accountings',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('authentications', REFERENCE_CLASS, 'Authentications' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Authentications', 
+                [], [], 
+                '''                AAA authentication
+                ''',
+                'authentications',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('authorizations', REFERENCE_CLASS, 'Authorizations' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Authorizations', 
+                [], [], 
+                '''                AAA authorization
+                ''',
+                'authorizations',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('policy-if-authors', REFERENCE_CLASS, 'PolicyIfAuthors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.PolicyIfAuthors', 
+                [], [], 
+                '''                AAA authorization policy
+                ''',
+                'policy_if_authors',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('prepaid-authors', REFERENCE_CLASS, 'PrepaidAuthors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.PrepaidAuthors', 
+                [], [], 
+                '''                AAA authorization prepaid
+                ''',
+                'prepaid_authors',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('service-accounting', REFERENCE_CLASS, 'ServiceAccounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.ServiceAccounting', 
+                [], [], 
+                '''                Set accounting parameters for Service
+                ''',
+                'service_accounting',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'aaa-subscriber',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaMobile.Mobiles.Mobile' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaMobile.Mobiles.Mobile',
+            False, 
+            [
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Named accounting list
+                ''',
+                'listname',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('broadcast', REFERENCE_ENUM_CLASS, 'AaaAccountingBroadcastEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaAccountingBroadcastEnum', 
+                [], [], 
+                '''                Broadcast
+                ''',
+                'broadcast',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
+                [], [], 
+                '''                Method Types
+                ''',
+                'method',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Server group names
+                ''',
+                'server_group_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'mobile',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaMobile.Mobiles' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaMobile.Mobiles',
+            False, 
+            [
+            _MetaInfoClassMember('mobile', REFERENCE_LIST, 'Mobile' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaMobile.Mobiles.Mobile', 
+                [], [], 
+                '''                Configurations related to accounting
+                ''',
+                'mobile',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'mobiles',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaMobile' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaMobile',
+            False, 
+            [
+            _MetaInfoClassMember('mobiles', REFERENCE_CLASS, 'Mobiles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaMobile.Mobiles', 
+                [], [], 
+                '''                AAA Mobile Accounting
+                ''',
+                'mobiles',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'aaa-mobile',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaDot1X.Authentications.Authentication' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaDot1X.Authentications.Authentication',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
+                '''                Set authentication lists
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Named authentication list
+                ''',
+                'listname',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
+                [], [], 
+                '''                Method Types
+                ''',
+                'method',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
+            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], [], 
+                '''                Server group names
+                ''',
+                'server_group_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'authentication',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaDot1X.Authentications' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaDot1X.Authentications',
+            False, 
+            [
+            _MetaInfoClassMember('authentication', REFERENCE_LIST, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaDot1X.Authentications.Authentication', 
+                [], [], 
+                '''                Configurations related to authentication
+                ''',
+                'authentication',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'authentications',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.AaaDot1X' : {
+        'meta_info' : _MetaInfoClass('Aaa.AaaDot1X',
+            False, 
+            [
+            _MetaInfoClassMember('authentications', REFERENCE_CLASS, 'Authentications' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaDot1X.Authentications', 
+                [], [], 
+                '''                AAA authentication
+                ''',
+                'authentications',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'aaa-dot1x',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.NasPortId.Formats.Format' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPortId.Formats.Format',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '45')], [], 
+                '''                Nas-Port-Type value to apply format name on
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('format-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                AAA nas-port attribute format
+                ''',
+                'format_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'format',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.NasPortId.Formats' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPortId.Formats',
+            False, 
+            [
+            _MetaInfoClassMember('format', REFERENCE_LIST, 'Format' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPortId.Formats.Format', 
+                [], [], 
+                '''                nas-port-id attribute format
+                ''',
+                'format',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'formats',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.NasPortId' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPortId',
+            False, 
+            [
+            _MetaInfoClassMember('formats', REFERENCE_CLASS, 'Formats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPortId.Formats', 
+                [], [], 
+                '''                AAA nas-port-id attribute format
+                ''',
+                'formats',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'nas-port-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.CallingStation.Formats.Format' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CallingStation.Formats.Format',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '45')], [], 
+                '''                Nas-Port-Type value to apply format name on
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('format-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                AAA nas-port attribute format
+                ''',
+                'format_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'format',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.CallingStation.Formats' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CallingStation.Formats',
+            False, 
+            [
+            _MetaInfoClassMember('format', REFERENCE_LIST, 'Format' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CallingStation.Formats.Format', 
+                [], [], 
+                '''                nas-port-id attribute format
+                ''',
+                'format',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'formats',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.CallingStation' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CallingStation',
+            False, 
+            [
+            _MetaInfoClassMember('formats', REFERENCE_CLASS, 'Formats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CallingStation.Formats', 
+                [], [], 
+                '''                AAA nas-port-id attribute format
+                ''',
+                'formats',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'calling-station',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.CalledStation.Formats.Format' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CalledStation.Formats.Format',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '45')], [], 
+                '''                Nas-Port-Type value to apply format name on
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('format-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                AAA nas-port attribute format
+                ''',
+                'format_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'format',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.CalledStation.Formats' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CalledStation.Formats',
+            False, 
+            [
+            _MetaInfoClassMember('format', REFERENCE_LIST, 'Format' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CalledStation.Formats.Format', 
+                [], [], 
+                '''                nas-port-id attribute format
+                ''',
+                'format',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'formats',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.CalledStation' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CalledStation',
+            False, 
+            [
+            _MetaInfoClassMember('formats', REFERENCE_CLASS, 'Formats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CalledStation.Formats', 
+                [], [], 
+                '''                AAA nas-port-id attribute format
+                ''',
+                'formats',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'called-station',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended',
+            False, 
+            [
+            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                format type
+                ''',
+                'value',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '45')], [], 
+                '''                AAA nas-port attribute format
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('format-identifier', ATTRIBUTE, 'str' , None, None, 
+                [(1, 32)], [], 
+                '''                A 32 character string representing the
+                format to be used
+                ''',
+                'format_identifier',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'format-extended',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.NasPort.FormatExtendeds' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPort.FormatExtendeds',
+            False, 
+            [
+            _MetaInfoClassMember('format-extended', REFERENCE_LIST, 'FormatExtended' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended', 
+                [], [], 
+                '''                nas-port-id extended attribute
+                ''',
+                'format_extended',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'format-extendeds',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.NasPort' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPort',
+            False, 
+            [
+            _MetaInfoClassMember('format-extendeds', REFERENCE_CLASS, 'FormatExtendeds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPort.FormatExtendeds', 
+                [], [], 
+                '''                AAA nas-port-id attribute format
+                ''',
+                'format_extendeds',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'nas-port',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.FormatOthers.FormatOther' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.FormatOthers.FormatOther',
+            False, 
+            [
+            _MetaInfoClassMember('nas-port-type-name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Nas-Port-Type value to apply format name on
+                ''',
+                'nas_port_type_name',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
+            _MetaInfoClassMember('attribute-config1', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument1
+                ''',
+                'attribute_config1',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config10', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument10
+                ''',
+                'attribute_config10',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config11', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument11
+                ''',
+                'attribute_config11',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config12', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument12
+                ''',
+                'attribute_config12',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config13', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument13
+                ''',
+                'attribute_config13',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config14', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument14
+                ''',
+                'attribute_config14',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config15', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument15
+                ''',
+                'attribute_config15',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config16', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument16
+                ''',
+                'attribute_config16',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config17', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument17
+                ''',
+                'attribute_config17',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config18', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument18
+                ''',
+                'attribute_config18',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config19', ATTRIBUTE, 'int' , None, None, 
+                [('1', '253')], [], 
+                '''                Argument19
+                ''',
+                'attribute_config19',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config2', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument2
+                ''',
+                'attribute_config2',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config3', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument3
+                ''',
+                'attribute_config3',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config4', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument4
+                ''',
+                'attribute_config4',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config5', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument5
+                ''',
+                'attribute_config5',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config6', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument6
+                ''',
+                'attribute_config6',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config7', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument7
+                ''',
+                'attribute_config7',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config8', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument8
+                ''',
+                'attribute_config8',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('attribute-config9', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Argument9
+                ''',
+                'attribute_config9',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'format-other',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute.FormatOthers' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.FormatOthers',
+            False, 
+            [
+            _MetaInfoClassMember('format-other', REFERENCE_LIST, 'FormatOther' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.FormatOthers.FormatOther', 
+                [], [], 
+                '''                Other configs
+                ''',
+                'format_other',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'format-others',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.RadiusAttribute' : {
+        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute',
+            False, 
+            [
+            _MetaInfoClassMember('called-station', REFERENCE_CLASS, 'CalledStation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CalledStation', 
+                [], [], 
+                '''                AAA called station id attribute
+                ''',
+                'called_station',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('calling-station', REFERENCE_CLASS, 'CallingStation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CallingStation', 
+                [], [], 
+                '''                AAA calling station id attribute
+                ''',
+                'calling_station',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('format-others', REFERENCE_CLASS, 'FormatOthers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.FormatOthers', 
+                [], [], 
+                '''                AAA nas-port-id attribute format
+                ''',
+                'format_others',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('nas-port', REFERENCE_CLASS, 'NasPort' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPort', 
+                [], [], 
+                '''                AAA nas-port-id attribute
+                ''',
+                'nas_port',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            _MetaInfoClassMember('nas-port-id', REFERENCE_CLASS, 'NasPortId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPortId', 
+                [], [], 
+                '''                AAA nas-port-id attribute
+                ''',
+                'nas_port_id',
+                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-aaacore-cfg',
+            'radius-attribute',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
     'Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server' : {
         'meta_info' : _MetaInfoClass('Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server',
             False, 
@@ -242,7 +1134,7 @@ _meta_table = {
                 'ordering_index',
                 'Cisco-IOS-XR-aaa-diameter-cfg', True),
             _MetaInfoClassMember('peer-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name for the diameter peer configuration
                 ''',
                 'peer_name',
@@ -276,7 +1168,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('server-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                DIAMETER server group name
                 ''',
                 'server_group_name',
@@ -308,186 +1200,6 @@ _meta_table = {
             'Cisco-IOS-XR-aaa-diameter-cfg',
             'diameter-server-groups',
             _yang_ns._namespaces['Cisco-IOS-XR-aaa-diameter-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server' : {
-        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server',
-            False, 
-            [
-            _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                IP address of TACACS+ server
-                ''',
-                'ip_address',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True, [
-                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of TACACS+ server
-                        ''',
-                        'ip_address',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of TACACS+ server
-                        ''',
-                        'ip_address',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-                ]),
-            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                This is used to sort the servers in the
-                order of precedence
-                ''',
-                'ordering_index',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'server',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers' : {
-        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers',
-            False, 
-            [
-            _MetaInfoClassMember('server', REFERENCE_LIST, 'Server' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server', 
-                [], [], 
-                '''                A server to include in the server group
-                ''',
-                'server',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'servers',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer' : {
-        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer',
-            False, 
-            [
-            _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                IP address of TACACS+ server
-                ''',
-                'ip_address',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True, [
-                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of TACACS+ server
-                        ''',
-                        'ip_address',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of TACACS+ server
-                        ''',
-                        'ip_address',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-                ]),
-            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                This is used to sort the servers in the
-                order of precedence
-                ''',
-                'ordering_index',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [('1', '65535')], [], 
-                '''                Port number (standard 49)
-                ''',
-                'port_number',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Set TACACS+ encryption key
-                ''',
-                'key',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [('1', '1000')], [], 
-                '''                Time to wait for a TACACS+ server to reply
-                ''',
-                'timeout',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'private-server',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers' : {
-        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers',
-            False, 
-            [
-            _MetaInfoClassMember('private-server', REFERENCE_LIST, 'PrivateServer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer', 
-                [], [], 
-                '''                A private server to include in the server
-                group
-                ''',
-                'private_server',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'private-servers',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup' : {
-        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup',
-            False, 
-            [
-            _MetaInfoClassMember('server-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                TACACS+ Server group name
-                ''',
-                'server_group_name',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-            _MetaInfoClassMember('private-servers', REFERENCE_CLASS, 'PrivateServers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers', 
-                [], [], 
-                '''                List of private TACACS servers present in the
-                group
-                ''',
-                'private_servers',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('servers', REFERENCE_CLASS, 'Servers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers', 
-                [], [], 
-                '''                Specify a TACACS+ server
-                ''',
-                'servers',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Specify VRF name of TACACS group
-                ''',
-                'vrf',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'tacacs-server-group',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.ServerGroups.TacacsServerGroups' : {
-        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups',
-            False, 
-            [
-            _MetaInfoClassMember('tacacs-server-group', REFERENCE_LIST, 'TacacsServerGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup', 
-                [], [], 
-                '''                TACACS+ Server group name
-                ''',
-                'tacacs_server_group',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'tacacs-server-groups',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
@@ -566,18 +1278,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers.Server',
             False, 
             [
-            _MetaInfoClassMember('acct-port-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Accounting Port number (standard port 1646)
+            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                This is used to sort the servers in the
+                order of precedence
                 ''',
-                'acct_port_number',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
-            _MetaInfoClassMember('auth-port-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Authentication Port number (standard port
-                1645)
-                ''',
-                'auth_port_number',
+                'ordering_index',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -586,24 +1292,30 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of RADIUS server
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of RADIUS server
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                 ]),
-            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                This is used to sort the servers in the
-                order of precedence
+            _MetaInfoClassMember('auth-port-number', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Authentication Port number (standard port
+                1645)
                 ''',
-                'ordering_index',
+                'auth_port_number',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
+            _MetaInfoClassMember('acct-port-number', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Accounting Port number (standard port 1646)
+                ''',
+                'acct_port_number',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             ],
             'Cisco-IOS-XR-aaa-protocol-radius-cfg',
@@ -633,18 +1345,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.PrivateServers.PrivateServer',
             False, 
             [
-            _MetaInfoClassMember('acct-port-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Accounting Port number (standard port 1646)
+            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                This is used to sort the servers in the
+                order of precedence
                 ''',
-                'acct_port_number',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
-            _MetaInfoClassMember('auth-port-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Authentication Port number (standard port
-                1645)
-                ''',
-                'auth_port_number',
+                'ordering_index',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -653,24 +1359,30 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of RADIUS server
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of RADIUS server
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                 ]),
-            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                This is used to sort the servers in the
-                order of precedence
+            _MetaInfoClassMember('auth-port-number', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Authentication Port number (standard port
+                1645)
                 ''',
-                'ordering_index',
+                'auth_port_number',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
+            _MetaInfoClassMember('acct-port-number', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Accounting Port number (standard port 1646)
+                ''',
+                'acct_port_number',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('idle-time', ATTRIBUTE, 'int' , None, None, 
                 [('1', '60')], [], 
@@ -691,7 +1403,7 @@ _meta_table = {
                 'ignore_auth_port',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('private-key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                RADIUS encryption key
                 ''',
                 'private_key',
@@ -913,7 +1625,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('server-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                RADIUS server group name
                 ''',
                 'server_group_name',
@@ -964,7 +1676,7 @@ _meta_table = {
                 'servers',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify interface for source address in RADIUS
                 packets
                 ''',
@@ -997,6 +1709,186 @@ _meta_table = {
             'Cisco-IOS-XR-aaa-protocol-radius-cfg',
             'radius-server-groups',
             _yang_ns._namespaces['Cisco-IOS-XR-aaa-protocol-radius-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server' : {
+        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server',
+            False, 
+            [
+            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                This is used to sort the servers in the
+                order of precedence
+                ''',
+                'ordering_index',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+            _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP address of TACACS+ server
+                ''',
+                'ip_address',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True, [
+                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of TACACS+ server
+                        ''',
+                        'ip_address',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of TACACS+ server
+                        ''',
+                        'ip_address',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+                ]),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'server',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers' : {
+        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers',
+            False, 
+            [
+            _MetaInfoClassMember('server', REFERENCE_LIST, 'Server' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server', 
+                [], [], 
+                '''                A server to include in the server group
+                ''',
+                'server',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'servers',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer' : {
+        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer',
+            False, 
+            [
+            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                This is used to sort the servers in the
+                order of precedence
+                ''',
+                'ordering_index',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+            _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP address of TACACS+ server
+                ''',
+                'ip_address',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True, [
+                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of TACACS+ server
+                        ''',
+                        'ip_address',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of TACACS+ server
+                        ''',
+                        'ip_address',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+                ]),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [('1', '65535')], [], 
+                '''                Port number (standard 49)
+                ''',
+                'port_number',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(!.+)|([^!].+)'], 
+                '''                Set TACACS+ encryption key
+                ''',
+                'key',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [('1', '1000')], [], 
+                '''                Time to wait for a TACACS+ server to reply
+                ''',
+                'timeout',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'private-server',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers' : {
+        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers',
+            False, 
+            [
+            _MetaInfoClassMember('private-server', REFERENCE_LIST, 'PrivateServer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer', 
+                [], [], 
+                '''                A private server to include in the server
+                group
+                ''',
+                'private_server',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'private-servers',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup' : {
+        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup',
+            False, 
+            [
+            _MetaInfoClassMember('server-group-name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                TACACS+ Server group name
+                ''',
+                'server_group_name',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+            _MetaInfoClassMember('private-servers', REFERENCE_CLASS, 'PrivateServers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers', 
+                [], [], 
+                '''                List of private TACACS servers present in the
+                group
+                ''',
+                'private_servers',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('servers', REFERENCE_CLASS, 'Servers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers', 
+                [], [], 
+                '''                Specify a TACACS+ server
+                ''',
+                'servers',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('vrf', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Specify VRF name of TACACS group
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'tacacs-server-group',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
+        ),
+    },
+    'Aaa.ServerGroups.TacacsServerGroups' : {
+        'meta_info' : _MetaInfoClass('Aaa.ServerGroups.TacacsServerGroups',
+            False, 
+            [
+            _MetaInfoClassMember('tacacs-server-group', REFERENCE_LIST, 'TacacsServerGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup', 
+                [], [], 
+                '''                TACACS+ Server group name
+                ''',
+                'tacacs_server_group',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            ],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'tacacs-server-groups',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
@@ -1034,7 +1926,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the usergroup
                 ''',
                 'name',
@@ -1067,12 +1959,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Usernames.Username',
             False, 
             [
-            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Username
-                ''',
-                'name',
-                'Cisco-IOS-XR-aaa-locald-cfg', True),
             _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                This is used to sort the users in the order of
@@ -1080,14 +1966,20 @@ _meta_table = {
                 ''',
                 'ordering_index',
                 'Cisco-IOS-XR-aaa-locald-cfg', True),
+            _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Username
+                ''',
+                'name',
+                'Cisco-IOS-XR-aaa-locald-cfg', True),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify the password for the user
                 ''',
                 'password',
                 'Cisco-IOS-XR-aaa-locald-cfg', False),
             _MetaInfoClassMember('secret', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Specify the secret for the user
                 ''',
                 'secret',
@@ -1128,7 +2020,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the task group to include
                 ''',
                 'name',
@@ -1161,6 +2053,13 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Taskgroups.Taskgroup.Tasks.Task',
             False, 
             [
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AaaLocaldTaskClassEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_cfg', 'AaaLocaldTaskClassEnum', 
+                [], [], 
+                '''                This specifies the operation permitted for
+                this task eg: read/write/execute/debug
+                ''',
+                'type',
+                'Cisco-IOS-XR-aaa-locald-cfg', True),
             _MetaInfoClassMember('task-id', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Task ID to which permission is to be granted
@@ -1168,13 +2067,6 @@ _meta_table = {
                 valid task IDs)
                 ''',
                 'task_id',
-                'Cisco-IOS-XR-aaa-locald-cfg', True),
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AaaLocaldTaskClassEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_cfg', 'AaaLocaldTaskClassEnum', 
-                [], [], 
-                '''                This specifies the operation permitted for
-                this task eg: read/write/execute/debug
-                ''',
-                'type',
                 'Cisco-IOS-XR-aaa-locald-cfg', True),
             ],
             'Cisco-IOS-XR-aaa-locald-cfg',
@@ -1257,7 +2149,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the task group
                 ''',
                 'name',
@@ -1291,7 +2183,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of the user group
                 ''',
                 'name',
@@ -1509,7 +2401,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('peer-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name for the diameter peer configuration
                 ''',
                 'peer_name',
@@ -1521,13 +2413,13 @@ _meta_table = {
                 'host_destination',
                 'Cisco-IOS-XR-aaa-diameter-cfg', False),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address of diameter server
                 ''',
                 'ipv4_address',
                 'Cisco-IOS-XR-aaa-diameter-cfg', False),
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address of diameter server
                 ''',
                 'ipv6_address',
@@ -1551,7 +2443,7 @@ _meta_table = {
                 'realm_destination',
                 'Cisco-IOS-XR-aaa-diameter-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify interface for source address in
                 DIAMETER packets
                 ''',
@@ -1646,7 +2538,7 @@ _meta_table = {
                 'type_identity',
                 'Cisco-IOS-XR-aaa-diameter-cfg', False),
             _MetaInfoClassMember('type-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address type
                 ''',
                 'type_ipv4_address',
@@ -1674,17 +2566,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef',
             False, 
             [
-            _MetaInfoClassMember('attribute-id', ATTRIBUTE, 'int' , None, None, 
-                [('1', '65535')], [], 
-                '''                enter attribute id
-                ''',
-                'attribute_id',
-                'Cisco-IOS-XR-aaa-diameter-cfg', True),
             _MetaInfoClassMember('vendor-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                value for vendor id
                 ''',
                 'vendor_id',
+                'Cisco-IOS-XR-aaa-diameter-cfg', True),
+            _MetaInfoClassMember('attribute-id', ATTRIBUTE, 'int' , None, None, 
+                [('1', '65535')], [], 
+                '''                enter attribute id
+                ''',
+                'attribute_id',
                 'Cisco-IOS-XR-aaa-diameter-cfg', True),
             _MetaInfoClassMember('diam-attr-value', REFERENCE_CLASS, 'DiamAttrValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue', 
                 [], [], 
@@ -1919,7 +2811,7 @@ _meta_table = {
                 'peers',
                 'Cisco-IOS-XR-aaa-diameter-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify interface for source address in
                 DIAMETER packets
                 ''',
@@ -1938,256 +2830,16 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.Tacacs.Ipv6' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Ipv6',
+    'Aaa.Radius.Hosts.Host' : {
+        'meta_info' : _MetaInfoClass('Aaa.Radius.Hosts.Host',
             False, 
             [
-            _MetaInfoClassMember('dscp', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Specify the DSCP value
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'TacacsDscpValueEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg', 'TacacsDscpValueEnum', 
-                        [], [], 
-                        '''                        Specify the DSCP value
-                        ''',
-                        'dscp',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-                    _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                        [('0', '63')], [], 
-                        '''                        Specify the DSCP value
-                        ''',
-                        'dscp',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-                ]),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'ipv6',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.Tacacs.Hosts.Host' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Hosts.Host',
-            False, 
-            [
-            _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                IP address of TACACS+ server
-                ''',
-                'ip_address',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True, [
-                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of TACACS+ server
-                        ''',
-                        'ip_address',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IP address of TACACS+ server
-                        ''',
-                        'ip_address',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-                ]),
             _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                This is used to sort the servers in the order
                 of precedence
                 ''',
                 'ordering_index',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
-                [('1', '65535')], [], 
-                '''                Port number (standard 49)
-                ''',
-                'port_number',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Set TACACS+ encryption key
-                ''',
-                'key',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('single-connect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use a single connection for all sessions for a
-                given TACACS+ server
-                ''',
-                'single_connect',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [('1', '1000')], [], 
-                '''                Time to wait for a TACACS+ server to reply
-                ''',
-                'timeout',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'host',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.Tacacs.Hosts' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Hosts',
-            False, 
-            [
-            _MetaInfoClassMember('host', REFERENCE_LIST, 'Host' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Hosts.Host', 
-                [], [], 
-                '''                One of the TACACS+ servers
-                ''',
-                'host',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'hosts',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.Tacacs.Ipv4' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Ipv4',
-            False, 
-            [
-            _MetaInfoClassMember('dscp', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Specify the DSCP value
-                ''',
-                'dscp',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False, [
-                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'TacacsDscpValueEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg', 'TacacsDscpValueEnum', 
-                        [], [], 
-                        '''                        Specify the DSCP value
-                        ''',
-                        'dscp',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-                    _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                        [('0', '63')], [], 
-                        '''                        Specify the DSCP value
-                        ''',
-                        'dscp',
-                        'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-                ]),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'ipv4',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.Tacacs.Vrfs.Vrf' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Vrfs.Vrf',
-            False, 
-            [
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                VRF name. Specify 'default' for default VRF
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
-            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
-                '''                Specify interface for source address in
-                TACACS+ packets
-                ''',
-                'source_interface',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'vrf',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.Tacacs.Vrfs' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Vrfs',
-            False, 
-            [
-            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Vrfs.Vrf', 
-                [], [], 
-                '''                A VRF
-                ''',
-                'vrf',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'vrfs',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.Tacacs' : {
-        'meta_info' : _MetaInfoClass('Aaa.Tacacs',
-            False, 
-            [
-            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Hosts', 
-                [], [], 
-                '''                Specify a TACACS+ server
-                ''',
-                'hosts',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Ipv4', 
-                [], [], 
-                '''                IPv4 configuration
-                ''',
-                'ipv4',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Ipv6', 
-                [], [], 
-                '''                IPv6 configuration
-                ''',
-                'ipv6',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
-                '''                Set TACACS+ encryption key
-                ''',
-                'key',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('single-connect', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                Use a single connection for all sessions for a
-                given TACACS+ server
-                ''',
-                'single_connect',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [('1', '1000')], [], 
-                '''                Time to wait for a TACACS+ server to reply
-                ''',
-                'timeout',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Vrfs', 
-                [], [], 
-                '''                List of VRFs
-                ''',
-                'vrfs',
-                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-tacacs-cfg',
-            'tacacs',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.Radius.Hosts.Host' : {
-        'meta_info' : _MetaInfoClass('Aaa.Radius.Hosts.Host',
-            False, 
-            [
-            _MetaInfoClassMember('acct-port-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Accounting Port number (standard port 1646)
-                ''',
-                'acct_port_number',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
-            _MetaInfoClassMember('auth-port-number', ATTRIBUTE, 'int' , None, None, 
-                [('0', '65535')], [], 
-                '''                Authentication Port number (standard port
-                1645)
-                ''',
-                'auth_port_number',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -2196,27 +2848,33 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of RADIUS server
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of RADIUS server
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                 ]),
-            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                This is used to sort the servers in the order
-                of precedence
+            _MetaInfoClassMember('auth-port-number', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Authentication Port number (standard port
+                1645)
                 ''',
-                'ordering_index',
+                'auth_port_number',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
+            _MetaInfoClassMember('acct-port-number', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Accounting Port number (standard port 1646)
+                ''',
+                'acct_port_number',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('host-key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                RADIUS encryption key
                 ''',
                 'host_key',
@@ -2369,20 +3027,20 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of COA client
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of COA client
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                 ]),
             _MetaInfoClassMember('server-key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                RADIUS CoA client encryption key
                 ''',
                 'server_key',
@@ -2398,6 +3056,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName',
             False, 
             [
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                IP address of COA client
@@ -2405,26 +3069,20 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of COA client
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of COA client
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
                 ]),
-            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                VRF name
-                ''',
-                'vrf_name',
-                'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('server-key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                RADIUS CoA client encryption key
                 ''',
                 'server_key',
@@ -2488,7 +3146,7 @@ _meta_table = {
                 'port',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('server-key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                RADIUS CoA client encryption key
                 ''',
                 'server_key',
@@ -2563,13 +3221,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name. Specify 'default' for defalut VRF
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', True),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify interface for source address in
                 RADIUS packets
                 ''',
@@ -2853,7 +3511,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-list-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Attribute list name
                 ''',
                 'attribute_list_name',
@@ -2978,7 +3636,7 @@ _meta_table = {
                 'ipv6',
                 'Cisco-IOS-XR-aaa-protocol-radius-cfg', False),
             _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                RADIUS encryption key
                 ''',
                 'key',
@@ -3046,895 +3704,237 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor',
+    'Aaa.Tacacs.Ipv6' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Ipv6',
             False, 
             [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Named authorization list
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
-                '''                Set authorization lists
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
+            _MetaInfoClassMember('dscp', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
-                '''                Method Types
+                '''                Specify the DSCP value
                 ''',
-                'method',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
-            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Server group names
-                ''',
-                'server_group_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+                'dscp',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False, [
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'TacacsDscpValueEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg', 'TacacsDscpValueEnum', 
+                        [], [], 
+                        '''                        Specify the DSCP value
+                        ''',
+                        'dscp',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+                    _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
+                        [('0', '63')], [], 
+                        '''                        Specify the DSCP value
+                        ''',
+                        'dscp',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+                ]),
             ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'policy-if-author',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'ipv6',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.AaaSubscriber.PolicyIfAuthors' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.PolicyIfAuthors',
+    'Aaa.Tacacs.Hosts.Host' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Hosts.Host',
             False, 
             [
-            _MetaInfoClassMember('policy-if-author', REFERENCE_LIST, 'PolicyIfAuthor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor', 
-                [], [], 
-                '''                Configurations related to authorization
+            _MetaInfoClassMember('ordering-index', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                This is used to sort the servers in the order
+                of precedence
                 ''',
-                'policy_if_author',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+                'ordering_index',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+            _MetaInfoClassMember('ip-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP address of TACACS+ server
+                ''',
+                'ip_address',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True, [
+                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of TACACS+ server
+                        ''',
+                        'ip_address',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+                    _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP address of TACACS+ server
+                        ''',
+                        'ip_address',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+                ]),
+            _MetaInfoClassMember('port-number', ATTRIBUTE, 'int' , None, None, 
+                [('1', '65535')], [], 
+                '''                Port number (standard 49)
+                ''',
+                'port_number',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(!.+)|([^!].+)'], 
+                '''                Set TACACS+ encryption key
+                ''',
+                'key',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('single-connect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use a single connection for all sessions for a
+                given TACACS+ server
+                ''',
+                'single_connect',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [('1', '1000')], [], 
+                '''                Time to wait for a TACACS+ server to reply
+                ''',
+                'timeout',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
             ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'policy-if-authors',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'host',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.AaaSubscriber.Accountings.Accounting' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Accountings.Accounting',
+    'Aaa.Tacacs.Hosts' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Hosts',
             False, 
             [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Named accounting list
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
-                '''                Set accounting lists
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('broadcast', REFERENCE_ENUM_CLASS, 'AaaAccountingBroadcastEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaAccountingBroadcastEnum', 
+            _MetaInfoClassMember('host', REFERENCE_LIST, 'Host' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Hosts.Host', 
                 [], [], 
-                '''                Broadcast
+                '''                One of the TACACS+ servers
                 ''',
-                'broadcast',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
-                [], [], 
-                '''                Method Types
-                ''',
-                'method',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
-            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Server group names
-                ''',
-                'server_group_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+                'host',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
             ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'accounting',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'hosts',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.AaaSubscriber.Accountings' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Accountings',
+    'Aaa.Tacacs.Ipv4' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Ipv4',
             False, 
             [
-            _MetaInfoClassMember('accounting', REFERENCE_LIST, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Accountings.Accounting', 
+            _MetaInfoClassMember('dscp', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
-                '''                Configurations related to accounting
+                '''                Specify the DSCP value
                 ''',
-                'accounting',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+                'dscp',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False, [
+                    _MetaInfoClassMember('dscp', REFERENCE_ENUM_CLASS, 'TacacsDscpValueEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg', 'TacacsDscpValueEnum', 
+                        [], [], 
+                        '''                        Specify the DSCP value
+                        ''',
+                        'dscp',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+                    _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
+                        [('0', '63')], [], 
+                        '''                        Specify the DSCP value
+                        ''',
+                        'dscp',
+                        'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+                ]),
             ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'accountings',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'ipv4',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.AaaSubscriber.ServiceAccounting' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.ServiceAccounting',
+    'Aaa.Tacacs.Vrfs.Vrf' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Vrfs.Vrf',
             False, 
             [
-            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'AaaServiceAccountingEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_aaacore_cfg', 'AaaServiceAccountingEnum', 
-                [], [], 
-                '''                Send extended/brief service accounting records
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                VRF name. Specify 'default' for default VRF
                 ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+                'vrf_name',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', True),
+            _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Specify interface for source address in
+                TACACS+ packets
+                ''',
+                'source_interface',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
             ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'service-accounting',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'vrf',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor',
+    'Aaa.Tacacs.Vrfs' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs.Vrfs',
             False, 
             [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Named authorization list
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
-                '''                Set authorization lists
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
+            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Vrfs.Vrf', 
                 [], [], 
-                '''                Method Types
+                '''                A VRF
                 ''',
-                'method',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
-            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Server group names
-                ''',
-                'server_group_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
+                'vrf',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
             ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'prepaid-author',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'vrfs',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
-    'Aaa.AaaSubscriber.PrepaidAuthors' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.PrepaidAuthors',
+    'Aaa.Tacacs' : {
+        'meta_info' : _MetaInfoClass('Aaa.Tacacs',
             False, 
             [
-            _MetaInfoClassMember('prepaid-author', REFERENCE_LIST, 'PrepaidAuthor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor', 
+            _MetaInfoClassMember('hosts', REFERENCE_CLASS, 'Hosts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Hosts', 
                 [], [], 
-                '''                Configurations related to authorization
+                '''                Specify a TACACS+ server
                 ''',
-                'prepaid_author',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
+                'hosts',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Ipv4', 
+                [], [], 
+                '''                IPv4 configuration
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Ipv6', 
+                [], [], 
+                '''                IPv6 configuration
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('key', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(!.+)|([^!].+)'], 
+                '''                Set TACACS+ encryption key
+                ''',
+                'key',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('single-connect', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use a single connection for all sessions for a
+                given TACACS+ server
+                ''',
+                'single_connect',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [('1', '1000')], [], 
+                '''                Time to wait for a TACACS+ server to reply
+                ''',
+                'timeout',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.Tacacs.Vrfs', 
+                [], [], 
+                '''                List of VRFs
+                ''',
+                'vrfs',
+                'Cisco-IOS-XR-aaa-tacacs-cfg', False),
             ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'prepaid-authors',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaSubscriber.Authorizations.Authorization' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Authorizations.Authorization',
-            False, 
-            [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Named authorization list
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
-                '''                Set authorization lists
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
-                [], [], 
-                '''                Method Types
-                ''',
-                'method',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
-            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Server group names
-                ''',
-                'server_group_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'authorization',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaSubscriber.Authorizations' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Authorizations',
-            False, 
-            [
-            _MetaInfoClassMember('authorization', REFERENCE_LIST, 'Authorization' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Authorizations.Authorization', 
-                [], [], 
-                '''                Configurations related to authorization
-                ''',
-                'authorization',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'authorizations',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaSubscriber.Authentications.Authentication' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Authentications.Authentication',
-            False, 
-            [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Named authentication list
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
-                '''                Set authentication lists
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
-                [], [], 
-                '''                Method Types
-                ''',
-                'method',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
-            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Server group names
-                ''',
-                'server_group_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'authentication',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaSubscriber.Authentications' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber.Authentications',
-            False, 
-            [
-            _MetaInfoClassMember('authentication', REFERENCE_LIST, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Authentications.Authentication', 
-                [], [], 
-                '''                Configurations related to authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'authentications',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaSubscriber' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaSubscriber',
-            False, 
-            [
-            _MetaInfoClassMember('accountings', REFERENCE_CLASS, 'Accountings' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Accountings', 
-                [], [], 
-                '''                AAA accounting
-                ''',
-                'accountings',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('authentications', REFERENCE_CLASS, 'Authentications' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Authentications', 
-                [], [], 
-                '''                AAA authentication
-                ''',
-                'authentications',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('authorizations', REFERENCE_CLASS, 'Authorizations' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.Authorizations', 
-                [], [], 
-                '''                AAA authorization
-                ''',
-                'authorizations',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('policy-if-authors', REFERENCE_CLASS, 'PolicyIfAuthors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.PolicyIfAuthors', 
-                [], [], 
-                '''                AAA authorization policy
-                ''',
-                'policy_if_authors',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('prepaid-authors', REFERENCE_CLASS, 'PrepaidAuthors' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.PrepaidAuthors', 
-                [], [], 
-                '''                AAA authorization prepaid
-                ''',
-                'prepaid_authors',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('service-accounting', REFERENCE_CLASS, 'ServiceAccounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaSubscriber.ServiceAccounting', 
-                [], [], 
-                '''                Set accounting parameters for Service
-                ''',
-                'service_accounting',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'aaa-subscriber',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaMobile.Mobiles.Mobile' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaMobile.Mobiles.Mobile',
-            False, 
-            [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Named accounting list
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('broadcast', REFERENCE_ENUM_CLASS, 'AaaAccountingBroadcastEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaAccountingBroadcastEnum', 
-                [], [], 
-                '''                Broadcast
-                ''',
-                'broadcast',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
-                [], [], 
-                '''                Method Types
-                ''',
-                'method',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
-            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Server group names
-                ''',
-                'server_group_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'mobile',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaMobile.Mobiles' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaMobile.Mobiles',
-            False, 
-            [
-            _MetaInfoClassMember('mobile', REFERENCE_LIST, 'Mobile' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaMobile.Mobiles.Mobile', 
-                [], [], 
-                '''                Configurations related to accounting
-                ''',
-                'mobile',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'mobiles',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaMobile' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaMobile',
-            False, 
-            [
-            _MetaInfoClassMember('mobiles', REFERENCE_CLASS, 'Mobiles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaMobile.Mobiles', 
-                [], [], 
-                '''                AAA Mobile Accounting
-                ''',
-                'mobiles',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'aaa-mobile',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaDot1X.Authentications.Authentication' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaDot1X.Authentications.Authentication',
-            False, 
-            [
-            _MetaInfoClassMember('listname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Named authentication list
-                ''',
-                'listname',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
-                [], ['(subscriber)|(service)|(policy-if)|(prepaid)|(dot1x)'], 
-                '''                Set authentication lists
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('method', REFERENCE_LEAFLIST, 'AaaMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes', 'AaaMethodEnum', 
-                [], [], 
-                '''                Method Types
-                ''',
-                'method',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4, min_elements=1),
-            _MetaInfoClassMember('server-group-name', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], [], 
-                '''                Server group names
-                ''',
-                'server_group_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False, max_elements=4),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'authentication',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaDot1X.Authentications' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaDot1X.Authentications',
-            False, 
-            [
-            _MetaInfoClassMember('authentication', REFERENCE_LIST, 'Authentication' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaDot1X.Authentications.Authentication', 
-                [], [], 
-                '''                Configurations related to authentication
-                ''',
-                'authentication',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'authentications',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.AaaDot1X' : {
-        'meta_info' : _MetaInfoClass('Aaa.AaaDot1X',
-            False, 
-            [
-            _MetaInfoClassMember('authentications', REFERENCE_CLASS, 'Authentications' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.AaaDot1X.Authentications', 
-                [], [], 
-                '''                AAA authentication
-                ''',
-                'authentications',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'aaa-dot1x',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.NasPortId.Formats.Format' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPortId.Formats.Format',
-            False, 
-            [
-            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '45')], [], 
-                '''                Nas-Port-Type value to apply format name on
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('format-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                AAA nas-port attribute format
-                ''',
-                'format_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'format',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.NasPortId.Formats' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPortId.Formats',
-            False, 
-            [
-            _MetaInfoClassMember('format', REFERENCE_LIST, 'Format' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPortId.Formats.Format', 
-                [], [], 
-                '''                nas-port-id attribute format
-                ''',
-                'format',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'formats',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.NasPortId' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPortId',
-            False, 
-            [
-            _MetaInfoClassMember('formats', REFERENCE_CLASS, 'Formats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPortId.Formats', 
-                [], [], 
-                '''                AAA nas-port-id attribute format
-                ''',
-                'formats',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'nas-port-id',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.CallingStation.Formats.Format' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CallingStation.Formats.Format',
-            False, 
-            [
-            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '45')], [], 
-                '''                Nas-Port-Type value to apply format name on
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('format-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                AAA nas-port attribute format
-                ''',
-                'format_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'format',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.CallingStation.Formats' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CallingStation.Formats',
-            False, 
-            [
-            _MetaInfoClassMember('format', REFERENCE_LIST, 'Format' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CallingStation.Formats.Format', 
-                [], [], 
-                '''                nas-port-id attribute format
-                ''',
-                'format',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'formats',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.CallingStation' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CallingStation',
-            False, 
-            [
-            _MetaInfoClassMember('formats', REFERENCE_CLASS, 'Formats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CallingStation.Formats', 
-                [], [], 
-                '''                AAA nas-port-id attribute format
-                ''',
-                'formats',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'calling-station',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.CalledStation.Formats.Format' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CalledStation.Formats.Format',
-            False, 
-            [
-            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '45')], [], 
-                '''                Nas-Port-Type value to apply format name on
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('format-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                AAA nas-port attribute format
-                ''',
-                'format_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'format',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.CalledStation.Formats' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CalledStation.Formats',
-            False, 
-            [
-            _MetaInfoClassMember('format', REFERENCE_LIST, 'Format' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CalledStation.Formats.Format', 
-                [], [], 
-                '''                nas-port-id attribute format
-                ''',
-                'format',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'formats',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.CalledStation' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.CalledStation',
-            False, 
-            [
-            _MetaInfoClassMember('formats', REFERENCE_CLASS, 'Formats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CalledStation.Formats', 
-                [], [], 
-                '''                AAA nas-port-id attribute format
-                ''',
-                'formats',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'called-station',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended',
-            False, 
-            [
-            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [('0', '45')], [], 
-                '''                AAA nas-port attribute format
-                ''',
-                'type',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                format type
-                ''',
-                'value',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('format-identifier', ATTRIBUTE, 'str' , None, None, 
-                [(1, 32)], [], 
-                '''                A 32 character string representing the
-                format to be used
-                ''',
-                'format_identifier',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'format-extended',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.NasPort.FormatExtendeds' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPort.FormatExtendeds',
-            False, 
-            [
-            _MetaInfoClassMember('format-extended', REFERENCE_LIST, 'FormatExtended' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended', 
-                [], [], 
-                '''                nas-port-id extended attribute
-                ''',
-                'format_extended',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'format-extendeds',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.NasPort' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.NasPort',
-            False, 
-            [
-            _MetaInfoClassMember('format-extendeds', REFERENCE_CLASS, 'FormatExtendeds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPort.FormatExtendeds', 
-                [], [], 
-                '''                AAA nas-port-id attribute format
-                ''',
-                'format_extendeds',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'nas-port',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.FormatOthers.FormatOther' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.FormatOthers.FormatOther',
-            False, 
-            [
-            _MetaInfoClassMember('nas-port-type-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
-                '''                Nas-Port-Type value to apply format name on
-                ''',
-                'nas_port_type_name',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', True),
-            _MetaInfoClassMember('attribute-config1', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument1
-                ''',
-                'attribute_config1',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config10', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument10
-                ''',
-                'attribute_config10',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config11', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument11
-                ''',
-                'attribute_config11',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config12', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument12
-                ''',
-                'attribute_config12',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config13', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument13
-                ''',
-                'attribute_config13',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config14', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument14
-                ''',
-                'attribute_config14',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config15', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument15
-                ''',
-                'attribute_config15',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config16', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument16
-                ''',
-                'attribute_config16',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config17', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument17
-                ''',
-                'attribute_config17',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config18', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument18
-                ''',
-                'attribute_config18',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config19', ATTRIBUTE, 'int' , None, None, 
-                [('1', '253')], [], 
-                '''                Argument19
-                ''',
-                'attribute_config19',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config2', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument2
-                ''',
-                'attribute_config2',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config3', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument3
-                ''',
-                'attribute_config3',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config4', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument4
-                ''',
-                'attribute_config4',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config5', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument5
-                ''',
-                'attribute_config5',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config6', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument6
-                ''',
-                'attribute_config6',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config7', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument7
-                ''',
-                'attribute_config7',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config8', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument8
-                ''',
-                'attribute_config8',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('attribute-config9', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Argument9
-                ''',
-                'attribute_config9',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'format-other',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute.FormatOthers' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute.FormatOthers',
-            False, 
-            [
-            _MetaInfoClassMember('format-other', REFERENCE_LIST, 'FormatOther' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.FormatOthers.FormatOther', 
-                [], [], 
-                '''                Other configs
-                ''',
-                'format_other',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'format-others',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
-        ),
-    },
-    'Aaa.RadiusAttribute' : {
-        'meta_info' : _MetaInfoClass('Aaa.RadiusAttribute',
-            False, 
-            [
-            _MetaInfoClassMember('called-station', REFERENCE_CLASS, 'CalledStation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CalledStation', 
-                [], [], 
-                '''                AAA called station id attribute
-                ''',
-                'called_station',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('calling-station', REFERENCE_CLASS, 'CallingStation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.CallingStation', 
-                [], [], 
-                '''                AAA calling station id attribute
-                ''',
-                'calling_station',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('format-others', REFERENCE_CLASS, 'FormatOthers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.FormatOthers', 
-                [], [], 
-                '''                AAA nas-port-id attribute format
-                ''',
-                'format_others',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('nas-port', REFERENCE_CLASS, 'NasPort' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPort', 
-                [], [], 
-                '''                AAA nas-port-id attribute
-                ''',
-                'nas_port',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            _MetaInfoClassMember('nas-port-id', REFERENCE_CLASS, 'NasPortId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg', 'Aaa.RadiusAttribute.NasPortId', 
-                [], [], 
-                '''                AAA nas-port-id attribute
-                ''',
-                'nas_port_id',
-                'Cisco-IOS-XR-aaa-aaacore-cfg', False),
-            ],
-            'Cisco-IOS-XR-aaa-aaacore-cfg',
-            'radius-attribute',
-            _yang_ns._namespaces['Cisco-IOS-XR-aaa-aaacore-cfg'],
+            'Cisco-IOS-XR-aaa-tacacs-cfg',
+            'tacacs',
+            _yang_ns._namespaces['Cisco-IOS-XR-aaa-tacacs-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg'
         ),
     },
@@ -4057,14 +4057,38 @@ _meta_table = {
 _meta_table['Aaa.Accountings.Accounting']['meta_info'].parent =_meta_table['Aaa.Accountings']['meta_info']
 _meta_table['Aaa.Authorizations.Authorization']['meta_info'].parent =_meta_table['Aaa.Authorizations']['meta_info']
 _meta_table['Aaa.Authentications.Authentication']['meta_info'].parent =_meta_table['Aaa.Authentications']['meta_info']
+_meta_table['Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.PolicyIfAuthors']['meta_info']
+_meta_table['Aaa.AaaSubscriber.Accountings.Accounting']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.Accountings']['meta_info']
+_meta_table['Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.PrepaidAuthors']['meta_info']
+_meta_table['Aaa.AaaSubscriber.Authorizations.Authorization']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.Authorizations']['meta_info']
+_meta_table['Aaa.AaaSubscriber.Authentications.Authentication']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.Authentications']['meta_info']
+_meta_table['Aaa.AaaSubscriber.PolicyIfAuthors']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
+_meta_table['Aaa.AaaSubscriber.Accountings']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
+_meta_table['Aaa.AaaSubscriber.ServiceAccounting']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
+_meta_table['Aaa.AaaSubscriber.PrepaidAuthors']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
+_meta_table['Aaa.AaaSubscriber.Authorizations']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
+_meta_table['Aaa.AaaSubscriber.Authentications']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
+_meta_table['Aaa.AaaMobile.Mobiles.Mobile']['meta_info'].parent =_meta_table['Aaa.AaaMobile.Mobiles']['meta_info']
+_meta_table['Aaa.AaaMobile.Mobiles']['meta_info'].parent =_meta_table['Aaa.AaaMobile']['meta_info']
+_meta_table['Aaa.AaaDot1X.Authentications.Authentication']['meta_info'].parent =_meta_table['Aaa.AaaDot1X.Authentications']['meta_info']
+_meta_table['Aaa.AaaDot1X.Authentications']['meta_info'].parent =_meta_table['Aaa.AaaDot1X']['meta_info']
+_meta_table['Aaa.RadiusAttribute.NasPortId.Formats.Format']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.NasPortId.Formats']['meta_info']
+_meta_table['Aaa.RadiusAttribute.NasPortId.Formats']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.NasPortId']['meta_info']
+_meta_table['Aaa.RadiusAttribute.CallingStation.Formats.Format']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.CallingStation.Formats']['meta_info']
+_meta_table['Aaa.RadiusAttribute.CallingStation.Formats']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.CallingStation']['meta_info']
+_meta_table['Aaa.RadiusAttribute.CalledStation.Formats.Format']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.CalledStation.Formats']['meta_info']
+_meta_table['Aaa.RadiusAttribute.CalledStation.Formats']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.CalledStation']['meta_info']
+_meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds']['meta_info']
+_meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.NasPort']['meta_info']
+_meta_table['Aaa.RadiusAttribute.FormatOthers.FormatOther']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.FormatOthers']['meta_info']
+_meta_table['Aaa.RadiusAttribute.NasPortId']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
+_meta_table['Aaa.RadiusAttribute.CallingStation']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
+_meta_table['Aaa.RadiusAttribute.CalledStation']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
+_meta_table['Aaa.RadiusAttribute.NasPort']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
+_meta_table['Aaa.RadiusAttribute.FormatOthers']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
 _meta_table['Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers.Server']['meta_info'].parent =_meta_table['Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers']['meta_info']
 _meta_table['Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup.Servers']['meta_info'].parent =_meta_table['Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup']['meta_info']
 _meta_table['Aaa.ServerGroups.DiameterServerGroups.DiameterServerGroup']['meta_info'].parent =_meta_table['Aaa.ServerGroups.DiameterServerGroups']['meta_info']
-_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers']['meta_info']
-_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers']['meta_info']
-_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup']['meta_info']
-_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup']['meta_info']
-_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups']['meta_info']
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Request']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting']['meta_info']
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting.Reply']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Accounting']['meta_info']
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers.Server']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers']['meta_info']
@@ -4080,9 +4104,14 @@ _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.ServerGroupTh
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.LoadBalance']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup']['meta_info']
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup']['meta_info']
 _meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup']['meta_info'].parent =_meta_table['Aaa.ServerGroups.RadiusServerGroups']['meta_info']
+_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers']['meta_info']
+_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers']['meta_info']
+_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup']['meta_info']
+_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup']['meta_info']
+_meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup']['meta_info'].parent =_meta_table['Aaa.ServerGroups.TacacsServerGroups']['meta_info']
 _meta_table['Aaa.ServerGroups.DiameterServerGroups']['meta_info'].parent =_meta_table['Aaa.ServerGroups']['meta_info']
-_meta_table['Aaa.ServerGroups.TacacsServerGroups']['meta_info'].parent =_meta_table['Aaa.ServerGroups']['meta_info']
 _meta_table['Aaa.ServerGroups.RadiusServerGroups']['meta_info'].parent =_meta_table['Aaa.ServerGroups']['meta_info']
+_meta_table['Aaa.ServerGroups.TacacsServerGroups']['meta_info'].parent =_meta_table['Aaa.ServerGroups']['meta_info']
 _meta_table['Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername']['meta_info'].parent =_meta_table['Aaa.Usernames.Username.UsergroupUnderUsernames']['meta_info']
 _meta_table['Aaa.Usernames.Username.UsergroupUnderUsernames']['meta_info'].parent =_meta_table['Aaa.Usernames.Username']['meta_info']
 _meta_table['Aaa.Usernames.Username']['meta_info'].parent =_meta_table['Aaa.Usernames']['meta_info']
@@ -4113,12 +4142,6 @@ _meta_table['Aaa.Diameter.Diams']['meta_info'].parent =_meta_table['Aaa.Diameter
 _meta_table['Aaa.Diameter.Gx']['meta_info'].parent =_meta_table['Aaa.Diameter']['meta_info']
 _meta_table['Aaa.Diameter.DiameterTimer']['meta_info'].parent =_meta_table['Aaa.Diameter']['meta_info']
 _meta_table['Aaa.Diameter.Vendor']['meta_info'].parent =_meta_table['Aaa.Diameter']['meta_info']
-_meta_table['Aaa.Tacacs.Hosts.Host']['meta_info'].parent =_meta_table['Aaa.Tacacs.Hosts']['meta_info']
-_meta_table['Aaa.Tacacs.Vrfs.Vrf']['meta_info'].parent =_meta_table['Aaa.Tacacs.Vrfs']['meta_info']
-_meta_table['Aaa.Tacacs.Ipv6']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
-_meta_table['Aaa.Tacacs.Hosts']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
-_meta_table['Aaa.Tacacs.Ipv4']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
-_meta_table['Aaa.Tacacs.Vrfs']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
 _meta_table['Aaa.Radius.Hosts.Host']['meta_info'].parent =_meta_table['Aaa.Radius.Hosts']['meta_info']
 _meta_table['Aaa.Radius.DynamicAuthorization.Clients.Client']['meta_info'].parent =_meta_table['Aaa.Radius.DynamicAuthorization.Clients']['meta_info']
 _meta_table['Aaa.Radius.DynamicAuthorization.Clients.ClientVrfName']['meta_info'].parent =_meta_table['Aaa.Radius.DynamicAuthorization.Clients']['meta_info']
@@ -4148,48 +4171,25 @@ _meta_table['Aaa.Radius.Ipv4']['meta_info'].parent =_meta_table['Aaa.Radius']['m
 _meta_table['Aaa.Radius.RadiusAttribute']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.Attributes']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
 _meta_table['Aaa.Radius.SourcePort']['meta_info'].parent =_meta_table['Aaa.Radius']['meta_info']
-_meta_table['Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.PolicyIfAuthors']['meta_info']
-_meta_table['Aaa.AaaSubscriber.Accountings.Accounting']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.Accountings']['meta_info']
-_meta_table['Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.PrepaidAuthors']['meta_info']
-_meta_table['Aaa.AaaSubscriber.Authorizations.Authorization']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.Authorizations']['meta_info']
-_meta_table['Aaa.AaaSubscriber.Authentications.Authentication']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber.Authentications']['meta_info']
-_meta_table['Aaa.AaaSubscriber.PolicyIfAuthors']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
-_meta_table['Aaa.AaaSubscriber.Accountings']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
-_meta_table['Aaa.AaaSubscriber.ServiceAccounting']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
-_meta_table['Aaa.AaaSubscriber.PrepaidAuthors']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
-_meta_table['Aaa.AaaSubscriber.Authorizations']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
-_meta_table['Aaa.AaaSubscriber.Authentications']['meta_info'].parent =_meta_table['Aaa.AaaSubscriber']['meta_info']
-_meta_table['Aaa.AaaMobile.Mobiles.Mobile']['meta_info'].parent =_meta_table['Aaa.AaaMobile.Mobiles']['meta_info']
-_meta_table['Aaa.AaaMobile.Mobiles']['meta_info'].parent =_meta_table['Aaa.AaaMobile']['meta_info']
-_meta_table['Aaa.AaaDot1X.Authentications.Authentication']['meta_info'].parent =_meta_table['Aaa.AaaDot1X.Authentications']['meta_info']
-_meta_table['Aaa.AaaDot1X.Authentications']['meta_info'].parent =_meta_table['Aaa.AaaDot1X']['meta_info']
-_meta_table['Aaa.RadiusAttribute.NasPortId.Formats.Format']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.NasPortId.Formats']['meta_info']
-_meta_table['Aaa.RadiusAttribute.NasPortId.Formats']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.NasPortId']['meta_info']
-_meta_table['Aaa.RadiusAttribute.CallingStation.Formats.Format']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.CallingStation.Formats']['meta_info']
-_meta_table['Aaa.RadiusAttribute.CallingStation.Formats']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.CallingStation']['meta_info']
-_meta_table['Aaa.RadiusAttribute.CalledStation.Formats.Format']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.CalledStation.Formats']['meta_info']
-_meta_table['Aaa.RadiusAttribute.CalledStation.Formats']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.CalledStation']['meta_info']
-_meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds']['meta_info']
-_meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.NasPort']['meta_info']
-_meta_table['Aaa.RadiusAttribute.FormatOthers.FormatOther']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute.FormatOthers']['meta_info']
-_meta_table['Aaa.RadiusAttribute.NasPortId']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
-_meta_table['Aaa.RadiusAttribute.CallingStation']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
-_meta_table['Aaa.RadiusAttribute.CalledStation']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
-_meta_table['Aaa.RadiusAttribute.NasPort']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
-_meta_table['Aaa.RadiusAttribute.FormatOthers']['meta_info'].parent =_meta_table['Aaa.RadiusAttribute']['meta_info']
+_meta_table['Aaa.Tacacs.Hosts.Host']['meta_info'].parent =_meta_table['Aaa.Tacacs.Hosts']['meta_info']
+_meta_table['Aaa.Tacacs.Vrfs.Vrf']['meta_info'].parent =_meta_table['Aaa.Tacacs.Vrfs']['meta_info']
+_meta_table['Aaa.Tacacs.Ipv6']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
+_meta_table['Aaa.Tacacs.Hosts']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
+_meta_table['Aaa.Tacacs.Ipv4']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
+_meta_table['Aaa.Tacacs.Vrfs']['meta_info'].parent =_meta_table['Aaa.Tacacs']['meta_info']
 _meta_table['Aaa.Accountings']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Authorizations']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.AccountingUpdate']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Banner']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Authentications']['meta_info'].parent =_meta_table['Aaa']['meta_info']
+_meta_table['Aaa.AaaSubscriber']['meta_info'].parent =_meta_table['Aaa']['meta_info']
+_meta_table['Aaa.AaaMobile']['meta_info'].parent =_meta_table['Aaa']['meta_info']
+_meta_table['Aaa.AaaDot1X']['meta_info'].parent =_meta_table['Aaa']['meta_info']
+_meta_table['Aaa.RadiusAttribute']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.ServerGroups']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Usernames']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Taskgroups']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Usergroups']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Diameter']['meta_info'].parent =_meta_table['Aaa']['meta_info']
-_meta_table['Aaa.Tacacs']['meta_info'].parent =_meta_table['Aaa']['meta_info']
 _meta_table['Aaa.Radius']['meta_info'].parent =_meta_table['Aaa']['meta_info']
-_meta_table['Aaa.AaaSubscriber']['meta_info'].parent =_meta_table['Aaa']['meta_info']
-_meta_table['Aaa.AaaMobile']['meta_info'].parent =_meta_table['Aaa']['meta_info']
-_meta_table['Aaa.AaaDot1X']['meta_info'].parent =_meta_table['Aaa']['meta_info']
-_meta_table['Aaa.RadiusAttribute']['meta_info'].parent =_meta_table['Aaa']['meta_info']
+_meta_table['Aaa.Tacacs']['meta_info'].parent =_meta_table['Aaa']['meta_info']

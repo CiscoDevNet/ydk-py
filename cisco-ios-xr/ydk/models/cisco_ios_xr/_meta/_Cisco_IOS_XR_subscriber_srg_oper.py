@@ -13,17 +13,11 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'SrgShowImRoleEnum' : _MetaInfoEnum('SrgShowImRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
+    'SrgShowRoleEnum' : _MetaInfoEnum('SrgShowRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
         {
             'none':'none',
             'master':'master',
             'slave':'slave',
-        }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
-    'SrgShowSessionErrorEnum' : _MetaInfoEnum('SrgShowSessionErrorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
-        {
-            'none':'none',
-            'hard':'hard',
-            'soft':'soft',
         }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
     'SrgShowSoReasonEnum' : _MetaInfoEnum('SrgShowSoReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
         {
@@ -33,6 +27,22 @@ _meta_table = {
             'peer-down':'peer_down',
             'object-tracking-status-change':'object_tracking_status_change',
             'srg-show-so-reason-max':'srg_show_so_reason_max',
+        }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
+    'SrgShowCompEnum' : _MetaInfoEnum('SrgShowCompEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
+        {
+            'srga':'srga',
+            'dhcpv4':'dhcpv4',
+            'dhcpv6':'dhcpv6',
+            'pppoe':'pppoe',
+            'ppp':'ppp',
+            'l2tp':'l2tp',
+            'iedge':'iedge',
+        }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
+    'SrgShowSlaveModeEnum' : _MetaInfoEnum('SrgShowSlaveModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
+        {
+            'none':'none',
+            'warm':'warm',
+            'hot':'hot',
         }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
     'SrgShowSessionOperationEnum' : _MetaInfoEnum('SrgShowSessionOperationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
         {
@@ -53,34 +63,24 @@ _meta_table = {
             'connected':'connected',
             'established':'established',
         }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
-    'SrgShowRoleEnum' : _MetaInfoEnum('SrgShowRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
+    'SrgShowSessionErrorEnum' : _MetaInfoEnum('SrgShowSessionErrorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
+        {
+            'none':'none',
+            'hard':'hard',
+            'soft':'soft',
+        }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
+    'SrgShowImRoleEnum' : _MetaInfoEnum('SrgShowImRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
         {
             'none':'none',
             'master':'master',
             'slave':'slave',
-        }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
-    'SrgShowSlaveModeEnum' : _MetaInfoEnum('SrgShowSlaveModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
-        {
-            'none':'none',
-            'warm':'warm',
-            'hot':'hot',
-        }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
-    'SrgShowCompEnum' : _MetaInfoEnum('SrgShowCompEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper',
-        {
-            'srga':'srga',
-            'dhcpv4':'dhcpv4',
-            'dhcpv6':'dhcpv6',
-            'pppoe':'pppoe',
-            'ppp':'ppp',
-            'l2tp':'l2tp',
-            'iedge':'iedge',
         }, 'Cisco-IOS-XR-subscriber-srg-oper', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-oper']),
     'SubscriberRedundancyManager.Groups.Group' : {
         'meta_info' : _MetaInfoClass('SubscriberRedundancyManager.Groups.Group',
             False, 
             [
             _MetaInfoClassMember('group', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Group
                 ''',
                 'group',
@@ -122,13 +122,13 @@ _meta_table = {
                 'object_tracking_status',
                 'Cisco-IOS-XR-subscriber-srg-oper', False),
             _MetaInfoClassMember('peer-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv4 Address
                 ''',
                 'peer_ipv4_address',
                 'Cisco-IOS-XR-subscriber-srg-oper', False),
             _MetaInfoClassMember('peer-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv6 Address
                 ''',
                 'peer_ipv6_address',
@@ -264,13 +264,13 @@ _meta_table = {
                 'slave_mode',
                 'Cisco-IOS-XR-subscriber-srg-oper', False),
             _MetaInfoClassMember('source-interface-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source Interface IPv4 Address
                 ''',
                 'source_interface_ipv4_address',
                 'Cisco-IOS-XR-subscriber-srg-oper', False),
             _MetaInfoClassMember('source-interface-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Source Interface IPv6 Address
                 ''',
                 'source_interface_ipv6_address',
@@ -299,7 +299,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -462,7 +462,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('group-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                GroupId
                 ''',
                 'group_id',
@@ -703,7 +703,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -821,7 +821,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('group-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                GroupId
                 ''',
                 'group_id',
@@ -851,13 +851,13 @@ _meta_table = {
                 'object_tracking_status',
                 'Cisco-IOS-XR-subscriber-srg-oper', False),
             _MetaInfoClassMember('peer-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv4 Address
                 ''',
                 'peer_ipv4_address',
                 'Cisco-IOS-XR-subscriber-srg-oper', False),
             _MetaInfoClassMember('peer-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv6 Address
                 ''',
                 'peer_ipv6_address',
@@ -962,7 +962,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('group-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Group Id
                 ''',
                 'group_id',
@@ -1040,7 +1040,7 @@ _meta_table = {
                 'interface_count',
                 'Cisco-IOS-XR-subscriber-srg-oper', False),
             _MetaInfoClassMember('l2tp-source-ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                L2TP Souce IP Address
                 ''',
                 'l2tp_source_ip',
@@ -1082,13 +1082,13 @@ _meta_table = {
                 'peer_init_role',
                 'Cisco-IOS-XR-subscriber-srg-oper', False),
             _MetaInfoClassMember('peer-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv4 Address
                 ''',
                 'peer_ipv4_address',
                 'Cisco-IOS-XR-subscriber-srg-oper', False),
             _MetaInfoClassMember('peer-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer IPv6 Address
                 ''',
                 'peer_ipv6_address',
@@ -1230,7 +1230,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',

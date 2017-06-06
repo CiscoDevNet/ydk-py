@@ -649,8 +649,6 @@ class MacAccounting(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_egress_enabled is not None:
                         return True
 
@@ -726,8 +724,6 @@ class MacAccounting(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -797,8 +793,6 @@ class MacAccounting(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -827,8 +821,6 @@ class MacAccounting(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -862,8 +854,6 @@ class MacAccounting(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -886,8 +876,6 @@ class MacAccounting(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 
@@ -1211,8 +1199,6 @@ class Vlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_down is not None:
                                     return True
 
@@ -1241,8 +1227,6 @@ class Vlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dot1q_count is not None:
                                 return True
 
@@ -1382,8 +1366,6 @@ class Vlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_down is not None:
                                     return True
 
@@ -1412,8 +1394,6 @@ class Vlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dot1q_count is not None:
                                 return True
 
@@ -1453,8 +1433,6 @@ class Vlan(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -1504,8 +1482,6 @@ class Vlan(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.trunk is not None:
                         for child_ref in self.trunk:
                             if child_ref._has_data():
@@ -1749,8 +1725,6 @@ class Vlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.outer_tag is not None:
                                     return True
 
@@ -1914,8 +1888,6 @@ class Vlan(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ethertype is not None:
                                             return True
 
@@ -1941,8 +1913,6 @@ class Vlan(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_traffic_tag is not None:
                                         for child_ref in self.local_traffic_tag:
                                             if child_ref._has_data():
@@ -2033,8 +2003,6 @@ class Vlan(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.vlan_id_high is not None:
                                             return True
 
@@ -2060,8 +2028,6 @@ class Vlan(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethertype is not None:
                                         return True
 
@@ -2121,8 +2087,6 @@ class Vlan(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethertype is not None:
                                         return True
 
@@ -2148,8 +2112,6 @@ class Vlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_mac_match is not None:
                                     return True
 
@@ -2234,8 +2196,6 @@ class Vlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.outer_tag is not None:
                                     return True
 
@@ -2261,8 +2221,6 @@ class Vlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack._has_data():
                                 return True
 
@@ -2314,8 +2272,6 @@ class Vlan(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -2359,8 +2315,6 @@ class Vlan(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -2629,8 +2583,6 @@ class Vlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.outer_tag is not None:
                                     return True
 
@@ -2794,8 +2746,6 @@ class Vlan(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ethertype is not None:
                                             return True
 
@@ -2821,8 +2771,6 @@ class Vlan(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_traffic_tag is not None:
                                         for child_ref in self.local_traffic_tag:
                                             if child_ref._has_data():
@@ -2913,8 +2861,6 @@ class Vlan(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.vlan_id_high is not None:
                                             return True
 
@@ -2940,8 +2886,6 @@ class Vlan(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethertype is not None:
                                         return True
 
@@ -3001,8 +2945,6 @@ class Vlan(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethertype is not None:
                                         return True
 
@@ -3028,8 +2970,6 @@ class Vlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_mac_match is not None:
                                     return True
 
@@ -3114,8 +3054,6 @@ class Vlan(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.outer_tag is not None:
                                     return True
 
@@ -3141,8 +3079,6 @@ class Vlan(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dot1ad_dot1q_stack is not None and self.dot1ad_dot1q_stack._has_data():
                                 return True
 
@@ -3192,8 +3128,6 @@ class Vlan(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.encapsulation_details is not None and self.encapsulation_details._has_data():
                             return True
 
@@ -3243,8 +3177,6 @@ class Vlan(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tag_allocation is not None:
                         for child_ref in self.tag_allocation:
                             if child_ref._has_data():
@@ -3269,8 +3201,6 @@ class Vlan(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_id is not None:
                     return True
 
@@ -3300,8 +3230,6 @@ class Vlan(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3324,8 +3252,6 @@ class Vlan(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -3508,8 +3434,6 @@ class EthernetEncapsulation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mac_address is not None:
                                 return True
 
@@ -3537,8 +3461,6 @@ class EthernetEncapsulation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3566,8 +3488,6 @@ class EthernetEncapsulation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.unicast_mac_filter is not None:
                         for child_ref in self.unicast_mac_filter:
                             if child_ref._has_data():
@@ -3592,8 +3512,6 @@ class EthernetEncapsulation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -3617,8 +3535,6 @@ class EthernetEncapsulation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3641,8 +3557,6 @@ class EthernetEncapsulation(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

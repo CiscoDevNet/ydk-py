@@ -86,8 +86,6 @@ class KeyGenerateRsaGeneralKeysRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.key_label is not None:
                 return True
 
@@ -111,8 +109,6 @@ class KeyGenerateRsaGeneralKeysRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -189,8 +185,6 @@ class KeyGenerateRsaUsageKeysRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.key_label is not None:
                 return True
 
@@ -214,8 +208,6 @@ class KeyGenerateRsaUsageKeysRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -292,8 +284,6 @@ class KeyGenerateRsaRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.key_label is not None:
                 return True
 
@@ -317,8 +307,6 @@ class KeyGenerateRsaRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -389,8 +377,6 @@ class KeyGenerateDsaRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.key_modulus is not None:
                 return True
 
@@ -411,8 +397,6 @@ class KeyGenerateDsaRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -479,8 +463,6 @@ class KeyZeroizeRsaRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.key_label is not None:
                 return True
 
@@ -501,8 +483,6 @@ class KeyZeroizeRsaRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -539,8 +519,6 @@ class KeyZeroizeDsaRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -574,8 +552,6 @@ class KeyZeroizeAuthenticationRsaRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -641,8 +617,6 @@ class KeyImportAuthenticationRsaRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.path is not None:
                 return True
 
@@ -663,8 +637,6 @@ class KeyImportAuthenticationRsaRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -733,8 +705,6 @@ class CaAuthenticateRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.server_name is not None:
                 return True
 
@@ -755,8 +725,6 @@ class CaAuthenticateRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -825,8 +793,6 @@ class CaEnrollRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.server_name is not None:
                 return True
 
@@ -847,8 +813,6 @@ class CaEnrollRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -917,8 +881,6 @@ class CaImportCertificateRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.server_name is not None:
                 return True
 
@@ -939,8 +901,6 @@ class CaImportCertificateRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1009,8 +969,6 @@ class CaCancelEnrollRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.server_name is not None:
                 return True
 
@@ -1031,8 +989,6 @@ class CaCancelEnrollRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1108,8 +1064,6 @@ class CaCrlRequestRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.uri is not None:
                 return True
 
@@ -1155,8 +1109,6 @@ class CaCrlRequestRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.certificate is not None:
                 return True
 
@@ -1177,8 +1129,6 @@ class CaCrlRequestRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1248,8 +1198,6 @@ class CaTrustpoolImportUrlRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.url is not None:
                 return True
 
@@ -1270,8 +1218,6 @@ class CaTrustpoolImportUrlRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1338,8 +1284,6 @@ class CaTrustpoolImportUrlCleanRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.url is not None:
                 return True
 
@@ -1360,8 +1304,6 @@ class CaTrustpoolImportUrlCleanRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 

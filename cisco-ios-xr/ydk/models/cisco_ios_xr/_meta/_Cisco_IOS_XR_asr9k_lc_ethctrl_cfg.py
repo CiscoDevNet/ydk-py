@@ -13,7 +13,7 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'PermitPluggableEnum' : _MetaInfoEnum('PermitPluggableEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg',
+    'PermitPluggablePidEnum' : _MetaInfoEnum('PermitPluggablePidEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg',
         {
             'all':'all',
         }, 'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-lc-ethctrl-cfg']),
@@ -23,7 +23,7 @@ _meta_table = {
             'otnopu1e':'otnopu1e',
             'otnopu2e':'otnopu2e',
         }, 'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-lc-ethctrl-cfg']),
-    'PermitPluggablePidEnum' : _MetaInfoEnum('PermitPluggablePidEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg',
+    'PermitPluggableEnum' : _MetaInfoEnum('PermitPluggableEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg',
         {
             'all':'all',
         }, 'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-lc-ethctrl-cfg']),

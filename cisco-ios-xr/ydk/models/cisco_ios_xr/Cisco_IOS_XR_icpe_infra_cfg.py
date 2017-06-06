@@ -106,8 +106,6 @@ class NvSatelliteGlobal(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mac1 is not None:
                 return True
 
@@ -134,8 +132,6 @@ class NvSatelliteGlobal(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.chassis_mac is not None and self.chassis_mac._has_data():
             return True
 
@@ -348,8 +344,6 @@ class NvSatellites(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.connect_type is not None:
                     return True
 
@@ -453,8 +447,6 @@ class NvSatellites(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.port_type is not None:
                         return True
 
@@ -486,8 +478,6 @@ class NvSatellites(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.candidate_fabric_port is not None:
                     for child_ref in self.candidate_fabric_port:
                         if child_ref._has_data():
@@ -541,8 +531,6 @@ class NvSatellites(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.password is not None:
                     return True
 
@@ -591,8 +579,6 @@ class NvSatellites(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.host_priority is not None:
                     return True
 
@@ -615,8 +601,6 @@ class NvSatellites(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.satellite_id is not None:
                 return True
 
@@ -682,8 +666,6 @@ class NvSatellites(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nv_satellite is not None:
             for child_ref in self.nv_satellite:
                 if child_ref._has_data():

@@ -150,8 +150,6 @@ class Lldp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.hold_time is not None:
                     return True
 
@@ -178,8 +176,6 @@ class Lldp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.lldp_info is not None and self.lldp_info._has_data():
                 return True
 
@@ -644,8 +640,6 @@ class Lldp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_type is not None:
                                                     return True
 
@@ -674,8 +668,6 @@ class Lldp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
@@ -704,8 +696,6 @@ class Lldp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lldp_addr_entry is not None:
                                             for child_ref in self.lldp_addr_entry:
                                                 if child_ref._has_data():
@@ -730,8 +720,6 @@ class Lldp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.auto_negotiation is not None:
                                         return True
 
@@ -931,8 +919,6 @@ class Lldp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.tlv_type is not None:
                                                 return True
 
@@ -958,8 +944,6 @@ class Lldp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lldp_unknown_tlv_entry is not None:
                                             for child_ref in self.lldp_unknown_tlv_entry:
                                                 if child_ref._has_data():
@@ -1054,8 +1038,6 @@ class Lldp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.oui is not None:
                                                 return True
 
@@ -1087,8 +1069,6 @@ class Lldp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lldp_org_def_tlv_entry is not None:
                                             for child_ref in self.lldp_org_def_tlv_entry:
                                                 if child_ref._has_data():
@@ -1113,8 +1093,6 @@ class Lldp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.chassis_id_len is not None:
                                         return True
 
@@ -1164,8 +1142,6 @@ class Lldp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.chassis_id is not None:
                                     return True
 
@@ -1218,8 +1194,6 @@ class Lldp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.device_id is not None:
                                 return True
 
@@ -1250,8 +1224,6 @@ class Lldp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.device is not None:
                             for child_ref in self.device:
                                 if child_ref._has_data():
@@ -1614,8 +1586,6 @@ class Lldp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_type is not None:
                                                     return True
 
@@ -1644,8 +1614,6 @@ class Lldp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
@@ -1674,8 +1642,6 @@ class Lldp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lldp_addr_entry is not None:
                                             for child_ref in self.lldp_addr_entry:
                                                 if child_ref._has_data():
@@ -1700,8 +1666,6 @@ class Lldp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.auto_negotiation is not None:
                                         return True
 
@@ -1901,8 +1865,6 @@ class Lldp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.tlv_type is not None:
                                                 return True
 
@@ -1928,8 +1890,6 @@ class Lldp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lldp_unknown_tlv_entry is not None:
                                             for child_ref in self.lldp_unknown_tlv_entry:
                                                 if child_ref._has_data():
@@ -2024,8 +1984,6 @@ class Lldp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.oui is not None:
                                                 return True
 
@@ -2057,8 +2015,6 @@ class Lldp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lldp_org_def_tlv_entry is not None:
                                             for child_ref in self.lldp_org_def_tlv_entry:
                                                 if child_ref._has_data():
@@ -2083,8 +2039,6 @@ class Lldp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.chassis_id_len is not None:
                                         return True
 
@@ -2134,8 +2088,6 @@ class Lldp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.chassis_id is not None:
                                     return True
 
@@ -2188,8 +2140,6 @@ class Lldp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.device_id is not None:
                                 return True
 
@@ -2220,8 +2170,6 @@ class Lldp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail is not None:
                             for child_ref in self.detail:
                                 if child_ref._has_data():
@@ -2584,8 +2532,6 @@ class Lldp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_type is not None:
                                                     return True
 
@@ -2614,8 +2560,6 @@ class Lldp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None and self.address._has_data():
                                                 return True
 
@@ -2644,8 +2588,6 @@ class Lldp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lldp_addr_entry is not None:
                                             for child_ref in self.lldp_addr_entry:
                                                 if child_ref._has_data():
@@ -2670,8 +2612,6 @@ class Lldp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.auto_negotiation is not None:
                                         return True
 
@@ -2871,8 +2811,6 @@ class Lldp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.tlv_type is not None:
                                                 return True
 
@@ -2898,8 +2836,6 @@ class Lldp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lldp_unknown_tlv_entry is not None:
                                             for child_ref in self.lldp_unknown_tlv_entry:
                                                 if child_ref._has_data():
@@ -2994,8 +2930,6 @@ class Lldp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.oui is not None:
                                                 return True
 
@@ -3027,8 +2961,6 @@ class Lldp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lldp_org_def_tlv_entry is not None:
                                             for child_ref in self.lldp_org_def_tlv_entry:
                                                 if child_ref._has_data():
@@ -3053,8 +2985,6 @@ class Lldp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.chassis_id_len is not None:
                                         return True
 
@@ -3104,8 +3034,6 @@ class Lldp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.chassis_id is not None:
                                     return True
 
@@ -3158,8 +3086,6 @@ class Lldp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.device_id is not None:
                                 return True
 
@@ -3190,8 +3116,6 @@ class Lldp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.summary is not None:
                             for child_ref in self.summary:
                                 if child_ref._has_data():
@@ -3216,8 +3140,6 @@ class Lldp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.details is not None and self.details._has_data():
                         return True
 
@@ -3463,8 +3385,6 @@ class Lldp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address_type is not None:
                                         return True
 
@@ -3493,8 +3413,6 @@ class Lldp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -3523,8 +3441,6 @@ class Lldp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lldp_addr_entry is not None:
                                 for child_ref in self.lldp_addr_entry:
                                     if child_ref._has_data():
@@ -3551,8 +3467,6 @@ class Lldp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3605,8 +3519,6 @@ class Lldp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -3734,8 +3646,6 @@ class Lldp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.aged_out_entries is not None:
                         return True
 
@@ -3788,8 +3698,6 @@ class Lldp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -3819,8 +3727,6 @@ class Lldp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3843,8 +3749,6 @@ class Lldp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.global_lldp is not None and self.global_lldp._has_data():
             return True
 

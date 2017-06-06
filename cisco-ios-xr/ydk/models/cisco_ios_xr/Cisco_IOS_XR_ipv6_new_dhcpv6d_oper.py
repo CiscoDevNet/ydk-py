@@ -534,8 +534,6 @@ class Dhcpv6(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.big_bang_time is not None:
                 return True
 
@@ -935,8 +933,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1004,8 +1000,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1073,8 +1067,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1142,8 +1134,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1211,8 +1201,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1280,8 +1268,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1349,8 +1335,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1418,8 +1402,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1487,8 +1469,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1556,8 +1536,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1625,8 +1603,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1694,8 +1670,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1763,8 +1737,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1832,8 +1804,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1901,8 +1871,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -1970,8 +1938,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2039,8 +2005,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2069,8 +2033,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.advertise is not None and self.advertise._has_data():
                                     return True
 
@@ -2143,8 +2105,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -2170,8 +2130,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -2338,8 +2296,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mac_address is not None:
                                         return True
 
@@ -2374,8 +2330,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.throttle_info is not None:
                                     for child_ref in self.throttle_info:
                                         if child_ref._has_data():
@@ -2544,8 +2498,6 @@ class Dhcpv6(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.proxy_iid_interface_name is not None:
                                             return True
 
@@ -2571,8 +2523,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_dhcpv6d_proxy_iid_reference is not None:
                                         for child_ref in self.ipv6_dhcpv6d_proxy_iid_reference:
                                             if child_ref._has_data():
@@ -2643,8 +2593,6 @@ class Dhcpv6(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.proxy_reference_vrf_name is not None:
                                             return True
 
@@ -2667,8 +2615,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_dhcpv6d_proxy_vrf_reference is not None:
                                         for child_ref in self.ipv6_dhcpv6d_proxy_vrf_reference:
                                             if child_ref._has_data():
@@ -2739,8 +2685,6 @@ class Dhcpv6(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.proxy_reference_interface_name is not None:
                                             return True
 
@@ -2763,8 +2707,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_dhcpv6d_proxy_interface_reference is not None:
                                         for child_ref in self.ipv6_dhcpv6d_proxy_interface_reference:
                                             if child_ref._has_data():
@@ -2789,8 +2731,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_id_references is not None and self.interface_id_references._has_data():
                                     return True
 
@@ -2845,8 +2785,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.profile_name is not None:
                                 return True
 
@@ -2875,8 +2813,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.profile is not None:
                             for child_ref in self.profile:
                                 if child_ref._has_data():
@@ -3025,8 +2961,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -3082,8 +3016,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -3200,8 +3132,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -3230,8 +3160,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.statistics is not None and self.statistics._has_data():
                                 return True
 
@@ -3257,8 +3185,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_dhcpv6d_proxy_stat is not None:
                             for child_ref in self.ipv6_dhcpv6d_proxy_stat:
                                 if child_ref._has_data():
@@ -3736,8 +3662,6 @@ class Dhcpv6(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.lease_time is not None:
                                                     return True
 
@@ -3769,8 +3693,6 @@ class Dhcpv6(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.bag_dhcpv6d_addr_attrb is not None:
                                                 for child_ref in self.bag_dhcpv6d_addr_attrb:
                                                     if child_ref._has_data():
@@ -3795,8 +3717,6 @@ class Dhcpv6(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addresses is not None and self.addresses._has_data():
                                             return True
 
@@ -3834,8 +3754,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bag_dhcpv6d_ia_id_pd_info is not None:
                                         for child_ref in self.bag_dhcpv6d_ia_id_pd_info:
                                             if child_ref._has_data():
@@ -3862,8 +3780,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.client_id is not None:
                                     return True
 
@@ -3973,8 +3889,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.client is not None:
                                 for child_ref in self.client:
                                     if child_ref._has_data():
@@ -4107,8 +4021,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bound_clients is not None:
                                     return True
 
@@ -4220,8 +4132,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bound_clients is not None:
                                     return True
 
@@ -4262,8 +4172,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.clients is not None:
                                 return True
 
@@ -4292,8 +4200,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.clients is not None and self.clients._has_data():
                             return True
 
@@ -4319,8 +4225,6 @@ class Dhcpv6(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.binding is not None and self.binding._has_data():
                         return True
 
@@ -4529,8 +4433,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.configured is not None:
                             return True
 
@@ -4836,8 +4738,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.addr_string is not None:
                                 return True
 
@@ -4932,8 +4832,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.addr_binding is not None:
                             for child_ref in self.addr_binding:
                                 if child_ref._has_data():
@@ -4958,8 +4856,6 @@ class Dhcpv6(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.addr_bindings is not None and self.addr_bindings._has_data():
                         return True
 
@@ -5179,8 +5075,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bound_clients is not None:
                                     return True
 
@@ -5292,8 +5186,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bound_clients is not None:
                                     return True
 
@@ -5334,8 +5226,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.clients is not None:
                                 return True
 
@@ -5804,8 +5694,6 @@ class Dhcpv6(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.lease_time is not None:
                                                     return True
 
@@ -5837,8 +5725,6 @@ class Dhcpv6(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.bag_dhcpv6d_addr_attrb is not None:
                                                 for child_ref in self.bag_dhcpv6d_addr_attrb:
                                                     if child_ref._has_data():
@@ -5863,8 +5749,6 @@ class Dhcpv6(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addresses is not None and self.addresses._has_data():
                                             return True
 
@@ -5902,8 +5786,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bag_dhcpv6d_ia_id_pd_info is not None:
                                         for child_ref in self.bag_dhcpv6d_ia_id_pd_info:
                                             if child_ref._has_data():
@@ -5930,8 +5812,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.client_id is not None:
                                     return True
 
@@ -6047,8 +5927,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.client is not None:
                                 for child_ref in self.client:
                                     if child_ref._has_data():
@@ -6073,8 +5951,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.clients is not None and self.clients._has_data():
                             return True
 
@@ -6326,8 +6202,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6395,8 +6269,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6464,8 +6336,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6533,8 +6403,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6602,8 +6470,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6671,8 +6537,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6740,8 +6604,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6809,8 +6671,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6878,8 +6738,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6947,8 +6805,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -7016,8 +6872,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -7085,8 +6939,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -7154,8 +7006,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -7223,8 +7073,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -7292,8 +7140,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -7361,8 +7207,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -7430,8 +7274,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -7460,8 +7302,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.advertise is not None and self.advertise._has_data():
                                     return True
 
@@ -7534,8 +7374,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -7561,8 +7399,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -7773,8 +7609,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.seconds is not None:
                                         return True
 
@@ -7846,8 +7680,6 @@ class Dhcpv6(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.server_reference_interface_name is not None:
                                             return True
 
@@ -7870,8 +7702,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_dhcpv6d_server_interface_reference is not None:
                                         for child_ref in self.ipv6_dhcpv6d_server_interface_reference:
                                             if child_ref._has_data():
@@ -7896,8 +7726,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.aftr_name is not None:
                                     return True
 
@@ -8031,8 +7859,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mac_address is not None:
                                         return True
 
@@ -8067,8 +7893,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.throttle_info is not None:
                                     for child_ref in self.throttle_info:
                                         if child_ref._has_data():
@@ -8095,8 +7919,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.profile_name is not None:
                                 return True
 
@@ -8125,8 +7947,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.profile is not None:
                             for child_ref in self.profile:
                                 if child_ref._has_data():
@@ -8275,8 +8095,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -8332,8 +8150,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -8450,8 +8266,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -8480,8 +8294,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.statistics is not None and self.statistics._has_data():
                                 return True
 
@@ -8507,8 +8319,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_dhcpv6d_server_stat is not None:
                             for child_ref in self.ipv6_dhcpv6d_server_stat:
                                 if child_ref._has_data():
@@ -8646,8 +8456,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mac_address is not None:
                                     return True
 
@@ -8687,8 +8495,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mac_bind_option is not None:
                                 for child_ref in self.mac_bind_option:
                                     if child_ref._has_data():
@@ -8797,8 +8603,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.duid is not None:
                                     return True
 
@@ -8838,8 +8642,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.duid_bind_option is not None:
                                 for child_ref in self.duid_bind_option:
                                     if child_ref._has_data():
@@ -8864,8 +8666,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.duid_bind_options is not None and self.duid_bind_options._has_data():
                             return True
 
@@ -8891,8 +8691,6 @@ class Dhcpv6(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.binding is not None and self.binding._has_data():
                         return True
 
@@ -9058,8 +8856,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -9088,8 +8884,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.statistics is not None and self.statistics._has_data():
                                 return True
 
@@ -9115,8 +8909,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv6_dhcpv6d_relay_stat is not None:
                             for child_ref in self.ipv6_dhcpv6d_relay_stat:
                                 if child_ref._has_data():
@@ -9193,8 +8985,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.clients is not None:
                                 return True
 
@@ -9351,8 +9141,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.client_id is not None:
                                     return True
 
@@ -9408,8 +9196,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.client is not None:
                                 for child_ref in self.client:
                                     if child_ref._has_data():
@@ -9434,8 +9220,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.clients is not None and self.clients._has_data():
                             return True
 
@@ -9687,8 +9471,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9756,8 +9538,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9825,8 +9605,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9894,8 +9672,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9963,8 +9739,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10032,8 +9806,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10101,8 +9873,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10170,8 +9940,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10239,8 +10007,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10308,8 +10074,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10377,8 +10141,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10446,8 +10208,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10515,8 +10275,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10584,8 +10342,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10653,8 +10409,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10722,8 +10476,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10791,8 +10543,6 @@ class Dhcpv6(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10821,8 +10571,6 @@ class Dhcpv6(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.advertise is not None and self.advertise._has_data():
                                     return True
 
@@ -10895,8 +10643,6 @@ class Dhcpv6(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -10922,8 +10668,6 @@ class Dhcpv6(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -10948,8 +10692,6 @@ class Dhcpv6(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.binding is not None and self.binding._has_data():
                         return True
 
@@ -10978,8 +10720,6 @@ class Dhcpv6(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -11012,8 +10752,6 @@ class Dhcpv6(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -11036,8 +10774,6 @@ class Dhcpv6(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.issu_status is not None and self.issu_status._has_data():
             return True
 

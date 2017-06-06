@@ -19,17 +19,6 @@ _meta_table = {
             'candidate':'candidate',
             'startup':'startup',
         }, 'ietf-netconf-monitoring', _yang_ns._namespaces['ietf-netconf-monitoring']),
-    'SchemaFormatIdentity' : {
-        'meta_info' : _MetaInfoClass('SchemaFormatIdentity',
-            False, 
-            [
-            ],
-            'ietf-netconf-monitoring',
-            'schema-format',
-            _yang_ns._namespaces['ietf-netconf-monitoring'],
-        'ydk.models.ietf.ietf_netconf_monitoring'
-        ),
-    },
     'TransportIdentity' : {
         'meta_info' : _MetaInfoClass('TransportIdentity',
             False, 
@@ -37,6 +26,17 @@ _meta_table = {
             ],
             'ietf-netconf-monitoring',
             'transport',
+            _yang_ns._namespaces['ietf-netconf-monitoring'],
+        'ydk.models.ietf.ietf_netconf_monitoring'
+        ),
+    },
+    'SchemaFormatIdentity' : {
+        'meta_info' : _MetaInfoClass('SchemaFormatIdentity',
+            False, 
+            [
+            ],
+            'ietf-netconf-monitoring',
+            'schema-format',
             _yang_ns._namespaces['ietf-netconf-monitoring'],
         'ydk.models.ietf.ietf_netconf_monitoring'
         ),
@@ -75,7 +75,7 @@ _meta_table = {
                 'locked_by_session',
                 'ietf-netconf-monitoring', False),
             _MetaInfoClassMember('locked-time', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                The date and time of when the resource was
                 locked.
                 ''',
@@ -122,7 +122,7 @@ _meta_table = {
                 'locked_node',
                 'ietf-netconf-monitoring', False),
             _MetaInfoClassMember('locked-time', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                The date and time of when the resource was
                 locked.
                 ''',
@@ -225,16 +225,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetconfState.Schemas.Schema',
             False, 
             [
-            _MetaInfoClassMember('format', REFERENCE_IDENTITY_CLASS, 'SchemaFormatIdentity' , 'ydk.models.ietf.ietf_netconf_monitoring', 'SchemaFormatIdentity', 
-                [], [], 
-                '''                The data modeling language the schema is written
-                in (currently xsd, yang, yin, rng, or rnc).
-                
-                For YANG data models, 'yang' format MUST be supported and
-                'yin' format MAY also be provided.
-                ''',
-                'format',
-                'ietf-netconf-monitoring', True),
             _MetaInfoClassMember('identifier', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Identifier to uniquely reference the schema.  The
@@ -263,6 +253,15 @@ _meta_table = {
                 is present.
                 ''',
                 'version',
+                'ietf-netconf-monitoring', True),
+            _MetaInfoClassMember('format', REFERENCE_IDENTITY_CLASS, 'SchemaFormatIdentity' , 'ydk.models.ietf.ietf_netconf_monitoring', 'SchemaFormatIdentity', 
+                [], [], 
+                '''                The data modeling language the schema is written
+                in (currently xsd, yang, yin, rng, or rnc).
+                For YANG data models, 'yang' format MUST be supported and
+                'yin' format MAY also be provided.
+                ''',
+                'format',
                 'ietf-netconf-monitoring', True),
             _MetaInfoClassMember('location', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
@@ -365,7 +364,7 @@ _meta_table = {
                 'in_rpcs',
                 'ietf-netconf-monitoring', False),
             _MetaInfoClassMember('login-time', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                Time at the server at which the session was established.
                 ''',
                 'login_time',
@@ -400,7 +399,7 @@ _meta_table = {
                         'source_host',
                         'ietf-netconf-monitoring', False, [
                             _MetaInfoClassMember('source-host', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                Host identifier of the NETCONF client.  The value
                                 returned is implementation specific (e.g., hostname,
                                 IPv4 address, IPv6 address)
@@ -408,7 +407,7 @@ _meta_table = {
                                 'source_host',
                                 'ietf-netconf-monitoring', False),
                             _MetaInfoClassMember('source-host', ATTRIBUTE, 'str' , None, None, 
-                                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                Host identifier of the NETCONF client.  The value
                                 returned is implementation specific (e.g., hostname,
                                 IPv4 address, IPv6 address)
@@ -417,7 +416,7 @@ _meta_table = {
                                 'ietf-netconf-monitoring', False),
                         ]),
                     _MetaInfoClassMember('source-host', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
+                        [], [b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
                         '''                        Host identifier of the NETCONF client.  The value
                         returned is implementation specific (e.g., hostname,
                         IPv4 address, IPv6 address)
@@ -515,7 +514,7 @@ _meta_table = {
                 'in_sessions',
                 'ietf-netconf-monitoring', False),
             _MetaInfoClassMember('netconf-start-time', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                Date and time at which the management subsystem was
                 started.
                 ''',
@@ -670,6 +669,28 @@ _meta_table = {
         'ydk.models.ietf.ietf_netconf_monitoring'
         ),
     },
+    'RngIdentity' : {
+        'meta_info' : _MetaInfoClass('RngIdentity',
+            False, 
+            [
+            ],
+            'ietf-netconf-monitoring',
+            'rng',
+            _yang_ns._namespaces['ietf-netconf-monitoring'],
+        'ydk.models.ietf.ietf_netconf_monitoring'
+        ),
+    },
+    'XsdIdentity' : {
+        'meta_info' : _MetaInfoClass('XsdIdentity',
+            False, 
+            [
+            ],
+            'ietf-netconf-monitoring',
+            'xsd',
+            _yang_ns._namespaces['ietf-netconf-monitoring'],
+        'ydk.models.ietf.ietf_netconf_monitoring'
+        ),
+    },
     'NetconfSshIdentity' : {
         'meta_info' : _MetaInfoClass('NetconfSshIdentity',
             False, 
@@ -703,24 +724,24 @@ _meta_table = {
         'ydk.models.ietf.ietf_netconf_monitoring'
         ),
     },
-    'RngIdentity' : {
-        'meta_info' : _MetaInfoClass('RngIdentity',
+    'YangIdentity' : {
+        'meta_info' : _MetaInfoClass('YangIdentity',
             False, 
             [
             ],
             'ietf-netconf-monitoring',
-            'rng',
+            'yang',
             _yang_ns._namespaces['ietf-netconf-monitoring'],
         'ydk.models.ietf.ietf_netconf_monitoring'
         ),
     },
-    'XsdIdentity' : {
-        'meta_info' : _MetaInfoClass('XsdIdentity',
+    'NetconfSoapOverHttpsIdentity' : {
+        'meta_info' : _MetaInfoClass('NetconfSoapOverHttpsIdentity',
             False, 
             [
             ],
             'ietf-netconf-monitoring',
-            'xsd',
+            'netconf-soap-over-https',
             _yang_ns._namespaces['ietf-netconf-monitoring'],
         'ydk.models.ietf.ietf_netconf_monitoring'
         ),
@@ -743,28 +764,6 @@ _meta_table = {
             ],
             'ietf-netconf-monitoring',
             'netconf-tls',
-            _yang_ns._namespaces['ietf-netconf-monitoring'],
-        'ydk.models.ietf.ietf_netconf_monitoring'
-        ),
-    },
-    'YangIdentity' : {
-        'meta_info' : _MetaInfoClass('YangIdentity',
-            False, 
-            [
-            ],
-            'ietf-netconf-monitoring',
-            'yang',
-            _yang_ns._namespaces['ietf-netconf-monitoring'],
-        'ydk.models.ietf.ietf_netconf_monitoring'
-        ),
-    },
-    'NetconfSoapOverHttpsIdentity' : {
-        'meta_info' : _MetaInfoClass('NetconfSoapOverHttpsIdentity',
-            False, 
-            [
-            ],
-            'ietf-netconf-monitoring',
-            'netconf-soap-over-https',
             _yang_ns._namespaces['ietf-netconf-monitoring'],
         'ydk.models.ietf.ietf_netconf_monitoring'
         ),

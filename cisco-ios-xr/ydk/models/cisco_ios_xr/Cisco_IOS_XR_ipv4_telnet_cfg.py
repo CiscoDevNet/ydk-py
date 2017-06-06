@@ -79,8 +79,6 @@ class Ipv6Telnet(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.source_interface is not None:
                 return True
 
@@ -101,8 +99,6 @@ class Ipv6Telnet(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.client is not None and self.client._has_data():
             return True
 
@@ -167,8 +163,6 @@ class Ipv4Telnet(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.source_interface is not None:
                 return True
 
@@ -189,8 +183,6 @@ class Ipv4Telnet(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.client is not None and self.client._has_data():
             return True
 

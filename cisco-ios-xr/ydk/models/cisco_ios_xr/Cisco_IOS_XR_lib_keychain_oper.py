@@ -290,8 +290,6 @@ class Keychain(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.duration is not None:
                                 return True
 
@@ -375,8 +373,6 @@ class Keychain(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.duration is not None:
                                 return True
 
@@ -411,8 +407,6 @@ class Keychain(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.accept_lifetime is not None and self.accept_lifetime._has_data():
                             return True
 
@@ -447,8 +441,6 @@ class Keychain(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.key_id is not None:
                         for child_ref in self.key_id:
                             if child_ref._has_data():
@@ -473,8 +465,6 @@ class Keychain(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.key_name is not None:
                     return True
 
@@ -501,8 +491,6 @@ class Keychain(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.key is not None:
                 for child_ref in self.key:
                     if child_ref._has_data():
@@ -525,8 +513,6 @@ class Keychain(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.keies is not None and self.keies._has_data():
             return True
 

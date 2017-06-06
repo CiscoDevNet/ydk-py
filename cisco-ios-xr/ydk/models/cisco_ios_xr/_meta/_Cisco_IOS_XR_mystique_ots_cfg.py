@@ -13,17 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'OtsPsmLockoutFromEnum' : _MetaInfoEnum('OtsPsmLockoutFromEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mystique_ots_cfg',
-        {
-            'working':'working',
-            'protected':'protected',
-        }, 'Cisco-IOS-XR-mystique-ots-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mystique-ots-cfg']),
-    'OtsAmplifierGridModeEnum' : _MetaInfoEnum('OtsAmplifierGridModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mystique_ots_cfg',
-        {
-            '100g-hz':'Y_100g_hz',
-            '50g-hz':'Y_50g_hz',
-            'gr-idle-ss':'gr_idle_ss',
-        }, 'Cisco-IOS-XR-mystique-ots-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mystique-ots-cfg']),
     'OtsPsmManualSwitchEnum' : _MetaInfoEnum('OtsPsmManualSwitchEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mystique_ots_cfg',
         {
             'working':'working',
@@ -34,6 +23,17 @@ _meta_table = {
             'term':'term',
             'ila':'ila',
             'roadm':'roadm',
+        }, 'Cisco-IOS-XR-mystique-ots-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mystique-ots-cfg']),
+    'OtsPsmLockoutFromEnum' : _MetaInfoEnum('OtsPsmLockoutFromEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mystique_ots_cfg',
+        {
+            'working':'working',
+            'protected':'protected',
+        }, 'Cisco-IOS-XR-mystique-ots-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mystique-ots-cfg']),
+    'OtsAmplifierGridModeEnum' : _MetaInfoEnum('OtsAmplifierGridModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mystique_ots_cfg',
+        {
+            '100g-hz':'Y_100g_hz',
+            '50g-hz':'Y_50g_hz',
+            'gr-idle-ss':'gr_idle_ss',
         }, 'Cisco-IOS-XR-mystique-ots-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mystique-ots-cfg']),
     'HardwareModule.Node.Slot.Amplifier' : {
         'meta_info' : _MetaInfoClass('HardwareModule.Node.Slot.Amplifier',
@@ -94,7 +94,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('slot-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Set Slot
                 ''',
                 'slot_id',
@@ -123,7 +123,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Fully qualified line card specification
                 ''',
                 'location',

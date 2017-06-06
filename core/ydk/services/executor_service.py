@@ -53,9 +53,10 @@ class ExecutorService(Service):
         try:
             rpc = MetaService.normalize_meta(provider._get_capabilities(), rpc)
             self.service_logger.info('Executor operation initiated')
-            return provider.execute(
+            result = provider.execute(
                                     provider.sp_instance.encode_rpc(rpc),
                                     ''
                                     )
+            return provider.decode(result, rpc)
         finally:
             self.service_logger.info('Executor operation completed')

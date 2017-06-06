@@ -185,8 +185,6 @@ class TelemetrySystem(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sensor_group_id is not None:
                         return True
 
@@ -231,8 +229,6 @@ class TelemetrySystem(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sensor_group_id is not None:
                         return True
 
@@ -346,8 +342,6 @@ class TelemetrySystem(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.exclude_filter is not None:
                                 return True
 
@@ -401,8 +395,6 @@ class TelemetrySystem(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.exclude_filter is not None:
                                 return True
 
@@ -430,8 +422,6 @@ class TelemetrySystem(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.path is not None:
                             return True
 
@@ -460,8 +450,6 @@ class TelemetrySystem(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sensor_path is not None:
                         for child_ref in self.sensor_path:
                             if child_ref._has_data():
@@ -486,8 +474,6 @@ class TelemetrySystem(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sensor_group_id is not None:
                     return True
 
@@ -517,8 +503,6 @@ class TelemetrySystem(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sensor_group is not None:
                 for child_ref in self.sensor_group:
                     if child_ref._has_data():
@@ -639,8 +623,6 @@ class TelemetrySystem(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_id is not None:
                         return True
 
@@ -684,8 +666,6 @@ class TelemetrySystem(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_id is not None:
                         return True
 
@@ -838,8 +818,6 @@ class TelemetrySystem(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -916,8 +894,6 @@ class TelemetrySystem(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_address is not None:
                                 return True
 
@@ -950,8 +926,6 @@ class TelemetrySystem(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_address is not None:
                             return True
 
@@ -983,8 +957,6 @@ class TelemetrySystem(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination is not None:
                         for child_ref in self.destination:
                             if child_ref._has_data():
@@ -1009,8 +981,6 @@ class TelemetrySystem(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group_id is not None:
                     return True
 
@@ -1040,8 +1010,6 @@ class TelemetrySystem(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.destination_group is not None:
                 for child_ref in self.destination_group:
                     if child_ref._has_data():
@@ -1229,8 +1197,6 @@ class TelemetrySystem(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.local_source_address is not None:
                             return True
 
@@ -1309,8 +1275,6 @@ class TelemetrySystem(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.local_source_address is not None:
                             return True
 
@@ -1450,8 +1414,6 @@ class TelemetrySystem(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.heartbeat_interval is not None:
                                     return True
 
@@ -1529,8 +1491,6 @@ class TelemetrySystem(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.heartbeat_interval is not None:
                                     return True
 
@@ -1564,8 +1524,6 @@ class TelemetrySystem(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sensor_group is not None:
                                 return True
 
@@ -1594,8 +1552,6 @@ class TelemetrySystem(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sensor_profile is not None:
                             for child_ref in self.sensor_profile:
                                 if child_ref._has_data():
@@ -1722,8 +1678,6 @@ class TelemetrySystem(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_id is not None:
                                     return True
 
@@ -1770,8 +1724,6 @@ class TelemetrySystem(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_id is not None:
                                     return True
 
@@ -1796,8 +1748,6 @@ class TelemetrySystem(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_id is not None:
                                 return True
 
@@ -1826,8 +1776,6 @@ class TelemetrySystem(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_group is not None:
                             for child_ref in self.destination_group:
                                 if child_ref._has_data():
@@ -1852,8 +1800,6 @@ class TelemetrySystem(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.subscription_id is not None:
                         return True
 
@@ -1886,8 +1832,6 @@ class TelemetrySystem(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.subscription is not None:
                     for child_ref in self.subscription:
                         if child_ref._has_data():
@@ -2066,8 +2010,6 @@ class TelemetrySystem(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_address is not None:
                             return True
 
@@ -2195,8 +2137,6 @@ class TelemetrySystem(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.exclude_filter is not None:
                                     return True
 
@@ -2224,8 +2164,6 @@ class TelemetrySystem(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.path is not None:
                                 return True
 
@@ -2251,8 +2189,6 @@ class TelemetrySystem(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sensor_path is not None:
                             for child_ref in self.sensor_path:
                                 if child_ref._has_data():
@@ -2277,8 +2213,6 @@ class TelemetrySystem(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.subscription_id is not None:
                         return True
 
@@ -2305,8 +2239,6 @@ class TelemetrySystem(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.subscription is not None:
                     for child_ref in self.subscription:
                         if child_ref._has_data():
@@ -2329,8 +2261,6 @@ class TelemetrySystem(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.dynamic is not None and self.dynamic._has_data():
                 return True
 
@@ -2354,8 +2284,6 @@ class TelemetrySystem(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.destination_groups is not None and self.destination_groups._has_data():
             return True
 

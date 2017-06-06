@@ -13,11 +13,10 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'BfdEchoStartupValidateEnum' : _MetaInfoEnum('BfdEchoStartupValidateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg',
+    'BfdBundleCoexistenceBobBlbEnum' : _MetaInfoEnum('BfdBundleCoexistenceBobBlbEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg',
         {
-            'off':'off',
-            'on':'on',
-            'force':'force',
+            'inherited':'inherited',
+            'logical':'logical',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
     'BfdIfIpv6ChecksumUsageEnum' : _MetaInfoEnum('BfdIfIpv6ChecksumUsageEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg',
         {
@@ -29,10 +28,11 @@ _meta_table = {
             'enable':'enable',
             'disable':'disable',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
-    'BfdBundleCoexistenceBobBlbEnum' : _MetaInfoEnum('BfdBundleCoexistenceBobBlbEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg',
+    'BfdEchoStartupValidateEnum' : _MetaInfoEnum('BfdEchoStartupValidateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg',
         {
-            'inherited':'inherited',
-            'logical':'logical',
+            'off':'off',
+            'on':'on',
+            'force':'force',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
     'Bfd.FlapDamp.BundleMember' : {
         'meta_info' : _MetaInfoClass('Bfd.FlapDamp.BundleMember',
@@ -208,7 +208,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -227,14 +227,14 @@ _meta_table = {
                 'interface_ipv4_echo_source',
                 'Cisco-IOS-XR-ip-bfd-cfg', False, [
                     _MetaInfoClassMember('interface-ipv4-echo-source', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Interface IPv4 echo source address
                         configuration
                         ''',
                         'interface_ipv4_echo_source',
                         'Cisco-IOS-XR-ip-bfd-cfg', False),
                     _MetaInfoClassMember('interface-ipv4-echo-source', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Interface IPv4 echo source address
                         configuration
                         ''',
@@ -278,7 +278,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Location
                 ''',
                 'location',
@@ -388,13 +388,13 @@ _meta_table = {
                 'global_ipv4_echo_source',
                 'Cisco-IOS-XR-ip-bfd-cfg', False, [
                     _MetaInfoClassMember('global-ipv4-echo-source', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4 echo source address configuration
                         ''',
                         'global_ipv4_echo_source',
                         'Cisco-IOS-XR-ip-bfd-cfg', False),
                     _MetaInfoClassMember('global-ipv4-echo-source', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4 echo source address configuration
                         ''',
                         'global_ipv4_echo_source',

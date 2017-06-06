@@ -13,14 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'SfcSfTransportEnum' : _MetaInfoEnum('SfcSfTransportEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
-        {
-            'vxlan-gpe':'vxlan_gpe',
-        }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
-    'SfcMetadataDispositionMatchEnum' : _MetaInfoEnum('SfcMetadataDispositionMatchEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
-        {
-            'type1-dcalloc-tenant-id':'type1_dcalloc_tenant_id',
-        }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
     'SfcMetadataAllocEnum' : _MetaInfoEnum('SfcMetadataAllocEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
         {
             'type1':'type1',
@@ -33,18 +25,26 @@ _meta_table = {
         {
             'redirect-nexthop':'redirect_nexthop',
         }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
+    'SfcSfTransportEnum' : _MetaInfoEnum('SfcSfTransportEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
+        {
+            'vxlan-gpe':'vxlan_gpe',
+        }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
+    'SfcMetadataDispositionMatchEnum' : _MetaInfoEnum('SfcMetadataDispositionMatchEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
+        {
+            'type1-dcalloc-tenant-id':'type1_dcalloc_tenant_id',
+        }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
     'Vservice.ServiceFunctionLocator.Names.Name.Node' : {
         'meta_info' : _MetaInfoClass('Vservice.ServiceFunctionLocator.Names.Name.Node',
             False, 
             [
             _MetaInfoClassMember('ipv4-destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 destination address
                 ''',
                 'ipv4_destination_address',
                 'Cisco-IOS-XR-vservice-cfg', False),
             _MetaInfoClassMember('ipv4-source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 source address
                 ''',
                 'ipv4_source_address',
@@ -73,7 +73,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('function-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Service function/forwarder name
                 ''',
                 'function_name',
@@ -148,7 +148,7 @@ _meta_table = {
                 'match_type',
                 'Cisco-IOS-XR-vservice-cfg', False),
             _MetaInfoClassMember('nexthop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 nexthop address
                 ''',
                 'nexthop_ipv4_address',
@@ -177,7 +177,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('match-entry-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                match entry name
                 ''',
                 'match_entry_name',
@@ -200,7 +200,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('disposition-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                disposition name
                 ''',
                 'disposition_name',
@@ -246,13 +246,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 destination address
                 ''',
                 'ipv4_destination_address',
                 'Cisco-IOS-XR-vservice-cfg', False),
             _MetaInfoClassMember('ipv4-source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 source address
                 ''',
                 'ipv4_source_address',
@@ -281,7 +281,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('function-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Service function/forwarder name
                 ''',
                 'function_name',
@@ -343,14 +343,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vservice.MetadataTemplates.MetadataTemplate',
             False, 
             [
-            _MetaInfoClassMember('format', REFERENCE_ENUM_CLASS, 'SfcMetadataType1AllocFormatEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcMetadataType1AllocFormatEnum', 
-                [], [], 
-                '''                Specify Format
-                ''',
-                'format',
-                'Cisco-IOS-XR-vservice-cfg', True),
             _MetaInfoClassMember('metadata-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                metadata name
                 ''',
                 'metadata_name',
@@ -360,6 +354,12 @@ _meta_table = {
                 '''                Specify Type 
                 ''',
                 'type',
+                'Cisco-IOS-XR-vservice-cfg', True),
+            _MetaInfoClassMember('format', REFERENCE_ENUM_CLASS, 'SfcMetadataType1AllocFormatEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcMetadataType1AllocFormatEnum', 
+                [], [], 
+                '''                Specify Format
+                ''',
+                'format',
                 'Cisco-IOS-XR-vservice-cfg', True),
             _MetaInfoClassMember('tenant-id', ATTRIBUTE, 'int' , None, None, 
                 [('1', '16777215')], [], 
@@ -408,7 +408,7 @@ _meta_table = {
                 'metatdata_disposition',
                 'Cisco-IOS-XR-vservice-cfg', False),
             _MetaInfoClassMember('nexthop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 nexthop address
                 ''',
                 'nexthop_ipv4_address',
@@ -471,7 +471,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                SFF Name
                 ''',
                 'name',
@@ -534,7 +534,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                SF Name
                 ''',
                 'name',

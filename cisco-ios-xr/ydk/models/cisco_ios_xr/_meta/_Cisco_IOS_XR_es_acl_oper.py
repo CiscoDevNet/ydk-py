@@ -13,6 +13,12 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'AclAce1Enum' : _MetaInfoEnum('AclAce1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper',
+        {
+            'normal':'normal',
+            'remark':'remark',
+            'abf':'abf',
+        }, 'Cisco-IOS-XR-es-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-es-acl-oper']),
     'AclActionEnum' : _MetaInfoEnum('AclActionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper',
         {
             'deny':'deny',
@@ -21,12 +27,6 @@ _meta_table = {
             'bypass':'bypass',
             'fallthrough':'fallthrough',
             'invalid':'invalid',
-        }, 'Cisco-IOS-XR-es-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-es-acl-oper']),
-    'AclAce1Enum' : _MetaInfoEnum('AclAce1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper',
-        {
-            'normal':'normal',
-            'remark':'remark',
-            'abf':'abf',
         }, 'Cisco-IOS-XR-es-acl-oper', _yang_ns._namespaces['Cisco-IOS-XR-es-acl-oper']),
     'AclAce1Enum' : _MetaInfoEnum('AclAce1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper',
         {
@@ -151,13 +151,13 @@ _meta_table = {
                 'dei',
                 'Cisco-IOS-XR-es-acl-oper', False),
             _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'], 
+                [], [b'[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'], 
                 '''                Destination MAC address
                 ''',
                 'destination_address',
                 'Cisco-IOS-XR-es-acl-oper', False),
             _MetaInfoClassMember('destination-wild-card-bits', ATTRIBUTE, 'str' , None, None, 
-                [], ['[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'], 
+                [], [b'[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'], 
                 '''                Destination wild card bits
                 ''',
                 'destination_wild_card_bits',
@@ -223,13 +223,13 @@ _meta_table = {
                 'sequence_string',
                 'Cisco-IOS-XR-es-acl-oper', False),
             _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'], 
+                [], [b'[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'], 
                 '''                Source MAC address
                 ''',
                 'source_address',
                 'Cisco-IOS-XR-es-acl-oper', False),
             _MetaInfoClassMember('source-wild-card-bits', ATTRIBUTE, 'str' , None, None, 
-                [], ['[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'], 
+                [], [b'[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'], 
                 '''                Source wild card bits
                 ''',
                 'source_wild_card_bits',
@@ -397,7 +397,7 @@ _meta_table = {
                 'application_id',
                 'Cisco-IOS-XR-es-acl-oper', False),
             _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node where ACL is applied
                 ''',
                 'location',

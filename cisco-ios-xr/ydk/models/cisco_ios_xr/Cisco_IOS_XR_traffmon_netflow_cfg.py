@@ -250,8 +250,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_port is not None:
                         return True
 
@@ -408,8 +406,6 @@ class NetFlow(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_table_export_timeout is not None:
                                 return True
 
@@ -440,8 +436,6 @@ class NetFlow(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.version_number is not None:
                             return True
 
@@ -476,8 +470,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.version is not None:
                         for child_ref in self.version:
                             if child_ref._has_data():
@@ -537,8 +529,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ip_address is not None:
                         return True
 
@@ -567,8 +557,6 @@ class NetFlow(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.exporter_map_name is not None:
                     return True
 
@@ -607,8 +595,6 @@ class NetFlow(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.flow_exporter_map is not None:
                 for child_ref in self.flow_exporter_map:
                     if child_ref._has_data():
@@ -752,8 +738,6 @@ class NetFlow(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mode is not None:
                             return True
 
@@ -782,8 +766,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sampling_mode is not None:
                         for child_ref in self.sampling_mode:
                             if child_ref._has_data():
@@ -808,8 +790,6 @@ class NetFlow(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sampler_map_name is not None:
                     return True
 
@@ -833,8 +813,6 @@ class NetFlow(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.flow_sampler_map is not None:
                 for child_ref in self.flow_sampler_map:
                     if child_ref._has_data():
@@ -1030,8 +1008,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bgp_attr is not None:
                         return True
 
@@ -1113,8 +1089,6 @@ class NetFlow(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.exporter_name is not None:
                             return True
 
@@ -1137,8 +1111,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.exporter is not None:
                         for child_ref in self.exporter:
                             if child_ref._has_data():
@@ -1204,8 +1176,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.label is not None:
@@ -1233,8 +1203,6 @@ class NetFlow(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.monitor_map_name is not None:
                     return True
 
@@ -1282,8 +1250,6 @@ class NetFlow(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.flow_monitor_map is not None:
                 for child_ref in self.flow_monitor_map:
                     if child_ref._has_data():
@@ -1479,8 +1445,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bgp_attr is not None:
                         return True
 
@@ -1562,8 +1526,6 @@ class NetFlow(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.exporter_name is not None:
                             return True
 
@@ -1586,8 +1548,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.exporter is not None:
                         for child_ref in self.exporter:
                             if child_ref._has_data():
@@ -1653,8 +1613,6 @@ class NetFlow(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.label is not None:
@@ -1682,8 +1640,6 @@ class NetFlow(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.monitor_map_name is not None:
                     return True
 
@@ -1731,8 +1687,6 @@ class NetFlow(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.flow_monitor_map is not None:
                 for child_ref in self.flow_monitor_map:
                     if child_ref._has_data():
@@ -1755,8 +1709,6 @@ class NetFlow(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.flow_exporter_maps is not None and self.flow_exporter_maps._has_data():
             return True
 

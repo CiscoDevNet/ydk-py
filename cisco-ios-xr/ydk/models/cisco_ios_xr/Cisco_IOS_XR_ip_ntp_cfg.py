@@ -475,8 +475,6 @@ class Ntp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_type is not None:
                                 return True
 
@@ -525,8 +523,6 @@ class Ntp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address_ipv4 is not None:
                             return True
 
@@ -554,8 +550,6 @@ class Ntp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.peer_ipv4 is not None:
                         for child_ref in self.peer_ipv4:
                             if child_ref._has_data():
@@ -723,8 +717,6 @@ class Ntp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_type is not None:
                                 return True
 
@@ -776,8 +768,6 @@ class Ntp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address_ipv6 is not None:
                             return True
 
@@ -805,8 +795,6 @@ class Ntp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.peer_ipv6 is not None:
                         for child_ref in self.peer_ipv6:
                             if child_ref._has_data():
@@ -831,8 +819,6 @@ class Ntp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -859,8 +845,6 @@ class Ntp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.peer_vrf is not None:
                 for child_ref in self.peer_vrf:
                     if child_ref._has_data():
@@ -924,8 +908,6 @@ class Ntp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.dscp_or_precedence_value is not None:
@@ -992,8 +974,6 @@ class Ntp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.dscp_or_precedence_value is not None:
@@ -1077,8 +1057,6 @@ class Ntp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -1102,8 +1080,6 @@ class Ntp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.source is not None:
                 for child_ref in self.source:
                     if child_ref._has_data():
@@ -1217,8 +1193,6 @@ class Ntp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.key_number is not None:
                         return True
 
@@ -1242,8 +1216,6 @@ class Ntp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.key is not None:
                     for child_ref in self.key:
                         if child_ref._has_data():
@@ -1314,8 +1286,6 @@ class Ntp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.key_number is not None:
                         return True
 
@@ -1336,8 +1306,6 @@ class Ntp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.trusted_key is not None:
                     for child_ref in self.trusted_key:
                         if child_ref._has_data():
@@ -1360,8 +1328,6 @@ class Ntp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.enable is not None:
                 return True
 
@@ -1409,8 +1375,6 @@ class Ntp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.enable is not None:
                 return True
 
@@ -1617,8 +1581,6 @@ class Ntp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_address is not None:
                                     return True
 
@@ -1641,8 +1603,6 @@ class Ntp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.multicast_client is not None:
                                 for child_ref in self.multicast_client:
                                     if child_ref._has_data():
@@ -1749,8 +1709,6 @@ class Ntp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_address is not None:
                                     return True
 
@@ -1782,8 +1740,6 @@ class Ntp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.multicast_server is not None:
                                 for child_ref in self.multicast_server:
                                     if child_ref._has_data():
@@ -1808,8 +1764,6 @@ class Ntp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.multicast_clients is not None and self.multicast_clients._has_data():
                             return True
 
@@ -1902,8 +1856,6 @@ class Ntp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -1932,8 +1884,6 @@ class Ntp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.broadcast is not None and self.broadcast._has_data():
                             return True
 
@@ -1961,8 +1911,6 @@ class Ntp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         return True
 
@@ -1994,8 +1942,6 @@ class Ntp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -2021,8 +1967,6 @@ class Ntp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_table is not None:
                 for child_ref in self.interface_table:
                     if child_ref._has_data():
@@ -2161,8 +2105,6 @@ class Ntp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access_group_type is not None:
                             return True
 
@@ -2190,8 +2132,6 @@ class Ntp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af is not None:
                         return True
 
@@ -2219,8 +2159,6 @@ class Ntp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -2246,8 +2184,6 @@ class Ntp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.access_group_table is not None:
                 for child_ref in self.access_group_table:
                     if child_ref._has_data():
@@ -2270,8 +2206,6 @@ class Ntp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self._is_presence:
             return True
         if self.access_group_tables is not None and self.access_group_tables._has_data():

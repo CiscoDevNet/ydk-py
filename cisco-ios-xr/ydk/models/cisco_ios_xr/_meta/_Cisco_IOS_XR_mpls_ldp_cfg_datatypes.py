@@ -13,15 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'MplsLdpNbrPasswordEnum' : _MetaInfoEnum('MplsLdpNbrPasswordEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg_datatypes',
-        {
-            'disable':'disable',
-            'specified':'specified',
-        }, 'Cisco-IOS-XR-mpls-ldp-cfg-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg-datatypes']),
-    'MplsLdpDownstreamOnDemandEnum' : _MetaInfoEnum('MplsLdpDownstreamOnDemandEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg_datatypes',
-        {
-            'peer-acl':'peer_acl',
-        }, 'Cisco-IOS-XR-mpls-ldp-cfg-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg-datatypes']),
     'MplsLdpRouterIdEnum' : _MetaInfoEnum('MplsLdpRouterIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg_datatypes',
         {
             'address':'address',
@@ -31,6 +22,10 @@ _meta_table = {
             'ipv4':'ipv4',
             'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg-datatypes']),
+    'MplsLdpDownstreamOnDemandEnum' : _MetaInfoEnum('MplsLdpDownstreamOnDemandEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg_datatypes',
+        {
+            'peer-acl':'peer_acl',
+        }, 'Cisco-IOS-XR-mpls-ldp-cfg-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg-datatypes']),
     'MplsLdpSessionProtectionEnum' : _MetaInfoEnum('MplsLdpSessionProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg_datatypes',
         {
             'all':'all',
@@ -39,5 +34,10 @@ _meta_table = {
             'for-with-duration':'for_with_duration',
             'all-with-forever':'all_with_forever',
             'for-with-forever':'for_with_forever',
+        }, 'Cisco-IOS-XR-mpls-ldp-cfg-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg-datatypes']),
+    'MplsLdpNbrPasswordEnum' : _MetaInfoEnum('MplsLdpNbrPasswordEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg_datatypes',
+        {
+            'disable':'disable',
+            'specified':'specified',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg-datatypes']),
 }

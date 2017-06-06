@@ -288,8 +288,6 @@ class Controller(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.db_id is not None:
                                         return True
 
@@ -318,8 +316,6 @@ class Controller(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bank_db is not None:
                                     for child_ref in self.bank_db:
                                         if child_ref._has_data():
@@ -362,8 +358,6 @@ class Controller(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.npu_id is not None:
                                 return True
 
@@ -391,8 +385,6 @@ class Controller(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.npu_tcam is not None:
                             for child_ref in self.npu_tcam:
                                 if child_ref._has_data():
@@ -417,8 +409,6 @@ class Controller(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_name is not None:
                         return True
 
@@ -442,8 +432,6 @@ class Controller(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -466,8 +454,6 @@ class Controller(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.nodes is not None and self.nodes._has_data():
                 return True
 
@@ -488,8 +474,6 @@ class Controller(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.dpa is not None and self.dpa._has_data():
             return True
 

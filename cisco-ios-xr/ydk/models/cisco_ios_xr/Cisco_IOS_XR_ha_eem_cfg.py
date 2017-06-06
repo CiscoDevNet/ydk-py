@@ -305,8 +305,6 @@ class EventManager(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.policy_name is not None:
                     return True
 
@@ -348,8 +346,6 @@ class EventManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.policy is not None:
                 for child_ref in self.policy:
                     if child_ref._has_data():
@@ -452,8 +448,6 @@ class EventManager(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.thread_class_name is not None:
                         return True
 
@@ -477,8 +471,6 @@ class EventManager(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.thread_class is not None:
                     for child_ref in self.thread_class:
                         if child_ref._has_data():
@@ -501,8 +493,6 @@ class EventManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.thread_classes is not None and self.thread_classes._has_data():
                 return True
 
@@ -580,8 +570,6 @@ class EventManager(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.environment_name is not None:
                     return True
 
@@ -605,8 +593,6 @@ class EventManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.environment is not None:
                 for child_ref in self.environment:
                     if child_ref._has_data():
@@ -629,8 +615,6 @@ class EventManager(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.directory_user_library is not None:
             return True
 

@@ -62,7 +62,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('sensor-group-identifier', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                The identifier for this group
                 ''',
                 'sensor_group_identifier',
@@ -102,7 +102,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('sensorgroupid', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Reference to the telemetry sensor group name
                 ''',
                 'sensorgroupid',
@@ -142,7 +142,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Destination Id to associate with
                 Subscription
                 ''',
@@ -177,7 +177,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('subscription-identifier', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Subscription identifier string
                 ''',
                 'subscription_identifier',
@@ -251,17 +251,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination',
             False, 
             [
+            _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                Destination IPv6 address
+                ''',
+                'ipv6_address',
+                'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
                 [('1', '65535')], [], 
                 '''                destination port
                 ''',
                 'destination_port',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-            _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                '''                Destination IPv6 address
-                ''',
-                'ipv6_address',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
             _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'EncodeTypeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'EncodeTypeEnum', 
                 [], [], 
@@ -334,17 +334,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination',
             False, 
             [
+            _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Destination IPv4 address
+                ''',
+                'ipv4_address',
+                'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
                 [('1', '65535')], [], 
                 '''                destination port
                 ''',
                 'destination_port',
-                'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
-            _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                Destination IPv4 address
-                ''',
-                'ipv4_address',
                 'Cisco-IOS-XR-telemetry-model-driven-cfg', True),
             _MetaInfoClassMember('encoding', REFERENCE_ENUM_CLASS, 'EncodeTypeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'EncodeTypeEnum', 
                 [], [], 
@@ -389,7 +389,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                destination group id string
                 ''',
                 'destination_id',

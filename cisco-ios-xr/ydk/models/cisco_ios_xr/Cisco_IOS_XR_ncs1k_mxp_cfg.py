@@ -259,8 +259,6 @@ class HardwareModule(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.client_rate is not None:
                         return True
 
@@ -294,8 +292,6 @@ class HardwareModule(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.slice_id is not None:
                     return True
 
@@ -324,8 +320,6 @@ class HardwareModule(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.location is not None:
                 return True
 
@@ -351,8 +345,6 @@ class HardwareModule(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.node is not None:
             for child_ref in self.node:
                 if child_ref._has_data():

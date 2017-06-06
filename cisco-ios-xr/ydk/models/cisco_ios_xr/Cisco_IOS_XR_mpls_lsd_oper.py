@@ -1067,8 +1067,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -1131,8 +1129,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.client_conn_index is not None:
                                 return True
 
@@ -1158,8 +1154,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application is not None and self.application._has_data():
                             return True
 
@@ -1190,8 +1184,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.client_name is not None:
                         return True
 
@@ -1223,8 +1215,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.client is not None:
                     for child_ref in self.client:
                         if child_ref._has_data():
@@ -1343,8 +1333,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.application_instance is not None:
                         return True
 
@@ -1379,8 +1367,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.owner_count is not None:
                     for child_ref in self.owner_count:
                         if child_ref._has_data():
@@ -1815,8 +1801,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -1906,8 +1890,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -2013,8 +1995,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_srte is not None:
                                     return True
 
@@ -2094,8 +2074,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -2163,8 +2141,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -2224,8 +2200,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.security_id is not None:
                                     return True
 
@@ -2290,8 +2264,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_next_hop is not None:
                                     return True
 
@@ -2359,8 +2331,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv6_next_hop is not None:
                                     return True
 
@@ -2436,8 +2406,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -2524,8 +2492,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.edge_id is not None:
                                     return True
 
@@ -2591,8 +2557,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.parent_interface is not None:
                                     return True
 
@@ -2689,8 +2653,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.p2mp_id is not None:
                                     return True
 
@@ -2786,8 +2748,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lsm_id is not None:
                                     return True
 
@@ -2845,8 +2805,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pwhe_intf is not None:
                                     return True
 
@@ -2940,8 +2898,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dest_global_id is not None:
                                     return True
 
@@ -3005,8 +2961,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.gre_interface is not None:
                                     return True
 
@@ -3052,8 +3006,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.greipv6_interface is not None:
                                     return True
 
@@ -3115,8 +3067,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ethernet_segment is not None:
                                     return True
 
@@ -3176,8 +3126,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blb_intf is not None:
                                     return True
 
@@ -3234,8 +3182,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.blb_intf is not None:
                                     return True
 
@@ -3300,8 +3246,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.head is not None:
                                     return True
 
@@ -3393,8 +3337,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.head is not None:
                                     return True
 
@@ -3463,8 +3405,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.next_hop_set_id is not None:
                                     return True
 
@@ -3521,8 +3461,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.segment_id is not None:
                                     return True
 
@@ -3595,8 +3533,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.addr is not None:
                                     return True
 
@@ -3675,8 +3611,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.addr is not None:
                                     return True
 
@@ -3747,8 +3681,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.offset is not None:
                                     return True
 
@@ -3806,8 +3738,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.te_identifier is not None:
                                     return True
 
@@ -3833,8 +3763,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                                 return True
 
@@ -3941,8 +3869,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_data is not None:
                             return True
 
@@ -4015,8 +3941,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_instance is not None:
                             return True
 
@@ -4053,8 +3977,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.label_id is not None:
                         return True
 
@@ -4100,8 +4022,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.label is not None:
                     for child_ref in self.label:
                         if child_ref._has_data():
@@ -4333,8 +4253,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_prefix is not None:
                                     return True
 
@@ -4399,8 +4317,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lspid is not None:
                                     return True
 
@@ -4429,8 +4345,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.head is not None and self.head._has_data():
                                 return True
 
@@ -4514,8 +4428,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.frr_interface is not None:
                                 return True
 
@@ -4552,8 +4464,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.label is not None:
                             return True
 
@@ -4593,8 +4503,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tunnel_midpoint is not None:
                         for child_ref in self.tunnel_midpoint:
                             if child_ref._has_data():
@@ -4768,8 +4676,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.destination_prefix is not None:
                                     return True
 
@@ -4834,8 +4740,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lspid is not None:
                                     return True
 
@@ -4864,8 +4768,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.head is not None and self.head._has_data():
                                 return True
 
@@ -4949,8 +4851,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.frr_interface is not None:
                                 return True
 
@@ -4987,8 +4887,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -5028,8 +4926,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tunnel_head is not None:
                         for child_ref in self.tunnel_head:
                             if child_ref._has_data():
@@ -5102,8 +4998,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active is not None:
                         return True
 
@@ -5215,8 +5109,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -5251,8 +5143,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.summary_protected_interface is not None:
                         for child_ref in self.summary_protected_interface:
                             if child_ref._has_data():
@@ -5324,8 +5214,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active is not None:
                         return True
 
@@ -5405,8 +5293,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active is not None:
                         return True
 
@@ -5438,8 +5324,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.summary_protected_interfaces is not None and self.summary_protected_interfaces._has_data():
                     return True
 
@@ -5800,8 +5684,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.elc is not None:
                                         return True
 
@@ -5861,8 +5743,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_label is not None:
                                         return True
 
@@ -5943,8 +5823,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -6034,8 +5912,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -6093,8 +5969,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_list_id is not None:
                                         return True
 
@@ -6140,8 +6014,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -6164,8 +6036,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                     return True
 
@@ -6253,8 +6123,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -6289,8 +6157,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_owner is not None:
                                 for child_ref in self.application_owner:
                                     if child_ref._has_data():
@@ -6647,8 +6513,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -6738,8 +6602,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -6845,8 +6707,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.is_srte is not None:
                                             return True
 
@@ -6926,8 +6786,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -6995,8 +6853,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -7056,8 +6912,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.security_id is not None:
                                             return True
 
@@ -7122,8 +6976,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ipv4_next_hop is not None:
                                             return True
 
@@ -7191,8 +7043,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ipv6_next_hop is not None:
                                             return True
 
@@ -7268,8 +7118,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -7356,8 +7204,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.edge_id is not None:
                                             return True
 
@@ -7423,8 +7269,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.parent_interface is not None:
                                             return True
 
@@ -7521,8 +7365,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.p2mp_id is not None:
                                             return True
 
@@ -7618,8 +7460,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lsm_id is not None:
                                             return True
 
@@ -7677,8 +7517,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.pwhe_intf is not None:
                                             return True
 
@@ -7772,8 +7610,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dest_global_id is not None:
                                             return True
 
@@ -7837,8 +7673,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.gre_interface is not None:
                                             return True
 
@@ -7884,8 +7718,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.greipv6_interface is not None:
                                             return True
 
@@ -7947,8 +7779,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ethernet_segment is not None:
                                             return True
 
@@ -8008,8 +7838,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.blb_intf is not None:
                                             return True
 
@@ -8066,8 +7894,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.blb_intf is not None:
                                             return True
 
@@ -8132,8 +7958,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None:
                                             return True
 
@@ -8225,8 +8049,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None:
                                             return True
 
@@ -8295,8 +8117,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.next_hop_set_id is not None:
                                             return True
 
@@ -8353,8 +8173,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.segment_id is not None:
                                             return True
 
@@ -8427,8 +8245,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addr is not None:
                                             return True
 
@@ -8507,8 +8323,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addr is not None:
                                             return True
 
@@ -8579,8 +8393,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.offset is not None:
                                             return True
 
@@ -8638,8 +8450,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.te_identifier is not None:
                                             return True
 
@@ -8665,8 +8475,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                                         return True
 
@@ -8798,8 +8606,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.label_data is not None:
                                         for child in self.label_data:
                                             if child is not None:
@@ -8824,8 +8630,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_context is not None and self.label_context._has_data():
                                     return True
 
@@ -8854,8 +8658,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.rewrite_id is not None and self.rewrite_id._has_data():
                                 return True
 
@@ -9010,8 +8812,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.elc is not None:
                                         return True
 
@@ -9071,8 +8871,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_label is not None:
                                         return True
 
@@ -9153,8 +8951,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -9244,8 +9040,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -9303,8 +9097,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_list_id is not None:
                                         return True
 
@@ -9350,8 +9142,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -9374,8 +9164,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                     return True
 
@@ -9463,8 +9251,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -9499,8 +9285,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_owner is not None:
                                 for child_ref in self.application_owner:
                                     if child_ref._has_data():
@@ -9559,8 +9343,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_id is not None:
                                 return True
 
@@ -9617,8 +9399,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_id is not None:
                                 return True
 
@@ -9721,8 +9501,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -9933,8 +9711,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_flags_decode is not None:
                                             return True
 
@@ -10006,8 +9782,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out_label is not None:
                                             return True
 
@@ -10074,8 +9848,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_flags_decode is not None:
                                             return True
 
@@ -10225,8 +9997,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -10377,8 +10147,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -10557,8 +10325,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -10714,8 +10480,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bridge_id is not None:
                                             return True
 
@@ -10808,8 +10572,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out_interface is not None:
                                             return True
 
@@ -10940,8 +10702,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.control_word is not None:
                                             return True
 
@@ -11045,8 +10805,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.l2_interface is not None:
                                             return True
 
@@ -11237,8 +10995,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_path_id is not None:
                                                 return True
 
@@ -11378,8 +11134,6 @@ class MplsLsdNodes(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.outgoing_label is not None:
                                                     return True
 
@@ -11405,8 +11159,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.label is not None:
                                                 for child_ref in self.label:
                                                     if child_ref._has_data():
@@ -11442,8 +11194,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_stack is not None and self.inner_stack._has_data():
                                             return True
 
@@ -11590,8 +11340,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_path_id is not None:
                                                 return True
 
@@ -11719,8 +11467,6 @@ class MplsLsdNodes(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.outgoing_label is not None:
                                                     return True
 
@@ -11746,8 +11492,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.label is not None:
                                                 for child_ref in self.label:
                                                     if child_ref._has_data():
@@ -11783,8 +11527,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_stack is not None and self.inner_stack._has_data():
                                             return True
 
@@ -11875,8 +11617,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.flags_decode is not None:
                                             return True
 
@@ -11940,8 +11680,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dmtc_ext_ifh is not None:
                                             return True
 
@@ -11964,8 +11702,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_data is not None and self.dmtc_data._has_data():
                                         return True
 
@@ -12030,8 +11766,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.moi is not None and self.moi._has_data():
                                     return True
 
@@ -12054,8 +11788,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_resource is not None and self.application_resource._has_data():
                                 return True
 
@@ -12085,8 +11817,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pw_list_id is not None:
                             return True
 
@@ -12156,8 +11886,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rewrite_pw is not None:
                         for child_ref in self.rewrite_pw:
                             if child_ref._has_data():
@@ -12486,8 +12214,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.elc is not None:
                                         return True
 
@@ -12547,8 +12273,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_label is not None:
                                         return True
 
@@ -12629,8 +12353,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -12720,8 +12442,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -12779,8 +12499,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_list_id is not None:
                                         return True
 
@@ -12826,8 +12544,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -12850,8 +12566,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                     return True
 
@@ -12939,8 +12653,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -12975,8 +12687,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_owner is not None:
                                 for child_ref in self.application_owner:
                                     if child_ref._has_data():
@@ -13333,8 +13043,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -13424,8 +13132,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -13531,8 +13237,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.is_srte is not None:
                                             return True
 
@@ -13612,8 +13316,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -13681,8 +13383,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -13742,8 +13442,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.security_id is not None:
                                             return True
 
@@ -13808,8 +13506,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ipv4_next_hop is not None:
                                             return True
 
@@ -13877,8 +13573,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ipv6_next_hop is not None:
                                             return True
 
@@ -13954,8 +13648,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -14042,8 +13734,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.edge_id is not None:
                                             return True
 
@@ -14109,8 +13799,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.parent_interface is not None:
                                             return True
 
@@ -14207,8 +13895,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.p2mp_id is not None:
                                             return True
 
@@ -14304,8 +13990,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lsm_id is not None:
                                             return True
 
@@ -14363,8 +14047,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.pwhe_intf is not None:
                                             return True
 
@@ -14458,8 +14140,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dest_global_id is not None:
                                             return True
 
@@ -14523,8 +14203,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.gre_interface is not None:
                                             return True
 
@@ -14570,8 +14248,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.greipv6_interface is not None:
                                             return True
 
@@ -14633,8 +14309,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ethernet_segment is not None:
                                             return True
 
@@ -14694,8 +14368,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.blb_intf is not None:
                                             return True
 
@@ -14752,8 +14424,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.blb_intf is not None:
                                             return True
 
@@ -14818,8 +14488,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None:
                                             return True
 
@@ -14911,8 +14579,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None:
                                             return True
 
@@ -14981,8 +14647,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.next_hop_set_id is not None:
                                             return True
 
@@ -15039,8 +14703,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.segment_id is not None:
                                             return True
 
@@ -15113,8 +14775,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addr is not None:
                                             return True
 
@@ -15193,8 +14853,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addr is not None:
                                             return True
 
@@ -15265,8 +14923,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.offset is not None:
                                             return True
 
@@ -15324,8 +14980,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.te_identifier is not None:
                                             return True
 
@@ -15351,8 +15005,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                                         return True
 
@@ -15484,8 +15136,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.label_data is not None:
                                         for child in self.label_data:
                                             if child is not None:
@@ -15510,8 +15160,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_context is not None and self.label_context._has_data():
                                     return True
 
@@ -15540,8 +15188,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.rewrite_id is not None and self.rewrite_id._has_data():
                                 return True
 
@@ -15696,8 +15342,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.elc is not None:
                                         return True
 
@@ -15757,8 +15401,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_label is not None:
                                         return True
 
@@ -15839,8 +15481,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -15930,8 +15570,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -15989,8 +15627,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_list_id is not None:
                                         return True
 
@@ -16036,8 +15672,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -16060,8 +15694,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                     return True
 
@@ -16149,8 +15781,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -16185,8 +15815,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_owner is not None:
                                 for child_ref in self.application_owner:
                                     if child_ref._has_data():
@@ -16245,8 +15873,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_id is not None:
                                 return True
 
@@ -16303,8 +15929,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_id is not None:
                                 return True
 
@@ -16407,8 +16031,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -16619,8 +16241,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_flags_decode is not None:
                                             return True
 
@@ -16692,8 +16312,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out_label is not None:
                                             return True
 
@@ -16760,8 +16378,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_flags_decode is not None:
                                             return True
 
@@ -16911,8 +16527,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -17063,8 +16677,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -17243,8 +16855,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -17400,8 +17010,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bridge_id is not None:
                                             return True
 
@@ -17494,8 +17102,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out_interface is not None:
                                             return True
 
@@ -17626,8 +17232,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.control_word is not None:
                                             return True
 
@@ -17731,8 +17335,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.l2_interface is not None:
                                             return True
 
@@ -17923,8 +17525,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_path_id is not None:
                                                 return True
 
@@ -18064,8 +17664,6 @@ class MplsLsdNodes(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.outgoing_label is not None:
                                                     return True
 
@@ -18091,8 +17689,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.label is not None:
                                                 for child_ref in self.label:
                                                     if child_ref._has_data():
@@ -18128,8 +17724,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_stack is not None and self.inner_stack._has_data():
                                             return True
 
@@ -18276,8 +17870,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_path_id is not None:
                                                 return True
 
@@ -18405,8 +17997,6 @@ class MplsLsdNodes(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.outgoing_label is not None:
                                                     return True
 
@@ -18432,8 +18022,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.label is not None:
                                                 for child_ref in self.label:
                                                     if child_ref._has_data():
@@ -18469,8 +18057,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_stack is not None and self.inner_stack._has_data():
                                             return True
 
@@ -18561,8 +18147,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.flags_decode is not None:
                                             return True
 
@@ -18626,8 +18210,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dmtc_ext_ifh is not None:
                                             return True
 
@@ -18650,8 +18232,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_data is not None and self.dmtc_data._has_data():
                                         return True
 
@@ -18716,8 +18296,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.moi is not None and self.moi._has_data():
                                     return True
 
@@ -18740,8 +18318,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_resource is not None and self.application_resource._has_data():
                                 return True
 
@@ -18769,8 +18345,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.associated_fpi is not None:
                             for child_ref in self.associated_fpi:
                                 if child_ref._has_data():
@@ -18849,8 +18423,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rewrite_ipv4 is not None:
                         for child_ref in self.rewrite_ipv4:
                             if child_ref._has_data():
@@ -19155,8 +18727,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.elc is not None:
                                         return True
 
@@ -19216,8 +18786,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_label is not None:
                                         return True
 
@@ -19298,8 +18866,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -19389,8 +18955,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -19448,8 +19012,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_list_id is not None:
                                         return True
 
@@ -19495,8 +19057,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -19519,8 +19079,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                     return True
 
@@ -19608,8 +19166,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -19644,8 +19200,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_owner is not None:
                                 for child_ref in self.application_owner:
                                     if child_ref._has_data():
@@ -20002,8 +19556,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -20093,8 +19645,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -20200,8 +19750,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.is_srte is not None:
                                             return True
 
@@ -20281,8 +19829,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -20350,8 +19896,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -20411,8 +19955,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.security_id is not None:
                                             return True
 
@@ -20477,8 +20019,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ipv4_next_hop is not None:
                                             return True
 
@@ -20546,8 +20086,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ipv6_next_hop is not None:
                                             return True
 
@@ -20623,8 +20161,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -20711,8 +20247,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.edge_id is not None:
                                             return True
 
@@ -20778,8 +20312,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.parent_interface is not None:
                                             return True
 
@@ -20876,8 +20408,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.p2mp_id is not None:
                                             return True
 
@@ -20973,8 +20503,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lsm_id is not None:
                                             return True
 
@@ -21032,8 +20560,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.pwhe_intf is not None:
                                             return True
 
@@ -21127,8 +20653,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dest_global_id is not None:
                                             return True
 
@@ -21192,8 +20716,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.gre_interface is not None:
                                             return True
 
@@ -21239,8 +20761,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.greipv6_interface is not None:
                                             return True
 
@@ -21302,8 +20822,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ethernet_segment is not None:
                                             return True
 
@@ -21363,8 +20881,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.blb_intf is not None:
                                             return True
 
@@ -21421,8 +20937,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.blb_intf is not None:
                                             return True
 
@@ -21487,8 +21001,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None:
                                             return True
 
@@ -21580,8 +21092,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None:
                                             return True
 
@@ -21650,8 +21160,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.next_hop_set_id is not None:
                                             return True
 
@@ -21708,8 +21216,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.segment_id is not None:
                                             return True
 
@@ -21782,8 +21288,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addr is not None:
                                             return True
 
@@ -21862,8 +21366,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addr is not None:
                                             return True
 
@@ -21934,8 +21436,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.offset is not None:
                                             return True
 
@@ -21993,8 +21493,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.te_identifier is not None:
                                             return True
 
@@ -22020,8 +21518,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                                         return True
 
@@ -22153,8 +21649,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.label_data is not None:
                                         for child in self.label_data:
                                             if child is not None:
@@ -22179,8 +21673,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_context is not None and self.label_context._has_data():
                                     return True
 
@@ -22209,8 +21701,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.rewrite_id is not None and self.rewrite_id._has_data():
                                 return True
 
@@ -22365,8 +21855,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.elc is not None:
                                         return True
 
@@ -22426,8 +21914,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_label is not None:
                                         return True
 
@@ -22508,8 +21994,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -22599,8 +22083,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -22658,8 +22140,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_list_id is not None:
                                         return True
 
@@ -22705,8 +22185,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -22729,8 +22207,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                     return True
 
@@ -22818,8 +22294,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -22854,8 +22328,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_owner is not None:
                                 for child_ref in self.application_owner:
                                     if child_ref._has_data():
@@ -22914,8 +22386,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_id is not None:
                                 return True
 
@@ -22972,8 +22442,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_id is not None:
                                 return True
 
@@ -23076,8 +22544,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -23288,8 +22754,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_flags_decode is not None:
                                             return True
 
@@ -23361,8 +22825,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out_label is not None:
                                             return True
 
@@ -23429,8 +22891,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_flags_decode is not None:
                                             return True
 
@@ -23580,8 +23040,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -23732,8 +23190,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -23912,8 +23368,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -24069,8 +23523,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bridge_id is not None:
                                             return True
 
@@ -24163,8 +23615,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out_interface is not None:
                                             return True
 
@@ -24295,8 +23745,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.control_word is not None:
                                             return True
 
@@ -24400,8 +23848,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.l2_interface is not None:
                                             return True
 
@@ -24592,8 +24038,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_path_id is not None:
                                                 return True
 
@@ -24733,8 +24177,6 @@ class MplsLsdNodes(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.outgoing_label is not None:
                                                     return True
 
@@ -24760,8 +24202,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.label is not None:
                                                 for child_ref in self.label:
                                                     if child_ref._has_data():
@@ -24797,8 +24237,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_stack is not None and self.inner_stack._has_data():
                                             return True
 
@@ -24945,8 +24383,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_path_id is not None:
                                                 return True
 
@@ -25074,8 +24510,6 @@ class MplsLsdNodes(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.outgoing_label is not None:
                                                     return True
 
@@ -25101,8 +24535,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.label is not None:
                                                 for child_ref in self.label:
                                                     if child_ref._has_data():
@@ -25138,8 +24570,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_stack is not None and self.inner_stack._has_data():
                                             return True
 
@@ -25230,8 +24660,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.flags_decode is not None:
                                             return True
 
@@ -25295,8 +24723,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dmtc_ext_ifh is not None:
                                             return True
 
@@ -25319,8 +24745,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_data is not None and self.dmtc_data._has_data():
                                         return True
 
@@ -25385,8 +24809,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.moi is not None and self.moi._has_data():
                                     return True
 
@@ -25409,8 +24831,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_resource is not None and self.application_resource._has_data():
                                 return True
 
@@ -25440,8 +24860,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -25511,8 +24929,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rewrite_te is not None:
                         for child_ref in self.rewrite_te:
                             if child_ref._has_data():
@@ -25817,8 +25233,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.elc is not None:
                                         return True
 
@@ -25878,8 +25292,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_label is not None:
                                         return True
 
@@ -25960,8 +25372,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -26051,8 +25461,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -26110,8 +25518,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_list_id is not None:
                                         return True
 
@@ -26157,8 +25563,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -26181,8 +25585,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                     return True
 
@@ -26270,8 +25672,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -26306,8 +25706,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_owner is not None:
                                 for child_ref in self.application_owner:
                                     if child_ref._has_data():
@@ -26664,8 +26062,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -26755,8 +26151,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -26862,8 +26256,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.is_srte is not None:
                                             return True
 
@@ -26943,8 +26335,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -27012,8 +26402,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -27073,8 +26461,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.security_id is not None:
                                             return True
 
@@ -27139,8 +26525,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ipv4_next_hop is not None:
                                             return True
 
@@ -27208,8 +26592,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ipv6_next_hop is not None:
                                             return True
 
@@ -27285,8 +26667,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.prefix is not None:
                                             return True
 
@@ -27373,8 +26753,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.edge_id is not None:
                                             return True
 
@@ -27440,8 +26818,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.parent_interface is not None:
                                             return True
 
@@ -27538,8 +26914,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.p2mp_id is not None:
                                             return True
 
@@ -27635,8 +27009,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.lsm_id is not None:
                                             return True
 
@@ -27694,8 +27066,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.pwhe_intf is not None:
                                             return True
 
@@ -27789,8 +27159,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dest_global_id is not None:
                                             return True
 
@@ -27854,8 +27222,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.gre_interface is not None:
                                             return True
 
@@ -27901,8 +27267,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.greipv6_interface is not None:
                                             return True
 
@@ -27964,8 +27328,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ethernet_segment is not None:
                                             return True
 
@@ -28025,8 +27387,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.blb_intf is not None:
                                             return True
 
@@ -28083,8 +27443,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.blb_intf is not None:
                                             return True
 
@@ -28149,8 +27507,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None:
                                             return True
 
@@ -28242,8 +27598,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.head is not None:
                                             return True
 
@@ -28312,8 +27666,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.next_hop_set_id is not None:
                                             return True
 
@@ -28370,8 +27722,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.segment_id is not None:
                                             return True
 
@@ -28444,8 +27794,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addr is not None:
                                             return True
 
@@ -28524,8 +27872,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.addr is not None:
                                             return True
 
@@ -28596,8 +27942,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.offset is not None:
                                             return True
 
@@ -28655,8 +27999,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.te_identifier is not None:
                                             return True
 
@@ -28682,8 +28024,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                                         return True
 
@@ -28815,8 +28155,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.label_data is not None:
                                         for child in self.label_data:
                                             if child is not None:
@@ -28841,8 +28179,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_context is not None and self.label_context._has_data():
                                     return True
 
@@ -28871,8 +28207,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.rewrite_id is not None and self.rewrite_id._has_data():
                                 return True
 
@@ -29027,8 +28361,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.elc is not None:
                                         return True
 
@@ -29088,8 +28420,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_label is not None:
                                         return True
 
@@ -29170,8 +28500,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -29261,8 +28589,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -29320,8 +28646,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_list_id is not None:
                                         return True
 
@@ -29367,8 +28691,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -29391,8 +28713,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                     return True
 
@@ -29480,8 +28800,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -29516,8 +28834,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_owner is not None:
                                 for child_ref in self.application_owner:
                                     if child_ref._has_data():
@@ -29576,8 +28892,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_id is not None:
                                 return True
 
@@ -29634,8 +28948,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.table_id is not None:
                                 return True
 
@@ -29738,8 +29050,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.application_instance is not None:
                                     return True
 
@@ -29950,8 +29260,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_flags_decode is not None:
                                             return True
 
@@ -30023,8 +29331,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out_label is not None:
                                             return True
 
@@ -30091,8 +29397,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.path_flags_decode is not None:
                                             return True
 
@@ -30242,8 +29546,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -30394,8 +29696,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -30574,8 +29874,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -30731,8 +30029,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bridge_id is not None:
                                             return True
 
@@ -30825,8 +30121,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.out_interface is not None:
                                             return True
 
@@ -30957,8 +30251,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.control_word is not None:
                                             return True
 
@@ -31062,8 +30354,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.l2_interface is not None:
                                             return True
 
@@ -31254,8 +30544,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_path_id is not None:
                                                 return True
 
@@ -31395,8 +30683,6 @@ class MplsLsdNodes(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.outgoing_label is not None:
                                                     return True
 
@@ -31422,8 +30708,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.label is not None:
                                                 for child_ref in self.label:
                                                     if child_ref._has_data():
@@ -31459,8 +30743,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_stack is not None and self.inner_stack._has_data():
                                             return True
 
@@ -31607,8 +30889,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_path_id is not None:
                                                 return True
 
@@ -31736,8 +31016,6 @@ class MplsLsdNodes(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.outgoing_label is not None:
                                                     return True
 
@@ -31763,8 +31041,6 @@ class MplsLsdNodes(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.label is not None:
                                                 for child_ref in self.label:
                                                     if child_ref._has_data():
@@ -31800,8 +31076,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.inner_stack is not None and self.inner_stack._has_data():
                                             return True
 
@@ -31892,8 +31166,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.flags_decode is not None:
                                             return True
 
@@ -31957,8 +31229,6 @@ class MplsLsdNodes(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dmtc_ext_ifh is not None:
                                             return True
 
@@ -31981,8 +31251,6 @@ class MplsLsdNodes(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_data is not None and self.dmtc_data._has_data():
                                         return True
 
@@ -32047,8 +31315,6 @@ class MplsLsdNodes(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.moi is not None and self.moi._has_data():
                                     return True
 
@@ -32071,8 +31337,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_resource is not None and self.application_resource._has_data():
                                 return True
 
@@ -32102,8 +31366,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.label_id is not None:
                             return True
 
@@ -32173,8 +31435,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rewrite_label is not None:
                         for child_ref in self.rewrite_label:
                             if child_ref._has_data():
@@ -32199,8 +31459,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rewrite_ipv4s is not None and self.rewrite_ipv4s._has_data():
                     return True
 
@@ -32466,8 +31724,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.total_backup_paths is not None:
                         return True
 
@@ -32557,8 +31813,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.total_backup_paths is not None:
                         return True
 
@@ -32593,8 +31847,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4_paths is not None and self.ipv4_paths._has_data():
                     return True
 
@@ -32961,8 +32213,6 @@ class MplsLsdNodes(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.error_msg_count is not None:
                                 return True
 
@@ -32994,8 +32244,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connect_count is not None:
                             return True
 
@@ -33039,8 +32287,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.application_name is not None:
                         return True
 
@@ -33111,8 +32357,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.application is not None:
                     for child_ref in self.application:
                         if child_ref._has_data():
@@ -33262,8 +32506,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_instance is not None:
                             return True
 
@@ -33300,8 +32542,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -33338,8 +32578,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.label_summary_vrf is not None:
                     for child_ref in self.label_summary_vrf:
                         if child_ref._has_data():
@@ -33411,8 +32649,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.max_dynamic_label_value is not None:
                     return True
 
@@ -33709,8 +32945,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.total_backup_paths is not None:
                             return True
 
@@ -33800,8 +33034,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.total_backup_paths is not None:
                             return True
 
@@ -33838,8 +33070,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -33925,8 +33155,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rewrite_summary_vrf is not None:
                     for child_ref in self.rewrite_summary_vrf:
                         if child_ref._has_data():
@@ -34066,8 +33294,6 @@ class MplsLsdNodes(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_instance is not None:
                             return True
 
@@ -34104,8 +33330,6 @@ class MplsLsdNodes(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -34139,8 +33363,6 @@ class MplsLsdNodes(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -34165,8 +33387,6 @@ class MplsLsdNodes(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node_name is not None:
                 return True
 
@@ -34220,8 +33440,6 @@ class MplsLsdNodes(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.mpls_lsd_node is not None:
             for child_ref in self.mpls_lsd_node:
                 if child_ref._has_data():
@@ -34482,8 +33700,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_instance is not None:
                             return True
 
@@ -34546,8 +33762,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.client_conn_index is not None:
                             return True
 
@@ -34573,8 +33787,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.application is not None and self.application._has_data():
                         return True
 
@@ -34603,8 +33815,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.client_name is not None:
                     return True
 
@@ -34634,8 +33844,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.client is not None:
                 for child_ref in self.client:
                     if child_ref._has_data():
@@ -34752,8 +33960,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.application_instance is not None:
                     return True
 
@@ -34786,8 +33992,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.owner_count is not None:
                 for child_ref in self.owner_count:
                     if child_ref._has_data():
@@ -35222,8 +34426,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix is not None:
                                 return True
 
@@ -35313,8 +34515,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix is not None:
                                 return True
 
@@ -35420,8 +34620,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.is_srte is not None:
                                 return True
 
@@ -35501,8 +34699,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix is not None:
                                 return True
 
@@ -35570,8 +34766,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix is not None:
                                 return True
 
@@ -35631,8 +34825,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.security_id is not None:
                                 return True
 
@@ -35697,8 +34889,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4_next_hop is not None:
                                 return True
 
@@ -35766,8 +34956,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6_next_hop is not None:
                                 return True
 
@@ -35843,8 +35031,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix is not None:
                                 return True
 
@@ -35931,8 +35117,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.edge_id is not None:
                                 return True
 
@@ -35998,8 +35182,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.parent_interface is not None:
                                 return True
 
@@ -36096,8 +35278,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.p2mp_id is not None:
                                 return True
 
@@ -36193,8 +35373,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsm_id is not None:
                                 return True
 
@@ -36252,8 +35430,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.pwhe_intf is not None:
                                 return True
 
@@ -36347,8 +35523,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dest_global_id is not None:
                                 return True
 
@@ -36412,8 +35586,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.gre_interface is not None:
                                 return True
 
@@ -36459,8 +35631,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.greipv6_interface is not None:
                                 return True
 
@@ -36522,8 +35692,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ethernet_segment is not None:
                                 return True
 
@@ -36583,8 +35751,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.blb_intf is not None:
                                 return True
 
@@ -36641,8 +35807,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.blb_intf is not None:
                                 return True
 
@@ -36707,8 +35871,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.head is not None:
                                 return True
 
@@ -36800,8 +35962,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.head is not None:
                                 return True
 
@@ -36870,8 +36030,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.next_hop_set_id is not None:
                                 return True
 
@@ -36928,8 +36086,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.segment_id is not None:
                                 return True
 
@@ -37002,8 +36158,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.addr is not None:
                                 return True
 
@@ -37082,8 +36236,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.addr is not None:
                                 return True
 
@@ -37154,8 +36306,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.offset is not None:
                                 return True
 
@@ -37213,8 +36363,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.te_identifier is not None:
                                 return True
 
@@ -37240,8 +36388,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                             return True
 
@@ -37348,8 +36494,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.application_data is not None:
                         return True
 
@@ -37422,8 +36566,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.application_instance is not None:
                         return True
 
@@ -37458,8 +36600,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.label_id is not None:
                     return True
 
@@ -37503,8 +36643,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.label is not None:
                 for child_ref in self.label:
                     if child_ref._has_data():
@@ -37736,8 +36874,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_prefix is not None:
                                 return True
 
@@ -37802,8 +36938,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lspid is not None:
                                 return True
 
@@ -37832,8 +36966,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.head is not None and self.head._has_data():
                             return True
 
@@ -37917,8 +37049,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.frr_interface is not None:
                             return True
 
@@ -37953,8 +37083,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.label is not None:
                         return True
 
@@ -37992,8 +37120,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tunnel_midpoint is not None:
                     for child_ref in self.tunnel_midpoint:
                         if child_ref._has_data():
@@ -38167,8 +37293,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.destination_prefix is not None:
                                 return True
 
@@ -38233,8 +37357,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lspid is not None:
                                 return True
 
@@ -38263,8 +37385,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.head is not None and self.head._has_data():
                             return True
 
@@ -38348,8 +37468,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.frr_interface is not None:
                             return True
 
@@ -38384,8 +37502,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -38423,8 +37539,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tunnel_head is not None:
                     for child_ref in self.tunnel_head:
                         if child_ref._has_data():
@@ -38495,8 +37609,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None:
                     return True
 
@@ -38606,8 +37718,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -38640,8 +37750,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.summary_protected_interface is not None:
                     for child_ref in self.summary_protected_interface:
                         if child_ref._has_data():
@@ -38711,8 +37819,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None:
                     return True
 
@@ -38790,8 +37896,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None:
                     return True
 
@@ -38821,8 +37925,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.summary_protected_interfaces is not None and self.summary_protected_interfaces._has_data():
                 return True
 
@@ -39183,8 +38285,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.elc is not None:
                                     return True
 
@@ -39244,8 +38344,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label is not None:
                                     return True
 
@@ -39326,8 +38424,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -39417,8 +38513,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -39476,8 +38570,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pwhe_list_id is not None:
                                     return True
 
@@ -39523,8 +38615,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_ifh is not None:
                                     return True
 
@@ -39547,8 +38637,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                 return True
 
@@ -39636,8 +38724,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -39672,8 +38758,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_owner is not None:
                             for child_ref in self.application_owner:
                                 if child_ref._has_data():
@@ -40030,8 +39114,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -40121,8 +39203,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -40228,8 +39308,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_srte is not None:
                                         return True
 
@@ -40309,8 +39387,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -40378,8 +39454,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -40439,8 +39513,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.security_id is not None:
                                         return True
 
@@ -40505,8 +39577,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_next_hop is not None:
                                         return True
 
@@ -40574,8 +39644,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_next_hop is not None:
                                         return True
 
@@ -40651,8 +39719,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -40739,8 +39805,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.edge_id is not None:
                                         return True
 
@@ -40806,8 +39870,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.parent_interface is not None:
                                         return True
 
@@ -40904,8 +39966,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.p2mp_id is not None:
                                         return True
 
@@ -41001,8 +40061,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.lsm_id is not None:
                                         return True
 
@@ -41060,8 +40118,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_intf is not None:
                                         return True
 
@@ -41155,8 +40211,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dest_global_id is not None:
                                         return True
 
@@ -41220,8 +40274,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.gre_interface is not None:
                                         return True
 
@@ -41267,8 +40319,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.greipv6_interface is not None:
                                         return True
 
@@ -41330,8 +40380,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethernet_segment is not None:
                                         return True
 
@@ -41391,8 +40439,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.blb_intf is not None:
                                         return True
 
@@ -41449,8 +40495,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.blb_intf is not None:
                                         return True
 
@@ -41515,8 +40559,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None:
                                         return True
 
@@ -41608,8 +40650,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None:
                                         return True
 
@@ -41678,8 +40718,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.next_hop_set_id is not None:
                                         return True
 
@@ -41736,8 +40774,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.segment_id is not None:
                                         return True
 
@@ -41810,8 +40846,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.addr is not None:
                                         return True
 
@@ -41890,8 +40924,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.addr is not None:
                                         return True
 
@@ -41962,8 +40994,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.offset is not None:
                                         return True
 
@@ -42021,8 +41051,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.te_identifier is not None:
                                         return True
 
@@ -42048,8 +41076,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                                     return True
 
@@ -42181,8 +41207,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_data is not None:
                                     for child in self.label_data:
                                         if child is not None:
@@ -42207,8 +41231,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.label_context is not None and self.label_context._has_data():
                                 return True
 
@@ -42237,8 +41259,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rewrite_id is not None and self.rewrite_id._has_data():
                             return True
 
@@ -42393,8 +41413,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.elc is not None:
                                     return True
 
@@ -42454,8 +41472,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label is not None:
                                     return True
 
@@ -42536,8 +41552,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -42627,8 +41641,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -42686,8 +41698,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pwhe_list_id is not None:
                                     return True
 
@@ -42733,8 +41743,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_ifh is not None:
                                     return True
 
@@ -42757,8 +41765,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                 return True
 
@@ -42846,8 +41852,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -42882,8 +41886,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_owner is not None:
                             for child_ref in self.application_owner:
                                 if child_ref._has_data():
@@ -42942,8 +41944,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.table_id is not None:
                             return True
 
@@ -43000,8 +42000,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.table_id is not None:
                             return True
 
@@ -43104,8 +42102,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -43316,8 +42312,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path_flags_decode is not None:
                                         return True
 
@@ -43389,8 +42383,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out_label is not None:
                                         return True
 
@@ -43457,8 +42449,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path_flags_decode is not None:
                                         return True
 
@@ -43608,8 +42598,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_path_id is not None:
                                         return True
 
@@ -43760,8 +42748,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_path_id is not None:
                                         return True
 
@@ -43940,8 +42926,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_interface is not None:
                                         return True
 
@@ -44097,8 +43081,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bridge_id is not None:
                                         return True
 
@@ -44191,8 +43173,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out_interface is not None:
                                         return True
 
@@ -44323,8 +43303,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.control_word is not None:
                                         return True
 
@@ -44428,8 +43406,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.l2_interface is not None:
                                         return True
 
@@ -44620,8 +43596,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -44761,8 +43735,6 @@ class MplsLsd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.outgoing_label is not None:
                                                 return True
 
@@ -44788,8 +43760,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.label is not None:
                                             for child_ref in self.label:
                                                 if child_ref._has_data():
@@ -44825,8 +43795,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.inner_stack is not None and self.inner_stack._has_data():
                                         return True
 
@@ -44973,8 +43941,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -45102,8 +44068,6 @@ class MplsLsd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.outgoing_label is not None:
                                                 return True
 
@@ -45129,8 +44093,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.label is not None:
                                             for child_ref in self.label:
                                                 if child_ref._has_data():
@@ -45166,8 +44128,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.inner_stack is not None and self.inner_stack._has_data():
                                         return True
 
@@ -45258,8 +44218,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.flags_decode is not None:
                                         return True
 
@@ -45323,8 +44281,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -45347,8 +44303,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_data is not None and self.dmtc_data._has_data():
                                     return True
 
@@ -45413,8 +44367,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.moi is not None and self.moi._has_data():
                                 return True
 
@@ -45437,8 +44389,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_resource is not None and self.application_resource._has_data():
                             return True
 
@@ -45466,8 +44416,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.pw_list_id is not None:
                         return True
 
@@ -45535,8 +44483,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rewrite_pw is not None:
                     for child_ref in self.rewrite_pw:
                         if child_ref._has_data():
@@ -45863,8 +44809,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.elc is not None:
                                     return True
 
@@ -45922,8 +44866,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label is not None:
                                     return True
 
@@ -46002,8 +44944,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -46091,8 +45031,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -46148,8 +45086,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pwhe_list_id is not None:
                                     return True
 
@@ -46193,8 +45129,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_ifh is not None:
                                     return True
 
@@ -46215,8 +45149,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                 return True
 
@@ -46302,8 +45234,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -46336,8 +45266,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_owner is not None:
                             for child_ref in self.application_owner:
                                 if child_ref._has_data():
@@ -46692,8 +45620,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -46781,8 +45707,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -46886,8 +45810,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_srte is not None:
                                         return True
 
@@ -46965,8 +45887,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -47032,8 +45952,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -47091,8 +46009,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.security_id is not None:
                                         return True
 
@@ -47155,8 +46071,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_next_hop is not None:
                                         return True
 
@@ -47222,8 +46136,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_next_hop is not None:
                                         return True
 
@@ -47297,8 +46209,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -47383,8 +46293,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.edge_id is not None:
                                         return True
 
@@ -47448,8 +46356,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.parent_interface is not None:
                                         return True
 
@@ -47544,8 +46450,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.p2mp_id is not None:
                                         return True
 
@@ -47639,8 +46543,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.lsm_id is not None:
                                         return True
 
@@ -47696,8 +46598,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_intf is not None:
                                         return True
 
@@ -47789,8 +46689,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dest_global_id is not None:
                                         return True
 
@@ -47852,8 +46750,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.gre_interface is not None:
                                         return True
 
@@ -47897,8 +46793,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.greipv6_interface is not None:
                                         return True
 
@@ -47958,8 +46852,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethernet_segment is not None:
                                         return True
 
@@ -48017,8 +46909,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.blb_intf is not None:
                                         return True
 
@@ -48073,8 +46963,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.blb_intf is not None:
                                         return True
 
@@ -48137,8 +47025,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None:
                                         return True
 
@@ -48228,8 +47114,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None:
                                         return True
 
@@ -48296,8 +47180,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.next_hop_set_id is not None:
                                         return True
 
@@ -48352,8 +47234,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.segment_id is not None:
                                         return True
 
@@ -48424,8 +47304,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.addr is not None:
                                         return True
 
@@ -48502,8 +47380,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.addr is not None:
                                         return True
 
@@ -48572,8 +47448,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.offset is not None:
                                         return True
 
@@ -48629,8 +47503,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.te_identifier is not None:
                                         return True
 
@@ -48654,8 +47526,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                                     return True
 
@@ -48785,8 +47655,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_data is not None:
                                     for child in self.label_data:
                                         if child is not None:
@@ -48809,8 +47677,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.label_context is not None and self.label_context._has_data():
                                 return True
 
@@ -48837,8 +47703,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rewrite_id is not None and self.rewrite_id._has_data():
                             return True
 
@@ -48991,8 +47855,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.elc is not None:
                                     return True
 
@@ -49050,8 +47912,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label is not None:
                                     return True
 
@@ -49130,8 +47990,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -49219,8 +48077,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -49276,8 +48132,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pwhe_list_id is not None:
                                     return True
 
@@ -49321,8 +48175,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_ifh is not None:
                                     return True
 
@@ -49343,8 +48195,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                 return True
 
@@ -49430,8 +48280,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -49464,8 +48312,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_owner is not None:
                             for child_ref in self.application_owner:
                                 if child_ref._has_data():
@@ -49522,8 +48368,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.table_id is not None:
                             return True
 
@@ -49578,8 +48422,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.table_id is not None:
                             return True
 
@@ -49680,8 +48522,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -49890,8 +48730,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path_flags_decode is not None:
                                         return True
 
@@ -49961,8 +48799,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out_label is not None:
                                         return True
 
@@ -50027,8 +48863,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path_flags_decode is not None:
                                         return True
 
@@ -50176,8 +49010,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_path_id is not None:
                                         return True
 
@@ -50326,8 +49158,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_path_id is not None:
                                         return True
 
@@ -50504,8 +49334,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_interface is not None:
                                         return True
 
@@ -50659,8 +49487,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bridge_id is not None:
                                         return True
 
@@ -50751,8 +49577,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out_interface is not None:
                                         return True
 
@@ -50881,8 +49705,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.control_word is not None:
                                         return True
 
@@ -50984,8 +49806,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.l2_interface is not None:
                                         return True
 
@@ -51174,8 +49994,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -51313,8 +50131,6 @@ class MplsLsd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.outgoing_label is not None:
                                                 return True
 
@@ -51338,8 +50154,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.label is not None:
                                             for child_ref in self.label:
                                                 if child_ref._has_data():
@@ -51373,8 +50187,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.inner_stack is not None and self.inner_stack._has_data():
                                         return True
 
@@ -51519,8 +50331,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -51646,8 +50456,6 @@ class MplsLsd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.outgoing_label is not None:
                                                 return True
 
@@ -51671,8 +50479,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.label is not None:
                                             for child_ref in self.label:
                                                 if child_ref._has_data():
@@ -51706,8 +50512,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.inner_stack is not None and self.inner_stack._has_data():
                                         return True
 
@@ -51796,8 +50600,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.flags_decode is not None:
                                         return True
 
@@ -51859,8 +50661,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -51881,8 +50681,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_data is not None and self.dmtc_data._has_data():
                                     return True
 
@@ -51945,8 +50743,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.moi is not None and self.moi._has_data():
                                 return True
 
@@ -51967,8 +50763,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_resource is not None and self.application_resource._has_data():
                             return True
 
@@ -51994,8 +50788,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.associated_fpi is not None:
                         for child_ref in self.associated_fpi:
                             if child_ref._has_data():
@@ -52072,8 +50864,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rewrite_ipv4 is not None:
                     for child_ref in self.rewrite_ipv4:
                         if child_ref._has_data():
@@ -52378,8 +51168,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.elc is not None:
                                     return True
 
@@ -52439,8 +51227,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label is not None:
                                     return True
 
@@ -52521,8 +51307,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -52612,8 +51396,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -52671,8 +51453,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pwhe_list_id is not None:
                                     return True
 
@@ -52718,8 +51498,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_ifh is not None:
                                     return True
 
@@ -52742,8 +51520,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                 return True
 
@@ -52831,8 +51607,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -52867,8 +51641,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_owner is not None:
                             for child_ref in self.application_owner:
                                 if child_ref._has_data():
@@ -53225,8 +51997,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -53316,8 +52086,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -53423,8 +52191,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_srte is not None:
                                         return True
 
@@ -53504,8 +52270,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -53573,8 +52337,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -53634,8 +52396,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.security_id is not None:
                                         return True
 
@@ -53700,8 +52460,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_next_hop is not None:
                                         return True
 
@@ -53769,8 +52527,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_next_hop is not None:
                                         return True
 
@@ -53846,8 +52602,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -53934,8 +52688,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.edge_id is not None:
                                         return True
 
@@ -54001,8 +52753,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.parent_interface is not None:
                                         return True
 
@@ -54099,8 +52849,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.p2mp_id is not None:
                                         return True
 
@@ -54196,8 +52944,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.lsm_id is not None:
                                         return True
 
@@ -54255,8 +53001,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_intf is not None:
                                         return True
 
@@ -54350,8 +53094,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dest_global_id is not None:
                                         return True
 
@@ -54415,8 +53157,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.gre_interface is not None:
                                         return True
 
@@ -54462,8 +53202,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.greipv6_interface is not None:
                                         return True
 
@@ -54525,8 +53263,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethernet_segment is not None:
                                         return True
 
@@ -54586,8 +53322,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.blb_intf is not None:
                                         return True
 
@@ -54644,8 +53378,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.blb_intf is not None:
                                         return True
 
@@ -54710,8 +53442,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None:
                                         return True
 
@@ -54803,8 +53533,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None:
                                         return True
 
@@ -54873,8 +53601,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.next_hop_set_id is not None:
                                         return True
 
@@ -54931,8 +53657,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.segment_id is not None:
                                         return True
 
@@ -55005,8 +53729,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.addr is not None:
                                         return True
 
@@ -55085,8 +53807,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.addr is not None:
                                         return True
 
@@ -55157,8 +53877,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.offset is not None:
                                         return True
 
@@ -55216,8 +53934,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.te_identifier is not None:
                                         return True
 
@@ -55243,8 +53959,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                                     return True
 
@@ -55376,8 +54090,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_data is not None:
                                     for child in self.label_data:
                                         if child is not None:
@@ -55402,8 +54114,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.label_context is not None and self.label_context._has_data():
                                 return True
 
@@ -55432,8 +54142,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rewrite_id is not None and self.rewrite_id._has_data():
                             return True
 
@@ -55588,8 +54296,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.elc is not None:
                                     return True
 
@@ -55649,8 +54355,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label is not None:
                                     return True
 
@@ -55731,8 +54435,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -55822,8 +54524,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -55881,8 +54581,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pwhe_list_id is not None:
                                     return True
 
@@ -55928,8 +54626,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_ifh is not None:
                                     return True
 
@@ -55952,8 +54648,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                 return True
 
@@ -56041,8 +54735,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -56077,8 +54769,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_owner is not None:
                             for child_ref in self.application_owner:
                                 if child_ref._has_data():
@@ -56137,8 +54827,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.table_id is not None:
                             return True
 
@@ -56195,8 +54883,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.table_id is not None:
                             return True
 
@@ -56299,8 +54985,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -56511,8 +55195,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path_flags_decode is not None:
                                         return True
 
@@ -56584,8 +55266,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out_label is not None:
                                         return True
 
@@ -56652,8 +55332,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path_flags_decode is not None:
                                         return True
 
@@ -56803,8 +55481,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_path_id is not None:
                                         return True
 
@@ -56955,8 +55631,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_path_id is not None:
                                         return True
 
@@ -57135,8 +55809,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_interface is not None:
                                         return True
 
@@ -57292,8 +55964,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bridge_id is not None:
                                         return True
 
@@ -57386,8 +56056,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out_interface is not None:
                                         return True
 
@@ -57518,8 +56186,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.control_word is not None:
                                         return True
 
@@ -57623,8 +56289,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.l2_interface is not None:
                                         return True
 
@@ -57815,8 +56479,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -57956,8 +56618,6 @@ class MplsLsd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.outgoing_label is not None:
                                                 return True
 
@@ -57983,8 +56643,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.label is not None:
                                             for child_ref in self.label:
                                                 if child_ref._has_data():
@@ -58020,8 +56678,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.inner_stack is not None and self.inner_stack._has_data():
                                         return True
 
@@ -58168,8 +56824,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -58297,8 +56951,6 @@ class MplsLsd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.outgoing_label is not None:
                                                 return True
 
@@ -58324,8 +56976,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.label is not None:
                                             for child_ref in self.label:
                                                 if child_ref._has_data():
@@ -58361,8 +57011,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.inner_stack is not None and self.inner_stack._has_data():
                                         return True
 
@@ -58453,8 +57101,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.flags_decode is not None:
                                         return True
 
@@ -58518,8 +57164,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -58542,8 +57186,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_data is not None and self.dmtc_data._has_data():
                                     return True
 
@@ -58608,8 +57250,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.moi is not None and self.moi._has_data():
                                 return True
 
@@ -58632,8 +57272,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_resource is not None and self.application_resource._has_data():
                             return True
 
@@ -58661,8 +57299,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -58730,8 +57366,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rewrite_te is not None:
                     for child_ref in self.rewrite_te:
                         if child_ref._has_data():
@@ -59036,8 +57670,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.elc is not None:
                                     return True
 
@@ -59097,8 +57729,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label is not None:
                                     return True
 
@@ -59179,8 +57809,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -59270,8 +57898,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -59329,8 +57955,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pwhe_list_id is not None:
                                     return True
 
@@ -59376,8 +58000,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_ifh is not None:
                                     return True
 
@@ -59400,8 +58022,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                 return True
 
@@ -59489,8 +58109,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -59525,8 +58143,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_owner is not None:
                             for child_ref in self.application_owner:
                                 if child_ref._has_data():
@@ -59883,8 +58499,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -59974,8 +58588,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -60081,8 +58693,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_srte is not None:
                                         return True
 
@@ -60162,8 +58772,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -60231,8 +58839,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -60292,8 +58898,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.security_id is not None:
                                         return True
 
@@ -60358,8 +58962,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_next_hop is not None:
                                         return True
 
@@ -60427,8 +59029,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_next_hop is not None:
                                         return True
 
@@ -60504,8 +59104,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None:
                                         return True
 
@@ -60592,8 +59190,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.edge_id is not None:
                                         return True
 
@@ -60659,8 +59255,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.parent_interface is not None:
                                         return True
 
@@ -60757,8 +59351,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.p2mp_id is not None:
                                         return True
 
@@ -60854,8 +59446,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.lsm_id is not None:
                                         return True
 
@@ -60913,8 +59503,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pwhe_intf is not None:
                                         return True
 
@@ -61008,8 +59596,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dest_global_id is not None:
                                         return True
 
@@ -61073,8 +59659,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.gre_interface is not None:
                                         return True
 
@@ -61120,8 +59704,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.greipv6_interface is not None:
                                         return True
 
@@ -61183,8 +59765,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ethernet_segment is not None:
                                         return True
 
@@ -61244,8 +59824,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.blb_intf is not None:
                                         return True
 
@@ -61302,8 +59880,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.blb_intf is not None:
                                         return True
 
@@ -61368,8 +59944,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None:
                                         return True
 
@@ -61461,8 +60035,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.head is not None:
                                         return True
 
@@ -61531,8 +60103,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.next_hop_set_id is not None:
                                         return True
 
@@ -61589,8 +60159,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.segment_id is not None:
                                         return True
 
@@ -61663,8 +60231,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.addr is not None:
                                         return True
 
@@ -61743,8 +60309,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.addr is not None:
                                         return True
 
@@ -61815,8 +60379,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.offset is not None:
                                         return True
 
@@ -61874,8 +60436,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.te_identifier is not None:
                                         return True
 
@@ -61901,8 +60461,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cev4l3vpn_data is not None and self.cev4l3vpn_data._has_data():
                                     return True
 
@@ -62034,8 +60592,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.label_data is not None:
                                     for child in self.label_data:
                                         if child is not None:
@@ -62060,8 +60616,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.label_context is not None and self.label_context._has_data():
                                 return True
 
@@ -62090,8 +60644,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rewrite_id is not None and self.rewrite_id._has_data():
                             return True
 
@@ -62246,8 +60798,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.elc is not None:
                                     return True
 
@@ -62307,8 +60857,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_label is not None:
                                     return True
 
@@ -62389,8 +60937,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -62480,8 +61026,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -62539,8 +61083,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pwhe_list_id is not None:
                                     return True
 
@@ -62586,8 +61128,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_ext_ifh is not None:
                                     return True
 
@@ -62610,8 +61150,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dmtc_ext_intf_data is not None and self.dmtc_ext_intf_data._has_data():
                                 return True
 
@@ -62699,8 +61237,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -62735,8 +61271,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_owner is not None:
                             for child_ref in self.application_owner:
                                 if child_ref._has_data():
@@ -62795,8 +61329,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.table_id is not None:
                             return True
 
@@ -62853,8 +61385,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.table_id is not None:
                             return True
 
@@ -62957,8 +61487,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.application_instance is not None:
                                 return True
 
@@ -63169,8 +61697,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path_flags_decode is not None:
                                         return True
 
@@ -63242,8 +61768,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out_label is not None:
                                         return True
 
@@ -63310,8 +61834,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.path_flags_decode is not None:
                                         return True
 
@@ -63461,8 +61983,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_path_id is not None:
                                         return True
 
@@ -63613,8 +62133,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_path_id is not None:
                                         return True
 
@@ -63793,8 +62311,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.backup_interface is not None:
                                         return True
 
@@ -63950,8 +62466,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bridge_id is not None:
                                         return True
 
@@ -64044,8 +62558,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.out_interface is not None:
                                         return True
 
@@ -64176,8 +62688,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.control_word is not None:
                                         return True
 
@@ -64281,8 +62791,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.l2_interface is not None:
                                         return True
 
@@ -64473,8 +62981,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -64614,8 +63120,6 @@ class MplsLsd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.outgoing_label is not None:
                                                 return True
 
@@ -64641,8 +63145,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.label is not None:
                                             for child_ref in self.label:
                                                 if child_ref._has_data():
@@ -64678,8 +63180,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.inner_stack is not None and self.inner_stack._has_data():
                                         return True
 
@@ -64826,8 +63326,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_path_id is not None:
                                             return True
 
@@ -64955,8 +63453,6 @@ class MplsLsd(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.outgoing_label is not None:
                                                 return True
 
@@ -64982,8 +63478,6 @@ class MplsLsd(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.label is not None:
                                             for child_ref in self.label:
                                                 if child_ref._has_data():
@@ -65019,8 +63513,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.inner_stack is not None and self.inner_stack._has_data():
                                         return True
 
@@ -65111,8 +63603,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.flags_decode is not None:
                                         return True
 
@@ -65176,8 +63666,6 @@ class MplsLsd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dmtc_ext_ifh is not None:
                                         return True
 
@@ -65200,8 +63688,6 @@ class MplsLsd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dmtc_data is not None and self.dmtc_data._has_data():
                                     return True
 
@@ -65266,8 +63752,6 @@ class MplsLsd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.moi is not None and self.moi._has_data():
                                 return True
 
@@ -65290,8 +63774,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.application_resource is not None and self.application_resource._has_data():
                             return True
 
@@ -65319,8 +63801,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.label_id is not None:
                         return True
 
@@ -65388,8 +63868,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rewrite_label is not None:
                     for child_ref in self.rewrite_label:
                         if child_ref._has_data():
@@ -65412,8 +63890,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rewrite_ipv4s is not None and self.rewrite_ipv4s._has_data():
                 return True
 
@@ -65677,8 +64153,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.total_backup_paths is not None:
                     return True
 
@@ -65766,8 +64240,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.total_backup_paths is not None:
                     return True
 
@@ -65800,8 +64272,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4_paths is not None and self.ipv4_paths._has_data():
                 return True
 
@@ -66168,8 +64638,6 @@ class MplsLsd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.error_msg_count is not None:
                             return True
 
@@ -66201,8 +64669,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.connect_count is not None:
                         return True
 
@@ -66244,8 +64710,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.application_name is not None:
                     return True
 
@@ -66314,8 +64778,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.application is not None:
                 for child_ref in self.application:
                     if child_ref._has_data():
@@ -66465,8 +64927,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.application_instance is not None:
                         return True
 
@@ -66501,8 +64961,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -66537,8 +64995,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.label_summary_vrf is not None:
                 for child_ref in self.label_summary_vrf:
                     if child_ref._has_data():
@@ -66608,8 +65064,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.max_dynamic_label_value is not None:
                 return True
 
@@ -66906,8 +65360,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.total_backup_paths is not None:
                         return True
 
@@ -66997,8 +65449,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.total_backup_paths is not None:
                         return True
 
@@ -67033,8 +65483,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -67118,8 +65566,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rewrite_summary_vrf is not None:
                 for child_ref in self.rewrite_summary_vrf:
                     if child_ref._has_data():
@@ -67259,8 +65705,6 @@ class MplsLsd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.application_instance is not None:
                         return True
 
@@ -67295,8 +65739,6 @@ class MplsLsd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -67328,8 +65770,6 @@ class MplsLsd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -67352,8 +65792,6 @@ class MplsLsd(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.applications is not None and self.applications._has_data():
             return True
 

@@ -46,13 +46,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('af', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Address Family
                 ''',
                 'af',
                 'Cisco-IOS-XR-segment-routing-ms-cfg', True),
             _MetaInfoClassMember('ip', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IP prefix
                 ''',
                 'ip',

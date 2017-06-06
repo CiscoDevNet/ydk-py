@@ -207,8 +207,6 @@ class TracerouteRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination is not None:
                     return True
 
@@ -359,8 +357,6 @@ class TracerouteRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination is not None:
                     return True
 
@@ -519,8 +515,6 @@ class TracerouteRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination is not None:
                     return True
 
@@ -576,8 +570,6 @@ class TracerouteRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.destination is not None and self.destination._has_data():
                 return True
 
@@ -788,8 +780,6 @@ class TracerouteRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.probe_index is not None:
                                 return True
 
@@ -826,8 +816,6 @@ class TracerouteRpc(object):
                         return self.parent.is_config()
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.hop_index is not None:
                             return True
 
@@ -861,8 +849,6 @@ class TracerouteRpc(object):
                     return self.parent.is_config()
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination is not None:
                         return True
 
@@ -1024,8 +1010,6 @@ class TracerouteRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.probe_index is not None:
                                 return True
 
@@ -1062,8 +1046,6 @@ class TracerouteRpc(object):
                         return self.parent.is_config()
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.hop_index is not None:
                             return True
 
@@ -1097,8 +1079,6 @@ class TracerouteRpc(object):
                     return self.parent.is_config()
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination is not None:
                         return True
 
@@ -1129,8 +1109,6 @@ class TracerouteRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4 is not None and self.ipv4._has_data():
                     return True
 
@@ -1156,8 +1134,6 @@ class TracerouteRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.traceroute_response is not None and self.traceroute_response._has_data():
                 return True
 
@@ -1178,8 +1154,6 @@ class TracerouteRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 

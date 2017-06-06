@@ -193,8 +193,6 @@ class XrXml(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.timeout is not None:
                         return True
 
@@ -250,8 +248,6 @@ class XrXml(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.memory is not None:
                         return True
 
@@ -353,8 +349,6 @@ class XrXml(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_name is not None:
                             return True
 
@@ -387,8 +381,6 @@ class XrXml(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
@@ -411,8 +403,6 @@ class XrXml(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -536,8 +526,6 @@ class XrXml(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.timeout is not None:
                         return True
 
@@ -593,8 +581,6 @@ class XrXml(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.memory is not None:
                         return True
 
@@ -618,8 +604,6 @@ class XrXml(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -741,8 +725,6 @@ class XrXml(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.timeout is not None:
                         return True
 
@@ -798,8 +780,6 @@ class XrXml(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.memory is not None:
                         return True
 
@@ -901,8 +881,6 @@ class XrXml(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_name is not None:
                             return True
 
@@ -935,8 +913,6 @@ class XrXml(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
@@ -959,8 +935,6 @@ class XrXml(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -996,8 +970,6 @@ class XrXml(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.default is not None and self.default._has_data():
                 return True
 
@@ -1024,8 +996,6 @@ class XrXml(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.agent is not None and self.agent._has_data():
             return True
 
@@ -1171,8 +1141,6 @@ class Netconf(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.memory is not None:
                         return True
 
@@ -1224,8 +1192,6 @@ class Netconf(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.timeout is not None:
                         return True
 
@@ -1246,8 +1212,6 @@ class Netconf(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -1274,8 +1238,6 @@ class Netconf(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tty is not None and self.tty._has_data():
                 return True
 
@@ -1296,8 +1258,6 @@ class Netconf(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.agent is not None and self.agent._has_data():
             return True
 

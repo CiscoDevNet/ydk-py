@@ -26,6 +26,43 @@ _meta_table = {
             'dot1ad-dot1q':'dot1ad_dot1q',
             'dot1ad-any':'dot1ad_any',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
+    'EfpTagPriorityEnum' : _MetaInfoEnum('EfpTagPriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
+        {
+            'priority0':'priority0',
+            'priority1':'priority1',
+            'priority2':'priority2',
+            'priority3':'priority3',
+            'priority4':'priority4',
+            'priority5':'priority5',
+            'priority6':'priority6',
+            'priority7':'priority7',
+            'priority-any':'priority_any',
+        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
+    'EthFilteringEnum' : _MetaInfoEnum('EthFilteringEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
+        {
+            'no-filtering':'no_filtering',
+            'dot1q-filtering':'dot1q_filtering',
+            'dot1ad-filtering':'dot1ad_filtering',
+            'two-port-mac-relay-filtering':'two_port_mac_relay_filtering',
+        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
+    'EfpPayloadEtypeEnum' : _MetaInfoEnum('EfpPayloadEtypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
+        {
+            'payload-ethertype-any':'payload_ethertype_any',
+            'payload-ethertype-ip':'payload_ethertype_ip',
+            'payload-ethertype-pppoe':'payload_ethertype_pppoe',
+        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
+    'EfpTagEtypeEnum' : _MetaInfoEnum('EfpTagEtypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
+        {
+            'untagged':'untagged',
+            'dot1q':'dot1q',
+            'dot1ad':'dot1ad',
+        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
+    'VlanQinqOuterEtypeEnum' : _MetaInfoEnum('VlanQinqOuterEtypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
+        {
+            'ether-type8100':'ether_type8100',
+            'ether-type9100':'ether_type9100',
+            'ether-type9200':'ether_type9200',
+        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
     'EthCapsUcastMacModeEnum' : _MetaInfoEnum('EthCapsUcastMacModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'reserved':'reserved',
@@ -53,47 +90,10 @@ _meta_table = {
             'im-state-unknown':'im_state_unknown',
             'im-state-last':'im_state_last',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'EfpTagPriorityEnum' : _MetaInfoEnum('EfpTagPriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
-        {
-            'priority0':'priority0',
-            'priority1':'priority1',
-            'priority2':'priority2',
-            'priority3':'priority3',
-            'priority4':'priority4',
-            'priority5':'priority5',
-            'priority6':'priority6',
-            'priority7':'priority7',
-            'priority-any':'priority_any',
-        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'EfpTagEtypeEnum' : _MetaInfoEnum('EfpTagEtypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
-        {
-            'untagged':'untagged',
-            'dot1q':'dot1q',
-            'dot1ad':'dot1ad',
-        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
     'VlanServiceEnum' : _MetaInfoEnum('VlanServiceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
         {
             'vlan-service-l2':'vlan_service_l2',
             'vlan-service-l3':'vlan_service_l3',
-        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'EfpPayloadEtypeEnum' : _MetaInfoEnum('EfpPayloadEtypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
-        {
-            'payload-ethertype-any':'payload_ethertype_any',
-            'payload-ethertype-ip':'payload_ethertype_ip',
-            'payload-ethertype-pppoe':'payload_ethertype_pppoe',
-        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'VlanQinqOuterEtypeEnum' : _MetaInfoEnum('VlanQinqOuterEtypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
-        {
-            'ether-type8100':'ether_type8100',
-            'ether-type9100':'ether_type9100',
-            'ether-type9200':'ether_type9200',
-        }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
-    'EthFilteringEnum' : _MetaInfoEnum('EthFilteringEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper',
-        {
-            'no-filtering':'no_filtering',
-            'dot1q-filtering':'dot1q_filtering',
-            'dot1ad-filtering':'dot1ad_filtering',
-            'two-port-mac-relay-filtering':'two_port_mac_relay_filtering',
         }, 'Cisco-IOS-XR-l2-eth-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-oper']),
     'MacAccounting.Interfaces.Interface.State' : {
         'meta_info' : _MetaInfoClass('MacAccounting.Interfaces.Interface.State',
@@ -147,7 +147,7 @@ _meta_table = {
                 'bytes',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                48bit MAC address
                 ''',
                 'mac_address',
@@ -176,7 +176,7 @@ _meta_table = {
                 'bytes',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                48bit MAC address
                 ''',
                 'mac_address',
@@ -199,7 +199,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface_name',
@@ -431,7 +431,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface',
@@ -443,7 +443,7 @@ _meta_table = {
                 'dot1ad_count',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_xr',
@@ -486,7 +486,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('untagged-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface/Sub-interface handling untagged frames
                 ''',
                 'untagged_interface',
@@ -659,7 +659,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-mac-match', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                The destination MAC address to match on ingress
                 ''',
                 'destination_mac_match',
@@ -704,7 +704,7 @@ _meta_table = {
                 'pushe',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('source-mac-match', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                The source MAC address to match on ingress
                 ''',
                 'source_mac_match',
@@ -827,7 +827,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface',
@@ -839,7 +839,7 @@ _meta_table = {
                 'encapsulation_details',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_xr',
@@ -851,7 +851,7 @@ _meta_table = {
                 'mtu',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
@@ -1042,7 +1042,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-mac-match', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                The destination MAC address to match on ingress
                 ''',
                 'destination_mac_match',
@@ -1087,7 +1087,7 @@ _meta_table = {
                 'pushe',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('source-mac-match', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                The source MAC address to match on ingress
                 ''',
                 'source_mac_match',
@@ -1222,13 +1222,13 @@ _meta_table = {
                 'first_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_xr',
@@ -1240,7 +1240,7 @@ _meta_table = {
                 'mtu',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
@@ -1312,7 +1312,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The identifier for the node
                 ''',
                 'node_id',
@@ -1382,7 +1382,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address',
@@ -1405,7 +1405,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface_name',
@@ -1446,7 +1446,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The identifier for the node
                 ''',
                 'node_name',

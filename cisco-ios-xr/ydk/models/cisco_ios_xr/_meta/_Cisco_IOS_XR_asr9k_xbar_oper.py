@@ -18,7 +18,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('asic-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Asic ID
                 ''',
                 'asic_id',
@@ -258,7 +258,7 @@ _meta_table = {
                 'packet_crc_error_count_low',
                 'Cisco-IOS-XR-asr9k-xbar-oper', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Port
                 ''',
                 'port',
@@ -1738,7 +1738,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('asic-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Asic ID
                 ''',
                 'asic_id',
@@ -1810,7 +1810,7 @@ _meta_table = {
                 'pi_uc_stats',
                 'Cisco-IOS-XR-asr9k-xbar-oper', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Port
                 ''',
                 'port',
@@ -1886,7 +1886,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',

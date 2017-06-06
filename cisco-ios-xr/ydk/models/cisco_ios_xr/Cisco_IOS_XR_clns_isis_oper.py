@@ -2837,8 +2837,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -3066,8 +3064,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -3161,8 +3157,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -3199,8 +3193,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
                                         return True
 
@@ -3323,8 +3315,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -3418,8 +3408,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -3456,8 +3444,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
                                         return True
 
@@ -3486,8 +3472,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adjacency_sid is not None and self.adjacency_sid._has_data():
                                     return True
 
@@ -3692,8 +3676,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -3787,8 +3769,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -3825,8 +3805,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
                                         return True
 
@@ -3949,8 +3927,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -4044,8 +4020,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup_interface is not None:
                                             return True
 
@@ -4082,8 +4056,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
                                         return True
 
@@ -4112,8 +4084,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adjacency_sid is not None and self.adjacency_sid._has_data():
                                     return True
 
@@ -4157,8 +4127,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -4187,8 +4155,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -4262,8 +4228,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor is not None:
                         for child_ref in self.neighbor:
                             if child_ref._has_data():
@@ -4354,8 +4318,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.system_id is not None:
                             return True
 
@@ -4387,8 +4349,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.host_name is not None:
                         for child_ref in self.host_name:
                             if child_ref._has_data():
@@ -4733,8 +4693,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nano_seconds is not None:
                                 return True
 
@@ -4795,8 +4753,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nano_seconds is not None:
                                 return True
 
@@ -4857,8 +4813,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nano_seconds is not None:
                                 return True
 
@@ -4919,8 +4873,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nano_seconds is not None:
                                 return True
 
@@ -4981,8 +4933,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nano_seconds is not None:
                                 return True
 
@@ -5043,8 +4993,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nano_seconds is not None:
                                 return True
 
@@ -5105,8 +5053,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nano_seconds is not None:
                                 return True
 
@@ -5167,8 +5113,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nano_seconds is not None:
                                 return True
 
@@ -5194,8 +5138,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.avg_csnp_process_time is not None and self.avg_csnp_process_time._has_data():
                             return True
 
@@ -5369,8 +5311,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.system_lsp_build_count is not None:
                                 return True
 
@@ -5464,8 +5404,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -5552,8 +5490,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ispf_run_count is not None:
                                     return True
 
@@ -5588,8 +5524,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.id is not None and self.id._has_data():
                                 return True
 
@@ -5615,8 +5549,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -5647,8 +5579,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.per_area_data is not None:
                         for child_ref in self.per_area_data:
                             if child_ref._has_data():
@@ -5912,8 +5842,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.nano_seconds is not None:
                                             return True
 
@@ -5939,8 +5867,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.timestamp is not None and self.timestamp._has_data():
                                         return True
 
@@ -6030,8 +5956,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_name is not None:
                                             return True
 
@@ -6063,8 +5987,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.change is not None:
                                         return True
 
@@ -6090,8 +6012,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adj_log_neighbor_system_id is not None:
                                     return True
 
@@ -6134,8 +6054,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.log_entry is not None:
                                 for child_ref in self.log_entry:
                                     if child_ref._has_data():
@@ -6280,8 +6198,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.active_lsp_count is not None:
                                             return True
 
@@ -6338,8 +6254,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.active_lsp_count is not None:
                                             return True
 
@@ -6365,8 +6279,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pseudo_node_lsp_count is not None and self.pseudo_node_lsp_count._has_data():
                                         return True
 
@@ -6467,8 +6379,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_name is not None:
                                             return True
 
@@ -6532,8 +6442,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.active_lsp_count is not None:
                                             return True
 
@@ -6591,8 +6499,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.active_lsp_count is not None:
                                             return True
 
@@ -6618,8 +6524,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.attached_lsp_count is not None and self.attached_lsp_count._has_data():
                                         return True
 
@@ -6648,8 +6552,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.node_counters is not None and self.node_counters._has_data():
                                     return True
 
@@ -6759,8 +6661,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.active_lsp_count is not None:
                                             return True
 
@@ -6817,8 +6717,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.active_lsp_count is not None:
                                             return True
 
@@ -6844,8 +6742,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pseudo_node_lsp_count is not None and self.pseudo_node_lsp_count._has_data():
                                         return True
 
@@ -6871,8 +6767,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.node_counters is not None and self.node_counters._has_data():
                                     return True
 
@@ -6895,8 +6789,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.all_fragment_lsp_stats is not None and self.all_fragment_lsp_stats._has_data():
                                 return True
 
@@ -7247,8 +7139,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_name is not None:
                                             return True
 
@@ -7280,8 +7170,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.id is not None and self.id._has_data():
                                         return True
 
@@ -7506,8 +7394,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.backup_interface is not None:
                                                     return True
 
@@ -7601,8 +7487,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.backup_interface is not None:
                                                     return True
 
@@ -7639,8 +7523,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
                                                 return True
 
@@ -7763,8 +7645,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.backup_interface is not None:
                                                     return True
 
@@ -7858,8 +7738,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.backup_interface is not None:
                                                     return True
 
@@ -7896,8 +7774,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
                                                 return True
 
@@ -7926,8 +7802,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.adjacency_sid is not None and self.adjacency_sid._has_data():
                                             return True
 
@@ -8132,8 +8006,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.backup_interface is not None:
                                                     return True
 
@@ -8227,8 +8099,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.backup_interface is not None:
                                                     return True
 
@@ -8265,8 +8135,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
                                                 return True
 
@@ -8389,8 +8257,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.backup_interface is not None:
                                                     return True
 
@@ -8484,8 +8350,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.backup_interface is not None:
                                                     return True
 
@@ -8522,8 +8386,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adjacency_sid_backup is not None and self.adjacency_sid_backup._has_data():
                                                 return True
 
@@ -8552,8 +8414,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.adjacency_sid is not None and self.adjacency_sid._has_data():
                                             return True
 
@@ -8597,8 +8457,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -8627,8 +8485,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adj_ipv4bfd_retry_count is not None:
                                     return True
 
@@ -8741,8 +8597,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.adjacency is not None:
                                 for child_ref in self.adjacency:
                                     if child_ref._has_data():
@@ -8931,8 +8785,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_lsp_flag is not None:
                                         return True
 
@@ -8990,8 +8842,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lsp_id is not None:
                                     return True
 
@@ -9020,8 +8870,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detailed_lsp is not None:
                                 for child_ref in self.detailed_lsp:
                                     if child_ref._has_data():
@@ -9208,8 +9056,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_lsp_flag is not None:
                                         return True
 
@@ -9267,8 +9113,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.lsp_id is not None:
                                     return True
 
@@ -9297,8 +9141,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsp is not None:
                                 for child_ref in self.lsp:
                                     if child_ref._has_data():
@@ -9465,8 +9307,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.nano_seconds is not None:
                                             return True
 
@@ -9492,8 +9332,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.timestamp is not None and self.timestamp._has_data():
                                         return True
 
@@ -9516,8 +9354,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.delayed_trigger_count is not None:
                                     return True
 
@@ -9557,8 +9393,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.log_entry is not None:
                                 for child_ref in self.log_entry:
                                     if child_ref._has_data():
@@ -9705,8 +9539,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.nano_seconds is not None:
                                             return True
 
@@ -9732,8 +9564,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.timestamp is not None and self.timestamp._has_data():
                                         return True
 
@@ -9858,8 +9688,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_lsp_flag is not None:
                                         return True
 
@@ -10016,8 +9844,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_lsp_flag is not None:
                                         return True
 
@@ -10073,8 +9899,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.generic_data is not None and self.generic_data._has_data():
                                     return True
 
@@ -10106,8 +9930,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.log_entry is not None:
                                 for child_ref in self.log_entry:
                                     if child_ref._has_data():
@@ -10134,8 +9956,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -10179,8 +9999,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.level is not None:
                         for child_ref in self.level:
                             if child_ref._has_data():
@@ -10426,8 +10244,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.critical is not None:
                                         return True
 
@@ -10507,8 +10323,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.critical is not None:
                                         return True
 
@@ -10587,8 +10401,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.critical is not None:
                                         return True
 
@@ -10620,8 +10432,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.all_paths_protected is not None and self.all_paths_protected._has_data():
                                     return True
 
@@ -10734,8 +10544,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.critical is not None:
                                         return True
 
@@ -10815,8 +10623,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.critical is not None:
                                         return True
 
@@ -10895,8 +10701,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.critical is not None:
                                         return True
 
@@ -10928,8 +10732,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.all_paths_protected is not None and self.all_paths_protected._has_data():
                                     return True
 
@@ -11005,8 +10807,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.critical is not None:
                                     return True
 
@@ -11038,8 +10838,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.level1_prefixes is not None and self.level1_prefixes._has_data():
                                 return True
 
@@ -11266,8 +11064,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.pce_address_ipv4 is not None:
                                             return True
 
@@ -11478,8 +11274,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.te_sub_tlv_length is not None:
                                                 return True
 
@@ -11508,8 +11302,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.link_type is not None:
                                             return True
 
@@ -11582,8 +11374,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.te_adv is not None:
                                         for child_ref in self.te_adv:
                                             if child_ref._has_data():
@@ -11754,8 +11544,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nano_seconds is not None:
                                                     return True
 
@@ -11781,8 +11569,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.timestamp is not None and self.timestamp._has_data():
                                                 return True
 
@@ -11805,8 +11591,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.generic_data is not None and self.generic_data._has_data():
                                             return True
 
@@ -11841,8 +11625,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.log_entry is not None:
                                         for child_ref in self.log_entry:
                                             if child_ref._has_data():
@@ -12025,8 +11807,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nano_seconds is not None:
                                                     return True
 
@@ -12052,8 +11832,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.timestamp is not None and self.timestamp._has_data():
                                                 return True
 
@@ -12217,8 +11995,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.prefix is not None:
                                                         return True
 
@@ -12275,8 +12051,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.prefix is not None:
                                                         return True
 
@@ -12302,8 +12076,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.af_name is not None:
                                                     return True
 
@@ -12332,8 +12104,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.first_trigger_lsp_id is not None:
                                                 return True
 
@@ -12443,8 +12213,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.cpu_duration is not None:
                                                     return True
 
@@ -12533,8 +12301,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.added is not None:
                                                     return True
 
@@ -12572,8 +12338,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None and self.duration._has_data():
                                                 return True
 
@@ -12691,8 +12455,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.cpu_duration is not None:
                                                     return True
 
@@ -12833,8 +12595,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -12895,8 +12655,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -12957,8 +12715,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13019,8 +12775,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13046,8 +12800,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None and self.critical._has_data():
                                                         return True
 
@@ -13158,8 +12910,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13220,8 +12970,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13282,8 +13030,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13344,8 +13090,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13371,8 +13115,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None and self.critical._has_data():
                                                         return True
 
@@ -13482,8 +13224,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13544,8 +13284,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13606,8 +13344,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13668,8 +13404,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.cpu_duration is not None:
                                                             return True
 
@@ -13695,8 +13429,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None and self.critical._has_data():
                                                         return True
 
@@ -13728,8 +13460,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.global_rib_build is not None and self.global_rib_build._has_data():
                                                     return True
 
@@ -13836,8 +13566,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -13869,8 +13597,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.per_priority_touched is not None and self.per_priority_touched._has_data():
                                                     return True
 
@@ -14000,8 +13726,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14080,8 +13804,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14160,8 +13882,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14240,8 +13960,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14321,8 +14039,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14402,8 +14118,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14435,8 +14149,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.added is not None and self.added._has_data():
                                                     return True
 
@@ -14578,8 +14290,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14658,8 +14368,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14738,8 +14446,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14818,8 +14524,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14899,8 +14603,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -14980,8 +14682,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.critical is not None:
                                                         return True
 
@@ -15013,8 +14713,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.added is not None and self.added._has_data():
                                                     return True
 
@@ -15099,8 +14797,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.critical is not None:
                                                     return True
 
@@ -15132,8 +14828,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.duration is not None and self.duration._has_data():
                                                 return True
 
@@ -15171,8 +14865,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.class_ is not None:
                                             return True
 
@@ -15216,8 +14908,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.log_entry is not None:
                                         for child_ref in self.log_entry:
                                             if child_ref._has_data():
@@ -15393,8 +15083,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -15462,8 +15150,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.te_tunnel is not None:
                                         for child_ref in self.te_tunnel:
                                             if child_ref._has_data():
@@ -16018,8 +15704,6 @@ class Isis(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.repair_element_node_id is not None:
                                                                 return True
 
@@ -16057,8 +15741,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.backup_repair is not None:
                                                             for child_ref in self.backup_repair:
                                                                 if child_ref._has_data():
@@ -16221,8 +15903,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -16260,8 +15940,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.egress_interface is not None:
                                                         return True
 
@@ -16665,8 +16343,6 @@ class Isis(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.repair_element_node_id is not None:
                                                                 return True
 
@@ -16704,8 +16380,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.backup_repair is not None:
                                                             for child_ref in self.backup_repair:
                                                                 if child_ref._has_data():
@@ -16868,8 +16542,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -16907,8 +16579,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.egress_interface is not None:
                                                         return True
 
@@ -16991,8 +16661,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.intermediate_pseudonode is not None:
                                                         return True
 
@@ -17049,8 +16717,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.intermediate_pseudonode is not None:
                                                         return True
 
@@ -17076,8 +16742,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.children is not None:
                                                     for child_ref in self.children:
                                                         if child_ref._has_data():
@@ -17123,8 +16787,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.reachable_details is not None and self.reachable_details._has_data():
                                                 return True
 
@@ -17198,8 +16860,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.critical is not None:
                                                 return True
 
@@ -17233,8 +16893,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_id is not None:
                                             return True
 
@@ -17275,8 +16933,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_link_topology is not None:
                                         for child_ref in self.ipv4_link_topology:
                                             if child_ref._has_data():
@@ -17370,8 +17026,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.reachable_node_count is not None:
                                             return True
 
@@ -17439,8 +17093,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.reachable_node_count is not None:
                                             return True
 
@@ -17469,8 +17121,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pseudonode_node_count is not None and self.pseudonode_node_count._has_data():
                                         return True
 
@@ -18026,8 +17676,6 @@ class Isis(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.repair_element_node_id is not None:
                                                                 return True
 
@@ -18065,8 +17713,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.backup_repair is not None:
                                                             for child_ref in self.backup_repair:
                                                                 if child_ref._has_data():
@@ -18229,8 +17875,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -18268,8 +17912,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.egress_interface is not None:
                                                         return True
 
@@ -18673,8 +18315,6 @@ class Isis(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.repair_element_node_id is not None:
                                                                 return True
 
@@ -18712,8 +18352,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.backup_repair is not None:
                                                             for child_ref in self.backup_repair:
                                                                 if child_ref._has_data():
@@ -18876,8 +18514,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -18915,8 +18551,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.egress_interface is not None:
                                                         return True
 
@@ -18999,8 +18633,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.intermediate_pseudonode is not None:
                                                         return True
 
@@ -19057,8 +18689,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.intermediate_pseudonode is not None:
                                                         return True
 
@@ -19084,8 +18714,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.children is not None:
                                                     for child_ref in self.children:
                                                         if child_ref._has_data():
@@ -19131,8 +18759,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.reachable_details is not None and self.reachable_details._has_data():
                                                 return True
 
@@ -19206,8 +18832,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.critical is not None:
                                                 return True
 
@@ -19241,8 +18865,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_id is not None:
                                             return True
 
@@ -19283,8 +18905,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv6_link_topology is not None:
                                         for child_ref in self.ipv6_link_topology:
                                             if child_ref._has_data():
@@ -19311,8 +18931,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -19356,8 +18974,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.topology_level is not None:
                                 for child_ref in self.topology_level:
                                     if child_ref._has_data():
@@ -19517,8 +19133,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface is not None:
                                             for child in self.interface:
                                                 if child is not None:
@@ -19543,8 +19157,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.connected_details is not None and self.connected_details._has_data():
                                         return True
 
@@ -19707,8 +19319,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.application_name is not None:
                                                     return True
 
@@ -19749,8 +19359,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -19776,8 +19384,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.isis_sh_route_redist_detail is not None:
                                             for child_ref in self.isis_sh_route_redist_detail:
                                                 if child_ref._has_data():
@@ -19802,8 +19408,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_valid is not None:
                                         return True
 
@@ -20352,8 +19956,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -20391,8 +19993,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -20555,8 +20155,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -20594,8 +20192,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -20993,8 +20589,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -21032,8 +20626,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -21135,8 +20727,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -21535,8 +21125,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -21574,8 +21162,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -21738,8 +21324,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -21777,8 +21361,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -22182,8 +21764,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -22221,8 +21801,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -22385,8 +21963,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -22424,8 +22000,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -22829,8 +22403,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -22868,8 +22440,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -23032,8 +22602,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -23071,8 +22639,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -23252,8 +22818,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -23297,8 +22861,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -23462,8 +23024,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -23507,8 +23067,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -23544,8 +23102,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.administrative_distance is not None:
                                                 return True
 
@@ -24074,8 +23630,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -24113,8 +23667,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -24277,8 +23829,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -24316,8 +23866,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -24715,8 +24263,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -24754,8 +24300,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -24857,8 +24401,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -25257,8 +24799,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -25296,8 +24836,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -25460,8 +24998,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -25499,8 +25035,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -25904,8 +25438,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -25943,8 +25475,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -26107,8 +25637,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -26146,8 +25674,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -26551,8 +26077,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -26590,8 +26114,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -26754,8 +26276,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -26793,8 +26313,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -26974,8 +26492,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -27019,8 +26535,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -27184,8 +26698,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -27229,8 +26741,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -27266,8 +26776,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.administrative_distance is not None:
                                                 return True
 
@@ -27337,8 +26845,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup is not None:
                                             for child_ref in self.backup:
                                                 if child_ref._has_data():
@@ -27369,8 +26875,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_valid is not None:
                                         return True
 
@@ -27540,8 +27044,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None:
                                                 return True
 
@@ -27567,8 +27069,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.is_valid is not None:
                                             return True
 
@@ -27673,8 +27173,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -27718,8 +27216,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.advertising_origin is not None:
                                         return True
 
@@ -27773,8 +27269,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.connected_status is not None and self.connected_status._has_data():
                                     return True
 
@@ -27814,8 +27308,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6_route is not None:
                                 for child_ref in self.ipv6_route:
                                     if child_ref._has_data():
@@ -27975,8 +27467,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface is not None:
                                             for child in self.interface:
                                                 if child is not None:
@@ -28001,8 +27491,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.connected_details is not None and self.connected_details._has_data():
                                         return True
 
@@ -28165,8 +27653,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.application_name is not None:
                                                     return True
 
@@ -28207,8 +27693,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -28234,8 +27718,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.isis_sh_route_redist_detail is not None:
                                             for child_ref in self.isis_sh_route_redist_detail:
                                                 if child_ref._has_data():
@@ -28260,8 +27742,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_valid is not None:
                                         return True
 
@@ -28810,8 +28290,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -28849,8 +28327,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -29013,8 +28489,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -29052,8 +28526,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -29451,8 +28923,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -29490,8 +28960,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -29593,8 +29061,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -29993,8 +29459,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -30032,8 +29496,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -30196,8 +29658,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -30235,8 +29695,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -30640,8 +30098,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -30679,8 +30135,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -30843,8 +30297,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -30882,8 +30334,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -31287,8 +30737,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -31326,8 +30774,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -31490,8 +30936,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -31529,8 +30973,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -31710,8 +31152,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -31755,8 +31195,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -31920,8 +31358,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -31965,8 +31401,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -32002,8 +31436,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.administrative_distance is not None:
                                                 return True
 
@@ -32532,8 +31964,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -32571,8 +32001,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -32735,8 +32163,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -32774,8 +32200,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -33173,8 +32597,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -33212,8 +32634,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -33315,8 +32735,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -33715,8 +33133,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -33754,8 +33170,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -33918,8 +33332,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -33957,8 +33369,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -34362,8 +33772,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -34401,8 +33809,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -34565,8 +33971,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -34604,8 +34008,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -35009,8 +34411,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -35048,8 +34448,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -35212,8 +34610,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -35251,8 +34647,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -35432,8 +34826,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -35477,8 +34869,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -35642,8 +35032,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -35687,8 +35075,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -35724,8 +35110,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.administrative_distance is not None:
                                                 return True
 
@@ -35795,8 +35179,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup is not None:
                                             for child_ref in self.backup:
                                                 if child_ref._has_data():
@@ -35827,8 +35209,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_valid is not None:
                                         return True
 
@@ -35998,8 +35378,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None:
                                                 return True
 
@@ -36025,8 +35403,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.is_valid is not None:
                                             return True
 
@@ -36131,8 +35507,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -36176,8 +35550,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.advertising_origin is not None:
                                         return True
 
@@ -36231,8 +35603,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.connected_status is not None and self.connected_status._has_data():
                                     return True
 
@@ -36272,8 +35642,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6frr_backup is not None:
                                 for child_ref in self.ipv6frr_backup:
                                     if child_ref._has_data():
@@ -36433,8 +35801,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface is not None:
                                             for child in self.interface:
                                                 if child is not None:
@@ -36459,8 +35825,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.connected_details is not None and self.connected_details._has_data():
                                         return True
 
@@ -36623,8 +35987,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.application_name is not None:
                                                     return True
 
@@ -36665,8 +36027,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -36692,8 +36052,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.isis_sh_route_redist_detail is not None:
                                             for child_ref in self.isis_sh_route_redist_detail:
                                                 if child_ref._has_data():
@@ -36718,8 +36076,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_valid is not None:
                                         return True
 
@@ -37268,8 +36624,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -37307,8 +36661,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -37471,8 +36823,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -37510,8 +36860,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -37909,8 +37257,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -37948,8 +37294,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -38051,8 +37395,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -38451,8 +37793,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -38490,8 +37830,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -38654,8 +37992,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -38693,8 +38029,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -39098,8 +38432,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -39137,8 +38469,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -39301,8 +38631,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -39340,8 +38668,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -39745,8 +39071,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -39784,8 +39108,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -39948,8 +39270,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -39987,8 +39307,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -40168,8 +39486,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -40213,8 +39529,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -40378,8 +39692,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -40423,8 +39735,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -40460,8 +39770,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.administrative_distance is not None:
                                                 return True
 
@@ -40990,8 +40298,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -41029,8 +40335,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -41193,8 +40497,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -41232,8 +40534,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -41631,8 +40931,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -41670,8 +40968,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -41773,8 +41069,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -42173,8 +41467,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -42212,8 +41504,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -42376,8 +41666,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -42415,8 +41703,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -42820,8 +42106,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -42859,8 +42143,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -43023,8 +42305,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -43062,8 +42342,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -43467,8 +42745,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -43506,8 +42782,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -43670,8 +42944,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -43709,8 +42981,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -43890,8 +43160,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -43935,8 +43203,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -44100,8 +43366,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -44145,8 +43409,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -44182,8 +43444,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.administrative_distance is not None:
                                                 return True
 
@@ -44253,8 +43513,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup is not None:
                                             for child_ref in self.backup:
                                                 if child_ref._has_data():
@@ -44285,8 +43543,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_valid is not None:
                                         return True
 
@@ -44456,8 +43712,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None:
                                                 return True
 
@@ -44483,8 +43737,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.is_valid is not None:
                                             return True
 
@@ -44589,8 +43841,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -44634,8 +43884,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.advertising_origin is not None:
                                         return True
 
@@ -44689,8 +43937,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.connected_status is not None and self.connected_status._has_data():
                                     return True
 
@@ -44730,8 +43976,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4frr_backup is not None:
                                 for child_ref in self.ipv4frr_backup:
                                     if child_ref._has_data():
@@ -44891,8 +44135,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface is not None:
                                             for child in self.interface:
                                                 if child is not None:
@@ -44917,8 +44159,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.connected_details is not None and self.connected_details._has_data():
                                         return True
 
@@ -45081,8 +44321,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.application_name is not None:
                                                     return True
 
@@ -45123,8 +44361,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -45150,8 +44386,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.isis_sh_route_redist_detail is not None:
                                             for child_ref in self.isis_sh_route_redist_detail:
                                                 if child_ref._has_data():
@@ -45176,8 +44410,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_valid is not None:
                                         return True
 
@@ -45726,8 +44958,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -45765,8 +44995,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -45929,8 +45157,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -45968,8 +45194,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -46367,8 +45591,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -46406,8 +45628,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -46509,8 +45729,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -46909,8 +46127,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -46948,8 +46164,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -47112,8 +46326,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -47151,8 +46363,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -47556,8 +46766,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -47595,8 +46803,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -47759,8 +46965,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -47798,8 +47002,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -48203,8 +47405,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -48242,8 +47442,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -48406,8 +47604,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -48445,8 +47641,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -48626,8 +47820,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -48671,8 +47863,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -48836,8 +48026,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -48881,8 +48069,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -48918,8 +48104,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.administrative_distance is not None:
                                                 return True
 
@@ -49448,8 +48632,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -49487,8 +48669,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -49651,8 +48831,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -49690,8 +48868,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -50089,8 +49265,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -50128,8 +49302,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -50231,8 +49403,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -50631,8 +49801,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -50670,8 +49838,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -50834,8 +50000,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -50873,8 +50037,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -51278,8 +50440,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -51317,8 +50477,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -51481,8 +50639,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -51520,8 +50676,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -51925,8 +51079,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.repair_element_node_id is not None:
                                                             return True
 
@@ -51964,8 +51116,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.backup_repair is not None:
                                                         for child_ref in self.backup_repair:
                                                             if child_ref._has_data():
@@ -52128,8 +51278,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.repair_element_node_id is not None:
                                                         return True
 
@@ -52167,8 +51315,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.egress_interface is not None:
                                                     return True
 
@@ -52348,8 +51494,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -52393,8 +51537,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -52558,8 +51700,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.algorithm is not None:
                                                         return True
 
@@ -52603,8 +51743,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.nodal_sid is not None:
                                                     for child_ref in self.nodal_sid:
                                                         if child_ref._has_data():
@@ -52640,8 +51778,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.administrative_distance is not None:
                                                 return True
 
@@ -52711,8 +51847,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.backup is not None:
                                             for child_ref in self.backup:
                                                 if child_ref._has_data():
@@ -52743,8 +51877,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_valid is not None:
                                         return True
 
@@ -52914,8 +52046,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None:
                                                 return True
 
@@ -52941,8 +52071,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.is_valid is not None:
                                             return True
 
@@ -53047,8 +52175,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.algorithm is not None:
                                             return True
 
@@ -53092,8 +52218,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.advertising_origin is not None:
                                         return True
 
@@ -53147,8 +52271,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.connected_status is not None and self.connected_status._has_data():
                                     return True
 
@@ -53188,8 +52310,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv4_route is not None:
                                 for child_ref in self.ipv4_route:
                                     if child_ref._has_data():
@@ -53214,8 +52334,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -53262,8 +52380,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.topology is not None:
                         for child_ref in self.topology:
                             if child_ref._has_data():
@@ -53403,8 +52519,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.entry is not None:
                                 return True
 
@@ -53450,8 +52564,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.entry is not None:
                                 return True
 
@@ -53497,8 +52609,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.entry is not None:
                                 return True
 
@@ -53542,8 +52652,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.entry is not None:
                                 return True
 
@@ -53589,8 +52697,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.entry is not None:
                                 return True
 
@@ -53613,8 +52719,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.full_sync_achieved is not None:
                             for child_ref in self.full_sync_achieved:
                                 if child_ref._has_data():
@@ -53843,8 +52947,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.failover is not None:
                                 return True
 
@@ -53954,8 +53056,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.conn_cb is not None:
                                 return True
 
@@ -54246,8 +53346,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54308,8 +53406,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54370,8 +53466,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54432,8 +53526,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54494,8 +53586,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54556,8 +53646,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54618,8 +53706,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54680,8 +53766,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54742,8 +53826,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54804,8 +53886,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54866,8 +53946,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54928,8 +54006,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -54990,8 +54066,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -55052,8 +54126,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -55079,8 +54151,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.conn is not None:
                                 return True
 
@@ -55265,8 +54335,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.adv_sync_data is not None:
                                 return True
 
@@ -55371,8 +54439,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.chksum is not None:
                                 return True
 
@@ -55455,8 +54521,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.brought_up is not None:
                                 return True
 
@@ -55491,8 +54555,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ds is not None and self.ds._has_data():
                             return True
 
@@ -55534,8 +54596,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.isis_nsr_infra is not None and self.isis_nsr_infra._has_data():
                         return True
 
@@ -55677,8 +54737,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.adjacency_form_status is not None:
                                 return True
 
@@ -55761,8 +54819,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.reason_code is not None:
                                     return True
 
@@ -55944,8 +55000,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.reason_code is not None:
                                             return True
 
@@ -55968,8 +55022,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.disabled is not None and self.disabled._has_data():
                                         return True
 
@@ -56045,8 +55097,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.reason_code is not None:
                                             return True
 
@@ -56069,8 +55119,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.disabled is not None and self.disabled._has_data():
                                         return True
 
@@ -56144,8 +55192,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.extended_circuit_number is not None:
                                         return True
 
@@ -56222,8 +55268,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.enabled is not None:
                                         return True
 
@@ -56400,8 +55444,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.reason_code is not None:
                                                 return True
 
@@ -56424,8 +55466,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.clns_down_info is not None and self.clns_down_info._has_data():
                                             return True
 
@@ -56509,8 +55549,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.reason_code is not None:
                                                 return True
 
@@ -56533,8 +55571,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.invalid is not None and self.invalid._has_data():
                                             return True
 
@@ -56619,8 +55655,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.reason_code is not None:
                                                 return True
 
@@ -56666,8 +55700,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.snpa is not None:
                                                 return True
 
@@ -56690,8 +55722,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.known is not None and self.known._has_data():
                                             return True
 
@@ -56856,8 +55886,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.reason_code is not None:
                                                             return True
 
@@ -56880,8 +55908,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.invalid is not None and self.invalid._has_data():
                                                         return True
 
@@ -56907,8 +55933,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -56934,8 +55958,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.per_area_data is not None:
                                                 for child_ref in self.per_area_data:
                                                     if child_ref._has_data():
@@ -57054,8 +56076,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.reason_code is not None:
                                                             return True
 
@@ -57078,8 +56098,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.invalid is not None and self.invalid._has_data():
                                                         return True
 
@@ -57105,8 +56123,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.multicast_status is not None and self.multicast_status._has_data():
                                                     return True
 
@@ -57129,8 +56145,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.p2p_over_lan_data is not None and self.p2p_over_lan_data._has_data():
                                                 return True
 
@@ -57153,8 +56167,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.clns_lan_data is not None and self.clns_lan_data._has_data():
                                             return True
 
@@ -57183,8 +56195,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.clns_status is not None and self.clns_status._has_data():
                                         return True
 
@@ -57344,8 +56354,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.are_we_dis is not None:
                                             return True
 
@@ -57380,8 +56388,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.adjacency_count is not None:
                                         return True
 
@@ -57484,8 +56490,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_name is not None:
                                             return True
 
@@ -57573,8 +56577,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.reason_code is not None:
                                                 return True
 
@@ -57812,8 +56814,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.reason_code is not None:
                                                         return True
 
@@ -57836,8 +56836,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.disabled is not None and self.disabled._has_data():
                                                     return True
 
@@ -57913,8 +56911,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.reason_code is not None:
                                                         return True
 
@@ -57937,8 +56933,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.disabled is not None and self.disabled._has_data():
                                                     return True
 
@@ -57964,8 +56958,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.adjacency_form_status is not None and self.adjacency_form_status._has_data():
                                                 return True
 
@@ -58048,8 +57040,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.disabled is not None and self.disabled._has_data():
                                             return True
 
@@ -58078,8 +57068,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.status is not None and self.status._has_data():
                                         return True
 
@@ -58189,8 +57177,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.reason_code is not None:
                                                 return True
 
@@ -58298,8 +57284,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.reason_code is not None:
                                                         return True
 
@@ -58322,8 +57306,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.disabled is not None and self.disabled._has_data():
                                                     return True
 
@@ -58405,8 +57387,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.reason_code is not None:
                                                         return True
 
@@ -58495,8 +57475,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.af_name is not None:
                                                             return True
 
@@ -58525,8 +57503,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.forwarding_address is not None:
                                                         for child_ref in self.forwarding_address:
                                                             if child_ref._has_data():
@@ -58554,8 +57530,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.forwarding_address_data is not None and self.forwarding_address_data._has_data():
                                                     return True
 
@@ -58640,8 +57614,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.reason_code is not None:
                                                         return True
 
@@ -58759,8 +57731,6 @@ class Isis(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.prefix is not None:
                                                                 return True
 
@@ -58817,8 +57787,6 @@ class Isis(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.prefix is not None:
                                                                 return True
 
@@ -58844,8 +57812,6 @@ class Isis(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.af_name is not None:
                                                             return True
 
@@ -58874,8 +57840,6 @@ class Isis(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.is_unnumbered is not None:
                                                         return True
 
@@ -58903,8 +57867,6 @@ class Isis(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.prefix_data is not None and self.prefix_data._has_data():
                                                     return True
 
@@ -58933,8 +57895,6 @@ class Isis(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.forwarding_address_status is not None and self.forwarding_address_status._has_data():
                                                 return True
 
@@ -58963,8 +57923,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_data is not None and self.af_data._has_data():
                                             return True
 
@@ -58993,8 +57951,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -59020,8 +57976,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.adjacency_form_status is not None and self.adjacency_form_status._has_data():
                                     return True
 
@@ -59088,8 +58042,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.disabled is not None and self.disabled._has_data():
                                 return True
 
@@ -59120,8 +58072,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -59162,8 +58112,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -59355,8 +58303,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -59385,8 +58331,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.checkpoint_adjacency_circuit_number is not None:
                             return True
 
@@ -59444,8 +58388,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.checkpoint_adjacency is not None:
                         for child_ref in self.checkpoint_adjacency:
                             if child_ref._has_data():
@@ -59709,8 +58651,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af is not None:
                                             return True
 
@@ -59741,8 +58681,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mi_id is not None:
                                         return True
 
@@ -59795,8 +58733,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.policy_mi is not None:
                                     for child_ref in self.policy_mi:
                                         if child_ref._has_data():
@@ -59979,8 +58915,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af is not None:
                                             return True
 
@@ -60011,8 +58945,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mi_id is not None:
                                         return True
 
@@ -60065,8 +58997,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.policy_mi is not None:
                                     for child_ref in self.policy_mi:
                                         if child_ref._has_data():
@@ -60091,8 +59021,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.policy_ipv4_active is not None and self.policy_ipv4_active._has_data():
                                 return True
 
@@ -60305,8 +59233,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af is not None:
                                             return True
 
@@ -60337,8 +59263,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mi_id is not None:
                                         return True
 
@@ -60391,8 +59315,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.policy_mi is not None:
                                     for child_ref in self.policy_mi:
                                         if child_ref._has_data():
@@ -60575,8 +59497,6 @@ class Isis(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af is not None:
                                             return True
 
@@ -60607,8 +59527,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mi_id is not None:
                                         return True
 
@@ -60661,8 +59579,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.policy_mi is not None:
                                     for child_ref in self.policy_mi:
                                         if child_ref._has_data():
@@ -60687,8 +59603,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.policy_ipv6_active is not None and self.policy_ipv6_active._has_data():
                                 return True
 
@@ -60714,8 +59628,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.policy_ipv4 is not None and self.policy_ipv4._has_data():
                             return True
 
@@ -60741,8 +59653,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.policy is not None and self.policy._has_data():
                         return True
 
@@ -60887,8 +59797,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nano_seconds is not None:
                                     return True
 
@@ -60914,8 +59822,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.timestamp is not None and self.timestamp._has_data():
                                 return True
 
@@ -60938,8 +59844,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.error_code is not None:
                             return True
 
@@ -60971,8 +59875,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log_entry is not None:
                         for child_ref in self.log_entry:
                             if child_ref._has_data():
@@ -61114,8 +60016,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -61168,8 +60068,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.checkpoint_interface is not None:
                         for child_ref in self.checkpoint_interface:
                             if child_ref._has_data():
@@ -61339,8 +60237,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pdu_receive_count is not None:
                                     return True
 
@@ -61366,8 +60262,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.iih_count is not None and self.iih_count._has_data():
                                 return True
 
@@ -61514,8 +60408,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pdu_receive_count is not None:
                                         return True
 
@@ -61572,8 +60464,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pdu_receive_count is not None:
                                         return True
 
@@ -61630,8 +60520,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pdu_receive_count is not None:
                                         return True
 
@@ -61657,8 +60545,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.csnp_count is not None and self.csnp_count._has_data():
                                     return True
 
@@ -61763,8 +60649,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pdu_receive_count is not None:
                                         return True
 
@@ -61790,8 +60674,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dis_election_count is not None:
                                     return True
 
@@ -61820,8 +60702,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lan_data is not None and self.lan_data._has_data():
                                 return True
 
@@ -61852,8 +60732,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -61890,8 +60768,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_statistic is not None:
                         for child_ref in self.interface_statistic:
                             if child_ref._has_data():
@@ -62148,8 +61024,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -62283,8 +61157,6 @@ class Isis(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.application_name is not None:
                                         return True
 
@@ -62325,8 +61197,6 @@ class Isis(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.protocol_details is not None and self.protocol_details._has_data():
                                     return True
 
@@ -62349,8 +61219,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.isis_sh_redist_entry is not None:
                                 for child_ref in self.isis_sh_redist_entry:
                                     if child_ref._has_data():
@@ -62484,8 +61352,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.accepted_metric_style is not None:
                                 return True
 
@@ -62547,8 +61413,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.advertise_passive_only is not None:
                             return True
 
@@ -62588,8 +61452,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_area_address is not None:
                         for child in self.active_area_address:
                             if child is not None:
@@ -62769,8 +61631,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.neighbor_down_count is not None:
                                 return True
 
@@ -62838,8 +61698,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.neighbor_down_count is not None:
                                 return True
 
@@ -62907,8 +61765,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.neighbor_down_count is not None:
                                 return True
 
@@ -62939,8 +61795,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -62972,8 +61826,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_summary is not None:
                         for child_ref in self.neighbor_summary:
                             if child_ref._has_data():
@@ -63080,8 +61932,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.checkpoint_lsp_id is not None:
                             return True
 
@@ -63119,8 +61969,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.checkpoint_lsp is not None:
                         for child_ref in self.checkpoint_lsp:
                             if child_ref._has_data():
@@ -63221,8 +62069,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mesh_group_interface is not None:
                                 return True
 
@@ -63248,8 +62094,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.isis_sh_mesh_entry is not None:
                             for child_ref in self.isis_sh_mesh_entry:
                                 if child_ref._has_data():
@@ -63274,8 +62118,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.mesh_group_configured_interface_list is not None and self.mesh_group_configured_interface_list._has_data():
                         return True
 
@@ -63477,8 +62319,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.no_of_ipv4_routes is not None:
                                 return True
 
@@ -63656,8 +62496,6 @@ class Isis(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.no_of_ipv4_routes is not None:
                                 return True
 
@@ -63716,8 +62554,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.peer is not None:
                             for child_ref in self.peer:
                                 if child_ref._has_data():
@@ -63745,8 +62581,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.isis_nsr_stats_data is not None and self.isis_nsr_stats_data._has_data():
                         return True
 
@@ -63892,8 +62726,6 @@ class Isis(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.checkpoint_te_bandwidth is not None:
                             return True
 
@@ -63946,8 +62778,6 @@ class Isis(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.checkpoint_te_tunnel is not None:
                         for child_ref in self.checkpoint_te_tunnel:
                             if child_ref._has_data():
@@ -63972,8 +62802,6 @@ class Isis(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_name is not None:
                     return True
 
@@ -64048,8 +62876,6 @@ class Isis(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None:
                 for child_ref in self.instance:
                     if child_ref._has_data():
@@ -64072,8 +62898,6 @@ class Isis(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.instances is not None and self.instances._has_data():
             return True
 

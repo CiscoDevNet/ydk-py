@@ -63,17 +63,17 @@ class AccessOperationsType(FixedBitsDict):
     AccessOperationsType
 
     NETCONF Access Operation.
-    Keys are:- read , create , exec , update , delete
+    Keys are:- exec , delete , create , read , update
 
     """
 
     def __init__(self):
         self._dictionary = { 
-            'read':False,
-            'create':False,
             'exec':False,
-            'update':False,
             'delete':False,
+            'create':False,
+            'read':False,
+            'update':False,
         }
         self._pos_map = { 
         }
@@ -247,8 +247,6 @@ class Nacm(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -274,8 +272,6 @@ class Nacm(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.group is not None:
                 for child_ref in self.group:
                     if child_ref._has_data():
@@ -476,8 +472,6 @@ class Nacm(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -521,8 +515,6 @@ class Nacm(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.name is not None:
                 return True
 
@@ -553,8 +545,6 @@ class Nacm(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.denied_data_writes is not None:
             return True
 

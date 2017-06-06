@@ -13,18 +13,41 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'WredEnum' : _MetaInfoEnum('WredEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
+    'QosUnitEnum' : _MetaInfoEnum('QosUnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
         {
-            'wred-cos-cmd':'wred_cos_cmd',
-            'wred-dscp-cmd':'wred_dscp_cmd',
-            'wred-precedence-cmd':'wred_precedence_cmd',
-            'wred-discard-class-cmd':'wred_discard_class_cmd',
-            'wred-mpls-exp-cmd':'wred_mpls_exp_cmd',
-            'red-with-user-min-max':'red_with_user_min_max',
-            'red-with-default-min-max':'red_with_default_min_max',
-            'wred-dei-cmd':'wred_dei_cmd',
-            'wred-ecn-cmd':'wred_ecn_cmd',
-            'wred-invalid-cmd':'wred_invalid_cmd',
+            'invalid':'invalid',
+            'bytes':'bytes',
+            'kilobytes':'kilobytes',
+            'megabytes':'megabytes',
+            'gigabytes':'gigabytes',
+            'bps':'bps',
+            'kbps':'kbps',
+            'mbps':'mbps',
+            'gbps':'gbps',
+            'cells-per-second':'cells_per_second',
+            'packets-per-second':'packets_per_second',
+            'microsecond':'microsecond',
+            'millisecond':'millisecond',
+            'packets':'packets',
+            'cells':'cells',
+            'percentage':'percentage',
+            'ratio':'ratio',
+        }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
+    'ActionEnum' : _MetaInfoEnum('ActionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
+        {
+            'police-transmit':'police_transmit',
+            'police-set-transmit':'police_set_transmit',
+            'police-drop':'police_drop',
+            'police-unknown':'police_unknown',
+        }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
+    'TbAlgorithmEnum' : _MetaInfoEnum('TbAlgorithmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
+        {
+            'inactive':'inactive',
+            'single':'single',
+            'single-rate-tcm':'single_rate_tcm',
+            'two-rate-tcm':'two_rate_tcm',
+            'mef-tcm':'mef_tcm',
+            'dummy':'dummy',
         }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
     'ActionOpcodeEnum' : _MetaInfoEnum('ActionOpcodeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
         {
@@ -45,14 +68,10 @@ _meta_table = {
             'dei':'dei',
             'no-marking':'no_marking',
         }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
-    'TbAlgorithmEnum' : _MetaInfoEnum('TbAlgorithmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
+    'PolicyStateEnum' : _MetaInfoEnum('PolicyStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
         {
-            'inactive':'inactive',
-            'single':'single',
-            'single-rate-tcm':'single_rate_tcm',
-            'two-rate-tcm':'two_rate_tcm',
-            'mef-tcm':'mef_tcm',
-            'dummy':'dummy',
+            'active':'active',
+            'suspended':'suspended',
         }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
     'PolicyParamUnitEnum' : _MetaInfoEnum('PolicyParamUnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
         {
@@ -81,13 +100,6 @@ _meta_table = {
             'policy-param-unit-ratio':'policy_param_unit_ratio',
             'policy-param-unit-max':'policy_param_unit_max',
         }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
-    'ActionEnum' : _MetaInfoEnum('ActionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
-        {
-            'police-transmit':'police_transmit',
-            'police-set-transmit':'police_set_transmit',
-            'police-drop':'police_drop',
-            'police-unknown':'police_unknown',
-        }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
     'CacStateEnum' : _MetaInfoEnum('CacStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
         {
             'unknown':'unknown',
@@ -95,30 +107,18 @@ _meta_table = {
             'redirect':'redirect',
             'ubrl':'ubrl',
         }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
-    'QosUnitEnum' : _MetaInfoEnum('QosUnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
+    'WredEnum' : _MetaInfoEnum('WredEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
         {
-            'invalid':'invalid',
-            'bytes':'bytes',
-            'kilobytes':'kilobytes',
-            'megabytes':'megabytes',
-            'gigabytes':'gigabytes',
-            'bps':'bps',
-            'kbps':'kbps',
-            'mbps':'mbps',
-            'gbps':'gbps',
-            'cells-per-second':'cells_per_second',
-            'packets-per-second':'packets_per_second',
-            'microsecond':'microsecond',
-            'millisecond':'millisecond',
-            'packets':'packets',
-            'cells':'cells',
-            'percentage':'percentage',
-            'ratio':'ratio',
-        }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
-    'PolicyStateEnum' : _MetaInfoEnum('PolicyStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper',
-        {
-            'active':'active',
-            'suspended':'suspended',
+            'wred-cos-cmd':'wred_cos_cmd',
+            'wred-dscp-cmd':'wred_dscp_cmd',
+            'wred-precedence-cmd':'wred_precedence_cmd',
+            'wred-discard-class-cmd':'wred_discard_class_cmd',
+            'wred-mpls-exp-cmd':'wred_mpls_exp_cmd',
+            'red-with-user-min-max':'red_with_user_min_max',
+            'red-with-default-min-max':'red_with_default_min_max',
+            'wred-dei-cmd':'wred_dei_cmd',
+            'wred-ecn-cmd':'wred_ecn_cmd',
+            'wred-invalid-cmd':'wred_invalid_cmd',
         }, 'Cisco-IOS-XR-skp-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-oper']),
     'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header' : {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header',
@@ -1523,7 +1523,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Memeber interface
                 ''',
                 'interface_name',
@@ -1569,7 +1569,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'interface_name',
@@ -3072,7 +3072,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -3118,7 +3118,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',
@@ -3235,7 +3235,7 @@ _meta_table = {
                 'hierarchical_depth',
                 'Cisco-IOS-XR-skp-qos-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface_handle',
@@ -3289,7 +3289,7 @@ _meta_table = {
                 'uidb_index',
                 'Cisco-IOS-XR-skp-qos-oper', False),
             _MetaInfoClassMember('under-line-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                UnderLineInterface Handle
                 ''',
                 'under_line_interface_handle',
@@ -3834,7 +3834,7 @@ _meta_table = {
                 'hierarchical_depth',
                 'Cisco-IOS-XR-skp-qos-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface_handle',
@@ -3888,7 +3888,7 @@ _meta_table = {
                 'uidb_index',
                 'Cisco-IOS-XR-skp-qos-oper', False),
             _MetaInfoClassMember('under-line-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                UnderLineInterface Handle
                 ''',
                 'under_line_interface_handle',
@@ -4386,7 +4386,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Memeber interface
                 ''',
                 'interface_name',
@@ -4432,7 +4432,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'interface_name',
@@ -4519,7 +4519,7 @@ _meta_table = {
                 'hierarchical_depth',
                 'Cisco-IOS-XR-skp-qos-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface_handle',
@@ -4573,7 +4573,7 @@ _meta_table = {
                 'uidb_index',
                 'Cisco-IOS-XR-skp-qos-oper', False),
             _MetaInfoClassMember('under-line-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                UnderLineInterface Handle
                 ''',
                 'under_line_interface_handle',
@@ -5118,7 +5118,7 @@ _meta_table = {
                 'hierarchical_depth',
                 'Cisco-IOS-XR-skp-qos-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface_handle',
@@ -5172,7 +5172,7 @@ _meta_table = {
                 'uidb_index',
                 'Cisco-IOS-XR-skp-qos-oper', False),
             _MetaInfoClassMember('under-line-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                UnderLineInterface Handle
                 ''',
                 'under_line_interface_handle',
@@ -5670,7 +5670,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -5716,7 +5716,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',

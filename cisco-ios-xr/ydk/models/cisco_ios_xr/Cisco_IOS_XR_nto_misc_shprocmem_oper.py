@@ -204,8 +204,6 @@ class ProcessesMemory(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.job_id is not None:
                             return True
 
@@ -246,8 +244,6 @@ class ProcessesMemory(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.job_id is not None:
                         for child_ref in self.job_id:
                             if child_ref._has_data():
@@ -272,8 +268,6 @@ class ProcessesMemory(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -297,8 +291,6 @@ class ProcessesMemory(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -321,8 +313,6 @@ class ProcessesMemory(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

@@ -46,8 +46,6 @@ class SnmpColdStartRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -81,8 +79,6 @@ class SnmpWarmStartRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -148,8 +144,6 @@ class InterfaceLinkUpRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ifindex is not None:
                 return True
 
@@ -170,8 +164,6 @@ class InterfaceLinkUpRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -240,8 +232,6 @@ class InterfaceLinkDownRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ifindex is not None:
                 return True
 
@@ -262,8 +252,6 @@ class InterfaceLinkDownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -332,8 +320,6 @@ class SonetSectionStatusRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ifindex is not None:
                 return True
 
@@ -354,8 +340,6 @@ class SonetSectionStatusRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -424,8 +408,6 @@ class SonetLineStatusRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ifindex is not None:
                 return True
 
@@ -446,8 +428,6 @@ class SonetLineStatusRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -516,8 +496,6 @@ class SonetPathStatusRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ifindex is not None:
                 return True
 
@@ -538,8 +516,6 @@ class SonetPathStatusRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -576,8 +552,6 @@ class InfraSyslogMessageGeneratedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -611,8 +585,6 @@ class InfraFlashDeviceInsertedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -646,8 +618,6 @@ class InfraFlashDeviceRemovedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -681,8 +651,6 @@ class InfraRedundancyProgressionRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -716,8 +684,6 @@ class InfraRedundancySwitchRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -751,8 +717,6 @@ class InfraBridgeNewRootRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -786,8 +750,6 @@ class InfraBridgeTopologyChangeRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -821,8 +783,6 @@ class InfraConfigEventRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -888,8 +848,6 @@ class EntitySensorThresholdNotificationRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.entindex is not None:
                 return True
 
@@ -910,8 +868,6 @@ class EntitySensorThresholdNotificationRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -980,8 +936,6 @@ class EntityFruPowerStatusChangeFailedRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.entindex is not None:
                 return True
 
@@ -1002,8 +956,6 @@ class EntityFruPowerStatusChangeFailedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1072,8 +1024,6 @@ class EntityFruModuleStatusChangeUpRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.entindex is not None:
                 return True
 
@@ -1094,8 +1044,6 @@ class EntityFruModuleStatusChangeUpRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1164,8 +1112,6 @@ class EntityFruModuleStatusChangeDownRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.entindex is not None:
                 return True
 
@@ -1186,8 +1132,6 @@ class EntityFruModuleStatusChangeDownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1256,8 +1200,6 @@ class EntityFruFanTrayOperStatusUpRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.entindex is not None:
                 return True
 
@@ -1278,8 +1220,6 @@ class EntityFruFanTrayOperStatusUpRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1348,8 +1288,6 @@ class EntityFruFanTrayInsertedRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.entindex is not None:
                 return True
 
@@ -1370,8 +1308,6 @@ class EntityFruFanTrayInsertedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1440,8 +1376,6 @@ class EntityFruFanTrayRemovedRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.entindex is not None:
                 return True
 
@@ -1462,8 +1396,6 @@ class EntityFruFanTrayRemovedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1530,8 +1462,6 @@ class PlatformHfrBundleDownedLinkRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bundle_name is not None:
                 return True
 
@@ -1552,8 +1482,6 @@ class PlatformHfrBundleDownedLinkRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1620,8 +1548,6 @@ class PlatformHfrBundleStateRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bundle_name is not None:
                 return True
 
@@ -1642,8 +1568,6 @@ class PlatformHfrBundleStateRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1712,8 +1636,6 @@ class PlatformHfrPlaneStateRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.plane_id is not None:
                 return True
 
@@ -1734,8 +1656,6 @@ class PlatformHfrPlaneStateRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1772,8 +1692,6 @@ class RoutingBgpEstablishedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -1841,8 +1759,6 @@ class RoutingBgpEstablishedRemotePeerRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.address is not None:
                 return True
 
@@ -1863,8 +1779,6 @@ class RoutingBgpEstablishedRemotePeerRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1901,8 +1815,6 @@ class RoutingBgpStateChangeRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -1970,8 +1882,6 @@ class RoutingBgpStateChangeRemotePeerRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.address is not None:
                 return True
 
@@ -1992,8 +1902,6 @@ class RoutingBgpStateChangeRemotePeerRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2030,8 +1938,6 @@ class RoutingOspfNeighborStateChangeRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -2109,8 +2015,6 @@ class RoutingOspfNeighborStateChangeAddressRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.address is not None:
                 return True
 
@@ -2134,8 +2038,6 @@ class RoutingOspfNeighborStateChangeAddressRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2172,8 +2074,6 @@ class RoutingMplsLdpSessionDownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -2261,8 +2161,6 @@ class RoutingMplsLdpSessionDownEntityIdRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.entity_id is not None:
                 return True
 
@@ -2289,8 +2187,6 @@ class RoutingMplsLdpSessionDownEntityIdRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2327,8 +2223,6 @@ class RoutingMplsTunnelReRoutedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -2426,8 +2320,6 @@ class RoutingMplsTunnelReRoutedIndexRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.destination is not None:
                 return True
 
@@ -2457,8 +2349,6 @@ class RoutingMplsTunnelReRoutedIndexRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2495,8 +2385,6 @@ class RoutingMplsTunnelReOptimizedRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -2594,8 +2482,6 @@ class RoutingMplsTunnelReOptimizedIndexRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.destination is not None:
                 return True
 
@@ -2625,8 +2511,6 @@ class RoutingMplsTunnelReOptimizedIndexRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2663,8 +2547,6 @@ class RoutingMplsTunnelDownRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -2762,8 +2644,6 @@ class RoutingMplsTunnelDownIndexRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.destination is not None:
                 return True
 
@@ -2793,8 +2673,6 @@ class RoutingMplsTunnelDownIndexRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2831,8 +2709,6 @@ class AllRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod

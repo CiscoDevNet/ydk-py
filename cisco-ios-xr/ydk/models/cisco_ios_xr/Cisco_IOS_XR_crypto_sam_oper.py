@@ -380,8 +380,6 @@ class Sam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.is_default_response is not None:
                 return True
 
@@ -565,8 +563,6 @@ class Sam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.code is not None:
                         return True
 
@@ -619,8 +615,6 @@ class Sam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.number_of_lines is not None:
                     return True
 
@@ -652,8 +646,6 @@ class Sam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.log_content is not None:
                 for child_ref in self.log_content:
                     if child_ref._has_data():
@@ -835,8 +827,6 @@ class Sam(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.is_expired is not None:
                                 return True
 
@@ -868,8 +858,6 @@ class Sam(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.certificate_flags is not None and self.certificate_flags._has_data():
                             return True
 
@@ -1026,8 +1014,6 @@ class Sam(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_expired is not None:
                                         return True
 
@@ -1059,8 +1045,6 @@ class Sam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.certificate_flags is not None and self.certificate_flags._has_data():
                                     return True
 
@@ -1091,8 +1075,6 @@ class Sam(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.index is not None:
                                 return True
 
@@ -1118,8 +1100,6 @@ class Sam(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.certificate_index is not None:
                             for child_ref in self.certificate_index:
                                 if child_ref._has_data():
@@ -1144,8 +1124,6 @@ class Sam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.brief is not None and self.brief._has_data():
                         return True
 
@@ -1171,8 +1149,6 @@ class Sam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.device_name is not None:
                     return True
 
@@ -1196,8 +1172,6 @@ class Sam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.device is not None:
                 for child_ref in self.device:
                     if child_ref._has_data():
@@ -1327,8 +1301,6 @@ class Sam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_expired is not None:
                         return True
 
@@ -1360,8 +1332,6 @@ class Sam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.package_name is not None:
                     return True
 
@@ -1391,8 +1361,6 @@ class Sam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.package is not None:
                 for child_ref in self.package:
                     if child_ref._has_data():
@@ -1540,8 +1508,6 @@ class Sam(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.common_name is not None:
                             return True
 
@@ -1570,8 +1536,6 @@ class Sam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.crl_index is not None:
                         return True
 
@@ -1600,8 +1564,6 @@ class Sam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.crl_index is not None:
                     return True
 
@@ -1625,8 +1587,6 @@ class Sam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.certificate_revocation is not None:
                 for child_ref in self.certificate_revocation:
                     if child_ref._has_data():
@@ -1718,8 +1678,6 @@ class Sam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.common_name is not None:
                     return True
 
@@ -1746,8 +1704,6 @@ class Sam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.crl_index is not None:
                 return True
 
@@ -1774,8 +1730,6 @@ class Sam(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.certificate_revocation_list_summary is not None and self.certificate_revocation_list_summary._has_data():
             return True
 

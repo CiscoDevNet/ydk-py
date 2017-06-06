@@ -13,9 +13,32 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'InstanceNameEnum' : _MetaInfoEnum('InstanceNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+    'Vpnv4SafiEnum' : _MetaInfoEnum('Vpnv4SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+        {
+            'flowspec':'flowspec',
+            'multicast':'multicast',
+            'unicast':'unicast',
+        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
+    'L2VpnSafiEnum' : _MetaInfoEnum('L2VpnSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+        {
+            'evpn':'evpn',
+            'mspw':'mspw',
+            'vpls':'vpls',
+            'vpws':'vpws',
+        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
+    'VrfNameEnum' : _MetaInfoEnum('VrfNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
         {
             'all':'all',
+        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
+    'Ipv6SafiEnum' : _MetaInfoEnum('Ipv6SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+        {
+            'all':'all',
+            'flowspec':'flowspec',
+            'labeled-unicast':'labeled_unicast',
+            'multicast':'multicast',
+            'mvpn':'mvpn',
+            'sr-policy':'sr_policy',
+            'unicast':'unicast',
         }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
     'Vpnv6SafiEnum' : _MetaInfoEnum('Vpnv6SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
         {
@@ -33,10 +56,6 @@ _meta_table = {
             'vpnv4':'vpnv4',
             'vpnv6':'vpnv6',
         }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'VrfNameEnum' : _MetaInfoEnum('VrfNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
-        {
-            'all':'all',
-        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
     'Ipv4SafiEnum' : _MetaInfoEnum('Ipv4SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
         {
             'all':'all',
@@ -48,6 +67,39 @@ _meta_table = {
             'rt-filter':'rt_filter',
             'sr-policy':'sr_policy',
             'tunnel':'tunnel',
+            'unicast':'unicast',
+        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
+    'Ipv6SafiEnum' : _MetaInfoEnum('Ipv6SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+        {
+            'all':'all',
+            'flowspec':'flowspec',
+            'labeled-unicast':'labeled_unicast',
+            'multicast':'multicast',
+            'mvpn':'mvpn',
+            'sr-policy':'sr_policy',
+            'unicast':'unicast',
+        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
+    'L2VpnSafiEnum' : _MetaInfoEnum('L2VpnSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+        {
+            'evpn':'evpn',
+            'mspw':'mspw',
+            'vpls':'vpls',
+            'vpws':'vpws',
+        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
+    'LinkStateSafiEnum' : _MetaInfoEnum('LinkStateSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+        {
+            'link-state':'link_state',
+        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
+    'Vpnv4SafiEnum' : _MetaInfoEnum('Vpnv4SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+        {
+            'flowspec':'flowspec',
+            'multicast':'multicast',
+            'unicast':'unicast',
+        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
+    'Vpnv6SafiEnum' : _MetaInfoEnum('Vpnv6SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+        {
+            'flowspec':'flowspec',
+            'multicast':'multicast',
             'unicast':'unicast',
         }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
     'AfiSafiTypeEnum' : _MetaInfoEnum('AfiSafiTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
@@ -95,21 +147,13 @@ _meta_table = {
             'vpnv6-multicast':'vpnv6_multicast',
             'vpnv6-unicast':'vpnv6_unicast',
         }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'Vpnv4SafiEnum' : _MetaInfoEnum('Vpnv4SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
-        {
-            'flowspec':'flowspec',
-            'multicast':'multicast',
-            'unicast':'unicast',
-        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'Ipv6SafiEnum' : _MetaInfoEnum('Ipv6SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+    'InstanceNameEnum' : _MetaInfoEnum('InstanceNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
         {
             'all':'all',
-            'flowspec':'flowspec',
-            'labeled-unicast':'labeled_unicast',
-            'multicast':'multicast',
-            'mvpn':'mvpn',
-            'sr-policy':'sr_policy',
-            'unicast':'unicast',
+        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
+    'LinkStateSafiEnum' : _MetaInfoEnum('LinkStateSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
+        {
+            'link-state':'link_state',
         }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
     'Ipv4SafiEnum' : _MetaInfoEnum('Ipv4SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
         {
@@ -123,50 +167,6 @@ _meta_table = {
             'sr-policy':'sr_policy',
             'tunnel':'tunnel',
             'unicast':'unicast',
-        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'Ipv6SafiEnum' : _MetaInfoEnum('Ipv6SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
-        {
-            'all':'all',
-            'flowspec':'flowspec',
-            'labeled-unicast':'labeled_unicast',
-            'multicast':'multicast',
-            'mvpn':'mvpn',
-            'sr-policy':'sr_policy',
-            'unicast':'unicast',
-        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'L2VpnSafiEnum' : _MetaInfoEnum('L2VpnSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
-        {
-            'evpn':'evpn',
-            'mspw':'mspw',
-            'vpls':'vpls',
-            'vpws':'vpws',
-        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'LinkStateSafiEnum' : _MetaInfoEnum('LinkStateSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
-        {
-            'link-state':'link_state',
-        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'Vpnv4SafiEnum' : _MetaInfoEnum('Vpnv4SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
-        {
-            'flowspec':'flowspec',
-            'multicast':'multicast',
-            'unicast':'unicast',
-        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'Vpnv6SafiEnum' : _MetaInfoEnum('Vpnv6SafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
-        {
-            'flowspec':'flowspec',
-            'multicast':'multicast',
-            'unicast':'unicast',
-        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'L2VpnSafiEnum' : _MetaInfoEnum('L2VpnSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
-        {
-            'evpn':'evpn',
-            'mspw':'mspw',
-            'vpls':'vpls',
-            'vpws':'vpws',
-        }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
-    'LinkStateSafiEnum' : _MetaInfoEnum('LinkStateSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act',
-        {
-            'link-state':'link_state',
         }, 'Cisco-IOS-XR-ipv4-bgp-act', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-act']),
     'ClearBgpAllGracefulRpc' : {
         'meta_info' : _MetaInfoClass('ClearBgpAllGracefulRpc',
@@ -201,13 +201,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -247,13 +247,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -293,13 +293,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -477,13 +477,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -529,13 +529,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -581,13 +581,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -633,13 +633,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -685,13 +685,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -749,7 +749,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -814,7 +814,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -879,7 +879,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -944,7 +944,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -997,13 +997,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and mask or masklength to clear dampening information
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and mask or masklength to clear dampening information
                         ''',
                         'ip_prefix',
@@ -1214,20 +1214,20 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv4_mask',
@@ -1272,13 +1272,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -1324,13 +1324,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and mask or masklength to clear flap statistics
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and mask or masklength to clear flap statistics
                         ''',
                         'ip_prefix',
@@ -1520,13 +1520,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
@@ -1704,13 +1704,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -1756,13 +1756,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -1808,13 +1808,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -1860,13 +1860,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -1906,13 +1906,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -1951,13 +1951,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -1996,13 +1996,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -2041,13 +2041,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -2086,7 +2086,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -2125,7 +2125,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -2176,7 +2176,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -2235,7 +2235,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -2282,13 +2282,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -2301,13 +2301,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -2347,13 +2347,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -2393,13 +2393,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -2445,13 +2445,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -2464,13 +2464,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -2516,13 +2516,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -2568,13 +2568,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -2626,13 +2626,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -2645,13 +2645,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -2703,13 +2703,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -2761,13 +2761,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -2813,25 +2813,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -2844,13 +2844,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -2863,13 +2863,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -2915,25 +2915,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -2946,13 +2946,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -2998,25 +2998,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -3029,13 +3029,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -3075,13 +3075,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -3120,7 +3120,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
@@ -3159,7 +3159,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 network and masklength
                 ''',
                 'ipv4_prefix',
@@ -3204,32 +3204,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 MDT network
                 ''',
                 'ipv4_addr',
@@ -3274,7 +3274,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 MDT network
                 ''',
                 'ipv4_addr',
@@ -3358,25 +3358,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -3545,13 +3545,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -3590,7 +3590,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -3629,7 +3629,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -3674,25 +3674,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -3849,7 +3849,7 @@ _meta_table = {
                 'bridge_domain_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN EVPN Prefix
                 ''',
                 'ipv4_prefix',
@@ -3894,32 +3894,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN EVPN Prefix
                 ''',
                 'ipv4_prefix',
@@ -3964,7 +3964,7 @@ _meta_table = {
                 'mp2mp',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN VPWS Prefix
                 ''',
                 'ipv4_prefix',
@@ -4009,7 +4009,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                VPN Fspec Prefix
                 ''',
                 'ipv4_prefix',
@@ -4054,38 +4054,38 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -4130,13 +4130,13 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -4181,38 +4181,38 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -4257,32 +4257,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -4327,32 +4327,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -4397,13 +4397,13 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -4448,7 +4448,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -4493,7 +4493,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -4551,13 +4551,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -4570,13 +4570,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -4635,13 +4635,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -4700,13 +4700,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -4765,7 +4765,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                Fspec IPv4 Prefix
                 ''',
                 'ipv4_prefix',
@@ -4823,13 +4823,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -4887,7 +4887,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
@@ -5009,25 +5009,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -5156,13 +5156,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -5220,7 +5220,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -5278,7 +5278,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -5342,25 +5342,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -5643,13 +5643,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -5708,13 +5708,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -5773,13 +5773,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -6052,13 +6052,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -6123,13 +6123,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -6194,13 +6194,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -6265,13 +6265,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -6336,13 +6336,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -6419,7 +6419,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -6503,7 +6503,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -6587,7 +6587,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -6671,7 +6671,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -6743,13 +6743,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and mask or masklength to clear dampening information
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and mask or masklength to clear dampening information
                         ''',
                         'ip_prefix',
@@ -7074,20 +7074,20 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv4_mask',
@@ -7151,13 +7151,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -7222,13 +7222,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and mask or masklength to clear flap statistics
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and mask or masklength to clear flap statistics
                         ''',
                         'ip_prefix',
@@ -7513,13 +7513,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
@@ -7792,13 +7792,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -7863,13 +7863,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -7934,13 +7934,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -8005,13 +8005,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -8070,13 +8070,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -8134,13 +8134,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -8198,13 +8198,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -8262,13 +8262,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -8326,7 +8326,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -8384,7 +8384,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -8454,7 +8454,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -8532,7 +8532,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -8598,13 +8598,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -8617,13 +8617,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -8682,13 +8682,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -8747,13 +8747,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -8818,13 +8818,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -8837,13 +8837,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -8908,13 +8908,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -8979,13 +8979,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -9056,13 +9056,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -9075,13 +9075,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -9152,13 +9152,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -9229,13 +9229,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -9300,25 +9300,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -9331,13 +9331,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -9350,13 +9350,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -9421,25 +9421,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -9452,13 +9452,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -9523,25 +9523,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -9554,13 +9554,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -9619,13 +9619,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -9683,7 +9683,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
@@ -9741,7 +9741,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 network and masklength
                 ''',
                 'ipv4_prefix',
@@ -9805,32 +9805,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 MDT network
                 ''',
                 'ipv4_addr',
@@ -9894,7 +9894,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 MDT network
                 ''',
                 'ipv4_addr',
@@ -10016,25 +10016,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -10279,13 +10279,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -10343,7 +10343,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -10401,7 +10401,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -10465,25 +10465,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -10716,7 +10716,7 @@ _meta_table = {
                 'bridge_domain_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN EVPN Prefix
                 ''',
                 'ipv4_prefix',
@@ -10780,32 +10780,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN EVPN Prefix
                 ''',
                 'ipv4_prefix',
@@ -10869,7 +10869,7 @@ _meta_table = {
                 'mp2mp',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN VPWS Prefix
                 ''',
                 'ipv4_prefix',
@@ -10933,7 +10933,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                VPN Fspec Prefix
                 ''',
                 'ipv4_prefix',
@@ -10997,38 +10997,38 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -11092,13 +11092,13 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -11162,38 +11162,38 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -11257,32 +11257,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -11346,32 +11346,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -11435,13 +11435,13 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -11505,7 +11505,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -11569,7 +11569,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -11646,13 +11646,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -11665,13 +11665,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -11749,13 +11749,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -11833,13 +11833,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -11917,7 +11917,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                Fspec IPv4 Prefix
                 ''',
                 'ipv4_prefix',
@@ -11994,13 +11994,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -12077,7 +12077,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
@@ -12237,25 +12237,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -12422,13 +12422,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -12505,7 +12505,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -12582,7 +12582,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -12665,25 +12665,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -12982,7 +12982,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 Network and mask or masklength to clear dampening information
                 ''',
                 'ipv4_prefix',
@@ -13040,7 +13040,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv4_prefix',
@@ -13098,7 +13098,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 Network and mask or masklength to clear dampening information
                 ''',
                 'ipv6_prefix',
@@ -13156,7 +13156,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv6_prefix',
@@ -13260,13 +13260,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
@@ -13371,13 +13371,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor IP address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor IP address
                         ''',
                         'ip_addr',
@@ -13902,13 +13902,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -13967,13 +13967,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -14032,13 +14032,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -14097,13 +14097,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -14202,13 +14202,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -14260,13 +14260,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -14318,13 +14318,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -14376,13 +14376,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -14434,7 +14434,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -14486,7 +14486,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -14544,13 +14544,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -14563,13 +14563,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -14628,13 +14628,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -14693,13 +14693,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -14764,13 +14764,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -14783,13 +14783,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -14854,13 +14854,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -14925,13 +14925,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -15002,13 +15002,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -15021,13 +15021,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -15098,13 +15098,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -15175,13 +15175,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -15246,25 +15246,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -15277,13 +15277,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -15296,13 +15296,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -15367,25 +15367,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -15398,13 +15398,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -15469,25 +15469,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -15500,13 +15500,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -15565,13 +15565,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -15629,7 +15629,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
@@ -15687,7 +15687,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 network and masklength
                 ''',
                 'ipv4_prefix',
@@ -15751,32 +15751,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 MDT network
                 ''',
                 'ipv4_addr',
@@ -15840,7 +15840,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 MDT network
                 ''',
                 'ipv4_addr',
@@ -15962,25 +15962,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -16225,13 +16225,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -16289,7 +16289,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -16347,7 +16347,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -16411,25 +16411,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -16662,7 +16662,7 @@ _meta_table = {
                 'bridge_domain_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN EVPN Prefix
                 ''',
                 'ipv4_prefix',
@@ -16726,32 +16726,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN EVPN Prefix
                 ''',
                 'ipv4_prefix',
@@ -16815,7 +16815,7 @@ _meta_table = {
                 'mp2mp',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN VPWS Prefix
                 ''',
                 'ipv4_prefix',
@@ -16879,7 +16879,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                VPN Fspec Prefix
                 ''',
                 'ipv4_prefix',
@@ -16943,38 +16943,38 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -17038,13 +17038,13 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -17108,38 +17108,38 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -17203,32 +17203,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -17292,32 +17292,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -17381,13 +17381,13 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -17451,7 +17451,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -17515,7 +17515,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -17592,13 +17592,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -17611,13 +17611,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -17695,13 +17695,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -17779,13 +17779,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -17863,7 +17863,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                Fspec IPv4 Prefix
                 ''',
                 'ipv4_prefix',
@@ -17940,13 +17940,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -18023,7 +18023,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
@@ -18183,25 +18183,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -18368,13 +18368,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -18451,7 +18451,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -18528,7 +18528,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -18611,25 +18611,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -18985,13 +18985,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -19069,13 +19069,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -19153,13 +19153,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -19249,7 +19249,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -19346,7 +19346,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -19851,13 +19851,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -19941,13 +19941,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -20031,13 +20031,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -20121,13 +20121,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -20211,13 +20211,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -20313,7 +20313,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -20416,7 +20416,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -20519,7 +20519,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -20622,7 +20622,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -20707,7 +20707,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 Network and mask or masklength to clear dampening information
                 ''',
                 'ipv4_prefix',
@@ -21145,20 +21145,20 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv4_mask',
@@ -21241,13 +21241,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -21325,7 +21325,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv4_prefix',
@@ -21704,13 +21704,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
@@ -22078,13 +22078,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -22168,13 +22168,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -22258,13 +22258,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -22348,13 +22348,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -22432,13 +22432,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -22515,13 +22515,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -22598,13 +22598,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -22681,13 +22681,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -22764,7 +22764,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -22841,7 +22841,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -22918,7 +22918,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 Network and mask or masklength to clear dampening information
                 ''',
                 'ipv6_prefix',
@@ -22995,7 +22995,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv6_prefix',
@@ -23137,13 +23137,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
@@ -23286,13 +23286,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor IP address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor IP address
                         ''',
                         'ip_addr',
@@ -23630,13 +23630,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -23714,13 +23714,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -23798,13 +23798,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -23882,13 +23882,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -23960,13 +23960,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -24037,13 +24037,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -24114,13 +24114,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -24191,13 +24191,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -24268,7 +24268,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -24339,7 +24339,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -24378,7 +24378,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 Network and mask or masklength to clear dampening information
                 ''',
                 'ipv4_prefix',
@@ -24417,7 +24417,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv4_prefix',
@@ -24456,7 +24456,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 Network and mask or masklength to clear dampening information
                 ''',
                 'ipv6_prefix',
@@ -24495,7 +24495,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv6_prefix',
@@ -24545,13 +24545,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
@@ -24602,13 +24602,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor IP address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor IP address
                         ''',
                         'ip_addr',
@@ -24780,13 +24780,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -24826,13 +24826,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -24872,13 +24872,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -24918,13 +24918,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -24969,13 +24969,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -25008,13 +25008,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -25047,13 +25047,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -25086,13 +25086,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -25125,7 +25125,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -25158,7 +25158,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -25197,13 +25197,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -25216,13 +25216,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -25262,13 +25262,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -25308,13 +25308,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -25360,13 +25360,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -25379,13 +25379,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -25431,13 +25431,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -25483,13 +25483,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -25541,13 +25541,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -25560,13 +25560,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -25618,13 +25618,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -25676,13 +25676,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -25728,25 +25728,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -25759,13 +25759,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -25778,13 +25778,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -25830,25 +25830,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -25861,13 +25861,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -25913,25 +25913,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -25944,13 +25944,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -25990,13 +25990,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -26035,7 +26035,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
@@ -26074,7 +26074,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 network and masklength
                 ''',
                 'ipv4_prefix',
@@ -26119,32 +26119,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 MDT network
                 ''',
                 'ipv4_addr',
@@ -26189,7 +26189,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 MDT network
                 ''',
                 'ipv4_addr',
@@ -26273,25 +26273,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -26460,13 +26460,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -26505,7 +26505,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -26544,7 +26544,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -26589,25 +26589,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -26764,7 +26764,7 @@ _meta_table = {
                 'bridge_domain_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN EVPN Prefix
                 ''',
                 'ipv4_prefix',
@@ -26809,32 +26809,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN EVPN Prefix
                 ''',
                 'ipv4_prefix',
@@ -26879,7 +26879,7 @@ _meta_table = {
                 'mp2mp',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                L2VPN VPWS Prefix
                 ''',
                 'ipv4_prefix',
@@ -26924,7 +26924,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                VPN Fspec Prefix
                 ''',
                 'ipv4_prefix',
@@ -26969,38 +26969,38 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -27045,13 +27045,13 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -27096,38 +27096,38 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -27172,32 +27172,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -27242,32 +27242,32 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -27312,13 +27312,13 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -27363,7 +27363,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -27408,7 +27408,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -27466,13 +27466,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -27485,13 +27485,13 @@ _meta_table = {
                 'ip_netmask',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Mask
                         ''',
                         'ip_netmask',
@@ -27550,13 +27550,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network
                         ''',
                         'ip_addr',
@@ -27615,13 +27615,13 @@ _meta_table = {
                 'ip_prefix',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        Network and masklength
                         ''',
                         'ip_prefix',
@@ -27680,7 +27680,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                Fspec IPv4 Prefix
                 ''',
                 'ipv4_prefix',
@@ -27738,13 +27738,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 mask
                 ''',
                 'ipv4_mask',
@@ -27802,7 +27802,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 network
                 ''',
                 'ipv4_addr',
@@ -27924,25 +27924,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -28071,13 +28071,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 mask
                 ''',
                 'ipv6_netmask',
@@ -28135,7 +28135,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 network
                 ''',
                 'ipv6_addr',
@@ -28193,7 +28193,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 network and masklength
                 ''',
                 'ipv6_prefix',
@@ -28257,25 +28257,25 @@ _meta_table = {
                 'rd',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+\\.\\d+:\\d+)'], 
+                        [], [b'(\\d+\\.\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(\\d+:\\d+)'], 
+                        [], [b'(\\d+:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('rd', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(:\\d+)'], 
                         '''                        Route distinguisher
                         ''',
                         'rd',
@@ -28536,13 +28536,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -28601,13 +28601,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -28666,13 +28666,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -28743,7 +28743,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -28821,7 +28821,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -29193,13 +29193,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -29264,13 +29264,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -29335,13 +29335,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -29406,13 +29406,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -29477,13 +29477,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -29560,7 +29560,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -29644,7 +29644,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -29728,7 +29728,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -29812,7 +29812,7 @@ _meta_table = {
                         'as_number',
                         'Cisco-IOS-XR-ipv4-bgp-act', False, [
                             _MetaInfoClassMember('as-number', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(\\d+\\.\\d+)'], 
+                                [], [b'(\\d+\\.\\d+)'], 
                                 '''                                AS number
                                 ''',
                                 'as_number',
@@ -29878,7 +29878,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 Network and mask or masklength to clear dampening information
                 ''',
                 'ipv4_prefix',
@@ -30202,20 +30202,20 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('ipv4-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv4_mask',
@@ -30279,13 +30279,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor address to clear
                         ''',
                         'ip_addr',
@@ -30344,7 +30344,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv4-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                 '''                IPv4 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv4_prefix',
@@ -30628,13 +30628,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
@@ -30907,13 +30907,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -30978,13 +30978,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -31049,13 +31049,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -31120,13 +31120,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -31185,13 +31185,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -31249,13 +31249,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -31313,13 +31313,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -31377,13 +31377,13 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -31441,7 +31441,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -31499,7 +31499,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -31557,7 +31557,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 Network and mask or masklength to clear dampening information
                 ''',
                 'ipv6_prefix',
@@ -31615,7 +31615,7 @@ _meta_table = {
                 'afi_safi_name',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('ipv6-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                 '''                IPv6 Network and mask or masklength to clear flap statistics
                 ''',
                 'ipv6_prefix',
@@ -31719,13 +31719,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Nexthop address
                         ''',
                         'ip_addr',
@@ -31830,13 +31830,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor IP address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        BGP neighbor IP address
                         ''',
                         'ip_addr',
@@ -32079,13 +32079,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -32144,13 +32144,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -32209,13 +32209,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -32274,13 +32274,13 @@ _meta_table = {
                 'ip_addr',
                 'Cisco-IOS-XR-ipv4-bgp-act', False, [
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                     _MetaInfoClassMember('ip-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'ip_addr',
@@ -32333,13 +32333,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -32391,13 +32391,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Sub-group process ID <x.y>
                 ''',
                 'sub_group',
@@ -32449,13 +32449,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -32507,13 +32507,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
                 'Cisco-IOS-XR-ipv4-bgp-act', False),
             _MetaInfoClassMember('refresh-sub-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)(:\\d+)'], 
                 '''                Refresh Sub-group process ID <x.y:z>
                 ''',
                 'refresh_sub_group',
@@ -32565,7 +32565,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',
@@ -32617,7 +32617,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv4-bgp-act', False),
                 ]),
             _MetaInfoClassMember('update-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|1[0-5])\\.\\d+)'], 
+                [], [b'(([0-9]|1[0-5])\\.\\d+)'], 
                 '''                Update-group process ID <x.y>
                 ''',
                 'update_group',

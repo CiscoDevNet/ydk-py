@@ -13,11 +13,51 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'L2VpnAdRtRoleEnum' : _MetaInfoEnum('L2VpnAdRtRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+    'L2VpnEvpnMfModeEnum' : _MetaInfoEnum('L2VpnEvpnMfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
         {
-            'both':'both',
-            'import':'import_',
-            'export':'export',
+            'invalid':'invalid',
+            'tcn-stp':'tcn_stp',
+            'mvrp':'mvrp',
+        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
+    'BgpRouteTargetFormatEnum' : _MetaInfoEnum('BgpRouteTargetFormatEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+        {
+            'none':'none',
+            'two-byte-as':'two_byte_as',
+            'four-byte-as':'four_byte_as',
+            'ipv4-address':'ipv4_address',
+        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
+    'L2VpnRgStateEnum' : _MetaInfoEnum('L2VpnRgStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+        {
+            'unknown':'unknown',
+            'active':'active',
+            'standby':'standby',
+        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
+    'L2VpnEvpnScModeEnum' : _MetaInfoEnum('L2VpnEvpnScModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+        {
+            'invalid':'invalid',
+            'auto':'auto',
+            'manual':'manual',
+        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
+    'L2VpnAdRtEnum' : _MetaInfoEnum('L2VpnAdRtEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+        {
+            'l2vpn-ad-rt-none':'l2vpn_ad_rt_none',
+            'l2vpn-ad-rt-as':'l2vpn_ad_rt_as',
+            'l2vpn-ad-rt-4byte-as':'l2vpn_ad_rt_4byte_as',
+            'l2vpn-ad-rt-v4-addr':'l2vpn_ad_rt_v4_addr',
+            'es-import':'es_import',
+        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
+    'L2VpnEvpnScEnum' : _MetaInfoEnum('L2VpnEvpnScEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+        {
+            'not-applicable':'not_applicable',
+            'evi':'evi',
+            'isid':'isid',
+            'evpn-bag-sc-type-max':'evpn_bag_sc_type_max',
+        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
+    'L2VpnEvpnRtOriginEnum' : _MetaInfoEnum('L2VpnEvpnRtOriginEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+        {
+            'invalid':'invalid',
+            'extracted':'extracted',
+            'configured':'configured',
         }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
     'L2VpnEvpnSmacSrcEnum' : _MetaInfoEnum('L2VpnEvpnSmacSrcEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
         {
@@ -29,58 +69,6 @@ _meta_table = {
             'esi-invalid':'esi_invalid',
             'pbb-bsa-overrride':'pbb_bsa_overrride',
         }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'L2VpnRgStateEnum' : _MetaInfoEnum('L2VpnRgStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
-        {
-            'unknown':'unknown',
-            'active':'active',
-            'standby':'standby',
-        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'BgpRouteTargetRoleEnum' : _MetaInfoEnum('BgpRouteTargetRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
-        {
-            'both':'both',
-            'import':'import_',
-            'export':'export',
-        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'L2VpnEvpnMfModeEnum' : _MetaInfoEnum('L2VpnEvpnMfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
-        {
-            'invalid':'invalid',
-            'tcn-stp':'tcn_stp',
-            'mvrp':'mvrp',
-        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'L2VpnEvpnLbModeEnum' : _MetaInfoEnum('L2VpnEvpnLbModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
-        {
-            'invalid-load-balancing':'invalid_load_balancing',
-            'single-homed':'single_homed',
-            'multi-homed-aa-per-flow':'multi_homed_aa_per_flow',
-            'multi-homed-aa-per-service':'multi_homed_aa_per_service',
-        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'L2VpnAdRtEnum' : _MetaInfoEnum('L2VpnAdRtEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
-        {
-            'l2vpn-ad-rt-none':'l2vpn_ad_rt_none',
-            'l2vpn-ad-rt-as':'l2vpn_ad_rt_as',
-            'l2vpn-ad-rt-4byte-as':'l2vpn_ad_rt_4byte_as',
-            'l2vpn-ad-rt-v4-addr':'l2vpn_ad_rt_v4_addr',
-            'es-import':'es_import',
-        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'L2VpnEvpnScModeEnum' : _MetaInfoEnum('L2VpnEvpnScModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
-        {
-            'invalid':'invalid',
-            'auto':'auto',
-            'manual':'manual',
-        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'L2VpnEvpnRtOriginEnum' : _MetaInfoEnum('L2VpnEvpnRtOriginEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
-        {
-            'invalid':'invalid',
-            'extracted':'extracted',
-            'configured':'configured',
-        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'L2VpnEvpnScEnum' : _MetaInfoEnum('L2VpnEvpnScEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
-        {
-            'not-applicable':'not_applicable',
-            'evi':'evi',
-            'isid':'isid',
-            'evpn-bag-sc-type-max':'evpn_bag_sc_type_max',
-        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
     'EvpnEnum' : _MetaInfoEnum('EvpnEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
         {
             'evpn-type-invalid':'evpn_type_invalid',
@@ -90,13 +78,6 @@ _meta_table = {
             'evpn-type-evpn-vpws-vlan-aware':'evpn_type_evpn_vpws_vlan_aware',
             'evpn-type-max':'evpn_type_max',
         }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'BgpRouteTargetFormatEnum' : _MetaInfoEnum('BgpRouteTargetFormatEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
-        {
-            'none':'none',
-            'two-byte-as':'two_byte_as',
-            'four-byte-as':'four_byte_as',
-            'ipv4-address':'ipv4_address',
-        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
     'L2VpnAdRdEnum' : _MetaInfoEnum('L2VpnAdRdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
         {
             'l2vpn-ad-rd-none':'l2vpn_ad_rd_none',
@@ -104,6 +85,17 @@ _meta_table = {
             'l2vpn-ad-rd-as':'l2vpn_ad_rd_as',
             'l2vpn-ad-rd-4byte-as':'l2vpn_ad_rd_4byte_as',
             'l2vpn-ad-rd-v4-addr':'l2vpn_ad_rd_v4_addr',
+        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
+    'BgpRouteTargetEnum' : _MetaInfoEnum('BgpRouteTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+        {
+            'no-stitching':'no_stitching',
+            'stitching':'stitching',
+        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
+    'BgpRouteTargetRoleEnum' : _MetaInfoEnum('BgpRouteTargetRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+        {
+            'both':'both',
+            'import':'import_',
+            'export':'export',
         }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
     'L2VpnEvpnEsiEnum' : _MetaInfoEnum('L2VpnEvpnEsiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
         {
@@ -117,10 +109,18 @@ _meta_table = {
             'l2vpn-evpn-esi-type-override':'l2vpn_evpn_esi_type_override',
             'esi-type-invalid':'esi_type_invalid',
         }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
-    'BgpRouteTargetEnum' : _MetaInfoEnum('BgpRouteTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+    'L2VpnAdRtRoleEnum' : _MetaInfoEnum('L2VpnAdRtRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
         {
-            'no-stitching':'no_stitching',
-            'stitching':'stitching',
+            'both':'both',
+            'import':'import_',
+            'export':'export',
+        }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
+    'L2VpnEvpnLbModeEnum' : _MetaInfoEnum('L2VpnEvpnLbModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper',
+        {
+            'invalid-load-balancing':'invalid_load_balancing',
+            'single-homed':'single_homed',
+            'multi-homed-aa-per-flow':'multi_homed_aa_per_flow',
+            'multi-homed-aa-per-service':'multi_homed_aa_per_service',
         }, 'Cisco-IOS-XR-evpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-evpn-oper']),
     'Evpn.Nodes.Node.Evis.Evi' : {
         'meta_info' : _MetaInfoClass('Evpn.Nodes.Node.Evis.Evi',
@@ -203,7 +203,7 @@ _meta_table = {
                 'ev_is',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('global-source-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Global Source MAC Address
                 ''',
                 'global_source_mac',
@@ -312,7 +312,7 @@ _meta_table = {
                 'remote_soo_mac_routes',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                EVPN Router ID
                 ''',
                 'router_id',
@@ -358,7 +358,7 @@ _meta_table = {
                 'auto_index',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                BGP Router ID
                 ''',
                 'router_id',
@@ -421,7 +421,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -491,7 +491,7 @@ _meta_table = {
                 'auto_index',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                BGP Router ID
                 ''',
                 'router_id',
@@ -554,7 +554,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -664,7 +664,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -797,7 +797,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -1056,7 +1056,7 @@ _meta_table = {
                 'evi_xr',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('neighbor', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Neighbor IP
                 ''',
                 'neighbor',
@@ -1068,13 +1068,13 @@ _meta_table = {
                 'neighbor_ip',
                 'Cisco-IOS-XR-evpn-oper', False, [
                     _MetaInfoClassMember('neighbor-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor IP
                         ''',
                         'neighbor_ip',
                         'Cisco-IOS-XR-evpn-oper', False),
                     _MetaInfoClassMember('neighbor-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor IP
                         ''',
                         'neighbor_ip',
@@ -1109,7 +1109,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -1138,31 +1138,31 @@ _meta_table = {
                 'encap',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi1', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 1/5)
                 ''',
                 'esi1',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi2', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 2/5)
                 ''',
                 'esi2',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi3', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 3/5)
                 ''',
                 'esi3',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi4', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 4/5)
                 ''',
                 'esi4',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi5', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 5/5)
                 ''',
                 'esi5',
@@ -1211,7 +1211,7 @@ _meta_table = {
                 'local_label',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('local-next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local nexthop IP
                 ''',
                 'local_next_hop',
@@ -1294,7 +1294,7 @@ _meta_table = {
                 'is_local_entry',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP of nexthop
                 ''',
                 'next_hop',
@@ -1306,20 +1306,20 @@ _meta_table = {
                 'originating_ip',
                 'Cisco-IOS-XR-evpn-oper', False, [
                     _MetaInfoClassMember('originating-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Originating IP
                         ''',
                         'originating_ip',
                         'Cisco-IOS-XR-evpn-oper', False),
                     _MetaInfoClassMember('originating-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Originating IP
                         ''',
                         'originating_ip',
                         'Cisco-IOS-XR-evpn-oper', False),
                 ]),
             _MetaInfoClassMember('originating-ip-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating IP
                 ''',
                 'originating_ip_xr',
@@ -1405,7 +1405,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -1498,7 +1498,7 @@ _meta_table = {
                 'addr_index',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                RT IPv4 Address
                 ''',
                 'address',
@@ -1598,7 +1598,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -1657,20 +1657,20 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-evpn-oper', False, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP Address
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-evpn-oper', False),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP Address
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-evpn-oper', False),
                 ]),
             _MetaInfoClassMember('ip-address-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address (v6 format)
                 ''',
                 'ip_address_xr',
@@ -1724,13 +1724,13 @@ _meta_table = {
                 'local_seq_id',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('mac-address-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address_xr',
@@ -1785,7 +1785,7 @@ _meta_table = {
                 'resolved',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('soo-nexthop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                SOO nexthop (v6 format)
                 ''',
                 'soo_nexthop',
@@ -1883,7 +1883,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -1907,7 +1907,7 @@ _meta_table = {
                 'label',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -1942,31 +1942,31 @@ _meta_table = {
                 'es_l2fib_gates',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi1', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 1/5)
                 ''',
                 'esi1',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi2', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 2/5)
                 ''',
                 'esi2',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi3', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 3/5)
                 ''',
                 'esi3',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi4', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 4/5)
                 ''',
                 'esi4',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi5', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 5/5)
                 ''',
                 'esi5',
@@ -2008,13 +2008,13 @@ _meta_table = {
                 'forwarder_ports',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('if-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main port ifhandle
                 ''',
                 'if_handle',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -2050,7 +2050,7 @@ _meta_table = {
                 'mac_flushing_mode_config',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('main-port-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Main Port MAC Address
                 ''',
                 'main_port_mac',
@@ -2136,7 +2136,7 @@ _meta_table = {
                 'remote_split_horizon_group_label',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('route-target', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                ES-Import Route Target
                 ''',
                 'route_target',
@@ -2178,7 +2178,7 @@ _meta_table = {
                 'service_carving_type',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('source-mac-oper', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Operational Source MAC address
                 ''',
                 'source_mac_oper',
@@ -2236,7 +2236,7 @@ _meta_table = {
                 'evi_xr',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('neighbor', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Neighbor IP
                 ''',
                 'neighbor',
@@ -2270,7 +2270,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Location
                 ''',
                 'node_id',
@@ -2410,7 +2410,7 @@ _meta_table = {
                 'ev_is',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('global-source-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Global Source MAC Address
                 ''',
                 'global_source_mac',
@@ -2519,7 +2519,7 @@ _meta_table = {
                 'remote_soo_mac_routes',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                EVPN Router ID
                 ''',
                 'router_id',
@@ -2565,7 +2565,7 @@ _meta_table = {
                 'auto_index',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                BGP Router ID
                 ''',
                 'router_id',
@@ -2628,7 +2628,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -2698,7 +2698,7 @@ _meta_table = {
                 'auto_index',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                BGP Router ID
                 ''',
                 'router_id',
@@ -2761,7 +2761,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -2871,7 +2871,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -3004,7 +3004,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -3263,7 +3263,7 @@ _meta_table = {
                 'evi_xr',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('neighbor', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Neighbor IP
                 ''',
                 'neighbor',
@@ -3275,13 +3275,13 @@ _meta_table = {
                 'neighbor_ip',
                 'Cisco-IOS-XR-evpn-oper', False, [
                     _MetaInfoClassMember('neighbor-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor IP
                         ''',
                         'neighbor_ip',
                         'Cisco-IOS-XR-evpn-oper', False),
                     _MetaInfoClassMember('neighbor-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor IP
                         ''',
                         'neighbor_ip',
@@ -3316,7 +3316,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -3345,31 +3345,31 @@ _meta_table = {
                 'encap',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi1', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 1/5)
                 ''',
                 'esi1',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi2', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 2/5)
                 ''',
                 'esi2',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi3', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 3/5)
                 ''',
                 'esi3',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi4', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 4/5)
                 ''',
                 'esi4',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi5', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 5/5)
                 ''',
                 'esi5',
@@ -3418,7 +3418,7 @@ _meta_table = {
                 'local_label',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('local-next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local nexthop IP
                 ''',
                 'local_next_hop',
@@ -3501,7 +3501,7 @@ _meta_table = {
                 'is_local_entry',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP of nexthop
                 ''',
                 'next_hop',
@@ -3513,20 +3513,20 @@ _meta_table = {
                 'originating_ip',
                 'Cisco-IOS-XR-evpn-oper', False, [
                     _MetaInfoClassMember('originating-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Originating IP
                         ''',
                         'originating_ip',
                         'Cisco-IOS-XR-evpn-oper', False),
                     _MetaInfoClassMember('originating-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Originating IP
                         ''',
                         'originating_ip',
                         'Cisco-IOS-XR-evpn-oper', False),
                 ]),
             _MetaInfoClassMember('originating-ip-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating IP
                 ''',
                 'originating_ip_xr',
@@ -3612,7 +3612,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -3705,7 +3705,7 @@ _meta_table = {
                 'addr_index',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                RT IPv4 Address
                 ''',
                 'address',
@@ -3805,7 +3805,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -3864,20 +3864,20 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-evpn-oper', False, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP Address
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-evpn-oper', False),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP Address
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-evpn-oper', False),
                 ]),
             _MetaInfoClassMember('ip-address-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address (v6 format)
                 ''',
                 'ip_address_xr',
@@ -3931,13 +3931,13 @@ _meta_table = {
                 'local_seq_id',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('mac-address-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address_xr',
@@ -3992,7 +3992,7 @@ _meta_table = {
                 'resolved',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('soo-nexthop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                SOO nexthop (v6 format)
                 ''',
                 'soo_nexthop',
@@ -4090,7 +4090,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -4114,7 +4114,7 @@ _meta_table = {
                 'label',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -4149,31 +4149,31 @@ _meta_table = {
                 'es_l2fib_gates',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi1', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 1/5)
                 ''',
                 'esi1',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi2', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 2/5)
                 ''',
                 'esi2',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi3', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 3/5)
                 ''',
                 'esi3',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi4', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 4/5)
                 ''',
                 'esi4',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi5', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 5/5)
                 ''',
                 'esi5',
@@ -4215,13 +4215,13 @@ _meta_table = {
                 'forwarder_ports',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('if-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main port ifhandle
                 ''',
                 'if_handle',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -4257,7 +4257,7 @@ _meta_table = {
                 'mac_flushing_mode_config',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('main-port-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Main Port MAC Address
                 ''',
                 'main_port_mac',
@@ -4343,7 +4343,7 @@ _meta_table = {
                 'remote_split_horizon_group_label',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('route-target', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                ES-Import Route Target
                 ''',
                 'route_target',
@@ -4385,7 +4385,7 @@ _meta_table = {
                 'service_carving_type',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('source-mac-oper', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Operational Source MAC address
                 ''',
                 'source_mac_oper',
@@ -4443,7 +4443,7 @@ _meta_table = {
                 'evi_xr',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('neighbor', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Neighbor IP
                 ''',
                 'neighbor',
@@ -4594,7 +4594,7 @@ _meta_table = {
                 'ev_is',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('global-source-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Global Source MAC Address
                 ''',
                 'global_source_mac',
@@ -4703,7 +4703,7 @@ _meta_table = {
                 'remote_soo_mac_routes',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                EVPN Router ID
                 ''',
                 'router_id',
@@ -4749,7 +4749,7 @@ _meta_table = {
                 'auto_index',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                BGP Router ID
                 ''',
                 'router_id',
@@ -4812,7 +4812,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -4882,7 +4882,7 @@ _meta_table = {
                 'auto_index',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                BGP Router ID
                 ''',
                 'router_id',
@@ -4945,7 +4945,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -5055,7 +5055,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -5188,7 +5188,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -5447,7 +5447,7 @@ _meta_table = {
                 'evi_xr',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('neighbor', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Neighbor IP
                 ''',
                 'neighbor',
@@ -5459,13 +5459,13 @@ _meta_table = {
                 'neighbor_ip',
                 'Cisco-IOS-XR-evpn-oper', False, [
                     _MetaInfoClassMember('neighbor-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor IP
                         ''',
                         'neighbor_ip',
                         'Cisco-IOS-XR-evpn-oper', False),
                     _MetaInfoClassMember('neighbor-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor IP
                         ''',
                         'neighbor_ip',
@@ -5500,7 +5500,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -5529,31 +5529,31 @@ _meta_table = {
                 'encap',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi1', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 1/5)
                 ''',
                 'esi1',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi2', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 2/5)
                 ''',
                 'esi2',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi3', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 3/5)
                 ''',
                 'esi3',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi4', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 4/5)
                 ''',
                 'esi4',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi5', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 5/5)
                 ''',
                 'esi5',
@@ -5602,7 +5602,7 @@ _meta_table = {
                 'local_label',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('local-next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local nexthop IP
                 ''',
                 'local_next_hop',
@@ -5685,7 +5685,7 @@ _meta_table = {
                 'is_local_entry',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP of nexthop
                 ''',
                 'next_hop',
@@ -5697,20 +5697,20 @@ _meta_table = {
                 'originating_ip',
                 'Cisco-IOS-XR-evpn-oper', False, [
                     _MetaInfoClassMember('originating-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Originating IP
                         ''',
                         'originating_ip',
                         'Cisco-IOS-XR-evpn-oper', False),
                     _MetaInfoClassMember('originating-ip', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Originating IP
                         ''',
                         'originating_ip',
                         'Cisco-IOS-XR-evpn-oper', False),
                 ]),
             _MetaInfoClassMember('originating-ip-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Originating IP
                 ''',
                 'originating_ip_xr',
@@ -5796,7 +5796,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'ipv4_address',
@@ -5889,7 +5889,7 @@ _meta_table = {
                 'addr_index',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                RT IPv4 Address
                 ''',
                 'address',
@@ -5989,7 +5989,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -6048,20 +6048,20 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-evpn-oper', False, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP Address
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-evpn-oper', False),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP Address
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-evpn-oper', False),
                 ]),
             _MetaInfoClassMember('ip-address-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address (v6 format)
                 ''',
                 'ip_address_xr',
@@ -6115,13 +6115,13 @@ _meta_table = {
                 'local_seq_id',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('mac-address-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address_xr',
@@ -6176,7 +6176,7 @@ _meta_table = {
                 'resolved',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('soo-nexthop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                SOO nexthop (v6 format)
                 ''',
                 'soo_nexthop',
@@ -6274,7 +6274,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -6298,7 +6298,7 @@ _meta_table = {
                 'label',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('next-hop', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next-hop IP address (v6 format)
                 ''',
                 'next_hop',
@@ -6333,31 +6333,31 @@ _meta_table = {
                 'es_l2fib_gates',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi1', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 1/5)
                 ''',
                 'esi1',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi2', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 2/5)
                 ''',
                 'esi2',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi3', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 3/5)
                 ''',
                 'esi3',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi4', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 4/5)
                 ''',
                 'esi4',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('esi5', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                ES id (part 5/5)
                 ''',
                 'esi5',
@@ -6399,13 +6399,13 @@ _meta_table = {
                 'forwarder_ports',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('if-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main port ifhandle
                 ''',
                 'if_handle',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_name',
@@ -6441,7 +6441,7 @@ _meta_table = {
                 'mac_flushing_mode_config',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('main-port-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Main Port MAC Address
                 ''',
                 'main_port_mac',
@@ -6527,7 +6527,7 @@ _meta_table = {
                 'remote_split_horizon_group_label',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('route-target', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                ES-Import Route Target
                 ''',
                 'route_target',
@@ -6569,7 +6569,7 @@ _meta_table = {
                 'service_carving_type',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('source-mac-oper', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Operational Source MAC address
                 ''',
                 'source_mac_oper',
@@ -6627,7 +6627,7 @@ _meta_table = {
                 'evi_xr',
                 'Cisco-IOS-XR-evpn-oper', False),
             _MetaInfoClassMember('neighbor', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Neighbor IP
                 ''',
                 'neighbor',

@@ -165,8 +165,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -189,8 +187,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.usergroup_under_username is not None:
                         for child_ref in self.usergroup_under_username:
                             if child_ref._has_data():
@@ -215,8 +211,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -243,8 +237,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.username is not None:
                 for child_ref in self.username:
                     if child_ref._has_data():
@@ -267,8 +259,6 @@ class Aaa(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.usernames is not None and self.usernames._has_data():
             return True
 

@@ -1533,8 +1533,6 @@ class Udp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.udp_bad_length_packets is not None:
                             return True
 
@@ -1635,8 +1633,6 @@ class Udp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.udp_bad_length_packets is not None:
                             return True
 
@@ -1674,8 +1670,6 @@ class Udp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipv4_traffic is not None and self.ipv4_traffic._has_data():
                         return True
 
@@ -1701,8 +1695,6 @@ class Udp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1726,8 +1718,6 @@ class Udp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1750,8 +1740,6 @@ class Udp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -2001,8 +1989,6 @@ class UdpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.client_id is not None:
                                 return True
 
@@ -2043,8 +2029,6 @@ class UdpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.client is not None:
                             for child_ref in self.client:
                                 if child_ref._has_data():
@@ -2164,8 +2148,6 @@ class UdpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cloned_packets is not None:
                             return True
 
@@ -2355,8 +2337,6 @@ class UdpConnection(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.failed_queued_net_io_packets is not None:
                                     return True
 
@@ -2449,8 +2429,6 @@ class UdpConnection(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.failed_queued_application_packets is not None:
                                     return True
 
@@ -2487,8 +2465,6 @@ class UdpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.pcb_address is not None:
                                 return True
 
@@ -2523,8 +2499,6 @@ class UdpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pcb_statistic is not None:
                             for child_ref in self.pcb_statistic:
                                 if child_ref._has_data():
@@ -2549,8 +2523,6 @@ class UdpConnection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.clients is not None and self.clients._has_data():
                         return True
 
@@ -2780,8 +2752,6 @@ class UdpConnection(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_name is not None:
                                             return True
 
@@ -2847,8 +2817,6 @@ class UdpConnection(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_name is not None:
                                             return True
 
@@ -2992,8 +2960,6 @@ class UdpConnection(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.is_ip_sla is not None:
                                                     return True
 
@@ -3052,8 +3018,6 @@ class UdpConnection(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.is_ignore_vrf_filter is not None:
                                                     return True
 
@@ -3133,8 +3097,6 @@ class UdpConnection(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.is_interface is not None:
                                                     return True
 
@@ -3319,8 +3281,6 @@ class UdpConnection(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.icm_pv6_message_type is not None:
                                                         return True
 
@@ -3392,8 +3352,6 @@ class UdpConnection(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.af_name is not None:
                                                         return True
 
@@ -3459,8 +3417,6 @@ class UdpConnection(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.af_name is not None:
                                                         return True
 
@@ -3489,8 +3445,6 @@ class UdpConnection(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.flow_types_info is not None:
                                                     return True
 
@@ -3543,8 +3497,6 @@ class UdpConnection(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.accept_mask is not None and self.accept_mask._has_data():
                                                 return True
 
@@ -3584,8 +3536,6 @@ class UdpConnection(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af_name is not None:
                                             return True
 
@@ -3613,8 +3563,6 @@ class UdpConnection(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pcb_address is not None:
                                         return True
 
@@ -3655,8 +3603,6 @@ class UdpConnection(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pcb is not None:
                                     for child_ref in self.pcb:
                                         if child_ref._has_data():
@@ -3683,8 +3629,6 @@ class UdpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.query_name is not None:
                                 return True
 
@@ -3710,8 +3654,6 @@ class UdpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.query is not None:
                             for child_ref in self.query:
                                 if child_ref._has_data():
@@ -3736,8 +3678,6 @@ class UdpConnection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.queries is not None and self.queries._has_data():
                         return True
 
@@ -3912,8 +3852,6 @@ class UdpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -3979,8 +3917,6 @@ class UdpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -4011,8 +3947,6 @@ class UdpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pcb_address is not None:
                             return True
 
@@ -4062,8 +3996,6 @@ class UdpConnection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.pcb_detail is not None:
                         for child_ref in self.pcb_detail:
                             if child_ref._has_data():
@@ -4231,8 +4163,6 @@ class UdpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -4298,8 +4228,6 @@ class UdpConnection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -4330,8 +4258,6 @@ class UdpConnection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pcb_address is not None:
                             return True
 
@@ -4378,8 +4304,6 @@ class UdpConnection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.pcb_brief is not None:
                         for child_ref in self.pcb_brief:
                             if child_ref._has_data():
@@ -4404,8 +4328,6 @@ class UdpConnection(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -4438,8 +4360,6 @@ class UdpConnection(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -4462,8 +4382,6 @@ class UdpConnection(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

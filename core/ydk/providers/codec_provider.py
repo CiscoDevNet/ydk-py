@@ -39,7 +39,7 @@ class CodecServiceProvider(ServiceProvider):
 
     def __init__(self, **kwargs):
         if(len(kwargs) == 0):
-            raise YPYServiceProviderError('Codec type is required')
+            raise YPYServiceProviderError(error_msg='Codec type is required')
 
         codec_type = ''
         for key, val in kwargs.items():
@@ -50,7 +50,7 @@ class CodecServiceProvider(ServiceProvider):
             self.encoder = XmlEncoder()
             self.decoder = XmlDecoder()
         else:
-            raise YPYServiceProviderError('Codec type "{0}" not yet supported'.format(codec_type))
+            raise YPYServiceProviderError(error_msg='Codec type "{0}" not yet supported'.format(codec_type))
         self.logger = logging.getLogger(__name__)
 
     def _encode(self, entity):

@@ -328,8 +328,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.crc_err_count is not None:
                                         return True
 
@@ -385,8 +383,6 @@ class AsicErrors(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cih_client is not None:
                                     return True
 
@@ -417,8 +413,6 @@ class AsicErrors(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.summary is not None and self.summary._has_data():
                                 return True
 
@@ -441,8 +435,6 @@ class AsicErrors(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.all_error_path is not None and self.all_error_path._has_data():
                             return True
 
@@ -1071,8 +1063,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -1156,8 +1146,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -1194,8 +1182,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -1261,8 +1247,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -1468,8 +1452,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -1553,8 +1535,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -1591,8 +1571,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -1658,8 +1636,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -1865,8 +1841,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -1950,8 +1924,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -1988,8 +1960,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -2055,8 +2025,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -2262,8 +2230,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -2347,8 +2313,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -2385,8 +2349,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -2452,8 +2414,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -2659,8 +2619,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -2744,8 +2702,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -2782,8 +2738,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -2849,8 +2803,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -3056,8 +3008,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -3141,8 +3091,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -3179,8 +3127,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -3246,8 +3192,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -3453,8 +3397,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -3538,8 +3480,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -3576,8 +3516,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -3643,8 +3581,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -3850,8 +3786,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -3935,8 +3869,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -3973,8 +3905,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -4040,8 +3970,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -4247,8 +4175,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -4332,8 +4258,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -4370,8 +4294,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -4437,8 +4359,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -4644,8 +4564,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -4729,8 +4647,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -4767,8 +4683,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -4834,8 +4748,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -5041,8 +4953,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -5126,8 +5036,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -5164,8 +5072,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -5231,8 +5137,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -5438,8 +5342,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -5523,8 +5425,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -5561,8 +5461,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -5628,8 +5526,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -5835,8 +5731,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -5920,8 +5814,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -5958,8 +5850,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -6025,8 +5915,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -6232,8 +6120,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -6317,8 +6203,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -6355,8 +6239,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -6422,8 +6304,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -6629,8 +6509,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -6714,8 +6592,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -6752,8 +6628,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -6819,8 +6693,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -7026,8 +6898,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -7111,8 +6981,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -7149,8 +7017,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -7216,8 +7082,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -7423,8 +7287,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -7508,8 +7370,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -7546,8 +7406,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -7613,8 +7471,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -7820,8 +7676,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -7905,8 +7759,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -7943,8 +7795,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -8010,8 +7860,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -8217,8 +8065,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -8302,8 +8148,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -8340,8 +8184,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -8407,8 +8249,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -8614,8 +8454,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -8699,8 +8537,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -8737,8 +8573,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -8804,8 +8638,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -9011,8 +8843,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -9096,8 +8926,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -9134,8 +8962,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -9201,8 +9027,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -9408,8 +9232,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -9493,8 +9315,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -9531,8 +9351,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -9598,8 +9416,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -9805,8 +9621,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -9890,8 +9704,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -9928,8 +9740,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -9995,8 +9805,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -10202,8 +10010,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -10287,8 +10093,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -10325,8 +10129,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -10392,8 +10194,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -10599,8 +10399,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -10684,8 +10482,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -10722,8 +10518,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -10789,8 +10583,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -10951,8 +10743,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.crc_err_count is not None:
                                             return True
 
@@ -11008,8 +10798,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.cih_client is not None:
                                         return True
 
@@ -11221,8 +11009,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -11306,8 +11092,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -11344,8 +11128,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -11411,8 +11193,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -11618,8 +11398,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -11703,8 +11481,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -11741,8 +11517,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -11808,8 +11582,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -12015,8 +11787,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -12100,8 +11870,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -12138,8 +11906,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -12205,8 +11971,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -12412,8 +12176,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -12497,8 +12259,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -12535,8 +12295,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -12602,8 +12360,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -12809,8 +12565,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -12894,8 +12648,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -12932,8 +12684,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -12999,8 +12749,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -13206,8 +12954,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -13291,8 +13037,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -13329,8 +13073,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -13396,8 +13138,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -13603,8 +13343,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -13688,8 +13426,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -13726,8 +13462,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -13793,8 +13527,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -14000,8 +13732,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -14085,8 +13815,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -14123,8 +13851,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -14190,8 +13916,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -14397,8 +14121,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -14482,8 +14204,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -14520,8 +14240,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -14587,8 +14305,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -14794,8 +14510,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -14879,8 +14593,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -14917,8 +14629,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -14984,8 +14694,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -15191,8 +14899,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -15276,8 +14982,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -15314,8 +15018,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -15381,8 +15083,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -15588,8 +15288,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -15673,8 +15371,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -15711,8 +15407,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -15778,8 +15472,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -15985,8 +15677,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -16070,8 +15760,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -16108,8 +15796,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -16175,8 +15861,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -16382,8 +16066,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -16467,8 +16149,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -16505,8 +16185,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -16572,8 +16250,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -16779,8 +16455,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -16864,8 +16538,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -16902,8 +16574,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -16969,8 +16639,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -17176,8 +16844,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -17261,8 +16927,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -17299,8 +16963,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -17366,8 +17028,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -17573,8 +17233,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -17658,8 +17316,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -17696,8 +17352,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -17763,8 +17417,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -17970,8 +17622,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -18055,8 +17705,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -18093,8 +17741,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -18160,8 +17806,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -18367,8 +18011,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -18452,8 +18094,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -18490,8 +18130,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -18557,8 +18195,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -18764,8 +18400,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -18849,8 +18483,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -18887,8 +18519,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -18954,8 +18584,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -19161,8 +18789,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -19246,8 +18872,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -19284,8 +18908,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -19351,8 +18973,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -19558,8 +19178,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -19643,8 +19261,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -19681,8 +19297,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -19748,8 +19362,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -19955,8 +19567,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -20040,8 +19650,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -20078,8 +19686,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -20145,8 +19751,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -20352,8 +19956,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -20437,8 +20039,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -20475,8 +20075,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -20542,8 +20140,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -20749,8 +20345,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -20834,8 +20428,6 @@ class AsicErrors(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.at_time is not None:
                                                 return True
 
@@ -20872,8 +20464,6 @@ class AsicErrors(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.alarm_on is not None:
                                             return True
 
@@ -20939,8 +20529,6 @@ class AsicErrors(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.error is not None:
                                         for child_ref in self.error:
                                             if child_ref._has_data():
@@ -20965,8 +20553,6 @@ class AsicErrors(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.asic_error_crc_hard is not None and self.asic_error_crc_hard._has_data():
                                     return True
 
@@ -21141,8 +20727,6 @@ class AsicErrors(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.asic_instance is not None:
                                 return True
 
@@ -21168,8 +20752,6 @@ class AsicErrors(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.instance is not None:
                             for child_ref in self.instance:
                                 if child_ref._has_data():
@@ -21196,8 +20778,6 @@ class AsicErrors(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.asic is not None:
                         return True
 
@@ -21226,8 +20806,6 @@ class AsicErrors(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -21253,8 +20831,6 @@ class AsicErrors(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -21277,8 +20853,6 @@ class AsicErrors(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

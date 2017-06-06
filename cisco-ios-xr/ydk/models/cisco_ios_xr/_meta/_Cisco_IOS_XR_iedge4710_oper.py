@@ -30,6 +30,36 @@ _meta_table = {
             'ip-in-ip':'ip_in_ip',
             'vlan':'vlan',
         }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
+    'IedgeOperSessionAfStateEnum' : _MetaInfoEnum('IedgeOperSessionAfStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
+        {
+            'not-started':'not_started',
+            'down':'down',
+            'up-pending':'up_pending',
+            'up':'up',
+        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
+    'IedgeOperSessionStateEnum' : _MetaInfoEnum('IedgeOperSessionStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
+        {
+            'initialize':'initialize',
+            'connecting':'connecting',
+            'connected':'connected',
+            'activated':'activated',
+            'idle':'idle',
+            'disconnecting':'disconnecting',
+            'end':'end',
+        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
+    'IedgePppSubEnum' : _MetaInfoEnum('IedgePppSubEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
+        {
+            'pta':'pta',
+            'lac':'lac',
+        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
+    'IedgeOperSessionEnum' : _MetaInfoEnum('IedgeOperSessionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
+        {
+            'unknown':'unknown',
+            'pppoe':'pppoe',
+            'ppp':'ppp',
+            'ip-packet-trigger':'ip_packet_trigger',
+            'ip-packet-dhcp-trigger':'ip_packet_dhcp_trigger',
+        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
     'AaaTerminateCauseEnum' : _MetaInfoEnum('AaaTerminateCauseEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
         {
             'none':'none',
@@ -56,56 +86,15 @@ _meta_table = {
             'port-reinitialized':'port_reinitialized',
             'admin-disabled':'admin_disabled',
         }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
-    'SubscriberAuthorStateFilterFlagEnum' : _MetaInfoEnum('SubscriberAuthorStateFilterFlagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
-        {
-            'un-authorized':'un_authorized',
-            'authorized':'authorized',
-        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
-    'IedgeOperSessionStateEnum' : _MetaInfoEnum('IedgeOperSessionStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
-        {
-            'initialize':'initialize',
-            'connecting':'connecting',
-            'connected':'connected',
-            'activated':'activated',
-            'idle':'idle',
-            'disconnecting':'disconnecting',
-            'end':'end',
-        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
-    'IedgeOperSessionAfStateEnum' : _MetaInfoEnum('IedgeOperSessionAfStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
-        {
-            'not-started':'not_started',
-            'down':'down',
-            'up-pending':'up_pending',
-            'up':'up',
-        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
-    'SubscriberStateFilterFlagEnum' : _MetaInfoEnum('SubscriberStateFilterFlagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
-        {
-            'initializing':'initializing',
-            'connecting':'connecting',
-            'connected':'connected',
-            'activated':'activated',
-            'idle':'idle',
-            'disconnecting':'disconnecting',
-            'end':'end',
-        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
-    'AaaAuthServiceEnum' : _MetaInfoEnum('AaaAuthServiceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
+    'AaaTunnelMediumEnum' : _MetaInfoEnum('AaaTunnelMediumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
         {
             'none':'none',
-            'login':'login',
-            'framed':'framed',
-            'callback-login':'callback_login',
-            'callback-framed':'callback_framed',
-            'outbound':'outbound',
-            'administrator':'administrator',
-            'prompt':'prompt',
-            'authentication-only':'authentication_only',
-            'callback-nas-prompt':'callback_nas_prompt',
-            'call-check':'call_check',
-            'callback-administrator':'callback_administrator',
-            'voice':'voice',
-            'fax':'fax',
-            'modem-relay':'modem_relay',
-            'eap-over-udp':'eap_over_udp',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'nsap':'nsap',
+            'hdlc':'hdlc',
+            'bbn':'bbn',
+            'all802':'all802',
         }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
     'AaaInterfaceEnum' : _MetaInfoEnum('AaaInterfaceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
         {
@@ -138,34 +127,6 @@ _meta_table = {
             'virtual-i-po-e-over-vlan':'virtual_i_po_e_over_vlan',
             'virtual-i-po-e-over-qinq':'virtual_i_po_e_over_qinq',
         }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
-    'SubscriberAuthenStateFilterFlagEnum' : _MetaInfoEnum('SubscriberAuthenStateFilterFlagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
-        {
-            'un-authenticated':'un_authenticated',
-            'authenticated':'authenticated',
-        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
-    'IedgeOperSessionEnum' : _MetaInfoEnum('IedgeOperSessionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
-        {
-            'unknown':'unknown',
-            'pppoe':'pppoe',
-            'ppp':'ppp',
-            'ip-packet-trigger':'ip_packet_trigger',
-            'ip-packet-dhcp-trigger':'ip_packet_dhcp_trigger',
-        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
-    'AaaTunnelMediumEnum' : _MetaInfoEnum('AaaTunnelMediumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
-        {
-            'none':'none',
-            'ipv4':'ipv4',
-            'ipv6':'ipv6',
-            'nsap':'nsap',
-            'hdlc':'hdlc',
-            'bbn':'bbn',
-            'all802':'all802',
-        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
-    'IedgePppSubEnum' : _MetaInfoEnum('IedgePppSubEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
-        {
-            'pta':'pta',
-            'lac':'lac',
-        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
     'SubscriberAddressFamilyFilterFlagEnum' : _MetaInfoEnum('SubscriberAddressFamilyFilterFlagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
         {
             'ipv4-only':'ipv4_only',
@@ -176,6 +137,45 @@ _meta_table = {
             'dual-part-up':'dual_part_up',
             'dual-up':'dual_up',
             'lac':'lac',
+        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
+    'AaaAuthServiceEnum' : _MetaInfoEnum('AaaAuthServiceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
+        {
+            'none':'none',
+            'login':'login',
+            'framed':'framed',
+            'callback-login':'callback_login',
+            'callback-framed':'callback_framed',
+            'outbound':'outbound',
+            'administrator':'administrator',
+            'prompt':'prompt',
+            'authentication-only':'authentication_only',
+            'callback-nas-prompt':'callback_nas_prompt',
+            'call-check':'call_check',
+            'callback-administrator':'callback_administrator',
+            'voice':'voice',
+            'fax':'fax',
+            'modem-relay':'modem_relay',
+            'eap-over-udp':'eap_over_udp',
+        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
+    'SubscriberAuthenStateFilterFlagEnum' : _MetaInfoEnum('SubscriberAuthenStateFilterFlagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
+        {
+            'un-authenticated':'un_authenticated',
+            'authenticated':'authenticated',
+        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
+    'SubscriberAuthorStateFilterFlagEnum' : _MetaInfoEnum('SubscriberAuthorStateFilterFlagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
+        {
+            'un-authorized':'un_authorized',
+            'authorized':'authorized',
+        }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
+    'SubscriberStateFilterFlagEnum' : _MetaInfoEnum('SubscriberStateFilterFlagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper',
+        {
+            'initializing':'initializing',
+            'connecting':'connecting',
+            'connected':'connected',
+            'activated':'activated',
+            'idle':'idle',
+            'disconnecting':'disconnecting',
+            'end':'end',
         }, 'Cisco-IOS-XR-iedge4710-oper', _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-oper']),
     'Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start' : {
         'meta_info' : _MetaInfoClass('Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start',
@@ -4292,7 +4292,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',
@@ -5493,7 +5493,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Subscriber MAC address
                 ''',
                 'mac_address',
@@ -5897,7 +5897,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -7109,7 +7109,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Subscriber IPv4 address
                 ''',
                 'address',
@@ -7127,7 +7127,7 @@ _meta_table = {
                 'state_xr',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -7923,7 +7923,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('username', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Subscriber username
                 ''',
                 'username',
@@ -8327,7 +8327,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -8731,7 +8731,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Subscriber IPv4 address
                 ''',
                 'address',
@@ -9135,7 +9135,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -9415,7 +9415,7 @@ _meta_table = {
                 'interim_accounting_interval',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('ip-netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP netmask for the user
                 ''',
                 'ip_netmask',
@@ -9481,7 +9481,7 @@ _meta_table = {
                 'min_data_rate_upstream_low_power',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('parent-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface name
                 ''',
                 'parent_interface_name',
@@ -9493,13 +9493,13 @@ _meta_table = {
                 'pool_address',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('primary-dns-server-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Primary DNS server address
                 ''',
                 'primary_dns_server_address',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('primary-net-bios-server-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Primary net bios server address
                 ''',
                 'primary_net_bios_server_address',
@@ -9517,13 +9517,13 @@ _meta_table = {
                 'route',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('secondary-dns-server-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Secondary DNS server address
                 ''',
                 'secondary_dns_server_address',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('secondary-net-bios-server-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Secondary net bios server address
                 ''',
                 'secondary_net_bios_server_address',
@@ -9553,7 +9553,7 @@ _meta_table = {
                 'tunnel_client_authentication_id',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('tunnel-client-endpoint', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Tunnel client endpoint
                 ''',
                 'tunnel_client_endpoint',
@@ -9577,7 +9577,7 @@ _meta_table = {
                 'tunnel_protocol',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('tunnel-server-endpoint', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Tunnel server endpoint
                 ''',
                 'tunnel_server_endpoint',
@@ -9685,14 +9685,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('coa-reply-attributes', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                List of Reply Attributes collected in COA
                 response
                 ''',
                 'coa_reply_attributes',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('coa-request-attributes', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                List of Request Attributes collected in COA
                 response
                 ''',
@@ -9730,13 +9730,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('session-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Session ID
                 ''',
                 'session_id',
                 'Cisco-IOS-XR-iedge4710-oper', True),
             _MetaInfoClassMember('access-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Access interface name associated with the
                 session
                 ''',
@@ -9793,13 +9793,13 @@ _meta_table = {
                 'idle_state_change_time',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('ipv6-interface-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                IPv6 Interface ID
                 ''',
                 'ipv6_interface_id',
@@ -9817,19 +9817,19 @@ _meta_table = {
                 'is_session_author',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('lac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                PPPoE LAC address
                 ''',
                 'lac_address',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('lns-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                PPPoE LNS address
                 ''',
                 'lns_address',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                MAC address
                 ''',
                 'mac_address',
@@ -9879,7 +9879,7 @@ _meta_table = {
                 'session_creation_time',
                 'Cisco-IOS-XR-iedge4710-oper', False),
             _MetaInfoClassMember('session-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Session ip address
                 ''',
                 'session_ip_address',
@@ -9986,7 +9986,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',
@@ -10180,7 +10180,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nodeid', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node id to filter on. For example,
                 0/1/CPU0
                 ''',

@@ -389,8 +389,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -413,8 +411,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -497,8 +493,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -521,8 +515,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -547,8 +539,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -661,8 +651,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -685,8 +673,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -769,8 +755,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -793,8 +777,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -819,8 +801,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -846,8 +826,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -876,8 +854,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -1044,8 +1020,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -1068,8 +1042,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -1152,8 +1124,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -1176,8 +1146,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -1202,8 +1170,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -1316,8 +1282,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -1340,8 +1304,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -1424,8 +1386,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -1448,8 +1408,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -1474,8 +1432,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -1501,8 +1457,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -1531,8 +1485,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -1699,8 +1651,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -1723,8 +1673,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -1807,8 +1755,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -1831,8 +1777,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -1857,8 +1801,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -1971,8 +1913,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -1995,8 +1935,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -2079,8 +2017,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -2103,8 +2039,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -2129,8 +2063,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -2156,8 +2088,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -2186,8 +2116,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -2354,8 +2282,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -2378,8 +2304,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -2462,8 +2386,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -2486,8 +2408,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -2512,8 +2432,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -2626,8 +2544,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -2650,8 +2566,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -2734,8 +2648,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -2758,8 +2670,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -2784,8 +2694,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -2811,8 +2719,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -2841,8 +2747,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -3009,8 +2913,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -3033,8 +2935,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -3117,8 +3017,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -3141,8 +3039,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -3167,8 +3063,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -3281,8 +3175,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -3305,8 +3197,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -3389,8 +3279,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -3413,8 +3301,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -3439,8 +3325,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -3466,8 +3350,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -3496,8 +3378,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -3664,8 +3544,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -3688,8 +3566,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -3772,8 +3648,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -3796,8 +3670,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -3822,8 +3694,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -3936,8 +3806,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -3960,8 +3828,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -4044,8 +3910,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -4068,8 +3932,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -4094,8 +3956,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -4121,8 +3981,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -4151,8 +4009,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -4319,8 +4175,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -4343,8 +4197,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -4427,8 +4279,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -4451,8 +4301,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -4477,8 +4325,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -4591,8 +4437,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -4615,8 +4459,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -4699,8 +4541,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -4723,8 +4563,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -4749,8 +4587,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -4776,8 +4612,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -4806,8 +4640,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -4974,8 +4806,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -4998,8 +4828,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -5082,8 +4910,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -5106,8 +4932,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -5132,8 +4956,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -5246,8 +5068,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -5270,8 +5090,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -5354,8 +5172,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -5378,8 +5194,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -5404,8 +5218,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -5431,8 +5243,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -5461,8 +5271,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -5485,8 +5293,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -5531,8 +5337,6 @@ class ControlPlane(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -5770,8 +5574,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -5792,8 +5594,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -5874,8 +5674,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -5896,8 +5694,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -5920,8 +5716,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -6032,8 +5826,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -6054,8 +5846,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -6136,8 +5926,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -6158,8 +5946,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -6182,8 +5968,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -6207,8 +5991,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -6235,8 +6017,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -6401,8 +6181,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -6423,8 +6201,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -6505,8 +6281,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -6527,8 +6301,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -6551,8 +6323,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -6663,8 +6433,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -6685,8 +6453,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -6767,8 +6533,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -6789,8 +6553,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -6813,8 +6575,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -6838,8 +6598,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -6866,8 +6624,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -7032,8 +6788,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -7054,8 +6808,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -7136,8 +6888,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -7158,8 +6908,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -7182,8 +6930,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -7294,8 +7040,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -7316,8 +7060,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -7398,8 +7140,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -7420,8 +7160,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -7444,8 +7182,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -7469,8 +7205,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -7497,8 +7231,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -7663,8 +7395,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -7685,8 +7415,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -7767,8 +7495,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -7789,8 +7515,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -7813,8 +7537,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -7925,8 +7647,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -7947,8 +7667,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -8029,8 +7747,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -8051,8 +7767,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -8075,8 +7789,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -8100,8 +7812,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -8128,8 +7838,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -8294,8 +8002,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -8316,8 +8022,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -8398,8 +8102,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -8420,8 +8122,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -8444,8 +8144,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -8556,8 +8254,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -8578,8 +8274,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -8660,8 +8354,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -8682,8 +8374,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -8706,8 +8396,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -8731,8 +8419,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -8759,8 +8445,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -8925,8 +8609,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -8947,8 +8629,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -9029,8 +8709,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -9051,8 +8729,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -9075,8 +8751,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -9187,8 +8861,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -9209,8 +8881,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -9291,8 +8961,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -9313,8 +8981,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -9337,8 +9003,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -9362,8 +9026,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -9390,8 +9052,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -9556,8 +9216,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -9578,8 +9236,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -9660,8 +9316,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -9682,8 +9336,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -9706,8 +9358,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -9818,8 +9468,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -9840,8 +9488,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -9922,8 +9568,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -9944,8 +9588,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -9968,8 +9610,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -9993,8 +9633,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -10021,8 +9659,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -10187,8 +9823,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -10209,8 +9843,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -10291,8 +9923,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -10313,8 +9943,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -10337,8 +9965,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -10449,8 +10075,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -10471,8 +10095,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -10553,8 +10175,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -10575,8 +10195,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -10599,8 +10217,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -10624,8 +10240,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -10652,8 +10266,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -10674,8 +10286,6 @@ class ControlPlane(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.all_protocols is not None and self.all_protocols._has_data():
                             return True
 
@@ -10717,8 +10327,6 @@ class ControlPlane(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.all_interfaces is not None and self.all_interfaces._has_data():
                         return True
 
@@ -10742,8 +10350,6 @@ class ControlPlane(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_selection is not None and self.interface_selection._has_data():
                     return True
 
@@ -11066,8 +10672,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -11090,8 +10694,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -11174,8 +10776,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -11198,8 +10798,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -11224,8 +10822,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -11338,8 +10934,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -11362,8 +10956,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -11446,8 +11038,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -11470,8 +11060,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -11496,8 +11084,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -11523,8 +11109,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -11553,8 +11137,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -11721,8 +11303,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -11745,8 +11325,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -11829,8 +11407,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -11853,8 +11429,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -11879,8 +11453,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -11993,8 +11565,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -12017,8 +11587,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -12101,8 +11669,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -12125,8 +11691,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -12151,8 +11715,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -12178,8 +11740,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -12208,8 +11768,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -12376,8 +11934,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -12400,8 +11956,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -12484,8 +12038,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -12508,8 +12060,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -12534,8 +12084,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -12648,8 +12196,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -12672,8 +12218,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -12756,8 +12300,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -12780,8 +12322,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -12806,8 +12346,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -12833,8 +12371,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -12863,8 +12399,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -13031,8 +12565,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -13055,8 +12587,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -13139,8 +12669,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -13163,8 +12691,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -13189,8 +12715,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -13303,8 +12827,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -13327,8 +12849,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -13411,8 +12931,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -13435,8 +12953,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -13461,8 +12977,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -13488,8 +13002,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -13518,8 +13030,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -13686,8 +13196,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -13710,8 +13218,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -13794,8 +13300,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -13818,8 +13322,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -13844,8 +13346,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -13958,8 +13458,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -13982,8 +13480,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -14066,8 +13562,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -14090,8 +13584,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -14116,8 +13608,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -14143,8 +13633,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -14173,8 +13661,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -14341,8 +13827,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -14365,8 +13849,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -14449,8 +13931,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -14473,8 +13953,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -14499,8 +13977,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -14613,8 +14089,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -14637,8 +14111,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -14721,8 +14193,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -14745,8 +14215,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -14771,8 +14239,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -14798,8 +14264,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -14828,8 +14292,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -14996,8 +14458,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -15020,8 +14480,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -15104,8 +14562,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -15128,8 +14584,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -15154,8 +14608,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -15268,8 +14720,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -15292,8 +14742,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -15376,8 +14824,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -15400,8 +14846,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -15426,8 +14870,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -15453,8 +14895,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -15483,8 +14923,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -15651,8 +15089,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -15675,8 +15111,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -15759,8 +15193,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -15783,8 +15215,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -15809,8 +15239,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -15923,8 +15351,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -15947,8 +15373,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer is not None:
                                                 for child_ref in self.peer:
                                                     if child_ref._has_data():
@@ -16031,8 +15455,6 @@ class ControlPlane(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address_prefix is not None:
                                                     return True
 
@@ -16055,8 +15477,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.peer_prefix is not None:
                                                 for child_ref in self.peer_prefix:
                                                     if child_ref._has_data():
@@ -16081,8 +15501,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                             return True
 
@@ -16108,8 +15526,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_all is not None:
                                         return True
 
@@ -16138,8 +15554,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_class is not None and self.peer_class._has_data():
                                     return True
 
@@ -16162,8 +15576,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -16208,8 +15620,6 @@ class ControlPlane(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -16447,8 +15857,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -16469,8 +15877,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -16551,8 +15957,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -16573,8 +15977,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -16597,8 +15999,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -16709,8 +16109,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -16731,8 +16129,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -16813,8 +16209,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -16835,8 +16229,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -16859,8 +16251,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -16884,8 +16274,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -16912,8 +16300,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -17078,8 +16464,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -17100,8 +16484,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -17182,8 +16564,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -17204,8 +16584,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -17228,8 +16606,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -17340,8 +16716,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -17362,8 +16736,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -17444,8 +16816,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -17466,8 +16836,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -17490,8 +16858,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -17515,8 +16881,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -17543,8 +16907,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -17709,8 +17071,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -17731,8 +17091,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -17813,8 +17171,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -17835,8 +17191,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -17859,8 +17213,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -17971,8 +17323,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -17993,8 +17343,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -18075,8 +17423,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -18097,8 +17443,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -18121,8 +17465,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -18146,8 +17488,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -18174,8 +17514,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -18340,8 +17678,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -18362,8 +17698,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -18444,8 +17778,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -18466,8 +17798,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -18490,8 +17820,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -18602,8 +17930,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -18624,8 +17950,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -18706,8 +18030,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -18728,8 +18050,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -18752,8 +18072,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -18777,8 +18095,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -18805,8 +18121,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -18971,8 +18285,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -18993,8 +18305,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -19075,8 +18385,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -19097,8 +18405,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -19121,8 +18427,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -19233,8 +18537,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -19255,8 +18557,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -19337,8 +18637,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -19359,8 +18657,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -19383,8 +18679,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -19408,8 +18702,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -19436,8 +18728,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -19602,8 +18892,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -19624,8 +18912,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -19706,8 +18992,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -19728,8 +19012,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -19752,8 +19034,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -19864,8 +19144,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -19886,8 +19164,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -19968,8 +19244,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -19990,8 +19264,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -20014,8 +19286,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -20039,8 +19309,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -20067,8 +19335,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -20233,8 +19499,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -20255,8 +19519,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -20337,8 +19599,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -20359,8 +19619,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -20383,8 +19641,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -20495,8 +19751,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -20517,8 +19771,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -20599,8 +19851,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -20621,8 +19871,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -20645,8 +19893,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -20670,8 +19916,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -20698,8 +19942,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -20864,8 +20106,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -20886,8 +20126,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -20968,8 +20206,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -20990,8 +20226,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -21014,8 +20248,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -21126,8 +20358,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -21148,8 +20378,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer is not None:
                                             for child_ref in self.peer:
                                                 if child_ref._has_data():
@@ -21230,8 +20458,6 @@ class ControlPlane(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address_prefix is not None:
                                                 return True
 
@@ -21252,8 +20478,6 @@ class ControlPlane(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.peer_prefix is not None:
                                             for child_ref in self.peer_prefix:
                                                 if child_ref._has_data():
@@ -21276,8 +20500,6 @@ class ControlPlane(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.peer_prefixes is not None and self.peer_prefixes._has_data():
                                         return True
 
@@ -21301,8 +20523,6 @@ class ControlPlane(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.peer_all is not None:
                                     return True
 
@@ -21329,8 +20549,6 @@ class ControlPlane(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_class is not None and self.peer_class._has_data():
                                 return True
 
@@ -21351,8 +20569,6 @@ class ControlPlane(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.all_protocols is not None and self.all_protocols._has_data():
                             return True
 
@@ -21394,8 +20610,6 @@ class ControlPlane(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.all_interfaces is not None and self.all_interfaces._has_data():
                         return True
 
@@ -21419,8 +20633,6 @@ class ControlPlane(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_selection is not None and self.interface_selection._has_data():
                     return True
 
@@ -21441,8 +20653,6 @@ class ControlPlane(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.inband is not None and self.inband._has_data():
                 return True
 
@@ -21466,8 +20676,6 @@ class ControlPlane(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.management_plane_protection is not None and self.management_plane_protection._has_data():
             return True
 

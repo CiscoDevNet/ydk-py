@@ -342,8 +342,6 @@ class Ncs1KMacsecOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.association_number is not None:
                                 return True
 
@@ -383,8 +381,6 @@ class Ncs1KMacsecOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_association is not None:
                             for child_ref in self.active_association:
                                 if child_ref._has_data():
@@ -581,8 +577,6 @@ class Ncs1KMacsecOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.association_number is not None:
                                 return True
 
@@ -622,8 +616,6 @@ class Ncs1KMacsecOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_association is not None:
                             for child_ref in self.active_association:
                                 if child_ref._has_data():
@@ -672,8 +664,6 @@ class Ncs1KMacsecOper(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.decrypt_sc_status is not None and self.decrypt_sc_status._has_data():
                         return True
 
@@ -708,8 +698,6 @@ class Ncs1KMacsecOper(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -733,8 +721,6 @@ class Ncs1KMacsecOper(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ncs1k_macsec_ctrlr_name is not None:
                 for child_ref in self.ncs1k_macsec_ctrlr_name:
                     if child_ref._has_data():
@@ -757,8 +743,6 @@ class Ncs1KMacsecOper(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ncs1k_macsec_ctrlr_names is not None and self.ncs1k_macsec_ctrlr_names._has_data():
             return True
 

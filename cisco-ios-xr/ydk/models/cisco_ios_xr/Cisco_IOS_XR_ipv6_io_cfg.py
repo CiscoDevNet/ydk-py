@@ -132,8 +132,6 @@ class Ipv6Configuration(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.max_packets is not None:
                 return True
 
@@ -202,8 +200,6 @@ class Ipv6Configuration(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.bucket_size is not None:
@@ -229,8 +225,6 @@ class Ipv6Configuration(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ipv6_assembler is not None and self.ipv6_assembler._has_data():
             return True
 

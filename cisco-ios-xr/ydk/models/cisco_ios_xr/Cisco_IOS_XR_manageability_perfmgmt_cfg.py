@@ -262,8 +262,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self._is_presence:
                     return True
                 if self.directory is not None:
@@ -313,8 +311,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -371,8 +367,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.max_limit is not None:
                     return True
 
@@ -396,8 +390,6 @@ class PerfMgmt(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.dump_local is not None and self.dump_local._has_data():
                 return True
 
@@ -620,8 +612,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -657,8 +647,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -681,8 +669,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -813,8 +799,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -850,8 +834,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -874,8 +856,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -1006,8 +986,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -1043,8 +1021,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -1067,8 +1043,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -1199,8 +1173,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -1236,8 +1208,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -1260,8 +1230,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -1392,8 +1360,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -1429,8 +1395,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -1453,8 +1417,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -1585,8 +1547,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -1622,8 +1582,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -1646,8 +1604,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -1778,8 +1734,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -1815,8 +1769,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -1839,8 +1791,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -1971,8 +1921,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -2008,8 +1956,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -2032,8 +1978,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -2164,8 +2108,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -2201,8 +2143,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -2225,8 +2165,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -2357,8 +2295,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -2394,8 +2330,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template is not None:
                         for child_ref in self.template:
                             if child_ref._has_data():
@@ -2418,8 +2352,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.templates is not None and self.templates._has_data():
                     return True
 
@@ -2440,8 +2372,6 @@ class PerfMgmt(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.basic_counter_interface is not None and self.basic_counter_interface._has_data():
                 return True
 
@@ -2633,8 +2563,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -2676,8 +2604,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -2719,8 +2645,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -2762,8 +2686,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -2867,8 +2789,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_id is not None:
                                 return True
 
@@ -2892,8 +2812,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node is not None:
                             for child_ref in self.node:
                                 if child_ref._has_data():
@@ -2937,8 +2855,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -2959,8 +2875,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_all is not None and self.node_all._has_data():
                         return True
 
@@ -3006,8 +2920,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -3111,8 +3023,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_id is not None:
                                 return True
 
@@ -3136,8 +3046,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node is not None:
                             for child_ref in self.node:
                                 if child_ref._has_data():
@@ -3181,8 +3089,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -3203,8 +3109,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_all is not None and self.node_all._has_data():
                         return True
 
@@ -3249,8 +3153,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -3354,8 +3256,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_id is not None:
                                 return True
 
@@ -3379,8 +3279,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node is not None:
                             for child_ref in self.node:
                                 if child_ref._has_data():
@@ -3424,8 +3322,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -3446,8 +3342,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_all is not None and self.node_all._has_data():
                         return True
 
@@ -3493,8 +3387,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -3515,8 +3407,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.basic_counter_interface is not None and self.basic_counter_interface._has_data():
                     return True
 
@@ -3671,8 +3561,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -3714,8 +3602,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -3757,8 +3643,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -3800,8 +3684,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -3872,8 +3754,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -3948,8 +3828,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_id is not None:
                                 return True
 
@@ -3973,8 +3851,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node is not None:
                             for child_ref in self.node:
                                 if child_ref._has_data():
@@ -3997,8 +3873,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_all is not None and self.node_all._has_data():
                         return True
 
@@ -4043,8 +3917,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -4115,8 +3987,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -4191,8 +4061,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_id is not None:
                                 return True
 
@@ -4216,8 +4084,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node is not None:
                             for child_ref in self.node:
                                 if child_ref._has_data():
@@ -4240,8 +4106,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_all is not None and self.node_all._has_data():
                         return True
 
@@ -4286,8 +4150,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -4358,8 +4220,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -4434,8 +4294,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_id is not None:
                                 return True
 
@@ -4459,8 +4317,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node is not None:
                             for child_ref in self.node:
                                 if child_ref._has_data():
@@ -4483,8 +4339,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_all is not None and self.node_all._has_data():
                         return True
 
@@ -4529,8 +4383,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.template_name is not None:
                         return True
 
@@ -4551,8 +4403,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.basic_counter_interface is not None and self.basic_counter_interface._has_data():
                     return True
 
@@ -4761,8 +4611,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.session is not None:
                                 return True
 
@@ -4786,8 +4634,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session is not None:
                             for child_ref in self.session:
                                 if child_ref._has_data():
@@ -4810,8 +4656,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sessions is not None and self.sessions._has_data():
                         return True
 
@@ -4908,8 +4752,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.instance_name is not None:
                                 return True
 
@@ -4933,8 +4775,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ospf_instance is not None:
                             for child_ref in self.ospf_instance:
                                 if child_ref._has_data():
@@ -4957,8 +4797,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ospf_instances is not None and self.ospf_instances._has_data():
                         return True
 
@@ -5055,8 +4893,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -5080,8 +4916,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -5104,8 +4938,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
@@ -5258,8 +5090,6 @@ class PerfMgmt(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pid is not None:
                                         return True
 
@@ -5285,8 +5115,6 @@ class PerfMgmt(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pid is not None:
                                     for child_ref in self.pid:
                                         if child_ref._has_data():
@@ -5311,8 +5139,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_id is not None:
                                 return True
 
@@ -5336,8 +5162,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.process_node is not None:
                             for child_ref in self.process_node:
                                 if child_ref._has_data():
@@ -5360,8 +5184,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.process_nodes is not None and self.process_nodes._has_data():
                         return True
 
@@ -5458,8 +5280,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -5483,8 +5303,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -5507,8 +5325,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
@@ -5605,8 +5421,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_id is not None:
                                 return True
 
@@ -5630,8 +5444,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node is not None:
                             for child_ref in self.node:
                                 if child_ref._has_data():
@@ -5654,8 +5466,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nodes is not None and self.nodes._has_data():
                         return True
 
@@ -5752,8 +5562,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.instance_name is not None:
                                 return True
 
@@ -5777,8 +5585,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ospf_instance is not None:
                             for child_ref in self.ospf_instance:
                                 if child_ref._has_data():
@@ -5801,8 +5607,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ospf_instances is not None and self.ospf_instances._has_data():
                         return True
 
@@ -5899,8 +5703,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_id is not None:
                                 return True
 
@@ -5924,8 +5726,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node is not None:
                             for child_ref in self.node:
                                 if child_ref._has_data():
@@ -5948,8 +5748,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nodes is not None and self.nodes._has_data():
                         return True
 
@@ -6046,8 +5844,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.peer_address is not None:
                                 return True
 
@@ -6071,8 +5867,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.neighbor is not None:
                             for child_ref in self.neighbor:
                                 if child_ref._has_data():
@@ -6095,8 +5889,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbors is not None and self.neighbors._has_data():
                         return True
 
@@ -6193,8 +5985,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -6218,8 +6008,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -6242,8 +6030,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interfaces is not None and self.interfaces._has_data():
                         return True
 
@@ -6264,8 +6050,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.basic_counters is not None and self.basic_counters._has_data():
                     return True
 
@@ -6313,8 +6097,6 @@ class PerfMgmt(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.monitor_enable is not None and self.monitor_enable._has_data():
                 return True
 
@@ -6454,8 +6236,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.reg_exp_index is not None:
                             return True
 
@@ -6481,8 +6261,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.reg_exp is not None:
                         for child_ref in self.reg_exp:
                             if child_ref._has_data():
@@ -6507,8 +6285,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.reg_exp_group_name is not None:
                     return True
 
@@ -6532,8 +6308,6 @@ class PerfMgmt(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.reg_exp_group is not None:
                 for child_ref in self.reg_exp_group:
                     if child_ref._has_data():
@@ -6964,8 +6738,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -7070,8 +6842,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -7176,8 +6946,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -7282,8 +7050,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -7388,8 +7154,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -7495,8 +7259,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -7601,8 +7363,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -7708,8 +7468,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -7815,8 +7573,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -7921,8 +7677,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8028,8 +7782,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8134,8 +7886,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8240,8 +7990,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8346,8 +8094,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8453,8 +8199,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8559,8 +8303,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8666,8 +8408,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8772,8 +8512,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8878,8 +8616,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -8985,8 +8721,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -9026,8 +8760,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -9117,8 +8849,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.generic_counter_interface_template is not None:
                         for child_ref in self.generic_counter_interface_template:
                             if child_ref._has_data():
@@ -9141,8 +8871,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.generic_counter_interface_templates is not None and self.generic_counter_interface_templates._has_data():
                     return True
 
@@ -9452,8 +9180,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -9558,8 +9284,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -9664,8 +9388,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -9770,8 +9492,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -9876,8 +9596,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -9982,8 +9700,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -10088,8 +9804,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -10194,8 +9908,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -10300,8 +10012,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -10406,8 +10116,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -10512,8 +10220,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -10618,8 +10324,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -10724,8 +10428,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -10830,8 +10532,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -10936,8 +10636,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -11042,8 +10740,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -11148,8 +10844,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -11254,8 +10948,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -11295,8 +10987,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -11374,8 +11064,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ldp_mpls_template is not None:
                         for child_ref in self.ldp_mpls_template:
                             if child_ref._has_data():
@@ -11398,8 +11086,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ldp_mpls_templates is not None and self.ldp_mpls_templates._has_data():
                     return True
 
@@ -11662,8 +11348,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -11768,8 +11452,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -11874,8 +11556,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -11981,8 +11661,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -12087,8 +11765,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -12193,8 +11869,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -12300,8 +11974,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -12406,8 +12078,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -12512,8 +12182,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -12618,8 +12286,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -12659,8 +12325,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -12720,8 +12384,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.basic_counter_interface_template is not None:
                         for child_ref in self.basic_counter_interface_template:
                             if child_ref._has_data():
@@ -12744,8 +12406,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.basic_counter_interface_templates is not None and self.basic_counter_interface_templates._has_data():
                     return True
 
@@ -12975,8 +12635,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -13081,8 +12739,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -13188,8 +12844,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -13294,8 +12948,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -13400,8 +13052,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -13506,8 +13156,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -13612,8 +13260,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -13718,8 +13364,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -13759,8 +13403,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -13808,8 +13450,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bgp_template is not None:
                         for child_ref in self.bgp_template:
                             if child_ref._has_data():
@@ -13832,8 +13472,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bgp_templates is not None and self.bgp_templates._has_data():
                     return True
 
@@ -14168,8 +13806,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -14274,8 +13910,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -14380,8 +14014,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -14486,8 +14118,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -14592,8 +14222,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -14698,8 +14326,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -14804,8 +14430,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -14910,8 +14534,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15016,8 +14638,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15122,8 +14742,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15228,8 +14846,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15334,8 +14950,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15440,8 +15054,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15546,8 +15158,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15652,8 +15262,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15758,8 +15366,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15864,8 +15470,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -15970,8 +15574,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -16076,8 +15678,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -16182,8 +15782,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -16288,8 +15886,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -16329,8 +15925,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -16417,8 +16011,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ospfv2_protocol_template is not None:
                         for child_ref in self.ospfv2_protocol_template:
                             if child_ref._has_data():
@@ -16441,8 +16033,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ospfv2_protocol_templates is not None and self.ospfv2_protocol_templates._has_data():
                     return True
 
@@ -16625,8 +16215,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -16731,8 +16319,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -16772,8 +16358,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -16803,8 +16387,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cpu_node_template is not None:
                         for child_ref in self.cpu_node_template:
                             if child_ref._has_data():
@@ -16827,8 +16409,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.cpu_node_templates is not None and self.cpu_node_templates._has_data():
                     return True
 
@@ -17083,8 +16663,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -17189,8 +16767,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -17295,8 +16871,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -17401,8 +16975,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -17507,8 +17079,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -17613,8 +17183,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -17719,8 +17287,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -17825,8 +17391,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -17931,8 +17495,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -17972,8 +17534,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -18030,8 +17590,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.data_rate_interface_template is not None:
                         for child_ref in self.data_rate_interface_template:
                             if child_ref._has_data():
@@ -18054,8 +17612,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.data_rate_interface_templates is not None and self.data_rate_interface_templates._has_data():
                     return True
 
@@ -18245,8 +17801,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -18351,8 +17905,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -18457,8 +18009,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -18498,8 +18048,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -18532,8 +18080,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.process_node_template is not None:
                         for child_ref in self.process_node_template:
                             if child_ref._has_data():
@@ -18556,8 +18102,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.process_node_templates is not None and self.process_node_templates._has_data():
                     return True
 
@@ -18740,8 +18284,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -18846,8 +18388,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -18887,8 +18427,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -18918,8 +18456,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.memory_node_template is not None:
                         for child_ref in self.memory_node_template:
                             if child_ref._has_data():
@@ -18942,8 +18478,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.memory_node_templates is not None and self.memory_node_templates._has_data():
                     return True
 
@@ -19269,8 +18803,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -19375,8 +18907,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -19481,8 +19011,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -19587,8 +19115,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -19693,8 +19219,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -19799,8 +19323,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -19905,8 +19427,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20011,8 +19531,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20117,8 +19635,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20223,8 +19739,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20329,8 +19843,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20435,8 +19947,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20541,8 +20051,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20647,8 +20155,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20753,8 +20259,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20859,8 +20363,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -20965,8 +20467,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -21071,8 +20571,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -21177,8 +20675,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -21283,8 +20779,6 @@ class PerfMgmt(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.end_range_value is not None:
@@ -21324,8 +20818,6 @@ class PerfMgmt(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.template_name is not None:
                             return True
 
@@ -21409,8 +20901,6 @@ class PerfMgmt(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ospfv3_protocol_template is not None:
                         for child_ref in self.ospfv3_protocol_template:
                             if child_ref._has_data():
@@ -21433,8 +20923,6 @@ class PerfMgmt(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ospfv3_protocol_templates is not None and self.ospfv3_protocol_templates._has_data():
                     return True
 
@@ -21455,8 +20943,6 @@ class PerfMgmt(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.basic_counter_interface is not None and self.basic_counter_interface._has_data():
                 return True
 
@@ -21504,8 +20990,6 @@ class PerfMgmt(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.enable is not None and self.enable._has_data():
             return True
 

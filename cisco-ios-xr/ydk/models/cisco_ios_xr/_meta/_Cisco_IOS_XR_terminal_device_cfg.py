@@ -13,6 +13,11 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'LogicalChannelAssignmentEnum' : _MetaInfoEnum('LogicalChannelAssignmentEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg',
+        {
+            'type-logical-channel':'type_logical_channel',
+            'type-optical-channel':'type_optical_channel',
+        }, 'Cisco-IOS-XR-terminal-device-cfg', _yang_ns._namespaces['Cisco-IOS-XR-terminal-device-cfg']),
     'LogicalTribRateEnum' : _MetaInfoEnum('LogicalTribRateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg',
         {
             'trib-rate1g':'trib_rate1g',
@@ -21,11 +26,10 @@ _meta_table = {
             'trib-rate40g':'trib_rate40g',
             'trib-rate100g':'trib_rate100g',
         }, 'Cisco-IOS-XR-terminal-device-cfg', _yang_ns._namespaces['Cisco-IOS-XR-terminal-device-cfg']),
-    'LogicalLoopbackModeEnum' : _MetaInfoEnum('LogicalLoopbackModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg',
+    'LogicalProtocolEnum' : _MetaInfoEnum('LogicalProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg',
         {
-            'none':'none',
-            'facility':'facility',
-            'terminal':'terminal',
+            'type-ethernet':'type_ethernet',
+            'type-otn':'type_otn',
         }, 'Cisco-IOS-XR-terminal-device-cfg', _yang_ns._namespaces['Cisco-IOS-XR-terminal-device-cfg']),
     'LogicalChannelOtnTtiAutoEnum' : _MetaInfoEnum('LogicalChannelOtnTtiAutoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg',
         {
@@ -38,10 +42,11 @@ _meta_table = {
             'disable':'disable',
             'maintenance':'maintenance',
         }, 'Cisco-IOS-XR-terminal-device-cfg', _yang_ns._namespaces['Cisco-IOS-XR-terminal-device-cfg']),
-    'LogicalChannelAssignmentEnum' : _MetaInfoEnum('LogicalChannelAssignmentEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg',
+    'LogicalLoopbackModeEnum' : _MetaInfoEnum('LogicalLoopbackModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg',
         {
-            'type-logical-channel':'type_logical_channel',
-            'type-optical-channel':'type_optical_channel',
+            'none':'none',
+            'facility':'facility',
+            'terminal':'terminal',
         }, 'Cisco-IOS-XR-terminal-device-cfg', _yang_ns._namespaces['Cisco-IOS-XR-terminal-device-cfg']),
     'LogicalTribProtocolEnum' : _MetaInfoEnum('LogicalTribProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg',
         {
@@ -67,11 +72,6 @@ _meta_table = {
             'trib-proto-type-otu4':'trib_proto_type_otu4',
             'trib-proto-type-otu-cn':'trib_proto_type_otu_cn',
             'trib-proto-type-odu4':'trib_proto_type_odu4',
-        }, 'Cisco-IOS-XR-terminal-device-cfg', _yang_ns._namespaces['Cisco-IOS-XR-terminal-device-cfg']),
-    'LogicalProtocolEnum' : _MetaInfoEnum('LogicalProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg',
-        {
-            'type-ethernet':'type_ethernet',
-            'type-otn':'type_otn',
         }, 'Cisco-IOS-XR-terminal-device-cfg', _yang_ns._namespaces['Cisco-IOS-XR-terminal-device-cfg']),
     'LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment' : {
         'meta_info' : _MetaInfoClass('LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment',
@@ -198,7 +198,7 @@ _meta_table = {
                 'description',
                 'Cisco-IOS-XR-terminal-device-cfg', False),
             _MetaInfoClassMember('ingress-client-port', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Configure ingress client port for this logical
                 channel
                 ''',
@@ -276,13 +276,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ifname', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Optical Channel Name
                 ''',
                 'ifname',
                 'Cisco-IOS-XR-terminal-device-cfg', True),
             _MetaInfoClassMember('line-port', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify R/S/I/P
                 ''',
                 'line_port',

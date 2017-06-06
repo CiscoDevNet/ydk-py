@@ -644,8 +644,6 @@ class ArpGmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -681,8 +679,6 @@ class ArpGmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf_info is not None:
                 for child_ref in self.vrf_info:
                     if child_ref._has_data():
@@ -851,8 +847,6 @@ class ArpGmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -887,8 +881,6 @@ class ArpGmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.configured_ip_address is not None:
                         for child_ref in self.configured_ip_address:
                             if child_ref._has_data():
@@ -1001,8 +993,6 @@ class ArpGmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -1042,8 +1032,6 @@ class ArpGmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.route is not None:
                         for child_ref in self.route:
                             if child_ref._has_data():
@@ -1190,8 +1178,6 @@ class ArpGmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.encapsulation_type is not None:
                                 return True
 
@@ -1223,8 +1209,6 @@ class ArpGmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -1259,8 +1243,6 @@ class ArpGmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_configured_ip is not None:
                         for child_ref in self.interface_configured_ip:
                             if child_ref._has_data():
@@ -1285,8 +1267,6 @@ class ArpGmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -1316,8 +1296,6 @@ class ArpGmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -1340,8 +1318,6 @@ class ArpGmp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.vrf_infos is not None and self.vrf_infos._has_data():
             return True
 
@@ -1579,8 +1555,6 @@ class Arp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.client_id is not None:
                             return True
 
@@ -1624,8 +1598,6 @@ class Arp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.arp_entry is not None:
                         for child_ref in self.arp_entry:
                             if child_ref._has_data():
@@ -1920,8 +1892,6 @@ class Arp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_name is not None:
                             return True
 
@@ -2028,8 +1998,6 @@ class Arp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.traffic_vrf is not None:
                         for child_ref in self.traffic_vrf:
                             if child_ref._has_data():
@@ -2293,8 +2261,6 @@ class Arp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.alias_entries is not None:
                         return True
 
@@ -2501,8 +2467,6 @@ class Arp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.client_id is not None:
                             return True
 
@@ -2546,8 +2510,6 @@ class Arp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.arp_entry is not None:
                         for child_ref in self.arp_entry:
                             if child_ref._has_data():
@@ -2678,8 +2640,6 @@ class Arp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -2726,8 +2686,6 @@ class Arp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.entry is not None:
                         for child_ref in self.entry:
                             if child_ref._has_data():
@@ -3024,8 +2982,6 @@ class Arp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3132,8 +3088,6 @@ class Arp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.traffic_interface is not None:
                         for child_ref in self.traffic_interface:
                             if child_ref._has_data():
@@ -3158,8 +3112,6 @@ class Arp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -3198,8 +3150,6 @@ class Arp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3222,8 +3172,6 @@ class Arp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

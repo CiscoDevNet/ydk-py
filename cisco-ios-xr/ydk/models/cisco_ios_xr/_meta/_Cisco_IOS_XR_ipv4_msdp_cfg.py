@@ -13,15 +13,15 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'MsdpListTypeVrfEnum' : _MetaInfoEnum('MsdpListTypeVrfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg',
-        {
-            'list':'list',
-            'rp-list':'rp_list',
-        }, 'Cisco-IOS-XR-ipv4-msdp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-msdp-cfg']),
     'MsdpFilterTypeVrfEnum' : _MetaInfoEnum('MsdpFilterTypeVrfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg',
         {
             'incoming':'incoming',
             'outgoing':'outgoing',
+        }, 'Cisco-IOS-XR-ipv4-msdp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-msdp-cfg']),
+    'MsdpListTypeVrfEnum' : _MetaInfoEnum('MsdpListTypeVrfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg',
+        {
+            'list':'list',
+            'rp-list':'rp_list',
         }, 'Cisco-IOS-XR-ipv4-msdp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-msdp-cfg']),
     'Msdp.Vrfs.Vrf.CacheState' : {
         'meta_info' : _MetaInfoClass('Msdp.Vrfs.Vrf.CacheState',
@@ -127,17 +127,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Msdp.Vrfs.Vrf.Peers.Peer.SaFilters.SaFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'MsdpFilterTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpFilterTypeVrfEnum', 
-                [], [], 
-                '''                Incoming/Outgoing ACL
-                ''',
-                'filter_type',
-                'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('list', REFERENCE_ENUM_CLASS, 'MsdpListTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpListTypeVrfEnum', 
                 [], [], 
                 '''                Src List/RP List
                 ''',
                 'list',
+                'Cisco-IOS-XR-ipv4-msdp-cfg', True),
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'MsdpFilterTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpFilterTypeVrfEnum', 
+                [], [], 
+                '''                Incoming/Outgoing ACL
+                ''',
+                'filter_type',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
                 [(1, 64)], [], 
@@ -174,13 +174,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer address
                 ''',
                 'peer_address',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('connect-source', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Configure interface name used for MSDP
                 connection
                 ''',
@@ -223,7 +223,7 @@ _meta_table = {
                 'nsr_down',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', False),
             _MetaInfoClassMember('peer-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Configuration of password of peer
                 ''',
                 'peer_password',
@@ -280,17 +280,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Msdp.Vrfs.Vrf.SaFilters.SaFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'MsdpFilterTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpFilterTypeVrfEnum', 
-                [], [], 
-                '''                Incoming/Outgoing ACL
-                ''',
-                'filter_type',
-                'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('list', REFERENCE_ENUM_CLASS, 'MsdpListTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpListTypeVrfEnum', 
                 [], [], 
                 '''                Src List/RP List
                 ''',
                 'list',
+                'Cisco-IOS-XR-ipv4-msdp-cfg', True),
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'MsdpFilterTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpFilterTypeVrfEnum', 
+                [], [], 
+                '''                Incoming/Outgoing ACL
+                ''',
+                'filter_type',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
                 [(1, 64)], [], 
@@ -339,14 +339,14 @@ _meta_table = {
                 'cache_state',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', False),
             _MetaInfoClassMember('connect-source', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Configure interface name used for MSDP
                 connection
                 ''',
                 'connect_source',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', False),
             _MetaInfoClassMember('default-peer', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configure default peers for the box
                 ''',
                 'default_peer',
@@ -370,7 +370,7 @@ _meta_table = {
                 'max_sa',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', False),
             _MetaInfoClassMember('originator-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Configure interface name used as originator ID
                 ''',
                 'originator_id',
@@ -521,17 +521,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Msdp.DefaultContext.Peers.Peer.SaFilters.SaFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'MsdpFilterTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpFilterTypeVrfEnum', 
-                [], [], 
-                '''                Incoming/Outgoing ACL
-                ''',
-                'filter_type',
-                'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('list', REFERENCE_ENUM_CLASS, 'MsdpListTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpListTypeVrfEnum', 
                 [], [], 
                 '''                Src List/RP List
                 ''',
                 'list',
+                'Cisco-IOS-XR-ipv4-msdp-cfg', True),
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'MsdpFilterTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpFilterTypeVrfEnum', 
+                [], [], 
+                '''                Incoming/Outgoing ACL
+                ''',
+                'filter_type',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
                 [(1, 64)], [], 
@@ -568,13 +568,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('peer-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Peer address
                 ''',
                 'peer_address',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('connect-source', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Configure interface name used for MSDP
                 connection
                 ''',
@@ -617,7 +617,7 @@ _meta_table = {
                 'nsr_down',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', False),
             _MetaInfoClassMember('peer-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Configuration of password of peer
                 ''',
                 'peer_password',
@@ -674,17 +674,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Msdp.DefaultContext.SaFilters.SaFilter',
             False, 
             [
-            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'MsdpFilterTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpFilterTypeVrfEnum', 
-                [], [], 
-                '''                Incoming/Outgoing ACL
-                ''',
-                'filter_type',
-                'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('list', REFERENCE_ENUM_CLASS, 'MsdpListTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpListTypeVrfEnum', 
                 [], [], 
                 '''                Src List/RP List
                 ''',
                 'list',
+                'Cisco-IOS-XR-ipv4-msdp-cfg', True),
+            _MetaInfoClassMember('filter-type', REFERENCE_ENUM_CLASS, 'MsdpFilterTypeVrfEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg', 'MsdpFilterTypeVrfEnum', 
+                [], [], 
+                '''                Incoming/Outgoing ACL
+                ''',
+                'filter_type',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', True),
             _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
                 [(1, 64)], [], 
@@ -727,14 +727,14 @@ _meta_table = {
                 'cache_state',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', False),
             _MetaInfoClassMember('connect-source', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Configure interface name used for MSDP
                 connection
                 ''',
                 'connect_source',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', False),
             _MetaInfoClassMember('default-peer', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configure default peers for the box
                 ''',
                 'default_peer',
@@ -758,7 +758,7 @@ _meta_table = {
                 'max_sa',
                 'Cisco-IOS-XR-ipv4-msdp-cfg', False),
             _MetaInfoClassMember('originator-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Configure interface name used as originator ID
                 ''',
                 'originator_id',

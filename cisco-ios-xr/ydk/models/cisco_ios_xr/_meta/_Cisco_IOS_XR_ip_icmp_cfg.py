@@ -80,7 +80,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('protocol-type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IP Protocol Type; ipv4 or ipv6
                 ''',
                 'protocol_type',

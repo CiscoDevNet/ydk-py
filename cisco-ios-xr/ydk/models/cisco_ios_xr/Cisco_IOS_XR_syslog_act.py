@@ -90,8 +90,6 @@ class LogmsgRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.message is not None:
                 return True
 
@@ -115,8 +113,6 @@ class LogmsgRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 

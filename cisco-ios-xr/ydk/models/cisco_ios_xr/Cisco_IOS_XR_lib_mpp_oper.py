@@ -198,8 +198,6 @@ class ManagementPlaneProtection(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -346,8 +344,6 @@ class ManagementPlaneProtection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -376,8 +372,6 @@ class ManagementPlaneProtection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allow is not None:
                             return True
 
@@ -408,8 +402,6 @@ class ManagementPlaneProtection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -435,8 +427,6 @@ class ManagementPlaneProtection(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -459,8 +449,6 @@ class ManagementPlaneProtection(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interfaces is not None and self.interfaces._has_data():
                 return True
 
@@ -633,8 +621,6 @@ class ManagementPlaneProtection(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -663,8 +649,6 @@ class ManagementPlaneProtection(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allow is not None:
                             return True
 
@@ -695,8 +679,6 @@ class ManagementPlaneProtection(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -722,8 +704,6 @@ class ManagementPlaneProtection(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -746,8 +726,6 @@ class ManagementPlaneProtection(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interfaces is not None and self.interfaces._has_data():
                 return True
 
@@ -768,8 +746,6 @@ class ManagementPlaneProtection(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.inband is not None and self.inband._has_data():
             return True
 

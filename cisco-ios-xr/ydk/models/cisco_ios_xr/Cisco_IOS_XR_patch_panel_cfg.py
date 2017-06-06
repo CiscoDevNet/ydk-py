@@ -86,8 +86,6 @@ class PatchPanel(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self._is_presence:
             return True
         if self.enable is not None:

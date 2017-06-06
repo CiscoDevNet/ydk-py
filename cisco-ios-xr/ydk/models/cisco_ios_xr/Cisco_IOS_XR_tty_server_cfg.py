@@ -195,8 +195,6 @@ class Tty(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.absolute_timeout is not None:
                         return True
 
@@ -246,8 +244,6 @@ class Tty(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.transparent is not None:
                         return True
 
@@ -398,8 +394,6 @@ class Tty(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -425,8 +419,6 @@ class Tty(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.user_group is not None:
                             for child_ref in self.user_group:
                                 if child_ref._has_data():
@@ -484,8 +476,6 @@ class Tty(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.commands is not None:
                             return True
 
@@ -535,8 +525,6 @@ class Tty(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.login is not None:
                             return True
 
@@ -586,8 +574,6 @@ class Tty(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.commands is not None:
                             return True
 
@@ -613,8 +599,6 @@ class Tty(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accounting is not None and self.accounting._has_data():
                         return True
 
@@ -731,8 +715,6 @@ class Tty(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.minutes is not None:
@@ -760,8 +742,6 @@ class Tty(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.time_stamp is not None:
                         return True
 
@@ -943,8 +923,6 @@ class Tty(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.none is not None:
                             return True
 
@@ -1027,8 +1005,6 @@ class Tty(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.none is not None:
@@ -1104,8 +1080,6 @@ class Tty(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.direction is not None:
@@ -1133,8 +1107,6 @@ class Tty(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.acl_in is not None:
                         return True
 
@@ -1207,8 +1179,6 @@ class Tty(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.pager is not None:
                         return True
 
@@ -1231,8 +1201,6 @@ class Tty(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -1271,8 +1239,6 @@ class Tty(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tty_line is not None:
                 for child_ref in self.tty_line:
                     if child_ref._has_data():
@@ -1295,8 +1261,6 @@ class Tty(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.tty_lines is not None and self.tty_lines._has_data():
             return True
 

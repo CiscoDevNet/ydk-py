@@ -1023,8 +1023,6 @@ class DhcpClient(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.client_ifhandle is not None:
                             return True
 
@@ -1185,8 +1183,6 @@ class DhcpClient(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.client_stat is not None:
                         for child_ref in self.client_stat:
                             if child_ref._has_data():
@@ -1351,8 +1347,6 @@ class DhcpClient(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.client_ifhandle is not None:
                             return True
 
@@ -1411,8 +1405,6 @@ class DhcpClient(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.client is not None:
                         for child_ref in self.client:
                             if child_ref._has_data():
@@ -1437,8 +1429,6 @@ class DhcpClient(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1465,8 +1455,6 @@ class DhcpClient(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1489,8 +1477,6 @@ class DhcpClient(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -1725,8 +1711,6 @@ class Ipv4Dhcpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.client_uid is not None:
                         return True
 
@@ -1780,8 +1764,6 @@ class Ipv4Dhcpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.binding is not None:
                     for child_ref in self.binding:
                         if child_ref._has_data():
@@ -1835,8 +1817,6 @@ class Ipv4Dhcpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.snoop_binding_timestamp is not None:
                     return True
 
@@ -1883,8 +1863,6 @@ class Ipv4Dhcpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.snoop_stats_timestamp is not None:
                     return True
 
@@ -2001,8 +1979,6 @@ class Ipv4Dhcpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profile_name is not None:
                         return True
 
@@ -2041,8 +2017,6 @@ class Ipv4Dhcpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.profile is not None:
                     for child_ref in self.profile:
                         if child_ref._has_data():
@@ -2131,8 +2105,6 @@ class Ipv4Dhcpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bridge_name is not None:
                         return True
 
@@ -2161,8 +2133,6 @@ class Ipv4Dhcpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.statistic is not None:
                     for child_ref in self.statistic:
                         if child_ref._has_data():
@@ -2185,8 +2155,6 @@ class Ipv4Dhcpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.binding_statistics is not None and self.binding_statistics._has_data():
                 return True
 
@@ -2376,8 +2344,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.proxy_stats_timestamp is not None:
                             return True
 
@@ -2605,8 +2571,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2674,8 +2638,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2743,8 +2705,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2812,8 +2772,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2881,8 +2839,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -2950,8 +2906,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3019,8 +2973,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3088,8 +3040,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3157,8 +3107,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3226,8 +3174,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3295,8 +3241,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3364,8 +3308,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3433,8 +3375,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3502,8 +3442,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -3532,8 +3470,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ack is not None and self.ack._has_data():
                                     return True
 
@@ -3597,8 +3533,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -3624,8 +3558,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -3864,8 +3796,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.proxy_reference_vrf_name is not None:
                                         return True
 
@@ -3888,8 +3818,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_dhcpd_proxy_vrf_reference is not None:
                                     for child_ref in self.ipv4_dhcpd_proxy_vrf_reference:
                                         if child_ref._has_data():
@@ -3960,8 +3888,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.proxy_reference_interface_name is not None:
                                         return True
 
@@ -3984,8 +3910,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_dhcpd_proxy_interface_reference is not None:
                                     for child_ref in self.ipv4_dhcpd_proxy_interface_reference:
                                         if child_ref._has_data():
@@ -4012,8 +3936,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.profile_name is not None:
                                 return True
 
@@ -4093,8 +4015,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.profile is not None:
                             for child_ref in self.profile:
                                 if child_ref._has_data():
@@ -4211,8 +4131,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -4241,8 +4159,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.statistics is not None and self.statistics._has_data():
                                 return True
 
@@ -4268,8 +4184,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4_dhcpd_proxy_stat is not None:
                             for child_ref in self.ipv4_dhcpd_proxy_stat:
                                 if child_ref._has_data():
@@ -4639,8 +4553,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.client_id is not None:
                                     return True
 
@@ -4767,8 +4679,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.client is not None:
                                 for child_ref in self.client:
                                     if child_ref._has_data():
@@ -4952,8 +4862,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ack_waiting_for_dpm is not None:
                                 return True
 
@@ -5027,8 +4935,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.clients is not None and self.clients._has_data():
                             return True
 
@@ -5054,8 +4960,6 @@ class Ipv4Dhcpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.binding is not None and self.binding._has_data():
                         return True
 
@@ -5206,8 +5110,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -5257,8 +5159,6 @@ class Ipv4Dhcpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -5425,8 +5325,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -5455,8 +5353,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.statistics is not None and self.statistics._has_data():
                                 return True
 
@@ -5482,8 +5378,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4_dhcpd_proxy_stat is not None:
                             for child_ref in self.ipv4_dhcpd_proxy_stat:
                                 if child_ref._has_data():
@@ -5603,8 +5497,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.big_bang_time is not None:
                             return True
 
@@ -5859,8 +5751,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5928,8 +5818,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -5997,8 +5885,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6066,8 +5952,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6135,8 +6019,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6204,8 +6086,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6273,8 +6153,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6342,8 +6220,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6411,8 +6287,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6480,8 +6354,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6549,8 +6421,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6618,8 +6488,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6687,8 +6555,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6756,8 +6622,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -6786,8 +6650,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ack is not None and self.ack._has_data():
                                     return True
 
@@ -6851,8 +6713,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -6878,8 +6738,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -7056,8 +6914,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.base_reference_interface_name is not None:
                                         return True
 
@@ -7080,8 +6936,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_dhcpd_base_interface_reference is not None:
                                     for child_ref in self.ipv4_dhcpd_base_interface_reference:
                                         if child_ref._has_data():
@@ -7184,8 +7038,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.base_child_profile_name is not None:
                                         return True
 
@@ -7220,8 +7072,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_dhcpd_base_child_profile_info is not None:
                                     for child_ref in self.ipv4_dhcpd_base_child_profile_info:
                                         if child_ref._has_data():
@@ -7248,8 +7098,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.profile_name is not None:
                                 return True
 
@@ -7296,8 +7144,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.profile is not None:
                             for child_ref in self.profile:
                                 if child_ref._has_data():
@@ -7467,8 +7313,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.configured is not None:
                             return True
 
@@ -7536,8 +7380,6 @@ class Ipv4Dhcpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.database is not None and self.database._has_data():
                         return True
 
@@ -7874,8 +7716,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.server_profile_name is not None:
                                 return True
 
@@ -7984,8 +7824,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.profile is not None:
                             for child_ref in self.profile:
                                 if child_ref._has_data():
@@ -8102,8 +7940,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -8132,8 +7968,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.statistics is not None and self.statistics._has_data():
                                 return True
 
@@ -8159,8 +7993,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4_dhcpd_proxy_stat is not None:
                             for child_ref in self.ipv4_dhcpd_proxy_stat:
                                 if child_ref._has_data():
@@ -8373,8 +8205,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ack_waiting_for_dpm is not None:
                                 return True
 
@@ -8764,8 +8594,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.client_id is not None:
                                     return True
 
@@ -8892,8 +8720,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.client is not None:
                                 for child_ref in self.client:
                                     if child_ref._has_data():
@@ -8918,8 +8744,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.clients is not None and self.clients._has_data():
                             return True
 
@@ -8968,8 +8792,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.proxy_stats_timestamp is not None:
                             return True
 
@@ -9197,8 +9019,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9266,8 +9086,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9335,8 +9153,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9404,8 +9220,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9473,8 +9287,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9542,8 +9354,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9611,8 +9421,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9680,8 +9488,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9749,8 +9555,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9818,8 +9622,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9887,8 +9689,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -9956,8 +9756,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10025,8 +9823,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10094,8 +9890,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -10124,8 +9918,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ack is not None and self.ack._has_data():
                                     return True
 
@@ -10189,8 +9981,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -10216,8 +10006,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -10242,8 +10030,6 @@ class Ipv4Dhcpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.binding is not None and self.binding._has_data():
                         return True
 
@@ -10485,8 +10271,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.profile_name is not None:
                                 return True
 
@@ -10557,8 +10341,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.profile is not None:
                             for child_ref in self.profile:
                                 if child_ref._has_data():
@@ -10606,8 +10388,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.relay_stats_timestamp is not None:
                             return True
 
@@ -10722,8 +10502,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dropped_packets is not None:
                                     return True
 
@@ -10752,8 +10530,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.relay_statistics_vrf_name is not None:
                                 return True
 
@@ -10779,8 +10555,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4_dhcpd_relay_stat is not None:
                             for child_ref in self.ipv4_dhcpd_relay_stat:
                                 if child_ref._has_data():
@@ -11010,8 +10784,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11079,8 +10851,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11148,8 +10918,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11217,8 +10985,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11286,8 +11052,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11355,8 +11119,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11424,8 +11186,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11493,8 +11253,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11562,8 +11320,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11631,8 +11387,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11700,8 +11454,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11769,8 +11521,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11838,8 +11588,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11907,8 +11655,6 @@ class Ipv4Dhcpd(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dropped_packets is not None:
                                         return True
 
@@ -11937,8 +11683,6 @@ class Ipv4Dhcpd(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ack is not None and self.ack._has_data():
                                     return True
 
@@ -12002,8 +11746,6 @@ class Ipv4Dhcpd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -12029,8 +11771,6 @@ class Ipv4Dhcpd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -12055,8 +11795,6 @@ class Ipv4Dhcpd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.profiles is not None and self.profiles._has_data():
                         return True
 
@@ -12088,8 +11826,6 @@ class Ipv4Dhcpd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.nodeid is not None:
                     return True
 
@@ -12125,8 +11861,6 @@ class Ipv4Dhcpd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -12149,8 +11883,6 @@ class Ipv4Dhcpd(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

@@ -13,16 +13,16 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'RpfModeEnum' : _MetaInfoEnum('RpfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper',
-        {
-            'strict':'strict',
-            'loose':'loose',
-        }, 'Cisco-IOS-XR-ipv4-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ma-oper']),
     'Ipv4MaOperLineStateEnum' : _MetaInfoEnum('Ipv4MaOperLineStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper',
         {
             'unknown':'unknown',
             'shutdown':'shutdown',
             'down':'down',
             'up':'up',
+        }, 'Cisco-IOS-XR-ipv4-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ma-oper']),
+    'RpfModeEnum' : _MetaInfoEnum('RpfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper',
+        {
+            'strict':'strict',
+            'loose':'loose',
         }, 'Cisco-IOS-XR-ipv4-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ma-oper']),
 }

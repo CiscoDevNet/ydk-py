@@ -353,8 +353,6 @@ class Ipv4Network(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -386,8 +384,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.brief is not None:
                                     for child_ref in self.brief:
                                         if child_ref._has_data():
@@ -691,8 +687,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.common_in_bound is not None:
                                             return True
 
@@ -763,8 +757,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.common is not None:
                                             for child in self.common:
                                                 if child is not None:
@@ -824,8 +816,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address_array is not None:
                                             for child in self.address_array:
                                                 if child is not None:
@@ -889,8 +879,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.allow_default_route is not None:
                                             return True
 
@@ -984,8 +972,6 @@ class Ipv4Network(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination is not None:
                                                 return True
 
@@ -1047,8 +1033,6 @@ class Ipv4Network(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination is not None:
                                                 return True
 
@@ -1077,8 +1061,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.input is not None and self.input._has_data():
                                             return True
 
@@ -1119,8 +1101,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1155,8 +1135,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1191,8 +1169,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1227,8 +1203,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1263,8 +1237,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         return False
 
                                     @staticmethod
@@ -1307,8 +1279,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.group_address is not None:
                                             return True
 
@@ -1370,8 +1340,6 @@ class Ipv4Network(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -1402,8 +1370,6 @@ class Ipv4Network(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -1514,8 +1480,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.detail is not None:
                                     for child_ref in self.detail:
                                         if child_ref._has_data():
@@ -1542,8 +1506,6 @@ class Ipv4Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -1572,8 +1534,6 @@ class Ipv4Network(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf is not None:
                             for child_ref in self.vrf:
                                 if child_ref._has_data():
@@ -1689,8 +1649,6 @@ class Ipv4Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_assigned is not None:
                                 return True
 
@@ -1758,8 +1716,6 @@ class Ipv4Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_assigned is not None:
                                 return True
 
@@ -1827,8 +1783,6 @@ class Ipv4Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_assigned is not None:
                                 return True
 
@@ -1896,8 +1850,6 @@ class Ipv4Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_assigned is not None:
                                 return True
 
@@ -1926,8 +1878,6 @@ class Ipv4Network(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.if_down_down is not None and self.if_down_down._has_data():
                             return True
 
@@ -1962,8 +1912,6 @@ class Ipv4Network(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.summary is not None and self.summary._has_data():
                         return True
 
@@ -2416,8 +2364,6 @@ class Ipv4Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_header is not None:
                                 return True
 
@@ -2883,8 +2829,6 @@ class Ipv4Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.admin_unreachable_received is not None:
                                 return True
 
@@ -3015,8 +2959,6 @@ class Ipv4Network(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.icmp_stats is not None and self.icmp_stats._has_data():
                             return True
 
@@ -3042,8 +2984,6 @@ class Ipv4Network(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.traffic is not None and self.traffic._has_data():
                         return True
 
@@ -3066,8 +3006,6 @@ class Ipv4Network(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -3094,8 +3032,6 @@ class Ipv4Network(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3480,8 +3416,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.common_in_bound is not None:
                                     return True
 
@@ -3552,8 +3486,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.common is not None:
                                     for child in self.common:
                                         if child is not None:
@@ -3613,8 +3545,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address_array is not None:
                                     for child in self.address_array:
                                         if child is not None:
@@ -3678,8 +3608,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.allow_default_route is not None:
                                     return True
 
@@ -3773,8 +3701,6 @@ class Ipv4Network(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.destination is not None:
                                         return True
 
@@ -3836,8 +3762,6 @@ class Ipv4Network(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.destination is not None:
                                         return True
 
@@ -3866,8 +3790,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.input is not None and self.input._has_data():
                                     return True
 
@@ -3908,8 +3830,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 return False
 
                             @staticmethod
@@ -3944,8 +3864,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 return False
 
                             @staticmethod
@@ -3980,8 +3898,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 return False
 
                             @staticmethod
@@ -4016,8 +3932,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 return False
 
                             @staticmethod
@@ -4052,8 +3966,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 return False
 
                             @staticmethod
@@ -4096,8 +4008,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None:
                                     return True
 
@@ -4159,8 +4069,6 @@ class Ipv4Network(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -4189,8 +4097,6 @@ class Ipv4Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acl is not None and self.acl._has_data():
                                 return True
 
@@ -4336,8 +4242,6 @@ class Ipv4Network(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.line_state is not None:
                                 return True
 
@@ -4368,8 +4272,6 @@ class Ipv4Network(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_name is not None:
                             return True
 
@@ -4398,8 +4300,6 @@ class Ipv4Network(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf is not None:
                         for child_ref in self.vrf:
                             if child_ref._has_data():
@@ -4424,8 +4324,6 @@ class Ipv4Network(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -4449,8 +4347,6 @@ class Ipv4Network(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -4473,8 +4369,6 @@ class Ipv4Network(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 

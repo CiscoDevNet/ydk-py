@@ -285,8 +285,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.invalid_payload_allow is not None:
                             return True
 
@@ -360,8 +358,6 @@ class PppoeCfg(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -384,8 +380,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.service_name_configured is not None:
                             for child_ref in self.service_name_configured:
                                 if child_ref._has_data():
@@ -441,8 +435,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.max is not None:
                             return True
 
@@ -468,8 +460,6 @@ class PppoeCfg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ac_name is not None:
                         return True
 
@@ -744,8 +734,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.blocking_period is not None:
@@ -829,8 +817,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.blocking_period is not None:
@@ -902,8 +888,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -985,8 +969,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.blocking_period is not None:
@@ -1058,8 +1040,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -1140,8 +1120,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.blocking_period is not None:
@@ -1213,8 +1191,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -1295,8 +1271,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.blocking_period is not None:
@@ -1369,8 +1343,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -1439,8 +1411,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -1510,8 +1480,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -1581,8 +1549,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -1651,8 +1617,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -1733,8 +1697,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.blocking_period is not None:
@@ -1818,8 +1780,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.blocking_period is not None:
@@ -1892,8 +1852,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -1963,8 +1921,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -2034,8 +1990,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -2116,8 +2070,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.blocking_period is not None:
@@ -2189,8 +2141,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.limit is not None:
@@ -2271,8 +2221,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.blocking_period is not None:
@@ -2303,8 +2251,6 @@ class PppoeCfg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_interface_limit is not None and self.access_interface_limit._has_data():
                         return True
 
@@ -2410,8 +2356,6 @@ class PppoeCfg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.priority is not None:
                         return True
 
@@ -2583,8 +2527,6 @@ class PppoeCfg(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -2610,8 +2552,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.remote_id_substring is not None:
                             for child_ref in self.remote_id_substring:
                                 if child_ref._has_data():
@@ -2698,8 +2638,6 @@ class PppoeCfg(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -2725,8 +2663,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.remote_id_string is not None:
                             for child_ref in self.remote_id_string:
                                 if child_ref._has_data():
@@ -2813,8 +2749,6 @@ class PppoeCfg(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -2840,8 +2774,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.service_name_string is not None:
                             for child_ref in self.service_name_string:
                                 if child_ref._has_data():
@@ -2928,8 +2860,6 @@ class PppoeCfg(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -2955,8 +2885,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.circuit_id_substring is not None:
                             for child_ref in self.circuit_id_substring:
                                 if child_ref._has_data():
@@ -3043,8 +2971,6 @@ class PppoeCfg(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -3070,8 +2996,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.service_name_substring is not None:
                             for child_ref in self.service_name_substring:
                                 if child_ref._has_data():
@@ -3158,8 +3082,6 @@ class PppoeCfg(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -3185,8 +3107,6 @@ class PppoeCfg(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.circuit_id_string is not None:
                             for child_ref in self.circuit_id_string:
                                 if child_ref._has_data():
@@ -3211,8 +3131,6 @@ class PppoeCfg(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.circuit_id is not None:
                         return True
 
@@ -3259,8 +3177,6 @@ class PppoeCfg(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bba_group is not None:
                     return True
 
@@ -3305,8 +3221,6 @@ class PppoeCfg(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.pppoe_bba_group is not None:
                 for child_ref in self.pppoe_bba_group:
                     if child_ref._has_data():
@@ -3329,8 +3243,6 @@ class PppoeCfg(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.in_flight_window is not None:
             return True
 

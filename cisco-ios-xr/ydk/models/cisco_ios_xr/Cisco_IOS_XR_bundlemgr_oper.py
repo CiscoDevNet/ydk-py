@@ -2735,8 +2735,6 @@ class LacpBundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -2878,8 +2876,6 @@ class LacpBundles(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af is not None:
                                     return True
 
@@ -2908,8 +2904,6 @@ class LacpBundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_status is not None:
                                 return True
 
@@ -2956,8 +2950,6 @@ class LacpBundles(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_foreign_member_count is not None:
                             return True
 
@@ -3152,8 +3144,6 @@ class LacpBundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.macaddr is not None:
                                 return True
 
@@ -3176,8 +3166,6 @@ class LacpBundles(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                             return True
 
@@ -3203,8 +3191,6 @@ class LacpBundles(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.actor_bundle_data is not None and self.actor_bundle_data._has_data():
                         return True
 
@@ -3489,8 +3475,6 @@ class LacpBundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.defaulted is not None:
                                 return True
 
@@ -3678,8 +3662,6 @@ class LacpBundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.actor_operational_key is not None:
                                 return True
 
@@ -3826,8 +3808,6 @@ class LacpBundles(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.reason_type is not None:
                                     return True
 
@@ -3853,8 +3833,6 @@ class LacpBundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.error is not None:
                                 return True
 
@@ -3915,8 +3893,6 @@ class LacpBundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -3941,8 +3917,6 @@ class LacpBundles(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.member_interface is not None:
                             return True
 
@@ -4004,8 +3978,6 @@ class LacpBundles(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member is not None:
                         for child_ref in self.member:
                             if child_ref._has_data():
@@ -4030,8 +4002,6 @@ class LacpBundles(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bundle_interface is not None:
                     return True
 
@@ -4058,8 +4028,6 @@ class LacpBundles(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bundle is not None:
                 for child_ref in self.bundle:
                     if child_ref._has_data():
@@ -4082,8 +4050,6 @@ class LacpBundles(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.bundles is not None and self.bundles._has_data():
             return True
 
@@ -4386,8 +4352,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.item_name is not None:
                                 return True
 
@@ -4497,8 +4461,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.down is not None:
                                 return True
 
@@ -4545,8 +4507,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfd_counter is not None:
                             for child_ref in self.bfd_counter:
                                 if child_ref._has_data():
@@ -4694,8 +4654,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.member_interface is not None:
                                 return True
 
@@ -4745,8 +4703,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfd_counters_bundle_children_member is not None:
                             for child_ref in self.bfd_counters_bundle_children_member:
                                 if child_ref._has_data():
@@ -4792,8 +4748,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -4816,8 +4770,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -4847,8 +4799,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bfd_counters_bundle is not None:
                     for child_ref in self.bfd_counters_bundle:
                         if child_ref._has_data():
@@ -5011,8 +4961,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.down is not None:
                             return True
 
@@ -5059,8 +5007,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member_interface is not None:
                         return True
 
@@ -5084,8 +5030,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bfd_counters_member is not None:
                     for child_ref in self.bfd_counters_member:
                         if child_ref._has_data():
@@ -5108,8 +5052,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bfd_counters_bundles is not None and self.bfd_counters_bundles._has_data():
                 return True
 
@@ -5276,8 +5218,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action_state is not None:
                                 return True
 
@@ -5306,8 +5246,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_name is not None:
                             return True
 
@@ -5335,8 +5273,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -5360,8 +5296,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.scheduled_actions_bundle is not None:
                     for child_ref in self.scheduled_actions_bundle:
                         if child_ref._has_data():
@@ -5384,8 +5318,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.scheduled_actions_bundles is not None and self.scheduled_actions_bundles._has_data():
                 return True
 
@@ -5870,8 +5802,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -6013,8 +5943,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af is not None:
                                         return True
 
@@ -6043,8 +5971,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_status is not None:
                                     return True
 
@@ -6091,8 +6017,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_foreign_member_count is not None:
                                 return True
 
@@ -6450,8 +6374,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.defaulted is not None:
                                     return True
 
@@ -6639,8 +6561,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.actor_operational_key is not None:
                                     return True
 
@@ -6787,8 +6707,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.reason_type is not None:
                                         return True
 
@@ -6814,8 +6732,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.error is not None:
                                     return True
 
@@ -6876,8 +6792,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -6900,8 +6814,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bandwidth is not None:
                                 return True
 
@@ -6960,8 +6872,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_data is not None and self.bundle_data._has_data():
                             return True
 
@@ -7236,8 +7146,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.defaulted is not None:
                                     return True
 
@@ -7425,8 +7333,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.actor_operational_key is not None:
                                     return True
 
@@ -7573,8 +7479,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.reason_type is not None:
                                         return True
 
@@ -7600,8 +7504,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.error is not None:
                                     return True
 
@@ -7662,8 +7564,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -7688,8 +7588,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.member_interface is not None:
                                 return True
 
@@ -7751,8 +7649,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_bundle_children_member is not None:
                             for child_ref in self.bundle_bundle_children_member:
                                 if child_ref._has_data():
@@ -8112,8 +8008,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -8255,8 +8149,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af is not None:
                                     return True
 
@@ -8285,8 +8177,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_status is not None:
                                 return True
 
@@ -8333,8 +8223,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_foreign_member_count is not None:
                             return True
 
@@ -8476,8 +8364,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -8507,8 +8393,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bundle_bundle is not None:
                     for child_ref in self.bundle_bundle:
                         if child_ref._has_data():
@@ -8957,8 +8841,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -9100,8 +8982,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af is not None:
                                         return True
 
@@ -9130,8 +9010,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_status is not None:
                                     return True
 
@@ -9178,8 +9056,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_foreign_member_count is not None:
                                 return True
 
@@ -9537,8 +9413,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.defaulted is not None:
                                     return True
 
@@ -9726,8 +9600,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.actor_operational_key is not None:
                                     return True
 
@@ -9874,8 +9746,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.reason_type is not None:
                                         return True
 
@@ -9901,8 +9771,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.error is not None:
                                     return True
 
@@ -9963,8 +9831,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -9987,8 +9853,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bandwidth is not None:
                                 return True
 
@@ -10047,8 +9911,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_data is not None and self.bundle_data._has_data():
                             return True
 
@@ -10292,8 +10154,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.defaulted is not None:
                                 return True
 
@@ -10481,8 +10341,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.actor_operational_key is not None:
                                 return True
 
@@ -10629,8 +10487,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.reason_type is not None:
                                     return True
 
@@ -10656,8 +10512,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.error is not None:
                                 return True
 
@@ -10718,8 +10572,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -10742,8 +10594,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bandwidth is not None:
                             return True
 
@@ -10802,8 +10652,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member_interface is not None:
                         return True
 
@@ -10830,8 +10678,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bundle_member is not None:
                     for child_ref in self.bundle_member:
                         if child_ref._has_data():
@@ -10854,8 +10700,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bundle_bundles is not None and self.bundle_bundles._has_data():
                 return True
 
@@ -11120,8 +10964,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -11153,8 +10995,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -11262,8 +11102,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -11295,8 +11133,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -11404,8 +11240,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -11437,8 +11271,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -11467,8 +11299,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -11500,8 +11330,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -11529,8 +11357,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member_interface is not None:
                         return True
 
@@ -11554,8 +11380,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_rg_member is not None:
                     for child_ref in self.events_rg_member:
                         if child_ref._has_data():
@@ -11783,8 +11607,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -11816,8 +11638,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -11925,8 +11745,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -11958,8 +11776,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -12067,8 +11883,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -12100,8 +11914,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -12130,8 +11942,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -12163,8 +11973,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -12192,8 +12000,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group is not None:
                         return True
 
@@ -12217,8 +12023,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_rg_iccp_group is not None:
                     for child_ref in self.events_rg_iccp_group:
                         if child_ref._has_data():
@@ -12446,8 +12250,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -12479,8 +12281,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -12588,8 +12388,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -12621,8 +12419,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -12730,8 +12526,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -12763,8 +12557,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -12793,8 +12585,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -12826,8 +12616,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -12855,8 +12643,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -12880,8 +12666,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_rg_bundle is not None:
                     for child_ref in self.events_rg_bundle:
                         if child_ref._has_data():
@@ -12904,8 +12688,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.events_rg_bundles is not None and self.events_rg_bundles._has_data():
                 return True
 
@@ -13426,8 +13208,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -13569,8 +13349,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af is not None:
                                         return True
 
@@ -13599,8 +13377,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_status is not None:
                                     return True
 
@@ -13647,8 +13423,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_foreign_member_count is not None:
                                 return True
 
@@ -13843,8 +13617,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.macaddr is not None:
                                     return True
 
@@ -13867,8 +13639,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                 return True
 
@@ -13894,8 +13664,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.actor_bundle_data is not None and self.actor_bundle_data._has_data():
                             return True
 
@@ -14359,8 +14127,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -14502,8 +14268,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af is not None:
                                             return True
 
@@ -14532,8 +14296,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_status is not None:
                                         return True
 
@@ -14580,8 +14342,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.active_foreign_member_count is not None:
                                     return True
 
@@ -14776,8 +14536,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.macaddr is not None:
                                         return True
 
@@ -14800,8 +14558,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                     return True
 
@@ -14827,8 +14583,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.actor_bundle_data is not None and self.actor_bundle_data._has_data():
                                 return True
 
@@ -15090,8 +14844,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.macaddr is not None:
                                                 return True
 
@@ -15114,8 +14866,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                             return True
 
@@ -15172,8 +14922,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.link_number is not None:
                                             return True
 
@@ -15199,8 +14947,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key is not None:
                                         return True
 
@@ -15232,8 +14978,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_info is not None and self.port_info._has_data():
                                     return True
 
@@ -15387,8 +15131,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.macaddr is not None:
                                                 return True
 
@@ -15411,8 +15153,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                             return True
 
@@ -15469,8 +15209,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.link_number is not None:
                                             return True
 
@@ -15496,8 +15234,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key is not None:
                                         return True
 
@@ -15529,8 +15265,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_info is not None and self.port_info._has_data():
                                     return True
 
@@ -15614,8 +15348,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_handle is not None:
                                         return True
 
@@ -15667,8 +15399,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.member_name is not None:
                                         return True
 
@@ -15694,8 +15424,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.foreign is not None and self.foreign._has_data():
                                     return True
 
@@ -15724,8 +15452,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.actor_churn_state is not None:
                                 return True
 
@@ -15781,8 +15507,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_data is not None and self.bundle_data._has_data():
                             return True
 
@@ -16063,8 +15787,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.macaddr is not None:
                                                 return True
 
@@ -16087,8 +15809,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                             return True
 
@@ -16145,8 +15865,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.link_number is not None:
                                             return True
 
@@ -16172,8 +15890,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key is not None:
                                         return True
 
@@ -16205,8 +15921,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_info is not None and self.port_info._has_data():
                                     return True
 
@@ -16360,8 +16074,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.macaddr is not None:
                                                 return True
 
@@ -16384,8 +16096,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                             return True
 
@@ -16442,8 +16152,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.link_number is not None:
                                             return True
 
@@ -16469,8 +16177,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key is not None:
                                         return True
 
@@ -16502,8 +16208,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_info is not None and self.port_info._has_data():
                                     return True
 
@@ -16587,8 +16291,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_handle is not None:
                                         return True
 
@@ -16640,8 +16342,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.member_name is not None:
                                         return True
 
@@ -16667,8 +16367,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.foreign is not None and self.foreign._has_data():
                                     return True
 
@@ -16699,8 +16397,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.member_interface is not None:
                                 return True
 
@@ -16759,8 +16455,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lacp_bundle_children_member is not None:
                             for child_ref in self.lacp_bundle_children_member:
                                 if child_ref._has_data():
@@ -16785,8 +16479,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -16816,8 +16508,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.lacp_bundle is not None:
                     for child_ref in self.lacp_bundle:
                         if child_ref._has_data():
@@ -17326,8 +17016,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -17469,8 +17157,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.af is not None:
                                             return True
 
@@ -17499,8 +17185,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_status is not None:
                                         return True
 
@@ -17547,8 +17231,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.active_foreign_member_count is not None:
                                     return True
 
@@ -17743,8 +17425,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.macaddr is not None:
                                         return True
 
@@ -17767,8 +17447,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                     return True
 
@@ -17794,8 +17472,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.actor_bundle_data is not None and self.actor_bundle_data._has_data():
                                 return True
 
@@ -18057,8 +17733,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.macaddr is not None:
                                                 return True
 
@@ -18081,8 +17755,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                             return True
 
@@ -18139,8 +17811,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.link_number is not None:
                                             return True
 
@@ -18166,8 +17836,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key is not None:
                                         return True
 
@@ -18199,8 +17867,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_info is not None and self.port_info._has_data():
                                     return True
 
@@ -18354,8 +18020,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.macaddr is not None:
                                                 return True
 
@@ -18378,8 +18042,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                             return True
 
@@ -18436,8 +18098,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.link_number is not None:
                                             return True
 
@@ -18463,8 +18123,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key is not None:
                                         return True
 
@@ -18496,8 +18154,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port_info is not None and self.port_info._has_data():
                                     return True
 
@@ -18581,8 +18237,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_handle is not None:
                                         return True
 
@@ -18634,8 +18288,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.member_name is not None:
                                         return True
 
@@ -18661,8 +18313,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.foreign is not None and self.foreign._has_data():
                                     return True
 
@@ -18691,8 +18341,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.actor_churn_state is not None:
                                 return True
 
@@ -18748,8 +18396,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_data is not None and self.bundle_data._has_data():
                             return True
 
@@ -19001,8 +18647,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.macaddr is not None:
                                             return True
 
@@ -19025,8 +18669,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                         return True
 
@@ -19083,8 +18725,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.link_number is not None:
                                         return True
 
@@ -19110,8 +18750,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.key is not None:
                                     return True
 
@@ -19143,8 +18781,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.port_info is not None and self.port_info._has_data():
                                 return True
 
@@ -19298,8 +18934,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.macaddr is not None:
                                             return True
 
@@ -19322,8 +18956,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                         return True
 
@@ -19380,8 +19012,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.link_number is not None:
                                         return True
 
@@ -19407,8 +19037,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.key is not None:
                                     return True
 
@@ -19440,8 +19068,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.port_info is not None and self.port_info._has_data():
                                 return True
 
@@ -19525,8 +19151,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_handle is not None:
                                     return True
 
@@ -19578,8 +19202,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.member_name is not None:
                                     return True
 
@@ -19605,8 +19227,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.foreign is not None and self.foreign._has_data():
                                 return True
 
@@ -19635,8 +19255,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.actor_churn_state is not None:
                             return True
 
@@ -19692,8 +19310,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member_interface is not None:
                         return True
 
@@ -19720,8 +19336,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.lacp_member is not None:
                     for child_ref in self.lacp_member:
                         if child_ref._has_data():
@@ -19744,8 +19358,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.lacp_bundles is not None and self.lacp_bundles._has_data():
                 return True
 
@@ -20017,8 +19629,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.all_syncs is not None:
                                         return True
 
@@ -20047,8 +19657,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.last_time_cleared is not None:
                                     return True
 
@@ -20158,8 +19766,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.all_syncs is not None:
                                         return True
 
@@ -20188,8 +19794,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.last_time_cleared is not None:
                                     return True
 
@@ -20377,8 +19981,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -20407,8 +20009,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -20455,8 +20055,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_name is not None:
                                     return True
 
@@ -20482,8 +20080,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -20665,8 +20261,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -20695,8 +20289,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -20806,8 +20398,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -20836,8 +20426,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -20866,8 +20454,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mlacp_sync_requests_on_all_foreign_bundles is not None and self.mlacp_sync_requests_on_all_foreign_bundles._has_data():
                                     return True
 
@@ -21055,8 +20641,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -21085,8 +20669,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -21133,8 +20715,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_name is not None:
                                     return True
 
@@ -21160,8 +20740,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -21189,8 +20767,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.iccp_group_data is not None and self.iccp_group_data._has_data():
                             return True
 
@@ -21218,8 +20794,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group is not None:
                         return True
 
@@ -21243,8 +20817,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.iccp_group is not None:
                     for child_ref in self.iccp_group:
                         if child_ref._has_data():
@@ -21501,8 +21073,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -21531,8 +21101,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -21642,8 +21210,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -21672,8 +21238,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -21861,8 +21425,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -21891,8 +21453,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -21939,8 +21499,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_name is not None:
                                         return True
 
@@ -21966,8 +21524,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_data is not None:
                                     for child_ref in self.bundle_data:
                                         if child_ref._has_data():
@@ -22149,8 +21705,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -22179,8 +21733,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -22290,8 +21842,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -22320,8 +21870,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -22350,8 +21898,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mlacp_sync_requests_on_all_foreign_bundles is not None and self.mlacp_sync_requests_on_all_foreign_bundles._has_data():
                                         return True
 
@@ -22539,8 +22085,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -22569,8 +22113,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -22617,8 +22159,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_name is not None:
                                         return True
 
@@ -22644,8 +22184,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_data is not None:
                                     for child_ref in self.bundle_data:
                                         if child_ref._has_data():
@@ -22673,8 +22211,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.iccp_group_data is not None and self.iccp_group_data._has_data():
                                 return True
 
@@ -22702,8 +22238,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.iccp_group is not None:
                             for child_ref in self.iccp_group:
                                 if child_ref._has_data():
@@ -22728,8 +22262,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -22753,8 +22285,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bundle is not None:
                     for child_ref in self.bundle:
                         if child_ref._has_data():
@@ -22987,8 +22517,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.all_syncs is not None:
                                         return True
 
@@ -23017,8 +22545,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.last_time_cleared is not None:
                                     return True
 
@@ -23128,8 +22654,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.all_syncs is not None:
                                         return True
 
@@ -23158,8 +22682,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.last_time_cleared is not None:
                                     return True
 
@@ -23347,8 +22869,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -23377,8 +22897,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -23425,8 +22943,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_name is not None:
                                     return True
 
@@ -23452,8 +22968,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -23635,8 +23149,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -23665,8 +23177,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -23776,8 +23286,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -23806,8 +23314,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -23836,8 +23342,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mlacp_sync_requests_on_all_foreign_bundles is not None and self.mlacp_sync_requests_on_all_foreign_bundles._has_data():
                                     return True
 
@@ -24025,8 +23529,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -24055,8 +23557,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -24103,8 +23603,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_name is not None:
                                     return True
 
@@ -24130,8 +23628,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -24159,8 +23655,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.iccp_group_data is not None and self.iccp_group_data._has_data():
                             return True
 
@@ -24188,8 +23682,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node is not None:
                         return True
 
@@ -24213,8 +23705,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -24237,8 +23727,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bundles is not None and self.bundles._has_data():
                 return True
 
@@ -24510,8 +23998,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active is not None:
                                 return True
 
@@ -24558,8 +24044,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_interface_handle is not None:
                             return True
 
@@ -24611,8 +24095,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -24636,8 +24118,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.protect_bundle is not None:
                     for child_ref in self.protect_bundle:
                         if child_ref._has_data():
@@ -24660,8 +24140,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.protect_bundles is not None and self.protect_bundles._has_data():
                 return True
 
@@ -24979,8 +24457,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.macaddr is not None:
                                                 return True
 
@@ -25003,8 +24479,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                             return True
 
@@ -25030,8 +24504,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.iccp_group_state is not None:
                                         return True
 
@@ -25069,8 +24541,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.connect_timer_running is not None:
                                     return True
 
@@ -25238,8 +24708,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -25262,8 +24730,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregator_id is not None:
                                         return True
 
@@ -25368,8 +24834,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.configured_priority is not None:
                                         return True
 
@@ -25410,8 +24874,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_interface_key is not None:
                                     return True
 
@@ -25450,8 +24912,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -25479,8 +24939,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mlacp_data is not None:
                             for child_ref in self.mlacp_data:
                                 if child_ref._has_data():
@@ -25505,8 +24963,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -25530,8 +24986,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mlacp_bundle_brief is not None:
                     for child_ref in self.mlacp_bundle_brief:
                         if child_ref._has_data():
@@ -25798,8 +25252,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.macaddr is not None:
                                             return True
 
@@ -25822,8 +25274,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                         return True
 
@@ -25849,8 +25299,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.iccp_group_state is not None:
                                     return True
 
@@ -25888,8 +25336,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.connect_timer_running is not None:
                                 return True
 
@@ -26057,8 +25503,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -26081,8 +25525,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.aggregator_id is not None:
                                     return True
 
@@ -26187,8 +25629,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.configured_priority is not None:
                                     return True
 
@@ -26229,8 +25669,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_interface_key is not None:
                                 return True
 
@@ -26269,8 +25707,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_data is not None:
                             for child_ref in self.bundle_data:
                                 if child_ref._has_data():
@@ -26298,8 +25734,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group is not None:
                         return True
 
@@ -26323,8 +25757,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mlacp_brief_iccp_group is not None:
                     for child_ref in self.mlacp_brief_iccp_group:
                         if child_ref._has_data():
@@ -26347,8 +25779,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mlacp_brief_iccp_groups is not None and self.mlacp_brief_iccp_groups._has_data():
                 return True
 
@@ -26669,8 +26099,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.macaddr is not None:
                                                 return True
 
@@ -26693,8 +26121,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                             return True
 
@@ -26720,8 +26146,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.iccp_group_state is not None:
                                         return True
 
@@ -26759,8 +26183,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.connect_timer_running is not None:
                                     return True
 
@@ -26928,8 +26350,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -26952,8 +26372,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregator_id is not None:
                                         return True
 
@@ -27058,8 +26476,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.configured_priority is not None:
                                         return True
 
@@ -27100,8 +26516,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_interface_key is not None:
                                     return True
 
@@ -27140,8 +26554,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_data is not None:
                                 for child_ref in self.bundle_data:
                                     if child_ref._has_data():
@@ -27169,8 +26581,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mlacp_data is not None:
                             for child_ref in self.mlacp_data:
                                 if child_ref._has_data():
@@ -27195,8 +26605,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -27220,8 +26628,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mlacp_bundle is not None:
                     for child_ref in self.mlacp_bundle:
                         if child_ref._has_data():
@@ -27488,8 +26894,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.macaddr is not None:
                                             return True
 
@@ -27512,8 +26916,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                         return True
 
@@ -27539,8 +26941,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.iccp_group_state is not None:
                                     return True
 
@@ -27578,8 +26978,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.connect_timer_running is not None:
                                 return True
 
@@ -27747,8 +27145,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -27771,8 +27167,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.aggregator_id is not None:
                                     return True
 
@@ -27877,8 +27271,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.configured_priority is not None:
                                     return True
 
@@ -27919,8 +27311,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_interface_key is not None:
                                 return True
 
@@ -27959,8 +27349,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_data is not None:
                             for child_ref in self.bundle_data:
                                 if child_ref._has_data():
@@ -27988,8 +27376,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group is not None:
                         return True
 
@@ -28013,8 +27399,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mlacp_iccp_group is not None:
                     for child_ref in self.mlacp_iccp_group:
                         if child_ref._has_data():
@@ -28037,8 +27421,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mlacp_bundles is not None and self.mlacp_bundles._has_data():
                 return True
 
@@ -28154,8 +27536,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -28176,8 +27556,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.mac_address is not None:
                         for child_ref in self.mac_address:
                             if child_ref._has_data():
@@ -28200,8 +27578,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mac_allocation_global_item is not None and self.mac_allocation_global_item._has_data():
                     return True
 
@@ -28222,8 +27598,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mac_allocation_global is not None and self.mac_allocation_global._has_data():
                 return True
 
@@ -28483,8 +27857,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -28516,8 +27888,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -28625,8 +27995,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -28658,8 +28026,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -28767,8 +28133,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -28800,8 +28164,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -28830,8 +28192,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -28863,8 +28223,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -29042,8 +28400,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -29075,8 +28431,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -29184,8 +28538,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -29217,8 +28569,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -29326,8 +28676,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -29359,8 +28707,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -29389,8 +28735,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -29422,8 +28766,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -29451,8 +28793,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member_interface is not None:
                         return True
 
@@ -29479,8 +28819,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_member is not None:
                     for child_ref in self.events_member:
                         if child_ref._has_data():
@@ -29729,8 +29067,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -29762,8 +29098,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -29871,8 +29205,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -29904,8 +29236,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -30013,8 +29343,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -30046,8 +29374,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -30076,8 +29402,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -30109,8 +29433,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -30288,8 +29610,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -30321,8 +29641,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -30430,8 +29748,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -30463,8 +29779,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -30572,8 +29886,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -30605,8 +29917,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -30635,8 +29945,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -30668,8 +29976,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -30870,8 +30176,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -30903,8 +30207,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -31012,8 +30314,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -31045,8 +30345,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_event_type is not None:
                                         return True
 
@@ -31154,8 +30452,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -31187,8 +30483,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -31217,8 +30511,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                     return True
 
@@ -31250,8 +30542,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.item_name is not None:
                                 return True
 
@@ -31279,8 +30569,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.events_item is not None:
                             for child_ref in self.events_item:
                                 if child_ref._has_data():
@@ -31484,8 +30772,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -31517,8 +30803,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -31626,8 +30910,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -31659,8 +30941,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_event_type is not None:
                                         return True
 
@@ -31768,8 +31048,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -31801,8 +31079,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -31831,8 +31107,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                     return True
 
@@ -31866,8 +31140,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.member_interface is not None:
                                 return True
 
@@ -31898,8 +31170,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.events_bundle_children_member is not None:
                             for child_ref in self.events_bundle_children_member:
                                 if child_ref._has_data():
@@ -31924,8 +31194,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -31958,8 +31226,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_bundle is not None:
                     for child_ref in self.events_bundle:
                         if child_ref._has_data():
@@ -31982,8 +31248,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.events_bundles is not None and self.events_bundles._has_data():
                 return True
 
@@ -32248,8 +31512,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -32281,8 +31543,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -32390,8 +31650,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -32423,8 +31681,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -32532,8 +31788,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -32565,8 +31819,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -32595,8 +31847,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -32628,8 +31878,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -32657,8 +31905,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member_interface is not None:
                         return True
 
@@ -32682,8 +31928,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_bdl_member is not None:
                     for child_ref in self.events_bdl_member:
                         if child_ref._has_data():
@@ -32912,8 +32156,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -32945,8 +32187,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -33054,8 +32294,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -33087,8 +32325,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -33196,8 +32432,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -33229,8 +32463,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -33259,8 +32491,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -33292,8 +32522,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -33321,8 +32549,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -33346,8 +32572,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_bdl_bundle is not None:
                     for child_ref in self.events_bdl_bundle:
                         if child_ref._has_data():
@@ -33598,8 +32822,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -33631,8 +32853,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -33740,8 +32960,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -33773,8 +32991,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_event_type is not None:
                                         return True
 
@@ -33882,8 +33098,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -33915,8 +33129,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -33945,8 +33157,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                     return True
 
@@ -33978,8 +33188,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.item_name is not None:
                                 return True
 
@@ -34007,8 +33215,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.events_item is not None:
                             for child_ref in self.events_item:
                                 if child_ref._has_data():
@@ -34033,8 +33239,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group is not None:
                         return True
 
@@ -34058,8 +33262,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_bdl_iccp_group is not None:
                     for child_ref in self.events_bdl_iccp_group:
                         if child_ref._has_data():
@@ -34082,8 +33284,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.events_bdl_bundles is not None and self.events_bdl_bundles._has_data():
                 return True
 
@@ -34500,8 +33700,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -34643,8 +33841,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af is not None:
                                 return True
 
@@ -34673,8 +33869,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_status is not None:
                             return True
 
@@ -34721,8 +33915,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_foreign_member_count is not None:
                         return True
 
@@ -34864,8 +34056,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bundle_interface is not None:
                     return True
 
@@ -34889,8 +34079,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bundle_brief is not None:
                 for child_ref in self.bundle_brief:
                     if child_ref._has_data():
@@ -35194,8 +34382,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -35227,8 +34413,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -35336,8 +34520,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -35369,8 +34551,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_event_type is not None:
                                         return True
 
@@ -35478,8 +34658,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -35511,8 +34689,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -35541,8 +34717,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                     return True
 
@@ -35576,8 +34750,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.member_interface is not None:
                                 return True
 
@@ -35608,8 +34780,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.events_mbr_bundle_children_member is not None:
                             for child_ref in self.events_mbr_bundle_children_member:
                                 if child_ref._has_data():
@@ -35807,8 +34977,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -35840,8 +35008,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -35949,8 +35115,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -35982,8 +35146,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_event_type is not None:
                                         return True
 
@@ -36091,8 +35253,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -36124,8 +35284,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -36154,8 +35312,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                     return True
 
@@ -36187,8 +35343,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.item_name is not None:
                                 return True
 
@@ -36216,8 +35370,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.events_item is not None:
                             for child_ref in self.events_item:
                                 if child_ref._has_data():
@@ -36242,8 +35394,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -36270,8 +35420,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_mbr_bundle is not None:
                     for child_ref in self.events_mbr_bundle:
                         if child_ref._has_data():
@@ -36498,8 +35646,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -36531,8 +35677,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -36640,8 +35784,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -36673,8 +35815,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_event_type is not None:
                                     return True
 
@@ -36782,8 +35922,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data_type is not None:
                                         return True
 
@@ -36815,8 +35953,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data is not None and self.data._has_data():
                                     return True
 
@@ -36845,8 +35981,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                 return True
 
@@ -36878,8 +36012,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.item_name is not None:
                             return True
 
@@ -36907,8 +36039,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member_interface is not None:
                         return True
 
@@ -36932,8 +36062,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_mbr_member is not None:
                     for child_ref in self.events_mbr_member:
                         if child_ref._has_data():
@@ -37199,8 +36327,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -37232,8 +36358,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -37341,8 +36465,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -37374,8 +36496,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_event_type is not None:
                                         return True
 
@@ -37483,8 +36603,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -37516,8 +36634,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -37546,8 +36662,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                     return True
 
@@ -37581,8 +36695,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.member_interface is not None:
                                 return True
 
@@ -37613,8 +36725,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.events_mbr_bundle_children_member_iccp_group is not None:
                             for child_ref in self.events_mbr_bundle_children_member_iccp_group:
                                 if child_ref._has_data():
@@ -37812,8 +36922,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -37845,8 +36953,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -37954,8 +37060,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -37987,8 +37091,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bundle_event_type is not None:
                                         return True
 
@@ -38096,8 +37198,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.data_type is not None:
                                             return True
 
@@ -38129,8 +37229,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.data is not None and self.data._has_data():
                                         return True
 
@@ -38159,8 +37257,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_evt_info is not None and self.bundle_evt_info._has_data():
                                     return True
 
@@ -38192,8 +37288,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.item_name is not None:
                                 return True
 
@@ -38221,8 +37315,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.events_item is not None:
                             for child_ref in self.events_item:
                                 if child_ref._has_data():
@@ -38247,8 +37339,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group is not None:
                         return True
 
@@ -38275,8 +37365,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.events_mbr_iccp_group is not None:
                     for child_ref in self.events_mbr_iccp_group:
                         if child_ref._has_data():
@@ -38299,8 +37387,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.events_mbr_bundles is not None and self.events_mbr_bundles._has_data():
                 return True
 
@@ -38630,8 +37716,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.iccp_config_connect_errors is not None:
                                     return True
 
@@ -38824,8 +37908,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.received_config is not None:
                                     return True
 
@@ -38948,8 +38030,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.incorrect_length is not None:
                                     return True
 
@@ -39031,8 +38111,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.received_messages is not None:
                                     return True
 
@@ -39167,8 +38245,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.configured_clear is not None:
                                     return True
 
@@ -39221,8 +38297,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.connection is not None and self.connection._has_data():
                                 return True
 
@@ -39266,8 +38340,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.iccp_group_counters is not None and self.iccp_group_counters._has_data():
                             return True
 
@@ -39498,8 +38570,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.iccp_config_connect_errors is not None:
                                     return True
 
@@ -39692,8 +38762,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.received_config is not None:
                                     return True
 
@@ -39816,8 +38884,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.incorrect_length is not None:
                                     return True
 
@@ -39899,8 +38965,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.received_messages is not None:
                                     return True
 
@@ -40035,8 +39099,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.configured_clear is not None:
                                     return True
 
@@ -40089,8 +39151,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.connection is not None and self.connection._has_data():
                                 return True
 
@@ -40134,8 +39194,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.iccp_group_counters is not None and self.iccp_group_counters._has_data():
                             return True
 
@@ -40366,8 +39424,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.iccp_config_connect_errors is not None:
                                     return True
 
@@ -40560,8 +39616,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.received_config is not None:
                                     return True
 
@@ -40684,8 +39738,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.incorrect_length is not None:
                                     return True
 
@@ -40767,8 +39819,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.received_messages is not None:
                                     return True
 
@@ -40903,8 +39953,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.configured_clear is not None:
                                     return True
 
@@ -40957,8 +40005,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.connection is not None and self.connection._has_data():
                                 return True
 
@@ -41002,8 +40048,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.iccp_group_counters is not None and self.iccp_group_counters._has_data():
                             return True
 
@@ -41234,8 +40278,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.iccp_config_connect_errors is not None:
                                     return True
 
@@ -41428,8 +40470,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.received_config is not None:
                                     return True
 
@@ -41552,8 +40592,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.incorrect_length is not None:
                                     return True
 
@@ -41635,8 +40673,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.received_messages is not None:
                                     return True
 
@@ -41771,8 +40807,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.configured_clear is not None:
                                     return True
 
@@ -41825,8 +40859,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.connection is not None and self.connection._has_data():
                                 return True
 
@@ -41870,8 +40902,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.iccp_group_counters is not None and self.iccp_group_counters._has_data():
                             return True
 
@@ -41897,8 +40927,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group is not None:
                         return True
 
@@ -41931,8 +40959,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.iccp_group is not None:
                     for child_ref in self.iccp_group:
                         if child_ref._has_data():
@@ -41955,8 +40981,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.iccp_groups is not None and self.iccp_groups._has_data():
                 return True
 
@@ -42128,8 +41152,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.macaddr is not None:
                                 return True
 
@@ -42150,8 +41172,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                             return True
 
@@ -42175,8 +41195,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group_id is not None:
                         return True
 
@@ -42206,8 +41224,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.system_id_global_item is not None and self.system_id_global_item._has_data():
                     return True
 
@@ -42382,8 +41398,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.macaddr is not None:
                                     return True
 
@@ -42406,8 +41420,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                                 return True
 
@@ -42433,8 +41445,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.iccp_group_id is not None:
                             return True
 
@@ -42466,8 +41476,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group is not None:
                         return True
 
@@ -42491,8 +41499,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.system_id_iccp_group is not None:
                     for child_ref in self.system_id_iccp_group:
                         if child_ref._has_data():
@@ -42515,8 +41521,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.system_id_global is not None and self.system_id_global._has_data():
                 return True
 
@@ -42817,8 +41821,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -42847,8 +41849,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -42877,8 +41877,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_name is not None:
                                     return True
 
@@ -42975,8 +41973,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.iccp_group_id is not None:
                                         return True
 
@@ -43083,8 +42079,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -43113,8 +42107,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -43302,8 +42294,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -43332,8 +42322,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -43380,8 +42368,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                         return True
 
@@ -43407,8 +42393,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.member_data is not None:
                                     for child_ref in self.member_data:
                                         if child_ref._has_data():
@@ -43598,8 +42582,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -43628,8 +42610,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -43676,8 +42656,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                     return True
 
@@ -43703,8 +42681,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_data is not None and self.bundle_data._has_data():
                                 return True
 
@@ -43737,8 +42713,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.items is not None:
                             for child_ref in self.items:
                                 if child_ref._has_data():
@@ -43763,8 +42737,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_group is not None:
                         return True
 
@@ -43788,8 +42760,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.iccp_group is not None:
                     for child_ref in self.iccp_group:
                         if child_ref._has_data():
@@ -44043,8 +43013,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -44073,8 +43041,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -44103,8 +43069,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_name is not None:
                                     return True
 
@@ -44201,8 +43165,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.iccp_group_id is not None:
                                         return True
 
@@ -44309,8 +43271,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -44339,8 +43299,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -44528,8 +43486,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -44558,8 +43514,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -44606,8 +43560,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                         return True
 
@@ -44633,8 +43585,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.member_data is not None:
                                     for child_ref in self.member_data:
                                         if child_ref._has_data():
@@ -44824,8 +43774,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -44854,8 +43802,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -44902,8 +43848,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                     return True
 
@@ -44929,8 +43873,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_data is not None and self.bundle_data._has_data():
                                 return True
 
@@ -44963,8 +43905,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.items is not None:
                             for child_ref in self.items:
                                 if child_ref._has_data():
@@ -44989,8 +43929,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member_interface is not None:
                         return True
 
@@ -45014,8 +43952,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.member is not None:
                     for child_ref in self.member:
                         if child_ref._has_data():
@@ -45249,8 +44185,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.all_syncs is not None:
                                         return True
 
@@ -45279,8 +44213,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.last_time_cleared is not None:
                                     return True
 
@@ -45309,8 +44241,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_name is not None:
                                 return True
 
@@ -45407,8 +44337,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.iccp_group_id is not None:
                                     return True
 
@@ -45515,8 +44443,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.all_syncs is not None:
                                         return True
 
@@ -45545,8 +44471,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.last_time_cleared is not None:
                                     return True
 
@@ -45734,8 +44658,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -45764,8 +44686,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -45812,8 +44732,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                     return True
 
@@ -45839,8 +44757,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.member_data is not None:
                                 for child_ref in self.member_data:
                                     if child_ref._has_data():
@@ -46030,8 +44946,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.all_syncs is not None:
                                         return True
 
@@ -46060,8 +44974,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.last_time_cleared is not None:
                                     return True
 
@@ -46108,8 +45020,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                 return True
 
@@ -46135,8 +45045,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_data is not None and self.bundle_data._has_data():
                             return True
 
@@ -46169,8 +45077,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         return True
 
@@ -46194,8 +45100,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bundle is not None:
                     for child_ref in self.bundle:
                         if child_ref._has_data():
@@ -46450,8 +45354,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -46480,8 +45382,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -46510,8 +45410,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bundle_name is not None:
                                     return True
 
@@ -46608,8 +45506,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.iccp_group_id is not None:
                                         return True
 
@@ -46716,8 +45612,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -46746,8 +45640,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -46935,8 +45827,6 @@ class BundleInformation(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.all_syncs is not None:
                                                 return True
 
@@ -46965,8 +45855,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.last_time_cleared is not None:
                                             return True
 
@@ -47013,8 +45901,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                         return True
 
@@ -47040,8 +45926,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.member_data is not None:
                                     for child_ref in self.member_data:
                                         if child_ref._has_data():
@@ -47231,8 +46115,6 @@ class BundleInformation(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.all_syncs is not None:
                                             return True
 
@@ -47261,8 +46143,6 @@ class BundleInformation(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.last_time_cleared is not None:
                                         return True
 
@@ -47309,8 +46189,6 @@ class BundleInformation(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mlacp_tlv_counters is not None and self.mlacp_tlv_counters._has_data():
                                     return True
 
@@ -47336,8 +46214,6 @@ class BundleInformation(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_data is not None and self.bundle_data._has_data():
                                 return True
 
@@ -47370,8 +46246,6 @@ class BundleInformation(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.items is not None:
                             for child_ref in self.items:
                                 if child_ref._has_data():
@@ -47396,8 +46270,6 @@ class BundleInformation(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node is not None:
                         return True
 
@@ -47421,8 +46293,6 @@ class BundleInformation(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -47445,8 +46315,6 @@ class BundleInformation(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bundles is not None and self.bundles._has_data():
                 return True
 
@@ -47476,8 +46344,6 @@ class BundleInformation(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.bfd_counters is not None and self.bfd_counters._has_data():
             return True
 
@@ -47688,8 +46554,6 @@ class LacpData(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.macaddr is not None:
                             return True
 
@@ -47710,8 +46574,6 @@ class LacpData(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.system_mac_addr is not None and self.system_mac_addr._has_data():
                         return True
 
@@ -47735,8 +46597,6 @@ class LacpData(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.iccp_group_id is not None:
                     return True
 
@@ -47766,8 +46626,6 @@ class LacpData(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.system_id is not None and self.system_id._has_data():
                 return True
 
@@ -47788,8 +46646,6 @@ class LacpData(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.global_ is not None and self.global_._has_data():
             return True
 
@@ -48228,8 +47084,6 @@ class Bundles(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -48371,8 +47225,6 @@ class Bundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af is not None:
                                 return True
 
@@ -48401,8 +47253,6 @@ class Bundles(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_status is not None:
                             return True
 
@@ -48449,8 +47299,6 @@ class Bundles(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active_foreign_member_count is not None:
                         return True
 
@@ -48839,8 +47687,6 @@ class Bundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.defaulted is not None:
                                 return True
 
@@ -49028,8 +47874,6 @@ class Bundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.actor_operational_key is not None:
                                 return True
 
@@ -49176,8 +48020,6 @@ class Bundles(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.reason_type is not None:
                                     return True
 
@@ -49203,8 +48045,6 @@ class Bundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.error is not None:
                                 return True
 
@@ -49265,8 +48105,6 @@ class Bundles(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -49291,8 +48129,6 @@ class Bundles(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.member_interface is not None:
                             return True
 
@@ -49354,8 +48190,6 @@ class Bundles(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.member is not None:
                         for child_ref in self.member:
                             if child_ref._has_data():
@@ -49380,8 +48214,6 @@ class Bundles(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bundle_interface is not None:
                     return True
 
@@ -49408,8 +48240,6 @@ class Bundles(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bundle is not None:
                 for child_ref in self.bundle:
                     if child_ref._has_data():
@@ -49432,8 +48262,6 @@ class Bundles(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.bundles is not None and self.bundles._has_data():
             return True
 
@@ -49613,8 +48441,6 @@ class LacpBundleMembers(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.last_wrong_port is not None:
                         return True
 
@@ -49655,8 +48481,6 @@ class LacpBundleMembers(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     return True
 
@@ -49680,8 +48504,6 @@ class LacpBundleMembers(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -49901,8 +48723,6 @@ class LacpBundleMembers(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.actor_operational_key is not None:
                         return True
 
@@ -50094,8 +48914,6 @@ class LacpBundleMembers(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.defaulted is not None:
                         return True
 
@@ -50157,8 +48975,6 @@ class LacpBundleMembers(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.member_interface is not None:
                     return True
 
@@ -50185,8 +49001,6 @@ class LacpBundleMembers(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.member is not None:
                 for child_ref in self.member:
                     if child_ref._has_data():
@@ -50209,8 +49023,6 @@ class LacpBundleMembers(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.members is not None and self.members._has_data():
             return True
 
@@ -50462,8 +49274,6 @@ class BundlesAdjacency(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_link_threshold is not None:
                                     return True
 
@@ -50492,8 +49302,6 @@ class BundlesAdjacency(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -50519,8 +49327,6 @@ class BundlesAdjacency(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -50557,8 +49363,6 @@ class BundlesAdjacency(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_data is not None:
                         for child_ref in self.bundle_data:
                             if child_ref._has_data():
@@ -50823,8 +49627,6 @@ class BundlesAdjacency(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.local_link_threshold is not None:
                                             return True
 
@@ -50853,8 +49655,6 @@ class BundlesAdjacency(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -50880,8 +49680,6 @@ class BundlesAdjacency(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -50955,8 +49753,6 @@ class BundlesAdjacency(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.local_link_threshold is not None:
                                     return True
 
@@ -51032,8 +49828,6 @@ class BundlesAdjacency(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bandwidth is not None:
                                     return True
 
@@ -51132,8 +49926,6 @@ class BundlesAdjacency(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_link_threshold is not None:
                                         return True
 
@@ -51162,8 +49954,6 @@ class BundlesAdjacency(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -51189,8 +49979,6 @@ class BundlesAdjacency(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.avoid_rebalance is not None:
                                 return True
 
@@ -51237,8 +50025,6 @@ class BundlesAdjacency(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bundle_name is not None:
                             return True
 
@@ -51264,8 +50050,6 @@ class BundlesAdjacency(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle is not None:
                         for child_ref in self.bundle:
                             if child_ref._has_data():
@@ -51290,8 +50074,6 @@ class BundlesAdjacency(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -51318,8 +50100,6 @@ class BundlesAdjacency(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -51342,8 +50122,6 @@ class BundlesAdjacency(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

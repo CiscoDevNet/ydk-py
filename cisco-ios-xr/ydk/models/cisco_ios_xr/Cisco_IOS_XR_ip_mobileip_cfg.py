@@ -393,8 +393,6 @@ class MobileIp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mag_name is not None:
                             return True
 
@@ -417,8 +415,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.mag is not None:
                         for child_ref in self.mag:
                             if child_ref._has_data():
@@ -529,8 +525,6 @@ class MobileIp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nai_name is not None:
                             return True
 
@@ -568,8 +562,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nai is not None:
                         for child_ref in self.nai:
                             if child_ref._has_data():
@@ -625,8 +617,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.key is not None:
                         return True
 
@@ -700,8 +690,6 @@ class MobileIp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lma_name is not None:
                             return True
 
@@ -724,8 +712,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lma is not None:
                         for child_ref in self.lma:
                             if child_ref._has_data():
@@ -750,8 +736,6 @@ class MobileIp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.domain_name is not None:
                     return True
 
@@ -787,8 +771,6 @@ class MobileIp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.domain is not None:
                 for child_ref in self.domain:
                     if child_ref._has_data():
@@ -829,16 +811,16 @@ class MobileIp(object):
             """
             PMIPv6 LMA configuration
             
-            .. attribute:: domain_name  <key>
+            .. attribute:: lma_name  <key>
             
-            	Domain name
+            	LMA name
             	**type**\:  str
             
             	**length:** 1..125
             
-            .. attribute:: lma_name  <key>
+            .. attribute:: domain_name  <key>
             
-            	LMA name
+            	Domain name
             	**type**\:  str
             
             	**length:** 1..125
@@ -990,8 +972,8 @@ class MobileIp(object):
 
             def __init__(self):
                 self.parent = None
-                self.domain_name = None
                 self.lma_name = None
+                self.domain_name = None
                 self.aaa = MobileIp.Lmas.Lma.Aaa()
                 self.aaa.parent = self
                 self.ani = None
@@ -1109,8 +1091,6 @@ class MobileIp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.maximum is not None:
                             return True
 
@@ -1136,8 +1116,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.delay is not None and self.delay._has_data():
                         return True
 
@@ -1192,8 +1170,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lma_rat is not None:
                         return True
 
@@ -1258,8 +1234,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interval is not None:
                         return True
 
@@ -1336,8 +1310,6 @@ class MobileIp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -1360,8 +1332,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lmaipv6_address is not None:
                         for child_ref in self.lmaipv6_address:
                             if child_ref._has_data():
@@ -1409,8 +1379,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.maximum is not None:
                         return True
 
@@ -1464,8 +1432,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.redist_sub_type is not None:
                         return True
 
@@ -1522,8 +1488,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.force is not None:
                         return True
 
@@ -1597,8 +1561,6 @@ class MobileIp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -1621,8 +1583,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lmaipv4_address is not None:
                         for child_ref in self.lmaipv4_address:
                             if child_ref._has_data():
@@ -1693,8 +1653,6 @@ class MobileIp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lma_role is not None:
                             return True
 
@@ -1717,8 +1675,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.role is not None:
                         for child_ref in self.role:
                             if child_ref._has_data():
@@ -1802,8 +1758,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.create_wait_interval is not None:
                         return True
 
@@ -1869,8 +1823,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enable is not None:
                         return True
 
@@ -1912,16 +1864,16 @@ class MobileIp(object):
                     """
                     MAG within LMA
                     
-                    .. attribute:: domain_name  <key>
+                    .. attribute:: mag_name  <key>
                     
-                    	Domain name
+                    	MAG identifier
                     	**type**\:  str
                     
                     	**length:** 1..125
                     
-                    .. attribute:: mag_name  <key>
+                    .. attribute:: domain_name  <key>
                     
-                    	MAG identifier
+                    	Domain name
                     	**type**\:  str
                     
                     	**length:** 1..125
@@ -1971,8 +1923,8 @@ class MobileIp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.domain_name = None
                         self.mag_name = None
+                        self.domain_name = None
                         self.authenticate_option = MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption()
                         self.authenticate_option.parent = self
                         self.dscp = MobileIp.Lmas.Lma.Mags.Mag.Dscp()
@@ -2026,8 +1978,6 @@ class MobileIp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.key is not None:
                                 return True
 
@@ -2084,8 +2034,6 @@ class MobileIp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.force is not None:
                                 return True
 
@@ -2103,24 +2051,22 @@ class MobileIp(object):
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.domain_name is None:
-                            raise YPYModelError('Key property domain_name is None')
                         if self.mag_name is None:
                             raise YPYModelError('Key property mag_name is None')
+                        if self.domain_name is None:
+                            raise YPYModelError('Key property domain_name is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mag[Cisco-IOS-XR-ip-mobileip-cfg:domain-name = ' + str(self.domain_name) + '][Cisco-IOS-XR-ip-mobileip-cfg:mag-name = ' + str(self.mag_name) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-mobileip-cfg:mag[Cisco-IOS-XR-ip-mobileip-cfg:mag-name = ' + str(self.mag_name) + '][Cisco-IOS-XR-ip-mobileip-cfg:domain-name = ' + str(self.domain_name) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.domain_name is not None:
+                        if self.mag_name is not None:
                             return True
 
-                        if self.mag_name is not None:
+                        if self.domain_name is not None:
                             return True
 
                         if self.authenticate_option is not None and self.authenticate_option._has_data():
@@ -2160,8 +2106,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.mag is not None:
                         for child_ref in self.mag:
                             if child_ref._has_data():
@@ -2217,8 +2161,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.acl is not None:
                         return True
 
@@ -2544,8 +2486,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.key is not None:
                                         return True
 
@@ -2610,8 +2550,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interval is not None:
                                         return True
 
@@ -2704,8 +2642,6 @@ class MobileIp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.vrf_name is not None:
                                             return True
 
@@ -2734,8 +2670,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.transport is not None:
                                         for child_ref in self.transport:
                                             if child_ref._has_data():
@@ -2930,8 +2864,6 @@ class MobileIp(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.pool_prefix is not None:
                                                             return True
 
@@ -2988,8 +2920,6 @@ class MobileIp(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.pool_prefix is not None:
                                                             return True
 
@@ -3015,8 +2945,6 @@ class MobileIp(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.ipv4_pool is not None and self.ipv4_pool._has_data():
                                                         return True
 
@@ -3135,8 +3063,6 @@ class MobileIp(object):
                                                             return True
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.start_address is not None:
                                                                 return True
 
@@ -3165,8 +3091,6 @@ class MobileIp(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.mripv4_pool is not None:
                                                             for child_ref in self.mripv4_pool:
                                                                 if child_ref._has_data():
@@ -3255,8 +3179,6 @@ class MobileIp(object):
                                                             return True
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.start_address is not None:
                                                                 return True
 
@@ -3285,8 +3207,6 @@ class MobileIp(object):
                                                         return True
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.mripv6_pool is not None:
                                                             for child_ref in self.mripv6_pool:
                                                                 if child_ref._has_data():
@@ -3311,8 +3231,6 @@ class MobileIp(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.mripv4_pools is not None and self.mripv4_pools._has_data():
                                                         return True
 
@@ -3338,8 +3256,6 @@ class MobileIp(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.mobile_network is not None and self.mobile_network._has_data():
                                                     return True
 
@@ -3367,8 +3283,6 @@ class MobileIp(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.name is not None:
                                                 return True
 
@@ -3394,8 +3308,6 @@ class MobileIp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.authorize is not None:
                                             for child_ref in self.authorize:
                                                 if child_ref._has_data():
@@ -3420,8 +3332,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.authorizes is not None and self.authorizes._has_data():
                                         return True
 
@@ -3478,8 +3388,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.gre_key_type is not None:
                                         return True
 
@@ -3530,8 +3438,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_life_time is not None:
                                         return True
 
@@ -3558,8 +3464,6 @@ class MobileIp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.customer_name is not None:
                                     return True
 
@@ -3627,8 +3531,6 @@ class MobileIp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.customer is not None:
                                 for child_ref in self.customer:
                                     if child_ref._has_data():
@@ -3655,8 +3557,6 @@ class MobileIp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lma_service is not None:
                             return True
 
@@ -3703,8 +3603,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.service is not None:
                         for child_ref in self.service:
                             if child_ref._has_data():
@@ -3762,8 +3660,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ignore is not None:
                         return True
 
@@ -3931,8 +3827,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pool_prefix is not None:
                                         return True
 
@@ -3989,8 +3883,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pool_prefix is not None:
                                         return True
 
@@ -4016,8 +3908,6 @@ class MobileIp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_pool is not None and self.ipv4_pool._has_data():
                                     return True
 
@@ -4136,8 +4026,6 @@ class MobileIp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.start_address is not None:
                                             return True
 
@@ -4166,8 +4054,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mripv6_pool is not None:
                                         for child_ref in self.mripv6_pool:
                                             if child_ref._has_data():
@@ -4256,8 +4142,6 @@ class MobileIp(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.start_address is not None:
                                             return True
 
@@ -4286,8 +4170,6 @@ class MobileIp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mripv4_pool is not None:
                                         for child_ref in self.mripv4_pool:
                                             if child_ref._has_data():
@@ -4312,8 +4194,6 @@ class MobileIp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mripv4_pools is not None and self.mripv4_pools._has_data():
                                     return True
 
@@ -4339,8 +4219,6 @@ class MobileIp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mobile_network is not None and self.mobile_network._has_data():
                                 return True
 
@@ -4368,8 +4246,6 @@ class MobileIp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lma_network is not None:
                             return True
 
@@ -4395,8 +4271,6 @@ class MobileIp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.network is not None:
                         for child_ref in self.network:
                             if child_ref._has_data():
@@ -4411,24 +4285,22 @@ class MobileIp(object):
 
             @property
             def _common_path(self):
-                if self.domain_name is None:
-                    raise YPYModelError('Key property domain_name is None')
                 if self.lma_name is None:
                     raise YPYModelError('Key property lma_name is None')
+                if self.domain_name is None:
+                    raise YPYModelError('Key property domain_name is None')
 
-                return '/Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/Cisco-IOS-XR-ip-mobileip-cfg:lmas/Cisco-IOS-XR-ip-mobileip-cfg:lma[Cisco-IOS-XR-ip-mobileip-cfg:domain-name = ' + str(self.domain_name) + '][Cisco-IOS-XR-ip-mobileip-cfg:lma-name = ' + str(self.lma_name) + ']'
+                return '/Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/Cisco-IOS-XR-ip-mobileip-cfg:lmas/Cisco-IOS-XR-ip-mobileip-cfg:lma[Cisco-IOS-XR-ip-mobileip-cfg:lma-name = ' + str(self.lma_name) + '][Cisco-IOS-XR-ip-mobileip-cfg:domain-name = ' + str(self.domain_name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.domain_name is not None:
+                if self.lma_name is not None:
                     return True
 
-                if self.lma_name is not None:
+                if self.domain_name is not None:
                     return True
 
                 if self.aaa is not None and self.aaa._has_data():
@@ -4526,8 +4398,6 @@ class MobileIp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.lma is not None:
                 for child_ref in self.lma:
                     if child_ref._has_data():
@@ -4550,8 +4420,6 @@ class MobileIp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.domains is not None and self.domains._has_data():
             return True
 

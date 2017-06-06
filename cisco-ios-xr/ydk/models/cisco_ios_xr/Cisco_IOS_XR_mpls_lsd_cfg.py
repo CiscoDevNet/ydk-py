@@ -147,8 +147,6 @@ class MplsLsd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ttl_expiration_pop is not None:
                 return True
 
@@ -192,8 +190,6 @@ class MplsLsd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ttl_expiration_pop is not None:
                 return True
 
@@ -316,8 +312,6 @@ class MplsLsd(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.max_static_value is not None:
                         return True
 
@@ -349,8 +343,6 @@ class MplsLsd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.label_database_id is not None:
                     return True
 
@@ -374,8 +366,6 @@ class MplsLsd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.label_database is not None:
                 for child_ref in self.label_database:
                     if child_ref._has_data():
@@ -398,8 +388,6 @@ class MplsLsd(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.app_reg_delay_disable is not None:
             return True
 

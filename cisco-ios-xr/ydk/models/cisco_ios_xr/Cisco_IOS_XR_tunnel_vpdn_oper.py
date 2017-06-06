@@ -706,8 +706,6 @@ class Vpdn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.domain_name is not None:
                         return True
 
@@ -860,8 +858,6 @@ class Vpdn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.call_serial_number is not None:
                         return True
 
@@ -979,8 +975,6 @@ class Vpdn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nas_port is not None:
                         for child in self.nas_port:
                             if child is not None:
@@ -1112,8 +1106,6 @@ class Vpdn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -1139,8 +1131,6 @@ class Vpdn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dsl_line_forwarding is not None:
                         return True
 
@@ -1181,8 +1171,6 @@ class Vpdn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.session_label is not None:
                     return True
 
@@ -1221,8 +1209,6 @@ class Vpdn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session is not None:
                 for child_ref in self.session:
                     if child_ref._has_data():
@@ -1353,8 +1339,6 @@ class Vpdn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.address is not None:
                     return True
 
@@ -1399,8 +1383,6 @@ class Vpdn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tunnel_destination is not None:
                 for child_ref in self.tunnel_destination:
                     if child_ref._has_data():
@@ -1673,8 +1655,6 @@ class Vpdn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.acks_failed is not None:
                     return True
 
@@ -1820,8 +1800,6 @@ class Vpdn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.acks_recvd is not None:
                     return True
 
@@ -2027,8 +2005,6 @@ class Vpdn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.acks_failed is not None:
                     return True
 
@@ -2174,8 +2150,6 @@ class Vpdn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.acks_recvd is not None:
                     return True
 
@@ -2214,8 +2188,6 @@ class Vpdn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.alloc_cnt is not None:
                 return True
 
@@ -2321,8 +2293,6 @@ class Vpdn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.abort_time is not None:
                 return True
 
@@ -2494,8 +2464,6 @@ class Vpdn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination_address is not None:
                     return True
 
@@ -2555,8 +2523,6 @@ class Vpdn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.history_failure is not None:
                 for child_ref in self.history_failure:
                     if child_ref._has_data():
@@ -2579,8 +2545,6 @@ class Vpdn(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.history_failures is not None and self.history_failures._has_data():
             return True
 

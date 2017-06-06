@@ -13,6 +13,11 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'OverloadCtrlNotifEnum' : _MetaInfoEnum('OverloadCtrlNotifEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper',
+        {
+            'disabled':'disabled',
+            'enabled':'enabled',
+        }, 'Cisco-IOS-XR-wd-oper', _yang_ns._namespaces['Cisco-IOS-XR-wd-oper']),
     'MemoryStateEnum' : _MetaInfoEnum('MemoryStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper',
         {
             'unknown':'unknown',
@@ -20,11 +25,6 @@ _meta_table = {
             'minor':'minor',
             'severe':'severe',
             'critical':'critical',
-        }, 'Cisco-IOS-XR-wd-oper', _yang_ns._namespaces['Cisco-IOS-XR-wd-oper']),
-    'OverloadCtrlNotifEnum' : _MetaInfoEnum('OverloadCtrlNotifEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper',
-        {
-            'disabled':'disabled',
-            'enabled':'enabled',
         }, 'Cisco-IOS-XR-wd-oper', _yang_ns._namespaces['Cisco-IOS-XR-wd-oper']),
     'Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory' : {
         'meta_info' : _MetaInfoClass('Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory',
@@ -292,7 +292,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',

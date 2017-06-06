@@ -264,8 +264,6 @@ class Nve(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vni is not None:
                     return True
 
@@ -346,8 +344,6 @@ class Nve(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vni is not None:
                 for child_ref in self.vni:
                     if child_ref._has_data():
@@ -532,8 +528,6 @@ class Nve(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -599,8 +593,6 @@ class Nve(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -623,8 +615,6 @@ class Nve(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.interfaces is not None and self.interfaces._has_data():
             return True
 

@@ -918,8 +918,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nested_group_name is not None:
                                 return True
 
@@ -945,8 +943,6 @@ class ObjectGroup(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nested_group is not None:
                             for child_ref in self.nested_group:
                                 if child_ref._has_data():
@@ -1047,8 +1043,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.operator_type is not None:
                                 return True
 
@@ -1080,8 +1074,6 @@ class ObjectGroup(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.operator is not None:
                             for child_ref in self.operator:
                                 if child_ref._has_data():
@@ -1192,8 +1184,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.end_port is not None:
                                 return True
 
@@ -1225,8 +1215,6 @@ class ObjectGroup(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.port_range is not None:
                             for child_ref in self.port_range:
                                 if child_ref._has_data():
@@ -1305,8 +1293,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.parent_group_name is not None:
                                 return True
 
@@ -1332,8 +1318,6 @@ class ObjectGroup(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.parent_group is not None:
                             for child_ref in self.parent_group:
                                 if child_ref._has_data():
@@ -1358,8 +1342,6 @@ class ObjectGroup(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object_name is not None:
                         return True
 
@@ -1392,8 +1374,6 @@ class ObjectGroup(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.object is not None:
                     for child_ref in self.object:
                         if child_ref._has_data():
@@ -1416,8 +1396,6 @@ class ObjectGroup(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.objects is not None and self.objects._has_data():
                 return True
 
@@ -1626,8 +1604,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nested_group_name is not None:
                                     return True
 
@@ -1653,8 +1629,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nested_group is not None:
                                 for child_ref in self.nested_group:
                                     if child_ref._has_data():
@@ -1749,8 +1723,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -1782,8 +1754,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 for child_ref in self.address:
                                     if child_ref._has_data():
@@ -1878,8 +1848,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.end_address is not None:
                                     return True
 
@@ -1911,8 +1879,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_range is not None:
                                 for child_ref in self.address_range:
                                     if child_ref._has_data():
@@ -1991,8 +1957,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.parent_group_name is not None:
                                     return True
 
@@ -2018,8 +1982,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.parent_group is not None:
                                 for child_ref in self.parent_group:
                                     if child_ref._has_data():
@@ -2100,8 +2062,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.host_address is not None:
                                     return True
 
@@ -2127,8 +2087,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.host is not None:
                                 for child_ref in self.host:
                                     if child_ref._has_data():
@@ -2153,8 +2111,6 @@ class ObjectGroup(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -2190,8 +2146,6 @@ class ObjectGroup(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child_ref in self.object:
                             if child_ref._has_data():
@@ -2214,8 +2168,6 @@ class ObjectGroup(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.objects is not None and self.objects._has_data():
                     return True
 
@@ -2395,8 +2347,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.nested_group_name is not None:
                                     return True
 
@@ -2422,8 +2372,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.nested_group is not None:
                                 for child_ref in self.nested_group:
                                     if child_ref._has_data():
@@ -2518,8 +2466,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.prefix is not None:
                                     return True
 
@@ -2551,8 +2497,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 for child_ref in self.address:
                                     if child_ref._has_data():
@@ -2647,8 +2591,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.end_address is not None:
                                     return True
 
@@ -2680,8 +2622,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_range is not None:
                                 for child_ref in self.address_range:
                                     if child_ref._has_data():
@@ -2760,8 +2700,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.parent_group_name is not None:
                                     return True
 
@@ -2787,8 +2725,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.parent_group is not None:
                                 for child_ref in self.parent_group:
                                     if child_ref._has_data():
@@ -2869,8 +2805,6 @@ class ObjectGroup(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.host_address is not None:
                                     return True
 
@@ -2896,8 +2830,6 @@ class ObjectGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.host is not None:
                                 for child_ref in self.host:
                                     if child_ref._has_data():
@@ -2922,8 +2854,6 @@ class ObjectGroup(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_name is not None:
                             return True
 
@@ -2959,8 +2889,6 @@ class ObjectGroup(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object is not None:
                         for child_ref in self.object:
                             if child_ref._has_data():
@@ -2983,8 +2911,6 @@ class ObjectGroup(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.objects is not None and self.objects._has_data():
                     return True
 
@@ -3005,8 +2931,6 @@ class ObjectGroup(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4 is not None and self.ipv4._has_data():
                 return True
 
@@ -3030,8 +2954,6 @@ class ObjectGroup(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.network is not None and self.network._has_data():
             return True
 

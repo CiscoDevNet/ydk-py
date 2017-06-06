@@ -1453,8 +1453,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.frequency is not None:
                             return True
 
@@ -1486,8 +1484,6 @@ class OpticsOper(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dwdm_carrier_band is not None:
                         return True
 
@@ -2242,8 +2238,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.network_srlg is not None:
                                 for child in self.network_srlg:
                                     if child is not None:
@@ -2271,8 +2265,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.network_srlg_array is not None:
                             for child_ref in self.network_srlg_array:
                                 if child_ref._has_data():
@@ -2642,8 +2634,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2698,8 +2688,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2754,8 +2742,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2810,8 +2796,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2866,8 +2850,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2922,8 +2904,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2978,8 +2958,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3034,8 +3012,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3090,8 +3066,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3146,8 +3120,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3202,8 +3174,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3258,8 +3228,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3314,8 +3282,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3370,8 +3336,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3426,8 +3390,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3482,8 +3444,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3538,8 +3498,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3594,8 +3552,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3650,8 +3606,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3706,8 +3660,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3762,8 +3714,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3819,8 +3769,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3876,8 +3824,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3933,8 +3879,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -3990,8 +3934,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4047,8 +3989,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4104,8 +4044,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4161,8 +4099,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4218,8 +4154,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4274,8 +4208,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4330,8 +4262,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4386,8 +4316,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4442,8 +4370,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4498,8 +4424,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4554,8 +4478,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4610,8 +4532,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4666,8 +4586,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4722,8 +4640,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4778,8 +4694,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4834,8 +4748,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4890,8 +4802,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -4946,8 +4856,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5002,8 +4910,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5029,8 +4935,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.amp_gain_deg_high is not None and self.amp_gain_deg_high._has_data():
                             return True
 
@@ -5300,8 +5204,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5356,8 +5258,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5412,8 +5312,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5468,8 +5366,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5524,8 +5420,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5580,8 +5474,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5636,8 +5528,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5692,8 +5582,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5748,8 +5636,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5804,8 +5690,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5860,8 +5744,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -5887,8 +5769,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.amp_gain_deg_high is not None and self.amp_gain_deg_high._has_data():
                             return True
 
@@ -6018,8 +5898,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connector_type is not None:
                             return True
 
@@ -6260,8 +6138,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.isi_correction_lane1 is not None:
                             return True
 
@@ -6874,8 +6750,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.isi_correction_alarm_high_threshold is not None:
                             return True
 
@@ -7254,8 +7128,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -7310,8 +7182,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -7366,8 +7236,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -7422,8 +7290,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -7478,8 +7344,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -7505,8 +7369,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.high_lbc is not None and self.high_lbc._has_data():
                                 return True
 
@@ -7541,8 +7403,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lane_alarm_info is not None and self.lane_alarm_info._has_data():
                             return True
 
@@ -7589,8 +7449,6 @@ class OpticsOper(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.alarm_detected is not None:
                         return True
 
@@ -8083,8 +7941,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -8139,8 +7995,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -8195,8 +8049,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -8251,8 +8103,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -8307,8 +8157,6 @@ class OpticsOper(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -8334,8 +8182,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.high_lbc is not None and self.high_lbc._has_data():
                                 return True
 
@@ -8372,8 +8218,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.number is not None:
                             return True
 
@@ -8423,8 +8267,6 @@ class OpticsOper(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.optics_lane is not None:
                         for child_ref in self.optics_lane:
                             if child_ref._has_data():
@@ -8539,8 +8381,6 @@ class OpticsOper(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.network_srlg is not None:
                                 for child in self.network_srlg:
                                     if child is not None:
@@ -8568,8 +8408,6 @@ class OpticsOper(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.network_srlg_array is not None:
                             for child_ref in self.network_srlg_array:
                                 if child_ref._has_data():
@@ -8594,8 +8432,6 @@ class OpticsOper(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.controller_state is not None:
                         return True
 
@@ -8624,8 +8460,6 @@ class OpticsOper(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -8658,8 +8492,6 @@ class OpticsOper(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.optics_port is not None:
                 for child_ref in self.optics_port:
                     if child_ref._has_data():
@@ -8682,8 +8514,6 @@ class OpticsOper(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.optics_ports is not None and self.optics_ports._has_data():
             return True
 

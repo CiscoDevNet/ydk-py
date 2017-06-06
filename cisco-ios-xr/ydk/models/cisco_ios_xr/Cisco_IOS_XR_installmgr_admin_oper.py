@@ -1652,8 +1652,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1677,8 +1675,6 @@ class Install(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.configuration_register is not None:
                 for child_ref in self.configuration_register:
                     if child_ref._has_data():
@@ -1879,8 +1875,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.operation_detail is not None:
                         return True
 
@@ -1945,8 +1939,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.abort_impact is not None:
                         return True
 
@@ -2036,8 +2028,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node_name is not None:
                             return True
 
@@ -2063,8 +2053,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.direction is not None:
                         return True
 
@@ -2158,8 +2146,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_read is not None:
                             return True
 
@@ -2185,8 +2171,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.category is not None:
                         return True
 
@@ -2278,8 +2262,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_read is not None:
                             return True
 
@@ -2305,8 +2287,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.category is not None:
                         return True
 
@@ -2335,8 +2315,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.request_id is not None:
                     return True
 
@@ -2391,8 +2369,6 @@ class Install(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.request_status is not None:
                 for child_ref in self.request_status:
                     if child_ref._has_data():
@@ -2471,8 +2447,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -2496,8 +2470,6 @@ class Install(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.boot_variable is not None:
                 for child_ref in self.boot_variable:
                     if child_ref._has_data():
@@ -2665,8 +2637,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.package_name is not None:
                                 return True
 
@@ -2692,8 +2662,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.alias is not None:
                             for child_ref in self.alias:
                                 if child_ref._has_data():
@@ -2718,8 +2686,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.device_name is not None:
                         return True
 
@@ -2743,8 +2709,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.alias_device is not None:
                     for child_ref in self.alias_device:
                         if child_ref._has_data():
@@ -3013,8 +2977,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name is not None:
                                     return True
 
@@ -3042,8 +3004,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.package_name is not None:
                                 return True
 
@@ -3124,8 +3084,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.package is not None:
                             for child_ref in self.package:
                                 if child_ref._has_data():
@@ -3150,8 +3108,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.device_name is not None:
                         return True
 
@@ -3175,8 +3131,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.package_device is not None:
                     for child_ref in self.package_device:
                         if child_ref._has_data():
@@ -3361,8 +3315,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.component_name is not None:
                                     return True
 
@@ -3404,8 +3356,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.package_name is not None:
                                 return True
 
@@ -3433,8 +3383,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.component_package is not None:
                             for child_ref in self.component_package:
                                 if child_ref._has_data():
@@ -3459,8 +3407,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.device_name is not None:
                         return True
 
@@ -3484,8 +3430,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.component_device is not None:
                     for child_ref in self.component_device:
                         if child_ref._has_data():
@@ -3508,8 +3452,6 @@ class Install(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.alias_devices is not None and self.alias_devices._has_data():
                 return True
 
@@ -3767,8 +3709,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -3792,8 +3732,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -3881,8 +3819,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -3906,8 +3842,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -3934,8 +3868,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_match is not None:
                             return True
 
@@ -4074,8 +4006,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -4099,8 +4029,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -4188,8 +4116,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -4213,8 +4139,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -4241,8 +4165,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.load_path is not None:
                             for child_ref in self.load_path:
                                 if child_ref._has_data():
@@ -4379,8 +4301,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -4404,8 +4324,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -4493,8 +4411,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -4518,8 +4434,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -4546,8 +4460,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.load_path is not None:
                             for child_ref in self.load_path:
                                 if child_ref._has_data():
@@ -4695,8 +4607,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -4720,8 +4630,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -4809,8 +4717,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -4834,8 +4740,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -4862,8 +4766,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.load_path is not None:
                             for child_ref in self.load_path:
                                 if child_ref._has_data():
@@ -4900,8 +4802,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_load_path is not None and self.admin_load_path._has_data():
                         return True
 
@@ -5088,8 +4988,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -5115,8 +5013,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -5145,8 +5041,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node_name is not None:
                             return True
 
@@ -5187,8 +5081,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.inventory is not None:
                         for child_ref in self.inventory:
                             if child_ref._has_data():
@@ -5211,8 +5103,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.inventories is not None and self.inventories._has_data():
                     return True
 
@@ -5424,8 +5314,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -5449,8 +5337,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -5538,8 +5424,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -5563,8 +5447,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -5591,8 +5473,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_match is not None:
                             return True
 
@@ -5731,8 +5611,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -5756,8 +5634,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -5845,8 +5721,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -5870,8 +5744,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -5898,8 +5770,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.load_path is not None:
                             for child_ref in self.load_path:
                                 if child_ref._has_data():
@@ -6036,8 +5906,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -6061,8 +5929,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -6150,8 +6016,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -6175,8 +6039,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -6203,8 +6065,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.load_path is not None:
                             for child_ref in self.load_path:
                                 if child_ref._has_data():
@@ -6352,8 +6212,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -6377,8 +6235,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -6466,8 +6322,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -6491,8 +6345,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -6519,8 +6371,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.load_path is not None:
                             for child_ref in self.load_path:
                                 if child_ref._has_data():
@@ -6557,8 +6407,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_load_path is not None and self.admin_load_path._has_data():
                         return True
 
@@ -6745,8 +6593,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -6772,8 +6618,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -6802,8 +6646,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node_name is not None:
                             return True
 
@@ -6844,8 +6686,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.inventory is not None:
                         for child_ref in self.inventory:
                             if child_ref._has_data():
@@ -6868,8 +6708,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.inventories is not None and self.inventories._has_data():
                     return True
 
@@ -7122,8 +6960,6 @@ class Install(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.device_name is not None:
                                             return True
 
@@ -7149,8 +6985,6 @@ class Install(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.build_information is not None:
                                         return True
 
@@ -7181,8 +7015,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.node_name is not None:
                                     return True
 
@@ -7225,8 +7057,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.inventory is not None:
                                 for child_ref in self.inventory:
                                     if child_ref._has_data():
@@ -7251,8 +7081,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.request_id is not None:
                             return True
 
@@ -7276,8 +7104,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.request is not None:
                         for child_ref in self.request:
                             if child_ref._has_data():
@@ -7300,8 +7126,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.requests is not None and self.requests._has_data():
                     return True
 
@@ -7510,8 +7334,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -7535,8 +7357,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -7624,8 +7444,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -7649,8 +7467,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -7677,8 +7493,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.admin_match is not None:
                             return True
 
@@ -7817,8 +7631,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -7842,8 +7654,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -7931,8 +7741,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -7956,8 +7764,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -7984,8 +7790,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.load_path is not None:
                             for child_ref in self.load_path:
                                 if child_ref._has_data():
@@ -8122,8 +7926,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -8147,8 +7949,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -8236,8 +8036,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -8261,8 +8059,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -8289,8 +8085,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.load_path is not None:
                             for child_ref in self.load_path:
                                 if child_ref._has_data():
@@ -8438,8 +8232,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -8463,8 +8255,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -8552,8 +8342,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -8577,8 +8365,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -8605,8 +8391,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.load_path is not None:
                             for child_ref in self.load_path:
                                 if child_ref._has_data():
@@ -8643,8 +8427,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_load_path is not None and self.admin_load_path._has_data():
                         return True
 
@@ -8831,8 +8613,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.device_name is not None:
                                     return True
 
@@ -8858,8 +8638,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.build_information is not None:
                                 return True
 
@@ -8888,8 +8666,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node_name is not None:
                             return True
 
@@ -8930,8 +8706,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.inventory is not None:
                         for child_ref in self.inventory:
                             if child_ref._has_data():
@@ -8954,8 +8728,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.inventories is not None and self.inventories._has_data():
                     return True
 
@@ -8979,8 +8751,6 @@ class Install(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.active is not None and self.active._has_data():
                 return True
 
@@ -9187,8 +8957,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attempts is not None:
                             return True
 
@@ -9244,8 +9012,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.card_type_id is not None:
                         return True
 
@@ -9271,8 +9037,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.card_inventory is not None:
                     for child_ref in self.card_inventory:
                         if child_ref._has_data():
@@ -9445,8 +9209,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node is not None:
                         for child in self.node:
                             if child is not None:
@@ -9494,8 +9256,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node is not None:
                         for child in self.node:
                             if child is not None:
@@ -9543,8 +9303,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node is not None:
                         for child in self.node:
                             if child is not None:
@@ -9592,8 +9350,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node is not None:
                         for child in self.node:
                             if child is not None:
@@ -9616,8 +9372,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.is_issu_aborted is not None:
                     return True
 
@@ -9680,8 +9434,6 @@ class Install(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.card_inventories is not None and self.card_inventories._has_data():
                 return True
 
@@ -9726,8 +9478,6 @@ class Install(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.system_image_file is not None:
                 return True
 
@@ -9959,8 +9709,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_read is not None:
                                     return True
 
@@ -9986,8 +9734,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.category is not None:
                                 return True
 
@@ -10016,8 +9762,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.v3 is not None and self.v3._has_data():
                             return True
 
@@ -10043,8 +9787,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log_contents is not None and self.log_contents._has_data():
                         return True
 
@@ -10182,8 +9924,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_read is not None:
                                     return True
 
@@ -10209,8 +9949,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.category is not None:
                                 return True
 
@@ -10239,8 +9977,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.v3 is not None and self.v3._has_data():
                             return True
 
@@ -10266,8 +10002,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log_contents is not None and self.log_contents._has_data():
                         return True
 
@@ -10405,8 +10139,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_read is not None:
                                     return True
 
@@ -10432,8 +10164,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.category is not None:
                                 return True
 
@@ -10462,8 +10192,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.v3 is not None and self.v3._has_data():
                             return True
 
@@ -10489,8 +10217,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log_contents is not None and self.log_contents._has_data():
                         return True
 
@@ -10628,8 +10354,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_read is not None:
                                     return True
 
@@ -10655,8 +10379,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.category is not None:
                                 return True
 
@@ -10685,8 +10407,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.v3 is not None and self.v3._has_data():
                             return True
 
@@ -10712,8 +10432,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log_contents is not None and self.log_contents._has_data():
                         return True
 
@@ -10851,8 +10569,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_read is not None:
                                     return True
 
@@ -10878,8 +10594,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.category is not None:
                                 return True
 
@@ -10908,8 +10622,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.v3 is not None and self.v3._has_data():
                             return True
 
@@ -10935,8 +10647,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log_contents is not None and self.log_contents._has_data():
                         return True
 
@@ -11074,8 +10784,6 @@ class Install(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_read is not None:
                                     return True
 
@@ -11101,8 +10809,6 @@ class Install(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.category is not None:
                                 return True
 
@@ -11131,8 +10837,6 @@ class Install(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.v3 is not None and self.v3._has_data():
                             return True
 
@@ -11158,8 +10862,6 @@ class Install(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.log_contents is not None and self.log_contents._has_data():
                         return True
 
@@ -11182,8 +10884,6 @@ class Install(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.request_id is not None:
                     return True
 
@@ -11234,8 +10934,6 @@ class Install(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.log is not None:
                 for child_ref in self.log:
                     if child_ref._has_data():
@@ -11258,8 +10956,6 @@ class Install(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.boot_image is not None and self.boot_image._has_data():
             return True
 

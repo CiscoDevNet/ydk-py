@@ -1571,8 +1571,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.addr_index is not None:
                         return True
 
@@ -1605,8 +1603,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -1630,8 +1626,6 @@ class L2Vpn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.pw_routing_bgp is not None and self.pw_routing_bgp._has_data():
                 return True
 
@@ -1676,8 +1670,6 @@ class L2Vpn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ldp_flap is not None:
                 return True
 
@@ -1898,8 +1890,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -1925,8 +1915,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.erp_port0 is not None:
                             for child_ref in self.erp_port0:
                                 if child_ref._has_data():
@@ -2060,8 +2048,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.port is not None:
                                     return True
 
@@ -2156,8 +2142,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aps_channel is not None:
                                         return True
 
@@ -2183,8 +2167,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -2218,8 +2200,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.erp_instance_id is not None:
                                 return True
 
@@ -2257,8 +2237,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.erp_instance is not None:
                             for child_ref in self.erp_instance:
                                 if child_ref._has_data():
@@ -2374,8 +2352,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.monitor is not None:
@@ -2433,8 +2409,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -2462,8 +2436,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.erp_port_type is not None:
                                 return True
 
@@ -2494,8 +2466,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.erp_port1 is not None:
                             for child_ref in self.erp_port1:
                                 if child_ref._has_data():
@@ -2520,8 +2490,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.g8032_ring_name is not None:
                         return True
 
@@ -2560,8 +2528,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.g8032_ring is not None:
                     for child_ref in self.g8032_ring:
                         if child_ref._has_data():
@@ -2796,8 +2762,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -2820,8 +2784,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.backup_attachment_circuit is not None:
                                     for child_ref in self.backup_attachment_circuit:
                                         if child_ref._has_data():
@@ -2914,8 +2876,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.eviid is not None:
                                         return True
 
@@ -2944,8 +2904,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pseudowire_evpn is not None:
                                     for child_ref in self.pseudowire_evpn:
                                         if child_ref._has_data():
@@ -3156,8 +3114,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.local_static_label is not None:
                                                 return True
 
@@ -3283,8 +3239,6 @@ class L2Vpn(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.local_static_label is not None:
                                                         return True
 
@@ -3314,8 +3268,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.neighbor is not None:
                                                     return True
 
@@ -3347,8 +3299,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_pseudowire is not None:
                                                 for child_ref in self.backup_pseudowire:
                                                     if child_ref._has_data():
@@ -3462,8 +3412,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -3529,8 +3477,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -3596,8 +3542,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -3626,8 +3570,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.l2tp_local_cookie is not None and self.l2tp_local_cookie._has_data():
                                                 return True
 
@@ -3683,8 +3625,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -3709,8 +3649,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.neighbor is not None:
                                             return True
 
@@ -3881,8 +3819,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.local_static_label is not None:
                                                 return True
 
@@ -4008,8 +3944,6 @@ class L2Vpn(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.local_static_label is not None:
                                                         return True
 
@@ -4039,8 +3973,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.neighbor is not None:
                                                     return True
 
@@ -4072,8 +4004,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.backup_pseudowire is not None:
                                                 for child_ref in self.backup_pseudowire:
                                                     if child_ref._has_data():
@@ -4187,8 +4117,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -4254,8 +4182,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -4321,8 +4247,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.higher_value is not None:
                                                     return True
 
@@ -4351,8 +4275,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.l2tp_local_cookie is not None and self.l2tp_local_cookie._has_data():
                                                 return True
 
@@ -4408,8 +4330,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -4434,8 +4354,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.pseudowire_address is not None:
                                             return True
 
@@ -4484,8 +4402,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pseudowire_id is not None:
                                         return True
 
@@ -4518,8 +4434,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pseudowire is not None:
                                     for child_ref in self.pseudowire:
                                         if child_ref._has_data():
@@ -4598,8 +4512,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.name is not None:
                                         return True
 
@@ -4625,8 +4537,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.monitor_session is not None:
                                     for child_ref in self.monitor_session:
                                         if child_ref._has_data():
@@ -4667,13 +4577,6 @@ class L2Vpn(object):
                                 """
                                 Pseudowire configuration
                                 
-                                .. attribute:: acid  <key>
-                                
-                                	Target AC ID
-                                	**type**\:  int
-                                
-                                	**range:** 1..4294967295
-                                
                                 .. attribute:: global_id  <key>
                                 
                                 	Target Global ID
@@ -4687,6 +4590,13 @@ class L2Vpn(object):
                                 	**type**\:  str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: acid  <key>
+                                
+                                	Target AC ID
+                                	**type**\:  int
+                                
+                                	**range:** 1..4294967295
                                 
                                 .. attribute:: sacid  <key>
                                 
@@ -4718,9 +4628,9 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.acid = None
                                     self.global_id = None
                                     self.prefix = None
+                                    self.acid = None
                                     self.sacid = None
                                     self.class_ = None
                                     self.tag_impose = None
@@ -4729,31 +4639,29 @@ class L2Vpn(object):
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.acid is None:
-                                        raise YPYModelError('Key property acid is None')
                                     if self.global_id is None:
                                         raise YPYModelError('Key property global_id is None')
                                     if self.prefix is None:
                                         raise YPYModelError('Key property prefix is None')
+                                    if self.acid is None:
+                                        raise YPYModelError('Key property acid is None')
                                     if self.sacid is None:
                                         raise YPYModelError('Key property sacid is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-routed[Cisco-IOS-XR-l2vpn-cfg:acid = ' + str(self.acid) + '][Cisco-IOS-XR-l2vpn-cfg:global-id = ' + str(self.global_id) + '][Cisco-IOS-XR-l2vpn-cfg:prefix = ' + str(self.prefix) + '][Cisco-IOS-XR-l2vpn-cfg:sacid = ' + str(self.sacid) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pseudowire-routed[Cisco-IOS-XR-l2vpn-cfg:global-id = ' + str(self.global_id) + '][Cisco-IOS-XR-l2vpn-cfg:prefix = ' + str(self.prefix) + '][Cisco-IOS-XR-l2vpn-cfg:acid = ' + str(self.acid) + '][Cisco-IOS-XR-l2vpn-cfg:sacid = ' + str(self.sacid) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.acid is not None:
-                                        return True
-
                                     if self.global_id is not None:
                                         return True
 
                                     if self.prefix is not None:
+                                        return True
+
+                                    if self.acid is not None:
                                         return True
 
                                     if self.sacid is not None:
@@ -4784,8 +4692,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pseudowire_routed is not None:
                                     for child_ref in self.pseudowire_routed:
                                         if child_ref._has_data():
@@ -4864,8 +4770,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.name is not None:
                                         return True
 
@@ -4891,8 +4795,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.attachment_circuit is not None:
                                     for child_ref in self.attachment_circuit:
                                         if child_ref._has_data():
@@ -4919,8 +4821,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -4967,8 +4867,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.p2p_xconnect is not None:
                             for child_ref in self.p2p_xconnect:
                                 if child_ref._has_data():
@@ -5190,8 +5088,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.addr_index is not None:
                                         return True
 
@@ -5247,8 +5143,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.export is not None:
                                         return True
 
@@ -5287,15 +5181,15 @@ class L2Vpn(object):
                                     """
                                     Name of the Route Target
                                     
-                                    .. attribute:: format  <key>
-                                    
-                                    	Format of the route target
-                                    	**type**\:   :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
-                                    
                                     .. attribute:: role  <key>
                                     
                                     	Role of the router target type
                                     	**type**\:   :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
+                                    
+                                    .. attribute:: format  <key>
+                                    
+                                    	Format of the route target
+                                    	**type**\:   :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                                     
                                     .. attribute:: ipv4_address
                                     
@@ -5316,8 +5210,8 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.format = None
                                         self.role = None
+                                        self.format = None
                                         self.ipv4_address = YList()
                                         self.ipv4_address.parent = self
                                         self.ipv4_address.name = 'ipv4_address'
@@ -5372,8 +5266,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.as_ is not None:
                                                 return True
 
@@ -5392,19 +5284,19 @@ class L2Vpn(object):
                                         """
                                         ipv4 address
                                         
-                                        .. attribute:: addr_index  <key>
-                                        
-                                        	Addr index
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..65535
-                                        
                                         .. attribute:: address  <key>
                                         
                                         	IPV4 address
                                         	**type**\:  str
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        .. attribute:: addr_index  <key>
+                                        
+                                        	Addr index
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..65535
                                         
                                         
 
@@ -5415,31 +5307,29 @@ class L2Vpn(object):
 
                                         def __init__(self):
                                             self.parent = None
-                                            self.addr_index = None
                                             self.address = None
+                                            self.addr_index = None
 
                                         @property
                                         def _common_path(self):
                                             if self.parent is None:
                                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                                            if self.addr_index is None:
-                                                raise YPYModelError('Key property addr_index is None')
                                             if self.address is None:
                                                 raise YPYModelError('Key property address is None')
+                                            if self.addr_index is None:
+                                                raise YPYModelError('Key property addr_index is None')
 
-                                            return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + '][Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
+                                            return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + ']'
 
                                         def is_config(self):
                                             ''' Returns True if this instance represents config data else returns False '''
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self.addr_index is not None:
+                                            if self.address is not None:
                                                 return True
 
-                                            if self.address is not None:
+                                            if self.addr_index is not None:
                                                 return True
 
                                             return False
@@ -5453,24 +5343,22 @@ class L2Vpn(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.format is None:
-                                            raise YPYModelError('Key property format is None')
                                         if self.role is None:
                                             raise YPYModelError('Key property role is None')
+                                        if self.format is None:
+                                            raise YPYModelError('Key property format is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mp2mp-route-target[Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:mp2mp-route-target[Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + '][Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.format is not None:
+                                        if self.role is not None:
                                             return True
 
-                                        if self.role is not None:
+                                        if self.format is not None:
                                             return True
 
                                         if self.ipv4_address is not None:
@@ -5502,8 +5390,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.mp2mp_route_target is not None:
                                         for child_ref in self.mp2mp_route_target:
                                             if child_ref._has_data():
@@ -5598,8 +5484,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.flow_label is not None:
                                             return True
 
@@ -5737,8 +5621,6 @@ class L2Vpn(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.name is not None:
                                                         return True
 
@@ -5764,8 +5646,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.remote_ceid_attachment_circuit is not None:
                                                     for child_ref in self.remote_ceid_attachment_circuit:
                                                         if child_ref._has_data():
@@ -5792,8 +5672,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.ce_id is not None:
                                                 return True
 
@@ -5819,8 +5697,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ceid is not None:
                                             for child_ref in self.ceid:
                                                 if child_ref._has_data():
@@ -5845,8 +5721,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ce_range is not None:
                                         return True
 
@@ -5878,8 +5752,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -5916,8 +5788,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -5961,8 +5831,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mp2mp_xconnect is not None:
                             for child_ref in self.mp2mp_xconnect:
                                 if child_ref._has_data():
@@ -5987,8 +5855,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -6015,8 +5881,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.xconnect_group is not None:
                     for child_ref in self.xconnect_group:
                         if child_ref._has_data():
@@ -6402,8 +6266,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.kbits_per_sec is not None:
                                             return True
 
@@ -6431,8 +6293,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sctype is not None:
                                         return True
 
@@ -6458,8 +6318,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bd_storm_control is not None:
                                     for child_ref in self.bd_storm_control:
                                         if child_ref._has_data():
@@ -6595,8 +6453,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.mac_address is not None:
                                                 return True
 
@@ -6622,8 +6478,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.member_vni_static_mac_address is not None:
                                             for child_ref in self.member_vni_static_mac_address:
                                                 if child_ref._has_data():
@@ -6650,8 +6504,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.vni is not None:
                                         return True
 
@@ -6677,8 +6529,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.member_vni is not None:
                                     for child_ref in self.member_vni:
                                         if child_ref._has_data():
@@ -6817,8 +6667,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bd_mac_limit_action is not None:
                                         return True
 
@@ -6901,8 +6749,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -6928,8 +6774,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bd_mac_filter is not None:
                                         for child_ref in self.bd_mac_filter:
                                             if child_ref._has_data():
@@ -6987,8 +6831,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.action is not None:
                                         return True
 
@@ -7046,8 +6888,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bd_mac_aging_time is not None:
                                         return True
 
@@ -7073,8 +6913,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bd_mac_aging is not None and self.bd_mac_aging._has_data():
                                     return True
 
@@ -7151,8 +6989,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -7224,19 +7060,19 @@ class L2Vpn(object):
                                     Configure BD as PBB Edge with ISID and
                                     associated PBB Core BD
                                     
-                                    .. attribute:: core_bd_name  <key>
-                                    
-                                    	Core BD Name
-                                    	**type**\:  str
-                                    
-                                    	**length:** 1..27
-                                    
                                     .. attribute:: isid  <key>
                                     
                                     	ISID
                                     	**type**\:  int
                                     
                                     	**range:** 256..16777214
+                                    
+                                    .. attribute:: core_bd_name  <key>
+                                    
+                                    	Core BD Name
+                                    	**type**\:  str
+                                    
+                                    	**length:** 1..27
                                     
                                     .. attribute:: pbb_edge_dhcp_profile
                                     
@@ -7281,8 +7117,8 @@ class L2Vpn(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.core_bd_name = None
                                         self.isid = None
+                                        self.core_bd_name = None
                                         self.pbb_edge_dhcp_profile = L2Vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile()
                                         self.pbb_edge_dhcp_profile.parent = self
                                         self.pbb_edge_igmp_profile = None
@@ -7327,8 +7163,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.disable is not None:
                                                 return True
 
@@ -7408,8 +7242,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -7435,8 +7267,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.pbb_static_mac_mapping is not None:
                                                 for child_ref in self.pbb_static_mac_mapping:
                                                     if child_ref._has_data():
@@ -7488,8 +7318,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.dhcp_snooping_id is not None:
                                                 return True
 
@@ -7592,8 +7420,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.pbb_edge_mac_limit_action is not None:
                                                     return True
 
@@ -7651,8 +7477,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.pbb_edge_mac_aging_time is not None:
                                                     return True
 
@@ -7723,8 +7547,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.accept_shutdown is not None:
                                                     return True
 
@@ -7759,8 +7581,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.pbb_edge_mac_aging is not None and self.pbb_edge_mac_aging._has_data():
                                                 return True
 
@@ -7784,24 +7604,22 @@ class L2Vpn(object):
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.core_bd_name is None:
-                                            raise YPYModelError('Key property core_bd_name is None')
                                         if self.isid is None:
                                             raise YPYModelError('Key property isid is None')
+                                        if self.core_bd_name is None:
+                                            raise YPYModelError('Key property core_bd_name is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edge[Cisco-IOS-XR-l2vpn-cfg:core-bd-name = ' + str(self.core_bd_name) + '][Cisco-IOS-XR-l2vpn-cfg:isid = ' + str(self.isid) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:pbb-edge[Cisco-IOS-XR-l2vpn-cfg:isid = ' + str(self.isid) + '][Cisco-IOS-XR-l2vpn-cfg:core-bd-name = ' + str(self.core_bd_name) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.core_bd_name is not None:
+                                        if self.isid is not None:
                                             return True
 
-                                        if self.isid is not None:
+                                        if self.core_bd_name is not None:
                                             return True
 
                                         if self.pbb_edge_dhcp_profile is not None and self.pbb_edge_dhcp_profile._has_data():
@@ -7841,8 +7659,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.pbb_edge is not None:
                                         for child_ref in self.pbb_edge:
                                             if child_ref._has_data():
@@ -7995,8 +7811,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.pbb_core_mac_aging_time is not None:
                                                 return True
 
@@ -8057,8 +7871,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.pbb_core_mac_limit_action is not None:
                                                 return True
 
@@ -8087,8 +7899,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.pbb_core_mac_aging is not None and self.pbb_core_mac_aging._has_data():
                                             return True
 
@@ -8165,8 +7975,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.eviid is not None:
                                                 return True
 
@@ -8189,8 +7997,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.pbb_core_evi is not None:
                                             for child_ref in self.pbb_core_evi:
                                                 if child_ref._has_data():
@@ -8242,8 +8048,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dhcp_snooping_id is not None:
                                             return True
 
@@ -8269,8 +8073,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.enable is not None:
                                         return True
 
@@ -8311,8 +8113,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pbb_core is not None and self.pbb_core._has_data():
                                     return True
 
@@ -8386,8 +8186,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.eviid is not None:
                                         return True
 
@@ -8410,8 +8208,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bridge_domain_evi is not None:
                                     for child_ref in self.bridge_domain_evi:
                                         if child_ref._has_data():
@@ -8600,8 +8396,6 @@ class L2Vpn(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.address is not None:
                                                         return True
 
@@ -8624,8 +8418,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.access_vfi_pseudowire_static_mac_address is not None:
                                                     for child_ref in self.access_vfi_pseudowire_static_mac_address:
                                                         if child_ref._has_data():
@@ -8654,8 +8446,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor is not None:
                                                 return True
 
@@ -8684,8 +8474,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.access_vfi_pseudowire is not None:
                                             for child_ref in self.access_vfi_pseudowire:
                                                 if child_ref._has_data():
@@ -8712,8 +8500,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.name is not None:
                                         return True
 
@@ -8739,8 +8525,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.access_vfi is not None:
                                     for child_ref in self.access_vfi:
                                         if child_ref._has_data():
@@ -8991,8 +8775,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination_mac_verification is not None:
                                                 return True
 
@@ -9021,8 +8803,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.disable is not None:
                                             return True
 
@@ -9140,8 +8920,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.kbits_per_sec is not None:
                                                     return True
 
@@ -9169,8 +8947,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.sctype is not None:
                                                 return True
 
@@ -9196,8 +8972,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bdpw_storm_control_type is not None:
                                             for child_ref in self.bdpw_storm_control_type:
                                                 if child_ref._has_data():
@@ -9249,8 +9023,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dhcp_snooping_id is not None:
                                             return True
 
@@ -9324,8 +9096,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -9348,8 +9118,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bd_pw_static_mac_address is not None:
                                             for child_ref in self.bd_pw_static_mac_address:
                                                 if child_ref._has_data():
@@ -9407,8 +9175,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.disable is not None:
                                             return True
 
@@ -9531,8 +9297,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.action is not None:
                                                 return True
 
@@ -9593,8 +9357,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.pseudowire_mac_aging_time is not None:
                                                 return True
 
@@ -9655,8 +9417,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.pseudowire_mac_limit_action is not None:
                                                 return True
 
@@ -9685,8 +9445,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.enable is not None:
                                             return True
 
@@ -9767,8 +9525,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -9791,8 +9547,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bd_pw_split_horizon_group is not None and self.bd_pw_split_horizon_group._has_data():
                                             return True
 
@@ -9846,8 +9600,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.local_static_label is not None:
                                             return True
 
@@ -9939,8 +9691,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor is not None:
                                                 return True
 
@@ -9969,8 +9719,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bridge_domain_backup_pseudowire is not None:
                                             for child_ref in self.bridge_domain_backup_pseudowire:
                                                 if child_ref._has_data():
@@ -9999,8 +9747,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.neighbor is not None:
                                         return True
 
@@ -10068,8 +9814,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bd_pseudowire is not None:
                                     for child_ref in self.bd_pseudowire:
                                         if child_ref._has_data():
@@ -10267,8 +10011,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.transport_name is not None:
                                                     return True
 
@@ -10294,8 +10036,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.transport is not None:
                                                 for child_ref in self.transport:
                                                     if child_ref._has_data():
@@ -10368,8 +10108,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.signaling_name is not None:
                                                     return True
 
@@ -10392,8 +10130,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.signaling is not None:
                                                 for child_ref in self.signaling:
                                                     if child_ref._has_data():
@@ -10418,8 +10154,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.enable is not None:
                                             return True
 
@@ -10574,8 +10308,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.dhcp_snooping_id is not None:
                                                     return True
 
@@ -10632,8 +10364,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.local_static_label is not None:
                                                     return True
 
@@ -10707,8 +10437,6 @@ class L2Vpn(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.address is not None:
                                                         return True
 
@@ -10731,8 +10459,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.pseudowire_static_mac_address is not None:
                                                     for child_ref in self.pseudowire_static_mac_address:
                                                         if child_ref._has_data():
@@ -10761,8 +10487,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.neighbor is not None:
                                                 return True
 
@@ -10806,8 +10530,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.vfi_pseudowire is not None:
                                             for child_ref in self.vfi_pseudowire:
                                                 if child_ref._has_data():
@@ -10989,8 +10711,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -11052,8 +10772,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.flow_label is not None:
                                                     return True
 
@@ -11079,8 +10797,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -11130,8 +10846,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.export is not None:
                                                 return True
 
@@ -11207,8 +10921,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.addr_index is not None:
                                                 return True
 
@@ -11315,8 +11027,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.flow_label is not None:
                                                     return True
 
@@ -11342,8 +11052,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -11391,15 +11099,15 @@ class L2Vpn(object):
                                             """
                                             Name of the Route Target
                                             
-                                            .. attribute:: format  <key>
-                                            
-                                            	Format of the route target
-                                            	**type**\:   :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
-                                            
                                             .. attribute:: role  <key>
                                             
                                             	Role of the router target type
                                             	**type**\:   :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
+                                            
+                                            .. attribute:: format  <key>
+                                            
+                                            	Format of the route target
+                                            	**type**\:   :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -11420,8 +11128,8 @@ class L2Vpn(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.format = None
                                                 self.role = None
+                                                self.format = None
                                                 self.ipv4_address = YList()
                                                 self.ipv4_address.parent = self
                                                 self.ipv4_address.name = 'ipv4_address'
@@ -11476,8 +11184,6 @@ class L2Vpn(object):
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.as_ is not None:
                                                         return True
 
@@ -11496,19 +11202,19 @@ class L2Vpn(object):
                                                 """
                                                 ipv4 address
                                                 
-                                                .. attribute:: addr_index  <key>
-                                                
-                                                	Addr index
-                                                	**type**\:  int
-                                                
-                                                	**range:** 0..65535
-                                                
                                                 .. attribute:: address  <key>
                                                 
                                                 	IPV4 address
                                                 	**type**\:  str
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: addr_index  <key>
+                                                
+                                                	Addr index
+                                                	**type**\:  int
+                                                
+                                                	**range:** 0..65535
                                                 
                                                 
 
@@ -11519,31 +11225,29 @@ class L2Vpn(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.addr_index = None
                                                     self.address = None
+                                                    self.addr_index = None
 
                                                 @property
                                                 def _common_path(self):
                                                     if self.parent is None:
                                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                                    if self.addr_index is None:
-                                                        raise YPYModelError('Key property addr_index is None')
                                                     if self.address is None:
                                                         raise YPYModelError('Key property address is None')
+                                                    if self.addr_index is None:
+                                                        raise YPYModelError('Key property addr_index is None')
 
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + '][Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + ']'
+                                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:ipv4-address[Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + ']'
 
                                                 def is_config(self):
                                                     ''' Returns True if this instance represents config data else returns False '''
                                                     return True
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
-                                                    if self.addr_index is not None:
+                                                    if self.address is not None:
                                                         return True
 
-                                                    if self.address is not None:
+                                                    if self.addr_index is not None:
                                                         return True
 
                                                     return False
@@ -11557,24 +11261,22 @@ class L2Vpn(object):
                                             def _common_path(self):
                                                 if self.parent is None:
                                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                                if self.format is None:
-                                                    raise YPYModelError('Key property format is None')
                                                 if self.role is None:
                                                     raise YPYModelError('Key property role is None')
+                                                if self.format is None:
+                                                    raise YPYModelError('Key property format is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:route-target[Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:route-target[Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + '][Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.format is not None:
+                                                if self.role is not None:
                                                     return True
 
-                                                if self.role is not None:
+                                                if self.format is not None:
                                                     return True
 
                                                 if self.ipv4_address is not None:
@@ -11606,8 +11308,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.route_target is not None:
                                                 for child_ref in self.route_target:
                                                     if child_ref._has_data():
@@ -11632,8 +11332,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ad_control_word is not None:
                                             return True
 
@@ -11679,8 +11377,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.name is not None:
                                         return True
 
@@ -11718,8 +11414,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.vfi is not None:
                                     for child_ref in self.vfi:
                                         if child_ref._has_data():
@@ -11900,8 +11594,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.disable is not None:
                                             return True
 
@@ -12009,8 +11701,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.destination_mac_verification is not None:
                                                 return True
 
@@ -12042,8 +11732,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.disable is not None:
                                             return True
 
@@ -12102,8 +11790,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.dhcp_snooping_id is not None:
                                             return True
 
@@ -12215,8 +11901,6 @@ class L2Vpn(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.kbits_per_sec is not None:
                                                     return True
 
@@ -12244,8 +11928,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.sctype is not None:
                                                 return True
 
@@ -12271,8 +11953,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bdac_storm_control_type is not None:
                                             for child_ref in self.bdac_storm_control_type:
                                                 if child_ref._has_data():
@@ -12340,8 +12020,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.enable is not None:
                                                 return True
 
@@ -12364,8 +12042,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.split_horizon_group_id is not None and self.split_horizon_group_id._has_data():
                                             return True
 
@@ -12436,8 +12112,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.address is not None:
                                                 return True
 
@@ -12460,8 +12134,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.static_mac_address is not None:
                                             for child_ref in self.static_mac_address:
                                                 if child_ref._has_data():
@@ -12563,8 +12235,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_mac_aging_time is not None:
                                                 return True
 
@@ -12629,8 +12299,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.action is not None:
                                                 return True
 
@@ -12697,8 +12365,6 @@ class L2Vpn(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_mac_limit_action is not None:
                                                 return True
 
@@ -12727,8 +12393,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_mac_aging is not None and self.interface_mac_aging._has_data():
                                             return True
 
@@ -12765,8 +12429,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.name is not None:
                                         return True
 
@@ -12822,8 +12484,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bd_attachment_circuit is not None:
                                     for child_ref in self.bd_attachment_circuit:
                                         if child_ref._has_data():
@@ -12864,19 +12524,19 @@ class L2Vpn(object):
                                 """
                                 EVPN Pseudowire configuration
                                 
-                                .. attribute:: acid  <key>
-                                
-                                	AC ID
-                                	**type**\:  int
-                                
-                                	**range:** 1..4294967295
-                                
                                 .. attribute:: eviid  <key>
                                 
                                 	Ethernet VPN ID
                                 	**type**\:  int
                                 
                                 	**range:** 1..65534
+                                
+                                .. attribute:: acid  <key>
+                                
+                                	AC ID
+                                	**type**\:  int
+                                
+                                	**range:** 1..4294967295
                                 
                                 
 
@@ -12887,31 +12547,29 @@ class L2Vpn(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.acid = None
                                     self.eviid = None
+                                    self.acid = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.acid is None:
-                                        raise YPYModelError('Key property acid is None')
                                     if self.eviid is None:
                                         raise YPYModelError('Key property eviid is None')
+                                    if self.acid is None:
+                                        raise YPYModelError('Key property acid is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-pseudowire-evpn[Cisco-IOS-XR-l2vpn-cfg:acid = ' + str(self.acid) + '][Cisco-IOS-XR-l2vpn-cfg:eviid = ' + str(self.eviid) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:bd-pseudowire-evpn[Cisco-IOS-XR-l2vpn-cfg:eviid = ' + str(self.eviid) + '][Cisco-IOS-XR-l2vpn-cfg:acid = ' + str(self.acid) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.acid is not None:
+                                    if self.eviid is not None:
                                         return True
 
-                                    if self.eviid is not None:
+                                    if self.acid is not None:
                                         return True
 
                                     return False
@@ -12933,8 +12591,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bd_pseudowire_evpn is not None:
                                     for child_ref in self.bd_pseudowire_evpn:
                                         if child_ref._has_data():
@@ -12986,8 +12642,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -13086,8 +12740,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.destination_mac_verification is not None:
                                         return True
 
@@ -13119,8 +12771,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dai_address_validation is not None and self.dai_address_validation._has_data():
                                     return True
 
@@ -13223,8 +12873,6 @@ class L2Vpn(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.routed_interface_split_horizon_group_core is not None:
                                             return True
 
@@ -13249,8 +12897,6 @@ class L2Vpn(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -13276,8 +12922,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.routed_interface is not None:
                                     for child_ref in self.routed_interface:
                                         if child_ref._has_data():
@@ -13304,8 +12948,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -13403,8 +13045,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bridge_domain is not None:
                             for child_ref in self.bridge_domain:
                                 if child_ref._has_data():
@@ -13429,8 +13069,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -13454,8 +13092,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bridge_domain_group is not None:
                     for child_ref in self.bridge_domain_group:
                         if child_ref._has_data():
@@ -13677,8 +13313,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.resync_threshold is not None:
                                 return True
 
@@ -13733,8 +13367,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.type_of_service_mode is not None:
                                 return True
 
@@ -13791,8 +13423,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.l2tpv3_class_name is not None:
                                 return True
 
@@ -13847,8 +13477,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -13874,8 +13502,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cookie_size is not None:
                             return True
 
@@ -13954,8 +13580,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disable_backup is not None:
                             return True
 
@@ -14113,8 +13737,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.resync_threshold is not None:
                                 return True
 
@@ -14171,8 +13793,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.redundancy_initial_delay is not None:
                                 return True
 
@@ -14233,8 +13853,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.fallback_disable is not None:
                                 return True
 
@@ -14324,8 +13942,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.flow_label is not None:
                                     return True
 
@@ -14351,8 +13967,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.flow_label_load_balance is not None and self.flow_label_load_balance._has_data():
                                 return True
 
@@ -14381,8 +13995,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.control_word is not None:
                             return True
 
@@ -14438,8 +14050,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -14475,8 +14085,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.pseudowire_class is not None:
                     for child_ref in self.pseudowire_class:
                         if child_ref._has_data():
@@ -14639,8 +14247,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name is not None:
                                     return True
 
@@ -14663,8 +14269,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vlan_unaware_fxc_attachment_circuit is not None:
                                 for child_ref in self.vlan_unaware_fxc_attachment_circuit:
                                     if child_ref._has_data():
@@ -14705,19 +14309,19 @@ class L2Vpn(object):
                             """
                             EVPN FXC Service Configuration
                             
-                            .. attribute:: acid  <key>
-                            
-                            	AC ID
-                            	**type**\:  int
-                            
-                            	**range:** 1..4294967295
-                            
                             .. attribute:: eviid  <key>
                             
                             	Ethernet VPN ID
                             	**type**\:  int
                             
                             	**range:** 1..65534
+                            
+                            .. attribute:: acid  <key>
+                            
+                            	AC ID
+                            	**type**\:  int
+                            
+                            	**range:** 1..4294967295
                             
                             
 
@@ -14728,31 +14332,29 @@ class L2Vpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.acid = None
                                 self.eviid = None
+                                self.acid = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.acid is None:
-                                    raise YPYModelError('Key property acid is None')
                                 if self.eviid is None:
                                     raise YPYModelError('Key property eviid is None')
+                                if self.acid is None:
+                                    raise YPYModelError('Key property acid is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:vlan-unaware-fxc-pseudowire-evpn[Cisco-IOS-XR-l2vpn-cfg:acid = ' + str(self.acid) + '][Cisco-IOS-XR-l2vpn-cfg:eviid = ' + str(self.eviid) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:vlan-unaware-fxc-pseudowire-evpn[Cisco-IOS-XR-l2vpn-cfg:eviid = ' + str(self.eviid) + '][Cisco-IOS-XR-l2vpn-cfg:acid = ' + str(self.acid) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.acid is not None:
+                                if self.eviid is not None:
                                     return True
 
-                                if self.eviid is not None:
+                                if self.acid is not None:
                                     return True
 
                                 return False
@@ -14774,8 +14376,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vlan_unaware_fxc_pseudowire_evpn is not None:
                                 for child_ref in self.vlan_unaware_fxc_pseudowire_evpn:
                                     if child_ref._has_data():
@@ -14800,8 +14400,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -14828,8 +14426,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vlan_unaware_flexible_xconnect_service is not None:
                         for child_ref in self.vlan_unaware_flexible_xconnect_service:
                             if child_ref._has_data():
@@ -14955,8 +14551,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name is not None:
                                     return True
 
@@ -14979,8 +14573,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vlan_aware_fxc_attachment_circuit is not None:
                                 for child_ref in self.vlan_aware_fxc_attachment_circuit:
                                     if child_ref._has_data():
@@ -15005,8 +14597,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.eviid is not None:
                             return True
 
@@ -15030,8 +14620,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vlan_aware_flexible_xconnect_service is not None:
                         for child_ref in self.vlan_aware_flexible_xconnect_service:
                             if child_ref._has_data():
@@ -15054,8 +14642,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vlan_aware_flexible_xconnect_services is not None and self.vlan_aware_flexible_xconnect_services._has_data():
                     return True
 
@@ -15247,8 +14833,6 @@ class L2Vpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -15283,8 +14867,6 @@ class L2Vpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.iccp_interface is not None:
                                 for child_ref in self.iccp_interface:
                                     if child_ref._has_data():
@@ -15309,8 +14891,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_id is not None:
                             return True
 
@@ -15337,8 +14917,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.iccp_redundancy_group is not None:
                         for child_ref in self.iccp_redundancy_group:
                             if child_ref._has_data():
@@ -15361,8 +14939,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -15386,8 +14962,6 @@ class L2Vpn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bridge_domain_groups is not None and self.bridge_domain_groups._has_data():
                 return True
 
@@ -15446,8 +15020,6 @@ class L2Vpn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.backbone_source_mac is not None:
                 return True
 
@@ -15511,8 +15083,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mtu_mismatch_ignore is not None:
                     return True
 
@@ -15533,8 +15103,6 @@ class L2Vpn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bgp_signaling is not None and self.bgp_signaling._has_data():
                 return True
 
@@ -15622,8 +15190,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bridge_domain_state_change is not None:
                     return True
 
@@ -15656,8 +15222,6 @@ class L2Vpn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.logging is not None and self.logging._has_data():
                 return True
 
@@ -15772,8 +15336,6 @@ class L2Vpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.external_interface_format is not None:
                             return True
 
@@ -15794,8 +15356,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.format is not None and self.format._has_data():
                         return True
 
@@ -15837,8 +15397,6 @@ class L2Vpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statistics is not None:
                         return True
 
@@ -15859,8 +15417,6 @@ class L2Vpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mib_interface is not None and self.mib_interface._has_data():
                     return True
 
@@ -15884,8 +15440,6 @@ class L2Vpn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mib is not None and self.mib._has_data():
                 return True
 
@@ -15906,8 +15460,6 @@ class L2Vpn(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.auto_discovery is not None and self.auto_discovery._has_data():
             return True
 
@@ -16093,8 +15645,6 @@ class GenericInterfaceLists(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -16120,8 +15670,6 @@ class GenericInterfaceLists(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -16146,8 +15694,6 @@ class GenericInterfaceLists(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.generic_interface_list_name is not None:
                 return True
 
@@ -16174,8 +15720,6 @@ class GenericInterfaceLists(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.generic_interface is not None:
             for child_ref in self.generic_interface:
                 if child_ref._has_data():
@@ -16345,8 +15889,6 @@ class Evpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -16500,8 +16042,6 @@ class Evpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -16600,6 +16140,16 @@ class Evpn(object):
                             """
                             Name of the Route Target
                             
+                            .. attribute:: format  <key>
+                            
+                            	Format of the route target
+                            	**type**\:   :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
+                            
+                            .. attribute:: role  <key>
+                            
+                            	Role of the router target type
+                            	**type**\:   :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
+                            
                             .. attribute:: as_  <key>
                             
                             	Two byte or 4 byte AS number
@@ -16613,16 +16163,6 @@ class Evpn(object):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: format  <key>
-                            
-                            	Format of the route target
-                            	**type**\:   :py:class:`BgpRouteTargetFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormatEnum>`
-                            
-                            .. attribute:: role  <key>
-                            
-                            	Role of the router target type
-                            	**type**\:   :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
                             
                             .. attribute:: stitching  <key>
                             
@@ -16638,46 +16178,44 @@ class Evpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.as_ = None
-                                self.as_index = None
                                 self.format = None
                                 self.role = None
+                                self.as_ = None
+                                self.as_index = None
                                 self.stitching = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.as_ is None:
-                                    raise YPYModelError('Key property as_ is None')
-                                if self.as_index is None:
-                                    raise YPYModelError('Key property as_index is None')
                                 if self.format is None:
                                     raise YPYModelError('Key property format is None')
                                 if self.role is None:
                                     raise YPYModelError('Key property role is None')
+                                if self.as_ is None:
+                                    raise YPYModelError('Key property as_ is None')
+                                if self.as_index is None:
+                                    raise YPYModelError('Key property as_index is None')
                                 if self.stitching is None:
                                     raise YPYModelError('Key property stitching is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpn-route-target-as[Cisco-IOS-XR-l2vpn-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-l2vpn-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + '][Cisco-IOS-XR-l2vpn-cfg:stitching = ' + str(self.stitching) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpn-route-target-as[Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + '][Cisco-IOS-XR-l2vpn-cfg:as = ' + str(self.as_) + '][Cisco-IOS-XR-l2vpn-cfg:as-index = ' + str(self.as_index) + '][Cisco-IOS-XR-l2vpn-cfg:stitching = ' + str(self.stitching) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.as_ is not None:
-                                    return True
-
-                                if self.as_index is not None:
-                                    return True
-
                                 if self.format is not None:
                                     return True
 
                                 if self.role is not None:
+                                    return True
+
+                                if self.as_ is not None:
+                                    return True
+
+                                if self.as_index is not None:
                                     return True
 
                                 if self.stitching is not None:
@@ -16741,8 +16279,6 @@ class Evpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.format is not None:
                                     return True
 
@@ -16764,20 +16300,6 @@ class Evpn(object):
                             """
                             Name of the Route Target
                             
-                            .. attribute:: addr_index  <key>
-                            
-                            	Addr index
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: address  <key>
-                            
-                            	IPV4 address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
                             .. attribute:: format  <key>
                             
                             	Format of the route target
@@ -16787,6 +16309,20 @@ class Evpn(object):
                             
                             	Role of the router target type
                             	**type**\:   :py:class:`BgpRouteTargetRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRoleEnum>`
+                            
+                            .. attribute:: address  <key>
+                            
+                            	IPV4 address
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: addr_index  <key>
+                            
+                            	Addr index
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
                             
                             .. attribute:: stitching  <key>
                             
@@ -16802,46 +16338,44 @@ class Evpn(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.addr_index = None
-                                self.address = None
                                 self.format = None
                                 self.role = None
+                                self.address = None
+                                self.addr_index = None
                                 self.stitching = None
 
                             @property
                             def _common_path(self):
                                 if self.parent is None:
                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.addr_index is None:
-                                    raise YPYModelError('Key property addr_index is None')
-                                if self.address is None:
-                                    raise YPYModelError('Key property address is None')
                                 if self.format is None:
                                     raise YPYModelError('Key property format is None')
                                 if self.role is None:
                                     raise YPYModelError('Key property role is None')
+                                if self.address is None:
+                                    raise YPYModelError('Key property address is None')
+                                if self.addr_index is None:
+                                    raise YPYModelError('Key property addr_index is None')
                                 if self.stitching is None:
                                     raise YPYModelError('Key property stitching is None')
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpn-route-target-ipv4-address[Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + '][Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + '][Cisco-IOS-XR-l2vpn-cfg:stitching = ' + str(self.stitching) + ']'
+                                return self.parent._common_path +'/Cisco-IOS-XR-l2vpn-cfg:evpn-route-target-ipv4-address[Cisco-IOS-XR-l2vpn-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-l2vpn-cfg:role = ' + str(self.role) + '][Cisco-IOS-XR-l2vpn-cfg:address = ' + str(self.address) + '][Cisco-IOS-XR-l2vpn-cfg:addr-index = ' + str(self.addr_index) + '][Cisco-IOS-XR-l2vpn-cfg:stitching = ' + str(self.stitching) + ']'
 
                             def is_config(self):
                                 ''' Returns True if this instance represents config data else returns False '''
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self.addr_index is not None:
+                                if self.format is not None:
+                                    return True
+
+                                if self.role is not None:
                                     return True
 
                                 if self.address is not None:
                                     return True
 
-                                if self.format is not None:
-                                    return True
-
-                                if self.role is not None:
+                                if self.addr_index is not None:
                                     return True
 
                                 if self.stitching is not None:
@@ -16866,8 +16400,6 @@ class Evpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.evpn_route_target_as is not None:
                                 for child_ref in self.evpn_route_target_as:
                                     if child_ref._has_data():
@@ -16955,8 +16487,6 @@ class Evpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.addr_index is not None:
                                 return True
 
@@ -16991,8 +16521,6 @@ class Evpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -17024,8 +16552,6 @@ class Evpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.eviid is not None:
                         return True
 
@@ -17070,8 +16596,6 @@ class Evpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.evpnevi is not None:
                     for child_ref in self.evpnevi:
                         if child_ref._has_data():
@@ -17198,8 +16722,6 @@ class Evpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -17354,8 +16876,6 @@ class Evpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bytes01 is not None:
@@ -17395,8 +16915,6 @@ class Evpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -17425,8 +16943,6 @@ class Evpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -17453,8 +16969,6 @@ class Evpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.evpn_virtual_access_vfi is not None:
                     for child_ref in self.evpn_virtual_access_vfi:
                         if child_ref._has_data():
@@ -17504,8 +17018,6 @@ class Evpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -17610,8 +17122,6 @@ class Evpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.addr_index is not None:
                         return True
 
@@ -17644,8 +17154,6 @@ class Evpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -17696,8 +17204,6 @@ class Evpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.enable is not None:
                     return True
 
@@ -17914,8 +17420,6 @@ class Evpn(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.primary is not None:
                                     return True
 
@@ -17941,8 +17445,6 @@ class Evpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enable is not None:
                                 return True
 
@@ -18057,8 +17559,6 @@ class Evpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bytes01 is not None:
@@ -18098,8 +17598,6 @@ class Evpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.backbone_source_mac is not None:
                             return True
 
@@ -18182,8 +17680,6 @@ class Evpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -18212,8 +17708,6 @@ class Evpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -18243,8 +17737,6 @@ class Evpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.evpn_interface is not None:
                     for child_ref in self.evpn_interface:
                         if child_ref._has_data():
@@ -18379,8 +17871,6 @@ class Evpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -18535,8 +18025,6 @@ class Evpn(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bytes01 is not None:
@@ -18576,8 +18064,6 @@ class Evpn(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -18608,8 +18094,6 @@ class Evpn(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor is not None:
                         return True
 
@@ -18639,8 +18123,6 @@ class Evpn(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.evpn_virtual_access_pw is not None:
                     for child_ref in self.evpn_virtual_access_pw:
                         if child_ref._has_data():
@@ -18663,8 +18145,6 @@ class Evpn(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.evpn_interfaces is not None and self.evpn_interfaces._has_data():
                 return True
 
@@ -18709,8 +18189,6 @@ class Evpn(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.enable is not None:
             return True
 

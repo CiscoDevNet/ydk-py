@@ -451,8 +451,6 @@ class LptsPifib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.entry is not None:
                                 return True
 
@@ -555,8 +553,6 @@ class LptsPifib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pifib_type is not None:
                             return True
 
@@ -584,8 +580,6 @@ class LptsPifib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.type_value is not None:
                         for child_ref in self.type_value:
                             if child_ref._has_data():
@@ -774,8 +768,6 @@ class LptsPifib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.pipe_id is not None:
                                     return True
 
@@ -812,8 +804,6 @@ class LptsPifib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.region_id is not None:
                                 return True
 
@@ -841,8 +831,6 @@ class LptsPifib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.usage_entry is not None:
                             for child_ref in self.usage_entry:
                                 if child_ref._has_data():
@@ -993,8 +981,6 @@ class LptsPifib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.accepted_stats is not None:
                                 return True
 
@@ -1047,8 +1033,6 @@ class LptsPifib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.police_info is not None:
                             for child_ref in self.police_info:
                                 if child_ref._has_data():
@@ -1175,8 +1159,6 @@ class LptsPifib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.accepted is not None:
                                 return True
 
@@ -1220,8 +1202,6 @@ class LptsPifib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.static_info is not None:
                             for child_ref in self.static_info:
                                 if child_ref._has_data():
@@ -1324,8 +1304,6 @@ class LptsPifib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.fgid_or_vqi is not None:
                                 return True
 
@@ -1360,8 +1338,6 @@ class LptsPifib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bfd_entry_info is not None:
                             for child_ref in self.bfd_entry_info:
                                 if child_ref._has_data():
@@ -1433,8 +1409,6 @@ class LptsPifib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.accepted is not None:
                             return True
 
@@ -1943,8 +1917,6 @@ class LptsPifib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.accepted is not None:
                                     return True
 
@@ -1984,8 +1956,6 @@ class LptsPifib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.index is not None:
                                 return True
 
@@ -2151,8 +2121,6 @@ class LptsPifib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index_entry is not None:
                             for child_ref in self.index_entry:
                                 if child_ref._has_data():
@@ -2177,8 +2145,6 @@ class LptsPifib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bfd is not None and self.bfd._has_data():
                         return True
 
@@ -2216,8 +2182,6 @@ class LptsPifib(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -2244,8 +2208,6 @@ class LptsPifib(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -2268,8 +2230,6 @@ class LptsPifib(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

@@ -282,8 +282,6 @@ class Netconf(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session_id is not None:
                             return True
 
@@ -337,8 +335,6 @@ class Netconf(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session is not None:
                         for child_ref in self.session:
                             if child_ref._has_data():
@@ -361,8 +357,6 @@ class Netconf(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sessions is not None and self.sessions._has_data():
                     return True
 
@@ -383,8 +377,6 @@ class Netconf(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tty is not None and self.tty._has_data():
                 return True
 
@@ -405,8 +397,6 @@ class Netconf(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.agent is not None and self.agent._has_data():
             return True
 
@@ -634,8 +624,6 @@ class XrXml(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session_id is not None:
                             return True
 
@@ -689,8 +677,6 @@ class XrXml(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session is not None:
                         for child_ref in self.session:
                             if child_ref._has_data():
@@ -713,8 +699,6 @@ class XrXml(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sessions is not None and self.sessions._has_data():
                     return True
 
@@ -885,8 +869,6 @@ class XrXml(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session_id is not None:
                             return True
 
@@ -940,8 +922,6 @@ class XrXml(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session is not None:
                         for child_ref in self.session:
                             if child_ref._has_data():
@@ -964,8 +944,6 @@ class XrXml(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sessions is not None and self.sessions._has_data():
                     return True
 
@@ -1136,8 +1114,6 @@ class XrXml(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session_id is not None:
                             return True
 
@@ -1191,8 +1167,6 @@ class XrXml(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session is not None:
                         for child_ref in self.session:
                             if child_ref._has_data():
@@ -1215,8 +1189,6 @@ class XrXml(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sessions is not None and self.sessions._has_data():
                     return True
 
@@ -1237,8 +1209,6 @@ class XrXml(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.default is not None and self.default._has_data():
                 return True
 
@@ -1265,8 +1235,6 @@ class XrXml(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.agent is not None and self.agent._has_data():
             return True
 

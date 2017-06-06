@@ -186,8 +186,6 @@ class Radius(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.authentication_nas_id is not None:
                         return True
 
@@ -353,8 +351,6 @@ class Radius(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_computed is not None:
                                     return True
 
@@ -409,8 +405,6 @@ class Radius(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_computed is not None:
                                     return True
 
@@ -436,8 +430,6 @@ class Radius(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acct_port_number is not None:
                                 return True
 
@@ -472,8 +464,6 @@ class Radius(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.host is not None:
                             for child_ref in self.host:
                                 if child_ref._has_data():
@@ -498,8 +488,6 @@ class Radius(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.hosts is not None and self.hosts._has_data():
                         return True
 
@@ -756,8 +744,6 @@ class Radius(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.access_accepts is not None:
                                 return True
 
@@ -831,8 +817,6 @@ class Radius(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication is not None and self.authentication._has_data():
                             return True
 
@@ -867,8 +851,6 @@ class Radius(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.authentication_group is not None:
                         for child_ref in self.authentication_group:
                             if child_ref._has_data():
@@ -1111,8 +1093,6 @@ class Radius(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acct_incorrect_responses is not None:
                                 return True
 
@@ -1180,8 +1160,6 @@ class Radius(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.accounting is not None and self.accounting._has_data():
                             return True
 
@@ -1216,8 +1194,6 @@ class Radius(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accounting_group is not None:
                         for child_ref in self.accounting_group:
                             if child_ref._has_data():
@@ -1551,8 +1527,6 @@ class Radius(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acct_incorrect_responses is not None:
                                     return True
 
@@ -1781,8 +1755,6 @@ class Radius(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.access_accepts is not None:
                                     return True
 
@@ -1935,8 +1907,6 @@ class Radius(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.author_incorrect_responses is not None:
                                     return True
 
@@ -1980,8 +1950,6 @@ class Radius(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.accounting is not None and self.accounting._has_data():
                                 return True
 
@@ -2030,8 +1998,6 @@ class Radius(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.server_group_name is not None:
                             return True
 
@@ -2071,8 +2037,6 @@ class Radius(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.server_group is not None:
                         for child_ref in self.server_group:
                             if child_ref._has_data():
@@ -2128,8 +2092,6 @@ class Radius(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.disconnected_invalid_requests is not None:
                         return True
 
@@ -2155,8 +2117,6 @@ class Radius(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -2195,8 +2155,6 @@ class Radius(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -2219,8 +2177,6 @@ class Radius(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

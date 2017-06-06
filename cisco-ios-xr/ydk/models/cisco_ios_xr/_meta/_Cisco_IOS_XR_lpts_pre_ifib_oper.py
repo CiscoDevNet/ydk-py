@@ -31,7 +31,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('entry', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Single Pre-ifib entry
                 ''',
                 'entry',
@@ -337,7 +337,7 @@ _meta_table = {
                 'acl_config',
                 'Cisco-IOS-XR-platform-pifib-oper', False),
             _MetaInfoClassMember('acl-str', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                acl str
                 ''',
                 'acl_str',
@@ -455,7 +455,7 @@ _meta_table = {
                 'punt_reason',
                 'Cisco-IOS-XR-platform-pifib-oper', False),
             _MetaInfoClassMember('punt-reason-string', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                punt reason string
                 ''',
                 'punt_reason_string',
@@ -641,7 +641,7 @@ _meta_table = {
                 'index',
                 'Cisco-IOS-XR-platform-pifib-oper', True),
             _MetaInfoClassMember('acl-str', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Acl name
                 ''',
                 'acl_str',
@@ -998,7 +998,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node name
                 ''',
                 'node_name',

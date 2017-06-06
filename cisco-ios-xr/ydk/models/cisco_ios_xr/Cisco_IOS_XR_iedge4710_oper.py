@@ -1381,8 +1381,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -1483,8 +1481,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -1585,8 +1581,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -1687,8 +1681,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -1789,8 +1781,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -1891,8 +1881,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.accepted_requests is not None:
                                         return True
 
@@ -1930,8 +1918,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.active_sessions is not None:
                                     return True
 
@@ -2063,8 +2049,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.accepted_requests is not None:
                                     return True
 
@@ -2155,8 +2139,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.receive_response_failures is not None:
                                     return True
 
@@ -2267,8 +2249,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.accepted_requests is not None:
                                     return True
 
@@ -2523,8 +2503,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -2625,8 +2603,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -2727,8 +2703,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -2829,8 +2803,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -2931,8 +2903,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -3033,8 +3003,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.accepted_requests is not None:
                                             return True
 
@@ -3072,8 +3040,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.active_sessions is not None:
                                         return True
 
@@ -3205,8 +3171,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.accepted_requests is not None:
                                         return True
 
@@ -3329,8 +3293,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.accepted_requests is not None:
                                         return True
 
@@ -3564,8 +3526,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -3633,8 +3593,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -3702,8 +3660,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -3771,8 +3727,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -3840,8 +3794,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -3909,8 +3861,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -3978,8 +3928,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -4047,8 +3995,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -4077,8 +4023,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.account_logoff is not None and self.account_logoff._has_data():
                                         return True
 
@@ -4199,8 +4143,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.receive_response_failures is not None:
                                         return True
 
@@ -4232,8 +4174,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.accounting_statistics is not None and self.accounting_statistics._has_data():
                                     return True
 
@@ -4458,8 +4398,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -4527,8 +4465,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -4596,8 +4532,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -4665,8 +4599,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -4734,8 +4666,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -4803,8 +4733,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -4872,8 +4800,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -4941,8 +4867,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -4971,8 +4895,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.account_logoff is not None and self.account_logoff._has_data():
                                     return True
 
@@ -5125,8 +5047,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.accepted_requests is not None:
                                     return True
 
@@ -5249,8 +5169,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.accepted_requests is not None:
                                     return True
 
@@ -5505,8 +5423,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -5607,8 +5523,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -5709,8 +5623,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -5811,8 +5723,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -5913,8 +5823,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.aaa_errored_requests is not None:
                                             return True
 
@@ -6015,8 +5923,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.accepted_requests is not None:
                                             return True
 
@@ -6054,8 +5960,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.active_sessions is not None:
                                         return True
 
@@ -6187,8 +6091,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.accepted_requests is not None:
                                         return True
 
@@ -6311,8 +6213,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.accepted_requests is not None:
                                         return True
 
@@ -6546,8 +6446,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -6615,8 +6513,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -6684,8 +6580,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -6753,8 +6647,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -6822,8 +6714,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -6891,8 +6781,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -6960,8 +6848,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -7029,8 +6915,6 @@ class Subscriber(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.acknowledged_requests is not None:
                                             return True
 
@@ -7059,8 +6943,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.account_logoff is not None and self.account_logoff._has_data():
                                         return True
 
@@ -7181,8 +7063,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.receive_response_failures is not None:
                                         return True
 
@@ -7214,8 +7094,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.accounting_statistics is not None and self.accounting_statistics._has_data():
                                     return True
 
@@ -7410,8 +7288,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -7512,8 +7388,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -7614,8 +7488,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -7716,8 +7588,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -7818,8 +7688,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aaa_errored_requests is not None:
                                         return True
 
@@ -7920,8 +7788,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.accepted_requests is not None:
                                         return True
 
@@ -7959,8 +7825,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.active_sessions is not None:
                                     return True
 
@@ -8060,8 +7924,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.receive_response_failures is not None:
                                     return True
 
@@ -8284,8 +8146,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -8353,8 +8213,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -8422,8 +8280,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -8491,8 +8347,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -8560,8 +8414,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -8629,8 +8481,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -8698,8 +8548,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -8767,8 +8615,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.acknowledged_requests is not None:
                                         return True
 
@@ -8797,8 +8643,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.account_logoff is not None and self.account_logoff._has_data():
                                     return True
 
@@ -8872,8 +8716,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.accounting is not None and self.accounting._has_data():
                                 return True
 
@@ -9096,8 +8938,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.calling_station_id_attribute_format_warnings is not None:
                                 return True
 
@@ -9603,8 +9443,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ack_to_srg is not None:
                                 return True
 
@@ -9780,8 +9618,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.aaa is not None and self.aaa._has_data():
                             return True
 
@@ -9810,8 +9646,6 @@ class Subscriber(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_name is not None:
                         return True
 
@@ -9835,8 +9669,6 @@ class Subscriber(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -9859,8 +9691,6 @@ class Subscriber(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.nodes is not None and self.nodes._has_data():
                 return True
 
@@ -10209,8 +10039,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -10322,8 +10150,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -10435,8 +10261,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -10477,8 +10301,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -10606,8 +10428,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -10708,8 +10528,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -10810,8 +10628,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -10849,8 +10665,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -10881,8 +10695,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.author_state is not None:
                                 return True
 
@@ -10911,8 +10723,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.author_summary is not None:
                             for child_ref in self.author_summary:
                                 if child_ref._has_data():
@@ -11073,8 +10883,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.activated_sessions is not None:
                                     return True
 
@@ -11186,8 +10994,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.activated_sessions is not None:
                                     return True
 
@@ -11299,8 +11105,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.activated_sessions is not None:
                                     return True
 
@@ -11341,8 +11145,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                 return True
 
@@ -11470,8 +11272,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dual_part_up_sessions is not None:
                                     return True
 
@@ -11572,8 +11372,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dual_part_up_sessions is not None:
                                     return True
 
@@ -11674,8 +11472,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dual_part_up_sessions is not None:
                                     return True
 
@@ -11713,8 +11509,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                 return True
 
@@ -11743,8 +11537,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address_family_xr is not None and self.address_family_xr._has_data():
                             return True
 
@@ -11937,8 +11729,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -12050,8 +11840,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -12163,8 +11951,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -12205,8 +11991,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -12334,8 +12118,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -12436,8 +12218,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -12538,8 +12318,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -12577,8 +12355,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -12609,8 +12385,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mac_address is not None:
                                 return True
 
@@ -12639,8 +12413,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mac_summary is not None:
                             for child_ref in self.mac_summary:
                                 if child_ref._has_data():
@@ -12832,8 +12604,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -12945,8 +12715,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -13058,8 +12826,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -13100,8 +12866,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -13229,8 +12993,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -13331,8 +13093,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -13433,8 +13193,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -13472,8 +13230,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -13504,8 +13260,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -13534,8 +13288,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_summary is not None:
                             for child_ref in self.interface_summary:
                                 if child_ref._has_data():
@@ -13726,8 +13478,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -13839,8 +13589,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -13952,8 +13700,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -13994,8 +13740,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -14123,8 +13867,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -14225,8 +13967,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -14327,8 +14067,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -14366,8 +14104,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -14398,8 +14134,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.authentication_state is not None:
                                 return True
 
@@ -14428,8 +14162,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_summary is not None:
                             for child_ref in self.authentication_summary:
                                 if child_ref._has_data():
@@ -14619,8 +14351,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -14732,8 +14462,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -14845,8 +14573,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -14887,8 +14613,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -15016,8 +14740,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -15118,8 +14840,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -15220,8 +14940,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -15259,8 +14977,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -15291,8 +15007,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.state is not None:
                                 return True
 
@@ -15321,8 +15035,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.state_summary is not None:
                             for child_ref in self.state_summary:
                                 if child_ref._has_data():
@@ -15523,8 +15235,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -15636,8 +15346,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -15749,8 +15457,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -15791,8 +15497,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -15920,8 +15624,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -16022,8 +15724,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -16124,8 +15824,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -16163,8 +15861,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -16193,8 +15889,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -16226,8 +15920,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4_address_vrf_summary is not None:
                             for child_ref in self.ipv4_address_vrf_summary:
                                 if child_ref._has_data():
@@ -16418,8 +16110,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -16531,8 +16221,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -16644,8 +16332,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -16686,8 +16372,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -16815,8 +16499,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -16917,8 +16599,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -17019,8 +16699,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -17058,8 +16736,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -17090,8 +16766,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address_family is not None:
                                 return True
 
@@ -17120,8 +16794,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address_family_summary is not None:
                             for child_ref in self.address_family_summary:
                                 if child_ref._has_data():
@@ -17313,8 +16985,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -17426,8 +17096,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -17539,8 +17207,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -17581,8 +17247,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -17710,8 +17374,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -17812,8 +17474,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -17914,8 +17574,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -17953,8 +17611,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -17985,8 +17641,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.username is not None:
                                 return True
 
@@ -18015,8 +17669,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.username_summary is not None:
                             for child_ref in self.username_summary:
                                 if child_ref._has_data():
@@ -18209,8 +17861,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -18322,8 +17972,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -18435,8 +18083,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -18477,8 +18123,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -18606,8 +18250,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -18708,8 +18350,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -18810,8 +18450,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -18849,8 +18487,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -18881,8 +18517,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -18911,8 +18545,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access_interface_summary is not None:
                             for child_ref in self.access_interface_summary:
                                 if child_ref._has_data():
@@ -19105,8 +18737,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -19218,8 +18848,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -19331,8 +18959,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -19373,8 +18999,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -19502,8 +19126,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -19604,8 +19226,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -19706,8 +19326,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -19745,8 +19363,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -19777,8 +19393,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -19807,8 +19421,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4_address_summary is not None:
                             for child_ref in self.ipv4_address_summary:
                                 if child_ref._has_data():
@@ -20000,8 +19612,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -20113,8 +19723,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -20226,8 +19834,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.activated_sessions is not None:
                                         return True
 
@@ -20268,8 +19874,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -20397,8 +20001,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -20499,8 +20101,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -20601,8 +20201,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dual_part_up_sessions is not None:
                                         return True
 
@@ -20640,8 +20238,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ip_subscriber_dhcp is not None and self.ip_subscriber_dhcp._has_data():
                                     return True
 
@@ -20672,8 +20268,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -20702,8 +20296,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vrf_summary is not None:
                             for child_ref in self.vrf_summary:
                                 if child_ref._has_data():
@@ -21165,8 +20757,6 @@ class Subscriber(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.accepted_interim_updates is not None:
                                         return True
 
@@ -21231,8 +20821,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.accounting_session is not None:
                                     for child_ref in self.accounting_session:
                                         if child_ref._has_data():
@@ -21645,8 +21233,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.accounting_session_id is not None:
                                     return True
 
@@ -21891,8 +21477,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.domain_name is not None:
                                     return True
 
@@ -21991,8 +21575,6 @@ class Subscriber(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.coa_reply_attributes is not None:
                                     return True
 
@@ -22029,8 +21611,6 @@ class Subscriber(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.session_id is not None:
                                 return True
 
@@ -22163,8 +21743,6 @@ class Subscriber(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session is not None:
                             for child_ref in self.session:
                                 if child_ref._has_data():
@@ -22189,8 +21767,6 @@ class Subscriber(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_name is not None:
                         return True
 
@@ -22250,8 +21826,6 @@ class Subscriber(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -22274,8 +21848,6 @@ class Subscriber(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.nodes is not None and self.nodes._has_data():
                 return True
 
@@ -22296,8 +21868,6 @@ class Subscriber(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.manager is not None and self.manager._has_data():
             return True
 
@@ -22445,8 +22015,6 @@ class IedgeLicenseManager(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session_count is not None:
                         return True
 
@@ -22478,8 +22046,6 @@ class IedgeLicenseManager(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.nodeid is not None:
                     return True
 
@@ -22503,8 +22069,6 @@ class IedgeLicenseManager(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -22527,8 +22091,6 @@ class IedgeLicenseManager(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

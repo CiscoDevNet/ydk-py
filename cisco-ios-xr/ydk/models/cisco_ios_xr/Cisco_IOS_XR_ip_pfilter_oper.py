@@ -238,8 +238,6 @@ class PfilterMa(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -265,8 +263,6 @@ class PfilterMa(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_info is not None:
                                     for child_ref in self.interface_info:
                                         if child_ref._has_data():
@@ -291,8 +287,6 @@ class PfilterMa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_infos is not None and self.interface_infos._has_data():
                                 return True
 
@@ -315,8 +309,6 @@ class PfilterMa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.acl_info_table is not None and self.acl_info_table._has_data():
                             return True
 
@@ -437,8 +429,6 @@ class PfilterMa(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.interface_name is not None:
                                         return True
 
@@ -464,8 +454,6 @@ class PfilterMa(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_info is not None:
                                     for child_ref in self.interface_info:
                                         if child_ref._has_data():
@@ -490,8 +478,6 @@ class PfilterMa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_infos is not None and self.interface_infos._has_data():
                                 return True
 
@@ -514,8 +500,6 @@ class PfilterMa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.acl_info_table is not None and self.acl_info_table._has_data():
                             return True
 
@@ -538,8 +522,6 @@ class PfilterMa(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipv4 is not None and self.ipv4._has_data():
                         return True
 
@@ -565,8 +547,6 @@ class PfilterMa(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -590,8 +570,6 @@ class PfilterMa(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -614,8 +592,6 @@ class PfilterMa(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

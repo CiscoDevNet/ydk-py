@@ -13,15 +13,15 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'FibPbtsForwardClassEnum' : _MetaInfoEnum('FibPbtsForwardClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg',
+        {
+            'any':'any',
+        }, 'Cisco-IOS-XR-fib-common-cfg', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-cfg']),
     'FibPbtsFallbackEnum' : _MetaInfoEnum('FibPbtsFallbackEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg',
         {
             'list':'list',
             'any':'any',
             'drop':'drop',
-        }, 'Cisco-IOS-XR-fib-common-cfg', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-cfg']),
-    'FibPbtsForwardClassEnum' : _MetaInfoEnum('FibPbtsForwardClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg',
-        {
-            'any':'any',
         }, 'Cisco-IOS-XR-fib-common-cfg', _yang_ns._namespaces['Cisco-IOS-XR-fib-common-cfg']),
     'Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback' : {
         'meta_info' : _MetaInfoClass('Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback',

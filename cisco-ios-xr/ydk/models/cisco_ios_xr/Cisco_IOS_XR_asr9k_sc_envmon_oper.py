@@ -341,8 +341,6 @@ class EnvironmentalMonitoring(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.power_accuracy is not None:
                                             return True
 
@@ -392,8 +390,6 @@ class EnvironmentalMonitoring(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.power_bag is not None and self.power_bag._has_data():
                                         return True
 
@@ -656,8 +652,6 @@ class EnvironmentalMonitoring(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.threshold_evaluation is not None:
                                                                 return True
 
@@ -694,8 +688,6 @@ class EnvironmentalMonitoring(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.type is not None:
                                                             return True
 
@@ -727,8 +719,6 @@ class EnvironmentalMonitoring(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.threshold is not None:
                                                         for child_ref in self.threshold:
                                                             if child_ref._has_data():
@@ -865,8 +855,6 @@ class EnvironmentalMonitoring(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.age_time_stamp is not None:
                                                         return True
 
@@ -924,8 +912,6 @@ class EnvironmentalMonitoring(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.name is not None:
                                                     return True
 
@@ -957,8 +943,6 @@ class EnvironmentalMonitoring(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.sensor_name is not None:
                                                 for child_ref in self.sensor_name:
                                                     if child_ref._has_data():
@@ -985,8 +969,6 @@ class EnvironmentalMonitoring(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.type is not None:
                                             return True
 
@@ -1012,8 +994,6 @@ class EnvironmentalMonitoring(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sensor_type is not None:
                                         for child_ref in self.sensor_type:
                                             if child_ref._has_data():
@@ -1040,8 +1020,6 @@ class EnvironmentalMonitoring(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.module is not None:
                                     return True
 
@@ -1070,8 +1048,6 @@ class EnvironmentalMonitoring(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.module is not None:
                                 for child_ref in self.module:
                                     if child_ref._has_data():
@@ -1098,8 +1074,6 @@ class EnvironmentalMonitoring(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.slot is not None:
                             return True
 
@@ -1125,8 +1099,6 @@ class EnvironmentalMonitoring(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slot is not None:
                         for child_ref in self.slot:
                             if child_ref._has_data():
@@ -1151,8 +1123,6 @@ class EnvironmentalMonitoring(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rack is not None:
                     return True
 
@@ -1176,8 +1146,6 @@ class EnvironmentalMonitoring(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
@@ -1200,8 +1168,6 @@ class EnvironmentalMonitoring(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.racks is not None and self.racks._has_data():
             return True
 

@@ -9,7 +9,6 @@ authors of the code. All rights reserved.
 Redistribution and use in source and binary forms, with or
 without modification, is permitted pursuant to, and subject
 to the license terms contained in, the Simplified BSD
-
 License set forth in Section 4.c of the IETF Trust's
 Legal Provisions Relating to IETF Documents
 (http\://trustee.ietf.org/license\-info).
@@ -59,26 +58,6 @@ class NetconfDatastoreTypeEnum(Enum):
 
 
 
-class SchemaFormatIdentity(object):
-    """
-    Base identity for data model schema languages.
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['SchemaFormatIdentity']['meta_info']
-
-
 class TransportIdentity(object):
     """
     Base identity for NETCONF transport types.
@@ -97,6 +76,26 @@ class TransportIdentity(object):
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
         return meta._meta_table['TransportIdentity']['meta_info']
+
+
+class SchemaFormatIdentity(object):
+    """
+    Base identity for data model schema languages.
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
+        return meta._meta_table['SchemaFormatIdentity']['meta_info']
 
 
 class NetconfState(object):
@@ -182,8 +181,6 @@ class NetconfState(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.capability is not None:
                 for child in self.capability:
                     if child is not None:
@@ -344,8 +341,6 @@ class NetconfState(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.locked_by_session is not None:
                             return True
 
@@ -432,8 +427,6 @@ class NetconfState(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lock_id is not None:
                             return True
 
@@ -472,8 +465,6 @@ class NetconfState(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.global_lock is not None and self.global_lock._has_data():
@@ -503,8 +494,6 @@ class NetconfState(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -528,8 +517,6 @@ class NetconfState(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.datastore is not None:
                 for child_ref in self.datastore:
                     if child_ref._has_data():
@@ -571,11 +558,6 @@ class NetconfState(object):
             """
             List of data model schemas supported by the server.
             
-            .. attribute:: format  <key>
-            
-            	The data modeling language the schema is written in (currently xsd, yang, yin, rng, or rnc).  For YANG data models, 'yang' format MUST be supported and 'yin' format MAY also be provided
-            	**type**\:   :py:class:`SchemaFormatIdentity <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormatIdentity>`
-            
             .. attribute:: identifier  <key>
             
             	Identifier to uniquely reference the schema.  The identifier is used in the <get\-schema> operation and may be used for other purposes such as file retrieval.  For modeling languages that support or require a data model name (e.g., YANG module name) the identifier MUST match that name.  For YANG data models, the identifier is the name of the module or submodule.  In other cases, an identifier such as a filename MAY be used instead
@@ -585,6 +567,11 @@ class NetconfState(object):
             
             	Version of the schema supported.  Multiple versions MAY be supported simultaneously by a NETCONF server.  Each version MUST be reported individually in the schema list, i.e., with same identifier, possibly different location, but different version.  For YANG data models, version is the value of the most recent YANG 'revision' statement in the module or submodule, or the empty string if no 'revision' statement is present
             	**type**\:  str
+            
+            .. attribute:: format  <key>
+            
+            	The data modeling language the schema is written in (currently xsd, yang, yin, rng, or rnc). For YANG data models, 'yang' format MUST be supported and 'yin' format MAY also be provided
+            	**type**\:   :py:class:`SchemaFormatIdentity <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormatIdentity>`
             
             .. attribute:: location
             
@@ -615,9 +602,9 @@ class NetconfState(object):
 
             def __init__(self):
                 self.parent = None
-                self.format = None
                 self.identifier = None
                 self.version = None
+                self.format = None
                 self.location = YLeafList()
                 self.location.parent = self
                 self.location.name = 'location'
@@ -656,29 +643,27 @@ class NetconfState(object):
 
             @property
             def _common_path(self):
-                if self.format is None:
-                    raise YPYModelError('Key property format is None')
                 if self.identifier is None:
                     raise YPYModelError('Key property identifier is None')
                 if self.version is None:
                     raise YPYModelError('Key property version is None')
+                if self.format is None:
+                    raise YPYModelError('Key property format is None')
 
-                return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:schemas/ietf-netconf-monitoring:schema[ietf-netconf-monitoring:format = ' + str(self.format) + '][ietf-netconf-monitoring:identifier = ' + str(self.identifier) + '][ietf-netconf-monitoring:version = ' + str(self.version) + ']'
+                return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:schemas/ietf-netconf-monitoring:schema[ietf-netconf-monitoring:identifier = ' + str(self.identifier) + '][ietf-netconf-monitoring:version = ' + str(self.version) + '][ietf-netconf-monitoring:format = ' + str(self.format) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.format is not None:
-                    return True
-
                 if self.identifier is not None:
                     return True
 
                 if self.version is not None:
+                    return True
+
+                if self.format is not None:
                     return True
 
                 if self.location is not None:
@@ -706,8 +691,6 @@ class NetconfState(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.schema is not None:
                 for child_ref in self.schema:
                     if child_ref._has_data():
@@ -865,8 +848,6 @@ class NetconfState(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.session_id is not None:
                     return True
 
@@ -911,8 +892,6 @@ class NetconfState(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session is not None:
                 for child_ref in self.session:
                     if child_ref._has_data():
@@ -1014,8 +993,6 @@ class NetconfState(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.dropped_sessions is not None:
                 return True
 
@@ -1057,8 +1034,6 @@ class NetconfState(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.capabilities is not None and self.capabilities._has_data():
             return True
 
@@ -1170,8 +1145,6 @@ class GetSchemaRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.format is not None:
                 return True
 
@@ -1221,8 +1194,6 @@ class GetSchemaRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.data is not None:
                 return True
 
@@ -1243,8 +1214,6 @@ class GetSchemaRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1277,6 +1246,46 @@ class NetconfBeepIdentity(TransportIdentity):
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
         return meta._meta_table['NetconfBeepIdentity']['meta_info']
+
+
+class RngIdentity(SchemaFormatIdentity):
+    """
+    Regular Language for XML Next Generation (RELAX NG).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        SchemaFormatIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
+        return meta._meta_table['RngIdentity']['meta_info']
+
+
+class XsdIdentity(SchemaFormatIdentity):
+    """
+    W3C XML Schema Definition.
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        SchemaFormatIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
+        return meta._meta_table['XsdIdentity']['meta_info']
 
 
 class NetconfSshIdentity(TransportIdentity):
@@ -1339,9 +1348,9 @@ class YinIdentity(SchemaFormatIdentity):
         return meta._meta_table['YinIdentity']['meta_info']
 
 
-class RngIdentity(SchemaFormatIdentity):
+class YangIdentity(SchemaFormatIdentity):
     """
-    Regular Language for XML Next Generation (RELAX NG).
+    The YANG data modeling language for NETCONF.
     
     
 
@@ -1356,12 +1365,13 @@ class RngIdentity(SchemaFormatIdentity):
     @staticmethod
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['RngIdentity']['meta_info']
+        return meta._meta_table['YangIdentity']['meta_info']
 
 
-class XsdIdentity(SchemaFormatIdentity):
+class NetconfSoapOverHttpsIdentity(TransportIdentity):
     """
-    W3C XML Schema Definition.
+    NETCONF over Simple Object Access Protocol (SOAP)
+    over Hypertext Transfer Protocol Secure (HTTPS).
     
     
 
@@ -1371,12 +1381,12 @@ class XsdIdentity(SchemaFormatIdentity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        SchemaFormatIdentity.__init__(self)
+        TransportIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['XsdIdentity']['meta_info']
+        return meta._meta_table['NetconfSoapOverHttpsIdentity']['meta_info']
 
 
 class NetconfSoapOverBeepIdentity(TransportIdentity):
@@ -1418,46 +1428,5 @@ class NetconfTlsIdentity(TransportIdentity):
     def _meta_info():
         from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
         return meta._meta_table['NetconfTlsIdentity']['meta_info']
-
-
-class YangIdentity(SchemaFormatIdentity):
-    """
-    The YANG data modeling language for NETCONF.
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        SchemaFormatIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['YangIdentity']['meta_info']
-
-
-class NetconfSoapOverHttpsIdentity(TransportIdentity):
-    """
-    NETCONF over Simple Object Access Protocol (SOAP)
-    over Hypertext Transfer Protocol Secure (HTTPS).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        TransportIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['NetconfSoapOverHttpsIdentity']['meta_info']
 
 

@@ -13,51 +13,83 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'BgpSiteOfOriginEnum' : _MetaInfoEnum('BgpSiteOfOriginEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpEbgpSendDmzEnableModeEnum' : _MetaInfoEnum('BgpEbgpSendDmzEnableModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+        {
+            'disable':'disable',
+            'default':'default',
+            'cumulative':'cumulative',
+        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
+    'BgpVrfRouteTargetEnum' : _MetaInfoEnum('BgpVrfRouteTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'as':'as_',
             'ipv4-address':'ipv4_address',
             'four-byte-as':'four_byte_as',
+        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
+    'BmpPolicySelectEnum' : _MetaInfoEnum('BmpPolicySelectEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+        {
+            'pre-policy':'pre_policy',
+            'post-policy':'post_policy',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpAdvRtEnum' : _MetaInfoEnum('BgpAdvRtEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'bgp-regular-rt':'bgp_regular_rt',
             'bgp-stitching-rt':'bgp_stitching_rt',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpAfEncapsulationEnum' : _MetaInfoEnum('BgpAfEncapsulationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpSignalEnum' : _MetaInfoEnum('BgpSignalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'vx-lan':'vx_lan',
-        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpMvpnSfsSelectEnum' : _MetaInfoEnum('BgpMvpnSfsSelectEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
-        {
-            'all-paths':'all_paths',
-            'highest-ip-address':'highest_ip_address',
+            'bgp-disable':'bgp_disable',
+            'ldp-disable':'ldp_disable',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpAigpCfgPoiEnum' : _MetaInfoEnum('BgpAigpCfgPoiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'pre-best-path':'pre_best_path',
             'igp-cost':'igp_cost',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpBfdEnableModeEnum' : _MetaInfoEnum('BgpBfdEnableModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpFlowspecValidationCfgEnum' : _MetaInfoEnum('BgpFlowspecValidationCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
+            'enable':'enable',
             'disable':'disable',
-            'default':'default',
-            'strict':'strict',
+            'redirect-nexhop-disable':'redirect_nexhop_disable',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpRpkiTransportEnum' : _MetaInfoEnum('BgpRpkiTransportEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpReorgOptEnum' : _MetaInfoEnum('BgpReorgOptEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'tcp':'tcp',
-            'ssh':'ssh',
+            'bgp-cfg-adv':'bgp_cfg_adv',
+            'bgp-cfg-adv-reorg':'bgp_cfg_adv_reorg',
+            'bgp-cfg-adv-disable':'bgp_cfg_adv_disable',
+            'bgp-cfg-adv-local':'bgp_cfg_adv_local',
+            'bgp-cfg-adv-def-vrf-imp-disable':'bgp_cfg_adv_def_vrf_imp_disable',
+            'bgp-cfg-adv-vrf-re-imp-disable':'bgp_cfg_adv_vrf_re_imp_disable',
+        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
+    'BgpMvpnSfsSelectEnum' : _MetaInfoEnum('BgpMvpnSfsSelectEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+        {
+            'all-paths':'all_paths',
+            'highest-ip-address':'highest_ip_address',
+        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
+    'BgpSendMcastAttrCfgEnum' : _MetaInfoEnum('BgpSendMcastAttrCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+        {
+            'enable':'enable',
+            'disable':'disable',
+        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
+    'BgpAfEncapsulationEnum' : _MetaInfoEnum('BgpAfEncapsulationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+        {
+            'vx-lan':'vx_lan',
+        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
+    'BgpSiteOfOriginEnum' : _MetaInfoEnum('BgpSiteOfOriginEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+        {
+            'as':'as_',
+            'ipv4-address':'ipv4_address',
+            'four-byte-as':'four_byte_as',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BmpRouteDirectionEnum' : _MetaInfoEnum('BmpRouteDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'inbound':'inbound',
             'outbound':'outbound',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpSendMcastAttrCfgEnum' : _MetaInfoEnum('BgpSendMcastAttrCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpTcpModeEnum' : _MetaInfoEnum('BgpTcpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'enable':'enable',
-            'disable':'disable',
+            'either':'either',
+            'active-only':'active_only',
+            'passive-only':'passive_only',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpRouteDistinguisherEnum' : _MetaInfoEnum('BgpRouteDistinguisherEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
@@ -73,65 +105,33 @@ _meta_table = {
             'send':'send',
             'both':'both',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpVrfRouteTargetEnum' : _MetaInfoEnum('BgpVrfRouteTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
-        {
-            'as':'as_',
-            'ipv4-address':'ipv4_address',
-            'four-byte-as':'four_byte_as',
-        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpEbgpSendDmzEnableModeEnum' : _MetaInfoEnum('BgpEbgpSendDmzEnableModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
-        {
-            'disable':'disable',
-            'default':'default',
-            'cumulative':'cumulative',
-        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpClusterIdEnum' : _MetaInfoEnum('BgpClusterIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'number':'number',
             'ipv4-address':'ipv4_address',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpTcpModeEnum' : _MetaInfoEnum('BgpTcpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpRpkiTransportEnum' : _MetaInfoEnum('BgpRpkiTransportEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'either':'either',
-            'active-only':'active_only',
-            'passive-only':'passive_only',
+            'tcp':'tcp',
+            'ssh':'ssh',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'BgpAigpCfgEnum' : _MetaInfoEnum('BgpAigpCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
             'enable':'enable',
             'disable':'disable',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BmpPolicySelectEnum' : _MetaInfoEnum('BmpPolicySelectEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
+    'BgpBfdEnableModeEnum' : _MetaInfoEnum('BgpBfdEnableModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
         {
-            'pre-policy':'pre_policy',
-            'post-policy':'post_policy',
-        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpFlowspecValidationCfgEnum' : _MetaInfoEnum('BgpFlowspecValidationCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
-        {
-            'enable':'enable',
             'disable':'disable',
-            'redirect-nexhop-disable':'redirect_nexhop_disable',
-        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpSignalEnum' : _MetaInfoEnum('BgpSignalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
-        {
-            'bgp-disable':'bgp_disable',
-            'ldp-disable':'ldp_disable',
-        }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
-    'BgpReorgOptEnum' : _MetaInfoEnum('BgpReorgOptEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg',
-        {
-            'bgp-cfg-adv':'bgp_cfg_adv',
-            'bgp-cfg-adv-reorg':'bgp_cfg_adv_reorg',
-            'bgp-cfg-adv-disable':'bgp_cfg_adv_disable',
-            'bgp-cfg-adv-local':'bgp_cfg_adv_local',
-            'bgp-cfg-adv-def-vrf-imp-disable':'bgp_cfg_adv_def_vrf_imp_disable',
-            'bgp-cfg-adv-vrf-re-imp-disable':'bgp_cfg_adv_vrf_re_imp_disable',
+            'default':'default',
+            'strict':'strict',
         }, 'Cisco-IOS-XR-ipv4-bgp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg']),
     'Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher' : {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -314,14 +314,14 @@ _meta_table = {
                 'aggregate_addr',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('aggregate-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Aggregate in prefix/length format (address
                         part)
                         ''',
                         'aggregate_addr',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('aggregate-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Aggregate in prefix/length format (address
                         part)
                         ''',
@@ -572,7 +572,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                EIGRP router tag
                 ''',
                 'instance_name',
@@ -584,7 +584,7 @@ _meta_table = {
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for internal routes,
                 02 for external routes, Logical combinations
                 permitted.
@@ -632,13 +632,13 @@ _meta_table = {
                 'network_addr',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('network-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network in prefix/length format (address part)
                         ''',
                         'network_addr',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('network-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network in prefix/length format (address part)
                         ''',
                         'network_addr',
@@ -767,7 +767,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                OSPF router tag
                 ''',
                 'instance_name',
@@ -779,7 +779,7 @@ _meta_table = {
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for internal routes,
                 02 for external routes of type 1, 04 for
                 external routes of type 2, 08 for NSSA
@@ -1125,7 +1125,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -1421,7 +1421,7 @@ _meta_table = {
                 'route_distinguisher',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configure Router-id
                 ''',
                 'router_id',
@@ -1726,7 +1726,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -2420,13 +2420,13 @@ _meta_table = {
                 'local_ip_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', False),
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
@@ -2574,7 +2574,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                The neighbor password.  Leave unspecified when
                 disabling the password.
                 ''',
@@ -2623,7 +2623,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
@@ -3020,13 +3020,13 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'neighbor_address',
@@ -3327,7 +3327,7 @@ _meta_table = {
                 'update_in_filtering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
@@ -3626,7 +3626,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -4320,13 +4320,13 @@ _meta_table = {
                 'local_ip_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', False),
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
@@ -4474,7 +4474,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                The neighbor password.  Leave unspecified when
                 disabling the password.
                 ''',
@@ -4523,7 +4523,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
@@ -4913,6 +4913,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength',
             False, 
             [
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [('0', '127')], [], 
+                '''                Prefix length
+                ''',
+                'prefix_length',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('neighbor-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Neighbor address
@@ -4920,24 +4926,18 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                 ]),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [('0', '127')], [], 
-                '''                Prefix length
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Receive capability
@@ -5233,7 +5233,7 @@ _meta_table = {
                 'update_in_filtering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
@@ -5279,7 +5279,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -6266,13 +6266,13 @@ _meta_table = {
                 'local_ip_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', False),
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
@@ -6420,7 +6420,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                The neighbor password.  Leave unspecified when
                 disabling the password.
                 ''',
@@ -6469,7 +6469,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
@@ -6866,13 +6866,13 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'neighbor_address',
@@ -7191,7 +7191,7 @@ _meta_table = {
                 'update_in_filtering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
@@ -8149,13 +8149,13 @@ _meta_table = {
                 'local_ip_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', False),
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
@@ -8303,7 +8303,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                The neighbor password.  Leave unspecified when
                 disabling the password.
                 ''',
@@ -8352,7 +8352,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
@@ -8742,6 +8742,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength',
             False, 
             [
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [('0', '127')], [], 
+                '''                Prefix length
+                ''',
+                'prefix_length',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('neighbor-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Neighbor address
@@ -8749,24 +8755,18 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor address
                         ''',
                         'neighbor_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                 ]),
-            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [('0', '127')], [], 
-                '''                Prefix length
-                ''',
-                'prefix_length',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('additional-paths-receive-capability', REFERENCE_ENUM_CLASS, 'BgpNbrCapAdditionalPathsCfgEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpNbrCapAdditionalPathsCfgEnum', 
                 [], [], 
                 '''                Advertise additional paths Receive capability
@@ -9080,7 +9080,7 @@ _meta_table = {
                 'update_in_filtering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
@@ -9396,7 +9396,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -10115,13 +10115,13 @@ _meta_table = {
                 'local_ip_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', False),
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
@@ -10269,7 +10269,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                The neighbor password.  Leave unspecified when
                 disabling the password.
                 ''',
@@ -10318,7 +10318,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
@@ -10709,7 +10709,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                BGP neighbor group name
                 ''',
                 'neighbor_group_name',
@@ -11037,7 +11037,7 @@ _meta_table = {
                 'update_in_filtering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
@@ -11347,7 +11347,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -12051,7 +12051,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('af-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                BGP AF group name
                 ''',
                 'af_group_name',
@@ -12105,13 +12105,13 @@ _meta_table = {
                 'local_ip_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False, [
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', False),
                     _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Local ip address for neighbor
                         ''',
                         'local_ip_address',
@@ -12259,7 +12259,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                The neighbor password.  Leave unspecified when
                 disabling the password.
                 ''',
@@ -12308,7 +12308,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
@@ -12699,7 +12699,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('session-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                BGP session group name
                 ''',
                 'session_group_name',
@@ -13014,7 +13014,7 @@ _meta_table = {
                 'update_in_filtering',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',
@@ -13083,7 +13083,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Route-Reflector Cluster ID in IPV4 address
                 format
                 ''',
@@ -13372,7 +13372,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('as-list-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Group name
                 ''',
                 'as_list_group_name',
@@ -13498,17 +13498,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter',
             False, 
             [
-            _MetaInfoClassMember('attribute-end', ATTRIBUTE, 'int' , None, None, 
-                [('0', '256')], [], 
-                '''                End of attribute range
-                ''',
-                'attribute_end',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('attribute-start', ATTRIBUTE, 'int' , None, None, 
                 [('0', '256')], [], 
                 '''                Start of attribute range
                 ''',
                 'attribute_start',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
+            _MetaInfoClassMember('attribute-end', ATTRIBUTE, 'int' , None, None, 
+                [('0', '256')], [], 
+                '''                End of attribute range
+                ''',
+                'attribute_end',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('filter-action', REFERENCE_ENUM_CLASS, 'BgpUpdateFilterActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes', 'BgpUpdateFilterActionEnum', 
                 [], [], 
@@ -13545,7 +13545,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('attribute-filter-group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Group name
                 ''',
                 'attribute_filter_group_name',
@@ -13615,7 +13615,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IS-IS instance name
                 ''',
                 'instance_name',
@@ -13627,7 +13627,7 @@ _meta_table = {
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for level 1
                 routes, 02 for level 2 routes, 04 for
                 level 1 inter-area routes. Logical
@@ -13676,7 +13676,7 @@ _meta_table = {
                 'as_',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Router ID
                 ''',
                 'router_id',
@@ -13755,7 +13755,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                OnePK application name
                 ''',
                 'instance_name',
@@ -13831,14 +13831,14 @@ _meta_table = {
                 'cluster_id_address',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Cluster ID: if configured as an IP
                         Address
                         ''',
                         'cluster_id_address',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('cluster-id-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Cluster ID: if configured as an IP
                         Address
                         ''',
@@ -14090,14 +14090,14 @@ _meta_table = {
                 'aggregate_addr',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('aggregate-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Aggregate in prefix/length format (address
                         part)
                         ''',
                         'aggregate_addr',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('aggregate-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Aggregate in prefix/length format (address
                         part)
                         ''',
@@ -14348,7 +14348,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                EIGRP router tag
                 ''',
                 'instance_name',
@@ -14360,7 +14360,7 @@ _meta_table = {
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for internal routes,
                 02 for external routes, Logical combinations
                 permitted.
@@ -14408,13 +14408,13 @@ _meta_table = {
                 'network_addr',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('network-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network in prefix/length format (address part)
                         ''',
                         'network_addr',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('network-addr', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Network in prefix/length format (address part)
                         ''',
                         'network_addr',
@@ -14543,7 +14543,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                OSPF router tag
                 ''',
                 'instance_name',
@@ -14555,7 +14555,7 @@ _meta_table = {
                 'default_metric',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('redist-type', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Redistribution type: 01 for internal routes,
                 02 for external routes of type 1, 04 for
                 external routes of type 2, 08 for NSSA
@@ -15073,23 +15073,23 @@ _meta_table = {
                 'addrress',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True, [
                     _MetaInfoClassMember('addrress', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Address
                         ''',
                         'addrress',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                     _MetaInfoClassMember('addrress', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Address
                         ''',
                         'addrress',
                         'Cisco-IOS-XR-ipv4-bgp-cfg', True),
                 ]),
-            _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                AS Number
+                '''                Minimum Prefix Length
                 ''',
-                'as_',
+                'minimum',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
@@ -15097,11 +15097,11 @@ _meta_table = {
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
+            _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
-                '''                Minimum Prefix Length
+                '''                AS Number
                 ''',
-                'minimum',
+                'as_',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
@@ -15132,7 +15132,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -15562,7 +15562,7 @@ _meta_table = {
                 'receive_socket_buffer_sizes',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configure Router-id
                 ''',
                 'router_id',
@@ -15767,7 +15767,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('instance-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Instance Name. For Default instance use -
                 default
                 ''',
@@ -16024,7 +16024,7 @@ _meta_table = {
                 'tos',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('update-source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Select an interface to configure
                 ''',
                 'update_source_interface',

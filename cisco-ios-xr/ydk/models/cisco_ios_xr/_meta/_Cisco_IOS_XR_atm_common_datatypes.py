@@ -13,12 +13,13 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'AtmVpShapingEnum' : _MetaInfoEnum('AtmVpShapingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes',
+    'AtmPvcEncapsulationEnum' : _MetaInfoEnum('AtmPvcEncapsulationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes',
         {
-            'cbr':'cbr',
-            'vbr-nrt':'vbr_nrt',
-            'vbr-rt':'vbr_rt',
-            'ubr':'ubr',
+            'snap':'snap',
+            'vc-mux':'vc_mux',
+            'nlpid':'nlpid',
+            'aal0':'aal0',
+            'aal5':'aal5',
         }, 'Cisco-IOS-XR-atm-common-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-atm-common-datatypes']),
     'AtmPvcShapingEnum' : _MetaInfoEnum('AtmPvcShapingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes',
         {
@@ -27,13 +28,12 @@ _meta_table = {
             'vbr-rt':'vbr_rt',
             'ubr':'ubr',
         }, 'Cisco-IOS-XR-atm-common-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-atm-common-datatypes']),
-    'AtmPvcEncapsulationEnum' : _MetaInfoEnum('AtmPvcEncapsulationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes',
+    'AtmVpShapingEnum' : _MetaInfoEnum('AtmVpShapingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes',
         {
-            'snap':'snap',
-            'vc-mux':'vc_mux',
-            'nlpid':'nlpid',
-            'aal0':'aal0',
-            'aal5':'aal5',
+            'cbr':'cbr',
+            'vbr-nrt':'vbr_nrt',
+            'vbr-rt':'vbr_rt',
+            'ubr':'ubr',
         }, 'Cisco-IOS-XR-atm-common-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-atm-common-datatypes']),
     'AtmPvcDataEnum' : _MetaInfoEnum('AtmPvcDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes',
         {

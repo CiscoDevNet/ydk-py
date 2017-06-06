@@ -150,8 +150,6 @@ class RedundancyGroupManager(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.backup_interface_name is not None:
                     return True
 
@@ -294,8 +292,6 @@ class RedundancyGroupManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.controller_name is not None:
                                 return True
 
@@ -324,8 +320,6 @@ class RedundancyGroupManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.controller is not None:
                             for child_ref in self.controller:
                                 if child_ref._has_data():
@@ -350,8 +344,6 @@ class RedundancyGroupManager(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_id is not None:
                         return True
 
@@ -375,8 +367,6 @@ class RedundancyGroupManager(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.group is not None:
                     for child_ref in self.group:
                         if child_ref._has_data():
@@ -399,8 +389,6 @@ class RedundancyGroupManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.default_redundancy_group is not None and self.default_redundancy_group._has_data():
                 return True
 
@@ -586,8 +574,6 @@ class RedundancyGroupManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.backbone_name is not None:
                                 return True
 
@@ -610,8 +596,6 @@ class RedundancyGroupManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.backbone is not None:
                             for child_ref in self.backbone:
                                 if child_ref._has_data():
@@ -684,8 +668,6 @@ class RedundancyGroupManager(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.neighbor_address is not None:
                                 return True
 
@@ -708,8 +690,6 @@ class RedundancyGroupManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.member is not None:
                             for child_ref in self.member:
                                 if child_ref._has_data():
@@ -721,53 +701,6 @@ class RedundancyGroupManager(object):
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
                         return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members']['meta_info']
-
-
-                class NvSatellite(object):
-                    """
-                    nV Satellite configuration
-                    
-                    .. attribute:: system_mac
-                    
-                    	Optional identifier for this system
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                    
-                    
-
-                    """
-
-                    _prefix = 'icpe-infra-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.system_mac = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.system_mac is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
-                        return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite']['meta_info']
 
 
                 class Mlacp(object):
@@ -829,8 +762,6 @@ class RedundancyGroupManager(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connect_timeout is not None:
                             return True
 
@@ -850,6 +781,51 @@ class RedundancyGroupManager(object):
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
                         return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp']['meta_info']
 
+
+                class NvSatellite(object):
+                    """
+                    nV Satellite configuration
+                    
+                    .. attribute:: system_mac
+                    
+                    	Optional identifier for this system
+                    	**type**\:  str
+                    
+                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    
+
+                    """
+
+                    _prefix = 'icpe-infra-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.system_mac = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-cfg:nv-satellite'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.system_mac is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_rgmgr_cfg as meta
+                        return meta._meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.group_number is None:
@@ -862,8 +838,6 @@ class RedundancyGroupManager(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_number is not None:
                         return True
 
@@ -902,8 +876,6 @@ class RedundancyGroupManager(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.iccp_group is not None:
                     for child_ref in self.iccp_group:
                         if child_ref._has_data():
@@ -926,8 +898,6 @@ class RedundancyGroupManager(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.iccp_groups is not None and self.iccp_groups._has_data():
                 return True
 
@@ -948,8 +918,6 @@ class RedundancyGroupManager(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.aps is not None and self.aps._has_data():
             return True
 

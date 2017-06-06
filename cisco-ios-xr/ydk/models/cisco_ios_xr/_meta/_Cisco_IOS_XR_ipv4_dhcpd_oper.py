@@ -13,24 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'DhcpIssuVersionEnum' : _MetaInfoEnum('DhcpIssuVersionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
-        {
-            'version1':'version1',
-            'version2':'version2',
-        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
-    'DhcpIssuRoleEnum' : _MetaInfoEnum('DhcpIssuRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
-        {
-            'role-primary':'role_primary',
-            'role-secondary':'role_secondary',
-        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
-    'ProxyLeaseLimitEnum' : _MetaInfoEnum('ProxyLeaseLimitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
-        {
-            'none':'none',
-            'interface':'interface',
-            'circuit-id':'circuit_id',
-            'remote-id':'remote_id',
-            'remote-id-circuit-id':'remote_id_circuit_id',
-        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
     'DhcpIssuPhaseEnum' : _MetaInfoEnum('DhcpIssuPhaseEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
         {
             'phase-not-started':'phase_not_started',
@@ -39,30 +21,10 @@ _meta_table = {
             'phase-completed':'phase_completed',
             'phase-aborted':'phase_aborted',
         }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
-    'RelayInfoPolicyEnum' : _MetaInfoEnum('RelayInfoPolicyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
+    'DhcpIssuVersionEnum' : _MetaInfoEnum('DhcpIssuVersionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
         {
-            'replace':'replace',
-            'keep':'keep',
-            'drop':'drop',
-            'encapsulate':'encapsulate',
-        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
-    'BagDhcpdIntfSrgRoleEnum' : _MetaInfoEnum('BagDhcpdIntfSrgRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
-        {
-            'none':'none',
-            'master':'master',
-            'slave':'slave',
-        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
-    'DhcpcIpv4StateEnum' : _MetaInfoEnum('DhcpcIpv4StateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
-        {
-            'init':'init',
-            'init-reboot':'init_reboot',
-            'rebooting':'rebooting',
-            'selecting':'selecting',
-            'requesting':'requesting',
-            'bound':'bound',
-            'renewing':'renewing',
-            'rebinding':'rebinding',
-            'invalid':'invalid',
+            'version1':'version1',
+            'version2':'version2',
         }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
     'BagDhcpdProxyStateEnum' : _MetaInfoEnum('BagDhcpdProxyStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
         {
@@ -84,15 +46,27 @@ _meta_table = {
             'change-addr-dpm':'change_addr_dpm',
             'max':'max',
         }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
-    'RelayInfoVpnModeEnum' : _MetaInfoEnum('RelayInfoVpnModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
-        {
-            'rfc':'rfc',
-            'cisco':'cisco',
-        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
     'RelayInfoAuthenticateEnum' : _MetaInfoEnum('RelayInfoAuthenticateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
         {
             'received':'received',
             'inserted':'inserted',
+        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
+    'RelayInfoPolicyEnum' : _MetaInfoEnum('RelayInfoPolicyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
+        {
+            'replace':'replace',
+            'keep':'keep',
+            'drop':'drop',
+            'encapsulate':'encapsulate',
+        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
+    'DhcpIssuRoleEnum' : _MetaInfoEnum('DhcpIssuRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
+        {
+            'role-primary':'role_primary',
+            'role-secondary':'role_secondary',
+        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
+    'RelayInfoVpnModeEnum' : _MetaInfoEnum('RelayInfoVpnModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
+        {
+            'rfc':'rfc',
+            'cisco':'cisco',
         }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
     'BroadcastFlagEnum' : _MetaInfoEnum('BroadcastFlagEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
         {
@@ -100,12 +74,38 @@ _meta_table = {
             'check':'check',
             'unicast-always':'unicast_always',
         }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
+    'DhcpcIpv4StateEnum' : _MetaInfoEnum('DhcpcIpv4StateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
+        {
+            'init':'init',
+            'init-reboot':'init_reboot',
+            'rebooting':'rebooting',
+            'selecting':'selecting',
+            'requesting':'requesting',
+            'bound':'bound',
+            'renewing':'renewing',
+            'rebinding':'rebinding',
+            'invalid':'invalid',
+        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
+    'ProxyLeaseLimitEnum' : _MetaInfoEnum('ProxyLeaseLimitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
+        {
+            'none':'none',
+            'interface':'interface',
+            'circuit-id':'circuit_id',
+            'remote-id':'remote_id',
+            'remote-id-circuit-id':'remote_id_circuit_id',
+        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
+    'BagDhcpdIntfSrgRoleEnum' : _MetaInfoEnum('BagDhcpdIntfSrgRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper',
+        {
+            'none':'none',
+            'master':'master',
+            'slave':'slave',
+        }, 'Cisco-IOS-XR-ipv4-dhcpd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-dhcpd-oper']),
     'DhcpClient.Nodes.Node.ClientStats.ClientStat' : {
         'meta_info' : _MetaInfoClass('DhcpClient.Nodes.Node.ClientStats.ClientStat',
             False, 
             [
             _MetaInfoClassMember('client-ifhandle', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Client Ifhandle
                 ''',
                 'client_ifhandle',
@@ -415,7 +415,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('client-ifhandle', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Client Ifhandle
                 ''',
                 'client_ifhandle',
@@ -439,7 +439,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Dhcp Client IP Address
                 ''',
                 'ipv4_address',
@@ -475,19 +475,19 @@ _meta_table = {
                 'ipv4_renew_time',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('ipv4-server-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Dhcp Client selected server IP Address
                 ''',
                 'ipv4_server_address',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('ipv4-subnet-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Dhcp Client IP Address mask
                 ''',
                 'ipv4_subnet_mask',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('next-hop-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Dhcp Client next hop IP Address
                 ''',
                 'next_hop_ipv4_address',
@@ -521,7 +521,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node name
                 ''',
                 'node_name',
@@ -584,7 +584,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('client-uid', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Client opaque handle
                 ''',
                 'client_uid',
@@ -596,7 +596,7 @@ _meta_table = {
                 'snoop_binding_bridge_name',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('snoop-binding-ch-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                DHCP client MAC address
                 ''',
                 'snoop_binding_ch_addr',
@@ -608,7 +608,7 @@ _meta_table = {
                 'snoop_binding_ch_addr_len',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('snoop-binding-client-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                DHCP client id
                 ''',
                 'snoop_binding_client_id',
@@ -620,7 +620,7 @@ _meta_table = {
                 'snoop_binding_client_id_len',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('snoop-binding-i-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP iaddr
                 ''',
                 'snoop_binding_i_addr',
@@ -724,7 +724,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Profile name
                 ''',
                 'profile_name',
@@ -794,7 +794,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bridge-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Bridge domain name
                 ''',
                 'bridge_name',
@@ -1399,7 +1399,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -1507,13 +1507,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Profile name
                 ''',
                 'profile_name',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', True),
             _MetaInfoClassMember('gi-addr', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Gateway addresses
                 ''',
                 'gi_addr',
@@ -1555,7 +1555,7 @@ _meta_table = {
                 'is_relay_optionvpn_enabled',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('profile-helper-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Helper addresses
                 ''',
                 'profile_helper_address',
@@ -1712,7 +1712,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('client-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Client ID
                 ''',
                 'client_id',
@@ -1724,7 +1724,7 @@ _meta_table = {
                 'access_vrf_name',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('client-gi-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP client GIADDR
                 ''',
                 'client_gi_addr',
@@ -1742,13 +1742,13 @@ _meta_table = {
                 'event_history',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False, max_elements=20),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DHCP access interface to client
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP IP address
                 ''',
                 'ip_address',
@@ -1828,7 +1828,7 @@ _meta_table = {
                 'remaining_lease_time',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('reply-server-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP reply server IP address
                 ''',
                 'reply_server_ip_address',
@@ -1852,7 +1852,7 @@ _meta_table = {
                 'rx_vsiso',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('server-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP server IP address
                 ''',
                 'server_ip_address',
@@ -1882,7 +1882,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('subscriber-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DHCP subscriber interface
                 ''',
                 'subscriber_interface_name',
@@ -1894,7 +1894,7 @@ _meta_table = {
                 'subscriber_label',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('to-server-gi-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP to server GIADDR
                 ''',
                 'to_server_gi_addr',
@@ -2138,7 +2138,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -2880,7 +2880,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -2978,7 +2978,7 @@ _meta_table = {
                 'mode',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('option-data', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Matched option data
                 ''',
                 'option_data',
@@ -3012,7 +3012,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Profile name
                 ''',
                 'profile_name',
@@ -3243,7 +3243,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('server-profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Profile name
                 ''',
                 'server_profile_name',
@@ -3327,13 +3327,13 @@ _meta_table = {
                 'server_pool_name',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('server-profile-default-router', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Server default addresses
                 ''',
                 'server_profile_default_router',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False, max_elements=9),
             _MetaInfoClassMember('server-profile-dns', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Server DNS addresses
                 ''',
                 'server_profile_dns',
@@ -3363,7 +3363,7 @@ _meta_table = {
                 'server_profile_netbios_node_type',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('server-profile-netbious-name-server', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Server netbios addresses
                 ''',
                 'server_profile_netbious_name_server',
@@ -3375,7 +3375,7 @@ _meta_table = {
                 'server_profile_server_dns_count',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('server-profile-time-server', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Server Time addresses
                 ''',
                 'server_profile_time_server',
@@ -3399,7 +3399,7 @@ _meta_table = {
                 'server_profileiedge_check',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('subnet-mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Subnet Mask
                 ''',
                 'subnet_mask',
@@ -3624,7 +3624,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('client-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Client ID
                 ''',
                 'client_id',
@@ -3636,7 +3636,7 @@ _meta_table = {
                 'access_vrf_name',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('client-gi-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP client GIADDR
                 ''',
                 'client_gi_addr',
@@ -3654,13 +3654,13 @@ _meta_table = {
                 'event_history',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False, max_elements=20),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DHCP access interface to client
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP IP address
                 ''',
                 'ip_address',
@@ -3740,7 +3740,7 @@ _meta_table = {
                 'remaining_lease_time',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('reply-server-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP reply server IP address
                 ''',
                 'reply_server_ip_address',
@@ -3764,7 +3764,7 @@ _meta_table = {
                 'rx_vsiso',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('server-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP server IP address
                 ''',
                 'server_ip_address',
@@ -3794,7 +3794,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('subscriber-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DHCP subscriber interface
                 ''',
                 'subscriber_interface_name',
@@ -3806,7 +3806,7 @@ _meta_table = {
                 'subscriber_label',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('to-server-gi-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                DHCP to server GIADDR
                 ''',
                 'to_server_gi_addr',
@@ -4405,7 +4405,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -4486,7 +4486,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('profile-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Profile name
                 ''',
                 'profile_name',
@@ -4498,7 +4498,7 @@ _meta_table = {
                 'relay_profile_broadcast_flag_policy',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('relay-profile-gi-addr', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Gateway addresses
                 ''',
                 'relay_profile_gi_addr',
@@ -4510,7 +4510,7 @@ _meta_table = {
                 'relay_profile_gi_addr_policy',
                 'Cisco-IOS-XR-ipv4-dhcpd-oper', False),
             _MetaInfoClassMember('relay-profile-helper-address', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Helper addresses
                 ''',
                 'relay_profile_helper_address',
@@ -5191,7 +5191,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF name
                 ''',
                 'vrf_name',
@@ -5266,7 +5266,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nodeid', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node id to filter on. For eg., 0/1/CPU0
                 ''',
                 'nodeid',

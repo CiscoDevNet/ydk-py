@@ -433,8 +433,6 @@ class Ipv6Io(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_header_packets is not None:
                                 return True
 
@@ -866,8 +864,6 @@ class Ipv6Io(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.checksum_error_messages is not None:
                                 return True
 
@@ -1096,8 +1092,6 @@ class Ipv6Io(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.received_neighbor_advertisement_messages is not None:
                                 return True
 
@@ -1147,8 +1141,6 @@ class Ipv6Io(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.icmp is not None and self.icmp._has_data():
                             return True
 
@@ -1177,8 +1169,6 @@ class Ipv6Io(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.traffic is not None and self.traffic._has_data():
                         return True
 
@@ -1201,8 +1191,6 @@ class Ipv6Io(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1226,8 +1214,6 @@ class Ipv6Io(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -1250,8 +1236,6 @@ class Ipv6Io(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

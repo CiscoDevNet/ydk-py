@@ -18,6 +18,12 @@ _meta_table = {
             'ipv4':'ipv4',
             'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-infra-rsi-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg']),
+    'VrfSubAddressFamilyEnum' : _MetaInfoEnum('VrfSubAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg',
+        {
+            'unicast':'unicast',
+            'multicast':'multicast',
+            'flow-spec':'flow_spec',
+        }, 'Cisco-IOS-XR-infra-rsi-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg']),
     'SrlgPriorityEnum' : _MetaInfoEnum('SrlgPriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg',
         {
             'critical':'critical',
@@ -25,12 +31,6 @@ _meta_table = {
             'default':'default',
             'low':'low',
             'very-low':'very_low',
-        }, 'Cisco-IOS-XR-infra-rsi-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg']),
-    'VrfSubAddressFamilyEnum' : _MetaInfoEnum('VrfSubAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg',
-        {
-            'unicast':'unicast',
-            'multicast':'multicast',
-            'flow-spec':'flow_spec',
         }, 'Cisco-IOS-XR-infra-rsi-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg']),
     'Vrfs.Vrf.VpnId' : {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.VpnId',
@@ -55,10 +55,39 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
         ),
     },
+    'Vrfs.Vrf.Afs.Af.MaximumPrefix' : {
+        'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.MaximumPrefix',
+            False, 
+            [
+            _MetaInfoClassMember('mid-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('1', '100')], [], 
+                '''                Mid-threshold (% of maximum)
+                ''',
+                'mid_threshold',
+                'Cisco-IOS-XR-ip-rib-cfg', False),
+            _MetaInfoClassMember('prefix-limit', ATTRIBUTE, 'int' , None, None, 
+                [('32', '5000000')], [], 
+                '''                Set table's maximum prefix limit
+                ''',
+                'prefix_limit',
+                'Cisco-IOS-XR-ip-rib-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-rib-cfg',
+            'maximum-prefix',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rib-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
+        ),
+    },
     'Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs' : {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs',
             False, 
             [
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                AS number
+                ''',
+                'as_xx',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [('1', '4294967295')], [], 
                 '''                AS number
@@ -70,12 +99,6 @@ _meta_table = {
                 '''                AS number Index
                 ''',
                 'as_index',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                AS number
-                ''',
-                'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('stitching-rt', ATTRIBUTE, 'int' , None, None, 
                 [('0', '1')], [], 
@@ -95,7 +118,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -186,6 +209,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs',
             False, 
             [
+            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                AS number
+                ''',
+                'as_xx',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('as', ATTRIBUTE, 'int' , None, None, 
                 [('1', '4294967295')], [], 
                 '''                AS number
@@ -197,12 +226,6 @@ _meta_table = {
                 '''                AS number Index
                 ''',
                 'as_index',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', True),
-            _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
-                [('0', '4294967295')], [], 
-                '''                AS number
-                ''',
-                'as_xx',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', True),
             _MetaInfoClassMember('stitching-rt', ATTRIBUTE, 'int' , None, None, 
                 [('0', '1')], [], 
@@ -222,7 +245,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address
                 ''',
                 'address',
@@ -447,29 +470,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
         ),
     },
-    'Vrfs.Vrf.Afs.Af.MaximumPrefix' : {
-        'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.MaximumPrefix',
-            False, 
-            [
-            _MetaInfoClassMember('mid-threshold', ATTRIBUTE, 'int' , None, None, 
-                [('1', '100')], [], 
-                '''                Mid-threshold (% of maximum)
-                ''',
-                'mid_threshold',
-                'Cisco-IOS-XR-ip-rib-cfg', False),
-            _MetaInfoClassMember('prefix-limit', ATTRIBUTE, 'int' , None, None, 
-                [('32', '5000000')], [], 
-                '''                Set table's maximum prefix limit
-                ''',
-                'prefix_limit',
-                'Cisco-IOS-XR-ip-rib-cfg', False),
-            ],
-            'Cisco-IOS-XR-ip-rib-cfg',
-            'maximum-prefix',
-            _yang_ns._namespaces['Cisco-IOS-XR-ip-rib-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
-        ),
-    },
     'Vrfs.Vrf.Afs.Af' : {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af',
             False, 
@@ -540,7 +540,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Default multicast host interface name
                 ''',
                 'interface',
@@ -557,7 +557,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Default multicast host interface name
                 ''',
                 'interface',
@@ -922,7 +922,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -1072,7 +1072,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('group-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Group name
                 ''',
                 'group_name',
@@ -1164,7 +1164,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('inherit-node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'], 
+                [], [b'((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'], 
                 '''                The inherit node name
                 ''',
                 'inherit_node_name',
@@ -1358,8 +1358,8 @@ _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets']['meta_info'].parent =_meta
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
-_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
+_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs']['meta_info']
 _meta_table['Vrfs.Vrf.MulticastHost.Ipv4']['meta_info'].parent =_meta_table['Vrfs.Vrf.MulticastHost']['meta_info']
 _meta_table['Vrfs.Vrf.MulticastHost.Ipv6']['meta_info'].parent =_meta_table['Vrfs.Vrf.MulticastHost']['meta_info']

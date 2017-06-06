@@ -175,8 +175,6 @@ class Icmp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.fragmentation is not None:
                         return True
 
@@ -202,8 +200,6 @@ class Icmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.unreachable is not None and self.unreachable._has_data():
                     return True
 
@@ -247,8 +243,6 @@ class Icmp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.source_address_policy is not None:
                     return True
 
@@ -271,8 +265,6 @@ class Icmp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.protocol_type is not None:
                 return True
 
@@ -299,8 +291,6 @@ class Icmp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ip_protocol is not None:
             for child_ref in self.ip_protocol:
                 if child_ref._has_data():

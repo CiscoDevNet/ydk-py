@@ -25,9 +25,9 @@ from setuptools import setup, find_packages
 HERE = path.abspath(path.dirname(__file__))
 
 INSTALL_REQUIREMENTS = ['enum34==1.1.3',
-                        'lxml==3.4.4',
+                        'lxml>=3.4.4',
                         'ncclient>=0.4.7',
-                        'ydk>=0.5.2']
+                        'ydk>=0.5.4']
 
 NMSP_PKG_NAME = "ydk-models-openconfig"
 NMSP_PKG_VERSION = "0.1.2"

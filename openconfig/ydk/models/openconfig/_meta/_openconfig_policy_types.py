@@ -24,17 +24,6 @@ _meta_table = {
             'ALL':'ALL',
             'INVERT':'INVERT',
         }, 'openconfig-policy-types', _yang_ns._namespaces['openconfig-policy-types']),
-    'InstallProtocolTypeIdentity' : {
-        'meta_info' : _MetaInfoClass('InstallProtocolTypeIdentity',
-            False, 
-            [
-            ],
-            'openconfig-policy-types',
-            'install-protocol-type',
-            _yang_ns._namespaces['openconfig-policy-types'],
-        'ydk.models.openconfig.openconfig_policy_types'
-        ),
-    },
     'AttributeComparisonIdentity' : {
         'meta_info' : _MetaInfoClass('AttributeComparisonIdentity',
             False, 
@@ -46,13 +35,13 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_policy_types'
         ),
     },
-    'IsisIdentity' : {
-        'meta_info' : _MetaInfoClass('IsisIdentity',
+    'InstallProtocolTypeIdentity' : {
+        'meta_info' : _MetaInfoClass('InstallProtocolTypeIdentity',
             False, 
             [
             ],
             'openconfig-policy-types',
-            'ISIS',
+            'install-protocol-type',
             _yang_ns._namespaces['openconfig-policy-types'],
         'ydk.models.openconfig.openconfig_policy_types'
         ),
@@ -68,28 +57,6 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_policy_types'
         ),
     },
-    'AttributeGeIdentity' : {
-        'meta_info' : _MetaInfoClass('AttributeGeIdentity',
-            False, 
-            [
-            ],
-            'openconfig-policy-types',
-            'attribute-ge',
-            _yang_ns._namespaces['openconfig-policy-types'],
-        'ydk.models.openconfig.openconfig_policy_types'
-        ),
-    },
-    'BgpIdentity' : {
-        'meta_info' : _MetaInfoClass('BgpIdentity',
-            False, 
-            [
-            ],
-            'openconfig-policy-types',
-            'BGP',
-            _yang_ns._namespaces['openconfig-policy-types'],
-        'ydk.models.openconfig.openconfig_policy_types'
-        ),
-    },
     'DirectlyConnectedIdentity' : {
         'meta_info' : _MetaInfoClass('DirectlyConnectedIdentity',
             False, 
@@ -97,28 +64,6 @@ _meta_table = {
             ],
             'openconfig-policy-types',
             'DIRECTLY-CONNECTED',
-            _yang_ns._namespaces['openconfig-policy-types'],
-        'ydk.models.openconfig.openconfig_policy_types'
-        ),
-    },
-    'StaticIdentity' : {
-        'meta_info' : _MetaInfoClass('StaticIdentity',
-            False, 
-            [
-            ],
-            'openconfig-policy-types',
-            'STATIC',
-            _yang_ns._namespaces['openconfig-policy-types'],
-        'ydk.models.openconfig.openconfig_policy_types'
-        ),
-    },
-    'LocalAggregateIdentity' : {
-        'meta_info' : _MetaInfoClass('LocalAggregateIdentity',
-            False, 
-            [
-            ],
-            'openconfig-policy-types',
-            'LOCAL-AGGREGATE',
             _yang_ns._namespaces['openconfig-policy-types'],
         'ydk.models.openconfig.openconfig_policy_types'
         ),
@@ -134,6 +79,28 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_policy_types'
         ),
     },
+    'BgpIdentity' : {
+        'meta_info' : _MetaInfoClass('BgpIdentity',
+            False, 
+            [
+            ],
+            'openconfig-policy-types',
+            'BGP',
+            _yang_ns._namespaces['openconfig-policy-types'],
+        'ydk.models.openconfig.openconfig_policy_types'
+        ),
+    },
+    'AttributeGeIdentity' : {
+        'meta_info' : _MetaInfoClass('AttributeGeIdentity',
+            False, 
+            [
+            ],
+            'openconfig-policy-types',
+            'attribute-ge',
+            _yang_ns._namespaces['openconfig-policy-types'],
+        'ydk.models.openconfig.openconfig_policy_types'
+        ),
+    },
     'OspfIdentity' : {
         'meta_info' : _MetaInfoClass('OspfIdentity',
             False, 
@@ -145,6 +112,28 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_policy_types'
         ),
     },
+    'LocalAggregateIdentity' : {
+        'meta_info' : _MetaInfoClass('LocalAggregateIdentity',
+            False, 
+            [
+            ],
+            'openconfig-policy-types',
+            'LOCAL-AGGREGATE',
+            _yang_ns._namespaces['openconfig-policy-types'],
+        'ydk.models.openconfig.openconfig_policy_types'
+        ),
+    },
+    'IsisIdentity' : {
+        'meta_info' : _MetaInfoClass('IsisIdentity',
+            False, 
+            [
+            ],
+            'openconfig-policy-types',
+            'ISIS',
+            _yang_ns._namespaces['openconfig-policy-types'],
+        'ydk.models.openconfig.openconfig_policy_types'
+        ),
+    },
     'Ospf3Identity' : {
         'meta_info' : _MetaInfoClass('Ospf3Identity',
             False, 
@@ -152,6 +141,17 @@ _meta_table = {
             ],
             'openconfig-policy-types',
             'OSPF3',
+            _yang_ns._namespaces['openconfig-policy-types'],
+        'ydk.models.openconfig.openconfig_policy_types'
+        ),
+    },
+    'StaticIdentity' : {
+        'meta_info' : _MetaInfoClass('StaticIdentity',
+            False, 
+            [
+            ],
+            'openconfig-policy-types',
+            'STATIC',
             _yang_ns._namespaces['openconfig-policy-types'],
         'ydk.models.openconfig.openconfig_policy_types'
         ),

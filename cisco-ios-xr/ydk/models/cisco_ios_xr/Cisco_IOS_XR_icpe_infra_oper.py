@@ -1423,8 +1423,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.operation_id is not None:
                     return True
 
@@ -1471,8 +1469,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.reload_op_status is not None:
                 for child_ref in self.reload_op_status:
                     if child_ref._has_data():
@@ -1737,8 +1733,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.satellite_range is not None:
                     return True
 
@@ -1855,8 +1849,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.install_status is not None:
                 for child_ref in self.install_status:
                     if child_ref._has_data():
@@ -2036,8 +2028,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -2179,8 +2169,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -2241,8 +2229,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -2268,8 +2254,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.chan_state is not None:
                         return True
 
@@ -2316,8 +2300,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.iccp_group is not None:
                     return True
 
@@ -2373,8 +2355,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sdacp_redundancy is not None:
                 for child_ref in self.sdacp_redundancy:
                     if child_ref._has_data():
@@ -2764,8 +2744,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.end_time is not None:
                         return True
 
@@ -2806,8 +2784,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.operation_id is not None:
                     return True
 
@@ -2949,8 +2925,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.install_show is not None:
                 for child_ref in self.install_show:
                     if child_ref._has_data():
@@ -3386,8 +3360,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.port is not None:
                             return True
 
@@ -3480,8 +3452,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.permanent is not None:
                             return True
 
@@ -3519,8 +3489,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.channel_up is not None:
                         return True
 
@@ -3615,8 +3583,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -3642,8 +3608,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.application is not None:
                         for child_ref in self.application:
                             if child_ref._has_data():
@@ -3706,8 +3670,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -3913,8 +3875,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.conflict_context is not None:
                             return True
 
@@ -3996,8 +3956,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.conflict_context is not None:
                             return True
 
@@ -4029,8 +3987,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.conflict_context is not None:
                         return True
 
@@ -4096,8 +4052,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.satellite_id is not None:
                     return True
 
@@ -4242,8 +4196,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.satellite_status is not None:
                 for child_ref in self.satellite_status:
                     if child_ref._has_data():
@@ -4368,8 +4320,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.satellite_id is not None:
                     return True
 
@@ -4411,8 +4361,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.satellite_priority is not None:
                 for child_ref in self.satellite_priority:
                     if child_ref._has_data():
@@ -4567,8 +4515,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.remote_version is not None:
                         for child in self.remote_version:
                             if child is not None:
@@ -4634,8 +4580,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.remote_version is not None:
                         for child in self.remote_version:
                             if child is not None:
@@ -4701,8 +4645,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.remote_version is not None:
                         for child in self.remote_version:
                             if child is not None:
@@ -4733,8 +4675,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.satellite_id is not None:
                     return True
 
@@ -4778,8 +4718,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.satellite_version is not None:
                 for child_ref in self.satellite_version:
                     if child_ref._has_data():
@@ -4935,8 +4873,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.discovery_running is not None:
                         return True
 
@@ -5186,8 +5122,6 @@ class NvSatellite(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.icl_id is not None:
                                 return True
 
@@ -5228,8 +5162,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active is not None:
                             return True
 
@@ -5272,8 +5204,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.configured is not None:
                         return True
 
@@ -5331,8 +5261,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -5378,8 +5306,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.satellite_topology is not None:
                 for child_ref in self.satellite_topology:
                     if child_ref._has_data():
@@ -5470,8 +5396,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.progress_percentage is not None:
                     return True
 
@@ -5498,8 +5422,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.install_progress is not None:
                 for child_ref in self.install_progress:
                     if child_ref._has_data():
@@ -5616,8 +5538,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.satellite_range is not None:
                     return True
 
@@ -5661,8 +5581,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.reload_status is not None:
                 for child_ref in self.reload_status:
                     if child_ref._has_data():
@@ -5868,8 +5786,6 @@ class NvSatellite(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_base_image is not None:
                                     return True
 
@@ -5898,8 +5814,6 @@ class NvSatellite(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.package is not None:
                                 for child_ref in self.package:
                                     if child_ref._has_data():
@@ -5980,8 +5894,6 @@ class NvSatellite(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_base_image is not None:
                                     return True
 
@@ -6010,8 +5922,6 @@ class NvSatellite(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.package is not None:
                                 for child_ref in self.package:
                                     if child_ref._has_data():
@@ -6092,8 +6002,6 @@ class NvSatellite(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.is_base_image is not None:
                                     return True
 
@@ -6122,8 +6030,6 @@ class NvSatellite(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.package is not None:
                                 for child_ref in self.package:
                                     if child_ref._has_data():
@@ -6148,8 +6054,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active_packages is not None and self.active_packages._has_data():
                             return True
 
@@ -6178,8 +6082,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.satellite_id is not None:
                         return True
 
@@ -6209,8 +6111,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.satellite_software_version is not None:
                     for child_ref in self.satellite_software_version:
                         if child_ref._has_data():
@@ -6233,8 +6133,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.satellite_software_versions is not None and self.satellite_software_versions._has_data():
                 return True
 
@@ -6497,8 +6395,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.operation_id is not None:
                     return True
 
@@ -6615,8 +6511,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.install_op_status is not None:
                 for child_ref in self.install_op_status:
                     if child_ref._has_data():
@@ -6725,8 +6619,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sat_id_range is not None:
                         return True
 
@@ -6753,8 +6645,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.id_range is not None:
                     for child_ref in self.id_range:
                         if child_ref._has_data():
@@ -6777,8 +6667,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.id_ranges is not None and self.id_ranges._has_data():
                 return True
 
@@ -6901,8 +6789,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -7069,8 +6955,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.conflict_reason is not None:
                             return True
 
@@ -7117,8 +7001,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.conflict_reason is not None:
                         return True
 
@@ -7158,8 +7040,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -7193,8 +7073,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sdacp_discovery2 is not None:
                 for child_ref in self.sdacp_discovery2:
                     if child_ref._has_data():
@@ -7648,8 +7526,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ack_packets_sent is not None:
                         return True
 
@@ -7848,8 +7724,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.current_timeout is not None:
                         return True
 
@@ -7893,8 +7767,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.discovery_interface is not None:
                     return True
 
@@ -7967,8 +7839,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.icpe_dpm is not None:
                 for child_ref in self.icpe_dpm:
                     if child_ref._has_data():
@@ -8138,8 +8008,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -8200,8 +8068,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nanoseconds is not None:
                         return True
 
@@ -8411,8 +8277,6 @@ class NvSatellite(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.debug is not None:
                                 return True
 
@@ -8443,8 +8307,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tl_vs is not None:
                             for child_ref in self.tl_vs:
                                 if child_ref._has_data():
@@ -8504,8 +8366,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -8566,8 +8426,6 @@ class NvSatellite(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nanoseconds is not None:
                             return True
 
@@ -8593,8 +8451,6 @@ class NvSatellite(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.capabilities is not None and self.capabilities._has_data():
                         return True
 
@@ -8656,8 +8512,6 @@ class NvSatellite(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.satellite_id is not None:
                     return True
 
@@ -8707,8 +8561,6 @@ class NvSatellite(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.sdacp_control is not None:
                 for child_ref in self.sdacp_control:
                     if child_ref._has_data():
@@ -8731,8 +8583,6 @@ class NvSatellite(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.icpe_dpms is not None and self.icpe_dpms._has_data():
             return True
 

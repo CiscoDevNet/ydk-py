@@ -18,10 +18,10 @@ _meta_table = {
             'ok':'ok',
             'degraded':'degraded',
         }, 'Cisco-IOS-XR-ethernet-cfm-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-datatypes']),
-    'CfmMepDirEnum' : _MetaInfoEnum('CfmMepDirEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes',
+    'CfmAisIntervalEnum' : _MetaInfoEnum('CfmAisIntervalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes',
         {
-            'up':'up',
-            'down':'down',
+            '1s':'Y_1s',
+            '1m':'Y_1m',
         }, 'Cisco-IOS-XR-ethernet-cfm-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-datatypes']),
     'CfmCcmIntervalEnum' : _MetaInfoEnum('CfmCcmIntervalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes',
         {
@@ -33,9 +33,9 @@ _meta_table = {
             '1m':'Y_1m',
             '10m':'Y_10m',
         }, 'Cisco-IOS-XR-ethernet-cfm-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-datatypes']),
-    'CfmAisIntervalEnum' : _MetaInfoEnum('CfmAisIntervalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes',
+    'CfmMepDirEnum' : _MetaInfoEnum('CfmMepDirEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes',
         {
-            '1s':'Y_1s',
-            '1m':'Y_1m',
+            'up':'up',
+            'down':'down',
         }, 'Cisco-IOS-XR-ethernet-cfm-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-datatypes']),
 }

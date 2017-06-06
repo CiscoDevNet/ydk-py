@@ -575,8 +575,6 @@ class LogicalChannels(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.assignment_index is not None:
                         return True
 
@@ -614,8 +612,6 @@ class LogicalChannels(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.logical_channel_assignment is not None:
                     for child_ref in self.logical_channel_assignment:
                         if child_ref._has_data():
@@ -677,8 +673,6 @@ class LogicalChannels(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tti_msg_auto is not None:
                     return True
 
@@ -707,8 +701,6 @@ class LogicalChannels(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.channel_index is not None:
                 return True
 
@@ -759,8 +751,6 @@ class LogicalChannels(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.channel is not None:
             for child_ref in self.channel:
                 if child_ref._has_data():
@@ -846,8 +836,6 @@ class OpticalChannels(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ifname is not None:
                 return True
 
@@ -874,8 +862,6 @@ class OpticalChannels(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.optical_channel is not None:
             for child_ref in self.optical_channel:
                 if child_ref._has_data():

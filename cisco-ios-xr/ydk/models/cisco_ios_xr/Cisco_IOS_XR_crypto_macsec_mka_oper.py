@@ -339,8 +339,6 @@ class Macsec(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cfi is not None:
                                     return True
 
@@ -419,8 +417,6 @@ class Macsec(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.cfi is not None:
                                     return True
 
@@ -452,8 +448,6 @@ class Macsec(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.algo_agility is not None:
                                 return True
 
@@ -656,8 +650,6 @@ class Macsec(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.cipher_suite is not None:
                                 return True
 
@@ -904,8 +896,6 @@ class Macsec(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mi is not None:
                                     return True
 
@@ -991,8 +981,6 @@ class Macsec(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mi is not None:
                                     return True
 
@@ -1078,8 +1066,6 @@ class Macsec(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mi is not None:
                                     return True
 
@@ -1114,8 +1100,6 @@ class Macsec(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.authentication_mode is not None:
                                 return True
 
@@ -1189,8 +1173,6 @@ class Macsec(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ca is not None:
                             for child_ref in self.ca:
                                 if child_ref._has_data():
@@ -1221,8 +1203,6 @@ class Macsec(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -1246,8 +1226,6 @@ class Macsec(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -1270,8 +1248,6 @@ class Macsec(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interfaces is not None and self.interfaces._has_data():
                 return True
 
@@ -1292,8 +1268,6 @@ class Macsec(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.mka is not None and self.mka._has_data():
             return True
 

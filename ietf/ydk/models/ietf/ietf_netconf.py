@@ -449,8 +449,6 @@ class GetConfigRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.candidate is not None:
                     return True
 
@@ -479,8 +477,6 @@ class GetConfigRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.filter is not None:
                 return True
 
@@ -530,8 +526,6 @@ class GetConfigRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.data is not None:
                 return True
 
@@ -552,8 +546,6 @@ class GetConfigRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -793,8 +785,6 @@ class EditConfigRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.candidate is not None:
                     return True
 
@@ -820,8 +810,6 @@ class EditConfigRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.config is not None:
                 return True
 
@@ -857,8 +845,6 @@ class EditConfigRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -979,8 +965,6 @@ class CopyConfigRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.candidate is not None:
                     return True
 
@@ -1057,8 +1041,6 @@ class CopyConfigRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.candidate is not None:
                     return True
 
@@ -1093,8 +1075,6 @@ class CopyConfigRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.source is not None and self.source._has_data():
                 return True
 
@@ -1121,8 +1101,6 @@ class CopyConfigRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1217,8 +1195,6 @@ class DeleteConfigRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.startup is not None:
                     return True
 
@@ -1244,8 +1220,6 @@ class DeleteConfigRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.target is not None and self.target._has_data():
                 return True
 
@@ -1266,8 +1240,6 @@ class DeleteConfigRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1369,8 +1341,6 @@ class LockRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.candidate is not None:
                     return True
 
@@ -1399,8 +1369,6 @@ class LockRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.target is not None and self.target._has_data():
                 return True
 
@@ -1421,8 +1389,6 @@ class LockRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1524,8 +1490,6 @@ class UnlockRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.candidate is not None:
                     return True
 
@@ -1554,8 +1518,6 @@ class UnlockRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.target is not None and self.target._has_data():
                 return True
 
@@ -1576,8 +1538,6 @@ class UnlockRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1657,8 +1617,6 @@ class GetRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.filter is not None:
                 return True
 
@@ -1705,8 +1663,6 @@ class GetRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.data is not None:
                 return True
 
@@ -1727,8 +1683,6 @@ class GetRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1768,8 +1722,6 @@ class CloseSessionRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -1837,8 +1789,6 @@ class KillSessionRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session_id is not None:
                 return True
 
@@ -1859,8 +1809,6 @@ class KillSessionRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1952,8 +1900,6 @@ class CommitRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.confirm_timeout is not None:
                 return True
 
@@ -1983,8 +1929,6 @@ class CommitRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2022,8 +1966,6 @@ class DiscardChangesRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         return False
 
     @staticmethod
@@ -2090,8 +2032,6 @@ class CancelCommitRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.persist_id is not None:
                 return True
 
@@ -2112,8 +2052,6 @@ class CancelCommitRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -2226,8 +2164,6 @@ class ValidateRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.candidate is not None:
                     return True
 
@@ -2262,8 +2198,6 @@ class ValidateRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.source is not None and self.source._has_data():
                 return True
 
@@ -2284,8 +2218,6 @@ class ValidateRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 

@@ -13,11 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'SubscriberRedundancyGroupSlaveModeEnum' : _MetaInfoEnum('SubscriberRedundancyGroupSlaveModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg',
-        {
-            'warm':'warm',
-            'hot':'hot',
-        }, 'Cisco-IOS-XR-subscriber-srg-cfg', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-cfg']),
     'SrgAddrFamilyEnum' : _MetaInfoEnum('SrgAddrFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg',
         {
             'ipv4':'ipv4',
@@ -28,12 +23,17 @@ _meta_table = {
             'master':'master',
             'slave':'slave',
         }, 'Cisco-IOS-XR-subscriber-srg-cfg', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-cfg']),
+    'SubscriberRedundancyGroupSlaveModeEnum' : _MetaInfoEnum('SubscriberRedundancyGroupSlaveModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg',
+        {
+            'warm':'warm',
+            'hot':'hot',
+        }, 'Cisco-IOS-XR-subscriber-srg-cfg', _yang_ns._namespaces['Cisco-IOS-XR-subscriber-srg-cfg']),
     'SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface' : {
         'meta_info' : _MetaInfoClass('SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -73,22 +73,22 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
-                'Cisco-IOS-XR-subscriber-srg-cfg', True),
-            _MetaInfoClassMember('sub-interface-range-end', ATTRIBUTE, 'int' , None, None, 
-                [('0', '2147483647')], [], 
-                '''                Sub Interface End Range
-                ''',
-                'sub_interface_range_end',
                 'Cisco-IOS-XR-subscriber-srg-cfg', True),
             _MetaInfoClassMember('sub-interface-range-start', ATTRIBUTE, 'int' , None, None, 
                 [('0', '2147483647')], [], 
                 '''                Sub Interface Start Range
                 ''',
                 'sub_interface_range_start',
+                'Cisco-IOS-XR-subscriber-srg-cfg', True),
+            _MetaInfoClassMember('sub-interface-range-end', ATTRIBUTE, 'int' , None, None, 
+                [('0', '2147483647')], [], 
+                '''                Sub Interface End Range
+                ''',
+                'sub_interface_range_end',
                 'Cisco-IOS-XR-subscriber-srg-cfg', True),
             _MetaInfoClassMember('interface-id-range-end', ATTRIBUTE, 'int' , None, None, 
                 [('1', '65535')], [], 
@@ -175,13 +175,13 @@ _meta_table = {
                 'prefix_string',
                 'Cisco-IOS-XR-subscriber-srg-cfg', False, [
                     _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4/IPv6 address
                         ''',
                         'prefix_string',
                         'Cisco-IOS-XR-subscriber-srg-cfg', False),
                     _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4/IPv6 address
                         ''',
                         'prefix_string',
@@ -245,7 +245,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Virtual MAC Address for this Group
                 ''',
                 'address',
@@ -286,13 +286,13 @@ _meta_table = {
                 'prefix_string',
                 'Cisco-IOS-XR-subscriber-srg-cfg', False, [
                     _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4 address with prefix-length
                         ''',
                         'prefix_string',
                         'Cisco-IOS-XR-subscriber-srg-cfg', False),
                     _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4 address with prefix-length
                         ''',
                         'prefix_string',
@@ -334,13 +334,13 @@ _meta_table = {
                 'prefix_string',
                 'Cisco-IOS-XR-subscriber-srg-cfg', False, [
                     _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv6 address with prefix-length
                         ''',
                         'prefix_string',
                         'Cisco-IOS-XR-subscriber-srg-cfg', False),
                     _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv6 address with prefix-length
                         ''',
                         'prefix_string',
@@ -382,13 +382,13 @@ _meta_table = {
                 'prefix_string',
                 'Cisco-IOS-XR-subscriber-srg-cfg', False, [
                     _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv6 address with prefix-length
                         ''',
                         'prefix_string',
                         'Cisco-IOS-XR-subscriber-srg-cfg', False),
                     _MetaInfoClassMember('prefix-string', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv6 address with prefix-length
                         ''',
                         'prefix_string',
@@ -514,7 +514,7 @@ _meta_table = {
                 'interface_list',
                 'Cisco-IOS-XR-subscriber-srg-cfg', False),
             _MetaInfoClassMember('l2tp-source-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Enter an IP address
                 ''',
                 'l2tp_source_ip_address',
@@ -658,14 +658,14 @@ _meta_table = {
                 'slave_mode',
                 'Cisco-IOS-XR-subscriber-srg-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Source Interface for Redundancy Peer
                 Communication
                 ''',
                 'source_interface',
                 'Cisco-IOS-XR-subscriber-srg-cfg', False),
             _MetaInfoClassMember('virtual-mac-prefix', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Virtual MAC Prefix for Subscriber Redundancy
                 ''',
                 'virtual_mac_prefix',

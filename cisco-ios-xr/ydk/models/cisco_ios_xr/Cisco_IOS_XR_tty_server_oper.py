@@ -372,8 +372,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.baud_rate is not None:
                                 return True
 
@@ -513,8 +511,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.absolute_timeout is not None:
                                 return True
 
@@ -588,8 +584,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.time_stamp_enabled is not None:
                                 return True
 
@@ -633,8 +627,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.user_name is not None:
                                 return True
 
@@ -657,8 +649,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.aaa is not None and self.aaa._has_data():
                             return True
 
@@ -741,8 +731,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -792,8 +780,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.general_state is not None:
                                 return True
 
@@ -819,8 +805,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.general is not None and self.general._has_data():
                             return True
 
@@ -946,8 +930,6 @@ class Tty(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.none is not None:
                                     return True
 
@@ -979,8 +961,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acl_in is not None:
                                 return True
 
@@ -1009,8 +989,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connection_configuration is not None and self.connection_configuration._has_data():
                             return True
 
@@ -1033,8 +1011,6 @@ class Tty(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.configuration is not None and self.configuration._has_data():
                         return True
 
@@ -1063,8 +1039,6 @@ class Tty(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.id is not None:
                     return True
 
@@ -1088,8 +1062,6 @@ class Tty(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.console_node is not None:
                 for child_ref in self.console_node:
                     if child_ref._has_data():
@@ -1270,8 +1242,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.host_address_family is not None:
                             return True
 
@@ -1393,8 +1363,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.absolute_timeout is not None:
                             return True
 
@@ -1468,8 +1436,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.time_stamp_enabled is not None:
                             return True
 
@@ -1513,8 +1479,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.user_name is not None:
                             return True
 
@@ -1537,8 +1501,6 @@ class Tty(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.aaa is not None and self.aaa._has_data():
                         return True
 
@@ -1621,8 +1583,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -1672,8 +1632,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.general_state is not None:
                             return True
 
@@ -1699,8 +1657,6 @@ class Tty(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.general is not None and self.general._has_data():
                         return True
 
@@ -1826,8 +1782,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.none is not None:
                                 return True
 
@@ -1859,8 +1813,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.acl_in is not None:
                             return True
 
@@ -1889,8 +1841,6 @@ class Tty(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.connection_configuration is not None and self.connection_configuration._has_data():
                         return True
 
@@ -2031,8 +1981,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -2061,8 +2009,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connection_id is not None:
                             return True
 
@@ -2100,8 +2046,6 @@ class Tty(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.outgoing_connection is not None:
                         for child_ref in self.outgoing_connection:
                             if child_ref._has_data():
@@ -2126,8 +2070,6 @@ class Tty(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.line_number is not None:
                     return True
 
@@ -2160,8 +2102,6 @@ class Tty(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vty_line is not None:
                 for child_ref in self.vty_line:
                     if child_ref._has_data():
@@ -2409,8 +2349,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.baud_rate is not None:
                                 return True
 
@@ -2550,8 +2488,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.absolute_timeout is not None:
                                 return True
 
@@ -2625,8 +2561,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.time_stamp_enabled is not None:
                                 return True
 
@@ -2670,8 +2604,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.user_name is not None:
                                 return True
 
@@ -2694,8 +2626,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.aaa is not None and self.aaa._has_data():
                             return True
 
@@ -2778,8 +2708,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None:
                                 return True
 
@@ -2829,8 +2757,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.general_state is not None:
                                 return True
 
@@ -2856,8 +2782,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.general is not None and self.general._has_data():
                             return True
 
@@ -2983,8 +2907,6 @@ class Tty(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.none is not None:
                                     return True
 
@@ -3016,8 +2938,6 @@ class Tty(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acl_in is not None:
                                 return True
 
@@ -3046,8 +2966,6 @@ class Tty(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connection_configuration is not None and self.connection_configuration._has_data():
                             return True
 
@@ -3070,8 +2988,6 @@ class Tty(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auxiliary_statistics is not None and self.auxiliary_statistics._has_data():
                         return True
 
@@ -3100,8 +3016,6 @@ class Tty(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.id is not None:
                     return True
 
@@ -3125,8 +3039,6 @@ class Tty(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.auxiliary_node is not None:
                 for child_ref in self.auxiliary_node:
                     if child_ref._has_data():
@@ -3149,8 +3061,6 @@ class Tty(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.auxiliary_nodes is not None and self.auxiliary_nodes._has_data():
             return True
 

@@ -142,14 +142,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                VPN ID, (OUI:VPN-Index) format(hex), 4 bytes
                 VPN_Index Part
                 ''',
                 'index',
                 'Cisco-IOS-XR-tunnel-vpdn-cfg', False),
             _MetaInfoClassMember('oui', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                VPN ID, (OUI:VPN-Index) format(hex), 3 bytes
                 OUI Part
                 ''',
@@ -230,7 +230,7 @@ _meta_table = {
                 'df_bit',
                 'Cisco-IOS-XR-tunnel-vpdn-cfg', False),
             _MetaInfoClassMember('source', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Enter an IP address
                 ''',
                 'source',
@@ -347,14 +347,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vpn-id-index', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                VPN ID, (OUI:VPN-Index) format(hex), 4 bytes
                 VPN_Index Part
                 ''',
                 'vpn_id_index',
                 'Cisco-IOS-XR-tunnel-vpdn-cfg', False),
             _MetaInfoClassMember('vpn-id-oui', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                VPN ID, (OUI:VPN-Index) format(hex), 3 bytes
                 OUI Part
                 ''',

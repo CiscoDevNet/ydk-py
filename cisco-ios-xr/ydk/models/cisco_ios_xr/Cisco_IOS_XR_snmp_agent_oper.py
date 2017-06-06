@@ -283,8 +283,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.max_q_length_of_trap_q is not None:
                     return True
 
@@ -320,8 +318,6 @@ class Snmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.trap_server is not None:
                 for child_ref in self.trap_server:
                     if child_ref._has_data():
@@ -652,8 +648,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.user is not None:
                             return True
 
@@ -694,8 +688,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -721,8 +713,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.host is not None:
                     for child_ref in self.host:
                         if child_ref._has_data():
@@ -766,8 +756,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.system_up_time_edm is not None:
                     return True
 
@@ -882,8 +870,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nms_addr is not None:
                         return True
 
@@ -922,8 +908,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.nms_address is not None:
                     for child_ref in self.nms_address:
                         if child_ref._has_data():
@@ -967,8 +951,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.engine_id is not None:
                     return True
 
@@ -1076,8 +1058,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.in_avg is not None:
                     return True
 
@@ -1143,8 +1123,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.system_name is not None:
                     return True
 
@@ -1283,8 +1261,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nms_addr is not None:
                             return True
 
@@ -1323,8 +1299,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nms_address is not None:
                         for child_ref in self.nms_address:
                             if child_ref._has_data():
@@ -1347,8 +1321,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.nms_addresses is not None and self.nms_addresses._has_data():
                     return True
 
@@ -1464,8 +1436,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.duplicate_drop_configured_timeout is not None:
                     return True
 
@@ -1606,8 +1576,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.transfer_name is not None:
                         return True
 
@@ -1646,8 +1614,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bulk_stats_transfer is not None:
                     for child_ref in self.bulk_stats_transfer:
                         if child_ref._has_data():
@@ -1810,8 +1776,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.count is not None:
                             return True
 
@@ -1847,8 +1811,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.host is not None:
                         return True
 
@@ -1886,8 +1848,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.trap_info is not None:
                     for child_ref in self.trap_info:
                         if child_ref._has_data():
@@ -1984,8 +1944,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.object_id is not None:
                         return True
 
@@ -2019,8 +1977,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.poll_oid is not None:
                     for child_ref in self.poll_oid:
                         if child_ref._has_data():
@@ -2183,8 +2139,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.count is not None:
                             return True
 
@@ -2220,8 +2174,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.host is not None:
                         return True
 
@@ -2259,8 +2211,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.infom_detail is not None:
                     for child_ref in self.infom_detail:
                         if child_ref._has_data():
@@ -2538,8 +2488,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.asn_parse_errors_received is not None:
                     return True
 
@@ -2729,8 +2677,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address_of_queue is not None:
                         return True
 
@@ -2763,8 +2709,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.inq_entry is not None:
                     for child_ref in self.inq_entry:
                         if child_ref._has_data():
@@ -2859,8 +2803,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.context is not None:
                         return True
 
@@ -2893,8 +2835,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.contex_mapping is not None:
                     for child_ref in self.contex_mapping:
                         if child_ref._has_data():
@@ -2979,8 +2919,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.trap_oid is not None:
                         return True
 
@@ -3007,8 +2945,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.trap_oid is not None:
                     for child_ref in self.trap_oid:
                         if child_ref._has_data():
@@ -3107,8 +3043,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.packetcount is not None:
                         return True
 
@@ -3141,8 +3075,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.nm_spacket is not None:
                     for child_ref in self.nm_spacket:
                         if child_ref._has_data():
@@ -3281,8 +3213,6 @@ class Snmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.oid is not None:
                                 return True
 
@@ -3308,8 +3238,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.oid is not None:
                             for child_ref in self.oid:
                                 if child_ref._has_data():
@@ -3401,8 +3329,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dll_capabilities is not None:
                             return True
 
@@ -3446,8 +3372,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -3474,8 +3398,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mib is not None:
                     for child_ref in self.mib:
                         if child_ref._has_data():
@@ -3636,8 +3558,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.error_status is not None:
                         return True
 
@@ -3694,8 +3614,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.serial_number is not None:
                     for child_ref in self.serial_number:
                         if child_ref._has_data():
@@ -3844,8 +3762,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nms_addr is not None:
                         return True
 
@@ -3896,8 +3812,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.drop_nms_address is not None:
                     for child_ref in self.drop_nms_address:
                         if child_ref._has_data():
@@ -4019,8 +3933,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.object_id is not None:
                             return True
 
@@ -4052,8 +3964,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -4079,8 +3989,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.view is not None:
                     for child_ref in self.view:
                         if child_ref._has_data():
@@ -4124,8 +4032,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sys_descr is not None:
                     return True
 
@@ -4310,8 +4216,6 @@ class Snmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -4349,8 +4253,6 @@ class Snmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_information is not None:
                                 for child_ref in self.group_information:
                                     if child_ref._has_data():
@@ -4375,8 +4277,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -4400,8 +4300,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group is not None:
                         for child_ref in self.group:
                             if child_ref._has_data():
@@ -4521,8 +4419,6 @@ class Snmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.user_name is not None:
                                 return True
 
@@ -4551,8 +4447,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.engine_id is not None:
                             return True
 
@@ -4578,8 +4472,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.user_engine_id is not None:
                         for child_ref in self.user_engine_id:
                             if child_ref._has_data():
@@ -4602,8 +4494,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.groups is not None and self.groups._has_data():
                     return True
 
@@ -4648,8 +4538,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sys_obj_id is not None:
                     return True
 
@@ -4717,8 +4605,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.trap_avg is not None:
                     return True
 
@@ -4748,8 +4634,6 @@ class Snmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bulk_stats_transfers is not None and self.bulk_stats_transfers._has_data():
                 return True
 
@@ -4900,8 +4784,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -4925,8 +4807,6 @@ class Snmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -5114,8 +4994,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.buffered_traps_count is not None:
                             return True
 
@@ -5207,8 +5085,6 @@ class Snmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.match_type is not None:
                                 return True
 
@@ -5237,8 +5113,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.oid is not None:
                             return True
 
@@ -5329,8 +5203,6 @@ class Snmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.match_type is not None:
                                 return True
 
@@ -5359,8 +5231,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.oid is not None:
                             return True
 
@@ -5417,8 +5287,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ip_address is not None:
                             return True
 
@@ -5444,8 +5312,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rule_name is not None:
                         return True
 
@@ -5485,8 +5351,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rule_detail is not None:
                     for child_ref in self.rule_detail:
                         if child_ref._has_data():
@@ -5541,8 +5405,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.configured_size is not None:
                     return True
 
@@ -5663,8 +5525,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.buffered_traps_count is not None:
                             return True
 
@@ -5693,8 +5553,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.rule_set_name is not None:
                         return True
 
@@ -5723,8 +5581,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rule_set_detail is not None:
                     for child_ref in self.rule_set_detail:
                         if child_ref._has_data():
@@ -5898,8 +5754,6 @@ class Snmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.oid is not None:
                                 return True
 
@@ -5925,8 +5779,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.oid is not None:
                             return True
 
@@ -5960,8 +5812,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.entry_id is not None:
                         return True
 
@@ -5994,8 +5844,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.trap is not None:
                     for child_ref in self.trap:
                         if child_ref._has_data():
@@ -6018,8 +5866,6 @@ class Snmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.buffer_status is not None and self.buffer_status._has_data():
                 return True
 
@@ -6105,8 +5951,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_index is not None:
                     return True
 
@@ -6130,8 +5974,6 @@ class Snmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_index is not None:
                 for child_ref in self.interface_index:
                     if child_ref._has_data():
@@ -6208,8 +6050,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_index is not None:
                     return True
 
@@ -6233,8 +6073,6 @@ class Snmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.if_index is not None:
                 for child_ref in self.if_index:
                     if child_ref._has_data():
@@ -6389,8 +6227,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.entity_phynum is not None:
                         return True
 
@@ -6441,8 +6277,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.entity_physical_index is not None:
                     for child_ref in self.entity_physical_index:
                         if child_ref._has_data():
@@ -6465,8 +6299,6 @@ class Snmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.entity_physical_indexes is not None and self.entity_physical_indexes._has_data():
                 return True
 
@@ -6593,8 +6425,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -6618,8 +6448,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -6697,8 +6525,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -6722,8 +6548,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_connector is not None:
                     for child_ref in self.interface_connector:
                         if child_ref._has_data():
@@ -6800,8 +6624,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -6825,8 +6647,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_alias is not None:
                     for child_ref in self.interface_alias:
                         if child_ref._has_data():
@@ -6903,8 +6723,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -6928,8 +6746,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.notification_interface is not None:
                     for child_ref in self.notification_interface:
                         if child_ref._has_data():
@@ -7018,8 +6834,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_stack_status is not None:
                         return True
 
@@ -7049,8 +6863,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_stack_status is not None:
                     for child_ref in self.interface_stack_status:
                         if child_ref._has_data():
@@ -7073,8 +6885,6 @@ class Snmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_aliases is not None and self.interface_aliases._has_data():
                 return True
 
@@ -7282,8 +7092,6 @@ class Snmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.phy_index is not None:
                                 return True
 
@@ -7324,8 +7132,6 @@ class Snmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.threshold_index is not None:
                             for child_ref in self.threshold_index:
                                 if child_ref._has_data():
@@ -7350,8 +7156,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.index is not None:
                         return True
 
@@ -7375,8 +7179,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.physical_index is not None:
                     for child_ref in self.physical_index:
                         if child_ref._has_data():
@@ -7551,8 +7353,6 @@ class Snmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.index is not None:
                         return True
 
@@ -7612,8 +7412,6 @@ class Snmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ent_phy_index is not None:
                     for child_ref in self.ent_phy_index:
                         if child_ref._has_data():
@@ -7636,8 +7434,6 @@ class Snmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ent_phy_indexes is not None and self.ent_phy_indexes._has_data():
                 return True
 
@@ -7661,8 +7457,6 @@ class Snmp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.correlator is not None and self.correlator._has_data():
             return True
 

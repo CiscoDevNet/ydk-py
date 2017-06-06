@@ -139,8 +139,6 @@ class Sr(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.lower_bound is not None:
@@ -256,8 +254,6 @@ class Sr(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.af is not None:
                     return True
 
@@ -293,8 +289,6 @@ class Sr(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mapping is not None:
                 for child_ref in self.mapping:
                     if child_ref._has_data():
@@ -317,8 +311,6 @@ class Sr(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.enable is not None:
             return True
 

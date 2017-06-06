@@ -106,8 +106,6 @@ class ActOspfRoutesRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -130,8 +128,6 @@ class ActOspfRoutesRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -155,8 +151,6 @@ class ActOspfRoutesRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -253,8 +247,6 @@ class ActOspfRedistributionRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -277,8 +269,6 @@ class ActOspfRedistributionRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -302,8 +292,6 @@ class ActOspfRedistributionRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -422,8 +410,6 @@ class ActOspfStatisticsRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -446,8 +432,6 @@ class ActOspfStatisticsRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.all is not None:
                 return True
 
@@ -483,8 +467,6 @@ class ActOspfStatisticsRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -580,8 +562,6 @@ class ActOspfStatisticsNeighborRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -635,8 +615,6 @@ class ActOspfStatisticsNeighborRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -662,8 +640,6 @@ class ActOspfStatisticsNeighborRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -687,8 +663,6 @@ class ActOspfStatisticsNeighborRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -784,8 +758,6 @@ class ActOspfStatisticsInterfaceRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -831,8 +803,6 @@ class ActOspfStatisticsInterfaceRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -855,8 +825,6 @@ class ActOspfStatisticsInterfaceRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -880,8 +848,6 @@ class ActOspfStatisticsInterfaceRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -978,8 +944,6 @@ class ActOspfProcessRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -1002,8 +966,6 @@ class ActOspfProcessRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -1027,8 +989,6 @@ class ActOspfProcessRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -1250,8 +1210,6 @@ class ActOspfInstanceVrfRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -1327,8 +1285,6 @@ class ActOspfInstanceVrfRpc(object):
                                 return self.parent.is_config()
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -1351,8 +1307,6 @@ class ActOspfInstanceVrfRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None and self.interface._has_data():
                                 return True
 
@@ -1378,8 +1332,6 @@ class ActOspfInstanceVrfRpc(object):
                         return self.parent.is_config()
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None and self.interface._has_data():
                             return True
 
@@ -1411,8 +1363,6 @@ class ActOspfInstanceVrfRpc(object):
                     return self.parent.is_config()
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.process is not None:
                         return True
 
@@ -1551,8 +1501,6 @@ class ActOspfInstanceVrfRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -1628,8 +1576,6 @@ class ActOspfInstanceVrfRpc(object):
                                 return self.parent.is_config()
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -1652,8 +1598,6 @@ class ActOspfInstanceVrfRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None and self.interface._has_data():
                                 return True
 
@@ -1679,8 +1623,6 @@ class ActOspfInstanceVrfRpc(object):
                         return self.parent.is_config()
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None and self.interface._has_data():
                             return True
 
@@ -1712,8 +1654,6 @@ class ActOspfInstanceVrfRpc(object):
                     return self.parent.is_config()
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.process is not None:
                         return True
 
@@ -1849,8 +1789,6 @@ class ActOspfInstanceVrfRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -1926,8 +1864,6 @@ class ActOspfInstanceVrfRpc(object):
                                 return self.parent.is_config()
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface_name is not None:
                                     return True
 
@@ -1950,8 +1886,6 @@ class ActOspfInstanceVrfRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None and self.interface._has_data():
                                 return True
 
@@ -1977,8 +1911,6 @@ class ActOspfInstanceVrfRpc(object):
                         return self.parent.is_config()
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None and self.interface._has_data():
                             return True
 
@@ -2010,8 +1942,6 @@ class ActOspfInstanceVrfRpc(object):
                     return self.parent.is_config()
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.process is not None:
                         return True
 
@@ -2043,8 +1973,6 @@ class ActOspfInstanceVrfRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.all is not None and self.all._has_data():
                     return True
 
@@ -2076,8 +2004,6 @@ class ActOspfInstanceVrfRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -2098,8 +2024,6 @@ class ActOspfInstanceVrfRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 

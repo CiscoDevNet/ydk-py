@@ -1,28 +1,52 @@
 _global_iana_crypt_hash_nsp = 'urn:ietf:params:xml:ns:yang:iana-crypt-hash'
 _global_iana_if_type_nsp = 'urn:ietf:params:xml:ns:yang:iana-if-type'
+_global_ietf_diffserv_classifier_nsp = 'urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier'
+_global_ietf_diffserv_policy_nsp = 'urn:ietf:params:xml:ns:yang:ietf-diffserv-policy'
+_global_ietf_diffserv_target_nsp = 'urn:ietf:params:xml:ns:yang:ietf-diffserv-target'
 _global_ietf_inet_types_nsp = 'urn:ietf:params:xml:ns:yang:ietf-inet-types'
 _global_ietf_interfaces_nsp = 'urn:ietf:params:xml:ns:yang:ietf-interfaces'
 _global_ietf_interfaces_ext_nsp = 'urn:ietf:params:xml:ns:yang:ietf-interfaces-ext'
+_global_ietf_ip_nsp = 'urn:ietf:params:xml:ns:yang:ietf-ip'
+_global_ietf_ipv4_unicast_routing_nsp = 'urn:ietf:params:xml:ns:yang:ietf-ipv4-unicast-routing'
+_global_ietf_ipv6_unicast_routing_nsp = 'urn:ietf:params:xml:ns:yang:ietf-ipv6-unicast-routing'
+_global_ietf_key_chain_nsp = 'urn:ietf:params:xml:ns:yang:ietf-key-chain'
 _global_ietf_netconf_nsp = 'urn:ietf:params:xml:ns:netconf:base:1.0'
 _global_ietf_netconf_acm_nsp = 'urn:ietf:params:xml:ns:yang:ietf-netconf-acm'
 _global_ietf_netconf_monitoring_nsp = 'urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring'
+_global_ietf_netconf_notifications_nsp = 'urn:ietf:params:xml:ns:yang:ietf-netconf-notifications'
 _global_ietf_netconf_with_defaults_nsp = 'urn:ietf:params:xml:ns:yang:ietf-netconf-with-defaults'
+_global_ietf_ospf_nsp = 'urn:ietf:params:xml:ns:yang:ietf-ospf'
+_global_ietf_restconf_monitoring_nsp = 'urn:ietf:params:xml:ns:yang:ietf-restconf-monitoring'
+_global_ietf_routing_nsp = 'urn:ietf:params:xml:ns:yang:ietf-routing'
 _global_ietf_syslog_types_nsp = 'urn:ietf:params:xml:ns:yang:ietf-syslog-types'
 _global_ietf_system_nsp = 'urn:ietf:params:xml:ns:yang:ietf-system'
+_global_ietf_yang_library_nsp = 'urn:ietf:params:xml:ns:yang:ietf-yang-library'
 _global_ietf_yang_smiv2_nsp = 'urn:ietf:params:xml:ns:yang:ietf-yang-smiv2'
 _global_ietf_yang_types_nsp = 'urn:ietf:params:xml:ns:yang:ietf-yang-types'
 _namespaces = { \
     'iana-crypt-hash' : 'urn:ietf:params:xml:ns:yang:iana-crypt-hash', 
     'iana-if-type' : 'urn:ietf:params:xml:ns:yang:iana-if-type', 
+    'ietf-diffserv-classifier' : 'urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier', 
+    'ietf-diffserv-policy' : 'urn:ietf:params:xml:ns:yang:ietf-diffserv-policy', 
+    'ietf-diffserv-target' : 'urn:ietf:params:xml:ns:yang:ietf-diffserv-target', 
     'ietf-inet-types' : 'urn:ietf:params:xml:ns:yang:ietf-inet-types', 
     'ietf-interfaces' : 'urn:ietf:params:xml:ns:yang:ietf-interfaces', 
     'ietf-interfaces-ext' : 'urn:ietf:params:xml:ns:yang:ietf-interfaces-ext', 
+    'ietf-ip' : 'urn:ietf:params:xml:ns:yang:ietf-ip', 
+    'ietf-ipv4-unicast-routing' : 'urn:ietf:params:xml:ns:yang:ietf-ipv4-unicast-routing', 
+    'ietf-ipv6-unicast-routing' : 'urn:ietf:params:xml:ns:yang:ietf-ipv6-unicast-routing', 
+    'ietf-key-chain' : 'urn:ietf:params:xml:ns:yang:ietf-key-chain', 
     'ietf-netconf' : 'urn:ietf:params:xml:ns:netconf:base:1.0', 
     'ietf-netconf-acm' : 'urn:ietf:params:xml:ns:yang:ietf-netconf-acm', 
     'ietf-netconf-monitoring' : 'urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring', 
+    'ietf-netconf-notifications' : 'urn:ietf:params:xml:ns:yang:ietf-netconf-notifications', 
     'ietf-netconf-with-defaults' : 'urn:ietf:params:xml:ns:yang:ietf-netconf-with-defaults', 
+    'ietf-ospf' : 'urn:ietf:params:xml:ns:yang:ietf-ospf', 
+    'ietf-restconf-monitoring' : 'urn:ietf:params:xml:ns:yang:ietf-restconf-monitoring', 
+    'ietf-routing' : 'urn:ietf:params:xml:ns:yang:ietf-routing', 
     'ietf-syslog-types' : 'urn:ietf:params:xml:ns:yang:ietf-syslog-types', 
     'ietf-system' : 'urn:ietf:params:xml:ns:yang:ietf-system', 
+    'ietf-yang-library' : 'urn:ietf:params:xml:ns:yang:ietf-yang-library', 
     'ietf-yang-smiv2' : 'urn:ietf:params:xml:ns:yang:ietf-yang-smiv2', 
     'ietf-yang-types' : 'urn:ietf:params:xml:ns:yang:ietf-yang-types', 
 }
@@ -301,7 +325,23 @@ _identity_map = { \
     ('iana-if-type', 'x25mlp'):('ydk.models.ietf.iana_if_type', 'X25MlpIdentity'),
     ('iana-if-type', 'x25ple'):('ydk.models.ietf.iana_if_type', 'X25PleIdentity'),
     ('iana-if-type', 'x86Laps'):('ydk.models.ietf.iana_if_type', 'X86LapsIdentity'),
+    ('ietf-diffserv-classifier', 'classifier-entry-filter-operation-type'):('ydk.models.ietf.ietf_diffserv_classifier', 'ClassifierEntryFilterOperationTypeIdentity'),
+    ('ietf-diffserv-classifier', 'destination-ip-address'):('ydk.models.ietf.ietf_diffserv_classifier', 'DestinationIpAddressIdentity'),
+    ('ietf-diffserv-classifier', 'destination-port'):('ydk.models.ietf.ietf_diffserv_classifier', 'DestinationPortIdentity'),
+    ('ietf-diffserv-classifier', 'dscp'):('ydk.models.ietf.ietf_diffserv_classifier', 'DscpIdentity'),
+    ('ietf-diffserv-classifier', 'filter-type'):('ydk.models.ietf.ietf_diffserv_classifier', 'FilterTypeIdentity'),
+    ('ietf-diffserv-classifier', 'match-all-filter'):('ydk.models.ietf.ietf_diffserv_classifier', 'MatchAllFilterIdentity'),
+    ('ietf-diffserv-classifier', 'match-any-filter'):('ydk.models.ietf.ietf_diffserv_classifier', 'MatchAnyFilterIdentity'),
+    ('ietf-diffserv-classifier', 'protocol'):('ydk.models.ietf.ietf_diffserv_classifier', 'ProtocolIdentity'),
+    ('ietf-diffserv-classifier', 'source-ip-address'):('ydk.models.ietf.ietf_diffserv_classifier', 'SourceIpAddressIdentity'),
+    ('ietf-diffserv-classifier', 'source-port'):('ydk.models.ietf.ietf_diffserv_classifier', 'SourcePortIdentity'),
+    ('ietf-diffserv-policy', 'action-type'):('ydk.models.ietf.ietf_diffserv_policy', 'ActionTypeIdentity'),
+    ('ietf-diffserv-target', 'direction'):('ydk.models.ietf.ietf_diffserv_target', 'DirectionIdentity'),
+    ('ietf-diffserv-target', 'inbound'):('ydk.models.ietf.ietf_diffserv_target', 'InboundIdentity'),
+    ('ietf-diffserv-target', 'outbound'):('ydk.models.ietf.ietf_diffserv_target', 'OutboundIdentity'),
     ('ietf-interfaces', 'interface-type'):('ydk.models.ietf.ietf_interfaces', 'InterfaceTypeIdentity'),
+    ('ietf-ipv4-unicast-routing', 'ipv4-unicast'):('ydk.models.ietf.ietf_ipv4_unicast_routing', 'Ipv4UnicastIdentity'),
+    ('ietf-ipv6-unicast-routing', 'ipv6-unicast'):('ydk.models.ietf.ietf_ipv6_unicast_routing', 'Ipv6UnicastIdentity'),
     ('ietf-netconf-monitoring', 'netconf-beep'):('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfBeepIdentity'),
     ('ietf-netconf-monitoring', 'netconf-soap-over-beep'):('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfSoapOverBeepIdentity'),
     ('ietf-netconf-monitoring', 'netconf-soap-over-https'):('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfSoapOverHttpsIdentity'),
@@ -314,6 +354,28 @@ _identity_map = { \
     ('ietf-netconf-monitoring', 'xsd'):('ydk.models.ietf.ietf_netconf_monitoring', 'XsdIdentity'),
     ('ietf-netconf-monitoring', 'yang'):('ydk.models.ietf.ietf_netconf_monitoring', 'YangIdentity'),
     ('ietf-netconf-monitoring', 'yin'):('ydk.models.ietf.ietf_netconf_monitoring', 'YinIdentity'),
+    ('ietf-ospf', 'area-type'):('ydk.models.ietf.ietf_ospf', 'AreaTypeIdentity'),
+    ('ietf-ospf', 'if-link-type'):('ydk.models.ietf.ietf_ospf', 'IfLinkTypeIdentity'),
+    ('ietf-ospf', 'if-link-type-normal'):('ydk.models.ietf.ietf_ospf', 'IfLinkTypeNormalIdentity'),
+    ('ietf-ospf', 'if-link-type-sham-link'):('ydk.models.ietf.ietf_ospf', 'IfLinkTypeShamLinkIdentity'),
+    ('ietf-ospf', 'if-link-type-virtual-link'):('ydk.models.ietf.ietf_ospf', 'IfLinkTypeVirtualLinkIdentity'),
+    ('ietf-ospf', 'normal'):('ydk.models.ietf.ietf_ospf', 'NormalIdentity'),
+    ('ietf-ospf', 'nssa'):('ydk.models.ietf.ietf_ospf', 'NssaIdentity'),
+    ('ietf-ospf', 'operation-mode'):('ydk.models.ietf.ietf_ospf', 'OperationModeIdentity'),
+    ('ietf-ospf', 'ospf'):('ydk.models.ietf.ietf_ospf', 'OspfIdentity'),
+    ('ietf-ospf', 'ospfv2'):('ydk.models.ietf.ietf_ospf', 'Ospfv2Identity'),
+    ('ietf-ospf', 'ospfv3'):('ydk.models.ietf.ietf_ospf', 'Ospfv3Identity'),
+    ('ietf-ospf', 'ships-in-the-night'):('ydk.models.ietf.ietf_ospf', 'ShipsInTheNightIdentity'),
+    ('ietf-ospf', 'stub'):('ydk.models.ietf.ietf_ospf', 'StubIdentity'),
+    ('ietf-routing', 'address-family'):('ydk.models.ietf.ietf_routing', 'AddressFamilyIdentity'),
+    ('ietf-routing', 'default-routing-instance'):('ydk.models.ietf.ietf_routing', 'DefaultRoutingInstanceIdentity'),
+    ('ietf-routing', 'direct'):('ydk.models.ietf.ietf_routing', 'DirectIdentity'),
+    ('ietf-routing', 'ipv4'):('ydk.models.ietf.ietf_routing', 'Ipv4Identity'),
+    ('ietf-routing', 'ipv6'):('ydk.models.ietf.ietf_routing', 'Ipv6Identity'),
+    ('ietf-routing', 'routing-instance'):('ydk.models.ietf.ietf_routing', 'RoutingInstanceIdentity'),
+    ('ietf-routing', 'routing-protocol'):('ydk.models.ietf.ietf_routing', 'RoutingProtocolIdentity'),
+    ('ietf-routing', 'static'):('ydk.models.ietf.ietf_routing', 'StaticIdentity'),
+    ('ietf-routing', 'vrf-routing-instance'):('ydk.models.ietf.ietf_routing', 'VrfRoutingInstanceIdentity'),
     ('ietf-syslog-types', 'audit'):('ydk.models.ietf.ietf_syslog_types', 'AuditIdentity'),
     ('ietf-syslog-types', 'auth'):('ydk.models.ietf.ietf_syslog_types', 'AuthIdentity'),
     ('ietf-syslog-types', 'authpriv'):('ydk.models.ietf.ietf_syslog_types', 'AuthprivIdentity'),
@@ -349,11 +411,22 @@ _identity_map = { \
 }
 
 _namespace_package_map = { \
+('urn:ietf:params:xml:ns:netconf:base:1.0', 'get') : 'from ydk.models.ietf.ietf_netconf import GetRpc', 
+('urn:ietf:params:xml:ns:netconf:base:1.0', 'get-config') : 'from ydk.models.ietf.ietf_netconf import GetConfigRpc', 
+('urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier', 'classifiers') : 'from ydk.models.ietf.ietf_diffserv_classifier import Classifiers', 
+('urn:ietf:params:xml:ns:yang:ietf-diffserv-policy', 'policies') : 'from ydk.models.ietf.ietf_diffserv_policy import Policies', 
 ('urn:ietf:params:xml:ns:yang:ietf-interfaces', 'interfaces') : 'from ydk.models.ietf.ietf_interfaces import Interfaces', 
 ('urn:ietf:params:xml:ns:yang:ietf-interfaces', 'interfaces-state') : 'from ydk.models.ietf.ietf_interfaces import InterfacesState', 
+('urn:ietf:params:xml:ns:yang:ietf-key-chain', 'key-chains') : 'from ydk.models.ietf.ietf_key_chain import KeyChains', 
 ('urn:ietf:params:xml:ns:yang:ietf-netconf-acm', 'nacm') : 'from ydk.models.ietf.ietf_netconf_acm import Nacm', 
+('urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring', 'get-schema') : 'from ydk.models.ietf.ietf_netconf_monitoring import GetSchemaRpc', 
 ('urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring', 'netconf-state') : 'from ydk.models.ietf.ietf_netconf_monitoring import NetconfState', 
+('urn:ietf:params:xml:ns:yang:ietf-restconf-monitoring', 'restconf-state') : 'from ydk.models.ietf.ietf_restconf_monitoring import RestconfState', 
+('urn:ietf:params:xml:ns:yang:ietf-routing', 'fib-route') : 'from ydk.models.ietf.ietf_routing import FibRouteRpc', 
+('urn:ietf:params:xml:ns:yang:ietf-routing', 'routing') : 'from ydk.models.ietf.ietf_routing import Routing', 
+('urn:ietf:params:xml:ns:yang:ietf-routing', 'routing-state') : 'from ydk.models.ietf.ietf_routing import RoutingState', 
 ('urn:ietf:params:xml:ns:yang:ietf-system', 'system') : 'from ydk.models.ietf.ietf_system import System', 
 ('urn:ietf:params:xml:ns:yang:ietf-system', 'system-state') : 'from ydk.models.ietf.ietf_system import SystemState', 
+('urn:ietf:params:xml:ns:yang:ietf-yang-library', 'modules-state') : 'from ydk.models.ietf.ietf_yang_library import ModulesState', 
 }
 

@@ -198,8 +198,6 @@ class SystemTime(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.day is not None:
                 return True
 
@@ -278,8 +276,6 @@ class SystemTime(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.host_name is not None:
                 return True
 
@@ -303,8 +299,6 @@ class SystemTime(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.clock is not None and self.clock._has_data():
             return True
 

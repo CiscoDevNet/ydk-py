@@ -654,8 +654,6 @@ class Ssh1(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.in_cipher is not None:
                                 return True
 
@@ -696,8 +694,6 @@ class Ssh1(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session_detail_info is not None:
                             for child_ref in self.session_detail_info:
                                 if child_ref._has_data():
@@ -804,8 +800,6 @@ class Ssh1(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.in_cipher is not None:
                                 return True
 
@@ -846,8 +840,6 @@ class Ssh1(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session_detail_info is not None:
                             for child_ref in self.session_detail_info:
                                 if child_ref._has_data():
@@ -872,8 +864,6 @@ class Ssh1(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_name is not None:
                         return True
 
@@ -900,8 +890,6 @@ class Ssh1(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -924,8 +912,6 @@ class Ssh1(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.nodes is not None and self.nodes._has_data():
                 return True
 
@@ -946,8 +932,6 @@ class Ssh1(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.kex is not None and self.kex._has_data():
             return True
 
@@ -1120,8 +1104,6 @@ class Ssh(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session_id is not None:
                             return True
 
@@ -1151,8 +1133,6 @@ class Ssh(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session_rekey_info is not None:
                         for child_ref in self.session_rekey_info:
                             if child_ref._has_data():
@@ -1241,8 +1221,6 @@ class Ssh(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.session_id is not None:
                             return True
 
@@ -1272,8 +1250,6 @@ class Ssh(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session_rekey_info is not None:
                         for child_ref in self.session_rekey_info:
                             if child_ref._has_data():
@@ -1296,8 +1272,6 @@ class Ssh(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incoming_sessions is not None and self.incoming_sessions._has_data():
                     return True
 
@@ -1462,8 +1436,6 @@ class Ssh(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_type is not None:
                             return True
 
@@ -1514,8 +1486,6 @@ class Ssh(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session_brief_info is not None:
                         for child_ref in self.session_brief_info:
                             if child_ref._has_data():
@@ -1650,8 +1620,6 @@ class Ssh(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authentication_type is not None:
                             return True
 
@@ -1702,8 +1670,6 @@ class Ssh(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session_brief_info is not None:
                         for child_ref in self.session_brief_info:
                             if child_ref._has_data():
@@ -1726,8 +1692,6 @@ class Ssh(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incoming_sessions is not None and self.incoming_sessions._has_data():
                     return True
 
@@ -1862,8 +1826,6 @@ class Ssh(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.in_cipher is not None:
                             return True
 
@@ -1902,8 +1864,6 @@ class Ssh(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session_detail_info is not None:
                         for child_ref in self.session_detail_info:
                             if child_ref._has_data():
@@ -2008,8 +1968,6 @@ class Ssh(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.in_cipher is not None:
                             return True
 
@@ -2048,8 +2006,6 @@ class Ssh(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session_detail_info is not None:
                         for child_ref in self.session_detail_info:
                             if child_ref._has_data():
@@ -2072,8 +2028,6 @@ class Ssh(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.incoming_sessions is not None and self.incoming_sessions._has_data():
                     return True
 
@@ -2097,8 +2051,6 @@ class Ssh(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.brief is not None and self.brief._has_data():
                 return True
 
@@ -2125,8 +2077,6 @@ class Ssh(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.session is not None and self.session._has_data():
             return True
 

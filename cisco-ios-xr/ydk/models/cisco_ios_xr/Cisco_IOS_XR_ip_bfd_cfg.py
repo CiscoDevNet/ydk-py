@@ -404,8 +404,6 @@ class Bfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.initial_delay is not None:
                     return True
 
@@ -456,8 +454,6 @@ class Bfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.down_monitor is not None:
                     return True
 
@@ -478,8 +474,6 @@ class Bfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bundle_member is not None and self.bundle_member._has_data():
                 return True
 
@@ -585,8 +579,6 @@ class Bfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.latency_detect_count is not None:
                     return True
 
@@ -613,8 +605,6 @@ class Bfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.detect is not None and self.detect._has_data():
                 return True
 
@@ -658,8 +648,6 @@ class Bfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.validate is not None:
                 return True
 
@@ -762,8 +750,6 @@ class Bfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -793,8 +779,6 @@ class Bfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface is not None:
                 for child_ref in self.interface:
                     if child_ref._has_data():
@@ -865,8 +849,6 @@ class Bfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location is not None:
                     return True
 
@@ -887,8 +869,6 @@ class Bfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.multi_path_include is not None:
                 for child_ref in self.multi_path_include:
                     if child_ref._has_data():
@@ -954,8 +934,6 @@ class Bfd(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bob_blb is not None:
                     return True
 
@@ -976,8 +954,6 @@ class Bfd(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.coexistence is not None and self.coexistence._has_data():
                 return True
 
@@ -998,8 +974,6 @@ class Bfd(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.bundle is not None and self.bundle._has_data():
             return True
 

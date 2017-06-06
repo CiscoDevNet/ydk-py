@@ -575,8 +575,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_count is not None:
                                 return True
 
@@ -620,8 +618,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disabled_interface_count is not None:
                             return True
 
@@ -1138,8 +1134,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -1205,8 +1199,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -1272,8 +1264,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -1304,8 +1294,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -1481,8 +1469,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_on is not None:
                             for child_ref in self.interface_state_on:
                                 if child_ref._has_data():
@@ -1779,8 +1765,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -1846,8 +1830,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -1913,8 +1895,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -1943,8 +1923,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -2126,8 +2104,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -2156,8 +2132,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -2204,8 +2178,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -2248,8 +2220,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail_group is not None:
                             for child_ref in self.detail_group:
                                 if child_ref._has_data():
@@ -2379,8 +2349,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -2446,8 +2414,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -2476,8 +2442,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None and self.group_address._has_data():
                                 return True
 
@@ -2509,8 +2473,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.non_active_groups is not None:
                             for child_ref in self.non_active_groups:
                                 if child_ref._has_data():
@@ -2657,8 +2619,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -2687,8 +2647,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -2723,8 +2681,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ssm_map is not None:
                             for child_ref in self.ssm_map:
                                 if child_ref._has_data():
@@ -3025,8 +2981,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -3092,8 +3046,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -3159,8 +3111,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -3189,8 +3139,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -3356,8 +3304,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -3423,8 +3369,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -3453,8 +3397,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -3494,8 +3436,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.exclude_hosts is not None:
                                 return True
 
@@ -3538,8 +3478,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.explicit_group is not None:
                             for child_ref in self.explicit_group:
                                 if child_ref._has_data():
@@ -4026,8 +3964,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -4093,8 +4029,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -4160,8 +4094,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -4192,8 +4124,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -4369,8 +4299,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -4857,8 +4785,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -4924,8 +4850,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -4991,8 +4915,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -5023,8 +4945,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -5200,8 +5120,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_old_format is not None:
                             for child_ref in self.interface_old_format:
                                 if child_ref._has_data():
@@ -5688,8 +5606,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -5755,8 +5671,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -5822,8 +5736,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -5854,8 +5766,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -6031,8 +5941,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_off_old_format is not None:
                             for child_ref in self.interface_state_off_old_format:
                                 if child_ref._has_data():
@@ -6231,8 +6139,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -6298,8 +6204,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -6328,8 +6232,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None and self.group_address._has_data():
                                     return True
 
@@ -6366,8 +6268,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -6407,8 +6307,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_unicast_qos_adjust is not None:
                             for child_ref in self.interface_unicast_qos_adjust:
                                 if child_ref._has_data():
@@ -6561,8 +6459,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -6591,8 +6487,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -6630,8 +6524,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.range is not None:
                             for child_ref in self.range:
                                 if child_ref._has_data():
@@ -7148,8 +7040,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -7215,8 +7105,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -7282,8 +7170,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -7312,8 +7198,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -7488,8 +7372,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -7518,8 +7400,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ifrs_interface is not None:
                             for child_ref in self.ifrs_interface:
                                 if child_ref._has_data():
@@ -7839,8 +7719,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.auxillary_data_length_errors is not None:
                             return True
 
@@ -8177,8 +8055,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -8244,8 +8120,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -8311,8 +8185,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -8341,8 +8213,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -8413,8 +8283,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group is not None:
                             for child_ref in self.group:
                                 if child_ref._has_data():
@@ -8484,8 +8352,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_count is not None:
                             return True
 
@@ -8548,8 +8414,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.configuration_count is not None:
                             return True
 
@@ -9037,8 +8901,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -9104,8 +8966,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -9171,8 +9031,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -9203,8 +9061,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -9380,8 +9236,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -9590,8 +9444,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -9620,8 +9472,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address_xr is not None and self.group_address_xr._has_data():
                                     return True
 
@@ -9687,8 +9537,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -9717,8 +9565,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.elapsed_time is not None:
                                 return True
 
@@ -9764,8 +9610,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ssm_map_detail is not None:
                             for child_ref in self.ssm_map_detail:
                                 if child_ref._has_data():
@@ -10252,8 +10096,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -10319,8 +10161,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -10386,8 +10226,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -10418,8 +10256,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -10595,8 +10431,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_off is not None:
                             for child_ref in self.interface_state_off:
                                 if child_ref._has_data():
@@ -11083,8 +10917,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -11150,8 +10982,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -11217,8 +11047,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -11249,8 +11077,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -11426,8 +11252,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_old_format_state_on is not None:
                             for child_ref in self.interface_old_format_state_on:
                                 if child_ref._has_data():
@@ -11452,8 +11276,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -11534,8 +11356,6 @@ class Mld(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
@@ -11736,8 +11556,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.anycast_prefix is not None:
                         return True
 
@@ -11910,8 +11728,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.collab_conv_done is not None:
                         return True
 
@@ -12097,8 +11913,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.amt_nonce is not None:
                             return True
 
@@ -12146,8 +11960,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.amt_gateway is not None:
                         for child_ref in self.amt_gateway:
                             if child_ref._has_data():
@@ -12309,8 +12121,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.add_to_batches is not None:
                         return True
 
@@ -12671,8 +12481,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.null_buffer_handles is not None:
                         return True
 
@@ -12898,8 +12706,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_multicast_nsf_active is not None:
                         return True
 
@@ -12947,8 +12753,6 @@ class Mld(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.amt_gatewaies is not None and self.amt_gatewaies._has_data():
                     return True
 
@@ -13316,8 +13120,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_count is not None:
                             return True
 
@@ -13359,8 +13161,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.disabled_interface_count is not None:
                         return True
 
@@ -13877,8 +13677,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -13944,8 +13742,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -14011,8 +13807,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -14041,8 +13835,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -14216,8 +14008,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_on is not None:
                         for child_ref in self.interface_state_on:
                             if child_ref._has_data():
@@ -14512,8 +14302,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -14577,8 +14365,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -14642,8 +14428,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -14670,8 +14454,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -14851,8 +14633,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -14879,8 +14659,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -14925,8 +14703,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -14967,8 +14743,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detail_group is not None:
                         for child_ref in self.detail_group:
                             if child_ref._has_data():
@@ -15096,8 +14870,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -15161,8 +14933,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -15189,8 +14959,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None and self.group_address._has_data():
                             return True
 
@@ -15220,8 +14988,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.non_active_groups is not None:
                         for child_ref in self.non_active_groups:
                             if child_ref._has_data():
@@ -15366,8 +15132,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -15394,8 +15158,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -15428,8 +15190,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_map is not None:
                         for child_ref in self.ssm_map:
                             if child_ref._has_data():
@@ -15728,8 +15488,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -15793,8 +15551,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -15858,8 +15614,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -15886,8 +15640,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -16051,8 +15803,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -16116,8 +15866,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -16144,8 +15892,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None and self.address._has_data():
                                 return True
 
@@ -16183,8 +15929,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.exclude_hosts is not None:
                             return True
 
@@ -16225,8 +15969,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.explicit_group is not None:
                         for child_ref in self.explicit_group:
                             if child_ref._has_data():
@@ -16713,8 +16455,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -16780,8 +16520,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -16847,8 +16585,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -16877,8 +16613,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -17052,8 +16786,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -17540,8 +17272,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -17607,8 +17337,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -17674,8 +17402,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -17704,8 +17430,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -17879,8 +17603,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_old_format is not None:
                         for child_ref in self.interface_old_format:
                             if child_ref._has_data():
@@ -18367,8 +18089,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -18434,8 +18154,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -18501,8 +18219,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -18531,8 +18247,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -18706,8 +18420,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_off_old_format is not None:
                         for child_ref in self.interface_state_off_old_format:
                             if child_ref._has_data():
@@ -18906,8 +18618,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -18973,8 +18683,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -19003,8 +18711,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None and self.group_address._has_data():
                                 return True
 
@@ -19039,8 +18745,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -19078,8 +18782,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_unicast_qos_adjust is not None:
                         for child_ref in self.interface_unicast_qos_adjust:
                             if child_ref._has_data():
@@ -19230,8 +18932,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -19258,8 +18958,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -19295,8 +18993,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.range is not None:
                         for child_ref in self.range:
                             if child_ref._has_data():
@@ -19813,8 +19509,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -19880,8 +19574,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -19947,8 +19639,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -19977,8 +19667,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None and self.address._has_data():
                                 return True
 
@@ -20151,8 +19839,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -20179,8 +19865,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ifrs_interface is not None:
                         for child_ref in self.ifrs_interface:
                             if child_ref._has_data():
@@ -20498,8 +20182,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auxillary_data_length_errors is not None:
                         return True
 
@@ -20834,8 +20516,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -20899,8 +20579,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -20964,8 +20642,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -20992,8 +20668,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.expiration_time is not None:
                             return True
 
@@ -21062,8 +20736,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group is not None:
                         for child_ref in self.group:
                             if child_ref._has_data():
@@ -21131,8 +20803,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_count is not None:
                         return True
 
@@ -21193,8 +20863,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.configuration_count is not None:
                         return True
 
@@ -21682,8 +21350,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -21749,8 +21415,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -21816,8 +21480,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -21846,8 +21508,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -22021,8 +21681,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -22229,8 +21887,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -22257,8 +21913,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address_xr is not None and self.group_address_xr._has_data():
                                 return True
 
@@ -22322,8 +21976,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -22350,8 +22002,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.elapsed_time is not None:
                             return True
 
@@ -22395,8 +22045,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_map_detail is not None:
                         for child_ref in self.ssm_map_detail:
                             if child_ref._has_data():
@@ -22883,8 +22531,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -22950,8 +22596,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -23017,8 +22661,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -23047,8 +22689,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -23222,8 +22862,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_off is not None:
                         for child_ref in self.interface_state_off:
                             if child_ref._has_data():
@@ -23710,8 +23348,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -23777,8 +23413,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -23844,8 +23478,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -23874,8 +23506,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -24049,8 +23679,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_old_format_state_on is not None:
                         for child_ref in self.interface_old_format_state_on:
                             if child_ref._has_data():
@@ -24073,8 +23701,6 @@ class Mld(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.detail_groups is not None and self.detail_groups._has_data():
                     return True
 
@@ -24152,8 +23778,6 @@ class Mld(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.default_context is not None and self.default_context._has_data():
                 return True
 
@@ -24581,8 +24205,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_count is not None:
                                 return True
 
@@ -24626,8 +24248,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disabled_interface_count is not None:
                             return True
 
@@ -25144,8 +24764,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -25211,8 +24829,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -25278,8 +24894,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -25310,8 +24924,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -25487,8 +25099,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_on is not None:
                             for child_ref in self.interface_state_on:
                                 if child_ref._has_data():
@@ -25785,8 +25395,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -25852,8 +25460,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -25919,8 +25525,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -25949,8 +25553,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -26132,8 +25734,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -26162,8 +25762,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -26210,8 +25808,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -26254,8 +25850,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail_group is not None:
                             for child_ref in self.detail_group:
                                 if child_ref._has_data():
@@ -26385,8 +25979,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -26452,8 +26044,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -26482,8 +26072,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None and self.group_address._has_data():
                                 return True
 
@@ -26515,8 +26103,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.non_active_groups is not None:
                             for child_ref in self.non_active_groups:
                                 if child_ref._has_data():
@@ -26663,8 +26249,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -26693,8 +26277,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -26729,8 +26311,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ssm_map is not None:
                             for child_ref in self.ssm_map:
                                 if child_ref._has_data():
@@ -27031,8 +26611,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -27098,8 +26676,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -27165,8 +26741,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -27195,8 +26769,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -27362,8 +26934,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -27429,8 +26999,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -27459,8 +27027,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -27500,8 +27066,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.exclude_hosts is not None:
                                 return True
 
@@ -27544,8 +27108,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.explicit_group is not None:
                             for child_ref in self.explicit_group:
                                 if child_ref._has_data():
@@ -28032,8 +27594,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -28099,8 +27659,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -28166,8 +27724,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -28198,8 +27754,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -28375,8 +27929,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -28863,8 +28415,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -28930,8 +28480,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -28997,8 +28545,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -29029,8 +28575,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -29206,8 +28750,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_old_format is not None:
                             for child_ref in self.interface_old_format:
                                 if child_ref._has_data():
@@ -29694,8 +29236,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -29761,8 +29301,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -29828,8 +29366,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -29860,8 +29396,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -30037,8 +29571,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_off_old_format is not None:
                             for child_ref in self.interface_state_off_old_format:
                                 if child_ref._has_data():
@@ -30237,8 +29769,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -30304,8 +29834,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -30334,8 +29862,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None and self.group_address._has_data():
                                     return True
 
@@ -30372,8 +29898,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -30413,8 +29937,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_unicast_qos_adjust is not None:
                             for child_ref in self.interface_unicast_qos_adjust:
                                 if child_ref._has_data():
@@ -30567,8 +30089,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -30597,8 +30117,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -30636,8 +30154,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.range is not None:
                             for child_ref in self.range:
                                 if child_ref._has_data():
@@ -31154,8 +30670,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -31221,8 +30735,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -31288,8 +30800,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -31318,8 +30828,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -31494,8 +31002,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -31524,8 +31030,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ifrs_interface is not None:
                             for child_ref in self.ifrs_interface:
                                 if child_ref._has_data():
@@ -31845,8 +31349,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.auxillary_data_length_errors is not None:
                             return True
 
@@ -32183,8 +31685,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -32250,8 +31750,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -32317,8 +31815,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -32347,8 +31843,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -32419,8 +31913,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group is not None:
                             for child_ref in self.group:
                                 if child_ref._has_data():
@@ -32490,8 +31982,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_count is not None:
                             return True
 
@@ -32554,8 +32044,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.configuration_count is not None:
                             return True
 
@@ -33043,8 +32531,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -33110,8 +32596,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -33177,8 +32661,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -33209,8 +32691,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -33386,8 +32866,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -33596,8 +33074,6 @@ class Mld(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -33626,8 +33102,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address_xr is not None and self.group_address_xr._has_data():
                                     return True
 
@@ -33693,8 +33167,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -33723,8 +33195,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.elapsed_time is not None:
                                 return True
 
@@ -33770,8 +33240,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ssm_map_detail is not None:
                             for child_ref in self.ssm_map_detail:
                                 if child_ref._has_data():
@@ -34258,8 +33726,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -34325,8 +33791,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -34392,8 +33856,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -34424,8 +33886,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -34601,8 +34061,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_off is not None:
                             for child_ref in self.interface_state_off:
                                 if child_ref._has_data():
@@ -35089,8 +34547,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -35156,8 +34612,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -35223,8 +34677,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -35255,8 +34707,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -35432,8 +34882,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_old_format_state_on is not None:
                             for child_ref in self.interface_old_format_state_on:
                                 if child_ref._has_data():
@@ -35458,8 +34906,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -35540,8 +34986,6 @@ class Mld(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
@@ -35742,8 +35186,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.anycast_prefix is not None:
                         return True
 
@@ -35916,8 +35358,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.collab_conv_done is not None:
                         return True
 
@@ -36103,8 +35543,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.amt_nonce is not None:
                             return True
 
@@ -36152,8 +35590,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.amt_gateway is not None:
                         for child_ref in self.amt_gateway:
                             if child_ref._has_data():
@@ -36315,8 +35751,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.add_to_batches is not None:
                         return True
 
@@ -36677,8 +36111,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.null_buffer_handles is not None:
                         return True
 
@@ -36904,8 +36336,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_multicast_nsf_active is not None:
                         return True
 
@@ -36953,8 +36383,6 @@ class Mld(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.amt_gatewaies is not None and self.amt_gatewaies._has_data():
                     return True
 
@@ -37322,8 +36750,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_count is not None:
                             return True
 
@@ -37365,8 +36791,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.disabled_interface_count is not None:
                         return True
 
@@ -37883,8 +37307,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -37950,8 +37372,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -38017,8 +37437,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -38047,8 +37465,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -38222,8 +37638,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_on is not None:
                         for child_ref in self.interface_state_on:
                             if child_ref._has_data():
@@ -38518,8 +37932,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -38583,8 +37995,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -38648,8 +38058,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -38676,8 +38084,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -38857,8 +38263,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -38885,8 +38289,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -38931,8 +38333,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -38973,8 +38373,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detail_group is not None:
                         for child_ref in self.detail_group:
                             if child_ref._has_data():
@@ -39102,8 +38500,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -39167,8 +38563,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -39195,8 +38589,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None and self.group_address._has_data():
                             return True
 
@@ -39226,8 +38618,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.non_active_groups is not None:
                         for child_ref in self.non_active_groups:
                             if child_ref._has_data():
@@ -39372,8 +38762,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -39400,8 +38788,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -39434,8 +38820,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_map is not None:
                         for child_ref in self.ssm_map:
                             if child_ref._has_data():
@@ -39734,8 +39118,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -39799,8 +39181,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -39864,8 +39244,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -39892,8 +39270,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -40057,8 +39433,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -40122,8 +39496,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -40150,8 +39522,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None and self.address._has_data():
                                 return True
 
@@ -40189,8 +39559,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.exclude_hosts is not None:
                             return True
 
@@ -40231,8 +39599,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.explicit_group is not None:
                         for child_ref in self.explicit_group:
                             if child_ref._has_data():
@@ -40719,8 +40085,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -40786,8 +40150,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -40853,8 +40215,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -40883,8 +40243,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -41058,8 +40416,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -41546,8 +40902,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -41613,8 +40967,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -41680,8 +41032,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -41710,8 +41060,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -41885,8 +41233,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_old_format is not None:
                         for child_ref in self.interface_old_format:
                             if child_ref._has_data():
@@ -42373,8 +41719,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -42440,8 +41784,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -42507,8 +41849,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -42537,8 +41877,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -42712,8 +42050,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_off_old_format is not None:
                         for child_ref in self.interface_state_off_old_format:
                             if child_ref._has_data():
@@ -42912,8 +42248,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -42979,8 +42313,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -43009,8 +42341,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None and self.group_address._has_data():
                                 return True
 
@@ -43045,8 +42375,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -43084,8 +42412,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_unicast_qos_adjust is not None:
                         for child_ref in self.interface_unicast_qos_adjust:
                             if child_ref._has_data():
@@ -43236,8 +42562,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -43264,8 +42588,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -43301,8 +42623,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.range is not None:
                         for child_ref in self.range:
                             if child_ref._has_data():
@@ -43819,8 +43139,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -43886,8 +43204,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -43953,8 +43269,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -43983,8 +43297,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None and self.address._has_data():
                                 return True
 
@@ -44157,8 +43469,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -44185,8 +43495,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ifrs_interface is not None:
                         for child_ref in self.ifrs_interface:
                             if child_ref._has_data():
@@ -44504,8 +43812,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auxillary_data_length_errors is not None:
                         return True
 
@@ -44840,8 +44146,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -44905,8 +44209,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -44970,8 +44272,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -44998,8 +44298,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.expiration_time is not None:
                             return True
 
@@ -45068,8 +44366,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group is not None:
                         for child_ref in self.group:
                             if child_ref._has_data():
@@ -45137,8 +44433,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_count is not None:
                         return True
 
@@ -45199,8 +44493,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.configuration_count is not None:
                         return True
 
@@ -45688,8 +44980,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -45755,8 +45045,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -45822,8 +45110,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -45852,8 +45138,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -46027,8 +45311,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -46235,8 +45517,6 @@ class Mld(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -46263,8 +45543,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address_xr is not None and self.group_address_xr._has_data():
                                 return True
 
@@ -46328,8 +45606,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -46356,8 +45632,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.elapsed_time is not None:
                             return True
 
@@ -46401,8 +45675,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_map_detail is not None:
                         for child_ref in self.ssm_map_detail:
                             if child_ref._has_data():
@@ -46889,8 +46161,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -46956,8 +46226,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -47023,8 +46291,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -47053,8 +46319,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -47228,8 +46492,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_off is not None:
                         for child_ref in self.interface_state_off:
                             if child_ref._has_data():
@@ -47716,8 +46978,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -47783,8 +47043,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -47850,8 +47108,6 @@ class Mld(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -47880,8 +47136,6 @@ class Mld(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -48055,8 +47309,6 @@ class Mld(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_old_format_state_on is not None:
                         for child_ref in self.interface_old_format_state_on:
                             if child_ref._has_data():
@@ -48079,8 +47331,6 @@ class Mld(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.detail_groups is not None and self.detail_groups._has_data():
                     return True
 
@@ -48158,8 +47408,6 @@ class Mld(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.default_context is not None and self.default_context._has_data():
                 return True
 
@@ -48186,8 +47434,6 @@ class Mld(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.active is not None and self.active._has_data():
             return True
 
@@ -48640,8 +47886,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_count is not None:
                                 return True
 
@@ -48685,8 +47929,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disabled_interface_count is not None:
                             return True
 
@@ -49203,8 +48445,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -49270,8 +48510,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -49337,8 +48575,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -49369,8 +48605,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -49546,8 +48780,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_on is not None:
                             for child_ref in self.interface_state_on:
                                 if child_ref._has_data():
@@ -49844,8 +49076,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -49911,8 +49141,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -49978,8 +49206,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -50008,8 +49234,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -50191,8 +49415,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -50221,8 +49443,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -50269,8 +49489,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -50313,8 +49531,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail_group is not None:
                             for child_ref in self.detail_group:
                                 if child_ref._has_data():
@@ -50444,8 +49660,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -50511,8 +49725,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -50541,8 +49753,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None and self.group_address._has_data():
                                 return True
 
@@ -50574,8 +49784,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.non_active_groups is not None:
                             for child_ref in self.non_active_groups:
                                 if child_ref._has_data():
@@ -50722,8 +49930,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -50752,8 +49958,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -50788,8 +49992,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ssm_map is not None:
                             for child_ref in self.ssm_map:
                                 if child_ref._has_data():
@@ -51090,8 +50292,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -51157,8 +50357,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -51224,8 +50422,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -51254,8 +50450,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -51421,8 +50615,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -51488,8 +50680,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -51518,8 +50708,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -51559,8 +50747,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.exclude_hosts is not None:
                                 return True
 
@@ -51603,8 +50789,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.explicit_group is not None:
                             for child_ref in self.explicit_group:
                                 if child_ref._has_data():
@@ -52091,8 +51275,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -52158,8 +51340,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -52225,8 +51405,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -52257,8 +51435,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -52434,8 +51610,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -52922,8 +52096,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -52989,8 +52161,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -53056,8 +52226,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -53088,8 +52256,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -53265,8 +52431,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_old_format is not None:
                             for child_ref in self.interface_old_format:
                                 if child_ref._has_data():
@@ -53753,8 +52917,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -53820,8 +52982,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -53887,8 +53047,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -53919,8 +53077,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -54096,8 +53252,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_off_old_format is not None:
                             for child_ref in self.interface_state_off_old_format:
                                 if child_ref._has_data():
@@ -54296,8 +53450,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -54363,8 +53515,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -54393,8 +53543,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None and self.group_address._has_data():
                                     return True
 
@@ -54431,8 +53579,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -54472,8 +53618,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_unicast_qos_adjust is not None:
                             for child_ref in self.interface_unicast_qos_adjust:
                                 if child_ref._has_data():
@@ -54626,8 +53770,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -54656,8 +53798,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -54695,8 +53835,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.range is not None:
                             for child_ref in self.range:
                                 if child_ref._has_data():
@@ -55213,8 +54351,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -55280,8 +54416,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -55347,8 +54481,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -55377,8 +54509,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -55553,8 +54683,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -55583,8 +54711,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ifrs_interface is not None:
                             for child_ref in self.ifrs_interface:
                                 if child_ref._has_data():
@@ -55904,8 +55030,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.auxillary_data_length_errors is not None:
                             return True
 
@@ -56242,8 +55366,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -56309,8 +55431,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -56376,8 +55496,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -56406,8 +55524,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -56478,8 +55594,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group is not None:
                             for child_ref in self.group:
                                 if child_ref._has_data():
@@ -56549,8 +55663,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_count is not None:
                             return True
 
@@ -56613,8 +55725,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.configuration_count is not None:
                             return True
 
@@ -57102,8 +56212,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -57169,8 +56277,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -57236,8 +56342,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -57268,8 +56372,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -57445,8 +56547,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -57655,8 +56755,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -57685,8 +56783,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address_xr is not None and self.group_address_xr._has_data():
                                     return True
 
@@ -57752,8 +56848,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -57782,8 +56876,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.elapsed_time is not None:
                                 return True
 
@@ -57829,8 +56921,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ssm_map_detail is not None:
                             for child_ref in self.ssm_map_detail:
                                 if child_ref._has_data():
@@ -58317,8 +57407,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -58384,8 +57472,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -58451,8 +57537,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -58483,8 +57567,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -58660,8 +57742,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_off is not None:
                             for child_ref in self.interface_state_off:
                                 if child_ref._has_data():
@@ -59148,8 +58228,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -59215,8 +58293,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -59282,8 +58358,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -59314,8 +58388,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -59491,8 +58563,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_old_format_state_on is not None:
                             for child_ref in self.interface_old_format_state_on:
                                 if child_ref._has_data():
@@ -59517,8 +58587,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -59599,8 +58667,6 @@ class Igmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
@@ -59801,8 +58867,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.anycast_prefix is not None:
                         return True
 
@@ -59975,8 +59039,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.collab_conv_done is not None:
                         return True
 
@@ -60162,8 +59224,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.amt_nonce is not None:
                             return True
 
@@ -60211,8 +59271,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.amt_gateway is not None:
                         for child_ref in self.amt_gateway:
                             if child_ref._has_data():
@@ -60374,8 +59432,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.add_to_batches is not None:
                         return True
 
@@ -60736,8 +59792,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.null_buffer_handles is not None:
                         return True
 
@@ -60963,8 +60017,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_multicast_nsf_active is not None:
                         return True
 
@@ -61012,8 +60064,6 @@ class Igmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.amt_gatewaies is not None and self.amt_gatewaies._has_data():
                     return True
 
@@ -61381,8 +60431,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_count is not None:
                             return True
 
@@ -61424,8 +60472,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.disabled_interface_count is not None:
                         return True
 
@@ -61942,8 +60988,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -62009,8 +61053,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -62076,8 +61118,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -62106,8 +61146,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -62281,8 +61319,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_on is not None:
                         for child_ref in self.interface_state_on:
                             if child_ref._has_data():
@@ -62577,8 +61613,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -62642,8 +61676,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -62707,8 +61739,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -62735,8 +61765,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -62916,8 +61944,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -62944,8 +61970,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -62990,8 +62014,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -63032,8 +62054,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detail_group is not None:
                         for child_ref in self.detail_group:
                             if child_ref._has_data():
@@ -63161,8 +62181,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -63226,8 +62244,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -63254,8 +62270,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None and self.group_address._has_data():
                             return True
 
@@ -63285,8 +62299,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.non_active_groups is not None:
                         for child_ref in self.non_active_groups:
                             if child_ref._has_data():
@@ -63431,8 +62443,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -63459,8 +62469,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -63493,8 +62501,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_map is not None:
                         for child_ref in self.ssm_map:
                             if child_ref._has_data():
@@ -63793,8 +62799,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -63858,8 +62862,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -63923,8 +62925,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -63951,8 +62951,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -64116,8 +63114,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -64181,8 +63177,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -64209,8 +63203,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None and self.address._has_data():
                                 return True
 
@@ -64248,8 +63240,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.exclude_hosts is not None:
                             return True
 
@@ -64290,8 +63280,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.explicit_group is not None:
                         for child_ref in self.explicit_group:
                             if child_ref._has_data():
@@ -64778,8 +63766,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -64845,8 +63831,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -64912,8 +63896,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -64942,8 +63924,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -65117,8 +64097,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -65605,8 +64583,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -65672,8 +64648,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -65739,8 +64713,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -65769,8 +64741,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -65944,8 +64914,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_old_format is not None:
                         for child_ref in self.interface_old_format:
                             if child_ref._has_data():
@@ -66432,8 +65400,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -66499,8 +65465,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -66566,8 +65530,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -66596,8 +65558,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -66771,8 +65731,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_off_old_format is not None:
                         for child_ref in self.interface_state_off_old_format:
                             if child_ref._has_data():
@@ -66971,8 +65929,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -67038,8 +65994,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -67068,8 +66022,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None and self.group_address._has_data():
                                 return True
 
@@ -67104,8 +66056,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -67143,8 +66093,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_unicast_qos_adjust is not None:
                         for child_ref in self.interface_unicast_qos_adjust:
                             if child_ref._has_data():
@@ -67295,8 +66243,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -67323,8 +66269,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -67360,8 +66304,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.range is not None:
                         for child_ref in self.range:
                             if child_ref._has_data():
@@ -67878,8 +66820,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -67945,8 +66885,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -68012,8 +66950,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -68042,8 +66978,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None and self.address._has_data():
                                 return True
 
@@ -68216,8 +67150,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -68244,8 +67176,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ifrs_interface is not None:
                         for child_ref in self.ifrs_interface:
                             if child_ref._has_data():
@@ -68563,8 +67493,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auxillary_data_length_errors is not None:
                         return True
 
@@ -68899,8 +67827,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -68964,8 +67890,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -69029,8 +67953,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -69057,8 +67979,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.expiration_time is not None:
                             return True
 
@@ -69127,8 +68047,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group is not None:
                         for child_ref in self.group:
                             if child_ref._has_data():
@@ -69196,8 +68114,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_count is not None:
                         return True
 
@@ -69258,8 +68174,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.configuration_count is not None:
                         return True
 
@@ -69747,8 +68661,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -69814,8 +68726,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -69881,8 +68791,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -69911,8 +68819,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -70086,8 +68992,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -70294,8 +69198,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -70322,8 +69224,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address_xr is not None and self.group_address_xr._has_data():
                                 return True
 
@@ -70387,8 +69287,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -70415,8 +69313,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.elapsed_time is not None:
                             return True
 
@@ -70460,8 +69356,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_map_detail is not None:
                         for child_ref in self.ssm_map_detail:
                             if child_ref._has_data():
@@ -70948,8 +69842,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -71015,8 +69907,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -71082,8 +69972,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -71112,8 +70000,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -71287,8 +70173,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_off is not None:
                         for child_ref in self.interface_state_off:
                             if child_ref._has_data():
@@ -71775,8 +70659,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -71842,8 +70724,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -71909,8 +70789,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -71939,8 +70817,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -72114,8 +70990,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_old_format_state_on is not None:
                         for child_ref in self.interface_old_format_state_on:
                             if child_ref._has_data():
@@ -72138,8 +71012,6 @@ class Igmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.detail_groups is not None and self.detail_groups._has_data():
                     return True
 
@@ -72217,8 +71089,6 @@ class Igmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.default_context is not None and self.default_context._has_data():
                 return True
 
@@ -72646,8 +71516,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_count is not None:
                                 return True
 
@@ -72691,8 +71559,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disabled_interface_count is not None:
                             return True
 
@@ -73209,8 +72075,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -73276,8 +72140,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -73343,8 +72205,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -73375,8 +72235,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -73552,8 +72410,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_on is not None:
                             for child_ref in self.interface_state_on:
                                 if child_ref._has_data():
@@ -73850,8 +72706,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -73917,8 +72771,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -73984,8 +72836,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -74014,8 +72864,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -74197,8 +73045,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -74227,8 +73073,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -74275,8 +73119,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -74319,8 +73161,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.detail_group is not None:
                             for child_ref in self.detail_group:
                                 if child_ref._has_data():
@@ -74450,8 +73290,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -74517,8 +73355,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -74547,8 +73383,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None and self.group_address._has_data():
                                 return True
 
@@ -74580,8 +73414,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.non_active_groups is not None:
                             for child_ref in self.non_active_groups:
                                 if child_ref._has_data():
@@ -74728,8 +73560,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -74758,8 +73588,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -74794,8 +73622,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ssm_map is not None:
                             for child_ref in self.ssm_map:
                                 if child_ref._has_data():
@@ -75096,8 +73922,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -75163,8 +73987,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -75230,8 +74052,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -75260,8 +74080,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.expiration_time is not None:
                                     return True
 
@@ -75427,8 +74245,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -75494,8 +74310,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -75524,8 +74338,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -75565,8 +74377,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.exclude_hosts is not None:
                                 return True
 
@@ -75609,8 +74419,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.explicit_group is not None:
                             for child_ref in self.explicit_group:
                                 if child_ref._has_data():
@@ -76097,8 +74905,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -76164,8 +74970,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -76231,8 +75035,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -76263,8 +75065,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -76440,8 +75240,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -76928,8 +75726,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -76995,8 +75791,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -77062,8 +75856,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -77094,8 +75886,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -77271,8 +76061,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_old_format is not None:
                             for child_ref in self.interface_old_format:
                                 if child_ref._has_data():
@@ -77759,8 +76547,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -77826,8 +76612,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -77893,8 +76677,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -77925,8 +76707,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -78102,8 +76882,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_off_old_format is not None:
                             for child_ref in self.interface_state_off_old_format:
                                 if child_ref._has_data():
@@ -78302,8 +77080,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -78369,8 +77145,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -78399,8 +77173,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address is not None and self.group_address._has_data():
                                     return True
 
@@ -78437,8 +77209,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -78478,8 +77248,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_unicast_qos_adjust is not None:
                             for child_ref in self.interface_unicast_qos_adjust:
                                 if child_ref._has_data():
@@ -78632,8 +77400,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -78662,8 +77428,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None:
                                 return True
 
@@ -78701,8 +77465,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.range is not None:
                             for child_ref in self.range:
                                 if child_ref._has_data():
@@ -79219,8 +77981,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -79286,8 +78046,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -79353,8 +78111,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -79383,8 +78139,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None and self.address._has_data():
                                     return True
 
@@ -79559,8 +78313,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -79589,8 +78341,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ifrs_interface is not None:
                             for child_ref in self.ifrs_interface:
                                 if child_ref._has_data():
@@ -79910,8 +78660,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.auxillary_data_length_errors is not None:
                             return True
 
@@ -80248,8 +78996,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -80315,8 +79061,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -80382,8 +79126,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -80412,8 +79154,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -80484,8 +79224,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group is not None:
                             for child_ref in self.group:
                                 if child_ref._has_data():
@@ -80555,8 +79293,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_count is not None:
                             return True
 
@@ -80619,8 +79355,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.configuration_count is not None:
                             return True
 
@@ -81108,8 +79842,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -81175,8 +79907,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -81242,8 +79972,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -81274,8 +80002,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -81451,8 +80177,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -81661,8 +80385,6 @@ class Igmp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.af_name is not None:
                                         return True
 
@@ -81691,8 +80413,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.group_address_xr is not None and self.group_address_xr._has_data():
                                     return True
 
@@ -81758,8 +80478,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -81788,8 +80506,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.elapsed_time is not None:
                                 return True
 
@@ -81835,8 +80551,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ssm_map_detail is not None:
                             for child_ref in self.ssm_map_detail:
                                 if child_ref._has_data():
@@ -82323,8 +81037,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -82390,8 +81102,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -82457,8 +81167,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -82489,8 +81197,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -82666,8 +81372,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_state_off is not None:
                             for child_ref in self.interface_state_off:
                                 if child_ref._has_data():
@@ -83154,8 +81858,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -83221,8 +81923,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -83288,8 +81988,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -83320,8 +82018,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -83497,8 +82193,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_old_format_state_on is not None:
                             for child_ref in self.interface_old_format_state_on:
                                 if child_ref._has_data():
@@ -83523,8 +82217,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -83605,8 +82297,6 @@ class Igmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
@@ -83807,8 +82497,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.anycast_prefix is not None:
                         return True
 
@@ -83981,8 +82669,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.collab_conv_done is not None:
                         return True
 
@@ -84168,8 +82854,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.amt_nonce is not None:
                             return True
 
@@ -84217,8 +82901,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.amt_gateway is not None:
                         for child_ref in self.amt_gateway:
                             if child_ref._has_data():
@@ -84380,8 +83062,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.add_to_batches is not None:
                         return True
 
@@ -84742,8 +83422,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.null_buffer_handles is not None:
                         return True
 
@@ -84969,8 +83647,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.is_multicast_nsf_active is not None:
                         return True
 
@@ -85018,8 +83694,6 @@ class Igmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.amt_gatewaies is not None and self.amt_gatewaies._has_data():
                     return True
 
@@ -85387,8 +84061,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_count is not None:
                             return True
 
@@ -85430,8 +84102,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.disabled_interface_count is not None:
                         return True
 
@@ -85948,8 +84618,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -86015,8 +84683,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -86082,8 +84748,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -86112,8 +84776,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -86287,8 +84949,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_on is not None:
                         for child_ref in self.interface_state_on:
                             if child_ref._has_data():
@@ -86583,8 +85243,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -86648,8 +85306,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -86713,8 +85369,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -86741,8 +85395,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -86922,8 +85574,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -86950,8 +85600,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -86996,8 +85644,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -87038,8 +85684,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detail_group is not None:
                         for child_ref in self.detail_group:
                             if child_ref._has_data():
@@ -87167,8 +85811,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -87232,8 +85874,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -87260,8 +85900,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None and self.group_address._has_data():
                             return True
 
@@ -87291,8 +85929,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.non_active_groups is not None:
                         for child_ref in self.non_active_groups:
                             if child_ref._has_data():
@@ -87437,8 +86073,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -87465,8 +86099,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -87499,8 +86131,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_map is not None:
                         for child_ref in self.ssm_map:
                             if child_ref._has_data():
@@ -87799,8 +86429,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -87864,8 +86492,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -87929,8 +86555,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -87957,8 +86581,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.expiration_time is not None:
                                 return True
 
@@ -88122,8 +86744,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -88187,8 +86807,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -88215,8 +86833,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None and self.address._has_data():
                                 return True
 
@@ -88254,8 +86870,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.exclude_hosts is not None:
                             return True
 
@@ -88296,8 +86910,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.explicit_group is not None:
                         for child_ref in self.explicit_group:
                             if child_ref._has_data():
@@ -88784,8 +87396,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -88851,8 +87461,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -88918,8 +87526,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -88948,8 +87554,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -89123,8 +87727,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -89611,8 +88213,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -89678,8 +88278,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -89745,8 +88343,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -89775,8 +88371,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -89950,8 +88544,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_old_format is not None:
                         for child_ref in self.interface_old_format:
                             if child_ref._has_data():
@@ -90438,8 +89030,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -90505,8 +89095,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -90572,8 +89160,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -90602,8 +89188,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -90777,8 +89361,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_off_old_format is not None:
                         for child_ref in self.interface_state_off_old_format:
                             if child_ref._has_data():
@@ -90977,8 +89559,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -91044,8 +89624,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -91074,8 +89652,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address is not None and self.group_address._has_data():
                                 return True
 
@@ -91110,8 +89686,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -91149,8 +89723,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_unicast_qos_adjust is not None:
                         for child_ref in self.interface_unicast_qos_adjust:
                             if child_ref._has_data():
@@ -91301,8 +89873,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -91329,8 +89899,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_address is not None:
                             return True
 
@@ -91366,8 +89934,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.range is not None:
                         for child_ref in self.range:
                             if child_ref._has_data():
@@ -91884,8 +90450,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -91951,8 +90515,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -92018,8 +90580,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -92048,8 +90608,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None and self.address._has_data():
                                 return True
 
@@ -92222,8 +90780,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -92250,8 +90806,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ifrs_interface is not None:
                         for child_ref in self.ifrs_interface:
                             if child_ref._has_data():
@@ -92569,8 +91123,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auxillary_data_length_errors is not None:
                         return True
 
@@ -92905,8 +91457,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -92970,8 +91520,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -93035,8 +91583,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -93063,8 +91609,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.expiration_time is not None:
                             return True
 
@@ -93133,8 +91677,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group is not None:
                         for child_ref in self.group:
                             if child_ref._has_data():
@@ -93202,8 +91744,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group_count is not None:
                         return True
 
@@ -93264,8 +91804,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.configuration_count is not None:
                         return True
 
@@ -93753,8 +92291,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -93820,8 +92356,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -93887,8 +92421,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -93917,8 +92449,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -94092,8 +92622,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -94300,8 +92828,6 @@ class Igmp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -94328,8 +92854,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.group_address_xr is not None and self.group_address_xr._has_data():
                                 return True
 
@@ -94393,8 +92917,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -94421,8 +92943,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.elapsed_time is not None:
                             return True
 
@@ -94466,8 +92986,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ssm_map_detail is not None:
                         for child_ref in self.ssm_map_detail:
                             if child_ref._has_data():
@@ -94954,8 +93472,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -95021,8 +93537,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -95088,8 +93602,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -95118,8 +93630,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -95293,8 +93803,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_state_off is not None:
                         for child_ref in self.interface_state_off:
                             if child_ref._has_data():
@@ -95781,8 +94289,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -95848,8 +94354,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -95915,8 +94419,6 @@ class Igmp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.af_name is not None:
                                 return True
 
@@ -95945,8 +94447,6 @@ class Igmp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -96120,8 +94620,6 @@ class Igmp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_old_format_state_on is not None:
                         for child_ref in self.interface_old_format_state_on:
                             if child_ref._has_data():
@@ -96144,8 +94642,6 @@ class Igmp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.detail_groups is not None and self.detail_groups._has_data():
                     return True
 
@@ -96223,8 +94719,6 @@ class Igmp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.default_context is not None and self.default_context._has_data():
                 return True
 
@@ -96251,8 +94745,6 @@ class Igmp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.active is not None and self.active._has_data():
             return True
 

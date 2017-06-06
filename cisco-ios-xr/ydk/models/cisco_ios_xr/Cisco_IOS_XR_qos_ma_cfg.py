@@ -121,8 +121,6 @@ class Qos(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.fabric_service_policy is not None:
             return True
 

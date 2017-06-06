@@ -461,8 +461,6 @@ class Rip(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None:
                                 return True
 
@@ -503,8 +501,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active is not None:
                             return True
 
@@ -571,8 +567,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.route is not None:
                         for child_ref in self.route:
                             if child_ref._has_data():
@@ -750,8 +744,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active is not None:
                         return True
 
@@ -947,8 +939,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.discarded_packets is not None:
                         return True
 
@@ -1320,8 +1310,6 @@ class Rip(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.metric is not None:
                                 return True
 
@@ -1408,8 +1396,6 @@ class Rip(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.discarded_peer_packets is not None:
                                 return True
 
@@ -1446,8 +1432,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -1567,8 +1551,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -1730,8 +1712,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active is not None:
                             return True
 
@@ -1868,8 +1848,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_address is not None:
                             return True
 
@@ -1916,8 +1894,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_summary is not None:
                         for child_ref in self.interface_summary:
                             if child_ref._has_data():
@@ -1945,8 +1921,6 @@ class Rip(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -1982,8 +1956,6 @@ class Rip(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -2213,8 +2185,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active is not None:
                         return True
 
@@ -2268,8 +2238,6 @@ class Rip(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.current_oom_state is not None:
                     return True
 
@@ -2579,8 +2547,6 @@ class Rip(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface is not None:
                                 return True
 
@@ -2619,8 +2585,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active is not None:
                             return True
 
@@ -2685,8 +2649,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.route is not None:
                         for child_ref in self.route:
                             if child_ref._has_data():
@@ -2862,8 +2824,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active is not None:
                         return True
 
@@ -3057,8 +3017,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.discarded_packets is not None:
                         return True
 
@@ -3430,8 +3388,6 @@ class Rip(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.metric is not None:
                                 return True
 
@@ -3518,8 +3474,6 @@ class Rip(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.discarded_peer_packets is not None:
                                 return True
 
@@ -3554,8 +3508,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3673,8 +3625,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -3834,8 +3784,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.active is not None:
                             return True
 
@@ -3970,8 +3918,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.destination_address is not None:
                             return True
 
@@ -4016,8 +3962,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_summary is not None:
                         for child_ref in self.interface_summary:
                             if child_ref._has_data():
@@ -4043,8 +3987,6 @@ class Rip(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.configuration is not None and self.configuration._has_data():
                     return True
 
@@ -4077,8 +4019,6 @@ class Rip(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.default_vrf is not None and self.default_vrf._has_data():
                 return True
 
@@ -4371,8 +4311,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -4411,8 +4349,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active is not None:
                         return True
 
@@ -4477,8 +4413,6 @@ class Rip(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.route is not None:
                     for child_ref in self.route:
                         if child_ref._has_data():
@@ -4654,8 +4588,6 @@ class Rip(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.active is not None:
                     return True
 
@@ -4849,8 +4781,6 @@ class Rip(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.discarded_packets is not None:
                     return True
 
@@ -5222,8 +5152,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.metric is not None:
                             return True
 
@@ -5310,8 +5238,6 @@ class Rip(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.discarded_peer_packets is not None:
                             return True
 
@@ -5346,8 +5272,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -5465,8 +5389,6 @@ class Rip(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface is not None:
                     for child_ref in self.interface:
                         if child_ref._has_data():
@@ -5626,8 +5548,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.active is not None:
                         return True
 
@@ -5762,8 +5682,6 @@ class Rip(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination_address is not None:
                         return True
 
@@ -5808,8 +5726,6 @@ class Rip(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_summary is not None:
                     for child_ref in self.interface_summary:
                         if child_ref._has_data():
@@ -5835,8 +5751,6 @@ class Rip(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.configuration is not None and self.configuration._has_data():
                 return True
 
@@ -5869,8 +5783,6 @@ class Rip(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.default_vrf is not None and self.default_vrf._has_data():
             return True
 

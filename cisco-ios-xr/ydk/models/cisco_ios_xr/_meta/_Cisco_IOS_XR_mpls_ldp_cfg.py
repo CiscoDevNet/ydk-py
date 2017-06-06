@@ -17,34 +17,20 @@ _meta_table = {
         {
             'peer-acl':'peer_acl',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpLabelAdvertiseEnum' : _MetaInfoEnum('MplsLdpLabelAdvertiseEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
-        {
-            'for':'for_',
-            'for-to':'for_to',
-        }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MldpPolicyModeEnum' : _MetaInfoEnum('MldpPolicyModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
-        {
-            'inbound':'inbound',
-            'outbound':'outbound',
-        }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpLabelAllocationEnum' : _MetaInfoEnum('MplsLdpLabelAllocationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'acl':'acl',
             'host':'host',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpTargetedAcceptEnum' : _MetaInfoEnum('MplsLdpTargetedAcceptEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpTransportAddressEnum' : _MetaInfoEnum('MplsLdpTransportAddressEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'all':'all',
-            'from':'from_',
+            'interface':'interface',
+            'address':'address',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpNbrPasswordEnum' : _MetaInfoEnum('MplsLdpNbrPasswordEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MldpPolicyModeEnum' : _MetaInfoEnum('MldpPolicyModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'disable':'disable',
-            'specified':'specified',
-        }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpDownstreamOnDemandEnum' : _MetaInfoEnum('MplsLdpDownstreamOnDemandEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
-        {
-            'peer-acl':'peer_acl',
+            'inbound':'inbound',
+            'outbound':'outbound',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpExpNullEnum' : _MetaInfoEnum('MplsLdpExpNullEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
@@ -53,15 +39,29 @@ _meta_table = {
             'to':'to',
             'for-to':'for_to',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
+    'MplsLdpTargetedAcceptEnum' : _MetaInfoEnum('MplsLdpTargetedAcceptEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
+        {
+            'all':'all',
+            'from':'from_',
+        }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
+    'MplsLdpDownstreamOnDemandEnum' : _MetaInfoEnum('MplsLdpDownstreamOnDemandEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
+        {
+            'peer-acl':'peer_acl',
+        }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpafNameEnum' : _MetaInfoEnum('MplsLdpafNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
             'ipv4':'ipv4',
             'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
-    'MplsLdpTransportAddressEnum' : _MetaInfoEnum('MplsLdpTransportAddressEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
+    'MplsLdpLabelAdvertiseEnum' : _MetaInfoEnum('MplsLdpLabelAdvertiseEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'interface':'interface',
-            'address':'address',
+            'for':'for_',
+            'for-to':'for_to',
+        }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
+    'MplsLdpNbrPasswordEnum' : _MetaInfoEnum('MplsLdpNbrPasswordEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
+        {
+            'disable':'disable',
+            'specified':'specified',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpSessionProtectionEnum' : _MetaInfoEnum('MplsLdpSessionProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
@@ -76,17 +76,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy',
             False, 
             [
+            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSR ID of neighbor
+                ''',
+                'lsr_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                LSR ID of neighbor
-                ''',
-                'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('prefix-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -158,17 +158,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Label.Local.Advertise.PeerAdvertisePolicies.PeerAdvertisePolicy',
             False, 
             [
+            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSR ID of neighbor
+                ''',
+                'lsr_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                LSR ID of neighbor
-                ''',
-                'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('prefix-acl-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -206,7 +206,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('prefix-acl-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Name of prefix ACL
                 ''',
                 'prefix_acl_name',
@@ -282,7 +282,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'interface_name',
@@ -483,14 +483,14 @@ _meta_table = {
                 'transport_address',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False, [
                     _MetaInfoClassMember('transport-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Global discovery transport address for
                         address family
                         ''',
                         'transport_address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', False),
                     _MetaInfoClassMember('transport-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Global discovery transport address for
                         address family
                         ''',
@@ -592,13 +592,13 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True, [
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        The IP address
                         ''',
                         'ip_address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', True),
                     _MetaInfoClassMember('ip-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        The IP address
                         ''',
                         'ip_address',
@@ -905,7 +905,7 @@ _meta_table = {
                 'command_type',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                The neighbor password
                 ''',
                 'password',
@@ -921,17 +921,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId',
             False, 
             [
+            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSR ID of neighbor
+                ''',
+                'lsr_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                LSR ID of neighbor
-                ''',
-                'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId.Password', 
                 [], [], 
@@ -1051,7 +1051,7 @@ _meta_table = {
                 'ldp_ids',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Default password for all neigbors
                 ''',
                 'password',
@@ -1117,7 +1117,7 @@ _meta_table = {
                 'neighbor',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configuration for LDP Router ID (LDP ID)
                 ''',
                 'router_id',
@@ -1146,13 +1146,13 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False, [
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address
                         ''',
                         'address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', False),
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address
                         ''',
                         'address',
@@ -1435,7 +1435,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'interface_name',
@@ -1568,7 +1568,7 @@ _meta_table = {
                 'command_type',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                The neighbor password
                 ''',
                 'password',
@@ -1584,17 +1584,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId',
             False, 
             [
+            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                LSR ID of neighbor
+                ''',
+                'lsr_id',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                Label space ID of neighbor
                 ''',
                 'label_space_id',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                LSR ID of neighbor
-                ''',
-                'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId.Password', 
                 [], [], 
@@ -1640,7 +1640,7 @@ _meta_table = {
                 'ldp_ids',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Default password for all neigbors
                 ''',
                 'password',
@@ -1706,7 +1706,7 @@ _meta_table = {
                 'neighbor',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
             _MetaInfoClassMember('router-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configuration for LDP Router ID (LDP ID)
                 ''',
                 'router_id',
@@ -1764,7 +1764,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSR ID of neighbor
                 ''',
                 'lsr_id',
@@ -1886,7 +1886,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsr-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LSR ID of neighbor
                 ''',
                 'lsr_id',
@@ -1956,7 +1956,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'interface_name',
@@ -2200,13 +2200,13 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False, [
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address
                         ''',
                         'address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', False),
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address
                         ''',
                         'address',
@@ -2294,7 +2294,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'interface_name',
@@ -2343,7 +2343,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF Name
                 ''',
                 'vrf_name',
@@ -2757,12 +2757,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.NeighborPolicies.NeighborPolicy',
             False, 
             [
-            _MetaInfoClassMember('policy-mode', REFERENCE_ENUM_CLASS, 'MldpPolicyModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MldpPolicyModeEnum', 
-                [], [], 
-                '''                Inbound/Outbound Policy
-                ''',
-                'policy_mode',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('root-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Neighbor Address
@@ -2770,18 +2764,24 @@ _meta_table = {
                 'root_address',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True, [
                     _MetaInfoClassMember('root-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor Address
                         ''',
                         'root_address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', True),
                     _MetaInfoClassMember('root-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor Address
                         ''',
                         'root_address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', True),
                 ]),
+            _MetaInfoClassMember('policy-mode', REFERENCE_ENUM_CLASS, 'MldpPolicyModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MldpPolicyModeEnum', 
+                [], [], 
+                '''                Inbound/Outbound Policy
+                ''',
+                'policy_mode',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('route-policy', ATTRIBUTE, 'str' , None, None, 
                 [(1, 64)], [], 
                 '''                Route policy name
@@ -3079,12 +3079,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.NeighborPolicies.NeighborPolicy',
             False, 
             [
-            _MetaInfoClassMember('policy-mode', REFERENCE_ENUM_CLASS, 'MldpPolicyModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MldpPolicyModeEnum', 
-                [], [], 
-                '''                Inbound/Outbound Policy
-                ''',
-                'policy_mode',
-                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('root-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Neighbor Address
@@ -3092,18 +3086,24 @@ _meta_table = {
                 'root_address',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True, [
                     _MetaInfoClassMember('root-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor Address
                         ''',
                         'root_address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', True),
                     _MetaInfoClassMember('root-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Neighbor Address
                         ''',
                         'root_address',
                         'Cisco-IOS-XR-mpls-ldp-cfg', True),
                 ]),
+            _MetaInfoClassMember('policy-mode', REFERENCE_ENUM_CLASS, 'MldpPolicyModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MldpPolicyModeEnum', 
+                [], [], 
+                '''                Inbound/Outbound Policy
+                ''',
+                'policy_mode',
+                'Cisco-IOS-XR-mpls-ldp-cfg', True),
             _MetaInfoClassMember('route-policy', ATTRIBUTE, 'str' , None, None, 
                 [(1, 64)], [], 
                 '''                Route policy name

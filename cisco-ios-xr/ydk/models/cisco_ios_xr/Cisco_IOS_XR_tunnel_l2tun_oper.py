@@ -386,8 +386,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -541,8 +539,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -696,8 +692,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -851,8 +845,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -1006,8 +998,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -1161,8 +1151,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -1316,8 +1304,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -1471,8 +1457,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -1626,8 +1610,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -1678,8 +1660,6 @@ class L2Tp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.challenge_avp is not None and self.challenge_avp._has_data():
                             return True
 
@@ -1966,8 +1946,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acknowledgement_packets is not None:
                                 return True
 
@@ -2209,8 +2187,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acknowledgement_packets is not None:
                                 return True
 
@@ -2452,8 +2428,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acknowledgement_packets is not None:
                                 return True
 
@@ -2695,8 +2669,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acknowledgement_packets is not None:
                                 return True
 
@@ -2771,8 +2743,6 @@ class L2Tp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.drop is not None and self.drop._has_data():
                             return True
 
@@ -2814,8 +2784,6 @@ class L2Tp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.authentication is not None and self.authentication._has_data():
                         return True
 
@@ -2940,8 +2908,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_address is not None:
                                 return True
 
@@ -3212,8 +3178,6 @@ class L2Tp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknowledgement_packets is not None:
                                     return True
 
@@ -3457,8 +3421,6 @@ class L2Tp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknowledgement_packets is not None:
                                     return True
 
@@ -3702,8 +3664,6 @@ class L2Tp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknowledgement_packets is not None:
                                     return True
 
@@ -3947,8 +3907,6 @@ class L2Tp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknowledgement_packets is not None:
                                     return True
 
@@ -4025,8 +3983,6 @@ class L2Tp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.drop is not None and self.drop._has_data():
                                 return True
 
@@ -4070,8 +4026,6 @@ class L2Tp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tunnel_id is not None:
                             return True
 
@@ -4098,8 +4052,6 @@ class L2Tp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tunnel is not None:
                         for child_ref in self.tunnel:
                             if child_ref._has_data():
@@ -4122,8 +4074,6 @@ class L2Tp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tunnel_xr is not None and self.tunnel_xr._has_data():
                     return True
 
@@ -4147,8 +4097,6 @@ class L2Tp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.control is not None and self.control._has_data():
                 return True
 
@@ -4437,8 +4385,6 @@ class L2Tp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accounting_method_list is not None:
                         return True
 
@@ -4530,8 +4476,6 @@ class L2Tp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.local_tunnel_id is not None:
                     return True
 
@@ -4558,8 +4502,6 @@ class L2Tp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tunnel_configuration is not None:
                 for child_ref in self.tunnel_configuration:
                     if child_ref._has_data():
@@ -4631,8 +4573,6 @@ class L2Tp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.pkt_timeout is not None:
                 for child in self.pkt_timeout:
                     if child is not None:
@@ -4902,8 +4842,6 @@ class L2Tp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.class_name is not None:
                     return True
 
@@ -4996,8 +4934,6 @@ class L2Tp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.class_ is not None:
                 for child_ref in self.class_:
                     if child_ref._has_data():
@@ -5326,8 +5262,6 @@ class L2Tp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.local_tunnel_id is not None:
                     return True
 
@@ -5446,8 +5380,6 @@ class L2Tp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tunnel is not None:
                 for child_ref in self.tunnel:
                     if child_ref._has_data():
@@ -5488,16 +5420,16 @@ class L2Tp(object):
             """
             L2TP information for a particular session
             
-            .. attribute:: local_session_id  <key>
+            .. attribute:: local_tunnel_id  <key>
             
-            	Local session ID
+            	Local tunnel ID
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: local_tunnel_id  <key>
+            .. attribute:: local_session_id  <key>
             
-            	Local tunnel ID
+            	Local session ID
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
@@ -5649,8 +5581,8 @@ class L2Tp(object):
 
             def __init__(self):
                 self.parent = None
-                self.local_session_id = None
                 self.local_tunnel_id = None
+                self.local_session_id = None
                 self.call_serial_number = None
                 self.interface_name = None
                 self.is_conditional_debug_enabled = None
@@ -5777,8 +5709,6 @@ class L2Tp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.circuit_name is not None:
                             return True
 
@@ -5845,8 +5775,6 @@ class L2Tp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -5872,8 +5800,6 @@ class L2Tp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.l2tp_sh_sess_app_type is not None:
                         return True
 
@@ -5892,24 +5818,22 @@ class L2Tp(object):
 
             @property
             def _common_path(self):
-                if self.local_session_id is None:
-                    raise YPYModelError('Key property local_session_id is None')
                 if self.local_tunnel_id is None:
                     raise YPYModelError('Key property local_tunnel_id is None')
+                if self.local_session_id is None:
+                    raise YPYModelError('Key property local_session_id is None')
 
-                return '/Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/Cisco-IOS-XR-tunnel-l2tun-oper:sessions/Cisco-IOS-XR-tunnel-l2tun-oper:session[Cisco-IOS-XR-tunnel-l2tun-oper:local-session-id = ' + str(self.local_session_id) + '][Cisco-IOS-XR-tunnel-l2tun-oper:local-tunnel-id = ' + str(self.local_tunnel_id) + ']'
+                return '/Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/Cisco-IOS-XR-tunnel-l2tun-oper:sessions/Cisco-IOS-XR-tunnel-l2tun-oper:session[Cisco-IOS-XR-tunnel-l2tun-oper:local-tunnel-id = ' + str(self.local_tunnel_id) + '][Cisco-IOS-XR-tunnel-l2tun-oper:local-session-id = ' + str(self.local_session_id) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.local_session_id is not None:
+                if self.local_tunnel_id is not None:
                     return True
 
-                if self.local_tunnel_id is not None:
+                if self.local_session_id is not None:
                     return True
 
                 if self.call_serial_number is not None:
@@ -5995,8 +5919,6 @@ class L2Tp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session is not None:
                 for child_ref in self.session:
                     if child_ref._has_data():
@@ -6064,8 +5986,6 @@ class L2Tp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sessions_on_hold is not None:
                     return True
 
@@ -6086,8 +6006,6 @@ class L2Tp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.unavailable is not None and self.unavailable._has_data():
                 return True
 
@@ -6108,8 +6026,6 @@ class L2Tp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.classes is not None and self.classes._has_data():
             return True
 
@@ -6294,16 +6210,16 @@ class L2Tpv2(object):
                     """
                     L2TP information for a particular session
                     
-                    .. attribute:: session_id  <key>
+                    .. attribute:: tunnel_id  <key>
                     
-                    	Local session ID
+                    	Local tunnel ID
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: tunnel_id  <key>
+                    .. attribute:: session_id  <key>
                     
-                    	Local tunnel ID
+                    	Local session ID
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
@@ -6356,8 +6272,8 @@ class L2Tpv2(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.session_id = None
                         self.tunnel_id = None
+                        self.session_id = None
                         self.in_bytes = None
                         self.in_packets = None
                         self.out_bytes = None
@@ -6366,24 +6282,22 @@ class L2Tpv2(object):
 
                     @property
                     def _common_path(self):
-                        if self.session_id is None:
-                            raise YPYModelError('Key property session_id is None')
                         if self.tunnel_id is None:
                             raise YPYModelError('Key property tunnel_id is None')
+                        if self.session_id is None:
+                            raise YPYModelError('Key property session_id is None')
 
-                        return '/Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/Cisco-IOS-XR-tunnel-l2tun-oper:counters/Cisco-IOS-XR-tunnel-l2tun-oper:forwarding/Cisco-IOS-XR-tunnel-l2tun-oper:sessions/Cisco-IOS-XR-tunnel-l2tun-oper:session[Cisco-IOS-XR-tunnel-l2tun-oper:session-id = ' + str(self.session_id) + '][Cisco-IOS-XR-tunnel-l2tun-oper:tunnel-id = ' + str(self.tunnel_id) + ']'
+                        return '/Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/Cisco-IOS-XR-tunnel-l2tun-oper:counters/Cisco-IOS-XR-tunnel-l2tun-oper:forwarding/Cisco-IOS-XR-tunnel-l2tun-oper:sessions/Cisco-IOS-XR-tunnel-l2tun-oper:session[Cisco-IOS-XR-tunnel-l2tun-oper:tunnel-id = ' + str(self.tunnel_id) + '][Cisco-IOS-XR-tunnel-l2tun-oper:session-id = ' + str(self.session_id) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.session_id is not None:
+                        if self.tunnel_id is not None:
                             return True
 
-                        if self.tunnel_id is not None:
+                        if self.session_id is not None:
                             return True
 
                         if self.in_bytes is not None:
@@ -6418,8 +6332,6 @@ class L2Tpv2(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.session is not None:
                         for child_ref in self.session:
                             if child_ref._has_data():
@@ -6442,8 +6354,6 @@ class L2Tpv2(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sessions is not None and self.sessions._has_data():
                     return True
 
@@ -6703,8 +6613,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -6858,8 +6766,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -7013,8 +6919,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -7168,8 +7072,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -7323,8 +7225,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -7478,8 +7378,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -7633,8 +7531,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -7788,8 +7684,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -7943,8 +7837,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bad_hash is not None:
                                 return True
 
@@ -7995,8 +7887,6 @@ class L2Tpv2(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.challenge_avp is not None and self.challenge_avp._has_data():
                             return True
 
@@ -8283,8 +8173,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acknowledgement_packets is not None:
                                 return True
 
@@ -8526,8 +8414,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acknowledgement_packets is not None:
                                 return True
 
@@ -8769,8 +8655,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acknowledgement_packets is not None:
                                 return True
 
@@ -9012,8 +8896,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.acknowledgement_packets is not None:
                                 return True
 
@@ -9088,8 +8970,6 @@ class L2Tpv2(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.drop is not None and self.drop._has_data():
                             return True
 
@@ -9131,8 +9011,6 @@ class L2Tpv2(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.authentication is not None and self.authentication._has_data():
                         return True
 
@@ -9257,8 +9135,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.local_address is not None:
                                 return True
 
@@ -9529,8 +9405,6 @@ class L2Tpv2(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknowledgement_packets is not None:
                                     return True
 
@@ -9774,8 +9648,6 @@ class L2Tpv2(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknowledgement_packets is not None:
                                     return True
 
@@ -10019,8 +9891,6 @@ class L2Tpv2(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknowledgement_packets is not None:
                                     return True
 
@@ -10264,8 +10134,6 @@ class L2Tpv2(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.acknowledgement_packets is not None:
                                     return True
 
@@ -10342,8 +10210,6 @@ class L2Tpv2(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.drop is not None and self.drop._has_data():
                                 return True
 
@@ -10387,8 +10253,6 @@ class L2Tpv2(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tunnel_id is not None:
                             return True
 
@@ -10415,8 +10279,6 @@ class L2Tpv2(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.tunnel is not None:
                         for child_ref in self.tunnel:
                             if child_ref._has_data():
@@ -10439,8 +10301,6 @@ class L2Tpv2(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.tunnel_xr is not None and self.tunnel_xr._has_data():
                     return True
 
@@ -10464,8 +10324,6 @@ class L2Tpv2(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.control is not None and self.control._has_data():
                 return True
 
@@ -10594,8 +10452,6 @@ class L2Tpv2(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.average_packet_processing_time is not None:
                 return True
 
@@ -10825,8 +10681,6 @@ class L2Tpv2(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.current_size is not None:
                         return True
 
@@ -10889,8 +10743,6 @@ class L2Tpv2(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.statistics is not None and self.statistics._has_data():
                     return True
 
@@ -10911,8 +10763,6 @@ class L2Tpv2(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.accounting is not None and self.accounting._has_data():
                 return True
 
@@ -11201,8 +11051,6 @@ class L2Tpv2(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accounting_method_list is not None:
                         return True
 
@@ -11294,8 +11142,6 @@ class L2Tpv2(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.local_tunnel_id is not None:
                     return True
 
@@ -11322,8 +11168,6 @@ class L2Tpv2(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tunnel_configuration is not None:
                 for child_ref in self.tunnel_configuration:
                     if child_ref._has_data():
@@ -11395,8 +11239,6 @@ class L2Tpv2(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.pkt_timeout is not None:
                 for child in self.pkt_timeout:
                     if child is not None:
@@ -11666,8 +11508,6 @@ class L2Tpv2(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.class_name is not None:
                     return True
 
@@ -11760,8 +11600,6 @@ class L2Tpv2(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.class_ is not None:
                 for child_ref in self.class_:
                     if child_ref._has_data():
@@ -12090,8 +11928,6 @@ class L2Tpv2(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.local_tunnel_id is not None:
                     return True
 
@@ -12210,8 +12046,6 @@ class L2Tpv2(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.tunnel is not None:
                 for child_ref in self.tunnel:
                     if child_ref._has_data():
@@ -12252,16 +12086,16 @@ class L2Tpv2(object):
             """
             L2TP information for a particular session
             
-            .. attribute:: local_session_id  <key>
+            .. attribute:: local_tunnel_id  <key>
             
-            	Local session ID
+            	Local tunnel ID
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: local_tunnel_id  <key>
+            .. attribute:: local_session_id  <key>
             
-            	Local tunnel ID
+            	Local session ID
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
@@ -12413,8 +12247,8 @@ class L2Tpv2(object):
 
             def __init__(self):
                 self.parent = None
-                self.local_session_id = None
                 self.local_tunnel_id = None
+                self.local_session_id = None
                 self.call_serial_number = None
                 self.interface_name = None
                 self.is_conditional_debug_enabled = None
@@ -12541,8 +12375,6 @@ class L2Tpv2(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.circuit_name is not None:
                             return True
 
@@ -12609,8 +12441,6 @@ class L2Tpv2(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -12636,8 +12466,6 @@ class L2Tpv2(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.l2tp_sh_sess_app_type is not None:
                         return True
 
@@ -12656,24 +12484,22 @@ class L2Tpv2(object):
 
             @property
             def _common_path(self):
-                if self.local_session_id is None:
-                    raise YPYModelError('Key property local_session_id is None')
                 if self.local_tunnel_id is None:
                     raise YPYModelError('Key property local_tunnel_id is None')
+                if self.local_session_id is None:
+                    raise YPYModelError('Key property local_session_id is None')
 
-                return '/Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/Cisco-IOS-XR-tunnel-l2tun-oper:sessions/Cisco-IOS-XR-tunnel-l2tun-oper:session[Cisco-IOS-XR-tunnel-l2tun-oper:local-session-id = ' + str(self.local_session_id) + '][Cisco-IOS-XR-tunnel-l2tun-oper:local-tunnel-id = ' + str(self.local_tunnel_id) + ']'
+                return '/Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/Cisco-IOS-XR-tunnel-l2tun-oper:sessions/Cisco-IOS-XR-tunnel-l2tun-oper:session[Cisco-IOS-XR-tunnel-l2tun-oper:local-tunnel-id = ' + str(self.local_tunnel_id) + '][Cisco-IOS-XR-tunnel-l2tun-oper:local-session-id = ' + str(self.local_session_id) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.local_session_id is not None:
+                if self.local_tunnel_id is not None:
                     return True
 
-                if self.local_tunnel_id is not None:
+                if self.local_session_id is not None:
                     return True
 
                 if self.call_serial_number is not None:
@@ -12759,8 +12585,6 @@ class L2Tpv2(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.session is not None:
                 for child_ref in self.session:
                     if child_ref._has_data():
@@ -12828,8 +12652,6 @@ class L2Tpv2(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.sessions_on_hold is not None:
                     return True
 
@@ -12850,8 +12672,6 @@ class L2Tpv2(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.unavailable is not None and self.unavailable._has_data():
                 return True
 
@@ -12872,8 +12692,6 @@ class L2Tpv2(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.classes is not None and self.classes._has_data():
             return True
 

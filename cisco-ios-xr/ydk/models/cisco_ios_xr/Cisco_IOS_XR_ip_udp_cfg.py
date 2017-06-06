@@ -119,8 +119,6 @@ class IpUdp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.udp_in_q_threads is not None:
@@ -199,8 +197,6 @@ class IpUdp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.directoryname is not None:
@@ -229,8 +225,6 @@ class IpUdp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.directory is not None and self.directory._has_data():
             return True
 

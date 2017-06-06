@@ -202,8 +202,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.as_ is not None:
                     return True
 
@@ -276,8 +274,6 @@ class Bgp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.as_ is not None:
                     return True
 
@@ -400,8 +396,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.advertise_inactive_routes is not None:
                         return True
 
@@ -500,8 +494,6 @@ class Bgp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.advertise_inactive_routes is not None:
                         return True
 
@@ -537,8 +529,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -625,8 +615,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.external_route_distance is not None:
                         return True
 
@@ -681,8 +669,6 @@ class Bgp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.external_route_distance is not None:
                         return True
 
@@ -706,8 +692,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -800,8 +784,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enabled is not None:
                         return True
 
@@ -869,8 +851,6 @@ class Bgp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enabled is not None:
                         return True
 
@@ -899,8 +879,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -991,8 +969,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enabled is not None:
                         return True
 
@@ -1036,8 +1012,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enabled is not None:
                         return True
 
@@ -1120,8 +1094,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allow_multiple_as is not None:
                             return True
 
@@ -1178,8 +1150,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allow_multiple_as is not None:
                             return True
 
@@ -1203,8 +1173,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -1282,8 +1250,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.maximum_paths is not None:
                             return True
 
@@ -1329,8 +1295,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.maximum_paths is not None:
                             return True
 
@@ -1351,8 +1315,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -1376,8 +1338,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -1479,8 +1439,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enabled is not None:
                         return True
 
@@ -1553,8 +1511,6 @@ class Bgp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enabled is not None:
                         return True
 
@@ -1584,8 +1540,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -1820,8 +1774,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enabled is not None:
                                 return True
 
@@ -1867,8 +1819,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enabled is not None:
                                 return True
 
@@ -1891,8 +1841,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -1947,8 +1895,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi_safi_name is not None:
                             return True
 
@@ -2019,8 +1965,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi_safi_name is not None:
                             return True
 
@@ -2135,8 +2079,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.default_export_policy is not None:
                                 return True
 
@@ -2223,8 +2165,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.default_export_policy is not None:
                                 return True
 
@@ -2260,8 +2200,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -2395,8 +2333,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -2467,8 +2403,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -2497,8 +2431,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -2548,8 +2480,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.send_default_route is not None:
                                 return True
 
@@ -2596,8 +2526,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.send_default_route is not None:
                                 return True
 
@@ -2620,8 +2548,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -2758,8 +2684,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -2830,8 +2754,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -2860,8 +2782,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -2911,8 +2831,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.send_default_route is not None:
                                 return True
 
@@ -2959,8 +2877,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.send_default_route is not None:
                                 return True
 
@@ -2983,8 +2899,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -3107,8 +3021,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -3179,8 +3091,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -3209,8 +3119,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -3236,8 +3144,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
@@ -3354,8 +3260,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -3426,8 +3330,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -3456,8 +3358,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -3483,8 +3383,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
@@ -3601,8 +3499,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -3673,8 +3569,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -3703,8 +3597,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -3730,8 +3622,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
@@ -3848,8 +3738,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -3920,8 +3808,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -3950,8 +3836,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -3977,8 +3861,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
@@ -4095,8 +3977,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -4167,8 +4047,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -4197,8 +4075,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -4224,8 +4100,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
@@ -4342,8 +4216,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -4414,8 +4286,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -4444,8 +4314,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -4471,8 +4339,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
@@ -4589,8 +4455,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -4661,8 +4525,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -4691,8 +4553,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -4718,8 +4578,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
@@ -4836,8 +4694,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -4908,8 +4764,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_prefixes is not None:
                                     return True
 
@@ -4938,8 +4792,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -4965,8 +4817,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.prefix_limit is not None and self.prefix_limit._has_data():
                             return True
 
@@ -5082,8 +4932,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.advertise_inactive_routes is not None:
                                 return True
 
@@ -5184,8 +5032,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.advertise_inactive_routes is not None:
                                 return True
 
@@ -5223,8 +5069,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -5317,8 +5161,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enabled is not None:
                                 return True
 
@@ -5364,8 +5206,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.enabled is not None:
                                 return True
 
@@ -5450,8 +5290,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.allow_multiple_as is not None:
                                     return True
 
@@ -5510,8 +5348,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.allow_multiple_as is not None:
                                     return True
 
@@ -5537,8 +5373,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -5618,8 +5452,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.maximum_paths is not None:
                                     return True
 
@@ -5667,8 +5499,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.maximum_paths is not None:
                                     return True
 
@@ -5691,8 +5521,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -5718,8 +5546,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -5751,8 +5577,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.afi_safi_name is not None:
                         return True
 
@@ -5821,8 +5645,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.afi_safi is not None:
                     for child_ref in self.afi_safi:
                         if child_ref._has_data():
@@ -5928,8 +5750,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.default_export_policy is not None:
                         return True
 
@@ -6014,8 +5834,6 @@ class Bgp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.default_export_policy is not None:
                         return True
 
@@ -6049,8 +5867,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.config is not None and self.config._has_data():
                     return True
 
@@ -6074,8 +5890,6 @@ class Bgp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safis is not None and self.afi_safis._has_data():
                 return True
 
@@ -6375,8 +6189,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auth_password is not None:
                         return True
 
@@ -6678,8 +6490,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.notification is not None:
                                 return True
 
@@ -6736,8 +6546,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.notification is not None:
                                 return True
 
@@ -6763,8 +6571,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.received is not None and self.received._has_data():
                             return True
 
@@ -6822,8 +6628,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.input is not None:
                             return True
 
@@ -6849,8 +6653,6 @@ class Bgp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auth_password is not None:
                         return True
 
@@ -6999,8 +6801,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connect_retry is not None:
                             return True
 
@@ -7104,8 +6904,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connect_retry is not None:
                             return True
 
@@ -7143,8 +6941,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -7263,8 +7059,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.local_address is not None:
                             return True
 
@@ -7394,8 +7188,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.local_address is not None:
                             return True
 
@@ -7436,8 +7228,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -7518,8 +7308,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.treat_as_withdraw is not None:
                             return True
 
@@ -7574,8 +7362,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.erroneous_update_messages is not None:
                             return True
 
@@ -7601,8 +7387,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -7682,8 +7466,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.log_neighbor_state_changes is not None:
                             return True
 
@@ -7730,8 +7512,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.log_neighbor_state_changes is not None:
                             return True
 
@@ -7754,8 +7534,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -7842,8 +7620,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -7901,8 +7677,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -7928,8 +7702,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -8026,8 +7798,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.route_reflector_client is not None:
                             return True
 
@@ -8095,8 +7865,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.route_reflector_client is not None:
                             return True
 
@@ -8122,8 +7890,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -8213,8 +7979,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allow_own_as is not None:
                             return True
 
@@ -8274,8 +8038,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allow_own_as is not None:
                             return True
 
@@ -8301,8 +8063,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -8389,8 +8149,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.receive is not None:
                             return True
 
@@ -8447,8 +8205,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.receive is not None:
                             return True
 
@@ -8474,8 +8230,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -8704,8 +8458,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enabled is not None:
                                     return True
 
@@ -8763,8 +8515,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.advertised is not None:
                                     return True
 
@@ -8793,8 +8543,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -8849,8 +8597,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi_safi_name is not None:
                                 return True
 
@@ -8957,8 +8703,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.installed is not None:
                                     return True
 
@@ -8987,8 +8731,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active is not None:
                                 return True
 
@@ -9103,8 +8845,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.default_export_policy is not None:
                                     return True
 
@@ -9191,8 +8931,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.default_export_policy is not None:
                                     return True
 
@@ -9228,8 +8966,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -9363,8 +9099,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -9435,8 +9169,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -9465,8 +9197,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -9516,8 +9246,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.send_default_route is not None:
                                     return True
 
@@ -9564,8 +9292,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.send_default_route is not None:
                                     return True
 
@@ -9588,8 +9314,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -9726,8 +9450,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -9798,8 +9520,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -9828,8 +9548,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -9879,8 +9597,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.send_default_route is not None:
                                     return True
 
@@ -9927,8 +9643,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.send_default_route is not None:
                                     return True
 
@@ -9951,8 +9665,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -10075,8 +9787,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -10147,8 +9857,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -10177,8 +9885,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -10204,8 +9910,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -10322,8 +10026,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -10394,8 +10096,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -10424,8 +10124,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -10451,8 +10149,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -10569,8 +10265,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -10641,8 +10335,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -10671,8 +10363,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -10698,8 +10388,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -10816,8 +10504,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -10888,8 +10574,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -10918,8 +10602,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -10945,8 +10627,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -11063,8 +10743,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -11135,8 +10813,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -11165,8 +10841,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -11192,8 +10866,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -11310,8 +10982,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -11382,8 +11052,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -11412,8 +11080,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -11439,8 +11105,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -11557,8 +11221,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -11629,8 +11291,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -11659,8 +11319,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -11686,8 +11344,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -11804,8 +11460,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -11876,8 +11530,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -11906,8 +11558,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -11933,8 +11583,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -12017,8 +11665,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enabled is not None:
                                     return True
 
@@ -12064,8 +11710,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enabled is not None:
                                     return True
 
@@ -12140,8 +11784,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.allow_multiple_as is not None:
                                         return True
 
@@ -12187,8 +11829,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.allow_multiple_as is not None:
                                         return True
 
@@ -12211,8 +11851,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -12238,8 +11876,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -12270,8 +11906,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi_safi_name is not None:
                             return True
 
@@ -12339,8 +11973,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.afi_safi is not None:
                         for child_ref in self.afi_safi:
                             if child_ref._has_data():
@@ -12437,8 +12069,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -12588,8 +12218,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -12633,8 +12261,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -12743,8 +12369,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.default_export_policy is not None:
                             return True
 
@@ -12831,8 +12455,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.default_export_policy is not None:
                             return True
 
@@ -12868,8 +12490,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -12955,8 +12575,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -13002,8 +12620,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -13078,8 +12694,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.allow_multiple_as is not None:
                                 return True
 
@@ -13125,8 +12739,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.allow_multiple_as is not None:
                                 return True
 
@@ -13149,8 +12761,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -13176,8 +12786,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -13206,8 +12814,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.neighbor_address is not None:
                     return True
 
@@ -13270,8 +12876,6 @@ class Bgp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.neighbor is not None:
                 for child_ref in self.neighbor:
                     if child_ref._has_data():
@@ -13519,8 +13123,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auth_password is not None:
                         return True
 
@@ -13660,8 +13262,6 @@ class Bgp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auth_password is not None:
                         return True
 
@@ -13799,8 +13399,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connect_retry is not None:
                             return True
 
@@ -13888,8 +13486,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connect_retry is not None:
                             return True
 
@@ -13921,8 +13517,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -14041,8 +13635,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.local_address is not None:
                             return True
 
@@ -14138,8 +13730,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.local_address is not None:
                             return True
 
@@ -14171,8 +13761,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -14253,8 +13841,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.treat_as_withdraw is not None:
                             return True
 
@@ -14301,8 +13887,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.treat_as_withdraw is not None:
                             return True
 
@@ -14325,8 +13909,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -14406,8 +13988,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.log_neighbor_state_changes is not None:
                             return True
 
@@ -14454,8 +14034,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.log_neighbor_state_changes is not None:
                             return True
 
@@ -14478,8 +14056,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -14566,8 +14142,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -14625,8 +14199,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -14652,8 +14224,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -14750,8 +14320,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.route_reflector_client is not None:
                             return True
 
@@ -14819,8 +14387,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.route_reflector_client is not None:
                             return True
 
@@ -14846,8 +14412,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -14937,8 +14501,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allow_own_as is not None:
                             return True
 
@@ -14998,8 +14560,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.allow_own_as is not None:
                             return True
 
@@ -15025,8 +14585,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -15113,8 +14671,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.receive is not None:
                             return True
 
@@ -15171,8 +14727,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.receive is not None:
                             return True
 
@@ -15198,8 +14752,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -15435,8 +14987,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enabled is not None:
                                     return True
 
@@ -15482,8 +15032,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enabled is not None:
                                     return True
 
@@ -15506,8 +15054,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -15562,8 +15108,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi_safi_name is not None:
                                 return True
 
@@ -15618,8 +15162,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi_safi_name is not None:
                                 return True
 
@@ -15728,8 +15270,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.default_export_policy is not None:
                                     return True
 
@@ -15816,8 +15356,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.default_export_policy is not None:
                                     return True
 
@@ -15853,8 +15391,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -15988,8 +15524,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -16060,8 +15594,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -16090,8 +15622,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -16141,8 +15671,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.send_default_route is not None:
                                     return True
 
@@ -16189,8 +15717,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.send_default_route is not None:
                                     return True
 
@@ -16213,8 +15739,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -16351,8 +15875,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -16423,8 +15945,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -16453,8 +15973,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -16504,8 +16022,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.send_default_route is not None:
                                     return True
 
@@ -16552,8 +16068,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.send_default_route is not None:
                                     return True
 
@@ -16576,8 +16090,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -16700,8 +16212,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -16772,8 +16282,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -16802,8 +16310,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -16829,8 +16335,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -16947,8 +16451,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -17019,8 +16521,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -17049,8 +16549,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -17076,8 +16574,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -17194,8 +16690,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -17266,8 +16760,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -17296,8 +16788,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -17323,8 +16813,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -17441,8 +16929,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -17513,8 +16999,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -17543,8 +17027,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -17570,8 +17052,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -17688,8 +17168,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -17760,8 +17238,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -17790,8 +17266,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -17817,8 +17291,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -17935,8 +17407,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -18007,8 +17477,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -18037,8 +17505,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -18064,8 +17530,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -18182,8 +17646,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -18254,8 +17716,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -18284,8 +17744,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -18311,8 +17769,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -18429,8 +17885,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -18501,8 +17955,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.max_prefixes is not None:
                                         return True
 
@@ -18531,8 +17983,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -18558,8 +18008,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_limit is not None and self.prefix_limit._has_data():
                                 return True
 
@@ -18649,8 +18097,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enabled is not None:
                                     return True
 
@@ -18696,8 +18142,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enabled is not None:
                                     return True
 
@@ -18782,8 +18226,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.allow_multiple_as is not None:
                                         return True
 
@@ -18842,8 +18284,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.allow_multiple_as is not None:
                                         return True
 
@@ -18869,8 +18309,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -18950,8 +18388,6 @@ class Bgp(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.maximum_paths is not None:
                                         return True
 
@@ -18999,8 +18435,6 @@ class Bgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.maximum_paths is not None:
                                         return True
 
@@ -19023,8 +18457,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.config is not None and self.config._has_data():
                                     return True
 
@@ -19050,8 +18482,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -19176,8 +18606,6 @@ class Bgp(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.advertise_inactive_routes is not None:
                                     return True
 
@@ -19278,8 +18706,6 @@ class Bgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.advertise_inactive_routes is not None:
                                     return True
 
@@ -19317,8 +18743,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.config is not None and self.config._has_data():
                                 return True
 
@@ -19346,8 +18770,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.afi_safi_name is not None:
                             return True
 
@@ -19418,8 +18840,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.afi_safi is not None:
                         for child_ref in self.afi_safi:
                             if child_ref._has_data():
@@ -19516,8 +18936,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -19592,8 +19010,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -19625,8 +19041,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -19735,8 +19149,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.default_export_policy is not None:
                             return True
 
@@ -19823,8 +19235,6 @@ class Bgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.default_export_policy is not None:
                             return True
 
@@ -19860,8 +19270,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -19954,8 +19362,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -20001,8 +19407,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enabled is not None:
                             return True
 
@@ -20087,8 +19491,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.allow_multiple_as is not None:
                                 return True
 
@@ -20147,8 +19549,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.allow_multiple_as is not None:
                                 return True
 
@@ -20174,8 +19574,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -20255,8 +19653,6 @@ class Bgp(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.maximum_paths is not None:
                                 return True
 
@@ -20304,8 +19700,6 @@ class Bgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.maximum_paths is not None:
                                 return True
 
@@ -20328,8 +19722,6 @@ class Bgp(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None and self.config._has_data():
                             return True
 
@@ -20355,8 +19747,6 @@ class Bgp(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -20388,8 +19778,6 @@ class Bgp(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer_group_name is not None:
                     return True
 
@@ -20452,8 +19840,6 @@ class Bgp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.peer_group is not None:
                 for child_ref in self.peer_group:
                     if child_ref._has_data():
@@ -20476,8 +19862,6 @@ class Bgp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self._is_presence:
             return True
         if self.global_ is not None and self.global_._has_data():

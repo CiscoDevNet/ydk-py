@@ -113,67 +113,6 @@ class TunnelTypeEnum(Enum):
 
 
 
-class LspRoleIdentity(object):
-    """
-    Base identity for describing the role of
-    label switched path at the current node
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['LspRoleIdentity']['meta_info']
-
-
-class LspOperStatusIdentity(object):
-    """
-    Base identity for LSP operational status
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['LspOperStatusIdentity']['meta_info']
-
-
-class ProtectionTypeIdentity(object):
-    """
-    base identity for protection type
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['ProtectionTypeIdentity']['meta_info']
-
-
 class TunnelAdminStatusIdentity(object):
     """
     Base identity for tunnel administrative status
@@ -194,10 +133,9 @@ class TunnelAdminStatusIdentity(object):
         return meta._meta_table['TunnelAdminStatusIdentity']['meta_info']
 
 
-class NullLabelTypeIdentity(object):
+class LspOperStatusIdentity(object):
     """
-    Base identity from which specific null\-label types are
-    derived.
+    Base identity for LSP operational status
     
     
 
@@ -212,28 +150,7 @@ class NullLabelTypeIdentity(object):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['NullLabelTypeIdentity']['meta_info']
-
-
-class TunnelTypeIdentity(object):
-    """
-    Base identity from which specific tunnel types are
-    derived.
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['TunnelTypeIdentity']['meta_info']
+        return meta._meta_table['LspOperStatusIdentity']['meta_info']
 
 
 class PathSetupProtocolIdentity(object):
@@ -257,9 +174,10 @@ class PathSetupProtocolIdentity(object):
         return meta._meta_table['PathSetupProtocolIdentity']['meta_info']
 
 
-class PathSetupSrIdentity(PathSetupProtocolIdentity):
+class NullLabelTypeIdentity(object):
     """
-    Segment routing
+    Base identity from which specific null\-label types are
+    derived.
     
     
 
@@ -269,17 +187,18 @@ class PathSetupSrIdentity(PathSetupProtocolIdentity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        PathSetupProtocolIdentity.__init__(self)
+        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['PathSetupSrIdentity']['meta_info']
+        return meta._meta_table['NullLabelTypeIdentity']['meta_info']
 
 
-class DownIdentity(LspOperStatusIdentity):
+class LspRoleIdentity(object):
     """
-    LSP is operationally down or out of service
+    Base identity for describing the role of
+    label switched path at the current node
     
     
 
@@ -289,17 +208,17 @@ class DownIdentity(LspOperStatusIdentity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        LspOperStatusIdentity.__init__(self)
+        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['DownIdentity']['meta_info']
+        return meta._meta_table['LspRoleIdentity']['meta_info']
 
 
-class UnprotectedIdentity(ProtectionTypeIdentity):
+class ProtectionTypeIdentity(object):
     """
-    no protection is desired
+    base identity for protection type
     
     
 
@@ -309,17 +228,18 @@ class UnprotectedIdentity(ProtectionTypeIdentity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        ProtectionTypeIdentity.__init__(self)
+        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['UnprotectedIdentity']['meta_info']
+        return meta._meta_table['ProtectionTypeIdentity']['meta_info']
 
 
-class PathSetupLdpIdentity(PathSetupProtocolIdentity):
+class TunnelTypeIdentity(object):
     """
-    LDP \- RFC 5036
+    Base identity from which specific tunnel types are
+    derived.
     
     
 
@@ -329,12 +249,12 @@ class PathSetupLdpIdentity(PathSetupProtocolIdentity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        PathSetupProtocolIdentity.__init__(self)
+        pass
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['PathSetupLdpIdentity']['meta_info']
+        return meta._meta_table['TunnelTypeIdentity']['meta_info']
 
 
 class P2PIdentity(TunnelTypeIdentity):
@@ -357,9 +277,9 @@ class P2PIdentity(TunnelTypeIdentity):
         return meta._meta_table['P2PIdentity']['meta_info']
 
 
-class Admin_DownIdentity(TunnelAdminStatusIdentity):
+class UnprotectedIdentity(ProtectionTypeIdentity):
     """
-    LSP is administratively down
+    no protection is desired
     
     
 
@@ -369,32 +289,12 @@ class Admin_DownIdentity(TunnelAdminStatusIdentity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        TunnelAdminStatusIdentity.__init__(self)
+        ProtectionTypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['Admin_DownIdentity']['meta_info']
-
-
-class ExplicitIdentity(NullLabelTypeIdentity):
-    """
-    Explicit null label is used.
-    
-    
-
-    """
-
-    _prefix = 'mplst'
-    _revision = '2015-11-05'
-
-    def __init__(self):
-        NullLabelTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['ExplicitIdentity']['meta_info']
+        return meta._meta_table['UnprotectedIdentity']['meta_info']
 
 
 class Admin_UpIdentity(TunnelAdminStatusIdentity):
@@ -417,9 +317,9 @@ class Admin_UpIdentity(TunnelAdminStatusIdentity):
         return meta._meta_table['Admin_UpIdentity']['meta_info']
 
 
-class P2MpIdentity(TunnelTypeIdentity):
+class DownIdentity(LspOperStatusIdentity):
     """
-    TE point\-to\-multipoint tunnel type.
+    LSP is operationally down or out of service
     
     
 
@@ -429,17 +329,17 @@ class P2MpIdentity(TunnelTypeIdentity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        TunnelTypeIdentity.__init__(self)
+        LspOperStatusIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['P2MpIdentity']['meta_info']
+        return meta._meta_table['DownIdentity']['meta_info']
 
 
-class PathSetupRsvpIdentity(PathSetupProtocolIdentity):
+class PathSetupLdpIdentity(PathSetupProtocolIdentity):
     """
-    RSVP\-TE signaling protocol
+    LDP \- RFC 5036
     
     
 
@@ -454,13 +354,33 @@ class PathSetupRsvpIdentity(PathSetupProtocolIdentity):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['PathSetupRsvpIdentity']['meta_info']
+        return meta._meta_table['PathSetupLdpIdentity']['meta_info']
 
 
-class IngressIdentity(LspRoleIdentity):
+class UpIdentity(LspOperStatusIdentity):
     """
-    Label switched path is an ingress (headend)
-    LSP
+    LSP is operationally active and available
+    for traffic.
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        LspOperStatusIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
+        return meta._meta_table['UpIdentity']['meta_info']
+
+
+class TransitIdentity(LspRoleIdentity):
+    """
+    Label switched path is a transit LSP
     
     
 
@@ -475,12 +395,12 @@ class IngressIdentity(LspRoleIdentity):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['IngressIdentity']['meta_info']
+        return meta._meta_table['TransitIdentity']['meta_info']
 
 
-class LinkProtectionRequestedIdentity(ProtectionTypeIdentity):
+class LinkNodeProtectionRequestedIdentity(ProtectionTypeIdentity):
     """
-    link protection is desired
+    node and link protection are both desired
     
     
 
@@ -495,7 +415,7 @@ class LinkProtectionRequestedIdentity(ProtectionTypeIdentity):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['LinkProtectionRequestedIdentity']['meta_info']
+        return meta._meta_table['LinkNodeProtectionRequestedIdentity']['meta_info']
 
 
 class EgressIdentity(LspRoleIdentity):
@@ -519,9 +439,9 @@ class EgressIdentity(LspRoleIdentity):
         return meta._meta_table['EgressIdentity']['meta_info']
 
 
-class LinkNodeProtectionRequestedIdentity(ProtectionTypeIdentity):
+class LinkProtectionRequestedIdentity(ProtectionTypeIdentity):
     """
-    node and link protection are both desired
+    link protection is desired
     
     
 
@@ -536,7 +456,88 @@ class LinkNodeProtectionRequestedIdentity(ProtectionTypeIdentity):
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['LinkNodeProtectionRequestedIdentity']['meta_info']
+        return meta._meta_table['LinkProtectionRequestedIdentity']['meta_info']
+
+
+class ExplicitIdentity(NullLabelTypeIdentity):
+    """
+    Explicit null label is used.
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        NullLabelTypeIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
+        return meta._meta_table['ExplicitIdentity']['meta_info']
+
+
+class PathSetupSrIdentity(PathSetupProtocolIdentity):
+    """
+    Segment routing
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        PathSetupProtocolIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
+        return meta._meta_table['PathSetupSrIdentity']['meta_info']
+
+
+class Admin_DownIdentity(TunnelAdminStatusIdentity):
+    """
+    LSP is administratively down
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        TunnelAdminStatusIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
+        return meta._meta_table['Admin_DownIdentity']['meta_info']
+
+
+class IngressIdentity(LspRoleIdentity):
+    """
+    Label switched path is an ingress (headend)
+    LSP
+    
+    
+
+    """
+
+    _prefix = 'mplst'
+    _revision = '2015-11-05'
+
+    def __init__(self):
+        LspRoleIdentity.__init__(self)
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
+        return meta._meta_table['IngressIdentity']['meta_info']
 
 
 class ImplicitIdentity(NullLabelTypeIdentity):
@@ -559,9 +560,9 @@ class ImplicitIdentity(NullLabelTypeIdentity):
         return meta._meta_table['ImplicitIdentity']['meta_info']
 
 
-class TransitIdentity(LspRoleIdentity):
+class PathSetupRsvpIdentity(PathSetupProtocolIdentity):
     """
-    Label switched path is a transit LSP
+    RSVP\-TE signaling protocol
     
     
 
@@ -571,18 +572,17 @@ class TransitIdentity(LspRoleIdentity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        LspRoleIdentity.__init__(self)
+        PathSetupProtocolIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['TransitIdentity']['meta_info']
+        return meta._meta_table['PathSetupRsvpIdentity']['meta_info']
 
 
-class UpIdentity(LspOperStatusIdentity):
+class P2MpIdentity(TunnelTypeIdentity):
     """
-    LSP is operationally active and available
-    for traffic.
+    TE point\-to\-multipoint tunnel type.
     
     
 
@@ -592,11 +592,11 @@ class UpIdentity(LspOperStatusIdentity):
     _revision = '2015-11-05'
 
     def __init__(self):
-        LspOperStatusIdentity.__init__(self)
+        TunnelTypeIdentity.__init__(self)
 
     @staticmethod
     def _meta_info():
         from ydk.models.openconfig._meta import _openconfig_mpls_types as meta
-        return meta._meta_table['UpIdentity']['meta_info']
+        return meta._meta_table['P2MpIdentity']['meta_info']
 
 

@@ -152,8 +152,6 @@ class Logging(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.message is not None:
                 return True
 
@@ -177,8 +175,6 @@ class Logging(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.history is not None and self.history._has_data():
             return True
 
@@ -291,8 +287,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.file_name is not None:
                     return True
 
@@ -316,8 +310,6 @@ class Syslog(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.file_log_detail is not None:
                 for child_ref in self.file_log_detail:
                     if child_ref._has_data():
@@ -402,8 +394,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ip_address is not None:
                     return True
 
@@ -433,8 +423,6 @@ class Syslog(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.an_remote_log_server is not None:
                 for child_ref in self.an_remote_log_server:
                     if child_ref._has_data():
@@ -577,8 +565,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.message_id is not None:
                     return True
 
@@ -632,8 +618,6 @@ class Syslog(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.message is not None:
                 for child_ref in self.message:
                     if child_ref._has_data():
@@ -775,8 +759,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.drop_count is not None:
                     return True
 
@@ -851,8 +833,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.buffer_size is not None:
                     return True
 
@@ -927,8 +907,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.buffer_size is not None:
                     return True
 
@@ -1003,8 +981,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.buffer_size is not None:
                     return True
 
@@ -1079,8 +1055,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.buffer_size is not None:
                     return True
 
@@ -1139,8 +1113,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.message_count is not None:
                     return True
 
@@ -1193,8 +1165,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.message_count is not None:
                     return True
 
@@ -1247,8 +1217,6 @@ class Syslog(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.file_name is not None:
                     return True
 
@@ -1272,8 +1240,6 @@ class Syslog(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.buffer_logging_stats is not None and self.buffer_logging_stats._has_data():
                 return True
 
@@ -1321,8 +1287,6 @@ class Syslog(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.an_remote_servers is not None and self.an_remote_servers._has_data():
             return True
 

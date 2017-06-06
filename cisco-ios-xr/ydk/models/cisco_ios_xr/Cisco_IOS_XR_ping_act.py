@@ -228,8 +228,6 @@ class PingRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.data_size is not None:
                     return True
 
@@ -411,8 +409,6 @@ class PingRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.destination is not None:
                     return True
 
@@ -580,8 +576,6 @@ class PingRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.data_size is not None:
                     return True
 
@@ -637,8 +631,6 @@ class PingRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.destination is not None and self.destination._has_data():
                 return True
 
@@ -994,8 +986,6 @@ class PingRpc(object):
                                     return self.parent.is_config()
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.reply_address is not None:
                                         return True
 
@@ -1023,8 +1013,6 @@ class PingRpc(object):
                                 return self.parent.is_config()
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.broadcast_reply_address is not None:
                                     for child_ref in self.broadcast_reply_address:
                                         if child_ref._has_data():
@@ -1053,8 +1041,6 @@ class PingRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reply_index is not None:
                                 return True
 
@@ -1085,8 +1071,6 @@ class PingRpc(object):
                         return self.parent.is_config()
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.reply is not None:
                             for child_ref in self.reply:
                                 if child_ref._has_data():
@@ -1113,8 +1097,6 @@ class PingRpc(object):
                     return self.parent.is_config()
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.destination is not None:
                         return True
 
@@ -1396,8 +1378,6 @@ class PingRpc(object):
                             return self.parent.is_config()
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.reply_index is not None:
                                 return True
 
@@ -1423,8 +1403,6 @@ class PingRpc(object):
                         return self.parent.is_config()
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.reply is not None:
                             for child_ref in self.reply:
                                 if child_ref._has_data():
@@ -1449,8 +1427,6 @@ class PingRpc(object):
                     return self.parent.is_config()
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.data_size is not None:
                         return True
 
@@ -1521,8 +1497,6 @@ class PingRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4 is not None:
                     for child_ref in self.ipv4:
                         if child_ref._has_data():
@@ -1550,8 +1524,6 @@ class PingRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ping_response is not None and self.ping_response._has_data():
                 return True
 
@@ -1572,8 +1544,6 @@ class PingRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 

@@ -375,8 +375,6 @@ class OpticalInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.partial_config is not None:
                     return True
 
@@ -532,8 +530,6 @@ class OpticalInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.err_str is not None:
                             return True
 
@@ -577,8 +573,6 @@ class OpticalInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.index is not None:
                         return True
 
@@ -602,8 +596,6 @@ class OpticalInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.slice_table is not None:
                     for child_ref in self.slice_table:
                         if child_ref._has_data():
@@ -626,8 +618,6 @@ class OpticalInterface(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.partial_config is not None and self.partial_config._has_data():
                 return True
 
@@ -772,8 +762,6 @@ class OpticalInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.frequency is not None:
                         return True
 
@@ -811,8 +799,6 @@ class OpticalInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.location is not None:
                     return True
 
@@ -836,8 +822,6 @@ class OpticalInterface(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.optical_channel_interface is not None:
                 for child_ref in self.optical_channel_interface:
                     if child_ref._has_data():
@@ -914,8 +898,6 @@ class OpticalInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.path is not None:
                     return True
 
@@ -960,8 +942,6 @@ class OpticalInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.path is not None:
                     return True
 
@@ -982,8 +962,6 @@ class OpticalInterface(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.adj_list_path is not None and self.adj_list_path._has_data():
                 return True
 
@@ -1094,8 +1072,6 @@ class OpticalInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.description is not None:
                         return True
 
@@ -1121,8 +1097,6 @@ class OpticalInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mode_id is not None:
                     return True
 
@@ -1146,8 +1120,6 @@ class OpticalInterface(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.operational_mode is not None:
                 for child_ref in self.operational_mode:
                     if child_ref._has_data():
@@ -1339,8 +1311,6 @@ class OpticalInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_state is not None:
                         return True
 
@@ -1521,8 +1491,6 @@ class OpticalInterface(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.allocation is not None:
                                 return True
 
@@ -1565,8 +1533,6 @@ class OpticalInterface(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -1592,8 +1558,6 @@ class OpticalInterface(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.optical_logical_interface_logical_channel_assignment is not None:
                         for child_ref in self.optical_logical_interface_logical_channel_assignment:
                             if child_ref._has_data():
@@ -1618,8 +1582,6 @@ class OpticalInterface(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.index is not None:
                     return True
 
@@ -1646,8 +1608,6 @@ class OpticalInterface(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.optical_logical_interface is not None:
                 for child_ref in self.optical_logical_interface:
                     if child_ref._has_data():
@@ -1670,8 +1630,6 @@ class OpticalInterface(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.config_status is not None and self.config_status._has_data():
             return True
 

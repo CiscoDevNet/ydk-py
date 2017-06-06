@@ -746,8 +746,6 @@ class Diag(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.rma_history is not None:
                                             return True
 
@@ -776,8 +774,6 @@ class Diag(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.asset_alias is not None:
                                         return True
 
@@ -970,8 +966,6 @@ class Diag(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.power_supply_name is not None:
                                     return True
 
@@ -997,8 +991,6 @@ class Diag(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.power_supply is not None:
                                 for child_ref in self.power_supply:
                                     if child_ref._has_data():
@@ -1025,8 +1017,6 @@ class Diag(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.power_shelf_name is not None:
                             return True
 
@@ -1052,8 +1042,6 @@ class Diag(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.power_shelf is not None:
                         for child_ref in self.power_shelf:
                             if child_ref._has_data():
@@ -1693,8 +1681,6 @@ class Diag(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.rma_history is not None:
                                             return True
 
@@ -1723,8 +1709,6 @@ class Diag(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.asset_alias is not None:
                                         return True
 
@@ -1917,8 +1901,6 @@ class Diag(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.fans_name is not None:
                                     return True
 
@@ -1944,8 +1926,6 @@ class Diag(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.fans is not None:
                                 for child_ref in self.fans:
                                     if child_ref._has_data():
@@ -1972,8 +1952,6 @@ class Diag(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.fan_tray_name is not None:
                             return True
 
@@ -1999,8 +1977,6 @@ class Diag(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.fan_tray is not None:
                         for child_ref in self.fan_tray:
                             if child_ref._has_data():
@@ -2670,8 +2646,6 @@ class Diag(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.rma_history is not None:
                                                 return True
 
@@ -2700,8 +2674,6 @@ class Diag(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.asset_alias is not None:
                                             return True
 
@@ -2892,8 +2864,6 @@ class Diag(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.card_instance is not None and self.card_instance._has_data():
                                         return True
 
@@ -2921,8 +2891,6 @@ class Diag(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name is not None:
                                     return True
 
@@ -2948,8 +2916,6 @@ class Diag(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.instance is not None:
                                 for child_ref in self.instance:
                                     if child_ref._has_data():
@@ -2976,8 +2942,6 @@ class Diag(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.slot_name is not None:
                             return True
 
@@ -3003,8 +2967,6 @@ class Diag(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slot is not None:
                         for child_ref in self.slot:
                             if child_ref._has_data():
@@ -3538,8 +3500,6 @@ class Diag(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rma_history is not None:
                             return True
 
@@ -3568,8 +3528,6 @@ class Diag(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.asset_alias is not None:
                         return True
 
@@ -3760,8 +3718,6 @@ class Diag(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rack_name is not None:
                     return True
 
@@ -3794,8 +3750,6 @@ class Diag(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
@@ -3818,8 +3772,6 @@ class Diag(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.racks is not None and self.racks._has_data():
             return True
 

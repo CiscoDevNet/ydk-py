@@ -17,10 +17,6 @@ _meta_table = {
         {
             'max':'max',
         }, 'Cisco-IOS-XR-infra-tc-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-tc-cfg']),
-    'HistorySizeEnum' : _MetaInfoEnum('HistorySizeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg',
-        {
-            'max':'max',
-        }, 'Cisco-IOS-XR-infra-tc-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-tc-cfg']),
     'CollectIonIntervalEnum' : _MetaInfoEnum('CollectIonIntervalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg',
         {
             '1-minute':'Y_1_minute',
@@ -36,12 +32,16 @@ _meta_table = {
             '30-minutes':'Y_30_minutes',
             '60-minutes':'Y_60_minutes',
         }, 'Cisco-IOS-XR-infra-tc-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-tc-cfg']),
+    'HistorySizeEnum' : _MetaInfoEnum('HistorySizeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg',
+        {
+            'max':'max',
+        }, 'Cisco-IOS-XR-infra-tc-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-tc-cfg']),
     'TrafficCollector.ExternalInterfaces.ExternalInterface' : {
         'meta_info' : _MetaInfoClass('TrafficCollector.ExternalInterfaces.ExternalInterface',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of interface
                 ''',
                 'interface_name',

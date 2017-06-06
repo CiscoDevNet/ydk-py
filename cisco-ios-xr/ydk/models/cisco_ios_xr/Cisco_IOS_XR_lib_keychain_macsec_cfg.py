@@ -394,8 +394,6 @@ class MacSecKeychains(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.end_date is not None:
                             return True
 
@@ -499,8 +497,6 @@ class MacSecKeychains(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.cryptographic_algorithm is not None:
@@ -530,8 +526,6 @@ class MacSecKeychains(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.key_id is not None:
                         return True
 
@@ -560,8 +554,6 @@ class MacSecKeychains(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.key is not None:
                     for child_ref in self.key:
                         if child_ref._has_data():
@@ -586,8 +578,6 @@ class MacSecKeychains(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.chain_name is not None:
                 return True
 
@@ -611,8 +601,6 @@ class MacSecKeychains(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.mac_sec_keychain is not None:
             for child_ref in self.mac_sec_keychain:
                 if child_ref._has_data():

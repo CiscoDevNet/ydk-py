@@ -13,12 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'LineStateEnum' : _MetaInfoEnum('LineStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper',
-        {
-            'none':'none',
-            'registered':'registered',
-            'in-use':'in_use',
-        }, 'Cisco-IOS-XR-tty-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-tty-server-oper']),
     'SessionOperationEnum' : _MetaInfoEnum('SessionOperationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper',
         {
             'none':'none',
@@ -26,6 +20,12 @@ _meta_table = {
             'shell':'shell',
             'transitioning':'transitioning',
             'packet':'packet',
+        }, 'Cisco-IOS-XR-tty-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-tty-server-oper']),
+    'LineStateEnum' : _MetaInfoEnum('LineStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper',
+        {
+            'none':'none',
+            'registered':'registered',
+            'in-use':'in_use',
         }, 'Cisco-IOS-XR-tty-server-oper', _yang_ns._namespaces['Cisco-IOS-XR-tty-server-oper']),
     'Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232' : {
         'meta_info' : _MetaInfoClass('Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232',
@@ -418,7 +418,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'id',
@@ -785,13 +785,13 @@ _meta_table = {
                 'af_name',
                 'Cisco-IOS-XR-tty-management-oper', False),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address
                 ''',
                 'ipv4_address',
                 'Cisco-IOS-XR-tty-management-oper', False),
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv6 address
                 ''',
                 'ipv6_address',
@@ -1317,7 +1317,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('id', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'id',

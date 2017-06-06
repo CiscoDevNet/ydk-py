@@ -18,24 +18,6 @@ _meta_table = {
             'text':'text',
             'md5':'md5',
         }, 'Cisco-IOS-XR-ip-rip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rip-cfg']),
-    'IsisRedistRouteEnum' : _MetaInfoEnum('IsisRedistRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg',
-        {
-            'level1':'level1',
-            'level2':'level2',
-            'level1-and2':'level1_and2',
-        }, 'Cisco-IOS-XR-ip-rip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rip-cfg']),
-    'DefaultInformationOptionEnum' : _MetaInfoEnum('DefaultInformationOptionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg',
-        {
-            'always':'always',
-            'policy':'policy',
-        }, 'Cisco-IOS-XR-ip-rip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rip-cfg']),
-    'BgpRedistRouteEnum' : _MetaInfoEnum('BgpRedistRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg',
-        {
-            'all':'all',
-            'internal':'internal',
-            'external':'external',
-            'local':'local',
-        }, 'Cisco-IOS-XR-ip-rip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rip-cfg']),
     'RipExtCommunityEnum' : _MetaInfoEnum('RipExtCommunityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg',
         {
             'as':'as_',
@@ -45,6 +27,24 @@ _meta_table = {
     'DefaultRedistRouteEnum' : _MetaInfoEnum('DefaultRedistRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg',
         {
             'all':'all',
+        }, 'Cisco-IOS-XR-ip-rip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rip-cfg']),
+    'IsisRedistRouteEnum' : _MetaInfoEnum('IsisRedistRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg',
+        {
+            'level1':'level1',
+            'level2':'level2',
+            'level1-and2':'level1_and2',
+        }, 'Cisco-IOS-XR-ip-rip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rip-cfg']),
+    'BgpRedistRouteEnum' : _MetaInfoEnum('BgpRedistRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg',
+        {
+            'all':'all',
+            'internal':'internal',
+            'external':'external',
+            'local':'local',
+        }, 'Cisco-IOS-XR-ip-rip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rip-cfg']),
+    'DefaultInformationOptionEnum' : _MetaInfoEnum('DefaultInformationOptionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg',
+        {
+            'always':'always',
+            'policy':'policy',
         }, 'Cisco-IOS-XR-ip-rip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rip-cfg']),
     'Rip.DefaultVrf.DefaultInformation' : {
         'meta_info' : _MetaInfoClass('Rip.DefaultVrf.DefaultInformation',
@@ -149,7 +149,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('isis-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IS-IS instance name
                 ''',
                 'isis_name',
@@ -264,7 +264,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ospf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Process ID for the OSPF instance
                 ''',
                 'ospf_name',
@@ -381,13 +381,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP Source address
                 ''',
                 'address',
                 'Cisco-IOS-XR-ip-rip-cfg', True),
             _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address mask
                 ''',
                 'netmask',
@@ -450,7 +450,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV4 address for IPV4Address:nn format
                 ''',
                 'address',
@@ -543,7 +543,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -653,7 +653,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address
                 ''',
                 'neighbor_address',
@@ -935,7 +935,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('isis-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                IS-IS instance name
                 ''',
                 'isis_name',
@@ -1050,7 +1050,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ospf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Process ID for the OSPF instance
                 ''',
                 'ospf_name',
@@ -1167,13 +1167,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP Source address
                 ''',
                 'address',
                 'Cisco-IOS-XR-ip-rip-cfg', True),
             _MetaInfoClassMember('netmask', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IP address mask
                 ''',
                 'netmask',
@@ -1236,7 +1236,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV4 address for IPV4Address:nn format
                 ''',
                 'address',
@@ -1329,7 +1329,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -1439,7 +1439,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address
                 ''',
                 'neighbor_address',
@@ -1508,7 +1508,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                VRF Name
                 ''',
                 'vrf_name',

@@ -1839,8 +1839,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.lower_bound is not None:
@@ -1944,8 +1942,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -1977,8 +1973,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_generation_interval is not None:
                         for child_ref in self.lsp_generation_interval:
                             if child_ref._has_data():
@@ -2079,8 +2073,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -2112,8 +2104,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_arrival_time is not None:
                         for child_ref in self.lsp_arrival_time:
                             if child_ref._has_data():
@@ -2185,8 +2175,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.detailed is not None:
                         return True
 
@@ -2264,8 +2252,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -2288,8 +2274,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.max_link_metric is not None:
                         for child_ref in self.max_link_metric:
                             if child_ref._has_data():
@@ -2357,8 +2341,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.initial_nbr is not None:
@@ -2756,8 +2738,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.advertise_local is not None:
                                         return True
 
@@ -2783,8 +2763,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mpls is not None:
                                     return True
 
@@ -2872,8 +2850,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -2902,8 +2878,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.metric_style is not None:
                                     for child_ref in self.metric_style:
                                         if child_ref._has_data():
@@ -3033,8 +3007,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.level is not None:
                                             return True
 
@@ -3060,8 +3032,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_load_sharing is not None:
                                         for child_ref in self.frr_load_sharing:
                                             if child_ref._has_data():
@@ -3103,15 +3073,15 @@ class Isis(object):
                                     Limit backup computation upto the prefix
                                     priority
                                     
-                                    .. attribute:: frr_type  <key>
-                                    
-                                    	Computation Type
-                                    	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
-                                    
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
                                     	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                    
+                                    .. attribute:: frr_type  <key>
+                                    
+                                    	Computation Type
+                                    	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                     
                                     .. attribute:: priority
                                     
@@ -3129,32 +3099,30 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.frr_type = None
                                         self.level = None
+                                        self.frr_type = None
                                         self.priority = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.frr_type is None:
-                                            raise YPYModelError('Key property frr_type is None')
                                         if self.level is None:
                                             raise YPYModelError('Key property level is None')
+                                        if self.frr_type is None:
+                                            raise YPYModelError('Key property frr_type is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limit[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limit[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.frr_type is not None:
+                                        if self.level is not None:
                                             return True
 
-                                        if self.level is not None:
+                                        if self.frr_type is not None:
                                             return True
 
                                         if self.priority is not None:
@@ -3179,8 +3147,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.priority_limit is not None:
                                         for child_ref in self.priority_limit:
                                             if child_ref._has_data():
@@ -3261,8 +3227,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.level is not None:
                                             return True
 
@@ -3288,8 +3252,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_remote_lfa_prefix is not None:
                                         for child_ref in self.frr_remote_lfa_prefix:
                                             if child_ref._has_data():
@@ -3378,8 +3340,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.level is not None:
                                             return True
 
@@ -3408,8 +3368,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_tiebreaker is not None:
                                         for child_ref in self.frr_tiebreaker:
                                             if child_ref._has_data():
@@ -3451,15 +3409,15 @@ class Isis(object):
                                     Configure use candidate only to exclude
                                     interfaces as backup
                                     
-                                    .. attribute:: frr_type  <key>
-                                    
-                                    	Computation Type
-                                    	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
-                                    
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
                                     	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                    
+                                    .. attribute:: frr_type  <key>
+                                    
+                                    	Computation Type
+                                    	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                     
                                     
 
@@ -3470,31 +3428,29 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.frr_type = None
                                         self.level = None
+                                        self.frr_type = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.frr_type is None:
-                                            raise YPYModelError('Key property frr_type is None')
                                         if self.level is None:
                                             raise YPYModelError('Key property level is None')
+                                        if self.frr_type is None:
+                                            raise YPYModelError('Key property frr_type is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-only[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-only[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.frr_type is not None:
+                                        if self.level is not None:
                                             return True
 
-                                        if self.level is not None:
+                                        if self.frr_type is not None:
                                             return True
 
                                         return False
@@ -3516,8 +3472,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_use_cand_only is not None:
                                         for child_ref in self.frr_use_cand_only:
                                             if child_ref._has_data():
@@ -3542,8 +3496,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.frr_load_sharings is not None and self.frr_load_sharings._has_data():
                                     return True
 
@@ -3608,8 +3560,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -3703,8 +3653,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -3736,8 +3684,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.spf_prefix_priority is not None:
                                     for child_ref in self.spf_prefix_priority:
                                         if child_ref._has_data():
@@ -3836,8 +3782,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address_prefix is not None:
                                         return True
 
@@ -3866,8 +3810,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.summary_prefix is not None:
                                     for child_ref in self.summary_prefix:
                                         if child_ref._has_data():
@@ -3927,8 +3869,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -4026,8 +3966,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix_list_name is not None:
                                         return True
 
@@ -4103,8 +4041,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -4127,8 +4063,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
@@ -4153,8 +4087,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.delay_interval is not None:
                                     return True
 
@@ -4242,8 +4174,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -4269,8 +4199,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_redist_prefix is not None:
                                     for child_ref in self.max_redist_prefix:
                                         if child_ref._has_data():
@@ -4311,14 +4239,14 @@ class Isis(object):
                                 """
                                 Propagate routes between IS\-IS levels
                                 
-                                .. attribute:: destination_level  <key>
-                                
-                                	Destination level for routes.  Must differ from SourceLevel
-                                	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
-                                
                                 .. attribute:: source_level  <key>
                                 
                                 	Source level for routes
+                                	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                
+                                .. attribute:: destination_level  <key>
+                                
+                                	Destination level for routes.  Must differ from SourceLevel
                                 	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: route_policy_name
@@ -4337,32 +4265,30 @@ class Isis(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.destination_level = None
                                     self.source_level = None
+                                    self.destination_level = None
                                     self.route_policy_name = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.destination_level is None:
-                                        raise YPYModelError('Key property destination_level is None')
                                     if self.source_level is None:
                                         raise YPYModelError('Key property source_level is None')
+                                    if self.destination_level is None:
+                                        raise YPYModelError('Key property destination_level is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagation[Cisco-IOS-XR-clns-isis-cfg:destination-level = ' + str(self.destination_level) + '][Cisco-IOS-XR-clns-isis-cfg:source-level = ' + str(self.source_level) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagation[Cisco-IOS-XR-clns-isis-cfg:source-level = ' + str(self.source_level) + '][Cisco-IOS-XR-clns-isis-cfg:destination-level = ' + str(self.destination_level) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.destination_level is not None:
+                                    if self.source_level is not None:
                                         return True
 
-                                    if self.source_level is not None:
+                                    if self.destination_level is not None:
                                         return True
 
                                     if self.route_policy_name is not None:
@@ -4387,8 +4313,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.propagation is not None:
                                     for child_ref in self.propagation:
                                         if child_ref._has_data():
@@ -4548,8 +4472,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.levels is not None:
@@ -4645,8 +4567,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.instance_name is not None:
                                             return True
 
@@ -4753,8 +4673,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.as_xx is not None:
                                             return True
 
@@ -4854,8 +4772,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.as_zz is not None:
                                             return True
 
@@ -4895,8 +4811,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.protocol_name is not None:
                                         return True
 
@@ -4937,8 +4851,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.redistribution is not None:
                                     for child_ref in self.redistribution:
                                         if child_ref._has_data():
@@ -5021,8 +4933,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -5048,8 +4958,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.spf_periodic_interval is not None:
                                     for child_ref in self.spf_periodic_interval:
                                         if child_ref._has_data():
@@ -5150,8 +5058,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -5183,8 +5089,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.spf_interval is not None:
                                     for child_ref in self.spf_interval:
                                         if child_ref._has_data():
@@ -5242,8 +5146,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -5308,8 +5210,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.external is not None:
                                     return True
 
@@ -5417,8 +5317,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address_prefix is not None:
                                         return True
 
@@ -5447,8 +5345,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_distance is not None:
                                     for child_ref in self.admin_distance:
                                         if child_ref._has_data():
@@ -5549,8 +5445,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.level is not None:
                                             return True
 
@@ -5576,8 +5470,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.state is not None:
                                         for child_ref in self.state:
                                             if child_ref._has_data():
@@ -5602,8 +5494,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.states is not None and self.states._has_data():
                                     return True
 
@@ -5649,8 +5539,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto_config is not None:
                                     return True
 
@@ -5747,8 +5635,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -5774,8 +5660,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.igp_intact is not None:
                                     return True
 
@@ -5905,8 +5789,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -5932,8 +5814,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.metric is not None:
                                     for child_ref in self.metric:
                                         if child_ref._has_data():
@@ -6015,8 +5895,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -6042,8 +5920,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.weight is not None:
                                     for child_ref in self.weight:
                                         if child_ref._has_data():
@@ -6068,8 +5944,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.adjacency_check is not None:
@@ -6489,8 +6363,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.advertise_local is not None:
                                         return True
 
@@ -6516,8 +6388,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mpls is not None:
                                     return True
 
@@ -6605,8 +6475,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -6635,8 +6503,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.metric_style is not None:
                                     for child_ref in self.metric_style:
                                         if child_ref._has_data():
@@ -6766,8 +6632,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.level is not None:
                                             return True
 
@@ -6793,8 +6657,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_load_sharing is not None:
                                         for child_ref in self.frr_load_sharing:
                                             if child_ref._has_data():
@@ -6836,15 +6698,15 @@ class Isis(object):
                                     Limit backup computation upto the prefix
                                     priority
                                     
-                                    .. attribute:: frr_type  <key>
-                                    
-                                    	Computation Type
-                                    	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
-                                    
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
                                     	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                    
+                                    .. attribute:: frr_type  <key>
+                                    
+                                    	Computation Type
+                                    	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                     
                                     .. attribute:: priority
                                     
@@ -6862,32 +6724,30 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.frr_type = None
                                         self.level = None
+                                        self.frr_type = None
                                         self.priority = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.frr_type is None:
-                                            raise YPYModelError('Key property frr_type is None')
                                         if self.level is None:
                                             raise YPYModelError('Key property level is None')
+                                        if self.frr_type is None:
+                                            raise YPYModelError('Key property frr_type is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limit[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:priority-limit[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.frr_type is not None:
+                                        if self.level is not None:
                                             return True
 
-                                        if self.level is not None:
+                                        if self.frr_type is not None:
                                             return True
 
                                         if self.priority is not None:
@@ -6912,8 +6772,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.priority_limit is not None:
                                         for child_ref in self.priority_limit:
                                             if child_ref._has_data():
@@ -6994,8 +6852,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.level is not None:
                                             return True
 
@@ -7021,8 +6877,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_remote_lfa_prefix is not None:
                                         for child_ref in self.frr_remote_lfa_prefix:
                                             if child_ref._has_data():
@@ -7111,8 +6965,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.level is not None:
                                             return True
 
@@ -7141,8 +6993,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_tiebreaker is not None:
                                         for child_ref in self.frr_tiebreaker:
                                             if child_ref._has_data():
@@ -7184,15 +7034,15 @@ class Isis(object):
                                     Configure use candidate only to exclude
                                     interfaces as backup
                                     
-                                    .. attribute:: frr_type  <key>
-                                    
-                                    	Computation Type
-                                    	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
-                                    
                                     .. attribute:: level  <key>
                                     
                                     	Level to which configuration applies
                                     	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                    
+                                    .. attribute:: frr_type  <key>
+                                    
+                                    	Computation Type
+                                    	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                     
                                     
 
@@ -7203,31 +7053,29 @@ class Isis(object):
 
                                     def __init__(self):
                                         self.parent = None
-                                        self.frr_type = None
                                         self.level = None
+                                        self.frr_type = None
 
                                     @property
                                     def _common_path(self):
                                         if self.parent is None:
                                             raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.frr_type is None:
-                                            raise YPYModelError('Key property frr_type is None')
                                         if self.level is None:
                                             raise YPYModelError('Key property level is None')
+                                        if self.frr_type is None:
+                                            raise YPYModelError('Key property frr_type is None')
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-only[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + ']'
+                                        return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-use-cand-only[Cisco-IOS-XR-clns-isis-cfg:level = ' + str(self.level) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
 
                                     def is_config(self):
                                         ''' Returns True if this instance represents config data else returns False '''
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self.frr_type is not None:
+                                        if self.level is not None:
                                             return True
 
-                                        if self.level is not None:
+                                        if self.frr_type is not None:
                                             return True
 
                                         return False
@@ -7249,8 +7097,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.frr_use_cand_only is not None:
                                         for child_ref in self.frr_use_cand_only:
                                             if child_ref._has_data():
@@ -7275,8 +7121,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.frr_load_sharings is not None and self.frr_load_sharings._has_data():
                                     return True
 
@@ -7341,8 +7185,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -7436,8 +7278,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -7469,8 +7309,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.spf_prefix_priority is not None:
                                     for child_ref in self.spf_prefix_priority:
                                         if child_ref._has_data():
@@ -7569,8 +7407,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address_prefix is not None:
                                         return True
 
@@ -7599,8 +7435,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.summary_prefix is not None:
                                     for child_ref in self.summary_prefix:
                                         if child_ref._has_data():
@@ -7660,8 +7494,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -7759,8 +7591,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix_list_name is not None:
                                         return True
 
@@ -7836,8 +7666,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.interface_name is not None:
                                             return True
 
@@ -7860,8 +7688,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.exclude_interface is not None:
                                         for child_ref in self.exclude_interface:
                                             if child_ref._has_data():
@@ -7886,8 +7712,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.delay_interval is not None:
                                     return True
 
@@ -7975,8 +7799,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -8002,8 +7824,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.max_redist_prefix is not None:
                                     for child_ref in self.max_redist_prefix:
                                         if child_ref._has_data():
@@ -8044,14 +7864,14 @@ class Isis(object):
                                 """
                                 Propagate routes between IS\-IS levels
                                 
-                                .. attribute:: destination_level  <key>
-                                
-                                	Destination level for routes.  Must differ from SourceLevel
-                                	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
-                                
                                 .. attribute:: source_level  <key>
                                 
                                 	Source level for routes
+                                	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
+                                
+                                .. attribute:: destination_level  <key>
+                                
+                                	Destination level for routes.  Must differ from SourceLevel
                                 	**type**\:   :py:class:`IsisInternalLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_datatypes.IsisInternalLevelEnum>`
                                 
                                 .. attribute:: route_policy_name
@@ -8070,32 +7890,30 @@ class Isis(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.destination_level = None
                                     self.source_level = None
+                                    self.destination_level = None
                                     self.route_policy_name = None
 
                                 @property
                                 def _common_path(self):
                                     if self.parent is None:
                                         raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.destination_level is None:
-                                        raise YPYModelError('Key property destination_level is None')
                                     if self.source_level is None:
                                         raise YPYModelError('Key property source_level is None')
+                                    if self.destination_level is None:
+                                        raise YPYModelError('Key property destination_level is None')
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagation[Cisco-IOS-XR-clns-isis-cfg:destination-level = ' + str(self.destination_level) + '][Cisco-IOS-XR-clns-isis-cfg:source-level = ' + str(self.source_level) + ']'
+                                    return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:propagation[Cisco-IOS-XR-clns-isis-cfg:source-level = ' + str(self.source_level) + '][Cisco-IOS-XR-clns-isis-cfg:destination-level = ' + str(self.destination_level) + ']'
 
                                 def is_config(self):
                                     ''' Returns True if this instance represents config data else returns False '''
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
-                                    if self.destination_level is not None:
+                                    if self.source_level is not None:
                                         return True
 
-                                    if self.source_level is not None:
+                                    if self.destination_level is not None:
                                         return True
 
                                     if self.route_policy_name is not None:
@@ -8120,8 +7938,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.propagation is not None:
                                     for child_ref in self.propagation:
                                         if child_ref._has_data():
@@ -8281,8 +8097,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.levels is not None:
@@ -8378,8 +8192,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.instance_name is not None:
                                             return True
 
@@ -8486,8 +8298,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.as_xx is not None:
                                             return True
 
@@ -8587,8 +8397,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.as_zz is not None:
                                             return True
 
@@ -8628,8 +8436,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.protocol_name is not None:
                                         return True
 
@@ -8670,8 +8476,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.redistribution is not None:
                                     for child_ref in self.redistribution:
                                         if child_ref._has_data():
@@ -8754,8 +8558,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -8781,8 +8583,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.spf_periodic_interval is not None:
                                     for child_ref in self.spf_periodic_interval:
                                         if child_ref._has_data():
@@ -8883,8 +8683,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -8916,8 +8714,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.spf_interval is not None:
                                     for child_ref in self.spf_interval:
                                         if child_ref._has_data():
@@ -8975,8 +8771,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.enable is not None:
                                     return True
 
@@ -9041,8 +8835,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.external is not None:
                                     return True
 
@@ -9150,8 +8942,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address_prefix is not None:
                                         return True
 
@@ -9180,8 +8970,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.admin_distance is not None:
                                     for child_ref in self.admin_distance:
                                         if child_ref._has_data():
@@ -9282,8 +9070,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.level is not None:
                                             return True
 
@@ -9309,8 +9095,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.state is not None:
                                         for child_ref in self.state:
                                             if child_ref._has_data():
@@ -9335,8 +9119,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.states is not None and self.states._has_data():
                                     return True
 
@@ -9382,8 +9164,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto_config is not None:
                                     return True
 
@@ -9480,8 +9260,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.address is not None:
                                         return True
 
@@ -9507,8 +9285,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.igp_intact is not None:
                                     return True
 
@@ -9638,8 +9414,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -9665,8 +9439,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.metric is not None:
                                     for child_ref in self.metric:
                                         if child_ref._has_data():
@@ -9748,8 +9520,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.level is not None:
                                         return True
 
@@ -9775,8 +9545,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.weight is not None:
                                     for child_ref in self.weight:
                                         if child_ref._has_data():
@@ -9803,8 +9571,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.topology_name is not None:
                                 return True
 
@@ -9927,8 +9693,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.af_name is not None:
                             return True
 
@@ -9962,8 +9726,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.af is not None:
                         for child_ref in self.af:
                             if child_ref._has_data():
@@ -10047,8 +9809,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -10074,8 +9834,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_refresh_interval is not None:
                         for child_ref in self.lsp_refresh_interval:
                             if child_ref._has_data():
@@ -10147,8 +9905,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.dist_inst_id is not None:
@@ -10237,8 +9993,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -10264,8 +10018,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_accept_password is not None:
                         for child_ref in self.lsp_accept_password:
                             if child_ref._has_data():
@@ -10348,8 +10100,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -10375,8 +10125,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_mtu is not None:
                         for child_ref in self.lsp_mtu:
                             if child_ref._has_data():
@@ -10456,8 +10204,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flavor is not None:
                         return True
 
@@ -10571,8 +10317,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.link_group_name is not None:
                             return True
 
@@ -10607,8 +10351,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.link_group is not None:
                         for child_ref in self.link_group:
                             if child_ref._has_data():
@@ -10691,8 +10433,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -10718,8 +10458,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_check_interval is not None:
                         for child_ref in self.lsp_check_interval:
                             if child_ref._has_data():
@@ -10825,8 +10563,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -10861,8 +10597,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_password is not None:
                         for child_ref in self.lsp_password:
                             if child_ref._has_data():
@@ -10935,8 +10669,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.net_name is not None:
                             return True
 
@@ -10959,8 +10691,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.net is not None:
                         for child_ref in self.net:
                             if child_ref._has_data():
@@ -11043,8 +10773,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -11070,8 +10798,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lsp_lifetime is not None:
                         for child_ref in self.lsp_lifetime:
                             if child_ref._has_data():
@@ -11177,8 +10903,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.level is not None:
                             return True
 
@@ -11213,8 +10937,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.overload_bit is not None:
                         for child_ref in self.overload_bit:
                             if child_ref._has_data():
@@ -11514,8 +11236,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -11541,8 +11261,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsp_retransmit_throttle_interval is not None:
                                 for child_ref in self.lsp_retransmit_throttle_interval:
                                     if child_ref._has_data():
@@ -11626,8 +11344,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -11653,8 +11369,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsp_retransmit_interval is not None:
                                 for child_ref in self.lsp_retransmit_interval:
                                     if child_ref._has_data():
@@ -11724,8 +11438,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -11813,8 +11525,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -11840,8 +11550,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.priority is not None:
                                 for child_ref in self.priority:
                                     if child_ref._has_data():
@@ -11924,8 +11632,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -11951,8 +11657,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hello_accept_password is not None:
                                 for child_ref in self.hello_accept_password:
                                     if child_ref._has_data():
@@ -12051,8 +11755,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -12084,8 +11786,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hello_password is not None:
                                 for child_ref in self.hello_password:
                                     if child_ref._has_data():
@@ -12164,8 +11864,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -12191,8 +11889,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hello_padding is not None:
                                 for child_ref in self.hello_padding:
                                     if child_ref._has_data():
@@ -12275,8 +11971,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -12302,8 +11996,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hello_multiplier is not None:
                                 for child_ref in self.hello_multiplier:
                                     if child_ref._has_data():
@@ -12385,8 +12077,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -12412,8 +12102,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsp_fast_flood_threshold is not None:
                                 for child_ref in self.lsp_fast_flood_threshold:
                                     if child_ref._has_data():
@@ -12485,8 +12173,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -12509,8 +12195,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.prefix_attribute_n_flag_clear is not None:
                                 for child_ref in self.prefix_attribute_n_flag_clear:
                                     if child_ref._has_data():
@@ -12596,8 +12280,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -12623,8 +12305,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.hello_interval is not None:
                                 for child_ref in self.hello_interval:
                                     if child_ref._has_data():
@@ -12880,8 +12560,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.explicit_null is not None:
@@ -13006,17 +12684,17 @@ class Isis(object):
                                             Include an interface to LFA candidate
                                             in computation
                                             
-                                            .. attribute:: frr_type  <key>
-                                            
-                                            	Computation Type
-                                            	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
-                                            
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
                                             	**type**\:  str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: frr_type  <key>
+                                            
+                                            	Computation Type
+                                            	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: level
                                             
@@ -13036,32 +12714,30 @@ class Isis(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.frr_type = None
                                                 self.interface_name = None
+                                                self.frr_type = None
                                                 self.level = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
                                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                                if self.frr_type is None:
-                                                    raise YPYModelError('Key property frr_type is None')
                                                 if self.interface_name is None:
                                                     raise YPYModelError('Key property interface_name is None')
+                                                if self.frr_type is None:
+                                                    raise YPYModelError('Key property frr_type is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interface[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.frr_type is not None:
+                                                if self.interface_name is not None:
                                                     return True
 
-                                                if self.interface_name is not None:
+                                                if self.frr_type is not None:
                                                     return True
 
                                                 if self.level is not None:
@@ -13086,8 +12762,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frrlfa_candidate_interface is not None:
                                                 for child_ref in self.frrlfa_candidate_interface:
                                                     if child_ref._has_data():
@@ -13169,8 +12843,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -13196,8 +12868,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frr_remote_lfa_max_metric is not None:
                                                 for child_ref in self.frr_remote_lfa_max_metric:
                                                     if child_ref._has_data():
@@ -13277,8 +12947,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -13304,8 +12972,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frr_type is not None:
                                                 for child_ref in self.frr_type:
                                                     if child_ref._has_data():
@@ -13385,8 +13051,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -13412,8 +13076,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frr_remote_lfa_type is not None:
                                                 for child_ref in self.frr_remote_lfa_type:
                                                     if child_ref._has_data():
@@ -13485,8 +13147,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -13509,8 +13169,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_frr_tiebreaker_default is not None:
                                                 for child_ref in self.interface_frr_tiebreaker_default:
                                                     if child_ref._has_data():
@@ -13581,8 +13239,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -13605,8 +13261,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frrtilfa_type is not None:
                                                 for child_ref in self.frrtilfa_type:
                                                     if child_ref._has_data():
@@ -13647,17 +13301,17 @@ class Isis(object):
                                             """
                                             Exclude an interface from computation
                                             
-                                            .. attribute:: frr_type  <key>
-                                            
-                                            	Computation Type
-                                            	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
-                                            
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
                                             	**type**\:  str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: frr_type  <key>
+                                            
+                                            	Computation Type
+                                            	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: level
                                             
@@ -13677,32 +13331,30 @@ class Isis(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.frr_type = None
                                                 self.interface_name = None
+                                                self.frr_type = None
                                                 self.level = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
                                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                                if self.frr_type is None:
-                                                    raise YPYModelError('Key property frr_type is None')
                                                 if self.interface_name is None:
                                                     raise YPYModelError('Key property interface_name is None')
+                                                if self.frr_type is None:
+                                                    raise YPYModelError('Key property frr_type is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interface[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.frr_type is not None:
+                                                if self.interface_name is not None:
                                                     return True
 
-                                                if self.interface_name is not None:
+                                                if self.frr_type is not None:
                                                     return True
 
                                                 if self.level is not None:
@@ -13727,8 +13379,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frr_exclude_interface is not None:
                                                 for child_ref in self.frr_exclude_interface:
                                                     if child_ref._has_data():
@@ -13818,8 +13468,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -13848,8 +13496,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_frr_tiebreaker is not None:
                                                 for child_ref in self.interface_frr_tiebreaker:
                                                     if child_ref._has_data():
@@ -13874,8 +13520,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces._has_data():
                                             return True
 
@@ -13944,8 +13588,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.sync_level is not None:
                                             return True
 
@@ -14036,8 +13678,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.explicit_null is not None:
@@ -14138,8 +13778,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -14165,8 +13803,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.auto_metric is not None:
                                             for child_ref in self.auto_metric:
                                                 if child_ref._has_data():
@@ -14248,8 +13884,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -14275,8 +13909,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.admin_tag is not None:
                                             for child_ref in self.admin_tag:
                                                 if child_ref._has_data():
@@ -14344,8 +13976,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.level is not None:
@@ -14471,8 +14101,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -14498,8 +14126,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.metric is not None:
                                             for child_ref in self.metric:
                                                 if child_ref._has_data():
@@ -14581,8 +14207,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -14608,8 +14232,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.weight is not None:
                                             for child_ref in self.weight:
                                                 if child_ref._has_data():
@@ -14634,8 +14256,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.admin_tags is not None and self.admin_tags._has_data():
                                         return True
 
@@ -14857,8 +14477,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.explicit_null is not None:
@@ -14983,17 +14601,17 @@ class Isis(object):
                                             Include an interface to LFA candidate
                                             in computation
                                             
-                                            .. attribute:: frr_type  <key>
-                                            
-                                            	Computation Type
-                                            	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
-                                            
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
                                             	**type**\:  str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: frr_type  <key>
+                                            
+                                            	Computation Type
+                                            	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: level
                                             
@@ -15013,32 +14631,30 @@ class Isis(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.frr_type = None
                                                 self.interface_name = None
+                                                self.frr_type = None
                                                 self.level = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
                                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                                if self.frr_type is None:
-                                                    raise YPYModelError('Key property frr_type is None')
                                                 if self.interface_name is None:
                                                     raise YPYModelError('Key property interface_name is None')
+                                                if self.frr_type is None:
+                                                    raise YPYModelError('Key property frr_type is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interface[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frrlfa-candidate-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.frr_type is not None:
+                                                if self.interface_name is not None:
                                                     return True
 
-                                                if self.interface_name is not None:
+                                                if self.frr_type is not None:
                                                     return True
 
                                                 if self.level is not None:
@@ -15063,8 +14679,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frrlfa_candidate_interface is not None:
                                                 for child_ref in self.frrlfa_candidate_interface:
                                                     if child_ref._has_data():
@@ -15146,8 +14760,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -15173,8 +14785,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frr_remote_lfa_max_metric is not None:
                                                 for child_ref in self.frr_remote_lfa_max_metric:
                                                     if child_ref._has_data():
@@ -15254,8 +14864,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -15281,8 +14889,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frr_type is not None:
                                                 for child_ref in self.frr_type:
                                                     if child_ref._has_data():
@@ -15362,8 +14968,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -15389,8 +14993,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frr_remote_lfa_type is not None:
                                                 for child_ref in self.frr_remote_lfa_type:
                                                     if child_ref._has_data():
@@ -15462,8 +15064,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -15486,8 +15086,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_frr_tiebreaker_default is not None:
                                                 for child_ref in self.interface_frr_tiebreaker_default:
                                                     if child_ref._has_data():
@@ -15558,8 +15156,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -15582,8 +15178,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frrtilfa_type is not None:
                                                 for child_ref in self.frrtilfa_type:
                                                     if child_ref._has_data():
@@ -15624,17 +15218,17 @@ class Isis(object):
                                             """
                                             Exclude an interface from computation
                                             
-                                            .. attribute:: frr_type  <key>
-                                            
-                                            	Computation Type
-                                            	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
-                                            
                                             .. attribute:: interface_name  <key>
                                             
                                             	Interface
                                             	**type**\:  str
                                             
                                             	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            
+                                            .. attribute:: frr_type  <key>
+                                            
+                                            	Computation Type
+                                            	**type**\:   :py:class:`IsisfrrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg.IsisfrrEnum>`
                                             
                                             .. attribute:: level
                                             
@@ -15654,32 +15248,30 @@ class Isis(object):
 
                                             def __init__(self):
                                                 self.parent = None
-                                                self.frr_type = None
                                                 self.interface_name = None
+                                                self.frr_type = None
                                                 self.level = None
 
                                             @property
                                             def _common_path(self):
                                                 if self.parent is None:
                                                     raise YPYModelError('parent is not set . Cannot derive path.')
-                                                if self.frr_type is None:
-                                                    raise YPYModelError('Key property frr_type is None')
                                                 if self.interface_name is None:
                                                     raise YPYModelError('Key property interface_name is None')
+                                                if self.frr_type is None:
+                                                    raise YPYModelError('Key property frr_type is None')
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interface[Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + '][Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                                return self.parent._common_path +'/Cisco-IOS-XR-clns-isis-cfg:frr-exclude-interface[Cisco-IOS-XR-clns-isis-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-clns-isis-cfg:frr-type = ' + str(self.frr_type) + ']'
 
                                             def is_config(self):
                                                 ''' Returns True if this instance represents config data else returns False '''
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
-                                                if self.frr_type is not None:
+                                                if self.interface_name is not None:
                                                     return True
 
-                                                if self.interface_name is not None:
+                                                if self.frr_type is not None:
                                                     return True
 
                                                 if self.level is not None:
@@ -15704,8 +15296,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.frr_exclude_interface is not None:
                                                 for child_ref in self.frr_exclude_interface:
                                                     if child_ref._has_data():
@@ -15795,8 +15385,6 @@ class Isis(object):
                                                 return True
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.level is not None:
                                                     return True
 
@@ -15825,8 +15413,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.interface_frr_tiebreaker is not None:
                                                 for child_ref in self.interface_frr_tiebreaker:
                                                     if child_ref._has_data():
@@ -15851,8 +15437,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.frr_exclude_interfaces is not None and self.frr_exclude_interfaces._has_data():
                                             return True
 
@@ -15921,8 +15505,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.sync_level is not None:
                                             return True
 
@@ -16013,8 +15595,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.explicit_null is not None:
@@ -16115,8 +15695,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -16142,8 +15720,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.auto_metric is not None:
                                             for child_ref in self.auto_metric:
                                                 if child_ref._has_data():
@@ -16225,8 +15801,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -16252,8 +15826,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.admin_tag is not None:
                                             for child_ref in self.admin_tag:
                                                 if child_ref._has_data():
@@ -16321,8 +15893,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self._is_presence:
                                             return True
                                         if self.level is not None:
@@ -16448,8 +16018,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -16475,8 +16043,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.metric is not None:
                                             for child_ref in self.metric:
                                                 if child_ref._has_data():
@@ -16558,8 +16124,6 @@ class Isis(object):
                                             return True
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.level is not None:
                                                 return True
 
@@ -16585,8 +16149,6 @@ class Isis(object):
                                         return True
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.weight is not None:
                                             for child_ref in self.weight:
                                                 if child_ref._has_data():
@@ -16613,8 +16175,6 @@ class Isis(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.topology_name is not None:
                                         return True
 
@@ -16674,8 +16234,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.af_name is not None:
                                     return True
 
@@ -16709,8 +16267,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_af is not None:
                                 for child_ref in self.interface_af:
                                     if child_ref._has_data():
@@ -16795,8 +16351,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -16822,8 +16376,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.csnp_interval is not None:
                                 for child_ref in self.csnp_interval:
                                     if child_ref._has_data():
@@ -16907,8 +16459,6 @@ class Isis(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.level is not None:
                                     return True
 
@@ -16934,8 +16484,6 @@ class Isis(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.lsp_interval is not None:
                                 for child_ref in self.lsp_interval:
                                     if child_ref._has_data():
@@ -16962,8 +16510,6 @@ class Isis(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -17046,8 +16592,6 @@ class Isis(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -17072,8 +16616,6 @@ class Isis(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_name is not None:
                     return True
 
@@ -17178,8 +16720,6 @@ class Isis(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None:
                 for child_ref in self.instance:
                     if child_ref._has_data():
@@ -17202,8 +16742,6 @@ class Isis(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.instances is not None and self.instances._has_data():
             return True
 

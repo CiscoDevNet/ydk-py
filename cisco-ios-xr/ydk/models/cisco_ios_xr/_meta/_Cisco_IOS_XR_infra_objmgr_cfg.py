@@ -50,13 +50,6 @@ _meta_table = {
             'talk':'talk',
             'ldp':'ldp',
         }, 'Cisco-IOS-XR-infra-objmgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg']),
-    'PortOperatorEnum' : _MetaInfoEnum('PortOperatorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg',
-        {
-            'equal':'equal',
-            'not-equal':'not_equal',
-            'greater-than':'greater_than',
-            'less-than':'less_than',
-        }, 'Cisco-IOS-XR-infra-objmgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg']),
     'PortEnum' : _MetaInfoEnum('PortEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg',
         {
             'echo':'echo',
@@ -93,6 +86,13 @@ _meta_table = {
             'kshell':'kshell',
             'talk':'talk',
             'ldp':'ldp',
+        }, 'Cisco-IOS-XR-infra-objmgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg']),
+    'PortOperatorEnum' : _MetaInfoEnum('PortOperatorEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg',
+        {
+            'equal':'equal',
+            'not-equal':'not_equal',
+            'greater-than':'greater_than',
+            'less-than':'less_than',
         }, 'Cisco-IOS-XR-infra-objmgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-objmgr-cfg']),
     'StartPortEnum' : _MetaInfoEnum('StartPortEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg',
         {
@@ -222,25 +222,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange',
             False, 
             [
-            _MetaInfoClassMember('end-port', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                Port number
-                ''',
-                'end_port',
-                'Cisco-IOS-XR-infra-objmgr-cfg', True, [
-                    _MetaInfoClassMember('end-port', REFERENCE_ENUM_CLASS, 'EndPortEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'EndPortEnum', 
-                        [], [], 
-                        '''                        Port number
-                        ''',
-                        'end_port',
-                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
-                    _MetaInfoClassMember('end-port', ATTRIBUTE, 'int' , None, None, 
-                        [('0', '65535')], [], 
-                        '''                        Port number
-                        ''',
-                        'end_port',
-                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
-                ]),
             _MetaInfoClassMember('start-port', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                Port number
@@ -258,6 +239,25 @@ _meta_table = {
                         '''                        Port number
                         ''',
                         'start_port',
+                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
+                ]),
+            _MetaInfoClassMember('end-port', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Port number
+                ''',
+                'end_port',
+                'Cisco-IOS-XR-infra-objmgr-cfg', True, [
+                    _MetaInfoClassMember('end-port', REFERENCE_ENUM_CLASS, 'EndPortEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'EndPortEnum', 
+                        [], [], 
+                        '''                        Port number
+                        ''',
+                        'end_port',
+                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
+                    _MetaInfoClassMember('end-port', ATTRIBUTE, 'int' , None, None, 
+                        [('0', '65535')], [], 
+                        '''                        Port number
+                        ''',
+                        'end_port',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                 ]),
             ],
@@ -398,25 +398,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange',
             False, 
             [
-            _MetaInfoClassMember('end-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                IPv6 address
-                ''',
-                'end_address',
-                'Cisco-IOS-XR-infra-objmgr-cfg', True, [
-                    _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IPv6 address
-                        ''',
-                        'end_address',
-                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
-                    _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IPv6 address
-                        ''',
-                        'end_address',
-                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
-                ]),
             _MetaInfoClassMember('start-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                IPv6 address
@@ -424,16 +405,35 @@ _meta_table = {
                 'start_address',
                 'Cisco-IOS-XR-infra-objmgr-cfg', True, [
                     _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv6 address
                         ''',
                         'start_address',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                     _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv6 address
                         ''',
                         'start_address',
+                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
+                ]),
+            _MetaInfoClassMember('end-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IPv6 address
+                ''',
+                'end_address',
+                'Cisco-IOS-XR-infra-objmgr-cfg', True, [
+                    _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IPv6 address
+                        ''',
+                        'end_address',
+                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
+                    _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IPv6 address
+                        ''',
+                        'end_address',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                 ]),
             ],
@@ -471,13 +471,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-objmgr-cfg', True, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv6 prefix x:x::x/y
                         ''',
                         'prefix',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv6 prefix x:x::x/y
                         ''',
                         'prefix',
@@ -524,13 +524,13 @@ _meta_table = {
                 'host_address',
                 'Cisco-IOS-XR-infra-objmgr-cfg', True, [
                     _MetaInfoClassMember('host-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        host ipv6 address
                         ''',
                         'host_address',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                     _MetaInfoClassMember('host-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        host ipv6 address
                         ''',
                         'host_address',
@@ -680,25 +680,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange',
             False, 
             [
-            _MetaInfoClassMember('end-address', REFERENCE_UNION, 'str' , None, None, 
-                [], [], 
-                '''                IPv4 address
-                ''',
-                'end_address',
-                'Cisco-IOS-XR-infra-objmgr-cfg', True, [
-                    _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IPv4 address
-                        ''',
-                        'end_address',
-                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
-                    _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
-                        '''                        IPv4 address
-                        ''',
-                        'end_address',
-                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
-                ]),
             _MetaInfoClassMember('start-address', REFERENCE_UNION, 'str' , None, None, 
                 [], [], 
                 '''                IPv4 address
@@ -706,16 +687,35 @@ _meta_table = {
                 'start_address',
                 'Cisco-IOS-XR-infra-objmgr-cfg', True, [
                     _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4 address
                         ''',
                         'start_address',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                     _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4 address
                         ''',
                         'start_address',
+                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
+                ]),
+            _MetaInfoClassMember('end-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IPv4 address
+                ''',
+                'end_address',
+                'Cisco-IOS-XR-infra-objmgr-cfg', True, [
+                    _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IPv4 address
+                        ''',
+                        'end_address',
+                        'Cisco-IOS-XR-infra-objmgr-cfg', True),
+                    _MetaInfoClassMember('end-address', ATTRIBUTE, 'str' , None, None, 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IPv4 address
+                        ''',
+                        'end_address',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                 ]),
             ],
@@ -753,13 +753,13 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-infra-objmgr-cfg', True, [
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4 address/prefix
                         ''',
                         'prefix',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                     _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IPv4 address/prefix
                         ''',
                         'prefix',
@@ -806,13 +806,13 @@ _meta_table = {
                 'host_address',
                 'Cisco-IOS-XR-infra-objmgr-cfg', True, [
                     _MetaInfoClassMember('host-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Host ipv4 address
                         ''',
                         'host_address',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                     _MetaInfoClassMember('host-address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        Host ipv4 address
                         ''',
                         'host_address',

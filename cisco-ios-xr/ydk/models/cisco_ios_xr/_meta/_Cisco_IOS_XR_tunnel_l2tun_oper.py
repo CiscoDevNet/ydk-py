@@ -1363,13 +1363,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local IP address
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('remote-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote IP address
                 ''',
                 'remote_address',
@@ -2244,7 +2244,7 @@ _meta_table = {
                 'pkt_timeout',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False, max_elements=24),
             _MetaInfoClassMember('rx-counters', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Receive side counters
                 ''',
                 'rx_counters',
@@ -2256,7 +2256,7 @@ _meta_table = {
                 'sess_down_tmout',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('tx-counters', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Send side counters
                 ''',
                 'tx_counters',
@@ -2494,7 +2494,7 @@ _meta_table = {
                 'is_tunnel_up',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('local-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local tunnel address
                 ''',
                 'local_address',
@@ -2542,7 +2542,7 @@ _meta_table = {
                 'protocol',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('remote-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote tunnel address
                 ''',
                 'remote_address',
@@ -2725,7 +2725,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -2776,17 +2776,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('L2Tp.Sessions.Session',
             False, 
             [
-            _MetaInfoClassMember('local-session-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Local session ID
-                ''',
-                'local_session_id',
-                'Cisco-IOS-XR-tunnel-l2tun-oper', True),
             _MetaInfoClassMember('local-tunnel-id', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                Local tunnel ID
                 ''',
                 'local_tunnel_id',
+                'Cisco-IOS-XR-tunnel-l2tun-oper', True),
+            _MetaInfoClassMember('local-session-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Local session ID
+                ''',
+                'local_session_id',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', True),
             _MetaInfoClassMember('call-serial-number', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -2867,7 +2867,7 @@ _meta_table = {
                 'l2tp_sh_sess_udp_rport',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local session IP address
                 ''',
                 'local_ip_address',
@@ -2885,7 +2885,7 @@ _meta_table = {
                 'protocol',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('remote-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote session IP address
                 ''',
                 'remote_ip_address',
@@ -3035,17 +3035,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('L2Tpv2.Counters.Forwarding.Sessions.Session',
             False, 
             [
-            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Local session ID
-                ''',
-                'session_id',
-                'Cisco-IOS-XR-tunnel-l2tun-oper', True),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                Local tunnel ID
                 ''',
                 'tunnel_id',
+                'Cisco-IOS-XR-tunnel-l2tun-oper', True),
+            _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Local session ID
+                ''',
+                'session_id',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', True),
             _MetaInfoClassMember('in-bytes', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
@@ -4463,13 +4463,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local IP address
                 ''',
                 'local_address',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('remote-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote IP address
                 ''',
                 'remote_address',
@@ -5563,7 +5563,7 @@ _meta_table = {
                 'pkt_timeout',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False, max_elements=24),
             _MetaInfoClassMember('rx-counters', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Receive side counters
                 ''',
                 'rx_counters',
@@ -5575,7 +5575,7 @@ _meta_table = {
                 'sess_down_tmout',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('tx-counters', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Send side counters
                 ''',
                 'tx_counters',
@@ -5813,7 +5813,7 @@ _meta_table = {
                 'is_tunnel_up',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('local-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local tunnel address
                 ''',
                 'local_address',
@@ -5861,7 +5861,7 @@ _meta_table = {
                 'protocol',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('remote-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote tunnel address
                 ''',
                 'remote_address',
@@ -6044,7 +6044,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -6095,17 +6095,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('L2Tpv2.Sessions.Session',
             False, 
             [
-            _MetaInfoClassMember('local-session-id', ATTRIBUTE, 'int' , None, None, 
-                [('-2147483648', '2147483647')], [], 
-                '''                Local session ID
-                ''',
-                'local_session_id',
-                'Cisco-IOS-XR-tunnel-l2tun-oper', True),
             _MetaInfoClassMember('local-tunnel-id', ATTRIBUTE, 'int' , None, None, 
                 [('-2147483648', '2147483647')], [], 
                 '''                Local tunnel ID
                 ''',
                 'local_tunnel_id',
+                'Cisco-IOS-XR-tunnel-l2tun-oper', True),
+            _MetaInfoClassMember('local-session-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Local session ID
+                ''',
+                'local_session_id',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', True),
             _MetaInfoClassMember('call-serial-number', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -6186,7 +6186,7 @@ _meta_table = {
                 'l2tp_sh_sess_udp_rport',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('local-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Local session IP address
                 ''',
                 'local_ip_address',
@@ -6204,7 +6204,7 @@ _meta_table = {
                 'protocol',
                 'Cisco-IOS-XR-tunnel-l2tun-oper', False),
             _MetaInfoClassMember('remote-ip-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote session IP address
                 ''',
                 'remote_ip_address',

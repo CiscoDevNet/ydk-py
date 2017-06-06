@@ -364,8 +364,6 @@ class Dpa(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.create_ok is not None:
                                     return True
 
@@ -432,8 +430,6 @@ class Dpa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.resource is not None:
                                 return True
 
@@ -476,8 +472,6 @@ class Dpa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.table_data is not None:
                             for child_ref in self.table_data:
                                 if child_ref._has_data():
@@ -502,8 +496,6 @@ class Dpa(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_name is not None:
                         return True
 
@@ -527,8 +519,6 @@ class Dpa(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -551,8 +541,6 @@ class Dpa(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.nodes is not None and self.nodes._has_data():
                 return True
 
@@ -773,8 +761,6 @@ class Dpa(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.base_number is not None:
                                     return True
 
@@ -802,8 +788,6 @@ class Dpa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.npu_number is not None:
                                 return True
 
@@ -831,8 +815,6 @@ class Dpa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.voq_base_number_stats_clear is not None:
                             for child_ref in self.voq_base_number_stats_clear:
                                 if child_ref._has_data():
@@ -1054,8 +1036,6 @@ class Dpa(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.trap_data is not None:
                                     return True
 
@@ -1125,8 +1105,6 @@ class Dpa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.npu_id is not None:
                                 return True
 
@@ -1154,8 +1132,6 @@ class Dpa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.npu_number_for_trap_data is not None:
                             for child_ref in self.npu_number_for_trap_data:
                                 if child_ref._has_data():
@@ -1412,8 +1388,6 @@ class Dpa(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.gport_dropped_bytes is not None:
                                         return True
 
@@ -1447,8 +1421,6 @@ class Dpa(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.base_number is not None:
                                     return True
 
@@ -1517,8 +1489,6 @@ class Dpa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.npu_number is not None:
                                 return True
 
@@ -1546,8 +1516,6 @@ class Dpa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.voq_base_number is not None:
                             for child_ref in self.voq_base_number:
                                 if child_ref._has_data():
@@ -1804,8 +1772,6 @@ class Dpa(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.gport_dropped_bytes is not None:
                                         return True
 
@@ -1839,8 +1805,6 @@ class Dpa(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.voq_data is not None:
                                     return True
 
@@ -1909,8 +1873,6 @@ class Dpa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.npu_id is not None:
                                 return True
 
@@ -1938,8 +1900,6 @@ class Dpa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.npu_number_for_voq_data is not None:
                             for child_ref in self.npu_number_for_voq_data:
                                 if child_ref._has_data():
@@ -2052,8 +2012,6 @@ class Dpa(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.voq_data is not None:
                                     return True
 
@@ -2081,8 +2039,6 @@ class Dpa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.npu_id is not None:
                                 return True
 
@@ -2110,8 +2066,6 @@ class Dpa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.clear_voq_data_for_npu_number is not None:
                             for child_ref in self.clear_voq_data_for_npu_number:
                                 if child_ref._has_data():
@@ -2223,8 +2177,6 @@ class Dpa(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.trap_data is not None:
                                     return True
 
@@ -2252,8 +2204,6 @@ class Dpa(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.npu_id is not None:
                                 return True
 
@@ -2281,8 +2231,6 @@ class Dpa(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.npu_number_for_trap_data_clear is not None:
                             for child_ref in self.npu_number_for_trap_data_clear:
                                 if child_ref._has_data():
@@ -2307,8 +2255,6 @@ class Dpa(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_name is not None:
                         return True
 
@@ -2347,8 +2293,6 @@ class Dpa(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -2371,8 +2315,6 @@ class Dpa(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.nodes is not None and self.nodes._has_data():
                 return True
 
@@ -2393,8 +2335,6 @@ class Dpa(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.resources is not None and self.resources._has_data():
             return True
 

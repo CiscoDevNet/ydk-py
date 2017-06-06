@@ -104,8 +104,6 @@ class ClearIsisProcessRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -128,8 +126,6 @@ class ClearIsisProcessRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -153,8 +149,6 @@ class ClearIsisProcessRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -249,8 +243,6 @@ class ClearIsisRouteRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -273,8 +265,6 @@ class ClearIsisRouteRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -298,8 +288,6 @@ class ClearIsisRouteRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -395,8 +383,6 @@ class ClearIsisStatRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -444,8 +430,6 @@ class ClearIsisStatRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.interface_name is not None:
                     return True
 
@@ -468,8 +452,6 @@ class ClearIsisStatRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -493,8 +475,6 @@ class ClearIsisStatRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -589,8 +569,6 @@ class ClearIsisDistRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -613,8 +591,6 @@ class ClearIsisDistRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.distribution is not None:
                 return True
 
@@ -638,8 +614,6 @@ class ClearIsisDistRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 
@@ -797,8 +771,6 @@ class ClearIsisRpc(object):
                 return self.parent.is_config()
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.instance_identifier is not None:
                     return True
 
@@ -821,8 +793,6 @@ class ClearIsisRpc(object):
             return self.parent.is_config()
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.instance is not None and self.instance._has_data():
                 return True
 
@@ -852,8 +822,6 @@ class ClearIsisRpc(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.input is not None and self.input._has_data():
             return True
 

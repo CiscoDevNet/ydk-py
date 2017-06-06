@@ -22,13 +22,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface name
                 ''',
                 'backup_interface_name',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
             _MetaInfoClassMember('next-hop-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address of remote peer
                 ''',
                 'next_hop_address',
@@ -45,19 +45,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Controller Name
                 ''',
                 'controller_name',
                 'Cisco-IOS-XR-rgmgr-cfg', True),
             _MetaInfoClassMember('backup-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup interface name
                 ''',
                 'backup_interface_name',
                 'Cisco-IOS-XR-rgmgr-cfg', False),
             _MetaInfoClassMember('next-hop-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address of remote peer
                 ''',
                 'next_hop_address',
@@ -154,7 +154,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backbone-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                none
                 ''',
                 'backbone_name',
@@ -188,7 +188,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Neighbor IP address
                 ''',
                 'neighbor_address',
@@ -217,23 +217,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg'
         ),
     },
-    'RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite' : {
-        'meta_info' : _MetaInfoClass('RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite',
-            False, 
-            [
-            _MetaInfoClassMember('system-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
-                '''                Optional identifier for this system
-                ''',
-                'system_mac',
-                'Cisco-IOS-XR-icpe-infra-cfg', False),
-            ],
-            'Cisco-IOS-XR-icpe-infra-cfg',
-            'nv-satellite',
-            _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg'
-        ),
-    },
     'RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp' : {
         'meta_info' : _MetaInfoClass('RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp',
             False, 
@@ -253,7 +236,7 @@ _meta_table = {
                 'node',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('system-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Unique LACP identifier for this system.
                 ''',
                 'system_mac',
@@ -269,6 +252,23 @@ _meta_table = {
             'Cisco-IOS-XR-bundlemgr-cfg',
             'mlacp',
             _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg'
+        ),
+    },
+    'RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite' : {
+        'meta_info' : _MetaInfoClass('RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite',
+            False, 
+            [
+            _MetaInfoClassMember('system-mac', ATTRIBUTE, 'str' , None, None, 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Optional identifier for this system
+                ''',
+                'system_mac',
+                'Cisco-IOS-XR-icpe-infra-cfg', False),
+            ],
+            'Cisco-IOS-XR-icpe-infra-cfg',
+            'nv-satellite',
+            _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg'
         ),
     },
@@ -399,8 +399,8 @@ _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members']['meta_info']
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
-_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Mlacp']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
+_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info']
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups.IccpGroup']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp.IccpGroups']['meta_info']
 _meta_table['RedundancyGroupManager.Iccp.IccpGroups']['meta_info'].parent =_meta_table['RedundancyGroupManager.Iccp']['meta_info']
 _meta_table['RedundancyGroupManager.Aps']['meta_info'].parent =_meta_table['RedundancyGroupManager']['meta_info']

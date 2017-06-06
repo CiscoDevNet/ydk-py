@@ -1039,8 +1039,6 @@ class Platform(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.admin_state is not None:
                                         return True
 
@@ -1086,8 +1084,6 @@ class Platform(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.instance_name is not None:
                                     return True
 
@@ -1113,8 +1109,6 @@ class Platform(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.instance is not None:
                                 for child_ref in self.instance:
                                     if child_ref._has_data():
@@ -1184,8 +1178,6 @@ class Platform(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_descriptiton is not None:
                                 return True
 
@@ -1283,8 +1275,6 @@ class Platform(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.admin_state is not None:
                                 return True
 
@@ -1330,8 +1320,6 @@ class Platform(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.slot_name is not None:
                             return True
 
@@ -1363,8 +1351,6 @@ class Platform(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slot is not None:
                         for child_ref in self.slot:
                             if child_ref._has_data():
@@ -1389,8 +1375,6 @@ class Platform(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.rack_name is not None:
                     return True
 
@@ -1414,8 +1398,6 @@ class Platform(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
@@ -1438,8 +1420,6 @@ class Platform(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.racks is not None and self.racks._has_data():
             return True
 
@@ -1773,8 +1753,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.processor_type is not None:
                                             return True
 
@@ -1922,8 +1900,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.image_name is not None:
                                                 return True
 
@@ -2060,8 +2036,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.bootflash_size is not None:
                                                 return True
 
@@ -2150,8 +2124,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.processor_type is not None:
                                                 return True
 
@@ -2180,8 +2152,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bootflash is not None and self.bootflash._has_data():
                                             return True
 
@@ -2315,8 +2285,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bootflash_size is not None:
                                             return True
 
@@ -2460,8 +2428,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.disk_name is not None:
                                                 return True
 
@@ -2490,8 +2456,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.disk_name is not None:
                                             return True
 
@@ -2525,8 +2489,6 @@ class PlatformInventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.bootflash_information is not None and self.bootflash_information._has_data():
                                         return True
 
@@ -3015,8 +2977,6 @@ class PlatformInventory(object):
                                                                                     return False
 
                                                                                 def _has_data(self):
-                                                                                    if not self.is_config():
-                                                                                        return False
                                                                                     if self.description is not None:
                                                                                         return True
 
@@ -3157,8 +3117,6 @@ class PlatformInventory(object):
                                                                                         return False
 
                                                                                     def _has_data(self):
-                                                                                        if not self.is_config():
-                                                                                            return False
                                                                                         if self.time_in_nano_seconds is not None:
                                                                                             return True
 
@@ -3219,8 +3177,6 @@ class PlatformInventory(object):
                                                                                         return False
 
                                                                                     def _has_data(self):
-                                                                                        if not self.is_config():
-                                                                                            return False
                                                                                         if self.time_in_nano_seconds is not None:
                                                                                             return True
 
@@ -3246,8 +3202,6 @@ class PlatformInventory(object):
                                                                                     return False
 
                                                                                 def _has_data(self):
-                                                                                    if not self.is_config():
-                                                                                        return False
                                                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                                         return True
 
@@ -3288,8 +3242,6 @@ class PlatformInventory(object):
                                                                                 return False
 
                                                                             def _has_data(self):
-                                                                                if not self.is_config():
-                                                                                    return False
                                                                                 if self.basic_info is not None and self.basic_info._has_data():
                                                                                     return True
 
@@ -3317,8 +3269,6 @@ class PlatformInventory(object):
                                                                             return False
 
                                                                         def _has_data(self):
-                                                                            if not self.is_config():
-                                                                                return False
                                                                             if self.name is not None:
                                                                                 return True
 
@@ -3344,8 +3294,6 @@ class PlatformInventory(object):
                                                                         return False
 
                                                                     def _has_data(self):
-                                                                        if not self.is_config():
-                                                                            return False
                                                                         if self.sensor is not None:
                                                                             for child_ref in self.sensor:
                                                                                 if child_ref._has_data():
@@ -3484,8 +3432,6 @@ class PlatformInventory(object):
                                                                             return False
 
                                                                         def _has_data(self):
-                                                                            if not self.is_config():
-                                                                                return False
                                                                             if self.description is not None:
                                                                                 return True
 
@@ -3626,8 +3572,6 @@ class PlatformInventory(object):
                                                                                 return False
 
                                                                             def _has_data(self):
-                                                                                if not self.is_config():
-                                                                                    return False
                                                                                 if self.time_in_nano_seconds is not None:
                                                                                     return True
 
@@ -3688,8 +3632,6 @@ class PlatformInventory(object):
                                                                                 return False
 
                                                                             def _has_data(self):
-                                                                                if not self.is_config():
-                                                                                    return False
                                                                                 if self.time_in_nano_seconds is not None:
                                                                                     return True
 
@@ -3715,8 +3657,6 @@ class PlatformInventory(object):
                                                                             return False
 
                                                                         def _has_data(self):
-                                                                            if not self.is_config():
-                                                                                return False
                                                                             if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                                 return True
 
@@ -3757,8 +3697,6 @@ class PlatformInventory(object):
                                                                         return False
 
                                                                     def _has_data(self):
-                                                                        if not self.is_config():
-                                                                            return False
                                                                         if self.basic_info is not None and self.basic_info._has_data():
                                                                             return True
 
@@ -3786,8 +3724,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.name is not None:
                                                                         return True
 
@@ -3816,8 +3752,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.hw_component is not None:
                                                                     for child_ref in self.hw_component:
                                                                         if child_ref._has_data():
@@ -4009,8 +3943,6 @@ class PlatformInventory(object):
                                                                             return False
 
                                                                         def _has_data(self):
-                                                                            if not self.is_config():
-                                                                                return False
                                                                             if self.description is not None:
                                                                                 return True
 
@@ -4151,8 +4083,6 @@ class PlatformInventory(object):
                                                                                 return False
 
                                                                             def _has_data(self):
-                                                                                if not self.is_config():
-                                                                                    return False
                                                                                 if self.time_in_nano_seconds is not None:
                                                                                     return True
 
@@ -4213,8 +4143,6 @@ class PlatformInventory(object):
                                                                                 return False
 
                                                                             def _has_data(self):
-                                                                                if not self.is_config():
-                                                                                    return False
                                                                                 if self.time_in_nano_seconds is not None:
                                                                                     return True
 
@@ -4240,8 +4168,6 @@ class PlatformInventory(object):
                                                                             return False
 
                                                                         def _has_data(self):
-                                                                            if not self.is_config():
-                                                                                return False
                                                                             if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                                 return True
 
@@ -4282,8 +4208,6 @@ class PlatformInventory(object):
                                                                         return False
 
                                                                     def _has_data(self):
-                                                                        if not self.is_config():
-                                                                            return False
                                                                         if self.basic_info is not None and self.basic_info._has_data():
                                                                             return True
 
@@ -4311,8 +4235,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.name is not None:
                                                                         return True
 
@@ -4338,8 +4260,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.sensor is not None:
                                                                     for child_ref in self.sensor:
                                                                         if child_ref._has_data():
@@ -4478,8 +4398,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.description is not None:
                                                                         return True
 
@@ -4620,8 +4538,6 @@ class PlatformInventory(object):
                                                                         return False
 
                                                                     def _has_data(self):
-                                                                        if not self.is_config():
-                                                                            return False
                                                                         if self.time_in_nano_seconds is not None:
                                                                             return True
 
@@ -4682,8 +4598,6 @@ class PlatformInventory(object):
                                                                         return False
 
                                                                     def _has_data(self):
-                                                                        if not self.is_config():
-                                                                            return False
                                                                         if self.time_in_nano_seconds is not None:
                                                                             return True
 
@@ -4709,8 +4623,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                         return True
 
@@ -4751,8 +4663,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.basic_info is not None and self.basic_info._has_data():
                                                                     return True
 
@@ -4780,8 +4690,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.name is not None:
                                                                 return True
 
@@ -4813,8 +4721,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.ports is not None:
                                                             for child_ref in self.ports:
                                                                 if child_ref._has_data():
@@ -5006,8 +4912,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.description is not None:
                                                                         return True
 
@@ -5148,8 +5052,6 @@ class PlatformInventory(object):
                                                                         return False
 
                                                                     def _has_data(self):
-                                                                        if not self.is_config():
-                                                                            return False
                                                                         if self.time_in_nano_seconds is not None:
                                                                             return True
 
@@ -5210,8 +5112,6 @@ class PlatformInventory(object):
                                                                         return False
 
                                                                     def _has_data(self):
-                                                                        if not self.is_config():
-                                                                            return False
                                                                         if self.time_in_nano_seconds is not None:
                                                                             return True
 
@@ -5237,8 +5137,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                         return True
 
@@ -5279,8 +5177,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.basic_info is not None and self.basic_info._has_data():
                                                                     return True
 
@@ -5308,8 +5204,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.name is not None:
                                                                 return True
 
@@ -5335,8 +5229,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.sensor is not None:
                                                             for child_ref in self.sensor:
                                                                 if child_ref._has_data():
@@ -5475,8 +5367,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.description is not None:
                                                                 return True
 
@@ -5617,8 +5507,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
@@ -5679,8 +5567,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
@@ -5706,8 +5592,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                 return True
 
@@ -5748,8 +5632,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.basic_info is not None and self.basic_info._has_data():
                                                             return True
 
@@ -5777,8 +5659,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.name is not None:
                                                         return True
 
@@ -5810,8 +5690,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.port_slot is not None:
                                                     for child_ref in self.port_slot:
                                                         if child_ref._has_data():
@@ -6003,8 +5881,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.description is not None:
                                                                 return True
 
@@ -6145,8 +6021,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
@@ -6207,8 +6081,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.time_in_nano_seconds is not None:
                                                                     return True
 
@@ -6234,8 +6106,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                 return True
 
@@ -6276,8 +6146,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.basic_info is not None and self.basic_info._has_data():
                                                             return True
 
@@ -6305,8 +6173,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.name is not None:
                                                         return True
 
@@ -6332,8 +6198,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.sensor is not None:
                                                     for child_ref in self.sensor:
                                                         if child_ref._has_data():
@@ -6472,8 +6336,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.description is not None:
                                                         return True
 
@@ -6614,8 +6476,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
@@ -6676,8 +6536,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.time_in_nano_seconds is not None:
                                                             return True
 
@@ -6703,8 +6561,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                         return True
 
@@ -6745,8 +6601,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.basic_info is not None and self.basic_info._has_data():
                                                     return True
 
@@ -6772,8 +6626,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.attributes is not None and self.attributes._has_data():
                                                 return True
 
@@ -6916,8 +6768,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.description is not None:
                                                     return True
 
@@ -7058,8 +6908,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -7120,8 +6968,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -7147,8 +6993,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                     return True
 
@@ -7189,8 +7033,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_info is not None and self.basic_info._has_data():
                                                 return True
 
@@ -7218,8 +7060,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.name is not None:
                                             return True
 
@@ -7248,8 +7088,6 @@ class PlatformInventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sub_slot is not None:
                                         for child_ref in self.sub_slot:
                                             if child_ref._has_data():
@@ -7635,8 +7473,6 @@ class PlatformInventory(object):
                                                                         return False
 
                                                                     def _has_data(self):
-                                                                        if not self.is_config():
-                                                                            return False
                                                                         if self.description is not None:
                                                                             return True
 
@@ -7777,8 +7613,6 @@ class PlatformInventory(object):
                                                                             return False
 
                                                                         def _has_data(self):
-                                                                            if not self.is_config():
-                                                                                return False
                                                                             if self.time_in_nano_seconds is not None:
                                                                                 return True
 
@@ -7839,8 +7673,6 @@ class PlatformInventory(object):
                                                                             return False
 
                                                                         def _has_data(self):
-                                                                            if not self.is_config():
-                                                                                return False
                                                                             if self.time_in_nano_seconds is not None:
                                                                                 return True
 
@@ -7866,8 +7698,6 @@ class PlatformInventory(object):
                                                                         return False
 
                                                                     def _has_data(self):
-                                                                        if not self.is_config():
-                                                                            return False
                                                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                             return True
 
@@ -7908,8 +7738,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.basic_info is not None and self.basic_info._has_data():
                                                                         return True
 
@@ -7937,8 +7765,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.name is not None:
                                                                     return True
 
@@ -7964,8 +7790,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.sensor is not None:
                                                                 for child_ref in self.sensor:
                                                                     if child_ref._has_data():
@@ -8104,8 +7928,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.description is not None:
                                                                     return True
 
@@ -8246,8 +8068,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.time_in_nano_seconds is not None:
                                                                         return True
 
@@ -8308,8 +8128,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.time_in_nano_seconds is not None:
                                                                         return True
 
@@ -8335,8 +8153,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                     return True
 
@@ -8377,8 +8193,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.basic_info is not None and self.basic_info._has_data():
                                                                 return True
 
@@ -8406,8 +8220,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.name is not None:
                                                             return True
 
@@ -8436,8 +8248,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.hw_component is not None:
                                                         for child_ref in self.hw_component:
                                                             if child_ref._has_data():
@@ -8629,8 +8439,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.description is not None:
                                                                     return True
 
@@ -8771,8 +8579,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.time_in_nano_seconds is not None:
                                                                         return True
 
@@ -8833,8 +8639,6 @@ class PlatformInventory(object):
                                                                     return False
 
                                                                 def _has_data(self):
-                                                                    if not self.is_config():
-                                                                        return False
                                                                     if self.time_in_nano_seconds is not None:
                                                                         return True
 
@@ -8860,8 +8664,6 @@ class PlatformInventory(object):
                                                                 return False
 
                                                             def _has_data(self):
-                                                                if not self.is_config():
-                                                                    return False
                                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                                     return True
 
@@ -8902,8 +8704,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.basic_info is not None and self.basic_info._has_data():
                                                                 return True
 
@@ -8931,8 +8731,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.name is not None:
                                                             return True
 
@@ -8958,8 +8756,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.sensor is not None:
                                                         for child_ref in self.sensor:
                                                             if child_ref._has_data():
@@ -9098,8 +8894,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.description is not None:
                                                             return True
 
@@ -9240,8 +9034,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
@@ -9302,8 +9094,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
@@ -9329,8 +9119,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                             return True
 
@@ -9371,8 +9159,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.basic_info is not None and self.basic_info._has_data():
                                                         return True
 
@@ -9400,8 +9186,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.name is not None:
                                                     return True
 
@@ -9433,8 +9217,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.ports is not None:
                                                 for child_ref in self.ports:
                                                     if child_ref._has_data():
@@ -9626,8 +9408,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.description is not None:
                                                             return True
 
@@ -9768,8 +9548,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
@@ -9830,8 +9608,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
@@ -9857,8 +9633,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                             return True
 
@@ -9899,8 +9673,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.basic_info is not None and self.basic_info._has_data():
                                                         return True
 
@@ -9928,8 +9700,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.name is not None:
                                                     return True
 
@@ -9955,8 +9725,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.sensor is not None:
                                                 for child_ref in self.sensor:
                                                     if child_ref._has_data():
@@ -10095,8 +9863,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.description is not None:
                                                     return True
 
@@ -10237,8 +10003,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -10299,8 +10063,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -10326,8 +10088,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                     return True
 
@@ -10368,8 +10128,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_info is not None and self.basic_info._has_data():
                                                 return True
 
@@ -10397,8 +10155,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.name is not None:
                                             return True
 
@@ -10430,8 +10186,6 @@ class PlatformInventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.port_slot is not None:
                                         for child_ref in self.port_slot:
                                             if child_ref._has_data():
@@ -10683,8 +10437,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.description is not None:
                                                             return True
 
@@ -10825,8 +10577,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
@@ -10887,8 +10637,6 @@ class PlatformInventory(object):
                                                             return False
 
                                                         def _has_data(self):
-                                                            if not self.is_config():
-                                                                return False
                                                             if self.time_in_nano_seconds is not None:
                                                                 return True
 
@@ -10914,8 +10662,6 @@ class PlatformInventory(object):
                                                         return False
 
                                                     def _has_data(self):
-                                                        if not self.is_config():
-                                                            return False
                                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                             return True
 
@@ -10956,8 +10702,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.basic_info is not None and self.basic_info._has_data():
                                                         return True
 
@@ -10985,8 +10729,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.name is not None:
                                                     return True
 
@@ -11012,8 +10754,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.sensor is not None:
                                                 for child_ref in self.sensor:
                                                     if child_ref._has_data():
@@ -11152,8 +10892,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.description is not None:
                                                     return True
 
@@ -11294,8 +11032,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -11356,8 +11092,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -11383,8 +11117,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                     return True
 
@@ -11425,8 +11157,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_info is not None and self.basic_info._has_data():
                                                 return True
 
@@ -11454,8 +11184,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.name is not None:
                                             return True
 
@@ -11484,8 +11212,6 @@ class PlatformInventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.hw_component is not None:
                                         for child_ref in self.hw_component:
                                             if child_ref._has_data():
@@ -11677,8 +11403,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.description is not None:
                                                     return True
 
@@ -11819,8 +11543,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -11881,8 +11603,6 @@ class PlatformInventory(object):
                                                     return False
 
                                                 def _has_data(self):
-                                                    if not self.is_config():
-                                                        return False
                                                     if self.time_in_nano_seconds is not None:
                                                         return True
 
@@ -11908,8 +11628,6 @@ class PlatformInventory(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                                     return True
 
@@ -11950,8 +11668,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.basic_info is not None and self.basic_info._has_data():
                                                 return True
 
@@ -11979,8 +11695,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.name is not None:
                                             return True
 
@@ -12006,8 +11720,6 @@ class PlatformInventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sensor is not None:
                                         for child_ref in self.sensor:
                                             if child_ref._has_data():
@@ -12146,8 +11858,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.description is not None:
                                             return True
 
@@ -12288,8 +11998,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_in_nano_seconds is not None:
                                                 return True
 
@@ -12350,8 +12058,6 @@ class PlatformInventory(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_in_nano_seconds is not None:
                                                 return True
 
@@ -12377,8 +12083,6 @@ class PlatformInventory(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                             return True
 
@@ -12419,8 +12123,6 @@ class PlatformInventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.basic_info is not None and self.basic_info._has_data():
                                         return True
 
@@ -12448,8 +12150,6 @@ class PlatformInventory(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name is not None:
                                     return True
 
@@ -12490,8 +12190,6 @@ class PlatformInventory(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.card is not None:
                                 for child_ref in self.card:
                                     if child_ref._has_data():
@@ -12630,8 +12328,6 @@ class PlatformInventory(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.description is not None:
                                     return True
 
@@ -12772,8 +12468,6 @@ class PlatformInventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.time_in_nano_seconds is not None:
                                         return True
 
@@ -12834,8 +12528,6 @@ class PlatformInventory(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.time_in_nano_seconds is not None:
                                         return True
 
@@ -12861,8 +12553,6 @@ class PlatformInventory(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                                     return True
 
@@ -12903,8 +12593,6 @@ class PlatformInventory(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.basic_info is not None and self.basic_info._has_data():
                                 return True
 
@@ -12932,8 +12620,6 @@ class PlatformInventory(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -12962,8 +12648,6 @@ class PlatformInventory(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.slot is not None:
                         for child_ref in self.slot:
                             if child_ref._has_data():
@@ -13102,8 +12786,6 @@ class PlatformInventory(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.description is not None:
                             return True
 
@@ -13244,8 +12926,6 @@ class PlatformInventory(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.time_in_nano_seconds is not None:
                                 return True
 
@@ -13306,8 +12986,6 @@ class PlatformInventory(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.time_in_nano_seconds is not None:
                                 return True
 
@@ -13333,8 +13011,6 @@ class PlatformInventory(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.last_operational_state_change is not None and self.last_operational_state_change._has_data():
                             return True
 
@@ -13375,8 +13051,6 @@ class PlatformInventory(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.basic_info is not None and self.basic_info._has_data():
                         return True
 
@@ -13402,8 +13076,6 @@ class PlatformInventory(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -13430,8 +13102,6 @@ class PlatformInventory(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.rack is not None:
                 for child_ref in self.rack:
                     if child_ref._has_data():
@@ -13454,8 +13124,6 @@ class PlatformInventory(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.racks is not None and self.racks._has_data():
             return True
 

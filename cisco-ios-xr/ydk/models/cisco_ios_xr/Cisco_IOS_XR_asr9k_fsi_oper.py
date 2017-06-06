@@ -222,8 +222,6 @@ class FabricStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.count is not None:
                                     return True
 
@@ -249,8 +247,6 @@ class FabricStats(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.fsi_stat is not None:
                                 for child_ref in self.fsi_stat:
                                     if child_ref._has_data():
@@ -277,8 +273,6 @@ class FabricStats(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.type is not None:
                             return True
 
@@ -309,8 +303,6 @@ class FabricStats(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.stats is not None:
                         for child_ref in self.stats:
                             if child_ref._has_data():
@@ -335,8 +327,6 @@ class FabricStats(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -360,8 +350,6 @@ class FabricStats(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -384,8 +372,6 @@ class FabricStats(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

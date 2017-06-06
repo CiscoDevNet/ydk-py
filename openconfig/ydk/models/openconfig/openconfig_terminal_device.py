@@ -131,8 +131,6 @@ class TerminalDevice(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             return False
 
         @staticmethod
@@ -165,8 +163,6 @@ class TerminalDevice(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             return False
 
         @staticmethod
@@ -335,8 +331,6 @@ class TerminalDevice(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_state is not None:
                         return True
 
@@ -471,8 +465,6 @@ class TerminalDevice(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.admin_state is not None:
                         return True
 
@@ -580,8 +572,6 @@ class TerminalDevice(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.tti_msg_auto is not None:
                             return True
 
@@ -796,8 +786,6 @@ class TerminalDevice(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.avg is not None:
                                 return True
 
@@ -877,8 +865,6 @@ class TerminalDevice(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.avg is not None:
                                 return True
 
@@ -957,8 +943,6 @@ class TerminalDevice(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.avg is not None:
                                 return True
 
@@ -1039,8 +1023,6 @@ class TerminalDevice(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.avg is not None:
                                 return True
 
@@ -1072,8 +1054,6 @@ class TerminalDevice(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.background_block_errors is not None:
                             return True
 
@@ -1144,8 +1124,6 @@ class TerminalDevice(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -1217,8 +1195,6 @@ class TerminalDevice(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         return False
 
                     @staticmethod
@@ -1334,8 +1310,6 @@ class TerminalDevice(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.in_8021q_frames is not None:
                             return True
 
@@ -1385,8 +1359,6 @@ class TerminalDevice(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -1479,8 +1451,6 @@ class TerminalDevice(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.physical_channel is not None:
                             for child in self.physical_channel:
                                 if child is not None:
@@ -1544,8 +1514,6 @@ class TerminalDevice(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.physical_channel is not None:
                             for child in self.physical_channel:
                                 if child is not None:
@@ -1573,8 +1541,6 @@ class TerminalDevice(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.config is not None and self.config._has_data():
                         return True
 
@@ -1778,8 +1744,6 @@ class TerminalDevice(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.allocation is not None:
                                 return True
 
@@ -1915,8 +1879,6 @@ class TerminalDevice(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.allocation is not None:
                                 return True
 
@@ -1956,8 +1918,6 @@ class TerminalDevice(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -1986,8 +1946,6 @@ class TerminalDevice(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.assignment is not None:
                         for child_ref in self.assignment:
                             if child_ref._has_data():
@@ -2012,8 +1970,6 @@ class TerminalDevice(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.index is not None:
                     return True
 
@@ -2052,8 +2008,6 @@ class TerminalDevice(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.channel is not None:
                 for child_ref in self.channel:
                     if child_ref._has_data():
@@ -2158,8 +2112,6 @@ class TerminalDevice(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     return False
 
                 @staticmethod
@@ -2215,8 +2167,6 @@ class TerminalDevice(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.description is not None:
                         return True
 
@@ -2245,8 +2195,6 @@ class TerminalDevice(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.mode_id is not None:
                     return True
 
@@ -2273,8 +2221,6 @@ class TerminalDevice(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mode is not None:
                 for child_ref in self.mode:
                     if child_ref._has_data():
@@ -2297,8 +2243,6 @@ class TerminalDevice(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.config is not None and self.config._has_data():
             return True
 

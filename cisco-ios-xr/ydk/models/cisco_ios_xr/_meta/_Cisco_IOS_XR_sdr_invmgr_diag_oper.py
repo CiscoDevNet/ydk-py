@@ -400,7 +400,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-supply-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Power Supply name
                 ''',
                 'power_supply_name',
@@ -440,7 +440,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('power-shelf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Power Shelf name
                 ''',
                 'power_shelf_name',
@@ -862,7 +862,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('fans-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Fans name
                 ''',
                 'fans_name',
@@ -902,7 +902,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('fan-tray-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Fan tray name
                 ''',
                 'fan_tray_name',
@@ -1347,7 +1347,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Instance name
                 ''',
                 'name',
@@ -1387,7 +1387,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('slot-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Slot name
                 ''',
                 'slot_name',
@@ -1809,7 +1809,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('rack-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Rack name
                 ''',
                 'rack_name',

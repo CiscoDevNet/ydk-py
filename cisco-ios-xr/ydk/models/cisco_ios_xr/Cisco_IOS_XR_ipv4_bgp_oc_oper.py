@@ -471,8 +471,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.afi is not None:
                                             return True
 
@@ -499,8 +497,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None and self.prefix._has_data():
                                         return True
 
@@ -638,8 +634,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.afi is not None:
                                             return True
 
@@ -705,8 +699,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -754,8 +746,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.objects is not None:
                                             return True
 
@@ -776,8 +766,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                         return True
 
@@ -910,8 +898,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.objects is not None:
                                             return True
 
@@ -971,8 +957,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attribute_length is not None:
                                             return True
 
@@ -999,8 +983,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aigp is not None:
                                         return True
 
@@ -1063,8 +1045,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.time_value is not None:
                                         return True
 
@@ -1106,8 +1086,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.time_value is not None:
                                         return True
 
@@ -1128,8 +1106,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.best_path is not None:
                                     return True
 
@@ -1180,8 +1156,6 @@ class OcBgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.route is not None:
                                 for child_ref in self.route:
                                     if child_ref._has_data():
@@ -1228,8 +1202,6 @@ class OcBgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.num_routes is not None:
                                 return True
 
@@ -1250,8 +1222,6 @@ class OcBgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.num_routes is not None and self.num_routes._has_data():
                             return True
 
@@ -1592,8 +1562,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -1622,8 +1590,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None and self.prefix._has_data():
                                                 return True
 
@@ -1763,8 +1729,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -1832,8 +1796,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -1883,8 +1845,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -1907,8 +1867,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                                 return True
 
@@ -2043,8 +2001,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -2106,8 +2062,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attribute_length is not None:
                                                     return True
 
@@ -2136,8 +2090,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -2202,8 +2154,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -2247,8 +2197,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -2271,8 +2219,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.best_path is not None:
                                             return True
 
@@ -2325,8 +2271,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -2375,8 +2319,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_routes is not None:
                                         return True
 
@@ -2399,8 +2341,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None and self.num_routes._has_data():
                                     return True
 
@@ -2657,8 +2597,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -2687,8 +2625,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None and self.prefix._has_data():
                                                 return True
 
@@ -2828,8 +2764,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -2897,8 +2831,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -2948,8 +2880,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -2972,8 +2902,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                                 return True
 
@@ -3108,8 +3036,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -3171,8 +3097,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attribute_length is not None:
                                                     return True
 
@@ -3201,8 +3125,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -3267,8 +3189,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -3312,8 +3232,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -3336,8 +3254,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.best_path is not None:
                                             return True
 
@@ -3390,8 +3306,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -3440,8 +3354,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_routes is not None:
                                         return True
 
@@ -3464,8 +3376,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None and self.num_routes._has_data():
                                     return True
 
@@ -3722,8 +3632,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -3752,8 +3660,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None and self.prefix._has_data():
                                                 return True
 
@@ -3893,8 +3799,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -3962,8 +3866,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -4013,8 +3915,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -4037,8 +3937,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                                 return True
 
@@ -4173,8 +4071,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -4236,8 +4132,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attribute_length is not None:
                                                     return True
 
@@ -4266,8 +4160,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -4332,8 +4224,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -4377,8 +4267,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -4401,8 +4289,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.best_path is not None:
                                             return True
 
@@ -4455,8 +4341,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -4505,8 +4389,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_routes is not None:
                                         return True
 
@@ -4529,8 +4411,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None and self.num_routes._has_data():
                                     return True
 
@@ -4787,8 +4667,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -4817,8 +4695,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None and self.prefix._has_data():
                                                 return True
 
@@ -4958,8 +4834,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -5027,8 +4901,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -5078,8 +4950,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -5102,8 +4972,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                                 return True
 
@@ -5238,8 +5106,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -5301,8 +5167,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attribute_length is not None:
                                                     return True
 
@@ -5331,8 +5195,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -5397,8 +5259,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -5442,8 +5302,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -5466,8 +5324,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.best_path is not None:
                                             return True
 
@@ -5520,8 +5376,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -5570,8 +5424,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_routes is not None:
                                         return True
 
@@ -5594,8 +5446,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None and self.num_routes._has_data():
                                     return True
 
@@ -5621,8 +5471,6 @@ class OcBgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.neighbor_address is not None:
                                 return True
 
@@ -5655,8 +5503,6 @@ class OcBgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.open_config_neighbor is not None:
                             for child_ref in self.open_config_neighbor:
                                 if child_ref._has_data():
@@ -5679,8 +5525,6 @@ class OcBgp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.loc_rib is not None and self.loc_rib._has_data():
                         return True
 
@@ -5964,8 +5808,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.afi is not None:
                                             return True
 
@@ -5992,8 +5834,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.prefix is not None and self.prefix._has_data():
                                         return True
 
@@ -6131,8 +5971,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.afi is not None:
                                             return True
 
@@ -6198,8 +6036,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -6247,8 +6083,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.objects is not None:
                                             return True
 
@@ -6269,8 +6103,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                         return True
 
@@ -6403,8 +6235,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.objects is not None:
                                             return True
 
@@ -6464,8 +6294,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attribute_length is not None:
                                             return True
 
@@ -6492,8 +6320,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aigp is not None:
                                         return True
 
@@ -6556,8 +6382,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.time_value is not None:
                                         return True
 
@@ -6599,8 +6423,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.time_value is not None:
                                         return True
 
@@ -6621,8 +6443,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.best_path is not None:
                                     return True
 
@@ -6673,8 +6493,6 @@ class OcBgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.route is not None:
                                 for child_ref in self.route:
                                     if child_ref._has_data():
@@ -6721,8 +6539,6 @@ class OcBgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.num_routes is not None:
                                 return True
 
@@ -6743,8 +6559,6 @@ class OcBgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.num_routes is not None and self.num_routes._has_data():
                             return True
 
@@ -7085,8 +6899,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -7115,8 +6927,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None and self.prefix._has_data():
                                                 return True
 
@@ -7256,8 +7066,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -7325,8 +7133,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -7376,8 +7182,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -7400,8 +7204,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                                 return True
 
@@ -7536,8 +7338,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -7599,8 +7399,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attribute_length is not None:
                                                     return True
 
@@ -7629,8 +7427,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -7695,8 +7491,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -7740,8 +7534,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -7764,8 +7556,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.best_path is not None:
                                             return True
 
@@ -7818,8 +7608,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -7868,8 +7656,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_routes is not None:
                                         return True
 
@@ -7892,8 +7678,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None and self.num_routes._has_data():
                                     return True
 
@@ -8150,8 +7934,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -8180,8 +7962,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None and self.prefix._has_data():
                                                 return True
 
@@ -8321,8 +8101,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -8390,8 +8168,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -8441,8 +8217,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -8465,8 +8239,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                                 return True
 
@@ -8601,8 +8373,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -8664,8 +8434,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attribute_length is not None:
                                                     return True
 
@@ -8694,8 +8462,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -8760,8 +8526,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -8805,8 +8569,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -8829,8 +8591,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.best_path is not None:
                                             return True
 
@@ -8883,8 +8643,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -8933,8 +8691,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_routes is not None:
                                         return True
 
@@ -8957,8 +8713,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None and self.num_routes._has_data():
                                     return True
 
@@ -9215,8 +8969,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -9245,8 +8997,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None and self.prefix._has_data():
                                                 return True
 
@@ -9386,8 +9136,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -9455,8 +9203,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -9506,8 +9252,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -9530,8 +9274,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                                 return True
 
@@ -9666,8 +9408,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -9729,8 +9469,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attribute_length is not None:
                                                     return True
 
@@ -9759,8 +9497,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -9825,8 +9561,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -9870,8 +9604,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -9894,8 +9626,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.best_path is not None:
                                             return True
 
@@ -9948,8 +9678,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -9998,8 +9726,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_routes is not None:
                                         return True
 
@@ -10022,8 +9748,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None and self.num_routes._has_data():
                                     return True
 
@@ -10280,8 +10004,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -10310,8 +10032,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.prefix is not None and self.prefix._has_data():
                                                 return True
 
@@ -10451,8 +10171,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.afi is not None:
                                                     return True
 
@@ -10520,8 +10238,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -10571,8 +10287,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -10595,8 +10309,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregrator_attributes is not None and self.aggregrator_attributes._has_data():
                                                 return True
 
@@ -10731,8 +10443,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.objects is not None:
                                                     return True
 
@@ -10794,8 +10504,6 @@ class OcBgp(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attribute_length is not None:
                                                     return True
 
@@ -10824,8 +10532,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -10890,8 +10596,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -10935,8 +10639,6 @@ class OcBgp(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.time_value is not None:
                                                 return True
 
@@ -10959,8 +10661,6 @@ class OcBgp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.best_path is not None:
                                             return True
 
@@ -11013,8 +10713,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -11063,8 +10761,6 @@ class OcBgp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.num_routes is not None:
                                         return True
 
@@ -11087,8 +10783,6 @@ class OcBgp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None and self.num_routes._has_data():
                                     return True
 
@@ -11114,8 +10808,6 @@ class OcBgp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.neighbor_address is not None:
                                 return True
 
@@ -11148,8 +10840,6 @@ class OcBgp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.open_config_neighbor is not None:
                             for child_ref in self.open_config_neighbor:
                                 if child_ref._has_data():
@@ -11172,8 +10862,6 @@ class OcBgp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.loc_rib is not None and self.loc_rib._has_data():
                         return True
 
@@ -11197,8 +10885,6 @@ class OcBgp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ipv4_unicast is not None and self.ipv4_unicast._has_data():
                     return True
 
@@ -11222,8 +10908,6 @@ class OcBgp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi_table is not None and self.afi_safi_table._has_data():
                 return True
 
@@ -11244,8 +10928,6 @@ class OcBgp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.bgp_rib is not None and self.bgp_rib._has_data():
             return True
 

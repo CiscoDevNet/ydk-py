@@ -340,8 +340,6 @@ class RouterConvergence(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rcmd_priority is not None:
                             return True
 
@@ -379,8 +377,6 @@ class RouterConvergence(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.priority is not None:
                         for child_ref in self.priority:
                             if child_ref._has_data():
@@ -405,8 +401,6 @@ class RouterConvergence(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.protocol_name is not None:
                     return True
 
@@ -433,8 +427,6 @@ class RouterConvergence(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.protocol is not None:
                 for child_ref in self.protocol:
                     if child_ref._has_data():
@@ -510,8 +502,6 @@ class RouterConvergence(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.diagnostics is not None:
@@ -607,8 +597,6 @@ class RouterConvergence(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self._is_presence:
                     return True
                 if self.threshold is not None:
@@ -631,8 +619,6 @@ class RouterConvergence(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.remote_lfa is not None and self.remote_lfa._has_data():
@@ -709,8 +695,6 @@ class RouterConvergence(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -734,8 +718,6 @@ class RouterConvergence(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.collect_diagnostic is not None:
                 for child_ref in self.collect_diagnostic:
                     if child_ref._has_data():
@@ -819,8 +801,6 @@ class RouterConvergence(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -847,8 +827,6 @@ class RouterConvergence(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -871,8 +849,6 @@ class RouterConvergence(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.collect_diagnostics is not None and self.collect_diagnostics._has_data():
             return True
 

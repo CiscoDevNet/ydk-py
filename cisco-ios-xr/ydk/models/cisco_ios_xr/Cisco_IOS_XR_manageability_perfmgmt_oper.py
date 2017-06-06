@@ -424,8 +424,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -514,8 +512,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -540,8 +536,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.instance_name is not None:
                             return True
 
@@ -565,8 +559,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ospfv2_protocol_instance is not None:
                         for child_ref in self.ospfv2_protocol_instance:
                             if child_ref._has_data():
@@ -864,8 +856,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -951,8 +941,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -977,8 +965,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.instance_name is not None:
                             return True
 
@@ -1002,8 +988,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ospfv3_protocol_instance is not None:
                         for child_ref in self.ospfv3_protocol_instance:
                             if child_ref._has_data():
@@ -1026,8 +1010,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ospfv2_protocol_instances is not None and self.ospfv2_protocol_instances._has_data():
                     return True
 
@@ -1331,8 +1313,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -1412,8 +1392,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -1438,8 +1416,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nbr is not None:
                             return True
 
@@ -1463,8 +1439,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ldp_neighbor is not None:
                         for child_ref in self.ldp_neighbor:
                             if child_ref._has_data():
@@ -1487,8 +1461,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ldp_neighbors is not None and self.ldp_neighbors._has_data():
                     return True
 
@@ -1652,8 +1624,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample_id is not None:
                                 return True
 
@@ -1685,8 +1655,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sample is not None:
                             for child_ref in self.sample:
                                 if child_ref._has_data():
@@ -1848,8 +1816,6 @@ class PerfMgmt(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sample_id is not None:
                                         return True
 
@@ -1884,8 +1850,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample is not None:
                                     for child_ref in self.sample:
                                         if child_ref._has_data():
@@ -1912,8 +1876,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.process_id is not None:
                                 return True
 
@@ -1939,8 +1901,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.process is not None:
                             for child_ref in self.process:
                                 if child_ref._has_data():
@@ -2043,8 +2003,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample_id is not None:
                                 return True
 
@@ -2076,8 +2034,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sample is not None:
                             for child_ref in self.sample:
                                 if child_ref._has_data():
@@ -2102,8 +2058,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_id is not None:
                         return True
 
@@ -2133,8 +2087,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -2356,8 +2308,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -2407,8 +2357,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -2433,8 +2381,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ip_address is not None:
                             return True
 
@@ -2458,8 +2404,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bgp_neighbor is not None:
                         for child_ref in self.bgp_neighbor:
                             if child_ref._has_data():
@@ -2482,8 +2426,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bgp_neighbors is not None and self.bgp_neighbors._has_data():
                     return True
 
@@ -2818,8 +2760,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -2905,8 +2845,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -2931,8 +2869,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2956,8 +2892,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.generic_counter_interface is not None:
                         for child_ref in self.generic_counter_interface:
                             if child_ref._has_data():
@@ -3178,8 +3112,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -3235,8 +3167,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -3261,8 +3191,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3286,8 +3214,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.basic_counter_interface is not None:
                         for child_ref in self.basic_counter_interface:
                             if child_ref._has_data():
@@ -3505,8 +3431,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -3559,8 +3483,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -3585,8 +3507,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3610,8 +3530,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.data_rate_interface is not None:
                         for child_ref in self.data_rate_interface:
                             if child_ref._has_data():
@@ -3634,8 +3552,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.basic_counter_interfaces is not None and self.basic_counter_interfaces._has_data():
                     return True
 
@@ -3662,8 +3578,6 @@ class PerfMgmt(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bgp is not None and self.bgp._has_data():
                 return True
 
@@ -4058,8 +3972,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -4148,8 +4060,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -4174,8 +4084,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.instance_name is not None:
                             return True
 
@@ -4199,8 +4107,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ospfv2_protocol_instance is not None:
                         for child_ref in self.ospfv2_protocol_instance:
                             if child_ref._has_data():
@@ -4498,8 +4404,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -4585,8 +4489,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -4611,8 +4513,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.instance_name is not None:
                             return True
 
@@ -4636,8 +4536,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ospfv3_protocol_instance is not None:
                         for child_ref in self.ospfv3_protocol_instance:
                             if child_ref._has_data():
@@ -4660,8 +4558,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ospfv2_protocol_instances is not None and self.ospfv2_protocol_instances._has_data():
                     return True
 
@@ -4965,8 +4861,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -5046,8 +4940,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -5072,8 +4964,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.nbr is not None:
                             return True
 
@@ -5097,8 +4987,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ldp_neighbor is not None:
                         for child_ref in self.ldp_neighbor:
                             if child_ref._has_data():
@@ -5121,8 +5009,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ldp_neighbors is not None and self.ldp_neighbors._has_data():
                     return True
 
@@ -5286,8 +5172,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample_id is not None:
                                 return True
 
@@ -5319,8 +5203,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sample is not None:
                             for child_ref in self.sample:
                                 if child_ref._has_data():
@@ -5482,8 +5364,6 @@ class PerfMgmt(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.sample_id is not None:
                                         return True
 
@@ -5518,8 +5398,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample is not None:
                                     for child_ref in self.sample:
                                         if child_ref._has_data():
@@ -5546,8 +5424,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.process_id is not None:
                                 return True
 
@@ -5573,8 +5449,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.process is not None:
                             for child_ref in self.process:
                                 if child_ref._has_data():
@@ -5677,8 +5551,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample_id is not None:
                                 return True
 
@@ -5710,8 +5582,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sample is not None:
                             for child_ref in self.sample:
                                 if child_ref._has_data():
@@ -5736,8 +5606,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_id is not None:
                         return True
 
@@ -5767,8 +5635,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     for child_ref in self.node:
                         if child_ref._has_data():
@@ -5990,8 +5856,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -6041,8 +5905,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -6067,8 +5929,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ip_address is not None:
                             return True
 
@@ -6092,8 +5952,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bgp_neighbor is not None:
                         for child_ref in self.bgp_neighbor:
                             if child_ref._has_data():
@@ -6116,8 +5974,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bgp_neighbors is not None and self.bgp_neighbors._has_data():
                     return True
 
@@ -6452,8 +6308,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -6539,8 +6393,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -6565,8 +6417,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -6590,8 +6440,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.generic_counter_interface is not None:
                         for child_ref in self.generic_counter_interface:
                             if child_ref._has_data():
@@ -6812,8 +6660,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -6869,8 +6715,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -6895,8 +6739,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -6920,8 +6762,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.basic_counter_interface is not None:
                         for child_ref in self.basic_counter_interface:
                             if child_ref._has_data():
@@ -7139,8 +6979,6 @@ class PerfMgmt(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.sample_id is not None:
                                     return True
 
@@ -7193,8 +7031,6 @@ class PerfMgmt(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sample is not None:
                                 for child_ref in self.sample:
                                     if child_ref._has_data():
@@ -7219,8 +7055,6 @@ class PerfMgmt(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -7244,8 +7078,6 @@ class PerfMgmt(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.data_rate_interface is not None:
                         for child_ref in self.data_rate_interface:
                             if child_ref._has_data():
@@ -7268,8 +7100,6 @@ class PerfMgmt(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.basic_counter_interfaces is not None and self.basic_counter_interfaces._has_data():
                     return True
 
@@ -7296,8 +7126,6 @@ class PerfMgmt(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.bgp is not None and self.bgp._has_data():
                 return True
 
@@ -7330,8 +7158,6 @@ class PerfMgmt(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.monitor is not None and self.monitor._has_data():
             return True
 

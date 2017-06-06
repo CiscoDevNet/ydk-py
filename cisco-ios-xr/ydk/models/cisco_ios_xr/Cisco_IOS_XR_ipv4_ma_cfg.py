@@ -198,8 +198,6 @@ class Ipv4NetworkGlobal(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         return True
 
@@ -220,8 +218,6 @@ class Ipv4NetworkGlobal(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.te is not None and self.te._has_data():
                     return True
 
@@ -242,8 +238,6 @@ class Ipv4NetworkGlobal(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.mpls is not None and self.mpls._has_data():
                 return True
 
@@ -291,8 +285,6 @@ class Ipv4NetworkGlobal(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.destination is not None:
                 return True
 
@@ -316,8 +308,6 @@ class Ipv4NetworkGlobal(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.qppb is not None and self.qppb._has_data():
             return True
 
@@ -374,8 +364,6 @@ class SubscriberPta(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.tcp_mss_adjust is not None:
             return True
 

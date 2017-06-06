@@ -344,8 +344,6 @@ class IpExplicitPaths(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.index_number is not None:
                                 return True
 
@@ -383,8 +381,6 @@ class IpExplicitPaths(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.hop is not None:
                             for child_ref in self.hop:
                                 if child_ref._has_data():
@@ -411,8 +407,6 @@ class IpExplicitPaths(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -569,8 +563,6 @@ class IpExplicitPaths(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.index_number is not None:
                                 return True
 
@@ -608,8 +600,6 @@ class IpExplicitPaths(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.hop is not None:
                             for child_ref in self.hop:
                                 if child_ref._has_data():
@@ -636,8 +626,6 @@ class IpExplicitPaths(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.id is not None:
                         return True
 
@@ -666,8 +654,6 @@ class IpExplicitPaths(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.type is not None:
                     return True
 
@@ -698,8 +684,6 @@ class IpExplicitPaths(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.path is not None:
                 for child_ref in self.path:
                     if child_ref._has_data():
@@ -722,8 +706,6 @@ class IpExplicitPaths(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.paths is not None and self.paths._has_data():
             return True
 

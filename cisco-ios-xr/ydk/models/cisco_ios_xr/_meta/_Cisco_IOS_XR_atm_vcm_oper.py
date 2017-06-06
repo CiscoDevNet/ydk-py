@@ -13,45 +13,19 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'VcEnum' : _MetaInfoEnum('VcEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
-        {
-            'layer3-vc':'layer3_vc',
-            'layer2-vc':'layer2_vc',
-            'layer2-vp':'layer2_vp',
-            'vc-type-unknown':'vc_type_unknown',
-        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcEncapEnum' : _MetaInfoEnum('VcEncapEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
-        {
-            'ilmi':'ilmi',
-            'qsaal':'qsaal',
-            'snap':'snap',
-            'mux':'mux',
-            'nlpid':'nlpid',
-            'f4oam':'f4oam',
-            'aal0':'aal0',
-            'aal5':'aal5',
-            'encap-unknown':'encap_unknown',
-        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
     'VcManageLevelEnum' : _MetaInfoEnum('VcManageLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
         {
             'manage':'manage',
             'not-managed':'not_managed',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcTestModeEnum' : _MetaInfoEnum('VcTestModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
+    'ClassLinkOamInheritLevelEnum' : _MetaInfoEnum('ClassLinkOamInheritLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
         {
-            'test-mode-none':'test_mode_none',
-            'loop':'loop',
-            'reserved':'reserved',
-        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VpTrafShapingEnum' : _MetaInfoEnum('VpTrafShapingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
-        {
-            'vp-cbr':'vp_cbr',
-            'vp-vbr-nrt':'vp_vbr_nrt',
-            'vp-vbr-rt':'vp_vbr_rt',
-            'vp-abr':'vp_abr',
-            'vp-ubr-plus':'vp_ubr_plus',
-            'vp-ubr':'vp_ubr',
-            'vp-traf-shaping-unknown':'vp_traf_shaping_unknown',
+            'vc-configured-onvc':'vc_configured_onvc',
+            'vc-class-onvc':'vc_class_onvc',
+            'vc-class-on-sub-interface':'vc_class_on_sub_interface',
+            'vc-class-on-main-interface':'vc_class_on_main_interface',
+            'vc-global-default':'vc_global_default',
+            'vc-inherit-level-unknown':'vc_inherit_level_unknown',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
     'VcStateEnum' : _MetaInfoEnum('VcStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
         {
@@ -68,24 +42,15 @@ _meta_table = {
             'deleted':'deleted',
             'state-unknown':'state_unknown',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'ClassLinkOamInheritLevelEnum' : _MetaInfoEnum('ClassLinkOamInheritLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
+    'VcInheritLevelEnum' : _MetaInfoEnum('VcInheritLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
         {
-            'vc-configured-onvc':'vc_configured_onvc',
-            'vc-class-onvc':'vc_class_onvc',
-            'vc-class-on-sub-interface':'vc_class_on_sub_interface',
-            'vc-class-on-main-interface':'vc_class_on_main_interface',
-            'vc-global-default':'vc_global_default',
-            'vc-inherit-level-unknown':'vc_inherit_level_unknown',
-        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VpStateEnum' : _MetaInfoEnum('VpStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
-        {
-            'vp-initialized':'vp_initialized',
-            'vp-modifying':'vp_modifying',
-            'vp-ready':'vp_ready',
-            'vp-mgd-down':'vp_mgd_down',
-            'vp-deleting':'vp_deleting',
-            'vp-deleted':'vp_deleted',
-            'vp-state-unknown':'vp_state_unknown',
+            'directly-configured-onvc':'directly_configured_onvc',
+            'vc-class-configured-onvc':'vc_class_configured_onvc',
+            'vc-class-configured-on-sub-interface':'vc_class_configured_on_sub_interface',
+            'vc-class-configured-on-main-interface':'vc_class_configured_on_main_interface',
+            'global-default':'global_default',
+            'unknown':'unknown',
+            'not-supported':'not_supported',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
     'VcTrafShapingEnum' : _MetaInfoEnum('VcTrafShapingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
         {
@@ -97,27 +62,62 @@ _meta_table = {
             'ubr':'ubr',
             'traf-shaping-unknown':'traf_shaping_unknown',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
+    'VcEncapEnum' : _MetaInfoEnum('VcEncapEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
+        {
+            'ilmi':'ilmi',
+            'qsaal':'qsaal',
+            'snap':'snap',
+            'mux':'mux',
+            'nlpid':'nlpid',
+            'f4oam':'f4oam',
+            'aal0':'aal0',
+            'aal5':'aal5',
+            'encap-unknown':'encap_unknown',
+        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
+    'VcEnum' : _MetaInfoEnum('VcEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
+        {
+            'layer3-vc':'layer3_vc',
+            'layer2-vc':'layer2_vc',
+            'layer2-vp':'layer2_vp',
+            'vc-type-unknown':'vc_type_unknown',
+        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
     'VcCellPackingModeEnum' : _MetaInfoEnum('VcCellPackingModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
         {
             'vp':'vp',
             'vc':'vc',
             'port-mode':'port_mode',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
+    'VpStateEnum' : _MetaInfoEnum('VpStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
+        {
+            'vp-initialized':'vp_initialized',
+            'vp-modifying':'vp_modifying',
+            'vp-ready':'vp_ready',
+            'vp-mgd-down':'vp_mgd_down',
+            'vp-deleting':'vp_deleting',
+            'vp-deleted':'vp_deleted',
+            'vp-state-unknown':'vp_state_unknown',
+        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
+    'VpTrafShapingEnum' : _MetaInfoEnum('VpTrafShapingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
+        {
+            'vp-cbr':'vp_cbr',
+            'vp-vbr-nrt':'vp_vbr_nrt',
+            'vp-vbr-rt':'vp_vbr_rt',
+            'vp-abr':'vp_abr',
+            'vp-ubr-plus':'vp_ubr_plus',
+            'vp-ubr':'vp_ubr',
+            'vp-traf-shaping-unknown':'vp_traf_shaping_unknown',
+        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
+    'VcTestModeEnum' : _MetaInfoEnum('VcTestModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
+        {
+            'test-mode-none':'test_mode_none',
+            'loop':'loop',
+            'reserved':'reserved',
+        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
     'VcmPortEnum' : _MetaInfoEnum('VcmPortEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
         {
             'port-type-layer-2':'port_type_layer_2',
             'port-type-layer-3':'port_type_layer_3',
             'port-type-unknown':'port_type_unknown',
-        }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
-    'VcInheritLevelEnum' : _MetaInfoEnum('VcInheritLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper',
-        {
-            'directly-configured-onvc':'directly_configured_onvc',
-            'vc-class-configured-onvc':'vc_class_configured_onvc',
-            'vc-class-configured-on-sub-interface':'vc_class_configured_on_sub_interface',
-            'vc-class-configured-on-main-interface':'vc_class_configured_on_main_interface',
-            'global-default':'global_default',
-            'unknown':'unknown',
-            'not-supported':'not_supported',
         }, 'Cisco-IOS-XR-atm-vcm-oper', _yang_ns._namespaces['Cisco-IOS-XR-atm-vcm-oper']),
     'AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData' : {
         'meta_info' : _MetaInfoClass('AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData',
@@ -155,7 +155,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -206,7 +206,7 @@ _meta_table = {
                 'last_state_change_time',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main Interface handle
                 ''',
                 'main_interface',
@@ -245,7 +245,7 @@ _meta_table = {
                 'shape',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sub-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface handle
                 ''',
                 'sub_interface',
@@ -275,7 +275,7 @@ _meta_table = {
                 'type',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vc-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                VC Interfcace handle
                 ''',
                 'vc_interface',
@@ -388,7 +388,7 @@ _meta_table = {
                 'cell_packing_mode',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -412,7 +412,7 @@ _meta_table = {
                 'sent_cells_packets',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sub-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub-interface name
                 ''',
                 'sub_interface_name',
@@ -489,7 +489,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -540,7 +540,7 @@ _meta_table = {
                 'last_state_change_time',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main Interface handle
                 ''',
                 'main_interface',
@@ -579,7 +579,7 @@ _meta_table = {
                 'shape',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sub-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Subinterface handle
                 ''',
                 'sub_interface',
@@ -609,7 +609,7 @@ _meta_table = {
                 'type',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vc-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                VC Interfcace handle
                 ''',
                 'vc_interface',
@@ -919,7 +919,7 @@ _meta_table = {
                 'oam_config',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('sub-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Sub-interface handle
                 ''',
                 'sub_interface_name',
@@ -996,7 +996,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -1075,7 +1075,7 @@ _meta_table = {
                 'l2_cell_packing_count',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main Interface handle
                 ''',
                 'main_interface',
@@ -1133,7 +1133,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -1176,7 +1176,7 @@ _meta_table = {
                 'last_vp_state_change_time',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('main-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Main Interface handle
                 ''',
                 'main_interface',
@@ -1207,7 +1207,7 @@ _meta_table = {
                 'sustained_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-oper', False),
             _MetaInfoClassMember('vp-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                VP Interfcace handle
                 ''',
                 'vp_interface',
@@ -1253,7 +1253,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                The node name
                 ''',
                 'node_name',

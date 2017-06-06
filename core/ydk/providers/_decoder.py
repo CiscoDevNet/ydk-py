@@ -21,14 +21,13 @@
 from lxml import etree
 from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LEAFLIST, \
             REFERENCE_LIST, REFERENCE_IDENTITY_CLASS, REFERENCE_ENUM_CLASS, \
-            REFERENCE_BITS, REFERENCE_UNION
-from ydk.types import Empty, Decimal64, YLeafList, YListItem
+            REFERENCE_BITS, REFERENCE_UNION, ANYXML_CLASS
+from ydk.types import Empty, Decimal64, YLeafList
 from ._importer import _yang_ns
 from ydk.services.meta_service import MetaService
 from ydk.errors import YPYServiceProviderError, YPYErrorCode
 
 import logging
-import re
 import importlib
 from functools import reduce
 
@@ -39,6 +38,7 @@ class XmlDecoder(object):
         payload_tree = etree.fromstring(payload.encode('utf-8'))
         top_entity = self._get_top_entity(payload_tree)
         rt = payload_tree.getroottree().getroot()
+
         curr_rt = get_root(rt, top_entity, _yang_ns._namespaces)
         try:
             XmlDecoder._bind_to_object_helper(curr_rt, top_entity)
@@ -56,12 +56,18 @@ class XmlDecoder(object):
     def _get_top_entity(self, payload_tree):
         root = payload_tree.getroottree().getroot()
         namespace = root.tag.split('}')[0][1:]
-        return self.get_top_container_for_namespace(namespace, root.tag.split('}')[1])
+        prefix = root.tag.split('}')[1]
+        return self.get_top_container_for_namespace(namespace, prefix)
 
     @staticmethod
     def _bind_to_object(payload, top_entity, capabilities, pretty_p='|-'):
         active_deviation_tables = MetaService.get_active_deviation_tables(capabilities, top_entity)
-        payload = payload_convert(payload)
+        if hasattr(top_entity, 'parent') and top_entity.parent is not None and XmlDecoder()._is_rpc_reply(top_entity.parent):
+            prefix = top_entity._meta_info().module_name
+            NSMAP = _yang_ns._namespaces
+            payload = payload_convert(payload, NSMAP[prefix], 'output')
+        else:
+            payload = payload_convert(payload, '', '')
         if payload is None:
             return top_entity
         rt = etree.fromstring(payload.encode('utf-8')).getroottree().getroot()
@@ -90,7 +96,7 @@ class XmlDecoder(object):
                 entity.__dict__[member.presentation_name] = XmlDecoder._to_real_type(rt, member, entity)
             elif member.mtype == REFERENCE_LEAFLIST:
                 entity.__dict__[member.presentation_name] = XmlDecoder._to_real_list_type(rt, member, entity)
-            elif (member.mtype == REFERENCE_CLASS):
+            elif member.mtype == REFERENCE_CLASS:
                 instance = entity.__dict__[member.presentation_name]
                 if instance is None:
                     instance = get_class_instance(member.pmodule_name, member.clazz_name)
@@ -102,7 +108,7 @@ class XmlDecoder(object):
                 if instance is None:
                     instance = []
                     entity.__dict__[member] = instance
-                module = importlib.import_module(member.pmodule_name)
+                importlib.import_module(member.pmodule_name)
                 for rtchild in rt:
                     # get nested class
                     child = get_class_instance(member.pmodule_name, member.clazz_name)
@@ -118,6 +124,16 @@ class XmlDecoder(object):
                 entity.__dict__[member.presentation_name] = XmlDecoder._bind_to_bits_helper(rt[0], member, entity)
             elif member.mtype == REFERENCE_UNION:
                 entity.__dict__[member.presentation_name] = XmlDecoder._to_real_union_type_helper(rt, member, entity)
+            elif member.mtype == ANYXML_CLASS:
+                for rtchild in rt:
+                    for ch in rtchild:
+                        namespace = ch.tag.split('}')[0][1:]
+                        prefix = ch.tag.split('}')[1]
+                        child = XmlDecoder().get_top_container_for_namespace(namespace, prefix)
+                        entity.__dict__[child._meta_info().yang_name.replace('-', '_')] = child
+                        child.parent = entity
+                        XmlDecoder._bind_to_object_helper(ch, child, deviation_tables, pretty_p + '-l')
+
 
     @classmethod
     def _to_real_type(cls, elems, member, entity):
@@ -278,6 +294,9 @@ class XmlDecoder(object):
             instance = get_class_instance(py_mod_name, identity_clazz_name)
             return instance
 
+    def _is_rpc_reply(self, top_entity):
+        return hasattr(top_entity, 'is_rpc') and top_entity.is_rpc
+
 
 def get_class(py_mod_name, clazz_name):
     module = importlib.import_module(py_mod_name)
@@ -293,8 +312,7 @@ def get_root(payload_root, top_entity, NSMAP):
     tag = top_entity._meta_info().yang_name
     namespace = NSMAP[prefix]
     if payload_root.tag == 'rpc-reply':
-        root =  payload_root.find('{}:{}'.format(prefix, tag),
-                                  namespaces=NSMAP)
+        root = payload_root.find('{}:{}'.format(prefix, tag), namespaces=NSMAP)
     elif payload_root.tag == '{{{}}}{}'.format(namespace, tag):
         root = payload_root
     else:
@@ -303,16 +321,22 @@ def get_root(payload_root, top_entity, NSMAP):
     return root
 
 
-def payload_convert(payload):
+def payload_convert(payload, namespace, prefix):
     # TODO add feature to detect types of payload: JSON or xml
     # drop namespaces and key_val pairs
     rt_new = etree.Element('rpc-reply')
     rt = etree.fromstring(payload.encode('utf-8'))
-    chchs = rt.getchildren()[0].getchildren()
-    for ch in chchs:
-        rt_new.append(ch)
-
+    if len(namespace) > 0 and  len(prefix) > 0:
+        rt_new = etree.Element(prefix, attrib={'xmlns':namespace})
+        chchs = rt.getchildren()
+        for ch in chchs:
+            rt_new.append(ch)
+    else:
+        chchs = rt.getchildren()[0].getchildren()
+        for ch in chchs:
+            rt_new.append(ch)
     return etree.tostring(rt_new, pretty_print=True, encoding='utf-8').decode('utf-8')
+
 
 def is_digit(n):
     try:
@@ -320,4 +344,3 @@ def is_digit(n):
         return True
     except ValueError:
         return  False
-

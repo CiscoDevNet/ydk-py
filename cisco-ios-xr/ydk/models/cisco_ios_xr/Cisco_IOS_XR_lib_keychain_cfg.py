@@ -258,8 +258,6 @@ class Keychains(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.infinite is not None:
                     return True
 
@@ -490,8 +488,6 @@ class Keychains(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.end_date is not None:
                             return True
 
@@ -684,8 +680,6 @@ class Keychains(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.end_date is not None:
                             return True
 
@@ -749,8 +743,6 @@ class Keychains(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.key_id is not None:
                         return True
 
@@ -785,8 +777,6 @@ class Keychains(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.key is not None:
                     for child_ref in self.key:
                         if child_ref._has_data():
@@ -811,8 +801,6 @@ class Keychains(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.chain_name is not None:
                 return True
 
@@ -839,8 +827,6 @@ class Keychains(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.keychain is not None:
             for child_ref in self.keychain:
                 if child_ref._has_data():

@@ -436,8 +436,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -466,8 +464,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregator is not None and self.aggregator._has_data():
                                         return True
 
@@ -660,8 +656,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attr_type is not None:
                                             return True
 
@@ -690,8 +684,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aigp is not None:
                                         return True
 
@@ -735,8 +727,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.attributes is not None and self.attributes._has_data():
                                     return True
 
@@ -780,8 +770,6 @@ class BgpRib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.route is not None:
                                 for child_ref in self.route:
                                     if child_ref._has_data():
@@ -806,8 +794,6 @@ class BgpRib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.num_routes is not None:
                             return True
 
@@ -1185,8 +1171,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -1215,8 +1199,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregator is not None and self.aggregator._has_data():
                                                 return True
 
@@ -1409,8 +1391,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attr_type is not None:
                                                     return True
 
@@ -1439,8 +1419,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -1484,8 +1462,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
@@ -1529,8 +1505,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -1555,8 +1529,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None:
                                     return True
 
@@ -1849,8 +1821,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -1879,8 +1849,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregator is not None and self.aggregator._has_data():
                                                 return True
 
@@ -2073,8 +2041,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attr_type is not None:
                                                     return True
 
@@ -2103,8 +2069,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -2148,8 +2112,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
@@ -2193,8 +2155,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -2219,8 +2179,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None:
                                     return True
 
@@ -2513,8 +2471,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -2543,8 +2499,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregator is not None and self.aggregator._has_data():
                                                 return True
 
@@ -2737,8 +2691,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attr_type is not None:
                                                     return True
 
@@ -2767,8 +2719,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -2812,8 +2762,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
@@ -2857,8 +2805,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -2883,8 +2829,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None:
                                     return True
 
@@ -3177,8 +3121,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -3207,8 +3149,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregator is not None and self.aggregator._has_data():
                                                 return True
 
@@ -3401,8 +3341,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attr_type is not None:
                                                     return True
 
@@ -3431,8 +3369,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -3476,8 +3412,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
@@ -3521,8 +3455,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -3547,8 +3479,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None:
                                     return True
 
@@ -3576,8 +3506,6 @@ class BgpRib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.neighbor_address is not None:
                                 return True
 
@@ -3612,8 +3540,6 @@ class BgpRib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.neighbor is not None:
                             for child_ref in self.neighbor:
                                 if child_ref._has_data():
@@ -3638,8 +3564,6 @@ class BgpRib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.loc_rib is not None and self.loc_rib._has_data():
                         return True
 
@@ -3969,8 +3893,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.address is not None:
                                             return True
 
@@ -3999,8 +3921,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aggregator is not None and self.aggregator._has_data():
                                         return True
 
@@ -4193,8 +4113,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attr_type is not None:
                                             return True
 
@@ -4223,8 +4141,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.aigp is not None:
                                         return True
 
@@ -4268,8 +4184,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.attributes is not None and self.attributes._has_data():
                                     return True
 
@@ -4313,8 +4227,6 @@ class BgpRib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.route is not None:
                                 for child_ref in self.route:
                                     if child_ref._has_data():
@@ -4339,8 +4251,6 @@ class BgpRib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.num_routes is not None:
                             return True
 
@@ -4718,8 +4628,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -4748,8 +4656,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregator is not None and self.aggregator._has_data():
                                                 return True
 
@@ -4942,8 +4848,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attr_type is not None:
                                                     return True
 
@@ -4972,8 +4876,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -5017,8 +4919,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
@@ -5062,8 +4962,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -5088,8 +4986,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None:
                                     return True
 
@@ -5382,8 +5278,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -5412,8 +5306,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregator is not None and self.aggregator._has_data():
                                                 return True
 
@@ -5606,8 +5498,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attr_type is not None:
                                                     return True
 
@@ -5636,8 +5526,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -5681,8 +5569,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
@@ -5726,8 +5612,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -5752,8 +5636,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None:
                                     return True
 
@@ -6046,8 +5928,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -6076,8 +5956,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregator is not None and self.aggregator._has_data():
                                                 return True
 
@@ -6270,8 +6148,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attr_type is not None:
                                                     return True
 
@@ -6300,8 +6176,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -6345,8 +6219,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
@@ -6390,8 +6262,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -6416,8 +6286,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None:
                                     return True
 
@@ -6710,8 +6578,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.address is not None:
                                                     return True
 
@@ -6740,8 +6606,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aggregator is not None and self.aggregator._has_data():
                                                 return True
 
@@ -6934,8 +6798,6 @@ class BgpRib(object):
                                                 return False
 
                                             def _has_data(self):
-                                                if not self.is_config():
-                                                    return False
                                                 if self.attr_type is not None:
                                                     return True
 
@@ -6964,8 +6826,6 @@ class BgpRib(object):
                                             return False
 
                                         def _has_data(self):
-                                            if not self.is_config():
-                                                return False
                                             if self.aigp is not None:
                                                 return True
 
@@ -7009,8 +6869,6 @@ class BgpRib(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.attributes is not None and self.attributes._has_data():
                                             return True
 
@@ -7054,8 +6912,6 @@ class BgpRib(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.route is not None:
                                         for child_ref in self.route:
                                             if child_ref._has_data():
@@ -7080,8 +6936,6 @@ class BgpRib(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.num_routes is not None:
                                     return True
 
@@ -7109,8 +6963,6 @@ class BgpRib(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.neighbor_address is not None:
                                 return True
 
@@ -7145,8 +6997,6 @@ class BgpRib(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.neighbor is not None:
                             for child_ref in self.neighbor:
                                 if child_ref._has_data():
@@ -7171,8 +7021,6 @@ class BgpRib(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.loc_rib is not None and self.loc_rib._has_data():
                         return True
 
@@ -7198,8 +7046,6 @@ class BgpRib(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.afi_safi_name is not None:
                     return True
 
@@ -7226,8 +7072,6 @@ class BgpRib(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.afi_safi is not None:
                 for child_ref in self.afi_safi:
                     if child_ref._has_data():
@@ -7250,8 +7094,6 @@ class BgpRib(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.afi_safis is not None and self.afi_safis._has_data():
             return True
 

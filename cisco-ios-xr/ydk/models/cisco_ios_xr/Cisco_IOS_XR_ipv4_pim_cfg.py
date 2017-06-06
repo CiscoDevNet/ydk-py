@@ -511,8 +511,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.rp_address is not None:
                                 return True
 
@@ -541,8 +539,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sparse_mode_rp_address is not None:
                             for child_ref in self.sparse_mode_rp_address:
                                 if child_ref._has_data():
@@ -610,8 +606,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.enable is not None:
                             return True
 
@@ -659,6 +653,20 @@ class Pim(object):
                         """
                         Clone Source Multicast Only FRR
                         
+                        .. attribute:: source  <key>
+                        
+                        	Original address
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: primary  <key>
+                        
+                        	Primary address
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
                         .. attribute:: backup  <key>
                         
                         	Backup address
@@ -673,20 +681,6 @@ class Pim(object):
                         
                         	**range:** 0..32
                         
-                        .. attribute:: primary  <key>
-                        
-                        	Primary address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: source  <key>
-                        
-                        	Original address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
 
                         """
@@ -696,43 +690,41 @@ class Pim(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.source = None
+                            self.primary = None
                             self.backup = None
                             self.prefix_length = None
-                            self.primary = None
-                            self.source = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.source is None:
+                                raise YPYModelError('Key property source is None')
+                            if self.primary is None:
+                                raise YPYModelError('Key property primary is None')
                             if self.backup is None:
                                 raise YPYModelError('Key property backup is None')
                             if self.prefix_length is None:
                                 raise YPYModelError('Key property prefix_length is None')
-                            if self.primary is None:
-                                raise YPYModelError('Key property primary is None')
-                            if self.source is None:
-                                raise YPYModelError('Key property source is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-pim-cfg:cs-multicast-only-frr[Cisco-IOS-XR-ipv4-pim-cfg:backup = ' + str(self.backup) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + '][Cisco-IOS-XR-ipv4-pim-cfg:primary = ' + str(self.primary) + '][Cisco-IOS-XR-ipv4-pim-cfg:source = ' + str(self.source) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-pim-cfg:cs-multicast-only-frr[Cisco-IOS-XR-ipv4-pim-cfg:source = ' + str(self.source) + '][Cisco-IOS-XR-ipv4-pim-cfg:primary = ' + str(self.primary) + '][Cisco-IOS-XR-ipv4-pim-cfg:backup = ' + str(self.backup) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.backup is not None:
-                                return True
-
-                            if self.prefix_length is not None:
+                            if self.source is not None:
                                 return True
 
                             if self.primary is not None:
                                 return True
 
-                            if self.source is not None:
+                            if self.backup is not None:
+                                return True
+
+                            if self.prefix_length is not None:
                                 return True
 
                             return False
@@ -754,8 +746,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cs_multicast_only_frr is not None:
                             for child_ref in self.cs_multicast_only_frr:
                                 if child_ref._has_data():
@@ -863,8 +853,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.convergency is not None:
                             return True
 
@@ -928,8 +916,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.route_policy is not None:
                             return True
 
@@ -1059,8 +1045,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.maximum_group_ranges_auto_rp is not None:
@@ -1132,8 +1116,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bsr_maximum_group_ranges is not None:
@@ -1205,8 +1187,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.maximum_register_states is not None:
@@ -1278,8 +1258,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.maximum_route_interfaces is not None:
@@ -1351,8 +1329,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bsr_maximum_candidate_rp_cache is not None:
@@ -1423,8 +1399,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.maximum_routes is not None:
@@ -1452,8 +1426,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bsr_candidate_rp_cache is not None and self.bsr_candidate_rp_cache._has_data():
                             return True
 
@@ -1524,8 +1496,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access_list_name is not None:
                             return True
 
@@ -1594,8 +1564,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.allow_ebgp is not None:
@@ -1657,8 +1625,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disable is not None:
                             return True
 
@@ -1700,19 +1666,19 @@ class Pim(object):
                         """
                         Inject Explicit PIM RPF Vector Proxy's
                         
-                        .. attribute:: prefix_length  <key>
-                        
-                        	Masklen
-                        	**type**\:  int
-                        
-                        	**range:** 0..32
-                        
                         .. attribute:: source_address  <key>
                         
                         	Source Address
                         	**type**\:  str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: prefix_length  <key>
+                        
+                        	Masklen
+                        	**type**\:  int
+                        
+                        	**range:** 0..32
                         
                         .. attribute:: rpf_proxy_address
                         
@@ -1730,8 +1696,8 @@ class Pim(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.prefix_length = None
                             self.source_address = None
+                            self.prefix_length = None
                             self.rpf_proxy_address = YLeafList()
                             self.rpf_proxy_address.parent = self
                             self.rpf_proxy_address.name = 'rpf_proxy_address'
@@ -1740,24 +1706,22 @@ class Pim(object):
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.prefix_length is None:
-                                raise YPYModelError('Key property prefix_length is None')
                             if self.source_address is None:
                                 raise YPYModelError('Key property source_address is None')
+                            if self.prefix_length is None:
+                                raise YPYModelError('Key property prefix_length is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-pim-cfg:inject[Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + '][Cisco-IOS-XR-ipv4-pim-cfg:source-address = ' + str(self.source_address) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-pim-cfg:inject[Cisco-IOS-XR-ipv4-pim-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.prefix_length is not None:
+                            if self.source_address is not None:
                                 return True
 
-                            if self.source_address is not None:
+                            if self.prefix_length is not None:
                                 return True
 
                             if self.rpf_proxy_address is not None:
@@ -1784,8 +1748,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.inject is not None:
                             for child_ref in self.inject:
                                 if child_ref._has_data():
@@ -1882,8 +1844,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.rp_address is not None:
                                 return True
 
@@ -1912,8 +1872,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bidir_rp_address is not None:
                             for child_ref in self.bidir_rp_address:
                                 if child_ref._has_data():
@@ -2033,8 +1991,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.address is not None:
@@ -2159,8 +2115,6 @@ class Pim(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -2195,8 +2149,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.candidate_rp is not None:
                                 for child_ref in self.candidate_rp:
                                     if child_ref._has_data():
@@ -2221,8 +2173,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.candidate_bsr is not None and self.candidate_bsr._has_data():
                             return True
 
@@ -2264,19 +2214,19 @@ class Pim(object):
                         """
                         Inject PIM RPF Vector Proxy's
                         
-                        .. attribute:: prefix_length  <key>
-                        
-                        	Masklen
-                        	**type**\:  int
-                        
-                        	**range:** 0..32
-                        
                         .. attribute:: source_address  <key>
                         
                         	Source Address
                         	**type**\:  str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: prefix_length  <key>
+                        
+                        	Masklen
+                        	**type**\:  int
+                        
+                        	**range:** 0..32
                         
                         .. attribute:: rpf_proxy_address
                         
@@ -2294,8 +2244,8 @@ class Pim(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.prefix_length = None
                             self.source_address = None
+                            self.prefix_length = None
                             self.rpf_proxy_address = YLeafList()
                             self.rpf_proxy_address.parent = self
                             self.rpf_proxy_address.name = 'rpf_proxy_address'
@@ -2304,24 +2254,22 @@ class Pim(object):
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.prefix_length is None:
-                                raise YPYModelError('Key property prefix_length is None')
                             if self.source_address is None:
                                 raise YPYModelError('Key property source_address is None')
+                            if self.prefix_length is None:
+                                raise YPYModelError('Key property prefix_length is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-pim-cfg:path[Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + '][Cisco-IOS-XR-ipv4-pim-cfg:source-address = ' + str(self.source_address) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-pim-cfg:path[Cisco-IOS-XR-ipv4-pim-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.prefix_length is not None:
+                            if self.source_address is not None:
                                 return True
 
-                            if self.source_address is not None:
+                            if self.prefix_length is not None:
                                 return True
 
                             if self.rpf_proxy_address is not None:
@@ -2348,8 +2296,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.path is not None:
                             for child_ref in self.path:
                                 if child_ref._has_data():
@@ -2413,8 +2359,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.group_list_name is not None:
@@ -2477,8 +2421,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.link_down_prune_delay is not None:
                             return True
 
@@ -2699,8 +2641,6 @@ class Pim(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.access_list_name is not None:
@@ -2770,8 +2710,6 @@ class Pim(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.detection_multiplier is not None:
                                     return True
 
@@ -2802,8 +2740,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -2862,8 +2798,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -2904,6 +2838,20 @@ class Pim(object):
                         """
                         Clone Join Multicast Only FRR
                         
+                        .. attribute:: source  <key>
+                        
+                        	Original address
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: primary  <key>
+                        
+                        	Primary address
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
                         .. attribute:: backup  <key>
                         
                         	Backup address
@@ -2918,20 +2866,6 @@ class Pim(object):
                         
                         	**range:** 0..32
                         
-                        .. attribute:: primary  <key>
-                        
-                        	Primary address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: source  <key>
-                        
-                        	Original address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
 
                         """
@@ -2941,43 +2875,41 @@ class Pim(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.source = None
+                            self.primary = None
                             self.backup = None
                             self.prefix_length = None
-                            self.primary = None
-                            self.source = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.source is None:
+                                raise YPYModelError('Key property source is None')
+                            if self.primary is None:
+                                raise YPYModelError('Key property primary is None')
                             if self.backup is None:
                                 raise YPYModelError('Key property backup is None')
                             if self.prefix_length is None:
                                 raise YPYModelError('Key property prefix_length is None')
-                            if self.primary is None:
-                                raise YPYModelError('Key property primary is None')
-                            if self.source is None:
-                                raise YPYModelError('Key property source is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-pim-cfg:cj-multicast-only-frr[Cisco-IOS-XR-ipv4-pim-cfg:backup = ' + str(self.backup) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + '][Cisco-IOS-XR-ipv4-pim-cfg:primary = ' + str(self.primary) + '][Cisco-IOS-XR-ipv4-pim-cfg:source = ' + str(self.source) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-pim-cfg:cj-multicast-only-frr[Cisco-IOS-XR-ipv4-pim-cfg:source = ' + str(self.source) + '][Cisco-IOS-XR-ipv4-pim-cfg:primary = ' + str(self.primary) + '][Cisco-IOS-XR-ipv4-pim-cfg:backup = ' + str(self.backup) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.backup is not None:
-                                return True
-
-                            if self.prefix_length is not None:
+                            if self.source is not None:
                                 return True
 
                             if self.primary is not None:
                                 return True
 
-                            if self.source is not None:
+                            if self.backup is not None:
+                                return True
+
+                            if self.prefix_length is not None:
                                 return True
 
                             return False
@@ -2999,8 +2931,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.cj_multicast_only_frr is not None:
                             for child_ref in self.cj_multicast_only_frr:
                                 if child_ref._has_data():
@@ -3025,8 +2955,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accept_register is not None:
                         return True
 
@@ -3411,8 +3339,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.rp_address is not None:
                                 return True
 
@@ -3441,8 +3367,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sparse_mode_rp_address is not None:
                             for child_ref in self.sparse_mode_rp_address:
                                 if child_ref._has_data():
@@ -3550,8 +3474,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.convergency is not None:
                             return True
 
@@ -3615,8 +3537,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.route_policy is not None:
                             return True
 
@@ -3746,8 +3666,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.maximum_group_ranges_auto_rp is not None:
@@ -3819,8 +3737,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bsr_maximum_group_ranges is not None:
@@ -3892,8 +3808,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.maximum_register_states is not None:
@@ -3965,8 +3879,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.maximum_route_interfaces is not None:
@@ -4038,8 +3950,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.bsr_maximum_candidate_rp_cache is not None:
@@ -4110,8 +4020,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.maximum_routes is not None:
@@ -4139,8 +4047,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bsr_candidate_rp_cache is not None and self.bsr_candidate_rp_cache._has_data():
                             return True
 
@@ -4211,8 +4117,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access_list_name is not None:
                             return True
 
@@ -4281,8 +4185,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.allow_ebgp is not None:
@@ -4344,8 +4246,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.disable is not None:
                             return True
 
@@ -4443,8 +4343,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.rp_address is not None:
                                 return True
 
@@ -4473,8 +4371,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bidir_rp_address is not None:
                             for child_ref in self.bidir_rp_address:
                                 if child_ref._has_data():
@@ -4582,8 +4478,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.address is not None:
@@ -4708,8 +4602,6 @@ class Pim(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.address is not None:
                                     return True
 
@@ -4744,8 +4636,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.candidate_rp is not None:
                                 for child_ref in self.candidate_rp:
                                     if child_ref._has_data():
@@ -4770,8 +4660,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.candidate_bsr is not None and self.candidate_bsr._has_data():
                             return True
 
@@ -4836,8 +4724,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.group_list_name is not None:
@@ -4933,8 +4819,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.rp_address is not None:
                                 return True
 
@@ -4960,8 +4844,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.embedded_rp_address is not None:
                             for child_ref in self.embedded_rp_address:
                                 if child_ref._has_data():
@@ -5021,8 +4903,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.link_down_prune_delay is not None:
                             return True
 
@@ -5243,8 +5123,6 @@ class Pim(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self._is_presence:
                                     return True
                                 if self.access_list_name is not None:
@@ -5314,8 +5192,6 @@ class Pim(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.detection_multiplier is not None:
                                     return True
 
@@ -5346,8 +5222,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 return True
 
@@ -5406,8 +5280,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             for child_ref in self.interface:
                                 if child_ref._has_data():
@@ -5432,8 +5304,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.accept_register is not None:
                         return True
 
@@ -5534,8 +5404,6 @@ class Pim(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf_name is not None:
                     return True
 
@@ -5562,8 +5430,6 @@ class Pim(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.vrf is not None:
                 for child_ref in self.vrf:
                     if child_ref._has_data():
@@ -6027,8 +5893,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_list_name is not None:
@@ -6098,8 +5962,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -6128,8 +5990,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -6186,8 +6046,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -6282,8 +6140,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rp_address is not None:
                             return True
 
@@ -6310,8 +6166,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sparse_mode_rp_address is not None:
                         for child_ref in self.sparse_mode_rp_address:
                             if child_ref._has_data():
@@ -6417,8 +6271,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.convergency is not None:
                         return True
 
@@ -6480,8 +6332,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.route_policy is not None:
                         return True
 
@@ -6535,8 +6385,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_list_name is not None:
                         return True
 
@@ -6603,8 +6451,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.allow_ebgp is not None:
@@ -6658,8 +6504,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lifetime is not None:
                         return True
 
@@ -6855,8 +6699,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.bsr_maximum_global_group_mappings is not None:
@@ -6925,8 +6767,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_routes is not None:
@@ -6996,8 +6836,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_global_group_ranges_auto_rp is not None:
@@ -7067,8 +6905,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.bsr_maximum_global_candidate_rp_cache is not None:
@@ -7138,8 +6974,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_register_states is not None:
@@ -7209,8 +7043,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_route_interfaces is not None:
@@ -7280,8 +7112,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_group_ranges_auto_rp is not None:
@@ -7351,8 +7181,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.bsr_maximum_group_ranges is not None:
@@ -7422,8 +7250,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_register_states is not None:
@@ -7493,8 +7319,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_route_interfaces is not None:
@@ -7564,8 +7388,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.bsr_maximum_candidate_rp_cache is not None:
@@ -7634,8 +7456,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_routes is not None:
@@ -7661,8 +7481,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bsr_candidate_rp_cache is not None and self.bsr_candidate_rp_cache._has_data():
                         return True
 
@@ -7753,8 +7571,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.disable is not None:
                         return True
 
@@ -7850,8 +7666,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rp_address is not None:
                             return True
 
@@ -7878,8 +7692,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bidir_rp_address is not None:
                         for child_ref in self.bidir_rp_address:
                             if child_ref._has_data():
@@ -7985,8 +7797,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.address is not None:
@@ -8109,8 +7919,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -8143,8 +7951,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.candidate_rp is not None:
                             for child_ref in self.candidate_rp:
                                 if child_ref._has_data():
@@ -8167,8 +7973,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.candidate_bsr is not None and self.candidate_bsr._has_data():
                         return True
 
@@ -8231,8 +8035,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.group_list_name is not None:
@@ -8326,8 +8128,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rp_address is not None:
                             return True
 
@@ -8351,8 +8151,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.embedded_rp_address is not None:
                         for child_ref in self.embedded_rp_address:
                             if child_ref._has_data():
@@ -8410,8 +8208,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.link_down_prune_delay is not None:
                         return True
 
@@ -8435,8 +8231,6 @@ class Pim(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.accept_register is not None:
                     return True
 
@@ -8817,8 +8611,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.route_policy is not None:
                         return True
 
@@ -9037,8 +8829,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bundle_name is not None:
                                 return True
 
@@ -9117,8 +8907,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.access_list_name is not None:
@@ -9188,8 +8976,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.detection_multiplier is not None:
                                 return True
 
@@ -9218,8 +9004,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -9279,8 +9063,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -9391,8 +9173,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -9425,8 +9205,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.auto_rp_candidate_rp is not None:
                         for child_ref in self.auto_rp_candidate_rp:
                             if child_ref._has_data():
@@ -9536,8 +9314,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.announce_period is not None:
@@ -9609,8 +9385,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_cache_entry is not None:
@@ -9636,8 +9410,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cache_limit is not None and self.cache_limit._has_data():
                         return True
 
@@ -9733,8 +9505,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rp_address is not None:
                             return True
 
@@ -9761,8 +9531,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sparse_mode_rp_address is not None:
                         for child_ref in self.sparse_mode_rp_address:
                             if child_ref._has_data():
@@ -9828,8 +9596,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.enable is not None:
                         return True
 
@@ -9877,6 +9643,20 @@ class Pim(object):
                     """
                     Clone Source Multicast Only FRR
                     
+                    .. attribute:: source  <key>
+                    
+                    	Original address
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: primary  <key>
+                    
+                    	Primary address
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
                     .. attribute:: backup  <key>
                     
                     	Backup address
@@ -9891,20 +9671,6 @@ class Pim(object):
                     
                     	**range:** 0..32
                     
-                    .. attribute:: primary  <key>
-                    
-                    	Primary address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: source  <key>
-                    
-                    	Original address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     
 
                     """
@@ -9914,41 +9680,39 @@ class Pim(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.source = None
+                        self.primary = None
                         self.backup = None
                         self.prefix_length = None
-                        self.primary = None
-                        self.source = None
 
                     @property
                     def _common_path(self):
+                        if self.source is None:
+                            raise YPYModelError('Key property source is None')
+                        if self.primary is None:
+                            raise YPYModelError('Key property primary is None')
                         if self.backup is None:
                             raise YPYModelError('Key property backup is None')
                         if self.prefix_length is None:
                             raise YPYModelError('Key property prefix_length is None')
-                        if self.primary is None:
-                            raise YPYModelError('Key property primary is None')
-                        if self.source is None:
-                            raise YPYModelError('Key property source is None')
 
-                        return '/Cisco-IOS-XR-ipv4-pim-cfg:pim/Cisco-IOS-XR-ipv4-pim-cfg:default-context/Cisco-IOS-XR-ipv4-pim-cfg:ipv4/Cisco-IOS-XR-ipv4-pim-cfg:cs-multicast-only-frrs/Cisco-IOS-XR-ipv4-pim-cfg:cs-multicast-only-frr[Cisco-IOS-XR-ipv4-pim-cfg:backup = ' + str(self.backup) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + '][Cisco-IOS-XR-ipv4-pim-cfg:primary = ' + str(self.primary) + '][Cisco-IOS-XR-ipv4-pim-cfg:source = ' + str(self.source) + ']'
+                        return '/Cisco-IOS-XR-ipv4-pim-cfg:pim/Cisco-IOS-XR-ipv4-pim-cfg:default-context/Cisco-IOS-XR-ipv4-pim-cfg:ipv4/Cisco-IOS-XR-ipv4-pim-cfg:cs-multicast-only-frrs/Cisco-IOS-XR-ipv4-pim-cfg:cs-multicast-only-frr[Cisco-IOS-XR-ipv4-pim-cfg:source = ' + str(self.source) + '][Cisco-IOS-XR-ipv4-pim-cfg:primary = ' + str(self.primary) + '][Cisco-IOS-XR-ipv4-pim-cfg:backup = ' + str(self.backup) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.backup is not None:
-                            return True
-
-                        if self.prefix_length is not None:
+                        if self.source is not None:
                             return True
 
                         if self.primary is not None:
                             return True
 
-                        if self.source is not None:
+                        if self.backup is not None:
+                            return True
+
+                        if self.prefix_length is not None:
                             return True
 
                         return False
@@ -9968,8 +9732,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cs_multicast_only_frr is not None:
                         for child_ref in self.cs_multicast_only_frr:
                             if child_ref._has_data():
@@ -10075,8 +9837,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.convergency is not None:
                         return True
 
@@ -10138,8 +9898,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.route_policy is not None:
                         return True
 
@@ -10193,8 +9951,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.access_list_name is not None:
                         return True
 
@@ -10261,8 +10017,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.allow_ebgp is not None:
@@ -10316,8 +10070,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.lifetime is not None:
                         return True
 
@@ -10513,8 +10265,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.bsr_maximum_global_group_mappings is not None:
@@ -10583,8 +10333,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_routes is not None:
@@ -10654,8 +10402,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_global_group_ranges_auto_rp is not None:
@@ -10725,8 +10471,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.bsr_maximum_global_candidate_rp_cache is not None:
@@ -10796,8 +10540,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_register_states is not None:
@@ -10867,8 +10609,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_route_interfaces is not None:
@@ -10938,8 +10678,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_group_ranges_auto_rp is not None:
@@ -11009,8 +10747,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.bsr_maximum_group_ranges is not None:
@@ -11080,8 +10816,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_register_states is not None:
@@ -11151,8 +10885,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_route_interfaces is not None:
@@ -11222,8 +10954,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.bsr_maximum_candidate_rp_cache is not None:
@@ -11292,8 +11022,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum_routes is not None:
@@ -11319,8 +11047,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bsr_candidate_rp_cache is not None and self.bsr_candidate_rp_cache._has_data():
                         return True
 
@@ -11411,8 +11137,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.disable is not None:
                         return True
 
@@ -11454,19 +11178,19 @@ class Pim(object):
                     """
                     Inject Explicit PIM RPF Vector Proxy's
                     
-                    .. attribute:: prefix_length  <key>
-                    
-                    	Masklen
-                    	**type**\:  int
-                    
-                    	**range:** 0..32
-                    
                     .. attribute:: source_address  <key>
                     
                     	Source Address
                     	**type**\:  str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: prefix_length  <key>
+                    
+                    	Masklen
+                    	**type**\:  int
+                    
+                    	**range:** 0..32
                     
                     .. attribute:: rpf_proxy_address
                     
@@ -11484,32 +11208,30 @@ class Pim(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_length = None
                         self.source_address = None
+                        self.prefix_length = None
                         self.rpf_proxy_address = YLeafList()
                         self.rpf_proxy_address.parent = self
                         self.rpf_proxy_address.name = 'rpf_proxy_address'
 
                     @property
                     def _common_path(self):
-                        if self.prefix_length is None:
-                            raise YPYModelError('Key property prefix_length is None')
                         if self.source_address is None:
                             raise YPYModelError('Key property source_address is None')
+                        if self.prefix_length is None:
+                            raise YPYModelError('Key property prefix_length is None')
 
-                        return '/Cisco-IOS-XR-ipv4-pim-cfg:pim/Cisco-IOS-XR-ipv4-pim-cfg:default-context/Cisco-IOS-XR-ipv4-pim-cfg:ipv4/Cisco-IOS-XR-ipv4-pim-cfg:injects/Cisco-IOS-XR-ipv4-pim-cfg:inject[Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + '][Cisco-IOS-XR-ipv4-pim-cfg:source-address = ' + str(self.source_address) + ']'
+                        return '/Cisco-IOS-XR-ipv4-pim-cfg:pim/Cisco-IOS-XR-ipv4-pim-cfg:default-context/Cisco-IOS-XR-ipv4-pim-cfg:ipv4/Cisco-IOS-XR-ipv4-pim-cfg:injects/Cisco-IOS-XR-ipv4-pim-cfg:inject[Cisco-IOS-XR-ipv4-pim-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.prefix_length is not None:
+                        if self.source_address is not None:
                             return True
 
-                        if self.source_address is not None:
+                        if self.prefix_length is not None:
                             return True
 
                         if self.rpf_proxy_address is not None:
@@ -11534,8 +11256,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.inject is not None:
                         for child_ref in self.inject:
                             if child_ref._has_data():
@@ -11630,8 +11350,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.rp_address is not None:
                             return True
 
@@ -11658,8 +11376,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bidir_rp_address is not None:
                         for child_ref in self.bidir_rp_address:
                             if child_ref._has_data():
@@ -11777,8 +11493,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.address is not None:
@@ -11901,8 +11615,6 @@ class Pim(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.address is not None:
                                 return True
 
@@ -11935,8 +11647,6 @@ class Pim(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.candidate_rp is not None:
                             for child_ref in self.candidate_rp:
                                 if child_ref._has_data():
@@ -11959,8 +11669,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.candidate_bsr is not None and self.candidate_bsr._has_data():
                         return True
 
@@ -12002,19 +11710,19 @@ class Pim(object):
                     """
                     Inject PIM RPF Vector Proxy's
                     
-                    .. attribute:: prefix_length  <key>
-                    
-                    	Masklen
-                    	**type**\:  int
-                    
-                    	**range:** 0..32
-                    
                     .. attribute:: source_address  <key>
                     
                     	Source Address
                     	**type**\:  str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: prefix_length  <key>
+                    
+                    	Masklen
+                    	**type**\:  int
+                    
+                    	**range:** 0..32
                     
                     .. attribute:: rpf_proxy_address
                     
@@ -12032,32 +11740,30 @@ class Pim(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_length = None
                         self.source_address = None
+                        self.prefix_length = None
                         self.rpf_proxy_address = YLeafList()
                         self.rpf_proxy_address.parent = self
                         self.rpf_proxy_address.name = 'rpf_proxy_address'
 
                     @property
                     def _common_path(self):
-                        if self.prefix_length is None:
-                            raise YPYModelError('Key property prefix_length is None')
                         if self.source_address is None:
                             raise YPYModelError('Key property source_address is None')
+                        if self.prefix_length is None:
+                            raise YPYModelError('Key property prefix_length is None')
 
-                        return '/Cisco-IOS-XR-ipv4-pim-cfg:pim/Cisco-IOS-XR-ipv4-pim-cfg:default-context/Cisco-IOS-XR-ipv4-pim-cfg:ipv4/Cisco-IOS-XR-ipv4-pim-cfg:paths/Cisco-IOS-XR-ipv4-pim-cfg:path[Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + '][Cisco-IOS-XR-ipv4-pim-cfg:source-address = ' + str(self.source_address) + ']'
+                        return '/Cisco-IOS-XR-ipv4-pim-cfg:pim/Cisco-IOS-XR-ipv4-pim-cfg:default-context/Cisco-IOS-XR-ipv4-pim-cfg:ipv4/Cisco-IOS-XR-ipv4-pim-cfg:paths/Cisco-IOS-XR-ipv4-pim-cfg:path[Cisco-IOS-XR-ipv4-pim-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.prefix_length is not None:
+                        if self.source_address is not None:
                             return True
 
-                        if self.source_address is not None:
+                        if self.prefix_length is not None:
                             return True
 
                         if self.rpf_proxy_address is not None:
@@ -12082,8 +11788,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.path is not None:
                         for child_ref in self.path:
                             if child_ref._has_data():
@@ -12145,8 +11849,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self._is_presence:
                         return True
                     if self.group_list_name is not None:
@@ -12207,8 +11909,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.link_down_prune_delay is not None:
                         return True
 
@@ -12250,6 +11950,20 @@ class Pim(object):
                     """
                     Clone Join Multicast Only FRR
                     
+                    .. attribute:: source  <key>
+                    
+                    	Original address
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: primary  <key>
+                    
+                    	Primary address
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
                     .. attribute:: backup  <key>
                     
                     	Backup address
@@ -12264,20 +11978,6 @@ class Pim(object):
                     
                     	**range:** 0..32
                     
-                    .. attribute:: primary  <key>
-                    
-                    	Primary address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: source  <key>
-                    
-                    	Original address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     
 
                     """
@@ -12287,41 +11987,39 @@ class Pim(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.source = None
+                        self.primary = None
                         self.backup = None
                         self.prefix_length = None
-                        self.primary = None
-                        self.source = None
 
                     @property
                     def _common_path(self):
+                        if self.source is None:
+                            raise YPYModelError('Key property source is None')
+                        if self.primary is None:
+                            raise YPYModelError('Key property primary is None')
                         if self.backup is None:
                             raise YPYModelError('Key property backup is None')
                         if self.prefix_length is None:
                             raise YPYModelError('Key property prefix_length is None')
-                        if self.primary is None:
-                            raise YPYModelError('Key property primary is None')
-                        if self.source is None:
-                            raise YPYModelError('Key property source is None')
 
-                        return '/Cisco-IOS-XR-ipv4-pim-cfg:pim/Cisco-IOS-XR-ipv4-pim-cfg:default-context/Cisco-IOS-XR-ipv4-pim-cfg:ipv4/Cisco-IOS-XR-ipv4-pim-cfg:cj-multicast-only-frrs/Cisco-IOS-XR-ipv4-pim-cfg:cj-multicast-only-frr[Cisco-IOS-XR-ipv4-pim-cfg:backup = ' + str(self.backup) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + '][Cisco-IOS-XR-ipv4-pim-cfg:primary = ' + str(self.primary) + '][Cisco-IOS-XR-ipv4-pim-cfg:source = ' + str(self.source) + ']'
+                        return '/Cisco-IOS-XR-ipv4-pim-cfg:pim/Cisco-IOS-XR-ipv4-pim-cfg:default-context/Cisco-IOS-XR-ipv4-pim-cfg:ipv4/Cisco-IOS-XR-ipv4-pim-cfg:cj-multicast-only-frrs/Cisco-IOS-XR-ipv4-pim-cfg:cj-multicast-only-frr[Cisco-IOS-XR-ipv4-pim-cfg:source = ' + str(self.source) + '][Cisco-IOS-XR-ipv4-pim-cfg:primary = ' + str(self.primary) + '][Cisco-IOS-XR-ipv4-pim-cfg:backup = ' + str(self.backup) + '][Cisco-IOS-XR-ipv4-pim-cfg:prefix-length = ' + str(self.prefix_length) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.backup is not None:
-                            return True
-
-                        if self.prefix_length is not None:
+                        if self.source is not None:
                             return True
 
                         if self.primary is not None:
                             return True
 
-                        if self.source is not None:
+                        if self.backup is not None:
+                            return True
+
+                        if self.prefix_length is not None:
                             return True
 
                         return False
@@ -12341,8 +12039,6 @@ class Pim(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cj_multicast_only_frr is not None:
                         for child_ref in self.cj_multicast_only_frr:
                             if child_ref._has_data():
@@ -12365,8 +12061,6 @@ class Pim(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.accept_register is not None:
                     return True
 
@@ -12489,8 +12183,6 @@ class Pim(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.ipv4 is not None and self.ipv4._has_data():
@@ -12516,8 +12208,6 @@ class Pim(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self._is_presence:
             return True
         if self.default_context is not None and self.default_context._has_data():

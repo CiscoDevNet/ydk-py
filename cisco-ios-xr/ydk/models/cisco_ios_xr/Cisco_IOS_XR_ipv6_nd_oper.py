@@ -615,8 +615,6 @@ class Ipv6NodeDiscovery(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.seconds is not None:
                                         return True
 
@@ -641,8 +639,6 @@ class Ipv6NodeDiscovery(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.host_address is not None:
                                     return True
 
@@ -695,8 +691,6 @@ class Ipv6NodeDiscovery(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.host_address is not None:
                                 for child_ref in self.host_address:
                                     if child_ref._has_data():
@@ -723,8 +717,6 @@ class Ipv6NodeDiscovery(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -750,8 +742,6 @@ class Ipv6NodeDiscovery(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.neighbor_interface is not None:
                         for child_ref in self.neighbor_interface:
                             if child_ref._has_data():
@@ -891,8 +881,6 @@ class Ipv6NodeDiscovery(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.delayed_entries is not None:
                             return True
 
@@ -1004,8 +992,6 @@ class Ipv6NodeDiscovery(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.delayed_entries is not None:
                             return True
 
@@ -1117,8 +1103,6 @@ class Ipv6NodeDiscovery(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.delayed_entries is not None:
                             return True
 
@@ -1159,8 +1143,6 @@ class Ipv6NodeDiscovery(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.dynamic is not None and self.dynamic._has_data():
                         return True
 
@@ -1332,8 +1314,6 @@ class Ipv6NodeDiscovery(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.seconds is not None:
                                 return True
 
@@ -1358,8 +1338,6 @@ class Ipv6NodeDiscovery(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.node_name is not None:
                             return True
 
@@ -1409,8 +1387,6 @@ class Ipv6NodeDiscovery(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_node is not None:
                         for child_ref in self.bundle_node:
                             if child_ref._has_data():
@@ -1752,8 +1728,6 @@ class Ipv6NodeDiscovery(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.complete_glean_count is not None:
                                 return True
 
@@ -1853,8 +1827,6 @@ class Ipv6NodeDiscovery(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6_address is not None:
                                 return True
 
@@ -1900,8 +1872,6 @@ class Ipv6NodeDiscovery(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6_address is not None:
                                 return True
 
@@ -1955,8 +1925,6 @@ class Ipv6NodeDiscovery(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node_name is not None:
                                 return True
 
@@ -1984,8 +1952,6 @@ class Ipv6NodeDiscovery(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2059,8 +2025,6 @@ class Ipv6NodeDiscovery(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bundle_interface is not None:
                         for child_ref in self.bundle_interface:
                             if child_ref._has_data():
@@ -2275,8 +2239,6 @@ class Ipv6NodeDiscovery(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2356,8 +2318,6 @@ class Ipv6NodeDiscovery(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -2504,8 +2464,6 @@ class Ipv6NodeDiscovery(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6_address is not None:
                                 return True
 
@@ -2551,8 +2509,6 @@ class Ipv6NodeDiscovery(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ipv6_address is not None:
                                 return True
 
@@ -2577,8 +2533,6 @@ class Ipv6NodeDiscovery(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -2624,8 +2578,6 @@ class Ipv6NodeDiscovery(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.nd_virtual_router is not None:
                         for child_ref in self.nd_virtual_router:
                             if child_ref._has_data():
@@ -2650,8 +2602,6 @@ class Ipv6NodeDiscovery(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -2690,8 +2640,6 @@ class Ipv6NodeDiscovery(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -2714,8 +2662,6 @@ class Ipv6NodeDiscovery(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

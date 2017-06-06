@@ -217,8 +217,6 @@ class NetFlow(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.drops_no_space is not None:
                             return True
 
@@ -262,8 +260,6 @@ class NetFlow(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.statistics is not None and self.statistics._has_data():
                         return True
 
@@ -746,8 +742,6 @@ class NetFlow(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.bytes_dropped is not None:
                                             return True
 
@@ -875,8 +869,6 @@ class NetFlow(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.collector is not None:
                                         for child_ref in self.collector:
                                             if child_ref._has_data():
@@ -912,8 +904,6 @@ class NetFlow(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.statistic is not None:
                                     for child_ref in self.statistic:
                                         if child_ref._has_data():
@@ -940,8 +930,6 @@ class NetFlow(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.exporter_name is not None:
                                 return True
 
@@ -967,8 +955,6 @@ class NetFlow(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.flow_exporter is not None:
                             for child_ref in self.flow_exporter:
                                 if child_ref._has_data():
@@ -993,8 +979,6 @@ class NetFlow(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.flow_exporters is not None and self.flow_exporters._has_data():
                         return True
 
@@ -1017,8 +1001,6 @@ class NetFlow(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node is not None:
                     return True
 
@@ -1045,8 +1027,6 @@ class NetFlow(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.statistic is not None:
                 for child_ref in self.statistic:
                     if child_ref._has_data():
@@ -1069,8 +1049,6 @@ class NetFlow(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.statistics is not None and self.statistics._has_data():
             return True
 

@@ -185,16 +185,16 @@ class Aaa(object):
             """
             Configurations related to accounting
             
-            .. attribute:: listname  <key>
+            .. attribute:: type  <key>
             
-            	Named accounting list
+            	exec\:Account exec sessions, commands\: Account CLI commands
             	**type**\:  str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: type  <key>
+            .. attribute:: listname  <key>
             
-            	exec\:Account exec sessions, commands\: Account CLI commands
+            	Named accounting list
             	**type**\:  str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -233,8 +233,8 @@ class Aaa(object):
 
             def __init__(self):
                 self.parent = None
-                self.listname = None
                 self.type = None
+                self.listname = None
                 self.broadcast = None
                 self.method = YLeafList()
                 self.method.parent = self
@@ -247,24 +247,22 @@ class Aaa(object):
 
             @property
             def _common_path(self):
-                if self.listname is None:
-                    raise YPYModelError('Key property listname is None')
                 if self.type is None:
                     raise YPYModelError('Key property type is None')
+                if self.listname is None:
+                    raise YPYModelError('Key property listname is None')
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:accountings/Cisco-IOS-XR-aaa-lib-cfg:accounting[Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + ']'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:accountings/Cisco-IOS-XR-aaa-lib-cfg:accounting[Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.listname is not None:
+                if self.type is not None:
                     return True
 
-                if self.type is not None:
+                if self.listname is not None:
                     return True
 
                 if self.broadcast is not None:
@@ -303,8 +301,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.accounting is not None:
                 for child_ref in self.accounting:
                     if child_ref._has_data():
@@ -345,16 +341,16 @@ class Aaa(object):
             """
             Configurations related to authorization
             
-            .. attribute:: listname  <key>
+            .. attribute:: type  <key>
             
-            	List name for AAA authorization
+            	network\: Authorize IKE requests, commands\: Authorize CLI commands
             	**type**\:  str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: type  <key>
+            .. attribute:: listname  <key>
             
-            	network\: Authorize IKE requests, commands\: Authorize CLI commands
+            	List name for AAA authorization
             	**type**\:  str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -378,8 +374,8 @@ class Aaa(object):
 
             def __init__(self):
                 self.parent = None
-                self.listname = None
                 self.type = None
+                self.listname = None
                 self.method = YLeafList()
                 self.method.parent = self
                 self.method.name = 'method'
@@ -389,24 +385,22 @@ class Aaa(object):
 
             @property
             def _common_path(self):
-                if self.listname is None:
-                    raise YPYModelError('Key property listname is None')
                 if self.type is None:
                     raise YPYModelError('Key property type is None')
+                if self.listname is None:
+                    raise YPYModelError('Key property listname is None')
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:authorizations/Cisco-IOS-XR-aaa-lib-cfg:authorization[Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + ']'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:authorizations/Cisco-IOS-XR-aaa-lib-cfg:authorization[Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.listname is not None:
+                if self.type is not None:
                     return True
 
-                if self.type is not None:
+                if self.listname is not None:
                     return True
 
                 if self.method is not None:
@@ -436,8 +430,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.authorization is not None:
                 for child_ref in self.authorization:
                     if child_ref._has_data():
@@ -501,8 +493,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self._is_presence:
                 return True
             if self.periodic_interval is not None:
@@ -549,8 +539,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.login is not None:
                 return True
 
@@ -589,16 +577,16 @@ class Aaa(object):
             """
             Configurations related to authentication
             
-            .. attribute:: listname  <key>
+            .. attribute:: type  <key>
             
-            	List name for AAA authentication
+            	login\: Authenticate login sessions, ppp\: Authenticate ppp sessions
             	**type**\:  str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: type  <key>
+            .. attribute:: listname  <key>
             
-            	login\: Authenticate login sessions, ppp\: Authenticate ppp sessions
+            	List name for AAA authentication
             	**type**\:  str
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
@@ -622,8 +610,8 @@ class Aaa(object):
 
             def __init__(self):
                 self.parent = None
-                self.listname = None
                 self.type = None
+                self.listname = None
                 self.method = YLeafList()
                 self.method.parent = self
                 self.method.name = 'method'
@@ -633,24 +621,22 @@ class Aaa(object):
 
             @property
             def _common_path(self):
-                if self.listname is None:
-                    raise YPYModelError('Key property listname is None')
                 if self.type is None:
                     raise YPYModelError('Key property type is None')
+                if self.listname is None:
+                    raise YPYModelError('Key property listname is None')
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:authentications/Cisco-IOS-XR-aaa-lib-cfg:authentication[Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + ']'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-lib-cfg:authentications/Cisco-IOS-XR-aaa-lib-cfg:authentication[Cisco-IOS-XR-aaa-lib-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-lib-cfg:listname = ' + str(self.listname) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.listname is not None:
+                if self.type is not None:
                     return True
 
-                if self.type is not None:
+                if self.listname is not None:
                     return True
 
                 if self.method is not None:
@@ -680,8 +666,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.authentication is not None:
                 for child_ref in self.authentication:
                     if child_ref._has_data():
@@ -693,6 +677,2065 @@ class Aaa(object):
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
             return meta._meta_table['Aaa.Authentications']['meta_info']
+
+
+    class AaaSubscriber(object):
+        """
+        AAA subscriber
+        
+        .. attribute:: accountings
+        
+        	AAA accounting
+        	**type**\:   :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings>`
+        
+        .. attribute:: authentications
+        
+        	AAA authentication
+        	**type**\:   :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications>`
+        
+        .. attribute:: authorizations
+        
+        	AAA authorization
+        	**type**\:   :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations>`
+        
+        .. attribute:: policy_if_authors
+        
+        	AAA authorization policy
+        	**type**\:   :py:class:`PolicyIfAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors>`
+        
+        .. attribute:: prepaid_authors
+        
+        	AAA authorization prepaid
+        	**type**\:   :py:class:`PrepaidAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors>`
+        
+        .. attribute:: service_accounting
+        
+        	Set accounting parameters for Service
+        	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.ServiceAccounting>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-aaacore-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.accountings = Aaa.AaaSubscriber.Accountings()
+            self.accountings.parent = self
+            self.authentications = Aaa.AaaSubscriber.Authentications()
+            self.authentications.parent = self
+            self.authorizations = Aaa.AaaSubscriber.Authorizations()
+            self.authorizations.parent = self
+            self.policy_if_authors = Aaa.AaaSubscriber.PolicyIfAuthors()
+            self.policy_if_authors.parent = self
+            self.prepaid_authors = Aaa.AaaSubscriber.PrepaidAuthors()
+            self.prepaid_authors.parent = self
+            self.service_accounting = Aaa.AaaSubscriber.ServiceAccounting()
+            self.service_accounting.parent = self
+
+
+        class PolicyIfAuthors(object):
+            """
+            AAA authorization policy
+            
+            .. attribute:: policy_if_author
+            
+            	Configurations related to authorization
+            	**type**\: list of    :py:class:`PolicyIfAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.policy_if_author = YList()
+                self.policy_if_author.parent = self
+                self.policy_if_author.name = 'policy_if_author'
+
+
+            class PolicyIfAuthor(object):
+                """
+                Configurations related to authorization
+                
+                .. attribute:: type  <key>
+                
+                	Set authorization lists
+                	**type**\:  str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  <key>
+                
+                	Named authorization list
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.type = None
+                    self.listname = None
+                    self.method = YLeafList()
+                    self.method.parent = self
+                    self.method.name = 'method'
+                    self.server_group_name = YLeafList()
+                    self.server_group_name.parent = self
+                    self.server_group_name.name = 'server_group_name'
+
+                @property
+                def _common_path(self):
+                    if self.type is None:
+                        raise YPYModelError('Key property type is None')
+                    if self.listname is None:
+                        raise YPYModelError('Key property listname is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:policy-if-authors/Cisco-IOS-XR-aaa-aaacore-cfg:policy-if-author[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.type is not None:
+                        return True
+
+                    if self.listname is not None:
+                        return True
+
+                    if self.method is not None:
+                        for child in self.method:
+                            if child is not None:
+                                return True
+
+                    if self.server_group_name is not None:
+                        for child in self.server_group_name:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:policy-if-authors'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.policy_if_author is not None:
+                    for child_ref in self.policy_if_author:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.AaaSubscriber.PolicyIfAuthors']['meta_info']
+
+
+        class Accountings(object):
+            """
+            AAA accounting
+            
+            .. attribute:: accounting
+            
+            	Configurations related to accounting
+            	**type**\: list of    :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings.Accounting>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.accounting = YList()
+                self.accounting.parent = self
+                self.accounting.name = 'accounting'
+
+
+            class Accounting(object):
+                """
+                Configurations related to accounting
+                
+                .. attribute:: type  <key>
+                
+                	Set accounting lists
+                	**type**\:  str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  <key>
+                
+                	Named accounting list
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: broadcast
+                
+                	Broadcast
+                	**type**\:   :py:class:`AaaAccountingBroadcastEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcastEnum>`
+                
+                	**mandatory**\: True
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.type = None
+                    self.listname = None
+                    self.broadcast = None
+                    self.method = YLeafList()
+                    self.method.parent = self
+                    self.method.name = 'method'
+                    self.server_group_name = YLeafList()
+                    self.server_group_name.parent = self
+                    self.server_group_name.name = 'server_group_name'
+
+                @property
+                def _common_path(self):
+                    if self.type is None:
+                        raise YPYModelError('Key property type is None')
+                    if self.listname is None:
+                        raise YPYModelError('Key property listname is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:accountings/Cisco-IOS-XR-aaa-aaacore-cfg:accounting[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.type is not None:
+                        return True
+
+                    if self.listname is not None:
+                        return True
+
+                    if self.broadcast is not None:
+                        return True
+
+                    if self.method is not None:
+                        for child in self.method:
+                            if child is not None:
+                                return True
+
+                    if self.server_group_name is not None:
+                        for child in self.server_group_name:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.AaaSubscriber.Accountings.Accounting']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:accountings'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.accounting is not None:
+                    for child_ref in self.accounting:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.AaaSubscriber.Accountings']['meta_info']
+
+
+        class ServiceAccounting(object):
+            """
+            Set accounting parameters for Service
+            
+            .. attribute:: type
+            
+            	Send extended/brief service accounting records
+            	**type**\:   :py:class:`AaaServiceAccountingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_aaacore_cfg.AaaServiceAccountingEnum>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.type = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:service-accounting'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.type is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.AaaSubscriber.ServiceAccounting']['meta_info']
+
+
+        class PrepaidAuthors(object):
+            """
+            AAA authorization prepaid
+            
+            .. attribute:: prepaid_author
+            
+            	Configurations related to authorization
+            	**type**\: list of    :py:class:`PrepaidAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.prepaid_author = YList()
+                self.prepaid_author.parent = self
+                self.prepaid_author.name = 'prepaid_author'
+
+
+            class PrepaidAuthor(object):
+                """
+                Configurations related to authorization
+                
+                .. attribute:: type  <key>
+                
+                	Set authorization lists
+                	**type**\:  str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  <key>
+                
+                	Named authorization list
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.type = None
+                    self.listname = None
+                    self.method = YLeafList()
+                    self.method.parent = self
+                    self.method.name = 'method'
+                    self.server_group_name = YLeafList()
+                    self.server_group_name.parent = self
+                    self.server_group_name.name = 'server_group_name'
+
+                @property
+                def _common_path(self):
+                    if self.type is None:
+                        raise YPYModelError('Key property type is None')
+                    if self.listname is None:
+                        raise YPYModelError('Key property listname is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:prepaid-authors/Cisco-IOS-XR-aaa-aaacore-cfg:prepaid-author[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.type is not None:
+                        return True
+
+                    if self.listname is not None:
+                        return True
+
+                    if self.method is not None:
+                        for child in self.method:
+                            if child is not None:
+                                return True
+
+                    if self.server_group_name is not None:
+                        for child in self.server_group_name:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:prepaid-authors'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.prepaid_author is not None:
+                    for child_ref in self.prepaid_author:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.AaaSubscriber.PrepaidAuthors']['meta_info']
+
+
+        class Authorizations(object):
+            """
+            AAA authorization
+            
+            .. attribute:: authorization
+            
+            	Configurations related to authorization
+            	**type**\: list of    :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations.Authorization>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.authorization = YList()
+                self.authorization.parent = self
+                self.authorization.name = 'authorization'
+
+
+            class Authorization(object):
+                """
+                Configurations related to authorization
+                
+                .. attribute:: type  <key>
+                
+                	Set authorization lists
+                	**type**\:  str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  <key>
+                
+                	Named authorization list
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.type = None
+                    self.listname = None
+                    self.method = YLeafList()
+                    self.method.parent = self
+                    self.method.name = 'method'
+                    self.server_group_name = YLeafList()
+                    self.server_group_name.parent = self
+                    self.server_group_name.name = 'server_group_name'
+
+                @property
+                def _common_path(self):
+                    if self.type is None:
+                        raise YPYModelError('Key property type is None')
+                    if self.listname is None:
+                        raise YPYModelError('Key property listname is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:authorizations/Cisco-IOS-XR-aaa-aaacore-cfg:authorization[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.type is not None:
+                        return True
+
+                    if self.listname is not None:
+                        return True
+
+                    if self.method is not None:
+                        for child in self.method:
+                            if child is not None:
+                                return True
+
+                    if self.server_group_name is not None:
+                        for child in self.server_group_name:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.AaaSubscriber.Authorizations.Authorization']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:authorizations'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.authorization is not None:
+                    for child_ref in self.authorization:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.AaaSubscriber.Authorizations']['meta_info']
+
+
+        class Authentications(object):
+            """
+            AAA authentication
+            
+            .. attribute:: authentication
+            
+            	Configurations related to authentication
+            	**type**\: list of    :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications.Authentication>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.authentication = YList()
+                self.authentication.parent = self
+                self.authentication.name = 'authentication'
+
+
+            class Authentication(object):
+                """
+                Configurations related to authentication
+                
+                .. attribute:: type  <key>
+                
+                	Set authentication lists
+                	**type**\:  str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  <key>
+                
+                	Named authentication list
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.type = None
+                    self.listname = None
+                    self.method = YLeafList()
+                    self.method.parent = self
+                    self.method.name = 'method'
+                    self.server_group_name = YLeafList()
+                    self.server_group_name.parent = self
+                    self.server_group_name.name = 'server_group_name'
+
+                @property
+                def _common_path(self):
+                    if self.type is None:
+                        raise YPYModelError('Key property type is None')
+                    if self.listname is None:
+                        raise YPYModelError('Key property listname is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:authentications/Cisco-IOS-XR-aaa-aaacore-cfg:authentication[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.type is not None:
+                        return True
+
+                    if self.listname is not None:
+                        return True
+
+                    if self.method is not None:
+                        for child in self.method:
+                            if child is not None:
+                                return True
+
+                    if self.server_group_name is not None:
+                        for child in self.server_group_name:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.AaaSubscriber.Authentications.Authentication']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:authentications'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.authentication is not None:
+                    for child_ref in self.authentication:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.AaaSubscriber.Authentications']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if self.accountings is not None and self.accountings._has_data():
+                return True
+
+            if self.authentications is not None and self.authentications._has_data():
+                return True
+
+            if self.authorizations is not None and self.authorizations._has_data():
+                return True
+
+            if self.policy_if_authors is not None and self.policy_if_authors._has_data():
+                return True
+
+            if self.prepaid_authors is not None and self.prepaid_authors._has_data():
+                return True
+
+            if self.service_accounting is not None and self.service_accounting._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+            return meta._meta_table['Aaa.AaaSubscriber']['meta_info']
+
+
+    class AaaMobile(object):
+        """
+        AAA Mobile
+        
+        .. attribute:: mobiles
+        
+        	AAA Mobile Accounting
+        	**type**\:   :py:class:`Mobiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-aaacore-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.mobiles = Aaa.AaaMobile.Mobiles()
+            self.mobiles.parent = self
+
+
+        class Mobiles(object):
+            """
+            AAA Mobile Accounting
+            
+            .. attribute:: mobile
+            
+            	Configurations related to accounting
+            	**type**\: list of    :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles.Mobile>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.mobile = YList()
+                self.mobile.parent = self
+                self.mobile.name = 'mobile'
+
+
+            class Mobile(object):
+                """
+                Configurations related to accounting
+                
+                .. attribute:: listname  <key>
+                
+                	Named accounting list
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: broadcast
+                
+                	Broadcast
+                	**type**\:   :py:class:`AaaAccountingBroadcastEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcastEnum>`
+                
+                	**mandatory**\: True
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.listname = None
+                    self.broadcast = None
+                    self.method = YLeafList()
+                    self.method.parent = self
+                    self.method.name = 'method'
+                    self.server_group_name = YLeafList()
+                    self.server_group_name.parent = self
+                    self.server_group_name.name = 'server_group_name'
+
+                @property
+                def _common_path(self):
+                    if self.listname is None:
+                        raise YPYModelError('Key property listname is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile/Cisco-IOS-XR-aaa-aaacore-cfg:mobiles/Cisco-IOS-XR-aaa-aaacore-cfg:mobile[Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.listname is not None:
+                        return True
+
+                    if self.broadcast is not None:
+                        return True
+
+                    if self.method is not None:
+                        for child in self.method:
+                            if child is not None:
+                                return True
+
+                    if self.server_group_name is not None:
+                        for child in self.server_group_name:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.AaaMobile.Mobiles.Mobile']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile/Cisco-IOS-XR-aaa-aaacore-cfg:mobiles'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.mobile is not None:
+                    for child_ref in self.mobile:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.AaaMobile.Mobiles']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if self.mobiles is not None and self.mobiles._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+            return meta._meta_table['Aaa.AaaMobile']['meta_info']
+
+
+    class AaaDot1X(object):
+        """
+        AAA Dot1x
+        
+        .. attribute:: authentications
+        
+        	AAA authentication
+        	**type**\:   :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-aaacore-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.authentications = Aaa.AaaDot1X.Authentications()
+            self.authentications.parent = self
+
+
+        class Authentications(object):
+            """
+            AAA authentication
+            
+            .. attribute:: authentication
+            
+            	Configurations related to authentication
+            	**type**\: list of    :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications.Authentication>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.authentication = YList()
+                self.authentication.parent = self
+                self.authentication.name = 'authentication'
+
+
+            class Authentication(object):
+                """
+                Configurations related to authentication
+                
+                .. attribute:: type  <key>
+                
+                	Set authentication lists
+                	**type**\:  str
+                
+                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
+                
+                .. attribute:: listname  <key>
+                
+                	Named authentication list
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: method
+                
+                	Method Types
+                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
+                
+                .. attribute:: server_group_name
+                
+                	Server group names
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.type = None
+                    self.listname = None
+                    self.method = YLeafList()
+                    self.method.parent = self
+                    self.method.name = 'method'
+                    self.server_group_name = YLeafList()
+                    self.server_group_name.parent = self
+                    self.server_group_name.name = 'server_group_name'
+
+                @property
+                def _common_path(self):
+                    if self.type is None:
+                        raise YPYModelError('Key property type is None')
+                    if self.listname is None:
+                        raise YPYModelError('Key property listname is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x/Cisco-IOS-XR-aaa-aaacore-cfg:authentications/Cisco-IOS-XR-aaa-aaacore-cfg:authentication[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.type is not None:
+                        return True
+
+                    if self.listname is not None:
+                        return True
+
+                    if self.method is not None:
+                        for child in self.method:
+                            if child is not None:
+                                return True
+
+                    if self.server_group_name is not None:
+                        for child in self.server_group_name:
+                            if child is not None:
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.AaaDot1X.Authentications.Authentication']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x/Cisco-IOS-XR-aaa-aaacore-cfg:authentications'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.authentication is not None:
+                    for child_ref in self.authentication:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.AaaDot1X.Authentications']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if self.authentications is not None and self.authentications._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+            return meta._meta_table['Aaa.AaaDot1X']['meta_info']
+
+
+    class RadiusAttribute(object):
+        """
+        AAA RADIUS attribute configurations
+        
+        .. attribute:: called_station
+        
+        	AAA called station id attribute
+        	**type**\:   :py:class:`CalledStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation>`
+        
+        .. attribute:: calling_station
+        
+        	AAA calling station id attribute
+        	**type**\:   :py:class:`CallingStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation>`
+        
+        .. attribute:: format_others
+        
+        	AAA nas\-port\-id attribute format
+        	**type**\:   :py:class:`FormatOthers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers>`
+        
+        .. attribute:: nas_port
+        
+        	AAA nas\-port\-id attribute
+        	**type**\:   :py:class:`NasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort>`
+        
+        .. attribute:: nas_port_id
+        
+        	AAA nas\-port\-id attribute
+        	**type**\:   :py:class:`NasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId>`
+        
+        
+
+        """
+
+        _prefix = 'aaa-aaacore-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.called_station = Aaa.RadiusAttribute.CalledStation()
+            self.called_station.parent = self
+            self.calling_station = Aaa.RadiusAttribute.CallingStation()
+            self.calling_station.parent = self
+            self.format_others = Aaa.RadiusAttribute.FormatOthers()
+            self.format_others.parent = self
+            self.nas_port = Aaa.RadiusAttribute.NasPort()
+            self.nas_port.parent = self
+            self.nas_port_id = Aaa.RadiusAttribute.NasPortId()
+            self.nas_port_id.parent = self
+
+
+        class NasPortId(object):
+            """
+            AAA nas\-port\-id attribute
+            
+            .. attribute:: formats
+            
+            	AAA nas\-port\-id attribute format
+            	**type**\:   :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.formats = Aaa.RadiusAttribute.NasPortId.Formats()
+                self.formats.parent = self
+
+
+            class Formats(object):
+                """
+                AAA nas\-port\-id attribute format
+                
+                .. attribute:: format
+                
+                	nas\-port\-id attribute format
+                	**type**\: list of    :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats.Format>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.format = YList()
+                    self.format.parent = self
+                    self.format.name = 'format'
+
+
+                class Format(object):
+                    """
+                    nas\-port\-id attribute format
+                    
+                    .. attribute:: type  <key>
+                    
+                    	Nas\-Port\-Type value to apply format name on
+                    	**type**\:  int
+                    
+                    	**range:** 0..45
+                    
+                    .. attribute:: format_name
+                    
+                    	AAA nas\-port attribute format
+                    	**type**\:  str
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-aaacore-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.type = None
+                        self.format_name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.type is None:
+                            raise YPYModelError('Key property type is None')
+
+                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port-id/Cisco-IOS-XR-aaa-aaacore-cfg:formats/Cisco-IOS-XR-aaa-aaacore-cfg:format[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.type is not None:
+                            return True
+
+                        if self.format_name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                        return meta._meta_table['Aaa.RadiusAttribute.NasPortId.Formats.Format']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port-id/Cisco-IOS-XR-aaa-aaacore-cfg:formats'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.format is not None:
+                        for child_ref in self.format:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.RadiusAttribute.NasPortId.Formats']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port-id'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.formats is not None and self.formats._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.RadiusAttribute.NasPortId']['meta_info']
+
+
+        class CallingStation(object):
+            """
+            AAA calling station id attribute
+            
+            .. attribute:: formats
+            
+            	AAA nas\-port\-id attribute format
+            	**type**\:   :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.formats = Aaa.RadiusAttribute.CallingStation.Formats()
+                self.formats.parent = self
+
+
+            class Formats(object):
+                """
+                AAA nas\-port\-id attribute format
+                
+                .. attribute:: format
+                
+                	nas\-port\-id attribute format
+                	**type**\: list of    :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats.Format>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.format = YList()
+                    self.format.parent = self
+                    self.format.name = 'format'
+
+
+                class Format(object):
+                    """
+                    nas\-port\-id attribute format
+                    
+                    .. attribute:: type  <key>
+                    
+                    	Nas\-Port\-Type value to apply format name on
+                    	**type**\:  int
+                    
+                    	**range:** 0..45
+                    
+                    .. attribute:: format_name
+                    
+                    	AAA nas\-port attribute format
+                    	**type**\:  str
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-aaacore-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.type = None
+                        self.format_name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.type is None:
+                            raise YPYModelError('Key property type is None')
+
+                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:calling-station/Cisco-IOS-XR-aaa-aaacore-cfg:formats/Cisco-IOS-XR-aaa-aaacore-cfg:format[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.type is not None:
+                            return True
+
+                        if self.format_name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                        return meta._meta_table['Aaa.RadiusAttribute.CallingStation.Formats.Format']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:calling-station/Cisco-IOS-XR-aaa-aaacore-cfg:formats'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.format is not None:
+                        for child_ref in self.format:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.RadiusAttribute.CallingStation.Formats']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:calling-station'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.formats is not None and self.formats._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.RadiusAttribute.CallingStation']['meta_info']
+
+
+        class CalledStation(object):
+            """
+            AAA called station id attribute
+            
+            .. attribute:: formats
+            
+            	AAA nas\-port\-id attribute format
+            	**type**\:   :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.formats = Aaa.RadiusAttribute.CalledStation.Formats()
+                self.formats.parent = self
+
+
+            class Formats(object):
+                """
+                AAA nas\-port\-id attribute format
+                
+                .. attribute:: format
+                
+                	nas\-port\-id attribute format
+                	**type**\: list of    :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats.Format>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.format = YList()
+                    self.format.parent = self
+                    self.format.name = 'format'
+
+
+                class Format(object):
+                    """
+                    nas\-port\-id attribute format
+                    
+                    .. attribute:: type  <key>
+                    
+                    	Nas\-Port\-Type value to apply format name on
+                    	**type**\:  int
+                    
+                    	**range:** 0..45
+                    
+                    .. attribute:: format_name
+                    
+                    	AAA nas\-port attribute format
+                    	**type**\:  str
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-aaacore-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.type = None
+                        self.format_name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.type is None:
+                            raise YPYModelError('Key property type is None')
+
+                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:called-station/Cisco-IOS-XR-aaa-aaacore-cfg:formats/Cisco-IOS-XR-aaa-aaacore-cfg:format[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.type is not None:
+                            return True
+
+                        if self.format_name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                        return meta._meta_table['Aaa.RadiusAttribute.CalledStation.Formats.Format']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:called-station/Cisco-IOS-XR-aaa-aaacore-cfg:formats'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.format is not None:
+                        for child_ref in self.format:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.RadiusAttribute.CalledStation.Formats']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:called-station'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.formats is not None and self.formats._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.RadiusAttribute.CalledStation']['meta_info']
+
+
+        class NasPort(object):
+            """
+            AAA nas\-port\-id attribute
+            
+            .. attribute:: format_extendeds
+            
+            	AAA nas\-port\-id attribute format
+            	**type**\:   :py:class:`FormatExtendeds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.format_extendeds = Aaa.RadiusAttribute.NasPort.FormatExtendeds()
+                self.format_extendeds.parent = self
+
+
+            class FormatExtendeds(object):
+                """
+                AAA nas\-port\-id attribute format
+                
+                .. attribute:: format_extended
+                
+                	nas\-port\-id extended attribute
+                	**type**\: list of    :py:class:`FormatExtended <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.format_extended = YList()
+                    self.format_extended.parent = self
+                    self.format_extended.name = 'format_extended'
+
+
+                class FormatExtended(object):
+                    """
+                    nas\-port\-id extended attribute
+                    
+                    .. attribute:: value  <key>
+                    
+                    	format type
+                    	**type**\:  str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: type  <key>
+                    
+                    	AAA nas\-port attribute format
+                    	**type**\:  int
+                    
+                    	**range:** 0..45
+                    
+                    .. attribute:: format_identifier
+                    
+                    	A 32 character string representing the format to be used
+                    	**type**\:  str
+                    
+                    	**length:** 1..32
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-aaacore-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.value = None
+                        self.type = None
+                        self.format_identifier = None
+
+                    @property
+                    def _common_path(self):
+                        if self.value is None:
+                            raise YPYModelError('Key property value is None')
+                        if self.type is None:
+                            raise YPYModelError('Key property type is None')
+
+                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port/Cisco-IOS-XR-aaa-aaacore-cfg:format-extendeds/Cisco-IOS-XR-aaa-aaacore-cfg:format-extended[Cisco-IOS-XR-aaa-aaacore-cfg:value = ' + str(self.value) + '][Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.value is not None:
+                            return True
+
+                        if self.type is not None:
+                            return True
+
+                        if self.format_identifier is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                        return meta._meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended']['meta_info']
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port/Cisco-IOS-XR-aaa-aaacore-cfg:format-extendeds'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.format_extended is not None:
+                        for child_ref in self.format_extended:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.format_extendeds is not None and self.format_extendeds._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.RadiusAttribute.NasPort']['meta_info']
+
+
+        class FormatOthers(object):
+            """
+            AAA nas\-port\-id attribute format
+            
+            .. attribute:: format_other
+            
+            	Other configs
+            	**type**\: list of    :py:class:`FormatOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers.FormatOther>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-aaacore-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.format_other = YList()
+                self.format_other.parent = self
+                self.format_other.name = 'format_other'
+
+
+            class FormatOther(object):
+                """
+                Other configs
+                
+                .. attribute:: nas_port_type_name  <key>
+                
+                	Nas\-Port\-Type value to apply format name on
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: attribute_config1
+                
+                	Argument1
+                	**type**\:  str
+                
+                .. attribute:: attribute_config10
+                
+                	Argument10
+                	**type**\:  str
+                
+                .. attribute:: attribute_config11
+                
+                	Argument11
+                	**type**\:  str
+                
+                .. attribute:: attribute_config12
+                
+                	Argument12
+                	**type**\:  str
+                
+                .. attribute:: attribute_config13
+                
+                	Argument13
+                	**type**\:  str
+                
+                .. attribute:: attribute_config14
+                
+                	Argument14
+                	**type**\:  str
+                
+                .. attribute:: attribute_config15
+                
+                	Argument15
+                	**type**\:  str
+                
+                .. attribute:: attribute_config16
+                
+                	Argument16
+                	**type**\:  str
+                
+                .. attribute:: attribute_config17
+                
+                	Argument17
+                	**type**\:  str
+                
+                .. attribute:: attribute_config18
+                
+                	Argument18
+                	**type**\:  str
+                
+                .. attribute:: attribute_config19
+                
+                	Argument19
+                	**type**\:  int
+                
+                	**range:** 1..253
+                
+                .. attribute:: attribute_config2
+                
+                	Argument2
+                	**type**\:  str
+                
+                .. attribute:: attribute_config3
+                
+                	Argument3
+                	**type**\:  str
+                
+                .. attribute:: attribute_config4
+                
+                	Argument4
+                	**type**\:  str
+                
+                .. attribute:: attribute_config5
+                
+                	Argument5
+                	**type**\:  str
+                
+                .. attribute:: attribute_config6
+                
+                	Argument6
+                	**type**\:  str
+                
+                .. attribute:: attribute_config7
+                
+                	Argument7
+                	**type**\:  str
+                
+                .. attribute:: attribute_config8
+                
+                	Argument8
+                	**type**\:  str
+                
+                .. attribute:: attribute_config9
+                
+                	Argument9
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'aaa-aaacore-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.nas_port_type_name = None
+                    self.attribute_config1 = None
+                    self.attribute_config10 = None
+                    self.attribute_config11 = None
+                    self.attribute_config12 = None
+                    self.attribute_config13 = None
+                    self.attribute_config14 = None
+                    self.attribute_config15 = None
+                    self.attribute_config16 = None
+                    self.attribute_config17 = None
+                    self.attribute_config18 = None
+                    self.attribute_config19 = None
+                    self.attribute_config2 = None
+                    self.attribute_config3 = None
+                    self.attribute_config4 = None
+                    self.attribute_config5 = None
+                    self.attribute_config6 = None
+                    self.attribute_config7 = None
+                    self.attribute_config8 = None
+                    self.attribute_config9 = None
+
+                @property
+                def _common_path(self):
+                    if self.nas_port_type_name is None:
+                        raise YPYModelError('Key property nas_port_type_name is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:format-others/Cisco-IOS-XR-aaa-aaacore-cfg:format-other[Cisco-IOS-XR-aaa-aaacore-cfg:nas-port-type-name = ' + str(self.nas_port_type_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.nas_port_type_name is not None:
+                        return True
+
+                    if self.attribute_config1 is not None:
+                        return True
+
+                    if self.attribute_config10 is not None:
+                        return True
+
+                    if self.attribute_config11 is not None:
+                        return True
+
+                    if self.attribute_config12 is not None:
+                        return True
+
+                    if self.attribute_config13 is not None:
+                        return True
+
+                    if self.attribute_config14 is not None:
+                        return True
+
+                    if self.attribute_config15 is not None:
+                        return True
+
+                    if self.attribute_config16 is not None:
+                        return True
+
+                    if self.attribute_config17 is not None:
+                        return True
+
+                    if self.attribute_config18 is not None:
+                        return True
+
+                    if self.attribute_config19 is not None:
+                        return True
+
+                    if self.attribute_config2 is not None:
+                        return True
+
+                    if self.attribute_config3 is not None:
+                        return True
+
+                    if self.attribute_config4 is not None:
+                        return True
+
+                    if self.attribute_config5 is not None:
+                        return True
+
+                    if self.attribute_config6 is not None:
+                        return True
+
+                    if self.attribute_config7 is not None:
+                        return True
+
+                    if self.attribute_config8 is not None:
+                        return True
+
+                    if self.attribute_config9 is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.RadiusAttribute.FormatOthers.FormatOther']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:format-others'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.format_other is not None:
+                    for child_ref in self.format_other:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.RadiusAttribute.FormatOthers']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if self.called_station is not None and self.called_station._has_data():
+                return True
+
+            if self.calling_station is not None and self.calling_station._has_data():
+                return True
+
+            if self.format_others is not None and self.format_others._has_data():
+                return True
+
+            if self.nas_port is not None and self.nas_port._has_data():
+                return True
+
+            if self.nas_port_id is not None and self.nas_port_id._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+            return meta._meta_table['Aaa.RadiusAttribute']['meta_info']
 
 
     class ServerGroups(object):
@@ -853,8 +2896,6 @@ class Aaa(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ordering_index is not None:
                                 return True
 
@@ -880,8 +2921,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.server is not None:
                             for child_ref in self.server:
                                 if child_ref._has_data():
@@ -906,8 +2945,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.server_group_name is not None:
                         return True
 
@@ -931,8 +2968,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.diameter_server_group is not None:
                     for child_ref in self.diameter_server_group:
                         if child_ref._has_data():
@@ -944,410 +2979,6 @@ class Aaa(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
                 return meta._meta_table['Aaa.ServerGroups.DiameterServerGroups']['meta_info']
-
-
-        class TacacsServerGroups(object):
-            """
-            TACACS+ server\-group definition
-            
-            .. attribute:: tacacs_server_group
-            
-            	TACACS+ Server group name
-            	**type**\: list of    :py:class:`TacacsServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.tacacs_server_group = YList()
-                self.tacacs_server_group.parent = self
-                self.tacacs_server_group.name = 'tacacs_server_group'
-
-
-            class TacacsServerGroup(object):
-                """
-                TACACS+ Server group name
-                
-                .. attribute:: server_group_name  <key>
-                
-                	TACACS+ Server group name
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: private_servers
-                
-                	List of private TACACS servers present in the group
-                	**type**\:   :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers>`
-                
-                .. attribute:: servers
-                
-                	Specify a TACACS+ server
-                	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
-                
-                .. attribute:: vrf
-                
-                	Specify VRF name of TACACS group
-                	**type**\:  str
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.server_group_name = None
-                    self.private_servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers()
-                    self.private_servers.parent = self
-                    self.servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers()
-                    self.servers.parent = self
-                    self.vrf = None
-
-
-                class Servers(object):
-                    """
-                    Specify a TACACS+ server
-                    
-                    .. attribute:: server
-                    
-                    	A server to include in the server group
-                    	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.server = YList()
-                        self.server.parent = self
-                        self.server.name = 'server'
-
-
-                    class Server(object):
-                        """
-                        A server to include in the server group
-                        
-                        .. attribute:: ip_address  <key>
-                        
-                        	IP address of TACACS+ server
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: ordering_index  <key>
-                        
-                        	This is used to sort the servers in the order of precedence
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        
-
-                        """
-
-                        _prefix = 'aaa-tacacs-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.ip_address = None
-                            self.ordering_index = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.ip_address is None:
-                                raise YPYModelError('Key property ip_address is None')
-                            if self.ordering_index is None:
-                                raise YPYModelError('Key property ordering_index is None')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:server[Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + ']'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.ip_address is not None:
-                                return True
-
-                            if self.ordering_index is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                            return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:servers'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.server is not None:
-                            for child_ref in self.server:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                        return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers']['meta_info']
-
-
-                class PrivateServers(object):
-                    """
-                    List of private TACACS servers present in the
-                    group
-                    
-                    .. attribute:: private_server
-                    
-                    	A private server to include in the server group
-                    	**type**\: list of    :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.private_server = YList()
-                        self.private_server.parent = self
-                        self.private_server.name = 'private_server'
-
-
-                    class PrivateServer(object):
-                        """
-                        A private server to include in the server
-                        group
-                        
-                        .. attribute:: ip_address  <key>
-                        
-                        	IP address of TACACS+ server
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: ordering_index  <key>
-                        
-                        	This is used to sort the servers in the order of precedence
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: port_number  <key>
-                        
-                        	Port number (standard 49)
-                        	**type**\:  int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: key
-                        
-                        	Set TACACS+ encryption key
-                        	**type**\:  str
-                        
-                        	**pattern:** (!.+)\|([^!].+)
-                        
-                        .. attribute:: timeout
-                        
-                        	Time to wait for a TACACS+ server to reply
-                        	**type**\:  int
-                        
-                        	**range:** 1..1000
-                        
-                        	**default value**\: 5
-                        
-                        
-
-                        """
-
-                        _prefix = 'aaa-tacacs-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.ip_address = None
-                            self.ordering_index = None
-                            self.port_number = None
-                            self.key = None
-                            self.timeout = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.ip_address is None:
-                                raise YPYModelError('Key property ip_address is None')
-                            if self.ordering_index is None:
-                                raise YPYModelError('Key property ordering_index is None')
-                            if self.port_number is None:
-                                raise YPYModelError('Key property port_number is None')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:private-server[Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:port-number = ' + str(self.port_number) + ']'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.ip_address is not None:
-                                return True
-
-                            if self.ordering_index is not None:
-                                return True
-
-                            if self.port_number is not None:
-                                return True
-
-                            if self.key is not None:
-                                return True
-
-                            if self.timeout is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                            return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:private-servers'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.private_server is not None:
-                            for child_ref in self.private_server:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                        return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.server_group_name is None:
-                        raise YPYModelError('Key property server_group_name is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-group[Cisco-IOS-XR-aaa-tacacs-cfg:server-group-name = ' + str(self.server_group_name) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.server_group_name is not None:
-                        return True
-
-                    if self.private_servers is not None and self.private_servers._has_data():
-                        return True
-
-                    if self.servers is not None and self.servers._has_data():
-                        return True
-
-                    if self.vrf is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.tacacs_server_group is not None:
-                    for child_ref in self.tacacs_server_group:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups']['meta_info']
 
 
         class RadiusServerGroups(object):
@@ -1529,8 +3160,6 @@ class Aaa(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action is not None:
                                 return True
 
@@ -1583,8 +3212,6 @@ class Aaa(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action is not None:
                                 return True
 
@@ -1610,8 +3237,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.reply is not None and self.reply._has_data():
                             return True
 
@@ -1653,19 +3278,12 @@ class Aaa(object):
                         """
                         A server to include in the server group
                         
-                        .. attribute:: acct_port_number  <key>
+                        .. attribute:: ordering_index  <key>
                         
-                        	Accounting Port number (standard port 1646)
+                        	This is used to sort the servers in the order of precedence
                         	**type**\:  int
                         
-                        	**range:** 0..65535
-                        
-                        .. attribute:: auth_port_number  <key>
-                        
-                        	Authentication Port number (standard port 1645)
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ip_address  <key>
                         
@@ -1684,12 +3302,19 @@ class Aaa(object):
                         
                         
                         ----
-                        .. attribute:: ordering_index  <key>
+                        .. attribute:: auth_port_number  <key>
                         
-                        	This is used to sort the servers in the order of precedence
+                        	Authentication Port number (standard port 1645)
                         	**type**\:  int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..65535
+                        
+                        .. attribute:: acct_port_number  <key>
+                        
+                        	Accounting Port number (standard port 1646)
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
                         
                         
 
@@ -1700,43 +3325,41 @@ class Aaa(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.acct_port_number = None
-                            self.auth_port_number = None
-                            self.ip_address = None
                             self.ordering_index = None
+                            self.ip_address = None
+                            self.auth_port_number = None
+                            self.acct_port_number = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.acct_port_number is None:
-                                raise YPYModelError('Key property acct_port_number is None')
-                            if self.auth_port_number is None:
-                                raise YPYModelError('Key property auth_port_number is None')
-                            if self.ip_address is None:
-                                raise YPYModelError('Key property ip_address is None')
                             if self.ordering_index is None:
                                 raise YPYModelError('Key property ordering_index is None')
+                            if self.ip_address is None:
+                                raise YPYModelError('Key property ip_address is None')
+                            if self.auth_port_number is None:
+                                raise YPYModelError('Key property auth_port_number is None')
+                            if self.acct_port_number is None:
+                                raise YPYModelError('Key property acct_port_number is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:server[Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:server[Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.acct_port_number is not None:
-                                return True
-
-                            if self.auth_port_number is not None:
+                            if self.ordering_index is not None:
                                 return True
 
                             if self.ip_address is not None:
                                 return True
 
-                            if self.ordering_index is not None:
+                            if self.auth_port_number is not None:
+                                return True
+
+                            if self.acct_port_number is not None:
                                 return True
 
                             return False
@@ -1758,8 +3381,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.server is not None:
                             for child_ref in self.server:
                                 if child_ref._has_data():
@@ -1802,19 +3423,12 @@ class Aaa(object):
                         A private server to include in the server
                         group
                         
-                        .. attribute:: acct_port_number  <key>
+                        .. attribute:: ordering_index  <key>
                         
-                        	Accounting Port number (standard port 1646)
+                        	This is used to sort the servers in the order of precedence
                         	**type**\:  int
                         
-                        	**range:** 0..65535
-                        
-                        .. attribute:: auth_port_number  <key>
-                        
-                        	Authentication Port number (standard port 1645)
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
+                        	**range:** \-2147483648..2147483647
                         
                         .. attribute:: ip_address  <key>
                         
@@ -1833,12 +3447,19 @@ class Aaa(object):
                         
                         
                         ----
-                        .. attribute:: ordering_index  <key>
+                        .. attribute:: auth_port_number  <key>
                         
-                        	This is used to sort the servers in the order of precedence
+                        	Authentication Port number (standard port 1645)
                         	**type**\:  int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..65535
+                        
+                        .. attribute:: acct_port_number  <key>
+                        
+                        	Accounting Port number (standard port 1646)
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
                         
                         .. attribute:: idle_time
                         
@@ -1898,10 +3519,10 @@ class Aaa(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.acct_port_number = None
-                            self.auth_port_number = None
-                            self.ip_address = None
                             self.ordering_index = None
+                            self.ip_address = None
+                            self.auth_port_number = None
+                            self.acct_port_number = None
                             self.idle_time = None
                             self.ignore_accounting_port = None
                             self.ignore_auth_port = None
@@ -1914,34 +3535,32 @@ class Aaa(object):
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.acct_port_number is None:
-                                raise YPYModelError('Key property acct_port_number is None')
-                            if self.auth_port_number is None:
-                                raise YPYModelError('Key property auth_port_number is None')
-                            if self.ip_address is None:
-                                raise YPYModelError('Key property ip_address is None')
                             if self.ordering_index is None:
                                 raise YPYModelError('Key property ordering_index is None')
+                            if self.ip_address is None:
+                                raise YPYModelError('Key property ip_address is None')
+                            if self.auth_port_number is None:
+                                raise YPYModelError('Key property auth_port_number is None')
+                            if self.acct_port_number is None:
+                                raise YPYModelError('Key property acct_port_number is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:private-server[Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:private-server[Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.acct_port_number is not None:
-                                return True
-
-                            if self.auth_port_number is not None:
+                            if self.ordering_index is not None:
                                 return True
 
                             if self.ip_address is not None:
                                 return True
 
-                            if self.ordering_index is not None:
+                            if self.auth_port_number is not None:
+                                return True
+
+                            if self.acct_port_number is not None:
                                 return True
 
                             if self.idle_time is not None:
@@ -1984,8 +3603,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.private_server is not None:
                             for child_ref in self.private_server:
                                 if child_ref._has_data():
@@ -2055,8 +3672,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.access is not None:
                             return True
 
@@ -2174,8 +3789,6 @@ class Aaa(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.batch_size is not None:
                                     return True
 
@@ -2204,8 +3817,6 @@ class Aaa(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.name is not None and self.name._has_data():
                                 return True
 
@@ -2228,8 +3839,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.method is not None and self.method._has_data():
                             return True
 
@@ -2308,8 +3917,6 @@ class Aaa(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action is not None:
                                 return True
 
@@ -2362,8 +3969,6 @@ class Aaa(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.action is not None:
                                 return True
 
@@ -2389,8 +3994,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.reply is not None and self.reply._has_data():
                             return True
 
@@ -2416,8 +4019,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.server_group_name is not None:
                         return True
 
@@ -2465,8 +4066,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.radius_server_group is not None:
                     for child_ref in self.radius_server_group:
                         if child_ref._has_data():
@@ -2479,6 +4078,398 @@ class Aaa(object):
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
                 return meta._meta_table['Aaa.ServerGroups.RadiusServerGroups']['meta_info']
 
+
+        class TacacsServerGroups(object):
+            """
+            TACACS+ server\-group definition
+            
+            .. attribute:: tacacs_server_group
+            
+            	TACACS+ Server group name
+            	**type**\: list of    :py:class:`TacacsServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.tacacs_server_group = YList()
+                self.tacacs_server_group.parent = self
+                self.tacacs_server_group.name = 'tacacs_server_group'
+
+
+            class TacacsServerGroup(object):
+                """
+                TACACS+ Server group name
+                
+                .. attribute:: server_group_name  <key>
+                
+                	TACACS+ Server group name
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: private_servers
+                
+                	List of private TACACS servers present in the group
+                	**type**\:   :py:class:`PrivateServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers>`
+                
+                .. attribute:: servers
+                
+                	Specify a TACACS+ server
+                	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers>`
+                
+                .. attribute:: vrf
+                
+                	Specify VRF name of TACACS group
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.server_group_name = None
+                    self.private_servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers()
+                    self.private_servers.parent = self
+                    self.servers = Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers()
+                    self.servers.parent = self
+                    self.vrf = None
+
+
+                class Servers(object):
+                    """
+                    Specify a TACACS+ server
+                    
+                    .. attribute:: server
+                    
+                    	A server to include in the server group
+                    	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.server = YList()
+                        self.server.parent = self
+                        self.server.name = 'server'
+
+
+                    class Server(object):
+                        """
+                        A server to include in the server group
+                        
+                        .. attribute:: ordering_index  <key>
+                        
+                        	This is used to sort the servers in the order of precedence
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: ip_address  <key>
+                        
+                        	IP address of TACACS+ server
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
+                        
+
+                        """
+
+                        _prefix = 'aaa-tacacs-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.ordering_index = None
+                            self.ip_address = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.ordering_index is None:
+                                raise YPYModelError('Key property ordering_index is None')
+                            if self.ip_address is None:
+                                raise YPYModelError('Key property ip_address is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:server[Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self.ordering_index is not None:
+                                return True
+
+                            if self.ip_address is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                            return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers.Server']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:servers'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.server is not None:
+                            for child_ref in self.server:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                        return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.Servers']['meta_info']
+
+
+                class PrivateServers(object):
+                    """
+                    List of private TACACS servers present in the
+                    group
+                    
+                    .. attribute:: private_server
+                    
+                    	A private server to include in the server group
+                    	**type**\: list of    :py:class:`PrivateServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.private_server = YList()
+                        self.private_server.parent = self
+                        self.private_server.name = 'private_server'
+
+
+                    class PrivateServer(object):
+                        """
+                        A private server to include in the server
+                        group
+                        
+                        .. attribute:: ordering_index  <key>
+                        
+                        	This is used to sort the servers in the order of precedence
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: ip_address  <key>
+                        
+                        	IP address of TACACS+ server
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+                        ----
+                        .. attribute:: port_number  <key>
+                        
+                        	Port number (standard 49)
+                        	**type**\:  int
+                        
+                        	**range:** 1..65535
+                        
+                        .. attribute:: key
+                        
+                        	Set TACACS+ encryption key
+                        	**type**\:  str
+                        
+                        	**pattern:** (!.+)\|([^!].+)
+                        
+                        .. attribute:: timeout
+                        
+                        	Time to wait for a TACACS+ server to reply
+                        	**type**\:  int
+                        
+                        	**range:** 1..1000
+                        
+                        	**default value**\: 5
+                        
+                        
+
+                        """
+
+                        _prefix = 'aaa-tacacs-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.ordering_index = None
+                            self.ip_address = None
+                            self.port_number = None
+                            self.key = None
+                            self.timeout = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            if self.ordering_index is None:
+                                raise YPYModelError('Key property ordering_index is None')
+                            if self.ip_address is None:
+                                raise YPYModelError('Key property ip_address is None')
+                            if self.port_number is None:
+                                raise YPYModelError('Key property port_number is None')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:private-server[Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:port-number = ' + str(self.port_number) + ']'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self.ordering_index is not None:
+                                return True
+
+                            if self.ip_address is not None:
+                                return True
+
+                            if self.port_number is not None:
+                                return True
+
+                            if self.key is not None:
+                                return True
+
+                            if self.timeout is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                            return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers.PrivateServer']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-aaa-tacacs-cfg:private-servers'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.private_server is not None:
+                            for child_ref in self.private_server:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                        return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup.PrivateServers']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.server_group_name is None:
+                        raise YPYModelError('Key property server_group_name is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-group[Cisco-IOS-XR-aaa-tacacs-cfg:server-group-name = ' + str(self.server_group_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.server_group_name is not None:
+                        return True
+
+                    if self.private_servers is not None and self.private_servers._has_data():
+                        return True
+
+                    if self.servers is not None and self.servers._has_data():
+                        return True
+
+                    if self.vrf is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups.TacacsServerGroup']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:server-groups/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs-server-groups'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.tacacs_server_group is not None:
+                    for child_ref in self.tacacs_server_group:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.ServerGroups.TacacsServerGroups']['meta_info']
+
         @property
         def _common_path(self):
 
@@ -2489,8 +4480,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.diameter_server_groups is not None and self.diameter_server_groups._has_data():
                 return True
 
@@ -2535,17 +4524,17 @@ class Aaa(object):
             """
             Local username
             
-            .. attribute:: name  <key>
-            
-            	Username
-            	**type**\:  str
-            
             .. attribute:: ordering_index  <key>
             
             	This is used to sort the users in the order of precedence
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
+            
+            .. attribute:: name  <key>
+            
+            	Username
+            	**type**\:  str
             
             .. attribute:: password
             
@@ -2575,8 +4564,8 @@ class Aaa(object):
 
             def __init__(self):
                 self.parent = None
-                self.name = None
                 self.ordering_index = None
+                self.name = None
                 self.password = None
                 self.secret = None
                 self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
@@ -2643,8 +4632,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -2667,8 +4654,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.usergroup_under_username is not None:
                         for child_ref in self.usergroup_under_username:
                             if child_ref._has_data():
@@ -2683,24 +4668,22 @@ class Aaa(object):
 
             @property
             def _common_path(self):
-                if self.name is None:
-                    raise YPYModelError('Key property name is None')
                 if self.ordering_index is None:
                     raise YPYModelError('Key property ordering_index is None')
+                if self.name is None:
+                    raise YPYModelError('Key property name is None')
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:usernames/Cisco-IOS-XR-aaa-locald-cfg:username[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-aaa-locald-cfg:ordering-index = ' + str(self.ordering_index) + ']'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:usernames/Cisco-IOS-XR-aaa-locald-cfg:username[Cisco-IOS-XR-aaa-locald-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.name is not None:
+                if self.ordering_index is not None:
                     return True
 
-                if self.ordering_index is not None:
+                if self.name is not None:
                     return True
 
                 if self.password is not None:
@@ -2729,8 +4712,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.username is not None:
                 for child_ref in self.username:
                     if child_ref._has_data():
@@ -2867,8 +4848,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -2891,8 +4870,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.taskgroup_under_taskgroup is not None:
                         for child_ref in self.taskgroup_under_taskgroup:
                             if child_ref._has_data():
@@ -2933,15 +4910,15 @@ class Aaa(object):
                     """
                     Task ID to be included
                     
-                    .. attribute:: task_id  <key>
-                    
-                    	Task ID to which permission is to be granted (please use class AllTasks to get a list of valid task IDs)
-                    	**type**\:  str
-                    
                     .. attribute:: type  <key>
                     
                     	This specifies the operation permitted for this task eg\: read/write/execute/debug
                     	**type**\:   :py:class:`AaaLocaldTaskClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_cfg.AaaLocaldTaskClassEnum>`
+                    
+                    .. attribute:: task_id  <key>
+                    
+                    	Task ID to which permission is to be granted (please use class AllTasks to get a list of valid task IDs)
+                    	**type**\:  str
                     
                     
 
@@ -2952,31 +4929,29 @@ class Aaa(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.task_id = None
                         self.type = None
+                        self.task_id = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.task_id is None:
-                            raise YPYModelError('Key property task_id is None')
                         if self.type is None:
                             raise YPYModelError('Key property type is None')
+                        if self.task_id is None:
+                            raise YPYModelError('Key property task_id is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:task[Cisco-IOS-XR-aaa-locald-cfg:task-id = ' + str(self.task_id) + '][Cisco-IOS-XR-aaa-locald-cfg:type = ' + str(self.type) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-aaa-locald-cfg:task[Cisco-IOS-XR-aaa-locald-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-locald-cfg:task-id = ' + str(self.task_id) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.task_id is not None:
+                        if self.type is not None:
                             return True
 
-                        if self.type is not None:
+                        if self.task_id is not None:
                             return True
 
                         return False
@@ -2998,8 +4973,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.task is not None:
                         for child_ref in self.task:
                             if child_ref._has_data():
@@ -3024,8 +4997,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -3055,8 +5026,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.taskgroup is not None:
                 for child_ref in self.taskgroup:
                     if child_ref._has_data():
@@ -3193,8 +5162,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -3217,8 +5184,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.taskgroup_under_usergroup is not None:
                         for child_ref in self.taskgroup_under_usergroup:
                             if child_ref._has_data():
@@ -3291,8 +5256,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.name is not None:
                             return True
 
@@ -3315,8 +5278,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.usergroup_under_usergroup is not None:
                         for child_ref in self.usergroup_under_usergroup:
                             if child_ref._has_data():
@@ -3341,8 +5302,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -3372,8 +5331,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.usergroup is not None:
                 for child_ref in self.usergroup:
                     if child_ref._has_data():
@@ -3519,8 +5476,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.dest_host is not None:
                     return True
 
@@ -3574,8 +5529,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.host is not None:
                     return True
 
@@ -3620,8 +5573,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.dest_host is not None:
                     return True
 
@@ -3663,8 +5614,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.trustpoint is not None:
                     return True
 
@@ -3850,8 +5799,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.connection is not None:
                             return True
 
@@ -3901,8 +5848,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.server is not None:
                             return True
 
@@ -3925,8 +5870,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.peer_name is not None:
                         return True
 
@@ -3977,8 +5920,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.peer is not None:
                     for child_ref in self.peer:
                         if child_ref._has_data():
@@ -4072,19 +6013,19 @@ class Aaa(object):
                         """
                         vendor id
                         
-                        .. attribute:: attribute_id  <key>
-                        
-                        	enter attribute id
-                        	**type**\:  int
-                        
-                        	**range:** 1..65535
-                        
                         .. attribute:: vendor_id  <key>
                         
                         	value for vendor id
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: attribute_id  <key>
+                        
+                        	enter attribute id
+                        	**type**\:  int
+                        
+                        	**range:** 1..65535
                         
                         .. attribute:: diam_attr_value
                         
@@ -4100,8 +6041,8 @@ class Aaa(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.attribute_id = None
                             self.vendor_id = None
+                            self.attribute_id = None
                             self.diam_attr_value = Aaa.Diameter.Diams.Diam.DiamAttrDefs.DiamAttrDef.DiamAttrValue()
                             self.diam_attr_value.parent = self
 
@@ -4206,8 +6147,6 @@ class Aaa(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.data_type is not None:
                                     return True
 
@@ -4249,24 +6188,22 @@ class Aaa(object):
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.attribute_id is None:
-                                raise YPYModelError('Key property attribute_id is None')
                             if self.vendor_id is None:
                                 raise YPYModelError('Key property vendor_id is None')
+                            if self.attribute_id is None:
+                                raise YPYModelError('Key property attribute_id is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-diameter-cfg:diam-attr-def[Cisco-IOS-XR-aaa-diameter-cfg:attribute-id = ' + str(self.attribute_id) + '][Cisco-IOS-XR-aaa-diameter-cfg:vendor-id = ' + str(self.vendor_id) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-aaa-diameter-cfg:diam-attr-def[Cisco-IOS-XR-aaa-diameter-cfg:vendor-id = ' + str(self.vendor_id) + '][Cisco-IOS-XR-aaa-diameter-cfg:attribute-id = ' + str(self.attribute_id) + ']'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.attribute_id is not None:
+                            if self.vendor_id is not None:
                                 return True
 
-                            if self.vendor_id is not None:
+                            if self.attribute_id is not None:
                                 return True
 
                             if self.diam_attr_value is not None and self.diam_attr_value._has_data():
@@ -4291,8 +6228,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.diam_attr_def is not None:
                             for child_ref in self.diam_attr_def:
                                 if child_ref._has_data():
@@ -4317,8 +6252,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.list_id is not None:
                         return True
 
@@ -4342,8 +6275,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.diam is not None:
                     for child_ref in self.diam:
                         if child_ref._has_data():
@@ -4403,8 +6334,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.dest_host is not None:
                     return True
 
@@ -4470,8 +6399,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.connection is not None:
                     return True
 
@@ -4559,8 +6486,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.cisco is not None:
                         return True
 
@@ -4590,8 +6515,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.supported is not None and self.supported._has_data():
                     return True
 
@@ -4612,8 +6535,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.diameter_timer is not None and self.diameter_timer._has_data():
                 return True
 
@@ -4650,491 +6571,6 @@ class Aaa(object):
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
             return meta._meta_table['Aaa.Diameter']['meta_info']
-
-
-    class Tacacs(object):
-        """
-        Modify TACACS+ query parameters
-        
-        .. attribute:: hosts
-        
-        	Specify a TACACS+ server
-        	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts>`
-        
-        .. attribute:: ipv4
-        
-        	IPv4 configuration
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv4>`
-        
-        .. attribute:: ipv6
-        
-        	IPv6 configuration
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
-        
-        .. attribute:: key
-        
-        	Set TACACS+ encryption key
-        	**type**\:  str
-        
-        	**pattern:** (!.+)\|([^!].+)
-        
-        .. attribute:: single_connect
-        
-        	Use a single connection for all sessions for a given TACACS+ server
-        	**type**\:  bool
-        
-        	**default value**\: false
-        
-        .. attribute:: timeout
-        
-        	Time to wait for a TACACS+ server to reply
-        	**type**\:  int
-        
-        	**range:** 1..1000
-        
-        	**default value**\: 5
-        
-        .. attribute:: vrfs
-        
-        	List of VRFs
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-tacacs-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.hosts = Aaa.Tacacs.Hosts()
-            self.hosts.parent = self
-            self.ipv4 = Aaa.Tacacs.Ipv4()
-            self.ipv4.parent = self
-            self.ipv6 = Aaa.Tacacs.Ipv6()
-            self.ipv6.parent = self
-            self.key = None
-            self.single_connect = None
-            self.timeout = None
-            self.vrfs = Aaa.Tacacs.Vrfs()
-            self.vrfs.parent = self
-
-
-        class Ipv6(object):
-            """
-            IPv6 configuration
-            
-            .. attribute:: dscp
-            
-            	Specify the DSCP value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`TacacsDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            
-            ----
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.dscp = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:ipv6'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.dscp is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.Tacacs.Ipv6']['meta_info']
-
-
-        class Hosts(object):
-            """
-            Specify a TACACS+ server
-            
-            .. attribute:: host
-            
-            	One of the TACACS+ servers
-            	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts.Host>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.host = YList()
-                self.host.parent = self
-                self.host.name = 'host'
-
-
-            class Host(object):
-                """
-                One of the TACACS+ servers
-                
-                .. attribute:: ip_address  <key>
-                
-                	IP address of TACACS+ server
-                	**type**\: one of the below types:
-                
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                
-                ----
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                
-                ----
-                .. attribute:: ordering_index  <key>
-                
-                	This is used to sort the servers in the order of precedence
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: port_number  <key>
-                
-                	Port number (standard 49)
-                	**type**\:  int
-                
-                	**range:** 1..65535
-                
-                .. attribute:: key
-                
-                	Set TACACS+ encryption key
-                	**type**\:  str
-                
-                	**pattern:** (!.+)\|([^!].+)
-                
-                .. attribute:: single_connect
-                
-                	Use a single connection for all sessions for a given TACACS+ server
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: timeout
-                
-                	Time to wait for a TACACS+ server to reply
-                	**type**\:  int
-                
-                	**range:** 1..1000
-                
-                	**default value**\: 5
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.ip_address = None
-                    self.ordering_index = None
-                    self.port_number = None
-                    self.key = None
-                    self.single_connect = None
-                    self.timeout = None
-
-                @property
-                def _common_path(self):
-                    if self.ip_address is None:
-                        raise YPYModelError('Key property ip_address is None')
-                    if self.ordering_index is None:
-                        raise YPYModelError('Key property ordering_index is None')
-                    if self.port_number is None:
-                        raise YPYModelError('Key property port_number is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:hosts/Cisco-IOS-XR-aaa-tacacs-cfg:host[Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:port-number = ' + str(self.port_number) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.ip_address is not None:
-                        return True
-
-                    if self.ordering_index is not None:
-                        return True
-
-                    if self.port_number is not None:
-                        return True
-
-                    if self.key is not None:
-                        return True
-
-                    if self.single_connect is not None:
-                        return True
-
-                    if self.timeout is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.Tacacs.Hosts.Host']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:hosts'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.host is not None:
-                    for child_ref in self.host:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.Tacacs.Hosts']['meta_info']
-
-
-        class Ipv4(object):
-            """
-            IPv4 configuration
-            
-            .. attribute:: dscp
-            
-            	Specify the DSCP value
-            	**type**\: one of the below types:
-            
-            	**type**\:   :py:class:`TacacsDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>`
-            
-            
-            ----
-            	**type**\:  int
-            
-            	**range:** 0..63
-            
-            
-            ----
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.dscp = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:ipv4'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.dscp is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.Tacacs.Ipv4']['meta_info']
-
-
-        class Vrfs(object):
-            """
-            List of VRFs
-            
-            .. attribute:: vrf
-            
-            	A VRF
-            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs.Vrf>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.vrf = YList()
-                self.vrf.parent = self
-                self.vrf.name = 'vrf'
-
-
-            class Vrf(object):
-                """
-                A VRF
-                
-                .. attribute:: vrf_name  <key>
-                
-                	VRF name. Specify 'default' for default VRF
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: source_interface
-                
-                	Specify interface for source address in TACACS+ packets
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.vrf_name = None
-                    self.source_interface = None
-
-                @property
-                def _common_path(self):
-                    if self.vrf_name is None:
-                        raise YPYModelError('Key property vrf_name is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:vrfs/Cisco-IOS-XR-aaa-tacacs-cfg:vrf[Cisco-IOS-XR-aaa-tacacs-cfg:vrf-name = ' + str(self.vrf_name) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.vrf_name is not None:
-                        return True
-
-                    if self.source_interface is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.Tacacs.Vrfs.Vrf']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:vrfs'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.vrf is not None:
-                    for child_ref in self.vrf:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.Tacacs.Vrfs']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.hosts is not None and self.hosts._has_data():
-                return True
-
-            if self.ipv4 is not None and self.ipv4._has_data():
-                return True
-
-            if self.ipv6 is not None and self.ipv6._has_data():
-                return True
-
-            if self.key is not None:
-                return True
-
-            if self.single_connect is not None:
-                return True
-
-            if self.timeout is not None:
-                return True
-
-            if self.vrfs is not None and self.vrfs._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-            return meta._meta_table['Aaa.Tacacs']['meta_info']
 
 
     class Radius(object):
@@ -5336,19 +6772,12 @@ class Aaa(object):
                 """
                 Instance of a RADIUS server
                 
-                .. attribute:: acct_port_number  <key>
+                .. attribute:: ordering_index  <key>
                 
-                	Accounting Port number (standard port 1646)
+                	This is used to sort the servers in the order of precedence
                 	**type**\:  int
                 
-                	**range:** 0..65535
-                
-                .. attribute:: auth_port_number  <key>
-                
-                	Authentication Port number (standard port 1645)
-                	**type**\:  int
-                
-                	**range:** 0..65535
+                	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ip_address  <key>
                 
@@ -5367,12 +6796,19 @@ class Aaa(object):
                 
                 
                 ----
-                .. attribute:: ordering_index  <key>
+                .. attribute:: auth_port_number  <key>
                 
-                	This is used to sort the servers in the order of precedence
+                	Authentication Port number (standard port 1645)
                 	**type**\:  int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..65535
+                
+                .. attribute:: acct_port_number  <key>
+                
+                	Accounting Port number (standard port 1646)
+                	**type**\:  int
+                
+                	**range:** 0..65535
                 
                 .. attribute:: host_key
                 
@@ -5432,10 +6868,10 @@ class Aaa(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.acct_port_number = None
-                    self.auth_port_number = None
-                    self.ip_address = None
                     self.ordering_index = None
+                    self.ip_address = None
+                    self.auth_port_number = None
+                    self.acct_port_number = None
                     self.host_key = None
                     self.host_retransmit = None
                     self.host_timeout = None
@@ -5446,34 +6882,32 @@ class Aaa(object):
 
                 @property
                 def _common_path(self):
-                    if self.acct_port_number is None:
-                        raise YPYModelError('Key property acct_port_number is None')
-                    if self.auth_port_number is None:
-                        raise YPYModelError('Key property auth_port_number is None')
-                    if self.ip_address is None:
-                        raise YPYModelError('Key property ip_address is None')
                     if self.ordering_index is None:
                         raise YPYModelError('Key property ordering_index is None')
+                    if self.ip_address is None:
+                        raise YPYModelError('Key property ip_address is None')
+                    if self.auth_port_number is None:
+                        raise YPYModelError('Key property auth_port_number is None')
+                    if self.acct_port_number is None:
+                        raise YPYModelError('Key property acct_port_number is None')
 
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:hosts/Cisco-IOS-XR-aaa-protocol-radius-cfg:host[Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + ']'
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:hosts/Cisco-IOS-XR-aaa-protocol-radius-cfg:host[Cisco-IOS-XR-aaa-protocol-radius-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:auth-port-number = ' + str(self.auth_port_number) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:acct-port-number = ' + str(self.acct_port_number) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.acct_port_number is not None:
-                        return True
-
-                    if self.auth_port_number is not None:
+                    if self.ordering_index is not None:
                         return True
 
                     if self.ip_address is not None:
                         return True
 
-                    if self.ordering_index is not None:
+                    if self.auth_port_number is not None:
+                        return True
+
+                    if self.acct_port_number is not None:
                         return True
 
                     if self.host_key is not None:
@@ -5514,8 +6948,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.host is not None:
                     for child_ref in self.host:
                         if child_ref._has_data():
@@ -5569,8 +7001,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.time is not None:
                     return True
 
@@ -5617,8 +7047,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.null_username is not None:
                     return True
 
@@ -5670,8 +7098,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.dscp is not None:
                     return True
 
@@ -5816,8 +7242,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ip_address is not None:
                             return True
 
@@ -5836,6 +7260,13 @@ class Aaa(object):
                     """
                     Client data
                     
+                    .. attribute:: vrf_name  <key>
+                    
+                    	VRF name
+                    	**type**\:  str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
                     .. attribute:: ip_address  <key>
                     
                     	IP address of COA client
@@ -5853,13 +7284,6 @@ class Aaa(object):
                     
                     
                     ----
-                    .. attribute:: vrf_name  <key>
-                    
-                    	VRF name
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: server_key
                     
                     	RADIUS CoA client encryption key
@@ -5876,30 +7300,28 @@ class Aaa(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.ip_address = None
                         self.vrf_name = None
+                        self.ip_address = None
                         self.server_key = None
 
                     @property
                     def _common_path(self):
-                        if self.ip_address is None:
-                            raise YPYModelError('Key property ip_address is None')
                         if self.vrf_name is None:
                             raise YPYModelError('Key property vrf_name is None')
+                        if self.ip_address is None:
+                            raise YPYModelError('Key property ip_address is None')
 
-                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:dynamic-authorization/Cisco-IOS-XR-aaa-protocol-radius-cfg:clients/Cisco-IOS-XR-aaa-protocol-radius-cfg:client-vrf-name[Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:dynamic-authorization/Cisco-IOS-XR-aaa-protocol-radius-cfg:clients/Cisco-IOS-XR-aaa-protocol-radius-cfg:client-vrf-name[Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf-name = ' + str(self.vrf_name) + '][Cisco-IOS-XR-aaa-protocol-radius-cfg:ip-address = ' + str(self.ip_address) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.ip_address is not None:
+                        if self.vrf_name is not None:
                             return True
 
-                        if self.vrf_name is not None:
+                        if self.ip_address is not None:
                             return True
 
                         if self.server_key is not None:
@@ -5922,8 +7344,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.client is not None:
                         for child_ref in self.client:
                             if child_ref._has_data():
@@ -5951,8 +7371,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.authentication_type is not None:
                     return True
 
@@ -6064,8 +7482,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.batch_size is not None:
                             return True
 
@@ -6089,8 +7505,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.batch_size is not None and self.batch_size._has_data():
                         return True
 
@@ -6111,8 +7525,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.load_balance_method is not None and self.load_balance_method._has_data():
                     return True
 
@@ -6189,8 +7601,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -6214,8 +7624,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.vrf is not None:
                     for child_ref in self.vrf:
                         if child_ref._has_data():
@@ -6283,8 +7691,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.access is not None:
                     return True
 
@@ -6377,8 +7783,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.unknown is not None:
                             return True
 
@@ -6399,8 +7803,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ignore is not None and self.ignore._has_data():
                         return True
 
@@ -6421,8 +7823,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.attribute is not None and self.attribute._has_data():
                     return True
 
@@ -6474,8 +7874,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.dscp is not None:
                     return True
 
@@ -6575,8 +7973,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.direction is not None:
                             return True
 
@@ -6597,8 +7993,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.defaults is not None and self.defaults._has_data():
                         return True
 
@@ -6663,8 +8057,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None:
                             return True
 
@@ -6685,8 +8077,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.include_parent_session_id is not None and self.include_parent_session_id._has_data():
                         return True
 
@@ -6751,8 +8141,6 @@ class Aaa(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.config is not None:
                             return True
 
@@ -6773,8 +8161,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.prepend_nas_port_id is not None and self.prepend_nas_port_id._has_data():
                         return True
 
@@ -6795,8 +8181,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.acct_multi_session_id is not None and self.acct_multi_session_id._has_data():
                     return True
 
@@ -6877,8 +8261,6 @@ class Aaa(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.attribute_list_name is not None:
                         return True
 
@@ -6902,8 +8284,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.attribute is not None:
                     for child_ref in self.attribute:
                         if child_ref._has_data():
@@ -6947,8 +8327,6 @@ class Aaa(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.extended is not None:
                     return True
 
@@ -6969,8 +8347,6 @@ class Aaa(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.attributes is not None and self.attributes._has_data():
                 return True
 
@@ -7042,373 +8418,116 @@ class Aaa(object):
             return meta._meta_table['Aaa.Radius']['meta_info']
 
 
-    class AaaSubscriber(object):
+    class Tacacs(object):
         """
-        AAA subscriber
+        Modify TACACS+ query parameters
         
-        .. attribute:: accountings
+        .. attribute:: hosts
         
-        	AAA accounting
-        	**type**\:   :py:class:`Accountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings>`
+        	Specify a TACACS+ server
+        	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts>`
         
-        .. attribute:: authentications
+        .. attribute:: ipv4
         
-        	AAA authentication
-        	**type**\:   :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications>`
+        	IPv4 configuration
+        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv4>`
         
-        .. attribute:: authorizations
+        .. attribute:: ipv6
         
-        	AAA authorization
-        	**type**\:   :py:class:`Authorizations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations>`
+        	IPv6 configuration
+        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Ipv6>`
         
-        .. attribute:: policy_if_authors
+        .. attribute:: key
         
-        	AAA authorization policy
-        	**type**\:   :py:class:`PolicyIfAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors>`
+        	Set TACACS+ encryption key
+        	**type**\:  str
         
-        .. attribute:: prepaid_authors
+        	**pattern:** (!.+)\|([^!].+)
         
-        	AAA authorization prepaid
-        	**type**\:   :py:class:`PrepaidAuthors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors>`
+        .. attribute:: single_connect
         
-        .. attribute:: service_accounting
+        	Use a single connection for all sessions for a given TACACS+ server
+        	**type**\:  bool
         
-        	Set accounting parameters for Service
-        	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.ServiceAccounting>`
+        	**default value**\: false
+        
+        .. attribute:: timeout
+        
+        	Time to wait for a TACACS+ server to reply
+        	**type**\:  int
+        
+        	**range:** 1..1000
+        
+        	**default value**\: 5
+        
+        .. attribute:: vrfs
+        
+        	List of VRFs
+        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs>`
         
         
 
         """
 
-        _prefix = 'aaa-aaacore-cfg'
+        _prefix = 'aaa-tacacs-cfg'
         _revision = '2015-11-09'
 
         def __init__(self):
             self.parent = None
-            self.accountings = Aaa.AaaSubscriber.Accountings()
-            self.accountings.parent = self
-            self.authentications = Aaa.AaaSubscriber.Authentications()
-            self.authentications.parent = self
-            self.authorizations = Aaa.AaaSubscriber.Authorizations()
-            self.authorizations.parent = self
-            self.policy_if_authors = Aaa.AaaSubscriber.PolicyIfAuthors()
-            self.policy_if_authors.parent = self
-            self.prepaid_authors = Aaa.AaaSubscriber.PrepaidAuthors()
-            self.prepaid_authors.parent = self
-            self.service_accounting = Aaa.AaaSubscriber.ServiceAccounting()
-            self.service_accounting.parent = self
+            self.hosts = Aaa.Tacacs.Hosts()
+            self.hosts.parent = self
+            self.ipv4 = Aaa.Tacacs.Ipv4()
+            self.ipv4.parent = self
+            self.ipv6 = Aaa.Tacacs.Ipv6()
+            self.ipv6.parent = self
+            self.key = None
+            self.single_connect = None
+            self.timeout = None
+            self.vrfs = Aaa.Tacacs.Vrfs()
+            self.vrfs.parent = self
 
 
-        class PolicyIfAuthors(object):
+        class Ipv6(object):
             """
-            AAA authorization policy
+            IPv6 configuration
             
-            .. attribute:: policy_if_author
+            .. attribute:: dscp
             
-            	Configurations related to authorization
-            	**type**\: list of    :py:class:`PolicyIfAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor>`
+            	Specify the DSCP value
+            	**type**\: one of the below types:
             
+            	**type**\:   :py:class:`TacacsDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..63
+            
+            
+            ----
             
 
             """
 
-            _prefix = 'aaa-aaacore-cfg'
+            _prefix = 'aaa-tacacs-cfg'
             _revision = '2015-11-09'
 
             def __init__(self):
                 self.parent = None
-                self.policy_if_author = YList()
-                self.policy_if_author.parent = self
-                self.policy_if_author.name = 'policy_if_author'
-
-
-            class PolicyIfAuthor(object):
-                """
-                Configurations related to authorization
-                
-                .. attribute:: listname  <key>
-                
-                	Named authorization list
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: type  <key>
-                
-                	Set authorization lists
-                	**type**\:  str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\:  list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.listname = None
-                    self.type = None
-                    self.method = YLeafList()
-                    self.method.parent = self
-                    self.method.name = 'method'
-                    self.server_group_name = YLeafList()
-                    self.server_group_name.parent = self
-                    self.server_group_name.name = 'server_group_name'
-
-                @property
-                def _common_path(self):
-                    if self.listname is None:
-                        raise YPYModelError('Key property listname is None')
-                    if self.type is None:
-                        raise YPYModelError('Key property type is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:policy-if-authors/Cisco-IOS-XR-aaa-aaacore-cfg:policy-if-author[Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.listname is not None:
-                        return True
-
-                    if self.type is not None:
-                        return True
-
-                    if self.method is not None:
-                        for child in self.method:
-                            if child is not None:
-                                return True
-
-                    if self.server_group_name is not None:
-                        for child in self.server_group_name:
-                            if child is not None:
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.AaaSubscriber.PolicyIfAuthors.PolicyIfAuthor']['meta_info']
+                self.dscp = None
 
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:policy-if-authors'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:ipv6'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.policy_if_author is not None:
-                    for child_ref in self.policy_if_author:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.AaaSubscriber.PolicyIfAuthors']['meta_info']
-
-
-        class Accountings(object):
-            """
-            AAA accounting
-            
-            .. attribute:: accounting
-            
-            	Configurations related to accounting
-            	**type**\: list of    :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Accountings.Accounting>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.accounting = YList()
-                self.accounting.parent = self
-                self.accounting.name = 'accounting'
-
-
-            class Accounting(object):
-                """
-                Configurations related to accounting
-                
-                .. attribute:: listname  <key>
-                
-                	Named accounting list
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: type  <key>
-                
-                	Set accounting lists
-                	**type**\:  str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: broadcast
-                
-                	Broadcast
-                	**type**\:   :py:class:`AaaAccountingBroadcastEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcastEnum>`
-                
-                	**mandatory**\: True
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\:  list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.listname = None
-                    self.type = None
-                    self.broadcast = None
-                    self.method = YLeafList()
-                    self.method.parent = self
-                    self.method.name = 'method'
-                    self.server_group_name = YLeafList()
-                    self.server_group_name.parent = self
-                    self.server_group_name.name = 'server_group_name'
-
-                @property
-                def _common_path(self):
-                    if self.listname is None:
-                        raise YPYModelError('Key property listname is None')
-                    if self.type is None:
-                        raise YPYModelError('Key property type is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:accountings/Cisco-IOS-XR-aaa-aaacore-cfg:accounting[Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.listname is not None:
-                        return True
-
-                    if self.type is not None:
-                        return True
-
-                    if self.broadcast is not None:
-                        return True
-
-                    if self.method is not None:
-                        for child in self.method:
-                            if child is not None:
-                                return True
-
-                    if self.server_group_name is not None:
-                        for child in self.server_group_name:
-                            if child is not None:
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.AaaSubscriber.Accountings.Accounting']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:accountings'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.accounting is not None:
-                    for child_ref in self.accounting:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.AaaSubscriber.Accountings']['meta_info']
-
-
-        class ServiceAccounting(object):
-            """
-            Set accounting parameters for Service
-            
-            .. attribute:: type
-            
-            	Send extended/brief service accounting records
-            	**type**\:   :py:class:`AaaServiceAccountingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_aaacore_cfg.AaaServiceAccountingEnum>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.type = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:service-accounting'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.type is not None:
+                if self.dscp is not None:
                     return True
 
                 return False
@@ -7416,1689 +8535,138 @@ class Aaa(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.AaaSubscriber.ServiceAccounting']['meta_info']
+                return meta._meta_table['Aaa.Tacacs.Ipv6']['meta_info']
 
 
-        class PrepaidAuthors(object):
+        class Hosts(object):
             """
-            AAA authorization prepaid
+            Specify a TACACS+ server
             
-            .. attribute:: prepaid_author
+            .. attribute:: host
             
-            	Configurations related to authorization
-            	**type**\: list of    :py:class:`PrepaidAuthor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor>`
+            	One of the TACACS+ servers
+            	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Hosts.Host>`
             
             
 
             """
 
-            _prefix = 'aaa-aaacore-cfg'
+            _prefix = 'aaa-tacacs-cfg'
             _revision = '2015-11-09'
 
             def __init__(self):
                 self.parent = None
-                self.prepaid_author = YList()
-                self.prepaid_author.parent = self
-                self.prepaid_author.name = 'prepaid_author'
+                self.host = YList()
+                self.host.parent = self
+                self.host.name = 'host'
 
 
-            class PrepaidAuthor(object):
+            class Host(object):
                 """
-                Configurations related to authorization
+                One of the TACACS+ servers
                 
-                .. attribute:: listname  <key>
+                .. attribute:: ordering_index  <key>
                 
-                	Named authorization list
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: type  <key>
-                
-                	Set authorization lists
-                	**type**\:  str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\:  list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.listname = None
-                    self.type = None
-                    self.method = YLeafList()
-                    self.method.parent = self
-                    self.method.name = 'method'
-                    self.server_group_name = YLeafList()
-                    self.server_group_name.parent = self
-                    self.server_group_name.name = 'server_group_name'
-
-                @property
-                def _common_path(self):
-                    if self.listname is None:
-                        raise YPYModelError('Key property listname is None')
-                    if self.type is None:
-                        raise YPYModelError('Key property type is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:prepaid-authors/Cisco-IOS-XR-aaa-aaacore-cfg:prepaid-author[Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.listname is not None:
-                        return True
-
-                    if self.type is not None:
-                        return True
-
-                    if self.method is not None:
-                        for child in self.method:
-                            if child is not None:
-                                return True
-
-                    if self.server_group_name is not None:
-                        for child in self.server_group_name:
-                            if child is not None:
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.AaaSubscriber.PrepaidAuthors.PrepaidAuthor']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:prepaid-authors'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.prepaid_author is not None:
-                    for child_ref in self.prepaid_author:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.AaaSubscriber.PrepaidAuthors']['meta_info']
-
-
-        class Authorizations(object):
-            """
-            AAA authorization
-            
-            .. attribute:: authorization
-            
-            	Configurations related to authorization
-            	**type**\: list of    :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authorizations.Authorization>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.authorization = YList()
-                self.authorization.parent = self
-                self.authorization.name = 'authorization'
-
-
-            class Authorization(object):
-                """
-                Configurations related to authorization
-                
-                .. attribute:: listname  <key>
-                
-                	Named authorization list
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: type  <key>
-                
-                	Set authorization lists
-                	**type**\:  str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\:  list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.listname = None
-                    self.type = None
-                    self.method = YLeafList()
-                    self.method.parent = self
-                    self.method.name = 'method'
-                    self.server_group_name = YLeafList()
-                    self.server_group_name.parent = self
-                    self.server_group_name.name = 'server_group_name'
-
-                @property
-                def _common_path(self):
-                    if self.listname is None:
-                        raise YPYModelError('Key property listname is None')
-                    if self.type is None:
-                        raise YPYModelError('Key property type is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:authorizations/Cisco-IOS-XR-aaa-aaacore-cfg:authorization[Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.listname is not None:
-                        return True
-
-                    if self.type is not None:
-                        return True
-
-                    if self.method is not None:
-                        for child in self.method:
-                            if child is not None:
-                                return True
-
-                    if self.server_group_name is not None:
-                        for child in self.server_group_name:
-                            if child is not None:
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.AaaSubscriber.Authorizations.Authorization']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:authorizations'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.authorization is not None:
-                    for child_ref in self.authorization:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.AaaSubscriber.Authorizations']['meta_info']
-
-
-        class Authentications(object):
-            """
-            AAA authentication
-            
-            .. attribute:: authentication
-            
-            	Configurations related to authentication
-            	**type**\: list of    :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaSubscriber.Authentications.Authentication>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.authentication = YList()
-                self.authentication.parent = self
-                self.authentication.name = 'authentication'
-
-
-            class Authentication(object):
-                """
-                Configurations related to authentication
-                
-                .. attribute:: listname  <key>
-                
-                	Named authentication list
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: type  <key>
-                
-                	Set authentication lists
-                	**type**\:  str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\:  list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.listname = None
-                    self.type = None
-                    self.method = YLeafList()
-                    self.method.parent = self
-                    self.method.name = 'method'
-                    self.server_group_name = YLeafList()
-                    self.server_group_name.parent = self
-                    self.server_group_name.name = 'server_group_name'
-
-                @property
-                def _common_path(self):
-                    if self.listname is None:
-                        raise YPYModelError('Key property listname is None')
-                    if self.type is None:
-                        raise YPYModelError('Key property type is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:authentications/Cisco-IOS-XR-aaa-aaacore-cfg:authentication[Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.listname is not None:
-                        return True
-
-                    if self.type is not None:
-                        return True
-
-                    if self.method is not None:
-                        for child in self.method:
-                            if child is not None:
-                                return True
-
-                    if self.server_group_name is not None:
-                        for child in self.server_group_name:
-                            if child is not None:
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.AaaSubscriber.Authentications.Authentication']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber/Cisco-IOS-XR-aaa-aaacore-cfg:authentications'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.authentication is not None:
-                    for child_ref in self.authentication:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.AaaSubscriber.Authentications']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-subscriber'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.accountings is not None and self.accountings._has_data():
-                return True
-
-            if self.authentications is not None and self.authentications._has_data():
-                return True
-
-            if self.authorizations is not None and self.authorizations._has_data():
-                return True
-
-            if self.policy_if_authors is not None and self.policy_if_authors._has_data():
-                return True
-
-            if self.prepaid_authors is not None and self.prepaid_authors._has_data():
-                return True
-
-            if self.service_accounting is not None and self.service_accounting._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-            return meta._meta_table['Aaa.AaaSubscriber']['meta_info']
-
-
-    class AaaMobile(object):
-        """
-        AAA Mobile
-        
-        .. attribute:: mobiles
-        
-        	AAA Mobile Accounting
-        	**type**\:   :py:class:`Mobiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-aaacore-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.mobiles = Aaa.AaaMobile.Mobiles()
-            self.mobiles.parent = self
-
-
-        class Mobiles(object):
-            """
-            AAA Mobile Accounting
-            
-            .. attribute:: mobile
-            
-            	Configurations related to accounting
-            	**type**\: list of    :py:class:`Mobile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaMobile.Mobiles.Mobile>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.mobile = YList()
-                self.mobile.parent = self
-                self.mobile.name = 'mobile'
-
-
-            class Mobile(object):
-                """
-                Configurations related to accounting
-                
-                .. attribute:: listname  <key>
-                
-                	Named accounting list
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: broadcast
-                
-                	Broadcast
-                	**type**\:   :py:class:`AaaAccountingBroadcastEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaAccountingBroadcastEnum>`
-                
-                	**mandatory**\: True
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\:  list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.listname = None
-                    self.broadcast = None
-                    self.method = YLeafList()
-                    self.method.parent = self
-                    self.method.name = 'method'
-                    self.server_group_name = YLeafList()
-                    self.server_group_name.parent = self
-                    self.server_group_name.name = 'server_group_name'
-
-                @property
-                def _common_path(self):
-                    if self.listname is None:
-                        raise YPYModelError('Key property listname is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile/Cisco-IOS-XR-aaa-aaacore-cfg:mobiles/Cisco-IOS-XR-aaa-aaacore-cfg:mobile[Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.listname is not None:
-                        return True
-
-                    if self.broadcast is not None:
-                        return True
-
-                    if self.method is not None:
-                        for child in self.method:
-                            if child is not None:
-                                return True
-
-                    if self.server_group_name is not None:
-                        for child in self.server_group_name:
-                            if child is not None:
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.AaaMobile.Mobiles.Mobile']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile/Cisco-IOS-XR-aaa-aaacore-cfg:mobiles'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.mobile is not None:
-                    for child_ref in self.mobile:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.AaaMobile.Mobiles']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-mobile'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.mobiles is not None and self.mobiles._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-            return meta._meta_table['Aaa.AaaMobile']['meta_info']
-
-
-    class AaaDot1X(object):
-        """
-        AAA Dot1x
-        
-        .. attribute:: authentications
-        
-        	AAA authentication
-        	**type**\:   :py:class:`Authentications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-aaacore-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.authentications = Aaa.AaaDot1X.Authentications()
-            self.authentications.parent = self
-
-
-        class Authentications(object):
-            """
-            AAA authentication
-            
-            .. attribute:: authentication
-            
-            	Configurations related to authentication
-            	**type**\: list of    :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.AaaDot1X.Authentications.Authentication>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.authentication = YList()
-                self.authentication.parent = self
-                self.authentication.name = 'authentication'
-
-
-            class Authentication(object):
-                """
-                Configurations related to authentication
-                
-                .. attribute:: listname  <key>
-                
-                	Named authentication list
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: type  <key>
-                
-                	Set authentication lists
-                	**type**\:  str
-                
-                	**pattern:** (subscriber)\|(service)\|(policy\-if)\|(prepaid)\|(dot1x)
-                
-                .. attribute:: method
-                
-                	Method Types
-                	**type**\:  list of   :py:class:`AaaMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes.AaaMethodEnum>`
-                
-                .. attribute:: server_group_name
-                
-                	Server group names
-                	**type**\:  list of str
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.listname = None
-                    self.type = None
-                    self.method = YLeafList()
-                    self.method.parent = self
-                    self.method.name = 'method'
-                    self.server_group_name = YLeafList()
-                    self.server_group_name.parent = self
-                    self.server_group_name.name = 'server_group_name'
-
-                @property
-                def _common_path(self):
-                    if self.listname is None:
-                        raise YPYModelError('Key property listname is None')
-                    if self.type is None:
-                        raise YPYModelError('Key property type is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x/Cisco-IOS-XR-aaa-aaacore-cfg:authentications/Cisco-IOS-XR-aaa-aaacore-cfg:authentication[Cisco-IOS-XR-aaa-aaacore-cfg:listname = ' + str(self.listname) + '][Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.listname is not None:
-                        return True
-
-                    if self.type is not None:
-                        return True
-
-                    if self.method is not None:
-                        for child in self.method:
-                            if child is not None:
-                                return True
-
-                    if self.server_group_name is not None:
-                        for child in self.server_group_name:
-                            if child is not None:
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.AaaDot1X.Authentications.Authentication']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x/Cisco-IOS-XR-aaa-aaacore-cfg:authentications'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.authentication is not None:
-                    for child_ref in self.authentication:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.AaaDot1X.Authentications']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:aaa-dot1x'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.authentications is not None and self.authentications._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-            return meta._meta_table['Aaa.AaaDot1X']['meta_info']
-
-
-    class RadiusAttribute(object):
-        """
-        AAA RADIUS attribute configurations
-        
-        .. attribute:: called_station
-        
-        	AAA called station id attribute
-        	**type**\:   :py:class:`CalledStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation>`
-        
-        .. attribute:: calling_station
-        
-        	AAA calling station id attribute
-        	**type**\:   :py:class:`CallingStation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation>`
-        
-        .. attribute:: format_others
-        
-        	AAA nas\-port\-id attribute format
-        	**type**\:   :py:class:`FormatOthers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers>`
-        
-        .. attribute:: nas_port
-        
-        	AAA nas\-port\-id attribute
-        	**type**\:   :py:class:`NasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort>`
-        
-        .. attribute:: nas_port_id
-        
-        	AAA nas\-port\-id attribute
-        	**type**\:   :py:class:`NasPortId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-aaacore-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            self.parent = None
-            self.called_station = Aaa.RadiusAttribute.CalledStation()
-            self.called_station.parent = self
-            self.calling_station = Aaa.RadiusAttribute.CallingStation()
-            self.calling_station.parent = self
-            self.format_others = Aaa.RadiusAttribute.FormatOthers()
-            self.format_others.parent = self
-            self.nas_port = Aaa.RadiusAttribute.NasPort()
-            self.nas_port.parent = self
-            self.nas_port_id = Aaa.RadiusAttribute.NasPortId()
-            self.nas_port_id.parent = self
-
-
-        class NasPortId(object):
-            """
-            AAA nas\-port\-id attribute
-            
-            .. attribute:: formats
-            
-            	AAA nas\-port\-id attribute format
-            	**type**\:   :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.formats = Aaa.RadiusAttribute.NasPortId.Formats()
-                self.formats.parent = self
-
-
-            class Formats(object):
-                """
-                AAA nas\-port\-id attribute format
-                
-                .. attribute:: format
-                
-                	nas\-port\-id attribute format
-                	**type**\: list of    :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPortId.Formats.Format>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.format = YList()
-                    self.format.parent = self
-                    self.format.name = 'format'
-
-
-                class Format(object):
-                    """
-                    nas\-port\-id attribute format
-                    
-                    .. attribute:: type  <key>
-                    
-                    	Nas\-Port\-Type value to apply format name on
-                    	**type**\:  int
-                    
-                    	**range:** 0..45
-                    
-                    .. attribute:: format_name
-                    
-                    	AAA nas\-port attribute format
-                    	**type**\:  str
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-aaacore-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.type = None
-                        self.format_name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.type is None:
-                            raise YPYModelError('Key property type is None')
-
-                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port-id/Cisco-IOS-XR-aaa-aaacore-cfg:formats/Cisco-IOS-XR-aaa-aaacore-cfg:format[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.type is not None:
-                            return True
-
-                        if self.format_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                        return meta._meta_table['Aaa.RadiusAttribute.NasPortId.Formats.Format']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port-id/Cisco-IOS-XR-aaa-aaacore-cfg:formats'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.format is not None:
-                        for child_ref in self.format:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.RadiusAttribute.NasPortId.Formats']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port-id'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.formats is not None and self.formats._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.RadiusAttribute.NasPortId']['meta_info']
-
-
-        class CallingStation(object):
-            """
-            AAA calling station id attribute
-            
-            .. attribute:: formats
-            
-            	AAA nas\-port\-id attribute format
-            	**type**\:   :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.formats = Aaa.RadiusAttribute.CallingStation.Formats()
-                self.formats.parent = self
-
-
-            class Formats(object):
-                """
-                AAA nas\-port\-id attribute format
-                
-                .. attribute:: format
-                
-                	nas\-port\-id attribute format
-                	**type**\: list of    :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CallingStation.Formats.Format>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.format = YList()
-                    self.format.parent = self
-                    self.format.name = 'format'
-
-
-                class Format(object):
-                    """
-                    nas\-port\-id attribute format
-                    
-                    .. attribute:: type  <key>
-                    
-                    	Nas\-Port\-Type value to apply format name on
-                    	**type**\:  int
-                    
-                    	**range:** 0..45
-                    
-                    .. attribute:: format_name
-                    
-                    	AAA nas\-port attribute format
-                    	**type**\:  str
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-aaacore-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.type = None
-                        self.format_name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.type is None:
-                            raise YPYModelError('Key property type is None')
-
-                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:calling-station/Cisco-IOS-XR-aaa-aaacore-cfg:formats/Cisco-IOS-XR-aaa-aaacore-cfg:format[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.type is not None:
-                            return True
-
-                        if self.format_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                        return meta._meta_table['Aaa.RadiusAttribute.CallingStation.Formats.Format']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:calling-station/Cisco-IOS-XR-aaa-aaacore-cfg:formats'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.format is not None:
-                        for child_ref in self.format:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.RadiusAttribute.CallingStation.Formats']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:calling-station'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.formats is not None and self.formats._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.RadiusAttribute.CallingStation']['meta_info']
-
-
-        class CalledStation(object):
-            """
-            AAA called station id attribute
-            
-            .. attribute:: formats
-            
-            	AAA nas\-port\-id attribute format
-            	**type**\:   :py:class:`Formats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.formats = Aaa.RadiusAttribute.CalledStation.Formats()
-                self.formats.parent = self
-
-
-            class Formats(object):
-                """
-                AAA nas\-port\-id attribute format
-                
-                .. attribute:: format
-                
-                	nas\-port\-id attribute format
-                	**type**\: list of    :py:class:`Format <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.CalledStation.Formats.Format>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.format = YList()
-                    self.format.parent = self
-                    self.format.name = 'format'
-
-
-                class Format(object):
-                    """
-                    nas\-port\-id attribute format
-                    
-                    .. attribute:: type  <key>
-                    
-                    	Nas\-Port\-Type value to apply format name on
-                    	**type**\:  int
-                    
-                    	**range:** 0..45
-                    
-                    .. attribute:: format_name
-                    
-                    	AAA nas\-port attribute format
-                    	**type**\:  str
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-aaacore-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.type = None
-                        self.format_name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.type is None:
-                            raise YPYModelError('Key property type is None')
-
-                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:called-station/Cisco-IOS-XR-aaa-aaacore-cfg:formats/Cisco-IOS-XR-aaa-aaacore-cfg:format[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.type is not None:
-                            return True
-
-                        if self.format_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                        return meta._meta_table['Aaa.RadiusAttribute.CalledStation.Formats.Format']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:called-station/Cisco-IOS-XR-aaa-aaacore-cfg:formats'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.format is not None:
-                        for child_ref in self.format:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.RadiusAttribute.CalledStation.Formats']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:called-station'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.formats is not None and self.formats._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.RadiusAttribute.CalledStation']['meta_info']
-
-
-        class NasPort(object):
-            """
-            AAA nas\-port\-id attribute
-            
-            .. attribute:: format_extendeds
-            
-            	AAA nas\-port\-id attribute format
-            	**type**\:   :py:class:`FormatExtendeds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.format_extendeds = Aaa.RadiusAttribute.NasPort.FormatExtendeds()
-                self.format_extendeds.parent = self
-
-
-            class FormatExtendeds(object):
-                """
-                AAA nas\-port\-id attribute format
-                
-                .. attribute:: format_extended
-                
-                	nas\-port\-id extended attribute
-                	**type**\: list of    :py:class:`FormatExtended <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-aaacore-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.format_extended = YList()
-                    self.format_extended.parent = self
-                    self.format_extended.name = 'format_extended'
-
-
-                class FormatExtended(object):
-                    """
-                    nas\-port\-id extended attribute
-                    
-                    .. attribute:: type  <key>
-                    
-                    	AAA nas\-port attribute format
-                    	**type**\:  int
-                    
-                    	**range:** 0..45
-                    
-                    .. attribute:: value  <key>
-                    
-                    	format type
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: format_identifier
-                    
-                    	A 32 character string representing the format to be used
-                    	**type**\:  str
-                    
-                    	**length:** 1..32
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-aaacore-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.type = None
-                        self.value = None
-                        self.format_identifier = None
-
-                    @property
-                    def _common_path(self):
-                        if self.type is None:
-                            raise YPYModelError('Key property type is None')
-                        if self.value is None:
-                            raise YPYModelError('Key property value is None')
-
-                        return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port/Cisco-IOS-XR-aaa-aaacore-cfg:format-extendeds/Cisco-IOS-XR-aaa-aaacore-cfg:format-extended[Cisco-IOS-XR-aaa-aaacore-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-aaa-aaacore-cfg:value = ' + str(self.value) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.type is not None:
-                            return True
-
-                        if self.value is not None:
-                            return True
-
-                        if self.format_identifier is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                        return meta._meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds.FormatExtended']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port/Cisco-IOS-XR-aaa-aaacore-cfg:format-extendeds'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.format_extended is not None:
-                        for child_ref in self.format_extended:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.RadiusAttribute.NasPort.FormatExtendeds']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:nas-port'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.format_extendeds is not None and self.format_extendeds._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.RadiusAttribute.NasPort']['meta_info']
-
-
-        class FormatOthers(object):
-            """
-            AAA nas\-port\-id attribute format
-            
-            .. attribute:: format_other
-            
-            	Other configs
-            	**type**\: list of    :py:class:`FormatOther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.RadiusAttribute.FormatOthers.FormatOther>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-aaacore-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.format_other = YList()
-                self.format_other.parent = self
-                self.format_other.name = 'format_other'
-
-
-            class FormatOther(object):
-                """
-                Other configs
-                
-                .. attribute:: nas_port_type_name  <key>
-                
-                	Nas\-Port\-Type value to apply format name on
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: attribute_config1
-                
-                	Argument1
-                	**type**\:  str
-                
-                .. attribute:: attribute_config10
-                
-                	Argument10
-                	**type**\:  str
-                
-                .. attribute:: attribute_config11
-                
-                	Argument11
-                	**type**\:  str
-                
-                .. attribute:: attribute_config12
-                
-                	Argument12
-                	**type**\:  str
-                
-                .. attribute:: attribute_config13
-                
-                	Argument13
-                	**type**\:  str
-                
-                .. attribute:: attribute_config14
-                
-                	Argument14
-                	**type**\:  str
-                
-                .. attribute:: attribute_config15
-                
-                	Argument15
-                	**type**\:  str
-                
-                .. attribute:: attribute_config16
-                
-                	Argument16
-                	**type**\:  str
-                
-                .. attribute:: attribute_config17
-                
-                	Argument17
-                	**type**\:  str
-                
-                .. attribute:: attribute_config18
-                
-                	Argument18
-                	**type**\:  str
-                
-                .. attribute:: attribute_config19
-                
-                	Argument19
+                	This is used to sort the servers in the order of precedence
                 	**type**\:  int
                 
-                	**range:** 1..253
+                	**range:** \-2147483648..2147483647
                 
-                .. attribute:: attribute_config2
+                .. attribute:: ip_address  <key>
                 
-                	Argument2
+                	IP address of TACACS+ server
+                	**type**\: one of the below types:
+                
                 	**type**\:  str
                 
-                .. attribute:: attribute_config3
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
-                	Argument3
+                
+                ----
                 	**type**\:  str
                 
-                .. attribute:: attribute_config4
+                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
-                	Argument4
+                
+                ----
+                .. attribute:: port_number  <key>
+                
+                	Port number (standard 49)
+                	**type**\:  int
+                
+                	**range:** 1..65535
+                
+                .. attribute:: key
+                
+                	Set TACACS+ encryption key
                 	**type**\:  str
                 
-                .. attribute:: attribute_config5
+                	**pattern:** (!.+)\|([^!].+)
                 
-                	Argument5
-                	**type**\:  str
+                .. attribute:: single_connect
                 
-                .. attribute:: attribute_config6
+                	Use a single connection for all sessions for a given TACACS+ server
+                	**type**\:  bool
                 
-                	Argument6
-                	**type**\:  str
+                	**default value**\: false
                 
-                .. attribute:: attribute_config7
+                .. attribute:: timeout
                 
-                	Argument7
-                	**type**\:  str
+                	Time to wait for a TACACS+ server to reply
+                	**type**\:  int
                 
-                .. attribute:: attribute_config8
+                	**range:** 1..1000
                 
-                	Argument8
-                	**type**\:  str
-                
-                .. attribute:: attribute_config9
-                
-                	Argument9
-                	**type**\:  str
+                	**default value**\: 5
                 
                 
 
                 """
 
-                _prefix = 'aaa-aaacore-cfg'
+                _prefix = 'aaa-tacacs-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
                     self.parent = None
-                    self.nas_port_type_name = None
-                    self.attribute_config1 = None
-                    self.attribute_config10 = None
-                    self.attribute_config11 = None
-                    self.attribute_config12 = None
-                    self.attribute_config13 = None
-                    self.attribute_config14 = None
-                    self.attribute_config15 = None
-                    self.attribute_config16 = None
-                    self.attribute_config17 = None
-                    self.attribute_config18 = None
-                    self.attribute_config19 = None
-                    self.attribute_config2 = None
-                    self.attribute_config3 = None
-                    self.attribute_config4 = None
-                    self.attribute_config5 = None
-                    self.attribute_config6 = None
-                    self.attribute_config7 = None
-                    self.attribute_config8 = None
-                    self.attribute_config9 = None
+                    self.ordering_index = None
+                    self.ip_address = None
+                    self.port_number = None
+                    self.key = None
+                    self.single_connect = None
+                    self.timeout = None
 
                 @property
                 def _common_path(self):
-                    if self.nas_port_type_name is None:
-                        raise YPYModelError('Key property nas_port_type_name is None')
+                    if self.ordering_index is None:
+                        raise YPYModelError('Key property ordering_index is None')
+                    if self.ip_address is None:
+                        raise YPYModelError('Key property ip_address is None')
+                    if self.port_number is None:
+                        raise YPYModelError('Key property port_number is None')
 
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:format-others/Cisco-IOS-XR-aaa-aaacore-cfg:format-other[Cisco-IOS-XR-aaa-aaacore-cfg:nas-port-type-name = ' + str(self.nas_port_type_name) + ']'
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:hosts/Cisco-IOS-XR-aaa-tacacs-cfg:host[Cisco-IOS-XR-aaa-tacacs-cfg:ordering-index = ' + str(self.ordering_index) + '][Cisco-IOS-XR-aaa-tacacs-cfg:ip-address = ' + str(self.ip_address) + '][Cisco-IOS-XR-aaa-tacacs-cfg:port-number = ' + str(self.port_number) + ']'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.nas_port_type_name is not None:
+                    if self.ordering_index is not None:
                         return True
 
-                    if self.attribute_config1 is not None:
+                    if self.ip_address is not None:
                         return True
 
-                    if self.attribute_config10 is not None:
+                    if self.port_number is not None:
                         return True
 
-                    if self.attribute_config11 is not None:
+                    if self.key is not None:
                         return True
 
-                    if self.attribute_config12 is not None:
+                    if self.single_connect is not None:
                         return True
 
-                    if self.attribute_config13 is not None:
-                        return True
-
-                    if self.attribute_config14 is not None:
-                        return True
-
-                    if self.attribute_config15 is not None:
-                        return True
-
-                    if self.attribute_config16 is not None:
-                        return True
-
-                    if self.attribute_config17 is not None:
-                        return True
-
-                    if self.attribute_config18 is not None:
-                        return True
-
-                    if self.attribute_config19 is not None:
-                        return True
-
-                    if self.attribute_config2 is not None:
-                        return True
-
-                    if self.attribute_config3 is not None:
-                        return True
-
-                    if self.attribute_config4 is not None:
-                        return True
-
-                    if self.attribute_config5 is not None:
-                        return True
-
-                    if self.attribute_config6 is not None:
-                        return True
-
-                    if self.attribute_config7 is not None:
-                        return True
-
-                    if self.attribute_config8 is not None:
-                        return True
-
-                    if self.attribute_config9 is not None:
+                    if self.timeout is not None:
                         return True
 
                     return False
@@ -9106,22 +8674,20 @@ class Aaa(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.RadiusAttribute.FormatOthers.FormatOther']['meta_info']
+                    return meta._meta_table['Aaa.Tacacs.Hosts.Host']['meta_info']
 
             @property
             def _common_path(self):
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute/Cisco-IOS-XR-aaa-aaacore-cfg:format-others'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:hosts'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.format_other is not None:
-                    for child_ref in self.format_other:
+                if self.host is not None:
+                    for child_ref in self.host:
                         if child_ref._has_data():
                             return True
 
@@ -9130,33 +8696,189 @@ class Aaa(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.RadiusAttribute.FormatOthers']['meta_info']
+                return meta._meta_table['Aaa.Tacacs.Hosts']['meta_info']
+
+
+        class Ipv4(object):
+            """
+            IPv4 configuration
+            
+            .. attribute:: dscp
+            
+            	Specify the DSCP value
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`TacacsDscpValueEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg.TacacsDscpValueEnum>`
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 0..63
+            
+            
+            ----
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.dscp = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:ipv4'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.dscp is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.Tacacs.Ipv4']['meta_info']
+
+
+        class Vrfs(object):
+            """
+            List of VRFs
+            
+            .. attribute:: vrf
+            
+            	A VRF
+            	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Tacacs.Vrfs.Vrf>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.vrf = YList()
+                self.vrf.parent = self
+                self.vrf.name = 'vrf'
+
+
+            class Vrf(object):
+                """
+                A VRF
+                
+                .. attribute:: vrf_name  <key>
+                
+                	VRF name. Specify 'default' for default VRF
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: source_interface
+                
+                	Specify interface for source address in TACACS+ packets
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.vrf_name = None
+                    self.source_interface = None
+
+                @property
+                def _common_path(self):
+                    if self.vrf_name is None:
+                        raise YPYModelError('Key property vrf_name is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:vrfs/Cisco-IOS-XR-aaa-tacacs-cfg:vrf[Cisco-IOS-XR-aaa-tacacs-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.vrf_name is not None:
+                        return True
+
+                    if self.source_interface is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.Tacacs.Vrfs.Vrf']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs/Cisco-IOS-XR-aaa-tacacs-cfg:vrfs'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if self.vrf is not None:
+                    for child_ref in self.vrf:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.Tacacs.Vrfs']['meta_info']
 
         @property
         def _common_path(self):
 
-            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-aaacore-cfg:radius-attribute'
+            return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-tacacs-cfg:tacacs'
 
         def is_config(self):
             ''' Returns True if this instance represents config data else returns False '''
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
-            if self.called_station is not None and self.called_station._has_data():
+            if self.hosts is not None and self.hosts._has_data():
                 return True
 
-            if self.calling_station is not None and self.calling_station._has_data():
+            if self.ipv4 is not None and self.ipv4._has_data():
                 return True
 
-            if self.format_others is not None and self.format_others._has_data():
+            if self.ipv6 is not None and self.ipv6._has_data():
                 return True
 
-            if self.nas_port is not None and self.nas_port._has_data():
+            if self.key is not None:
                 return True
 
-            if self.nas_port_id is not None and self.nas_port_id._has_data():
+            if self.single_connect is not None:
+                return True
+
+            if self.timeout is not None:
+                return True
+
+            if self.vrfs is not None and self.vrfs._has_data():
                 return True
 
             return False
@@ -9164,7 +8886,7 @@ class Aaa(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-            return meta._meta_table['Aaa.RadiusAttribute']['meta_info']
+            return meta._meta_table['Aaa.Tacacs']['meta_info']
 
     @property
     def _common_path(self):
@@ -9176,8 +8898,6 @@ class Aaa(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.aaa_dot1x is not None and self.aaa_dot1x._has_data():
             return True
 

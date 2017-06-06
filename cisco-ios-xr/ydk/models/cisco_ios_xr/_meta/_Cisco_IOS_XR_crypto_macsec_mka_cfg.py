@@ -13,16 +13,16 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'MacsecMkaSecurityPolicyEnum' : _MetaInfoEnum('MacsecMkaSecurityPolicyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg',
+        {
+            'should-secure':'should_secure',
+            'must-secure':'must_secure',
+        }, 'Cisco-IOS-XR-crypto-macsec-mka-cfg', _yang_ns._namespaces['Cisco-IOS-XR-crypto-macsec-mka-cfg']),
     'MacsecMkaConfOffsetEnum' : _MetaInfoEnum('MacsecMkaConfOffsetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg',
         {
             'conf-off-set-0':'conf_off_set_0',
             'conf-off-set-30':'conf_off_set_30',
             'conf-off-set-50':'conf_off_set_50',
-        }, 'Cisco-IOS-XR-crypto-macsec-mka-cfg', _yang_ns._namespaces['Cisco-IOS-XR-crypto-macsec-mka-cfg']),
-    'MacsecMkaSecurityPolicyEnum' : _MetaInfoEnum('MacsecMkaSecurityPolicyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg',
-        {
-            'should-secure':'should_secure',
-            'must-secure':'must_secure',
         }, 'Cisco-IOS-XR-crypto-macsec-mka-cfg', _yang_ns._namespaces['Cisco-IOS-XR-crypto-macsec-mka-cfg']),
     'MacsecMkaPolicyExceptionEnum' : _MetaInfoEnum('MacsecMkaPolicyExceptionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg',
         {

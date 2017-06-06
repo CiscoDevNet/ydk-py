@@ -52,7 +52,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('apply-group', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                apply-group name
                 ''',
                 'apply_group',

@@ -232,8 +232,6 @@ class MemorySummary(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.boot_ram_size is not None:
                         return True
 
@@ -486,8 +484,6 @@ class MemorySummary(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.shared_window is not None:
                             return True
 
@@ -513,8 +509,6 @@ class MemorySummary(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.allocated_memory is not None:
                         return True
 
@@ -587,8 +581,6 @@ class MemorySummary(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -615,8 +607,6 @@ class MemorySummary(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -639,8 +629,6 @@ class MemorySummary(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

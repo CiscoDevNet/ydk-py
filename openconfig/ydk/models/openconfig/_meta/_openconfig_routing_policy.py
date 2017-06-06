@@ -33,7 +33,7 @@ _meta_table = {
                 'ip_prefix',
                 'openconfig-routing-policy', True, [
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'], 
                         '''                        The prefix member in CIDR notation -- while the
                         prefix may be either IPv4 or IPv6, most
                         implementations require all members of the prefix set
@@ -43,7 +43,7 @@ _meta_table = {
                         'ip_prefix',
                         'openconfig-routing-policy', True),
                     _MetaInfoClassMember('ip-prefix', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'], 
                         '''                        The prefix member in CIDR notation -- while the
                         prefix may be either IPv4 or IPv6, most
                         implementations require all members of the prefix set
@@ -54,7 +54,7 @@ _meta_table = {
                         'openconfig-routing-policy', True),
                 ]),
             _MetaInfoClassMember('masklength-range', ATTRIBUTE, 'str' , None, None, 
-                [], ['^([0-9]+\\.\\.[0-9]+)|exact$'], 
+                [], [b'^([0-9]+\\.\\.[0-9]+)|exact$'], 
                 '''                Defines a range for the masklength, or 'exact' if
                 the prefix has an exact length.
                 
@@ -127,13 +127,13 @@ _meta_table = {
                 'address',
                 'openconfig-routing-policy', True, [
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of the neighbor set member
                         ''',
                         'address',
                         'openconfig-routing-policy', True),
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        IP address of the neighbor set member
                         ''',
                         'address',
@@ -204,7 +204,7 @@ _meta_table = {
                         'value',
                         'openconfig-routing-policy', True),
                     _MetaInfoClassMember('value', ATTRIBUTE, 'str' , None, None, 
-                        [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                        [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                         '''                        Value of the tag set member
                         ''',
                         'value',
@@ -288,7 +288,7 @@ _meta_table = {
                                 'community_member',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['([0-9]+:[0-9]+)'], 
+                                [], [b'([0-9]+:[0-9]+)'], 
                                 '''                                members of the community set
                                 ''',
                                 'community_member',
@@ -355,37 +355,37 @@ _meta_table = {
                         'ext_community_member',
                         'openconfig-bgp-policy', False, [
                             _MetaInfoClassMember('ext-community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
+                                [], [b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
                                 '''                                members of the extended community set
                                 ''',
                                 'ext_community_member',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('ext-community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
+                                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
                                 '''                                members of the extended community set
                                 ''',
                                 'ext_community_member',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('ext-community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
+                                [], [b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
                                 '''                                members of the extended community set
                                 ''',
                                 'ext_community_member',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('ext-community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
+                                [], [b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
                                 '''                                members of the extended community set
                                 ''',
                                 'ext_community_member',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('ext-community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
+                                [], [b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
                                 '''                                members of the extended community set
                                 ''',
                                 'ext_community_member',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('ext-community-member', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
+                                [], [b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
                                 '''                                members of the extended community set
                                 ''',
                                 'ext_community_member',
@@ -807,14 +807,14 @@ _meta_table = {
                 'next_hop_in',
                 'openconfig-bgp-policy', False, [
                     _MetaInfoClassMember('next-hop-in', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        List of next hop addresses to check for in the route
                         update
                         ''',
                         'next_hop_in',
                         'openconfig-bgp-policy', False),
                     _MetaInfoClassMember('next-hop-in', REFERENCE_LEAFLIST, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        List of next hop addresses to check for in the route
                         update
                         ''',
@@ -927,7 +927,7 @@ _meta_table = {
                         'set_tag',
                         'openconfig-routing-policy', False),
                     _MetaInfoClassMember('set-tag', ATTRIBUTE, 'str' , None, None, 
-                        [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                        [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                         '''                        Set the tag value for OSPF or IS-IS routes.
                         ''',
                         'set_tag',
@@ -984,7 +984,7 @@ _meta_table = {
                                 'communities',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['([0-9]+:[0-9]+)'], 
+                                [], [b'([0-9]+:[0-9]+)'], 
                                 '''                                Set the community values for the update inline with
                                 a list.
                                 ''',
@@ -1039,42 +1039,42 @@ _meta_table = {
                         'communities',
                         'openconfig-bgp-policy', False, [
                             _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
+                                [], [b'(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
                                 '''                                Set the community values for the update inline with
                                 a list.
                                 ''',
                                 'communities',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
+                                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
                                 '''                                Set the community values for the update inline with
                                 a list.
                                 ''',
                                 'communities',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
+                                [], [b'route\\-target:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
                                 '''                                Set the community values for the update inline with
                                 a list.
                                 ''',
                                 'communities',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
+                                [], [b'route\\-target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
                                 '''                                Set the community values for the update inline with
                                 a list.
                                 ''',
                                 'communities',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
+                                [], [b'route\\-origin:(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-6]|[1-3][0-9]{9}|[1-9]([0-9]{1,7})?[0-9]|[1-9])'], 
                                 '''                                Set the community values for the update inline with
                                 a list.
                                 ''',
                                 'communities',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('communities', REFERENCE_LEAFLIST, 'str' , None, None, 
-                                [], ['route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
+                                [], [b'route\\-origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6[0-5][0-5][0-3][0-5]|[1-5][0-9]{4}|[1-9][0-9]{1,4}|[0-9])'], 
                                 '''                                Set the community values for the update inline with
                                 a list.
                                 ''',
@@ -1160,7 +1160,7 @@ _meta_table = {
                         'set_med',
                         'openconfig-bgp-policy', False),
                     _MetaInfoClassMember('set-med', ATTRIBUTE, 'str' , None, None, 
-                        [], ['^[+-][0-9]+'], 
+                        [], [b'^[+-][0-9]+'], 
                         '''                        set the med metric attribute in the route
                         update
                         ''',
@@ -1187,13 +1187,13 @@ _meta_table = {
                         'set_next_hop',
                         'openconfig-bgp-policy', False, [
                             _MetaInfoClassMember('set-next-hop', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                set the next-hop attribute in the route update
                                 ''',
                                 'set_next_hop',
                                 'openconfig-bgp-policy', False),
                             _MetaInfoClassMember('set-next-hop', ATTRIBUTE, 'str' , None, None, 
-                                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                set the next-hop attribute in the route update
                                 ''',
                                 'set_next_hop',

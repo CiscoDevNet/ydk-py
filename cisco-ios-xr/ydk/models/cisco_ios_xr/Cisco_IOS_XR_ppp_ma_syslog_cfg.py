@@ -76,8 +76,6 @@ class Ppp(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.enable_session_status is not None:
                 return True
 
@@ -98,8 +96,6 @@ class Ppp(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.syslog is not None and self.syslog._has_data():
             return True
 

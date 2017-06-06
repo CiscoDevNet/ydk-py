@@ -13,6 +13,27 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'ServiceTypeEnum' : _MetaInfoEnum('ServiceTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
+        {
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'dual':'dual',
+        }, 'Cisco-IOS-XR-ip-mobileip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-mobileip-cfg']),
+    'LmaRoleEnum' : _MetaInfoEnum('LmaRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
+        {
+            '3gma':'Y_3gma',
+        }, 'Cisco-IOS-XR-ip-mobileip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-mobileip-cfg']),
+    'LmaServiceEnum' : _MetaInfoEnum('LmaServiceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
+        {
+            'service-mll':'service_mll',
+        }, 'Cisco-IOS-XR-ip-mobileip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-mobileip-cfg']),
+    'EncapOptEnum' : _MetaInfoEnum('EncapOptEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
+        {
+            'greipv4':'greipv4',
+            'greipv6':'greipv6',
+            'mgreipv4':'mgreipv4',
+            'mgreipv6':'mgreipv6',
+        }, 'Cisco-IOS-XR-ip-mobileip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-mobileip-cfg']),
     'LmaRatEnum' : _MetaInfoEnum('LmaRatEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
         {
             'virtual':'virtual',
@@ -27,27 +48,6 @@ _meta_table = {
             '3gpp2hrpd':'Y_3gpp2hrpd',
             '3gpp21rtt':'Y_3gpp21rtt',
             '3gpp2umb':'Y_3gpp2umb',
-        }, 'Cisco-IOS-XR-ip-mobileip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-mobileip-cfg']),
-    'ServiceTypeEnum' : _MetaInfoEnum('ServiceTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
-        {
-            'ipv4':'ipv4',
-            'ipv6':'ipv6',
-            'dual':'dual',
-        }, 'Cisco-IOS-XR-ip-mobileip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-mobileip-cfg']),
-    'LmaServiceEnum' : _MetaInfoEnum('LmaServiceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
-        {
-            'service-mll':'service_mll',
-        }, 'Cisco-IOS-XR-ip-mobileip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-mobileip-cfg']),
-    'EncapOptEnum' : _MetaInfoEnum('EncapOptEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
-        {
-            'greipv4':'greipv4',
-            'greipv6':'greipv6',
-            'mgreipv4':'mgreipv4',
-            'mgreipv6':'mgreipv6',
-        }, 'Cisco-IOS-XR-ip-mobileip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-mobileip-cfg']),
-    'LmaRoleEnum' : _MetaInfoEnum('LmaRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg',
-        {
-            '3gma':'Y_3gma',
         }, 'Cisco-IOS-XR-ip-mobileip-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-mobileip-cfg']),
     'MobileIp.Domains.Domain.Mags.Mag' : {
         'meta_info' : _MetaInfoClass('MobileIp.Domains.Domain.Mags.Mag',
@@ -158,7 +158,7 @@ _meta_table = {
                 'key',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                SPI in hex value
                 ''',
                 'spi',
@@ -375,7 +375,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                LMA IPv6 address
                 ''',
                 'address',
@@ -472,7 +472,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                LMA IPv4 address
                 ''',
                 'address',
@@ -610,7 +610,7 @@ _meta_table = {
                 'key',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                SPI in hex value
                 ''',
                 'spi',
@@ -649,17 +649,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MobileIp.Lmas.Lma.Mags.Mag',
             False, 
             [
-            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
-                [(1, 125)], [], 
-                '''                Domain name
-                ''',
-                'domain_name',
-                'Cisco-IOS-XR-ip-mobileip-cfg', True),
             _MetaInfoClassMember('mag-name', ATTRIBUTE, 'str' , None, None, 
                 [(1, 125)], [], 
                 '''                MAG identifier
                 ''',
                 'mag_name',
+                'Cisco-IOS-XR-ip-mobileip-cfg', True),
+            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
+                [(1, 125)], [], 
+                '''                Domain name
+                ''',
+                'domain_name',
                 'Cisco-IOS-XR-ip-mobileip-cfg', True),
             _MetaInfoClassMember('authenticate-option', REFERENCE_CLASS, 'AuthenticateOption' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption', 
                 [], [], 
@@ -681,19 +681,19 @@ _meta_table = {
                 'encap_option',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configure IPv4 address for this MAG
                 ''',
                 'ipv4_address',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configure IPv6 address for this MAG
                 ''',
                 'ipv6_address',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('tunnel', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                static tunnel for this peer MAG
                 ''',
                 'tunnel',
@@ -756,7 +756,7 @@ _meta_table = {
                 'key',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('spi', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                SPI in hex value
                 ''',
                 'spi',
@@ -808,13 +808,13 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ip-mobileip-cfg', True),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configure IPv4 address for this LMA
                 ''',
                 'ipv4_address',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Configure IPv6 address for this LMA
                 ''',
                 'ipv6_address',
@@ -854,7 +854,7 @@ _meta_table = {
                 'pool_prefix',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Pool IPv4 start address
                 ''',
                 'start_address',
@@ -877,7 +877,7 @@ _meta_table = {
                 'pool_prefix',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Pool IPv6 start address
                 ''',
                 'start_address',
@@ -917,7 +917,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Pool IPv4 start address
                 ''',
                 'start_address',
@@ -963,7 +963,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Pool IPv6 start address
                 ''',
                 'start_address',
@@ -1398,7 +1398,7 @@ _meta_table = {
                 'pool_prefix',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Pool IPv4 start address
                 ''',
                 'start_address',
@@ -1421,7 +1421,7 @@ _meta_table = {
                 'pool_prefix',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Pool IPv6 start address
                 ''',
                 'start_address',
@@ -1461,7 +1461,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Pool IPv6 start address
                 ''',
                 'start_address',
@@ -1507,7 +1507,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('start-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Pool IPv4 start address
                 ''',
                 'start_address',
@@ -1638,17 +1638,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MobileIp.Lmas.Lma',
             False, 
             [
-            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
-                [(1, 125)], [], 
-                '''                Domain name
-                ''',
-                'domain_name',
-                'Cisco-IOS-XR-ip-mobileip-cfg', True),
             _MetaInfoClassMember('lma-name', ATTRIBUTE, 'str' , None, None, 
                 [(1, 125)], [], 
                 '''                LMA name
                 ''',
                 'lma_name',
+                'Cisco-IOS-XR-ip-mobileip-cfg', True),
+            _MetaInfoClassMember('domain-name', ATTRIBUTE, 'str' , None, None, 
+                [(1, 125)], [], 
+                '''                Domain name
+                ''',
+                'domain_name',
                 'Cisco-IOS-XR-ip-mobileip-cfg', True),
             _MetaInfoClassMember('aaa', REFERENCE_CLASS, 'Aaa' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'MobileIp.Lmas.Lma.Aaa', 
                 [], [], 
@@ -1717,7 +1717,7 @@ _meta_table = {
                 'hnp',
                 'Cisco-IOS-XR-ip-mobileip-cfg', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                CN facing interface name
                 ''',
                 'interface',

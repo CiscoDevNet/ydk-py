@@ -13,16 +13,16 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'SnmpCorrVbindMatchEnum' : _MetaInfoEnum('SnmpCorrVbindMatchEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper',
-        {
-            'index':'index',
-            'value':'value',
-        }, 'Cisco-IOS-XR-snmp-agent-oper', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-oper']),
     'SnmpCorrRuleStateEnum' : _MetaInfoEnum('SnmpCorrRuleStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper',
         {
             'rule-unapplied':'rule_unapplied',
             'rule-applied':'rule_applied',
             'rule-applied-all':'rule_applied_all',
+        }, 'Cisco-IOS-XR-snmp-agent-oper', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-oper']),
+    'SnmpCorrVbindMatchEnum' : _MetaInfoEnum('SnmpCorrVbindMatchEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper',
+        {
+            'index':'index',
+            'value':'value',
         }, 'Cisco-IOS-XR-snmp-agent-oper', _yang_ns._namespaces['Cisco-IOS-XR-snmp-agent-oper']),
     'DupReqDropStatusEnum' : _MetaInfoEnum('DupReqDropStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper',
         {
@@ -99,7 +99,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('user', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                SNMP host user
                 ''',
                 'user',
@@ -152,7 +152,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Group name
                 ''',
                 'name',
@@ -210,7 +210,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nms-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                NMS address
                 ''',
                 'nms_addr',
@@ -315,7 +315,7 @@ _meta_table = {
                 'in_min',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('incoming-q', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                incomingQ
                 ''',
                 'incoming_q',
@@ -339,7 +339,7 @@ _meta_table = {
                 'pend_min',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('pending-q', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                pendingQ
                 ''',
                 'pending_q',
@@ -379,7 +379,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nms-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                NMS address
                 ''',
                 'nms_addr',
@@ -556,7 +556,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('transfer-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Transfer name
                 ''',
                 'transfer_name',
@@ -738,7 +738,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('object-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Object ID
                 ''',
                 'object_id',
@@ -1215,7 +1215,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('trap-oid', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Trap object ID
                 ''',
                 'trap_oid',
@@ -1261,7 +1261,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('packetcount', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                NMS packet drop count
                 ''',
                 'packetcount',
@@ -1422,7 +1422,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                MIB Name
                 ''',
                 'name',
@@ -1486,7 +1486,7 @@ _meta_table = {
                 'nms',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Serial number
                 ''',
                 'number',
@@ -1574,7 +1574,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nms-addr', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                NMS address
                 ''',
                 'nms_addr',
@@ -1668,7 +1668,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('object-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                SNMP view OID
                 ''',
                 'object_id',
@@ -1703,7 +1703,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                View name
                 ''',
                 'name',
@@ -1760,13 +1760,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('level', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Level
                 ''',
                 'level',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('modelnumber', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Model number
                 ''',
                 'modelnumber',
@@ -1824,7 +1824,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Group Name
                 ''',
                 'name',
@@ -1864,7 +1864,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('user-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                User name
                 ''',
                 'user_name',
@@ -1893,7 +1893,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('engine-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                SNMP Engine ID
                 ''',
                 'engine_id',
@@ -1991,7 +1991,7 @@ _meta_table = {
                 'trap_min',
                 'Cisco-IOS-XR-snmp-agent-oper', False),
             _MetaInfoClassMember('trap-q', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                trapQ
                 ''',
                 'trap_q',
@@ -2170,7 +2170,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'name',
@@ -2769,7 +2769,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('entity-phynum', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Entity physical index
                 ''',
                 'entity_phynum',
@@ -2880,7 +2880,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -2920,7 +2920,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -2961,7 +2961,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -3001,7 +3001,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -3041,7 +3041,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-stack-status', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                StackHigherLayer.StackLowerLayer
                 ''',
                 'interface_stack_status',
@@ -3134,13 +3134,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('phy-index', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Physical Index
                 ''',
                 'phy_index',
                 'Cisco-IOS-XR-snmp-sensormib-oper', False),
             _MetaInfoClassMember('thre-index', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Threshold index
                 ''',
                 'thre_index',
@@ -3207,7 +3207,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Physical index
                 ''',
                 'index',
@@ -3247,7 +3247,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('index', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Physical index
                 ''',
                 'index',

@@ -13,6 +13,32 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'ActionEnum' : _MetaInfoEnum('ActionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
+        {
+            'no-action':'no_action',
+            'disable-interface':'disable_interface',
+            'log':'log',
+            'efd':'efd',
+        }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
+    'LoopbackStatusEnum' : _MetaInfoEnum('LoopbackStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
+        {
+            'none':'none',
+            'initiating':'initiating',
+            'master-loopback':'master_loopback',
+            'terminating':'terminating',
+            'local-loopback':'local_loopback',
+            'unknown':'unknown',
+        }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
+    'ProtocolStateEnum' : _MetaInfoEnum('ProtocolStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
+        {
+            'protocol-state-inactive':'protocol_state_inactive',
+            'protocol-state-fault':'protocol_state_fault',
+            'protocol-state-active-send-local':'protocol_state_active_send_local',
+            'protocol-state-passive-wait':'protocol_state_passive_wait',
+            'protocol-state-send-local-remote':'protocol_state_send_local_remote',
+            'protocol-state-send-local-remote-ok':'protocol_state_send_local_remote_ok',
+            'protocol-state-send-any':'protocol_state_send_any',
+        }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
     'LogEnum' : _MetaInfoEnum('LogEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
             'log-type-symbol-event':'log_type_symbol_event',
@@ -28,14 +54,11 @@ _meta_table = {
             'log-location-local':'log_location_local',
             'log-location-remote':'log_location_remote',
         }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'LoopbackStatusEnum' : _MetaInfoEnum('LoopbackStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
+    'ModeEnum' : _MetaInfoEnum('ModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
-            'none':'none',
-            'initiating':'initiating',
-            'master-loopback':'master_loopback',
-            'terminating':'terminating',
-            'local-loopback':'local_loopback',
-            'unknown':'unknown',
+            'passive':'passive',
+            'active':'active',
+            'dont-care':'dont_care',
         }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
     'OperationalStateEnum' : _MetaInfoEnum('OperationalStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
         {
@@ -50,35 +73,12 @@ _meta_table = {
             'operational':'operational',
             'operational-half-duplex':'operational_half_duplex',
         }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'ModeEnum' : _MetaInfoEnum('ModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
-        {
-            'passive':'passive',
-            'active':'active',
-            'dont-care':'dont_care',
-        }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'ActionEnum' : _MetaInfoEnum('ActionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
-        {
-            'no-action':'no_action',
-            'disable-interface':'disable_interface',
-            'log':'log',
-            'efd':'efd',
-        }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
-    'ProtocolStateEnum' : _MetaInfoEnum('ProtocolStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper',
-        {
-            'protocol-state-inactive':'protocol_state_inactive',
-            'protocol-state-fault':'protocol_state_fault',
-            'protocol-state-active-send-local':'protocol_state_active_send_local',
-            'protocol-state-passive-wait':'protocol_state_passive_wait',
-            'protocol-state-send-local-remote':'protocol_state_send_local_remote',
-            'protocol-state-send-local-remote-ok':'protocol_state_send_local_remote_ok',
-            'protocol-state-send-any':'protocol_state_send_any',
-        }, 'Cisco-IOS-XR-ethernet-link-oam-oper', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-oper']),
     'EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface' : {
         'meta_info' : _MetaInfoClass('EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface',
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',
@@ -273,7 +273,7 @@ _meta_table = {
                 'remote_loopback_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-mac-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Remote MAC address
                 ''',
                 'remote_mac_address',
@@ -369,7 +369,7 @@ _meta_table = {
                 'remote_vendor_info_valid',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('remote-vendor-oui', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                Remote vendor OUI
                 ''',
                 'remote_vendor_oui',
@@ -523,7 +523,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',
@@ -600,7 +600,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',
@@ -1289,7 +1289,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node
                 ''',
                 'node_name',
@@ -1330,7 +1330,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('event-log-entry-index', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Event Log Entry index
                 ''',
                 'event_log_entry_index',
@@ -1348,7 +1348,7 @@ _meta_table = {
                 'event_total',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle for this log entry
                 ''',
                 'handle',
@@ -1383,7 +1383,7 @@ _meta_table = {
                 'location',
                 'Cisco-IOS-XR-ethernet-link-oam-oper', False),
             _MetaInfoClassMember('oui', ATTRIBUTE, 'str' , None, None, 
-                [], ['([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
+                [], [b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'], 
                 '''                OUI for the log entry
                 ''',
                 'oui',
@@ -1491,7 +1491,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',
@@ -1533,7 +1533,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member Interface
                 ''',
                 'member_interface',

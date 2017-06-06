@@ -48,7 +48,7 @@ _meta_table = {
                 'interval',
                 'Cisco-IOS-XR-ping-act', False),
             _MetaInfoClassMember('pattern', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Pattern of payload data
                 ''',
                 'pattern',
@@ -149,7 +149,7 @@ _meta_table = {
                 'interval',
                 'Cisco-IOS-XR-ping-act', False),
             _MetaInfoClassMember('pattern', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Pattern of payload data
                 ''',
                 'pattern',
@@ -238,7 +238,7 @@ _meta_table = {
                 'interval',
                 'Cisco-IOS-XR-ping-act', False),
             _MetaInfoClassMember('pattern', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Pattern of payload data
                 ''',
                 'pattern',
@@ -430,7 +430,7 @@ _meta_table = {
                 'interval',
                 'Cisco-IOS-XR-ping-act', False),
             _MetaInfoClassMember('pattern', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Pattern of payload data
                 ''',
                 'pattern',
@@ -587,7 +587,7 @@ _meta_table = {
                 'interval',
                 'Cisco-IOS-XR-ping-act', False),
             _MetaInfoClassMember('pattern', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Pattern of payload data
                 ''',
                 'pattern',

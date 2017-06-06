@@ -183,8 +183,6 @@ class Rib(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bcdl is not None:
                             return True
 
@@ -205,8 +203,6 @@ class Rib(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bcdl_client is not None:
                         return True
 
@@ -233,8 +229,6 @@ class Rib(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.next_hop_dampening_disable is not None:
                     return True
 
@@ -345,8 +339,6 @@ class Rib(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.bcdl is not None:
                             return True
 
@@ -367,8 +359,6 @@ class Rib(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bcdl_client is not None:
                         return True
 
@@ -395,8 +385,6 @@ class Rib(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.next_hop_dampening_disable is not None:
                     return True
 
@@ -420,8 +408,6 @@ class Rib(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ipv4 is not None and self.ipv4._has_data():
                 return True
 
@@ -445,8 +431,6 @@ class Rib(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.af is not None and self.af._has_data():
             return True
 

@@ -729,8 +729,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.code_rej_rcvd is not None:
                             return True
 
@@ -957,8 +955,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.auth_timeout_count is not None:
                             return True
 
@@ -1156,8 +1152,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.conf_ack_rcvd is not None:
                             return True
 
@@ -1222,8 +1216,6 @@ class Ppp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.authentication_statistics is not None and self.authentication_statistics._has_data():
                         return True
 
@@ -1628,8 +1620,6 @@ class Ppp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.interface is not None:
                                     return True
 
@@ -1655,8 +1645,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.active_links is not None:
                                 return True
 
@@ -1740,8 +1728,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.minutes is not None:
                                 return True
 
@@ -1834,8 +1820,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.is_authenticated is not None:
                                 return True
 
@@ -2131,8 +2115,6 @@ class Ppp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.compression_type is not None:
                                             return True
 
@@ -2249,8 +2231,6 @@ class Ppp(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.compression_type is not None:
                                             return True
 
@@ -2294,8 +2274,6 @@ class Ppp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.dns_primary is not None:
                                         return True
 
@@ -2376,8 +2354,6 @@ class Ppp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_address is not None:
                                         return True
 
@@ -2434,8 +2410,6 @@ class Ppp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.local_address is not None:
                                         return True
 
@@ -2461,8 +2435,6 @@ class Ppp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipcp_info is not None and self.ipcp_info._has_data():
                                     return True
 
@@ -2494,8 +2466,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.is_passive is not None:
                                 return True
 
@@ -2532,8 +2502,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -2648,8 +2616,6 @@ class Ppp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_interface is not None:
                         for child_ref in self.node_interface:
                             if child_ref._has_data():
@@ -2785,8 +2751,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.context is not None:
                                 return True
 
@@ -2852,8 +2816,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.context is not None:
                                 return True
 
@@ -2919,8 +2881,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.context is not None:
                                 return True
 
@@ -2986,8 +2946,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.context is not None:
                                 return True
 
@@ -3018,8 +2976,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface is not None:
                             return True
 
@@ -3054,8 +3010,6 @@ class Ppp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sso_alert is not None:
                         for child_ref in self.sso_alert:
                             if child_ref._has_data():
@@ -3292,8 +3246,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.conf_ack_rcvd is not None:
                                 return True
 
@@ -3496,8 +3448,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.auth_timeout_count is not None:
                                 return True
 
@@ -3647,8 +3597,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.conf_ack_rcvd is not None:
                                 return True
 
@@ -3697,8 +3645,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -3732,8 +3678,6 @@ class Ppp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.node_interface_statistic is not None:
                         for child_ref in self.node_interface_statistic:
                             if child_ref._has_data():
@@ -3834,8 +3778,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.count is not None:
                             for child in self.count:
                                 if child is not None:
@@ -3896,8 +3838,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.count is not None:
                             for child in self.count:
                                 if child is not None:
@@ -3958,8 +3898,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.count is not None:
                             for child in self.count:
                                 if child is not None:
@@ -4020,8 +3958,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.count is not None:
                             for child in self.count:
                                 if child is not None:
@@ -4049,8 +3985,6 @@ class Ppp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ipcp_states is not None and self.ipcp_states._has_data():
                         return True
 
@@ -4253,8 +4187,6 @@ class Ppp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_running is not None:
                                         return True
 
@@ -4307,8 +4239,6 @@ class Ppp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_running is not None:
                                         return True
 
@@ -4361,8 +4291,6 @@ class Ppp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_running is not None:
                                         return True
 
@@ -4415,8 +4343,6 @@ class Ppp(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.is_running is not None:
                                         return True
 
@@ -4444,8 +4370,6 @@ class Ppp(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.session_id is not None:
                                     return True
 
@@ -4486,8 +4410,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sso_state is not None:
                                 for child_ref in self.sso_state:
                                     if child_ref._has_data():
@@ -4514,8 +4436,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_id is not None:
                             return True
 
@@ -4541,8 +4461,6 @@ class Ppp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.sso_group is not None:
                         for child_ref in self.sso_group:
                             if child_ref._has_data():
@@ -4674,8 +4592,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.gcc0_count is not None:
                             return True
 
@@ -4779,8 +4695,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.count is not None:
                                 for child in self.count:
                                     if child is not None:
@@ -4847,8 +4761,6 @@ class Ppp(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.count is not None:
                                 for child in self.count:
                                     if child is not None:
@@ -4879,8 +4791,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.lcpfsm_states is not None and self.lcpfsm_states._has_data():
                             return True
 
@@ -4971,8 +4881,6 @@ class Ppp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.authenticating is not None:
                             return True
 
@@ -5010,8 +4918,6 @@ class Ppp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.fsm_states is not None and self.fsm_states._has_data():
                         return True
 
@@ -5040,8 +4946,6 @@ class Ppp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -5083,8 +4987,6 @@ class Ppp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -5107,8 +5009,6 @@ class Ppp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 

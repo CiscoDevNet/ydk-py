@@ -19,41 +19,15 @@ _meta_table = {
             'error-disable':'error_disable',
             'log':'log',
         }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
-    'EtherLinkOamEventActionPrimEnumEnum' : _MetaInfoEnum('EtherLinkOamEventActionPrimEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
-        {
-            'disable':'disable',
-            'log':'log',
-        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
-    'EtherLinkOamRequireModeEnumEnum' : _MetaInfoEnum('EtherLinkOamRequireModeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
-        {
-            'passive':'passive',
-            'active':'active',
-            'dont-care':'dont_care',
-        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
-    'EtherLinkOamWindowUnitsSymbolsEnumEnum' : _MetaInfoEnum('EtherLinkOamWindowUnitsSymbolsEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
-        {
-            'milliseconds':'milliseconds',
-            'symbols':'symbols',
-        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
-    'EtherLinkOamThresholdUnitsFramesEnumEnum' : _MetaInfoEnum('EtherLinkOamThresholdUnitsFramesEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
-        {
-            'frames':'frames',
-            'ppm':'ppm',
-        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
-    'EtherLinkOamThresholdUnitsSymbolsEnumEnum' : _MetaInfoEnum('EtherLinkOamThresholdUnitsSymbolsEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
-        {
-            'symbols':'symbols',
-            'ppm':'ppm',
-        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
     'EtherLinkOamHelloIntervalEnumEnum' : _MetaInfoEnum('EtherLinkOamHelloIntervalEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
         {
             '1s':'Y_1s',
             '100ms':'Y_100ms',
         }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
-    'EtherLinkOamModeEnumEnum' : _MetaInfoEnum('EtherLinkOamModeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
+    'EtherLinkOamWindowUnitsSymbolsEnumEnum' : _MetaInfoEnum('EtherLinkOamWindowUnitsSymbolsEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
         {
-            'passive':'passive',
-            'active':'active',
+            'milliseconds':'milliseconds',
+            'symbols':'symbols',
         }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
     'EtherLinkOamEventActionEnumEfdEnum' : _MetaInfoEnum('EtherLinkOamEventActionEnumEfdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
         {
@@ -62,10 +36,15 @@ _meta_table = {
             'log':'log',
             'efd':'efd',
         }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
-    'EtherLinkOamWindowUnitsFramesEnumEnum' : _MetaInfoEnum('EtherLinkOamWindowUnitsFramesEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
+    'EtherLinkOamThresholdUnitsSymbolsEnumEnum' : _MetaInfoEnum('EtherLinkOamThresholdUnitsSymbolsEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
         {
-            'milliseconds':'milliseconds',
-            'frames':'frames',
+            'symbols':'symbols',
+            'ppm':'ppm',
+        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
+    'EtherLinkOamModeEnumEnum' : _MetaInfoEnum('EtherLinkOamModeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
+        {
+            'passive':'passive',
+            'active':'active',
         }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
     'EtherLinkOamThresholdWindowMultiplierEnumEnum' : _MetaInfoEnum('EtherLinkOamThresholdWindowMultiplierEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
         {
@@ -73,5 +52,26 @@ _meta_table = {
             'thousand':'thousand',
             'million':'million',
             'billion':'billion',
+        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
+    'EtherLinkOamEventActionPrimEnumEnum' : _MetaInfoEnum('EtherLinkOamEventActionPrimEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
+        {
+            'disable':'disable',
+            'log':'log',
+        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
+    'EtherLinkOamWindowUnitsFramesEnumEnum' : _MetaInfoEnum('EtherLinkOamWindowUnitsFramesEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
+        {
+            'milliseconds':'milliseconds',
+            'frames':'frames',
+        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
+    'EtherLinkOamRequireModeEnumEnum' : _MetaInfoEnum('EtherLinkOamRequireModeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
+        {
+            'passive':'passive',
+            'active':'active',
+            'dont-care':'dont_care',
+        }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
+    'EtherLinkOamThresholdUnitsFramesEnumEnum' : _MetaInfoEnum('EtherLinkOamThresholdUnitsFramesEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg',
+        {
+            'frames':'frames',
+            'ppm':'ppm',
         }, 'Cisco-IOS-XR-ethernet-link-oam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ethernet-link-oam-cfg']),
 }

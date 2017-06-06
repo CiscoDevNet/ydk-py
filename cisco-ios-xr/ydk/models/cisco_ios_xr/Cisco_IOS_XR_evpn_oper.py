@@ -834,8 +834,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.evi is not None:
                             return True
 
@@ -867,8 +865,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.evi is not None:
                         for child_ref in self.evi:
                             if child_ref._has_data():
@@ -1092,8 +1088,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.as_ is not None:
                         return True
 
@@ -1423,8 +1417,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.global_flow_label is not None:
                                     return True
 
@@ -1530,8 +1522,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.auto_index is not None:
                                         return True
 
@@ -1588,8 +1578,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_index is not None:
                                         return True
 
@@ -1646,8 +1634,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_as is not None:
                                         return True
 
@@ -1704,8 +1690,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_address is not None:
                                         return True
 
@@ -1731,8 +1715,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto is not None and self.auto._has_data():
                                     return True
 
@@ -1847,8 +1829,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.auto_index is not None:
                                         return True
 
@@ -1905,8 +1885,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_index is not None:
                                         return True
 
@@ -1963,8 +1941,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_as is not None:
                                         return True
 
@@ -2021,8 +1997,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_address is not None:
                                         return True
 
@@ -2048,8 +2022,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto is not None and self.auto._has_data():
                                     return True
 
@@ -2164,8 +2136,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_index is not None:
                                         return True
 
@@ -2222,8 +2192,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_as is not None:
                                         return True
 
@@ -2280,8 +2248,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_address is not None:
                                         return True
 
@@ -2338,8 +2304,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.high_bytes is not None:
                                         return True
 
@@ -2365,8 +2329,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.es_import is not None and self.es_import._has_data():
                                     return True
 
@@ -2481,8 +2443,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_index is not None:
                                         return True
 
@@ -2539,8 +2499,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_as is not None:
                                         return True
 
@@ -2597,8 +2555,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_address is not None:
                                         return True
 
@@ -2655,8 +2611,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.high_bytes is not None:
                                         return True
 
@@ -2682,8 +2636,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.es_import is not None and self.es_import._has_data():
                                     return True
 
@@ -2720,8 +2672,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.evi is not None:
                                 return True
 
@@ -2807,8 +2757,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.element is not None:
                             for child_ref in self.element:
                                 if child_ref._has_data():
@@ -2963,8 +2911,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.evi is not None:
                                     return True
 
@@ -2996,8 +2942,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.neighbor is not None:
                                 for child_ref in self.neighbor:
                                     if child_ref._has_data():
@@ -3225,8 +3169,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.next_hop is not None:
                                         return True
 
@@ -3252,8 +3194,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.encap is not None:
                                     return True
 
@@ -3328,8 +3268,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ethernet_auto_discovery is not None:
                                 for child_ref in self.ethernet_auto_discovery:
                                     if child_ref._has_data():
@@ -3472,8 +3410,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ethernet_tag is not None:
                                     return True
 
@@ -3520,8 +3456,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.inclusive_multicast is not None:
                                 for child_ref in self.inclusive_multicast:
                                     if child_ref._has_data():
@@ -3755,8 +3689,6 @@ class Evpn(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.four_byte_index is not None:
                                             return True
 
@@ -3813,8 +3745,6 @@ class Evpn(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.four_byte_as is not None:
                                             return True
 
@@ -3871,8 +3801,6 @@ class Evpn(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.ipv4_address is not None:
                                             return True
 
@@ -3929,8 +3857,6 @@ class Evpn(object):
                                         return False
 
                                     def _has_data(self):
-                                        if not self.is_config():
-                                            return False
                                         if self.high_bytes is not None:
                                             return True
 
@@ -3956,8 +3882,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.es_import is not None and self.es_import._has_data():
                                         return True
 
@@ -3992,8 +3916,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.addr_index is not None:
                                     return True
 
@@ -4052,8 +3974,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.route_target is not None:
                                 for child_ref in self.route_target:
                                     if child_ref._has_data():
@@ -4359,8 +4279,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.next_hop is not None:
                                         return True
 
@@ -4386,8 +4304,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.esi_port_key is not None:
                                     return True
 
@@ -4491,8 +4407,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.mac is not None:
                                 for child_ref in self.mac:
                                     if child_ref._has_data():
@@ -4517,8 +4431,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ethernet_auto_discoveries is not None and self.ethernet_auto_discoveries._has_data():
                             return True
 
@@ -4553,8 +4465,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.elements is not None and self.elements._has_data():
                         return True
 
@@ -4975,8 +4885,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.next_hop is not None:
                                 return True
 
@@ -5030,8 +4938,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.label is not None:
                                 return True
 
@@ -5057,8 +4963,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.elected_d_fs is not None:
                             return True
 
@@ -5222,8 +5126,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ethernet_segment is not None:
                         for child_ref in self.ethernet_segment:
                             if child_ref._has_data():
@@ -5318,8 +5220,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ac_id is not None:
                             return True
 
@@ -5351,8 +5251,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ac_id is not None:
                         for child_ref in self.ac_id:
                             if child_ref._has_data():
@@ -5377,8 +5275,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_id is not None:
                     return True
 
@@ -5414,8 +5310,6 @@ class Evpn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -5556,8 +5450,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.evi is not None:
                         return True
 
@@ -5587,8 +5479,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.evi is not None:
                     for child_ref in self.evi:
                         if child_ref._has_data():
@@ -5810,8 +5700,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.as_ is not None:
                     return True
 
@@ -6141,8 +6029,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.global_flow_label is not None:
                                 return True
 
@@ -6248,8 +6134,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto_index is not None:
                                     return True
 
@@ -6306,8 +6190,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_index is not None:
                                     return True
 
@@ -6364,8 +6246,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_as is not None:
                                     return True
 
@@ -6422,8 +6302,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -6449,8 +6327,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.auto is not None and self.auto._has_data():
                                 return True
 
@@ -6565,8 +6441,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto_index is not None:
                                     return True
 
@@ -6623,8 +6497,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_index is not None:
                                     return True
 
@@ -6681,8 +6553,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_as is not None:
                                     return True
 
@@ -6739,8 +6609,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -6766,8 +6634,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.auto is not None and self.auto._has_data():
                                 return True
 
@@ -6882,8 +6748,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_index is not None:
                                     return True
 
@@ -6940,8 +6804,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_as is not None:
                                     return True
 
@@ -6998,8 +6860,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -7056,8 +6916,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.high_bytes is not None:
                                     return True
 
@@ -7083,8 +6941,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.es_import is not None and self.es_import._has_data():
                                 return True
 
@@ -7199,8 +7055,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_index is not None:
                                     return True
 
@@ -7257,8 +7111,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_as is not None:
                                     return True
 
@@ -7315,8 +7167,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -7373,8 +7223,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.high_bytes is not None:
                                     return True
 
@@ -7400,8 +7248,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.es_import is not None and self.es_import._has_data():
                                 return True
 
@@ -7436,8 +7282,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.evi is not None:
                             return True
 
@@ -7521,8 +7365,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.element is not None:
                         for child_ref in self.element:
                             if child_ref._has_data():
@@ -7675,8 +7517,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.evi is not None:
                                 return True
 
@@ -7706,8 +7546,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.neighbor is not None:
                             for child_ref in self.neighbor:
                                 if child_ref._has_data():
@@ -7933,8 +7771,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.next_hop is not None:
                                     return True
 
@@ -7958,8 +7794,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.encap is not None:
                                 return True
 
@@ -8032,8 +7866,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ethernet_auto_discovery is not None:
                             for child_ref in self.ethernet_auto_discovery:
                                 if child_ref._has_data():
@@ -8174,8 +8006,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ethernet_tag is not None:
                                 return True
 
@@ -8220,8 +8050,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.inclusive_multicast is not None:
                             for child_ref in self.inclusive_multicast:
                                 if child_ref._has_data():
@@ -8453,8 +8281,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_index is not None:
                                         return True
 
@@ -8509,8 +8335,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_as is not None:
                                         return True
 
@@ -8565,8 +8389,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_address is not None:
                                         return True
 
@@ -8621,8 +8443,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.high_bytes is not None:
                                         return True
 
@@ -8646,8 +8466,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.es_import is not None and self.es_import._has_data():
                                     return True
 
@@ -8680,8 +8498,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.addr_index is not None:
                                 return True
 
@@ -8738,8 +8554,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.route_target is not None:
                             for child_ref in self.route_target:
                                 if child_ref._has_data():
@@ -9043,8 +8857,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.next_hop is not None:
                                     return True
 
@@ -9068,8 +8880,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.esi_port_key is not None:
                                 return True
 
@@ -9171,8 +8981,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mac is not None:
                             for child_ref in self.mac:
                                 if child_ref._has_data():
@@ -9195,8 +9003,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ethernet_auto_discoveries is not None and self.ethernet_auto_discoveries._has_data():
                         return True
 
@@ -9229,8 +9035,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.elements is not None and self.elements._has_data():
                     return True
 
@@ -9649,8 +9453,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.next_hop is not None:
                             return True
 
@@ -9702,8 +9504,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.label is not None:
                             return True
 
@@ -9727,8 +9527,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.elected_d_fs is not None:
                         return True
 
@@ -9890,8 +9688,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ethernet_segment is not None:
                     for child_ref in self.ethernet_segment:
                         if child_ref._has_data():
@@ -9984,8 +9780,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ac_id is not None:
                         return True
 
@@ -10015,8 +9809,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ac_id is not None:
                     for child_ref in self.ac_id:
                         if child_ref._has_data():
@@ -10039,8 +9831,6 @@ class Evpn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ac_ids is not None and self.ac_ids._has_data():
                 return True
 
@@ -10191,8 +9981,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.evi is not None:
                         return True
 
@@ -10222,8 +10010,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.evi is not None:
                     for child_ref in self.evi:
                         if child_ref._has_data():
@@ -10445,8 +10231,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.as_ is not None:
                     return True
 
@@ -10776,8 +10560,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.global_flow_label is not None:
                                 return True
 
@@ -10883,8 +10665,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto_index is not None:
                                     return True
 
@@ -10941,8 +10721,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_index is not None:
                                     return True
 
@@ -10999,8 +10777,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_as is not None:
                                     return True
 
@@ -11057,8 +10833,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -11084,8 +10858,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.auto is not None and self.auto._has_data():
                                 return True
 
@@ -11200,8 +10972,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.auto_index is not None:
                                     return True
 
@@ -11258,8 +11028,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_index is not None:
                                     return True
 
@@ -11316,8 +11084,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_as is not None:
                                     return True
 
@@ -11374,8 +11140,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -11401,8 +11165,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.auto is not None and self.auto._has_data():
                                 return True
 
@@ -11517,8 +11279,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_index is not None:
                                     return True
 
@@ -11575,8 +11335,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_as is not None:
                                     return True
 
@@ -11633,8 +11391,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -11691,8 +11447,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.high_bytes is not None:
                                     return True
 
@@ -11718,8 +11472,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.es_import is not None and self.es_import._has_data():
                                 return True
 
@@ -11834,8 +11586,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_index is not None:
                                     return True
 
@@ -11892,8 +11642,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.four_byte_as is not None:
                                     return True
 
@@ -11950,8 +11698,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ipv4_address is not None:
                                     return True
 
@@ -12008,8 +11754,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.high_bytes is not None:
                                     return True
 
@@ -12035,8 +11779,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.es_import is not None and self.es_import._has_data():
                                 return True
 
@@ -12071,8 +11813,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.evi is not None:
                             return True
 
@@ -12156,8 +11896,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.element is not None:
                         for child_ref in self.element:
                             if child_ref._has_data():
@@ -12310,8 +12048,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.evi is not None:
                                 return True
 
@@ -12341,8 +12077,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.neighbor is not None:
                             for child_ref in self.neighbor:
                                 if child_ref._has_data():
@@ -12568,8 +12302,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.next_hop is not None:
                                     return True
 
@@ -12593,8 +12325,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.encap is not None:
                                 return True
 
@@ -12667,8 +12397,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ethernet_auto_discovery is not None:
                             for child_ref in self.ethernet_auto_discovery:
                                 if child_ref._has_data():
@@ -12809,8 +12537,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ethernet_tag is not None:
                                 return True
 
@@ -12855,8 +12581,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.inclusive_multicast is not None:
                             for child_ref in self.inclusive_multicast:
                                 if child_ref._has_data():
@@ -13088,8 +12812,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_index is not None:
                                         return True
 
@@ -13144,8 +12866,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.four_byte_as is not None:
                                         return True
 
@@ -13200,8 +12920,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.ipv4_address is not None:
                                         return True
 
@@ -13256,8 +12974,6 @@ class Evpn(object):
                                     return False
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.high_bytes is not None:
                                         return True
 
@@ -13281,8 +12997,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.es_import is not None and self.es_import._has_data():
                                     return True
 
@@ -13315,8 +13029,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.addr_index is not None:
                                 return True
 
@@ -13373,8 +13085,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.route_target is not None:
                             for child_ref in self.route_target:
                                 if child_ref._has_data():
@@ -13678,8 +13388,6 @@ class Evpn(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.next_hop is not None:
                                     return True
 
@@ -13703,8 +13411,6 @@ class Evpn(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.esi_port_key is not None:
                                 return True
 
@@ -13806,8 +13512,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.mac is not None:
                             for child_ref in self.mac:
                                 if child_ref._has_data():
@@ -13830,8 +13534,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ethernet_auto_discoveries is not None and self.ethernet_auto_discoveries._has_data():
                         return True
 
@@ -13864,8 +13566,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.elements is not None and self.elements._has_data():
                     return True
 
@@ -14284,8 +13984,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.next_hop is not None:
                             return True
 
@@ -14337,8 +14035,6 @@ class Evpn(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.label is not None:
                             return True
 
@@ -14362,8 +14058,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.elected_d_fs is not None:
                         return True
 
@@ -14525,8 +14219,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ethernet_segment is not None:
                     for child_ref in self.ethernet_segment:
                         if child_ref._has_data():
@@ -14619,8 +14311,6 @@ class Evpn(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.ac_id is not None:
                         return True
 
@@ -14650,8 +14340,6 @@ class Evpn(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.ac_id is not None:
                     for child_ref in self.ac_id:
                         if child_ref._has_data():
@@ -14674,8 +14362,6 @@ class Evpn(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ac_ids is not None and self.ac_ids._has_data():
                 return True
 
@@ -14708,8 +14394,6 @@ class Evpn(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.active is not None and self.active._has_data():
             return True
 

@@ -931,8 +931,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bit_error_count is not None:
                                     return True
 
@@ -982,8 +980,6 @@ class Dwdm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.is_prbs_enabled is not None:
                                 return True
 
@@ -1014,8 +1010,6 @@ class Dwdm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.twenty_four_hours_statistics is not None and self.twenty_four_hours_statistics._has_data():
                             return True
 
@@ -1184,8 +1178,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bit_error_count is not None:
                                     return True
 
@@ -1235,8 +1227,6 @@ class Dwdm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.is_prbs_enabled is not None:
                                 return True
 
@@ -1267,8 +1257,6 @@ class Dwdm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.fifteen_minutes_statistics is not None and self.fifteen_minutes_statistics._has_data():
                             return True
 
@@ -1291,8 +1279,6 @@ class Dwdm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.fifteen_minutes_bucket is not None and self.fifteen_minutes_bucket._has_data():
                         return True
 
@@ -1379,8 +1365,6 @@ class Dwdm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.wave_band is not None:
                             return True
 
@@ -1409,8 +1393,6 @@ class Dwdm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.wave_info is not None and self.wave_info._has_data():
                         return True
 
@@ -1763,8 +1745,6 @@ class Dwdm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -1845,8 +1825,6 @@ class Dwdm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -1930,8 +1908,6 @@ class Dwdm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.counter is not None:
                                 return True
 
@@ -2213,8 +2189,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2287,8 +2261,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2361,8 +2333,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2435,8 +2405,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2509,8 +2477,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2583,8 +2549,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2657,8 +2621,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2731,8 +2693,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2805,8 +2765,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2879,8 +2837,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -2961,8 +2917,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3046,8 +3000,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3131,8 +3083,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3216,8 +3166,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3301,8 +3249,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3386,8 +3332,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3445,8 +3389,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3492,8 +3434,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3539,8 +3479,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3586,8 +3524,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3633,8 +3569,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3680,8 +3614,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3727,8 +3659,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -3774,8 +3704,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -4053,8 +3981,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.exp_dapi_range is not None:
                                     return True
 
@@ -4164,8 +4090,6 @@ class Dwdm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ais is not None and self.ais._has_data():
                                 return True
 
@@ -4478,8 +4402,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -4552,8 +4474,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -4626,8 +4546,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -4700,8 +4618,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -4774,8 +4690,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -4848,8 +4762,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -4922,8 +4834,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5004,8 +4914,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5089,8 +4997,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5174,8 +5080,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5259,8 +5163,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5318,8 +5220,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5365,8 +5265,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5412,8 +5310,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5459,8 +5355,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5506,8 +5400,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5553,8 +5445,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5600,8 +5490,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5647,8 +5535,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.counter is not None:
                                     return True
 
@@ -5926,8 +5812,6 @@ class Dwdm(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.exp_dapi_range is not None:
                                     return True
 
@@ -6037,8 +5921,6 @@ class Dwdm(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.ais is not None and self.ais._has_data():
                                 return True
 
@@ -6124,8 +6006,6 @@ class Dwdm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ec is not None:
                             return True
 
@@ -6545,8 +6425,6 @@ class Dwdm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.chromatic_dispersion is not None:
                             return True
 
@@ -6744,8 +6622,6 @@ class Dwdm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dispersion_offset is not None:
                             return True
 
@@ -6811,8 +6687,6 @@ class Dwdm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.network_srlg is not None:
                             for child in self.network_srlg:
                                 if child is not None:
@@ -7046,8 +6920,6 @@ class Dwdm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.alarm_state is not None:
                             return True
 
@@ -7177,8 +7049,6 @@ class Dwdm(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.is_log_enabled is not None:
                             return True
 
@@ -7204,8 +7074,6 @@ class Dwdm(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.controller_state is not None:
                         return True
 
@@ -7252,8 +7120,6 @@ class Dwdm(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     return True
 
@@ -7283,8 +7149,6 @@ class Dwdm(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.port is not None:
                 for child_ref in self.port:
                     if child_ref._has_data():
@@ -7307,8 +7171,6 @@ class Dwdm(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ports is not None and self.ports._has_data():
             return True
 
@@ -7448,8 +7310,6 @@ class Vtxp(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.vtxp_enable is not None:
                             return True
 
@@ -7472,8 +7332,6 @@ class Vtxp(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.name is not None:
                         return True
 
@@ -7497,8 +7355,6 @@ class Vtxp(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.port_vtxp is not None:
                     for child_ref in self.port_vtxp:
                         if child_ref._has_data():
@@ -7521,8 +7377,6 @@ class Vtxp(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.port_vtxps is not None and self.port_vtxps._has_data():
                 return True
 
@@ -7543,8 +7397,6 @@ class Vtxp(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.dwdm_vtxp is not None and self.dwdm_vtxp._has_data():
             return True
 

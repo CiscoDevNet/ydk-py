@@ -205,6 +205,1097 @@ class DynamicTemplate(object):
                 self.vrf = None
 
 
+            class SpanMonitorSessions(object):
+                """
+                Monitor Session container for this template
+                
+                .. attribute:: span_monitor_session
+                
+                	Configuration for a particular class of Monitor Session
+                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.span_monitor_session = YList()
+                    self.span_monitor_session.parent = self
+                    self.span_monitor_session.name = 'span_monitor_session'
+
+
+                class SpanMonitorSession(object):
+                    """
+                    Configuration for a particular class of Monitor
+                    Session
+                    
+                    .. attribute:: session_class  <key>
+                    
+                    	Session Class
+                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                    
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: mirror_first
+                    
+                    	Mirror a specified number of bytes from start of packet
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: mirror_interval
+                    
+                    	Specify the mirror interval
+                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.session_class = None
+                        self.acl = None
+                        self.attachment = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
+
+
+                    class Attachment(object):
+                        """
+                        Attach the interface to a Monitor Session
+                        
+                        .. attribute:: direction
+                        
+                        	Specify the direction of traffic to replicate (optional)
+                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
+                        
+                        .. attribute:: port_level_enable
+                        
+                        	Enable port level traffic mirroring
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\:  str
+                        
+                        	**length:** 1..79
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.direction = None
+                            self.port_level_enable = None
+                            self.session_name = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self._is_presence:
+                                return True
+                            if self.direction is not None:
+                                return True
+
+                            if self.port_level_enable is not None:
+                                return True
+
+                            if self.session_name is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.session_class is None:
+                            raise YPYModelError('Key property session_class is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.session_class is not None:
+                            return True
+
+                        if self.acl is not None:
+                            return True
+
+                        if self.attachment is not None and self.attachment._has_data():
+                            return True
+
+                        if self.mirror_first is not None:
+                            return True
+
+                        if self.mirror_interval is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.span_monitor_session is not None:
+                        for child_ref in self.span_monitor_session:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions']['meta_info']
+
+
+            class Ipv4PacketFilter(object):
+                """
+                IPv4 Packet Filtering configuration for the
+                template
+                
+                .. attribute:: inbound
+                
+                	IPv4 Packet filter to be applied to inbound packets
+                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv4 Packet filter to be applied to outbound packets
+                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound>`
+                
+                	**presence node**\: True
+                
+                
+
+                """
+
+                _prefix = 'ip-pfilter-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.inbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound()
+                    self.inbound.parent = self
+                    self.outbound = None
+
+
+                class Outbound(object):
+                    """
+                    IPv4 Packet filter to be applied to outbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: hardware_count
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Outbound packets
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.common_acl_name = None
+                        self.hardware_count = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self._is_presence:
+                            return True
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.hardware_count is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound']['meta_info']
+
+
+                class Inbound(object):
+                    """
+                    IPv4 Packet filter to be applied to inbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: hardware_count
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.common_acl_name = None
+                        self.hardware_count = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.hardware_count is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.inbound is not None and self.inbound._has_data():
+                        return True
+
+                    if self.outbound is not None and self.outbound._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter']['meta_info']
+
+
+            class Ipv6PacketFilter(object):
+                """
+                IPv6 Packet Filtering configuration for the
+                interface
+                
+                .. attribute:: inbound
+                
+                	IPv6 Packet filter to be applied to inbound packets
+                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv6 Packet filter to be applied to outbound packets
+                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound>`
+                
+                	**presence node**\: True
+                
+                
+
+                """
+
+                _prefix = 'ip-pfilter-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.inbound = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound()
+                    self.inbound.parent = self
+                    self.outbound = None
+
+
+                class Inbound(object):
+                    """
+                    IPv6 Packet filter to be applied to inbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.common_acl_name = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound']['meta_info']
+
+
+                class Outbound(object):
+                    """
+                    IPv6 Packet filter to be applied to outbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv6 Packet Filter Name to be applied to Outbound packets
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.common_acl_name = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self._is_presence:
+                            return True
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.inbound is not None and self.inbound._has_data():
+                        return True
+
+                    if self.outbound is not None and self.outbound._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter']['meta_info']
+
+
+            class Igmp(object):
+                """
+                IGMPconfiguration
+                
+                .. attribute:: default_vrf
+                
+                	Default VRF
+                	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.default_vrf = DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf()
+                    self.default_vrf.parent = self
+
+
+                class DefaultVrf(object):
+                    """
+                    Default VRF
+                    
+                    .. attribute:: access_group
+                    
+                    	Access list specifying access\-list group range
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: explicit_tracking
+                    
+                    	IGMPv3 explicit host tracking
+                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: max_groups
+                    
+                    	IGMP Max Groups
+                    	**type**\:  int
+                    
+                    	**range:** 1..40000
+                    
+                    	**default value**\: 25000
+                    
+                    .. attribute:: multicast_mode
+                    
+                    	Configure Multicast mode variable
+                    	**type**\:   :py:class:`DynTmplMulticastModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastModeEnum>`
+                    
+                    .. attribute:: query_interval
+                    
+                    	Query interval in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..3600
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 60
+                    
+                    .. attribute:: query_max_response_time
+                    
+                    	Query response value in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..12
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 10
+                    
+                    .. attribute:: version
+                    
+                    	IGMP Version
+                    	**type**\:  int
+                    
+                    	**range:** 1..3
+                    
+                    	**default value**\: 3
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.access_group = None
+                        self.explicit_tracking = None
+                        self.max_groups = None
+                        self.multicast_mode = None
+                        self.query_interval = None
+                        self.query_max_response_time = None
+                        self.version = None
+
+
+                    class ExplicitTracking(object):
+                        """
+                        IGMPv3 explicit host tracking
+                        
+                        .. attribute:: access_list_name
+                        
+                        	Access list specifying tracking group range
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: enable
+                        
+                        	Enable or disable, when value is TRUE or FALSE respectively
+                        	**type**\:  bool
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.access_list_name = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:explicit-tracking'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self._is_presence:
+                                return True
+                            if self.access_list_name is not None:
+                                return True
+
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:default-vrf'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.access_group is not None:
+                            return True
+
+                        if self.explicit_tracking is not None and self.explicit_tracking._has_data():
+                            return True
+
+                        if self.max_groups is not None:
+                            return True
+
+                        if self.multicast_mode is not None:
+                            return True
+
+                        if self.query_interval is not None:
+                            return True
+
+                        if self.query_max_response_time is not None:
+                            return True
+
+                        if self.version is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.default_vrf is not None and self.default_vrf._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp']['meta_info']
+
+
+            class Ipv4Network(object):
+                """
+                Interface IPv4 Network configuration data
+                
+                .. attribute:: mtu
+                
+                	The IP Maximum Transmission Unit
+                	**type**\:  int
+                
+                	**range:** 68..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: rpf
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\:  bool
+                
+                	**default value**\: true
+                
+                .. attribute:: unnumbered
+                
+                	Enable IP processing without an explicit address
+                	**type**\:  str
+                
+                .. attribute:: unreachables
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'ipv4-ma-subscriber-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.mtu = None
+                    self.rpf = None
+                    self.unnumbered = None
+                    self.unreachables = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.mtu is not None:
+                        return True
+
+                    if self.rpf is not None:
+                        return True
+
+                    if self.unnumbered is not None:
+                        return True
+
+                    if self.unreachables is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4Network']['meta_info']
+
+
+            class Ipv6Network(object):
+                """
+                Interface IPv6 Network configuration data
+                
+                .. attribute:: addresses
+                
+                	Set the IPv6 address of an interface
+                	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses>`
+                
+                .. attribute:: mtu
+                
+                	MTU Setting of Interface
+                	**type**\:  int
+                
+                	**range:** 1280..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: unreachables
+                
+                	Override Sending of ICMP Unreachable Messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: verify
+                
+                	IPv6 Verify Unicast Souce Reachable
+                	**type**\:   :py:class:`Ipv6ReachableViaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-ma-subscriber-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.addresses = DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses()
+                    self.addresses.parent = self
+                    self.mtu = None
+                    self.unreachables = None
+                    self.verify = None
+
+
+                class Addresses(object):
+                    """
+                    Set the IPv6 address of an interface
+                    
+                    .. attribute:: auto_configuration
+                    
+                    	Auto IPv6 Interface Configuration
+                    	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-ma-subscriber-cfg'
+                    _revision = '2015-07-30'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.auto_configuration = DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration()
+                        self.auto_configuration.parent = self
+
+
+                    class AutoConfiguration(object):
+                        """
+                        Auto IPv6 Interface Configuration
+                        
+                        .. attribute:: enable
+                        
+                        	The flag to enable auto ipv6 interface configuration
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-ma-subscriber-cfg'
+                        _revision = '2015-07-30'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.auto_configuration is not None and self.auto_configuration._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.addresses is not None and self.addresses._has_data():
+                        return True
+
+                    if self.mtu is not None:
+                        return True
+
+                    if self.unreachables is not None:
+                        return True
+
+                    if self.verify is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network']['meta_info']
+
+
             class Ipv6Neighbor(object):
                 """
                 Interface IPv6 Network configuration data
@@ -404,8 +1495,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum is not None:
@@ -475,8 +1564,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.prefix is not None:
@@ -527,8 +1614,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attempts is not None:
                             return True
 
@@ -596,8 +1681,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.count is not None:
@@ -625,8 +1708,6 @@ class DynamicTemplate(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                         return True
 
@@ -806,8 +1887,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.prefix is not None:
@@ -835,8 +1914,6 @@ class DynamicTemplate(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address_pool is not None:
                         return True
 
@@ -864,1506 +1941,6 @@ class DynamicTemplate(object):
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
                     return meta._meta_table['DynamicTemplate.Ppps.Ppp.Dhcpv6']['meta_info']
-
-
-            class Ipv4PacketFilter(object):
-                """
-                IPv4 Packet Filtering configuration for the
-                template
-                
-                .. attribute:: inbound
-                
-                	IPv4 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound>`
-                
-                .. attribute:: outbound
-                
-                	IPv4 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound>`
-                
-                	**presence node**\: True
-                
-                
-
-                """
-
-                _prefix = 'ip-pfilter-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.inbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound()
-                    self.inbound.parent = self
-                    self.outbound = None
-
-
-                class Outbound(object):
-                    """
-                    IPv4 Packet filter to be applied to outbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: hardware_count
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self._is_presence:
-                            return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound']['meta_info']
-
-
-                class Inbound(object):
-                    """
-                    IPv4 Packet filter to be applied to inbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: hardware_count
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter']['meta_info']
-
-
-            class Ipv6PacketFilter(object):
-                """
-                IPv6 Packet Filtering configuration for the
-                interface
-                
-                .. attribute:: inbound
-                
-                	IPv6 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound>`
-                
-                .. attribute:: outbound
-                
-                	IPv6 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound>`
-                
-                	**presence node**\: True
-                
-                
-
-                """
-
-                _prefix = 'ip-pfilter-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.inbound = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound()
-                    self.inbound.parent = self
-                    self.outbound = None
-
-
-                class Inbound(object):
-                    """
-                    IPv6 Packet filter to be applied to inbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound']['meta_info']
-
-
-                class Outbound(object):
-                    """
-                    IPv6 Packet filter to be applied to outbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self._is_presence:
-                            return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter']['meta_info']
-
-
-            class Accounting(object):
-                """
-                Subscriber accounting dynamic\-template commands
-                
-                .. attribute:: idle_timeout
-                
-                	Subscriber accounting idle timeout
-                	**type**\:   :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout>`
-                
-                .. attribute:: prepaid_feature
-                
-                	Subscriber accounting prepaid feature
-                	**type**\:  str
-                
-                .. attribute:: service_accounting
-                
-                	Subscriber accounting service accounting
-                	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting>`
-                
-                .. attribute:: session
-                
-                	Subscriber accounting session accounting
-                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.Session>`
-                
-                
-
-                """
-
-                _prefix = 'subscriber-accounting-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.idle_timeout = DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout()
-                    self.idle_timeout.parent = self
-                    self.prepaid_feature = None
-                    self.service_accounting = DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting()
-                    self.service_accounting.parent = self
-                    self.session = DynamicTemplate.Ppps.Ppp.Accounting.Session()
-                    self.session.parent = self
-
-
-                class IdleTimeout(object):
-                    """
-                    Subscriber accounting idle timeout
-                    
-                    .. attribute:: direction
-                    
-                    	Idle timeout traffic direction
-                    	**type**\:  str
-                    
-                    .. attribute:: threshold
-                    
-                    	Threshold in minute(s) per packet
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: timeout_value
-                    
-                    	Idle timeout value in seconds
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.direction = None
-                        self.threshold = None
-                        self.timeout_value = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:idle-timeout'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.direction is not None:
-                            return True
-
-                        if self.threshold is not None:
-                            return True
-
-                        if self.timeout_value is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout']['meta_info']
-
-
-                class Session(object):
-                    """
-                    Subscriber accounting session accounting
-                    
-                    .. attribute:: dual_stack_delay
-                    
-                    	Dual stack wait delay in seconds
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: hold_acct_start
-                    
-                    	Hold Accounting start based on IA\_PD
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Session accounting method list name
-                    	**type**\:  str
-                    
-                    .. attribute:: periodic_interval
-                    
-                    	Interim accounting interval in minutes
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.dual_stack_delay = None
-                        self.hold_acct_start = None
-                        self.method_list_name = None
-                        self.periodic_interval = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:session'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.dual_stack_delay is not None:
-                            return True
-
-                        if self.hold_acct_start is not None:
-                            return True
-
-                        if self.method_list_name is not None:
-                            return True
-
-                        if self.periodic_interval is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting.Session']['meta_info']
-
-
-                class ServiceAccounting(object):
-                    """
-                    Subscriber accounting service accounting
-                    
-                    .. attribute:: accounting_interim_interval
-                    
-                    	Accounting interim interval in minutes
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Service accounting method list name
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.accounting_interim_interval = None
-                        self.method_list_name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:service-accounting'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.accounting_interim_interval is not None:
-                            return True
-
-                        if self.method_list_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:accounting'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.idle_timeout is not None and self.idle_timeout._has_data():
-                        return True
-
-                    if self.prepaid_feature is not None:
-                        return True
-
-                    if self.service_accounting is not None and self.service_accounting._has_data():
-                        return True
-
-                    if self.session is not None and self.session._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting']['meta_info']
-
-
-            class Igmp(object):
-                """
-                IGMPconfiguration
-                
-                .. attribute:: default_vrf
-                
-                	Default VRF
-                	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.default_vrf = DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf()
-                    self.default_vrf.parent = self
-
-
-                class DefaultVrf(object):
-                    """
-                    Default VRF
-                    
-                    .. attribute:: access_group
-                    
-                    	Access list specifying access\-list group range
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: explicit_tracking
-                    
-                    	IGMPv3 explicit host tracking
-                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: max_groups
-                    
-                    	IGMP Max Groups
-                    	**type**\:  int
-                    
-                    	**range:** 1..40000
-                    
-                    	**default value**\: 25000
-                    
-                    .. attribute:: multicast_mode
-                    
-                    	Configure Multicast mode variable
-                    	**type**\:   :py:class:`DynTmplMulticastModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastModeEnum>`
-                    
-                    .. attribute:: query_interval
-                    
-                    	Query interval in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1..3600
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: 60
-                    
-                    .. attribute:: query_max_response_time
-                    
-                    	Query response value in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1..12
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: 10
-                    
-                    .. attribute:: version
-                    
-                    	IGMP Version
-                    	**type**\:  int
-                    
-                    	**range:** 1..3
-                    
-                    	**default value**\: 3
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.access_group = None
-                        self.explicit_tracking = None
-                        self.max_groups = None
-                        self.multicast_mode = None
-                        self.query_interval = None
-                        self.query_max_response_time = None
-                        self.version = None
-
-
-                    class ExplicitTracking(object):
-                        """
-                        IGMPv3 explicit host tracking
-                        
-                        .. attribute:: access_list_name
-                        
-                        	Access list specifying tracking group range
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        .. attribute:: enable
-                        
-                        	Enable or disable, when value is TRUE or FALSE respectively
-                        	**type**\:  bool
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.access_list_name = None
-                            self.enable = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:explicit-tracking'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.access_list_name is not None:
-                                return True
-
-                            if self.enable is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:default-vrf'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.access_group is not None:
-                            return True
-
-                        if self.explicit_tracking is not None and self.explicit_tracking._has_data():
-                            return True
-
-                        if self.max_groups is not None:
-                            return True
-
-                        if self.multicast_mode is not None:
-                            return True
-
-                        if self.query_interval is not None:
-                            return True
-
-                        if self.query_max_response_time is not None:
-                            return True
-
-                        if self.version is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.default_vrf is not None and self.default_vrf._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp']['meta_info']
-
-
-            class PppoeTemplate(object):
-                """
-                PPPoE template configuration data
-                
-                .. attribute:: port_limit
-                
-                	Specify the Port limit (attr 62) to apply to the subscriber
-                	**type**\:  int
-                
-                	**range:** 1..65535
-                
-                
-
-                """
-
-                _prefix = 'subscriber-pppoe-ma-gbl-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.port_limit = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.port_limit is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppoeTemplate']['meta_info']
-
-
-            class Ipv4Network(object):
-                """
-                Interface IPv4 Network configuration data
-                
-                .. attribute:: mtu
-                
-                	The IP Maximum Transmission Unit
-                	**type**\:  int
-                
-                	**range:** 68..65535
-                
-                	**units**\: byte
-                
-                .. attribute:: rpf
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
-                
-                	**default value**\: true
-                
-                .. attribute:: unnumbered
-                
-                	Enable IP processing without an explicit address
-                	**type**\:  str
-                
-                .. attribute:: unreachables
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                
-
-                """
-
-                _prefix = 'ipv4-ma-subscriber-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.mtu = None
-                    self.rpf = None
-                    self.unnumbered = None
-                    self.unreachables = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.mtu is not None:
-                        return True
-
-                    if self.rpf is not None:
-                        return True
-
-                    if self.unnumbered is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4Network']['meta_info']
-
-
-            class Qos(object):
-                """
-                QoS dynamically applied configuration template
-                
-                .. attribute:: account
-                
-                	QoS L2 overhead accounting
-                	**type**\:   :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Account>`
-                
-                .. attribute:: output
-                
-                	QoS to be applied in egress direction
-                	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Output>`
-                
-                .. attribute:: service_policy
-                
-                	Service policy to be applied in ingress/egress direction
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy>`
-                
-                
-
-                """
-
-                _prefix = 'qos-ma-bng-cfg'
-                _revision = '2016-04-01'
-
-                def __init__(self):
-                    self.parent = None
-                    self.account = DynamicTemplate.Ppps.Ppp.Qos.Account()
-                    self.account.parent = self
-                    self.output = DynamicTemplate.Ppps.Ppp.Qos.Output()
-                    self.output.parent = self
-                    self.service_policy = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy()
-                    self.service_policy.parent = self
-
-
-                class ServicePolicy(object):
-                    """
-                    Service policy to be applied in ingress/egress
-                    direction
-                    
-                    .. attribute:: input
-                    
-                    	Subscriber ingress policy
-                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: output
-                    
-                    	Subscriber egress policy
-                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output>`
-                    
-                    	**presence node**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-bng-cfg'
-                    _revision = '2016-04-01'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.input = None
-                        self.output = None
-
-
-                    class Input(object):
-                        """
-                        Subscriber ingress policy
-                        
-                        .. attribute:: account_stats
-                        
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge
-                        
-                        	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge_id
-                        
-                        	Merge ID value
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: policy_name
-                        
-                        	Name of policy\-map
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\:  str
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'qos-ma-bng-cfg'
-                        _revision = '2016-04-01'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:input'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input']['meta_info']
-
-
-                    class Output(object):
-                        """
-                        Subscriber egress policy
-                        
-                        .. attribute:: account_stats
-                        
-                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge
-                        
-                        	TRUE for merge enabled for service\-policy applied on dynamic template
-                        	**type**\:  bool
-                        
-                        .. attribute:: merge_id
-                        
-                        	Merge ID value
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: policy_name
-                        
-                        	Name of policy\-map
-                        	**type**\:  str
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: spi_name
-                        
-                        	Name of the SPI
-                        	**type**\:  str
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'qos-ma-bng-cfg'
-                        _revision = '2016-04-01'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:service-policy'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.input is not None and self.input._has_data():
-                            return True
-
-                        if self.output is not None and self.output._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy']['meta_info']
-
-
-                class Account(object):
-                    """
-                    QoS L2 overhead accounting
-                    
-                    .. attribute:: aal
-                    
-                    	ATM adaptation layer AAL
-                    	**type**\:   :py:class:`Qosl2DataLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLinkEnum>`
-                    
-                    .. attribute:: atm_cell_tax
-                    
-                    	ATM cell tax to L2 overhead
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: encapsulation
-                    
-                    	Specify encapsulation type
-                    	**type**\:   :py:class:`Qosl2EncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2EncapEnum>`
-                    
-                    .. attribute:: user_defined
-                    
-                    	Numeric L2 overhead offset
-                    	**type**\:  int
-                    
-                    	**range:** \-63..63
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-bng-cfg'
-                    _revision = '2016-04-01'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.aal = None
-                        self.atm_cell_tax = None
-                        self.encapsulation = None
-                        self.user_defined = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:account'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.aal is not None:
-                            return True
-
-                        if self.atm_cell_tax is not None:
-                            return True
-
-                        if self.encapsulation is not None:
-                            return True
-
-                        if self.user_defined is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.Account']['meta_info']
-
-
-                class Output(object):
-                    """
-                    QoS to be applied in egress direction
-                    
-                    .. attribute:: minimum_bandwidth
-                    
-                    	Minimum bandwidth value for the subscriber (in kbps)
-                    	**type**\:  int
-                    
-                    	**range:** 1..4294967295
-                    
-                    	**units**\: kbit/s
-                    
-                    
-
-                    """
-
-                    _prefix = 'qos-ma-bng-cfg'
-                    _revision = '2016-04-01'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.minimum_bandwidth = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.minimum_bandwidth is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.Output']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:qos'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.account is not None and self.account._has_data():
-                        return True
-
-                    if self.output is not None and self.output._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos']['meta_info']
 
 
             class Pbr(object):
@@ -2426,8 +2003,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.input is not None:
                             return True
 
@@ -2450,8 +2025,6 @@ class DynamicTemplate(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
@@ -2464,390 +2037,6 @@ class DynamicTemplate(object):
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
                     return meta._meta_table['DynamicTemplate.Ppps.Ppp.Pbr']['meta_info']
-
-
-            class Ipv6Network(object):
-                """
-                Interface IPv6 Network configuration data
-                
-                .. attribute:: addresses
-                
-                	Set the IPv6 address of an interface
-                	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses>`
-                
-                .. attribute:: mtu
-                
-                	MTU Setting of Interface
-                	**type**\:  int
-                
-                	**range:** 1280..65535
-                
-                	**units**\: byte
-                
-                .. attribute:: unreachables
-                
-                	Override Sending of ICMP Unreachable Messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: verify
-                
-                	IPv6 Verify Unicast Souce Reachable
-                	**type**\:   :py:class:`Ipv6ReachableViaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
-                
-                
-
-                """
-
-                _prefix = 'ipv6-ma-subscriber-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.addresses = DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses()
-                    self.addresses.parent = self
-                    self.mtu = None
-                    self.unreachables = None
-                    self.verify = None
-
-
-                class Addresses(object):
-                    """
-                    Set the IPv6 address of an interface
-                    
-                    .. attribute:: auto_configuration
-                    
-                    	Auto IPv6 Interface Configuration
-                    	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-ma-subscriber-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.auto_configuration = DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration()
-                        self.auto_configuration.parent = self
-
-
-                    class AutoConfiguration(object):
-                        """
-                        Auto IPv6 Interface Configuration
-                        
-                        .. attribute:: enable
-                        
-                        	The flag to enable auto ipv6 interface configuration
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-ma-subscriber-cfg'
-                        _revision = '2015-07-30'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.enable = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.enable is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.auto_configuration is not None and self.auto_configuration._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.addresses is not None and self.addresses._has_data():
-                        return True
-
-                    if self.mtu is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
-                    if self.verify is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network']['meta_info']
-
-
-            class SpanMonitorSessions(object):
-                """
-                Monitor Session container for this template
-                
-                .. attribute:: span_monitor_session
-                
-                	Configuration for a particular class of Monitor Session
-                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession>`
-                
-                
-
-                """
-
-                _prefix = 'ethernet-span-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.span_monitor_session = YList()
-                    self.span_monitor_session.parent = self
-                    self.span_monitor_session.name = 'span_monitor_session'
-
-
-                class SpanMonitorSession(object):
-                    """
-                    Configuration for a particular class of Monitor
-                    Session
-                    
-                    .. attribute:: session_class  <key>
-                    
-                    	Session Class
-                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
-                    
-                    .. attribute:: acl
-                    
-                    	Enable ACL matching for traffic mirroring
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: attachment
-                    
-                    	Attach the interface to a Monitor Session
-                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: mirror_first
-                    
-                    	Mirror a specified number of bytes from start of packet
-                    	**type**\:  int
-                    
-                    	**range:** 1..10000
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: mirror_interval
-                    
-                    	Specify the mirror interval
-                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ethernet-span-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.session_class = None
-                        self.acl = None
-                        self.attachment = None
-                        self.mirror_first = None
-                        self.mirror_interval = None
-
-
-                    class Attachment(object):
-                        """
-                        Attach the interface to a Monitor Session
-                        
-                        .. attribute:: direction
-                        
-                        	Specify the direction of traffic to replicate (optional)
-                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
-                        
-                        .. attribute:: port_level_enable
-                        
-                        	Enable port level traffic mirroring
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        .. attribute:: session_name
-                        
-                        	Session Name
-                        	**type**\:  str
-                        
-                        	**length:** 1..79
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ethernet-span-subscriber-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.direction = None
-                            self.port_level_enable = None
-                            self.session_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.direction is not None:
-                                return True
-
-                            if self.port_level_enable is not None:
-                                return True
-
-                            if self.session_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.session_class is None:
-                            raise YPYModelError('Key property session_class is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.session_class is not None:
-                            return True
-
-                        if self.acl is not None:
-                            return True
-
-                        if self.attachment is not None and self.attachment._has_data():
-                            return True
-
-                        if self.mirror_first is not None:
-                            return True
-
-                        if self.mirror_interval is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.span_monitor_session is not None:
-                        for child_ref in self.span_monitor_session:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions']['meta_info']
 
 
             class PppTemplate(object):
@@ -2959,8 +2148,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.max_consecutive_conf_naks is not None:
                             return True
 
@@ -3095,8 +2282,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.minutes is not None:
                                 return True
 
@@ -3154,8 +2339,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.milliseconds is not None:
                                 return True
 
@@ -3265,8 +2448,6 @@ class DynamicTemplate(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.method is not None:
                                     for child in self.method:
                                         if child is not None:
@@ -3291,8 +2472,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.chap_host_name is not None:
                                 return True
 
@@ -3368,8 +2547,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interval is not None:
                                 return True
 
@@ -3398,8 +2575,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.absolute_timeout is not None and self.absolute_timeout._has_data():
                             return True
 
@@ -3482,8 +2657,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.passive is not None:
                             return True
 
@@ -3630,8 +2803,6 @@ class DynamicTemplate(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.primary is not None:
                                     return True
 
@@ -3657,8 +2828,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.wins_addresses is not None and self.wins_addresses._has_data():
                                 return True
 
@@ -3734,8 +2903,6 @@ class DynamicTemplate(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.primary is not None:
                                     return True
 
@@ -3761,8 +2928,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.dns_addresses is not None and self.dns_addresses._has_data():
                                 return True
 
@@ -3814,8 +2979,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.default is not None:
                                 return True
 
@@ -3841,8 +3004,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.dns is not None and self.dns._has_data():
                             return True
 
@@ -3883,8 +3044,6 @@ class DynamicTemplate(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.fsm is not None and self.fsm._has_data():
                         return True
 
@@ -3904,6 +3063,745 @@ class DynamicTemplate(object):
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
                     return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate']['meta_info']
 
+
+            class Qos(object):
+                """
+                QoS dynamically applied configuration template
+                
+                .. attribute:: account
+                
+                	QoS L2 overhead accounting
+                	**type**\:   :py:class:`Account <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Account>`
+                
+                .. attribute:: output
+                
+                	QoS to be applied in egress direction
+                	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.Output>`
+                
+                .. attribute:: service_policy
+                
+                	Service policy to be applied in ingress/egress direction
+                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy>`
+                
+                
+
+                """
+
+                _prefix = 'qos-ma-bng-cfg'
+                _revision = '2016-04-01'
+
+                def __init__(self):
+                    self.parent = None
+                    self.account = DynamicTemplate.Ppps.Ppp.Qos.Account()
+                    self.account.parent = self
+                    self.output = DynamicTemplate.Ppps.Ppp.Qos.Output()
+                    self.output.parent = self
+                    self.service_policy = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy()
+                    self.service_policy.parent = self
+
+
+                class ServicePolicy(object):
+                    """
+                    Service policy to be applied in ingress/egress
+                    direction
+                    
+                    .. attribute:: input
+                    
+                    	Subscriber ingress policy
+                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: output
+                    
+                    	Subscriber egress policy
+                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.input = None
+                        self.output = None
+
+
+                    class Input(object):
+                        """
+                        Subscriber ingress policy
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\:  bool
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\:  bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\:  str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\:  str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.account_stats = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.policy_name = None
+                            self.spi_name = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:input'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self._is_presence:
+                                return True
+                            if self.account_stats is not None:
+                                return True
+
+                            if self.merge is not None:
+                                return True
+
+                            if self.merge_id is not None:
+                                return True
+
+                            if self.policy_name is not None:
+                                return True
+
+                            if self.spi_name is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input']['meta_info']
+
+
+                    class Output(object):
+                        """
+                        Subscriber egress policy
+                        
+                        .. attribute:: account_stats
+                        
+                        	TRUE for account stats enabled for service\-policy applied on dynamic template. Note\: account stats not supported for subscriber type 'ppp' and 'ipsubscriber'
+                        	**type**\:  bool
+                        
+                        .. attribute:: merge
+                        
+                        	TRUE for merge enabled for service\-policy applied on dynamic template
+                        	**type**\:  bool
+                        
+                        .. attribute:: merge_id
+                        
+                        	Merge ID value
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: policy_name
+                        
+                        	Name of policy\-map
+                        	**type**\:  str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: spi_name
+                        
+                        	Name of the SPI
+                        	**type**\:  str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'qos-ma-bng-cfg'
+                        _revision = '2016-04-01'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.account_stats = None
+                            self.merge = None
+                            self.merge_id = None
+                            self.policy_name = None
+                            self.spi_name = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self._is_presence:
+                                return True
+                            if self.account_stats is not None:
+                                return True
+
+                            if self.merge is not None:
+                                return True
+
+                            if self.merge_id is not None:
+                                return True
+
+                            if self.policy_name is not None:
+                                return True
+
+                            if self.spi_name is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:service-policy'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.input is not None and self.input._has_data():
+                            return True
+
+                        if self.output is not None and self.output._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy']['meta_info']
+
+
+                class Account(object):
+                    """
+                    QoS L2 overhead accounting
+                    
+                    .. attribute:: aal
+                    
+                    	ATM adaptation layer AAL
+                    	**type**\:   :py:class:`Qosl2DataLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLinkEnum>`
+                    
+                    .. attribute:: atm_cell_tax
+                    
+                    	ATM cell tax to L2 overhead
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Specify encapsulation type
+                    	**type**\:   :py:class:`Qosl2EncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2EncapEnum>`
+                    
+                    .. attribute:: user_defined
+                    
+                    	Numeric L2 overhead offset
+                    	**type**\:  int
+                    
+                    	**range:** \-63..63
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.aal = None
+                        self.atm_cell_tax = None
+                        self.encapsulation = None
+                        self.user_defined = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:account'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.aal is not None:
+                            return True
+
+                        if self.atm_cell_tax is not None:
+                            return True
+
+                        if self.encapsulation is not None:
+                            return True
+
+                        if self.user_defined is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.Account']['meta_info']
+
+
+                class Output(object):
+                    """
+                    QoS to be applied in egress direction
+                    
+                    .. attribute:: minimum_bandwidth
+                    
+                    	Minimum bandwidth value for the subscriber (in kbps)
+                    	**type**\:  int
+                    
+                    	**range:** 1..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    
+
+                    """
+
+                    _prefix = 'qos-ma-bng-cfg'
+                    _revision = '2016-04-01'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.minimum_bandwidth = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.minimum_bandwidth is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.Output']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:qos'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.account is not None and self.account._has_data():
+                        return True
+
+                    if self.output is not None and self.output._has_data():
+                        return True
+
+                    if self.service_policy is not None and self.service_policy._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos']['meta_info']
+
+
+            class Accounting(object):
+                """
+                Subscriber accounting dynamic\-template commands
+                
+                .. attribute:: idle_timeout
+                
+                	Subscriber accounting idle timeout
+                	**type**\:   :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout>`
+                
+                .. attribute:: prepaid_feature
+                
+                	Subscriber accounting prepaid feature
+                	**type**\:  str
+                
+                .. attribute:: service_accounting
+                
+                	Subscriber accounting service accounting
+                	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting>`
+                
+                .. attribute:: session
+                
+                	Subscriber accounting session accounting
+                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.Ppps.Ppp.Accounting.Session>`
+                
+                
+
+                """
+
+                _prefix = 'subscriber-accounting-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.idle_timeout = DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout()
+                    self.idle_timeout.parent = self
+                    self.prepaid_feature = None
+                    self.service_accounting = DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting()
+                    self.service_accounting.parent = self
+                    self.session = DynamicTemplate.Ppps.Ppp.Accounting.Session()
+                    self.session.parent = self
+
+
+                class IdleTimeout(object):
+                    """
+                    Subscriber accounting idle timeout
+                    
+                    .. attribute:: direction
+                    
+                    	Idle timeout traffic direction
+                    	**type**\:  str
+                    
+                    .. attribute:: threshold
+                    
+                    	Threshold in minute(s) per packet
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: timeout_value
+                    
+                    	Idle timeout value in seconds
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.direction = None
+                        self.threshold = None
+                        self.timeout_value = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:idle-timeout'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.direction is not None:
+                            return True
+
+                        if self.threshold is not None:
+                            return True
+
+                        if self.timeout_value is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout']['meta_info']
+
+
+                class Session(object):
+                    """
+                    Subscriber accounting session accounting
+                    
+                    .. attribute:: dual_stack_delay
+                    
+                    	Dual stack wait delay in seconds
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: hold_acct_start
+                    
+                    	Hold Accounting start based on IA\_PD
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Session accounting method list name
+                    	**type**\:  str
+                    
+                    .. attribute:: periodic_interval
+                    
+                    	Interim accounting interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.dual_stack_delay = None
+                        self.hold_acct_start = None
+                        self.method_list_name = None
+                        self.periodic_interval = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:session'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.dual_stack_delay is not None:
+                            return True
+
+                        if self.hold_acct_start is not None:
+                            return True
+
+                        if self.method_list_name is not None:
+                            return True
+
+                        if self.periodic_interval is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting.Session']['meta_info']
+
+
+                class ServiceAccounting(object):
+                    """
+                    Subscriber accounting service accounting
+                    
+                    .. attribute:: accounting_interim_interval
+                    
+                    	Accounting interim interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Service accounting method list name
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.accounting_interim_interval = None
+                        self.method_list_name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:service-accounting'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.accounting_interim_interval is not None:
+                            return True
+
+                        if self.method_list_name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:accounting'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.idle_timeout is not None and self.idle_timeout._has_data():
+                        return True
+
+                    if self.prepaid_feature is not None:
+                        return True
+
+                    if self.service_accounting is not None and self.service_accounting._has_data():
+                        return True
+
+                    if self.session is not None and self.session._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting']['meta_info']
+
+
+            class PppoeTemplate(object):
+                """
+                PPPoE template configuration data
+                
+                .. attribute:: port_limit
+                
+                	Specify the Port limit (attr 62) to apply to the subscriber
+                	**type**\:  int
+                
+                	**range:** 1..65535
+                
+                
+
+                """
+
+                _prefix = 'subscriber-pppoe-ma-gbl-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.port_limit = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.port_limit is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppoeTemplate']['meta_info']
+
             @property
             def _common_path(self):
                 if self.template_name is None:
@@ -3916,8 +3814,6 @@ class DynamicTemplate(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.template_name is not None:
                     return True
 
@@ -3980,8 +3876,6 @@ class DynamicTemplate(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ppp is not None:
                 for child_ref in self.ppp:
                     if child_ref._has_data():
@@ -4131,6 +4025,1171 @@ class DynamicTemplate(object):
                 self.span_monitor_sessions = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions()
                 self.span_monitor_sessions.parent = self
                 self.vrf = None
+
+
+            class SpanMonitorSessions(object):
+                """
+                Monitor Session container for this template
+                
+                .. attribute:: span_monitor_session
+                
+                	Configuration for a particular class of Monitor Session
+                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.span_monitor_session = YList()
+                    self.span_monitor_session.parent = self
+                    self.span_monitor_session.name = 'span_monitor_session'
+
+
+                class SpanMonitorSession(object):
+                    """
+                    Configuration for a particular class of Monitor
+                    Session
+                    
+                    .. attribute:: session_class  <key>
+                    
+                    	Session Class
+                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                    
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: mirror_first
+                    
+                    	Mirror a specified number of bytes from start of packet
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: mirror_interval
+                    
+                    	Specify the mirror interval
+                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.session_class = None
+                        self.acl = None
+                        self.attachment = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
+
+
+                    class Attachment(object):
+                        """
+                        Attach the interface to a Monitor Session
+                        
+                        .. attribute:: direction
+                        
+                        	Specify the direction of traffic to replicate (optional)
+                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
+                        
+                        .. attribute:: port_level_enable
+                        
+                        	Enable port level traffic mirroring
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\:  str
+                        
+                        	**length:** 1..79
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.direction = None
+                            self.port_level_enable = None
+                            self.session_name = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self._is_presence:
+                                return True
+                            if self.direction is not None:
+                                return True
+
+                            if self.port_level_enable is not None:
+                                return True
+
+                            if self.session_name is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.session_class is None:
+                            raise YPYModelError('Key property session_class is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.session_class is not None:
+                            return True
+
+                        if self.acl is not None:
+                            return True
+
+                        if self.attachment is not None and self.attachment._has_data():
+                            return True
+
+                        if self.mirror_first is not None:
+                            return True
+
+                        if self.mirror_interval is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.span_monitor_session is not None:
+                        for child_ref in self.span_monitor_session:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions']['meta_info']
+
+
+            class Ipv4PacketFilter(object):
+                """
+                IPv4 Packet Filtering configuration for the
+                template
+                
+                .. attribute:: inbound
+                
+                	IPv4 Packet filter to be applied to inbound packets
+                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv4 Packet filter to be applied to outbound packets
+                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound>`
+                
+                	**presence node**\: True
+                
+                
+
+                """
+
+                _prefix = 'ip-pfilter-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.inbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound()
+                    self.inbound.parent = self
+                    self.outbound = None
+
+
+                class Outbound(object):
+                    """
+                    IPv4 Packet filter to be applied to outbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: hardware_count
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Outbound packets
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.common_acl_name = None
+                        self.hardware_count = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self._is_presence:
+                            return True
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.hardware_count is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound']['meta_info']
+
+
+                class Inbound(object):
+                    """
+                    IPv4 Packet filter to be applied to inbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: hardware_count
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.common_acl_name = None
+                        self.hardware_count = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.hardware_count is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.inbound is not None and self.inbound._has_data():
+                        return True
+
+                    if self.outbound is not None and self.outbound._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter']['meta_info']
+
+
+            class Ipv6PacketFilter(object):
+                """
+                IPv6 Packet Filtering configuration for the
+                interface
+                
+                .. attribute:: inbound
+                
+                	IPv6 Packet filter to be applied to inbound packets
+                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv6 Packet filter to be applied to outbound packets
+                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound>`
+                
+                	**presence node**\: True
+                
+                
+
+                """
+
+                _prefix = 'ip-pfilter-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.inbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound()
+                    self.inbound.parent = self
+                    self.outbound = None
+
+
+                class Inbound(object):
+                    """
+                    IPv6 Packet filter to be applied to inbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.common_acl_name = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound']['meta_info']
+
+
+                class Outbound(object):
+                    """
+                    IPv6 Packet filter to be applied to outbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv6 Packet Filter Name to be applied to Outbound packets
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.common_acl_name = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self._is_presence:
+                            return True
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.inbound is not None and self.inbound._has_data():
+                        return True
+
+                    if self.outbound is not None and self.outbound._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter']['meta_info']
+
+
+            class Dhcpd(object):
+                """
+                Interface dhcpv4 configuration data
+                
+                .. attribute:: class_
+                
+                	The class to be used for proxy/server profile
+                	**type**\:  str
+                
+                .. attribute:: default_gateway
+                
+                	The Default Gateway IP address
+                	**type**\:  str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                .. attribute:: dhcpv4_option
+                
+                	Cisco VSA to configure any dhcp4 option per subscriber
+                	**type**\:  str
+                
+                .. attribute:: session_limit
+                
+                	The pool to be used for Prefix Delegation
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                
+
+                """
+
+                _prefix = 'ipv4-dhcpd-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.class_ = None
+                    self.default_gateway = None
+                    self.dhcpv4_option = None
+                    self.session_limit = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.class_ is not None:
+                        return True
+
+                    if self.default_gateway is not None:
+                        return True
+
+                    if self.dhcpv4_option is not None:
+                        return True
+
+                    if self.session_limit is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd']['meta_info']
+
+
+            class Igmp(object):
+                """
+                IGMPconfiguration
+                
+                .. attribute:: default_vrf
+                
+                	Default VRF
+                	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.default_vrf = DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf()
+                    self.default_vrf.parent = self
+
+
+                class DefaultVrf(object):
+                    """
+                    Default VRF
+                    
+                    .. attribute:: access_group
+                    
+                    	Access list specifying access\-list group range
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: explicit_tracking
+                    
+                    	IGMPv3 explicit host tracking
+                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: max_groups
+                    
+                    	IGMP Max Groups
+                    	**type**\:  int
+                    
+                    	**range:** 1..40000
+                    
+                    	**default value**\: 25000
+                    
+                    .. attribute:: multicast_mode
+                    
+                    	Configure Multicast mode variable
+                    	**type**\:   :py:class:`DynTmplMulticastModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastModeEnum>`
+                    
+                    .. attribute:: query_interval
+                    
+                    	Query interval in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..3600
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 60
+                    
+                    .. attribute:: query_max_response_time
+                    
+                    	Query response value in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..12
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 10
+                    
+                    .. attribute:: version
+                    
+                    	IGMP Version
+                    	**type**\:  int
+                    
+                    	**range:** 1..3
+                    
+                    	**default value**\: 3
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.access_group = None
+                        self.explicit_tracking = None
+                        self.max_groups = None
+                        self.multicast_mode = None
+                        self.query_interval = None
+                        self.query_max_response_time = None
+                        self.version = None
+
+
+                    class ExplicitTracking(object):
+                        """
+                        IGMPv3 explicit host tracking
+                        
+                        .. attribute:: access_list_name
+                        
+                        	Access list specifying tracking group range
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: enable
+                        
+                        	Enable or disable, when value is TRUE or FALSE respectively
+                        	**type**\:  bool
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.access_list_name = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:explicit-tracking'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self._is_presence:
+                                return True
+                            if self.access_list_name is not None:
+                                return True
+
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:default-vrf'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.access_group is not None:
+                            return True
+
+                        if self.explicit_tracking is not None and self.explicit_tracking._has_data():
+                            return True
+
+                        if self.max_groups is not None:
+                            return True
+
+                        if self.multicast_mode is not None:
+                            return True
+
+                        if self.query_interval is not None:
+                            return True
+
+                        if self.query_max_response_time is not None:
+                            return True
+
+                        if self.version is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.default_vrf is not None and self.default_vrf._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Igmp']['meta_info']
+
+
+            class Ipv4Network(object):
+                """
+                Interface IPv4 Network configuration data
+                
+                .. attribute:: mtu
+                
+                	The IP Maximum Transmission Unit
+                	**type**\:  int
+                
+                	**range:** 68..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: rpf
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\:  bool
+                
+                	**default value**\: true
+                
+                .. attribute:: unnumbered
+                
+                	Enable IP processing without an explicit address
+                	**type**\:  str
+                
+                .. attribute:: unreachables
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'ipv4-ma-subscriber-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.mtu = None
+                    self.rpf = None
+                    self.unnumbered = None
+                    self.unreachables = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.mtu is not None:
+                        return True
+
+                    if self.rpf is not None:
+                        return True
+
+                    if self.unnumbered is not None:
+                        return True
+
+                    if self.unreachables is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network']['meta_info']
+
+
+            class Ipv6Network(object):
+                """
+                Interface IPv6 Network configuration data
+                
+                .. attribute:: addresses
+                
+                	Set the IPv6 address of an interface
+                	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses>`
+                
+                .. attribute:: mtu
+                
+                	MTU Setting of Interface
+                	**type**\:  int
+                
+                	**range:** 1280..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: unreachables
+                
+                	Override Sending of ICMP Unreachable Messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: verify
+                
+                	IPv6 Verify Unicast Souce Reachable
+                	**type**\:   :py:class:`Ipv6ReachableViaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-ma-subscriber-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.addresses = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses()
+                    self.addresses.parent = self
+                    self.mtu = None
+                    self.unreachables = None
+                    self.verify = None
+
+
+                class Addresses(object):
+                    """
+                    Set the IPv6 address of an interface
+                    
+                    .. attribute:: auto_configuration
+                    
+                    	Auto IPv6 Interface Configuration
+                    	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-ma-subscriber-cfg'
+                    _revision = '2015-07-30'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.auto_configuration = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration()
+                        self.auto_configuration.parent = self
+
+
+                    class AutoConfiguration(object):
+                        """
+                        Auto IPv6 Interface Configuration
+                        
+                        .. attribute:: enable
+                        
+                        	The flag to enable auto ipv6 interface configuration
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-ma-subscriber-cfg'
+                        _revision = '2015-07-30'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.auto_configuration is not None and self.auto_configuration._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.addresses is not None and self.addresses._has_data():
+                        return True
+
+                    if self.mtu is not None:
+                        return True
+
+                    if self.unreachables is not None:
+                        return True
+
+                    if self.verify is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network']['meta_info']
 
 
             class Ipv6Neighbor(object):
@@ -4332,8 +5391,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum is not None:
@@ -4403,8 +5460,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.prefix is not None:
@@ -4455,8 +5510,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attempts is not None:
                             return True
 
@@ -4524,8 +5577,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.count is not None:
@@ -4553,8 +5604,6 @@ class DynamicTemplate(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                         return True
 
@@ -4734,8 +5783,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.prefix is not None:
@@ -4763,8 +5810,6 @@ class DynamicTemplate(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.address_pool is not None:
                         return True
 
@@ -4794,518 +5839,67 @@ class DynamicTemplate(object):
                     return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6']['meta_info']
 
 
-            class Ipv4PacketFilter(object):
+            class Pbr(object):
                 """
-                IPv4 Packet Filtering configuration for the
-                template
+                Dynamic Template PBR configuration
                 
-                .. attribute:: inbound
+                .. attribute:: service_policy
                 
-                	IPv4 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound>`
+                	PBR service policy configuration
+                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy>`
                 
-                .. attribute:: outbound
+                .. attribute:: service_policy_in
                 
-                	IPv4 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound>`
-                
-                	**presence node**\: True
-                
-                
-
-                """
-
-                _prefix = 'ip-pfilter-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.inbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound()
-                    self.inbound.parent = self
-                    self.outbound = None
-
-
-                class Outbound(object):
-                    """
-                    IPv4 Packet filter to be applied to outbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: hardware_count
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self._is_presence:
-                            return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound']['meta_info']
-
-
-                class Inbound(object):
-                    """
-                    IPv4 Packet filter to be applied to inbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: hardware_count
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter']['meta_info']
-
-
-            class Ipv6PacketFilter(object):
-                """
-                IPv6 Packet Filtering configuration for the
-                interface
-                
-                .. attribute:: inbound
-                
-                	IPv6 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound>`
-                
-                .. attribute:: outbound
-                
-                	IPv6 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound>`
-                
-                	**presence node**\: True
-                
-                
-
-                """
-
-                _prefix = 'ip-pfilter-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.inbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound()
-                    self.inbound.parent = self
-                    self.outbound = None
-
-
-                class Inbound(object):
-                    """
-                    IPv6 Packet filter to be applied to inbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound']['meta_info']
-
-
-                class Outbound(object):
-                    """
-                    IPv6 Packet filter to be applied to outbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self._is_presence:
-                            return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter']['meta_info']
-
-
-            class Accounting(object):
-                """
-                Subscriber accounting dynamic\-template commands
-                
-                .. attribute:: idle_timeout
-                
-                	Subscriber accounting idle timeout
-                	**type**\:   :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout>`
-                
-                .. attribute:: prepaid_feature
-                
-                	Subscriber accounting prepaid feature
+                	Class for subscriber ingress policy
                 	**type**\:  str
                 
-                .. attribute:: service_accounting
-                
-                	Subscriber accounting service accounting
-                	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting>`
-                
-                .. attribute:: session
-                
-                	Subscriber accounting session accounting
-                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session>`
-                
                 
 
                 """
 
-                _prefix = 'subscriber-accounting-cfg'
+                _prefix = 'pbr-subscriber-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
                     self.parent = None
-                    self.idle_timeout = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout()
-                    self.idle_timeout.parent = self
-                    self.prepaid_feature = None
-                    self.service_accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting()
-                    self.service_accounting.parent = self
-                    self.session = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session()
-                    self.session.parent = self
+                    self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy()
+                    self.service_policy.parent = self
+                    self.service_policy_in = None
 
 
-                class ServiceAccounting(object):
+                class ServicePolicy(object):
                     """
-                    Subscriber accounting service accounting
+                    PBR service policy configuration
                     
-                    .. attribute:: accounting_interim_interval
+                    .. attribute:: input
                     
-                    	Accounting interim interval in minutes
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**units**\: minute
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Service accounting method list name
+                    	Ingress service policy
                     	**type**\:  str
                     
                     
 
                     """
 
-                    _prefix = 'subscriber-accounting-cfg'
+                    _prefix = 'pbr-subscriber-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
                         self.parent = None
-                        self.accounting_interim_interval = None
-                        self.method_list_name = None
+                        self.input = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:service-accounting'
+                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.accounting_interim_interval is not None:
-                            return True
-
-                        if self.method_list_name is not None:
+                        if self.input is not None:
                             return True
 
                         return False
@@ -5313,183 +5907,24 @@ class DynamicTemplate(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting']['meta_info']
-
-
-                class Session(object):
-                    """
-                    Subscriber accounting session accounting
-                    
-                    .. attribute:: dual_stack_delay
-                    
-                    	Dual stack wait delay in seconds
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: hold_acct_start
-                    
-                    	Hold Accounting start based on IA\_PD
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Session accounting method list name
-                    	**type**\:  str
-                    
-                    .. attribute:: periodic_interval
-                    
-                    	Interim accounting interval in minutes
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**units**\: minute
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.dual_stack_delay = None
-                        self.hold_acct_start = None
-                        self.method_list_name = None
-                        self.periodic_interval = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:session'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.dual_stack_delay is not None:
-                            return True
-
-                        if self.hold_acct_start is not None:
-                            return True
-
-                        if self.method_list_name is not None:
-                            return True
-
-                        if self.periodic_interval is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session']['meta_info']
-
-
-                class IdleTimeout(object):
-                    """
-                    Subscriber accounting idle timeout
-                    
-                    .. attribute:: direction
-                    
-                    	Idle timeout traffic direction
-                    	**type**\:  str
-                    
-                    .. attribute:: threshold
-                    
-                    	Threshold in minute(s) per packet
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: timeout_value
-                    
-                    	Idle timeout value in seconds
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.direction = None
-                        self.threshold = None
-                        self.timeout_value = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:idle-timeout'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.direction is not None:
-                            return True
-
-                        if self.threshold is not None:
-                            return True
-
-                        if self.timeout_value is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout']['meta_info']
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy']['meta_info']
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:accounting'
+                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.idle_timeout is not None and self.idle_timeout._has_data():
+                    if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
-                    if self.prepaid_feature is not None:
-                        return True
-
-                    if self.service_accounting is not None and self.service_accounting._has_data():
-                        return True
-
-                    if self.session is not None and self.session._has_data():
+                    if self.service_policy_in is not None:
                         return True
 
                     return False
@@ -5497,324 +5932,7 @@ class DynamicTemplate(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting']['meta_info']
-
-
-            class Igmp(object):
-                """
-                IGMPconfiguration
-                
-                .. attribute:: default_vrf
-                
-                	Default VRF
-                	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.default_vrf = DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf()
-                    self.default_vrf.parent = self
-
-
-                class DefaultVrf(object):
-                    """
-                    Default VRF
-                    
-                    .. attribute:: access_group
-                    
-                    	Access list specifying access\-list group range
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: explicit_tracking
-                    
-                    	IGMPv3 explicit host tracking
-                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: max_groups
-                    
-                    	IGMP Max Groups
-                    	**type**\:  int
-                    
-                    	**range:** 1..40000
-                    
-                    	**default value**\: 25000
-                    
-                    .. attribute:: multicast_mode
-                    
-                    	Configure Multicast mode variable
-                    	**type**\:   :py:class:`DynTmplMulticastModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastModeEnum>`
-                    
-                    .. attribute:: query_interval
-                    
-                    	Query interval in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1..3600
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: 60
-                    
-                    .. attribute:: query_max_response_time
-                    
-                    	Query response value in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1..12
-                    
-                    	**units**\: second
-                    
-                    	**default value**\: 10
-                    
-                    .. attribute:: version
-                    
-                    	IGMP Version
-                    	**type**\:  int
-                    
-                    	**range:** 1..3
-                    
-                    	**default value**\: 3
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.access_group = None
-                        self.explicit_tracking = None
-                        self.max_groups = None
-                        self.multicast_mode = None
-                        self.query_interval = None
-                        self.query_max_response_time = None
-                        self.version = None
-
-
-                    class ExplicitTracking(object):
-                        """
-                        IGMPv3 explicit host tracking
-                        
-                        .. attribute:: access_list_name
-                        
-                        	Access list specifying tracking group range
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        .. attribute:: enable
-                        
-                        	Enable or disable, when value is TRUE or FALSE respectively
-                        	**type**\:  bool
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ipv4-igmp-dyn-tmpl-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.access_list_name = None
-                            self.enable = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:explicit-tracking'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.access_list_name is not None:
-                                return True
-
-                            if self.enable is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:default-vrf'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.access_group is not None:
-                            return True
-
-                        if self.explicit_tracking is not None and self.explicit_tracking._has_data():
-                            return True
-
-                        if self.max_groups is not None:
-                            return True
-
-                        if self.multicast_mode is not None:
-                            return True
-
-                        if self.query_interval is not None:
-                            return True
-
-                        if self.query_max_response_time is not None:
-                            return True
-
-                        if self.version is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.default_vrf is not None and self.default_vrf._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Igmp']['meta_info']
-
-
-            class Ipv4Network(object):
-                """
-                Interface IPv4 Network configuration data
-                
-                .. attribute:: mtu
-                
-                	The IP Maximum Transmission Unit
-                	**type**\:  int
-                
-                	**range:** 68..65535
-                
-                	**units**\: byte
-                
-                .. attribute:: rpf
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
-                
-                	**default value**\: true
-                
-                .. attribute:: unnumbered
-                
-                	Enable IP processing without an explicit address
-                	**type**\:  str
-                
-                .. attribute:: unreachables
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                
-
-                """
-
-                _prefix = 'ipv4-ma-subscriber-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.mtu = None
-                    self.rpf = None
-                    self.unnumbered = None
-                    self.unreachables = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.mtu is not None:
-                        return True
-
-                    if self.rpf is not None:
-                        return True
-
-                    if self.unnumbered is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network']['meta_info']
+                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr']['meta_info']
 
 
             class Qos(object):
@@ -5953,8 +6071,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.account_stats is not None:
@@ -6048,8 +6164,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.account_stats is not None:
@@ -6086,8 +6200,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.input is not None and self.input._has_data():
                             return True
 
@@ -6154,8 +6266,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.aal is not None:
                             return True
 
@@ -6212,8 +6322,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.minimum_bandwidth is not None:
                             return True
 
@@ -6236,8 +6344,6 @@ class DynamicTemplate(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.account is not None and self.account._has_data():
                         return True
 
@@ -6255,69 +6361,94 @@ class DynamicTemplate(object):
                     return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos']['meta_info']
 
 
-            class Pbr(object):
+            class Accounting(object):
                 """
-                Dynamic Template PBR configuration
+                Subscriber accounting dynamic\-template commands
                 
-                .. attribute:: service_policy
+                .. attribute:: idle_timeout
                 
-                	PBR service policy configuration
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy>`
+                	Subscriber accounting idle timeout
+                	**type**\:   :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout>`
                 
-                .. attribute:: service_policy_in
+                .. attribute:: prepaid_feature
                 
-                	Class for subscriber ingress policy
+                	Subscriber accounting prepaid feature
                 	**type**\:  str
                 
+                .. attribute:: service_accounting
+                
+                	Subscriber accounting service accounting
+                	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting>`
+                
+                .. attribute:: session
+                
+                	Subscriber accounting session accounting
+                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session>`
+                
                 
 
                 """
 
-                _prefix = 'pbr-subscriber-cfg'
+                _prefix = 'subscriber-accounting-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
                     self.parent = None
-                    self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy()
-                    self.service_policy.parent = self
-                    self.service_policy_in = None
+                    self.idle_timeout = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout()
+                    self.idle_timeout.parent = self
+                    self.prepaid_feature = None
+                    self.service_accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting()
+                    self.service_accounting.parent = self
+                    self.session = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session()
+                    self.session.parent = self
 
 
-                class ServicePolicy(object):
+                class ServiceAccounting(object):
                     """
-                    PBR service policy configuration
+                    Subscriber accounting service accounting
                     
-                    .. attribute:: input
+                    .. attribute:: accounting_interim_interval
                     
-                    	Ingress service policy
+                    	Accounting interim interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Service accounting method list name
                     	**type**\:  str
                     
                     
 
                     """
 
-                    _prefix = 'pbr-subscriber-cfg'
+                    _prefix = 'subscriber-accounting-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
                         self.parent = None
-                        self.input = None
+                        self.accounting_interim_interval = None
+                        self.method_list_name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
+                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:service-accounting'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.input is not None:
+                        if self.accounting_interim_interval is not None:
+                            return True
+
+                        if self.method_list_name is not None:
                             return True
 
                         return False
@@ -6325,460 +6456,79 @@ class DynamicTemplate(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    if self.service_policy_in is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr']['meta_info']
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting']['meta_info']
 
 
-            class Dhcpd(object):
-                """
-                Interface dhcpv4 configuration data
-                
-                .. attribute:: class_
-                
-                	The class to be used for proxy/server profile
-                	**type**\:  str
-                
-                .. attribute:: default_gateway
-                
-                	The Default Gateway IP address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: dhcpv4_option
-                
-                	Cisco VSA to configure any dhcp4 option per subscriber
-                	**type**\:  str
-                
-                .. attribute:: session_limit
-                
-                	The pool to be used for Prefix Delegation
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                
-
-                """
-
-                _prefix = 'ipv4-dhcpd-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.class_ = None
-                    self.default_gateway = None
-                    self.dhcpv4_option = None
-                    self.session_limit = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.class_ is not None:
-                        return True
-
-                    if self.default_gateway is not None:
-                        return True
-
-                    if self.dhcpv4_option is not None:
-                        return True
-
-                    if self.session_limit is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd']['meta_info']
-
-
-            class Ipv6Network(object):
-                """
-                Interface IPv6 Network configuration data
-                
-                .. attribute:: addresses
-                
-                	Set the IPv6 address of an interface
-                	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses>`
-                
-                .. attribute:: mtu
-                
-                	MTU Setting of Interface
-                	**type**\:  int
-                
-                	**range:** 1280..65535
-                
-                	**units**\: byte
-                
-                .. attribute:: unreachables
-                
-                	Override Sending of ICMP Unreachable Messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: verify
-                
-                	IPv6 Verify Unicast Souce Reachable
-                	**type**\:   :py:class:`Ipv6ReachableViaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
-                
-                
-
-                """
-
-                _prefix = 'ipv6-ma-subscriber-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.addresses = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses()
-                    self.addresses.parent = self
-                    self.mtu = None
-                    self.unreachables = None
-                    self.verify = None
-
-
-                class Addresses(object):
+                class Session(object):
                     """
-                    Set the IPv6 address of an interface
+                    Subscriber accounting session accounting
                     
-                    .. attribute:: auto_configuration
+                    .. attribute:: dual_stack_delay
                     
-                    	Auto IPv6 Interface Configuration
-                    	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-ma-subscriber-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.auto_configuration = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration()
-                        self.auto_configuration.parent = self
-
-
-                    class AutoConfiguration(object):
-                        """
-                        Auto IPv6 Interface Configuration
-                        
-                        .. attribute:: enable
-                        
-                        	The flag to enable auto ipv6 interface configuration
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-ma-subscriber-cfg'
-                        _revision = '2015-07-30'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.enable = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.enable is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.auto_configuration is not None and self.auto_configuration._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.addresses is not None and self.addresses._has_data():
-                        return True
-
-                    if self.mtu is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
-                    if self.verify is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network']['meta_info']
-
-
-            class SpanMonitorSessions(object):
-                """
-                Monitor Session container for this template
-                
-                .. attribute:: span_monitor_session
-                
-                	Configuration for a particular class of Monitor Session
-                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession>`
-                
-                
-
-                """
-
-                _prefix = 'ethernet-span-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.span_monitor_session = YList()
-                    self.span_monitor_session.parent = self
-                    self.span_monitor_session.name = 'span_monitor_session'
-
-
-                class SpanMonitorSession(object):
-                    """
-                    Configuration for a particular class of Monitor
-                    Session
-                    
-                    .. attribute:: session_class  <key>
-                    
-                    	Session Class
-                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
-                    
-                    .. attribute:: acl
-                    
-                    	Enable ACL matching for traffic mirroring
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: attachment
-                    
-                    	Attach the interface to a Monitor Session
-                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: mirror_first
-                    
-                    	Mirror a specified number of bytes from start of packet
+                    	Dual stack wait delay in seconds
                     	**type**\:  int
                     
-                    	**range:** 1..10000
+                    	**range:** \-2147483648..2147483647
                     
-                    	**units**\: byte
+                    	**units**\: second
                     
-                    .. attribute:: mirror_interval
+                    .. attribute:: hold_acct_start
                     
-                    	Specify the mirror interval
-                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
+                    	Hold Accounting start based on IA\_PD
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Session accounting method list name
+                    	**type**\:  str
+                    
+                    .. attribute:: periodic_interval
+                    
+                    	Interim accounting interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**units**\: minute
                     
                     
 
                     """
 
-                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _prefix = 'subscriber-accounting-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
                         self.parent = None
-                        self.session_class = None
-                        self.acl = None
-                        self.attachment = None
-                        self.mirror_first = None
-                        self.mirror_interval = None
-
-
-                    class Attachment(object):
-                        """
-                        Attach the interface to a Monitor Session
-                        
-                        .. attribute:: direction
-                        
-                        	Specify the direction of traffic to replicate (optional)
-                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
-                        
-                        .. attribute:: port_level_enable
-                        
-                        	Enable port level traffic mirroring
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        .. attribute:: session_name
-                        
-                        	Session Name
-                        	**type**\:  str
-                        
-                        	**length:** 1..79
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ethernet-span-subscriber-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.direction = None
-                            self.port_level_enable = None
-                            self.session_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.direction is not None:
-                                return True
-
-                            if self.port_level_enable is not None:
-                                return True
-
-                            if self.session_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info']
+                        self.dual_stack_delay = None
+                        self.hold_acct_start = None
+                        self.method_list_name = None
+                        self.periodic_interval = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.session_class is None:
-                            raise YPYModelError('Key property session_class is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:session'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.session_class is not None:
+                        if self.dual_stack_delay is not None:
                             return True
 
-                        if self.acl is not None:
+                        if self.hold_acct_start is not None:
                             return True
 
-                        if self.attachment is not None and self.attachment._has_data():
+                        if self.method_list_name is not None:
                             return True
 
-                        if self.mirror_first is not None:
-                            return True
-
-                        if self.mirror_interval is not None:
+                        if self.periodic_interval is not None:
                             return True
 
                         return False
@@ -6786,33 +6536,105 @@ class DynamicTemplate(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession']['meta_info']
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session']['meta_info']
+
+
+                class IdleTimeout(object):
+                    """
+                    Subscriber accounting idle timeout
+                    
+                    .. attribute:: direction
+                    
+                    	Idle timeout traffic direction
+                    	**type**\:  str
+                    
+                    .. attribute:: threshold
+                    
+                    	Threshold in minute(s) per packet
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: timeout_value
+                    
+                    	Idle timeout value in seconds
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**units**\: second
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.direction = None
+                        self.threshold = None
+                        self.timeout_value = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:idle-timeout'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.direction is not None:
+                            return True
+
+                        if self.threshold is not None:
+                            return True
+
+                        if self.timeout_value is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout']['meta_info']
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
+                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:accounting'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.span_monitor_session is not None:
-                        for child_ref in self.span_monitor_session:
-                            if child_ref._has_data():
-                                return True
+                    if self.idle_timeout is not None and self.idle_timeout._has_data():
+                        return True
+
+                    if self.prepaid_feature is not None:
+                        return True
+
+                    if self.service_accounting is not None and self.service_accounting._has_data():
+                        return True
+
+                    if self.session is not None and self.session._has_data():
+                        return True
 
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions']['meta_info']
+                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting']['meta_info']
 
             @property
             def _common_path(self):
@@ -6826,8 +6648,6 @@ class DynamicTemplate(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.template_name is not None:
                     return True
 
@@ -6887,8 +6707,6 @@ class DynamicTemplate(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.ip_subscriber is not None:
                 for child_ref in self.ip_subscriber:
                     if child_ref._has_data():
@@ -7017,6 +6835,866 @@ class DynamicTemplate(object):
                 self.span_monitor_sessions = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions()
                 self.span_monitor_sessions.parent = self
                 self.vrf = None
+
+
+            class SpanMonitorSessions(object):
+                """
+                Monitor Session container for this template
+                
+                .. attribute:: span_monitor_session
+                
+                	Configuration for a particular class of Monitor Session
+                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession>`
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.span_monitor_session = YList()
+                    self.span_monitor_session.parent = self
+                    self.span_monitor_session.name = 'span_monitor_session'
+
+
+                class SpanMonitorSession(object):
+                    """
+                    Configuration for a particular class of Monitor
+                    Session
+                    
+                    .. attribute:: session_class  <key>
+                    
+                    	Session Class
+                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                    
+                    .. attribute:: acl
+                    
+                    	Enable ACL matching for traffic mirroring
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: attachment
+                    
+                    	Attach the interface to a Monitor Session
+                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: mirror_first
+                    
+                    	Mirror a specified number of bytes from start of packet
+                    	**type**\:  int
+                    
+                    	**range:** 1..10000
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: mirror_interval
+                    
+                    	Specify the mirror interval
+                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.session_class = None
+                        self.acl = None
+                        self.attachment = None
+                        self.mirror_first = None
+                        self.mirror_interval = None
+
+
+                    class Attachment(object):
+                        """
+                        Attach the interface to a Monitor Session
+                        
+                        .. attribute:: direction
+                        
+                        	Specify the direction of traffic to replicate (optional)
+                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
+                        
+                        .. attribute:: port_level_enable
+                        
+                        	Enable port level traffic mirroring
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: session_name
+                        
+                        	Session Name
+                        	**type**\:  str
+                        
+                        	**length:** 1..79
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ethernet-span-subscriber-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.direction = None
+                            self.port_level_enable = None
+                            self.session_name = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self._is_presence:
+                                return True
+                            if self.direction is not None:
+                                return True
+
+                            if self.port_level_enable is not None:
+                                return True
+
+                            if self.session_name is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.session_class is None:
+                            raise YPYModelError('Key property session_class is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.session_class is not None:
+                            return True
+
+                        if self.acl is not None:
+                            return True
+
+                        if self.attachment is not None and self.attachment._has_data():
+                            return True
+
+                        if self.mirror_first is not None:
+                            return True
+
+                        if self.mirror_interval is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.span_monitor_session is not None:
+                        for child_ref in self.span_monitor_session:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions']['meta_info']
+
+
+            class Ipv4PacketFilter(object):
+                """
+                IPv4 Packet Filtering configuration for the
+                template
+                
+                .. attribute:: inbound
+                
+                	IPv4 Packet filter to be applied to inbound packets
+                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv4 Packet filter to be applied to outbound packets
+                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound>`
+                
+                	**presence node**\: True
+                
+                
+
+                """
+
+                _prefix = 'ip-pfilter-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.inbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound()
+                    self.inbound.parent = self
+                    self.outbound = None
+
+
+                class Outbound(object):
+                    """
+                    IPv4 Packet filter to be applied to outbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: hardware_count
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Outbound packets
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.common_acl_name = None
+                        self.hardware_count = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self._is_presence:
+                            return True
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.hardware_count is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound']['meta_info']
+
+
+                class Inbound(object):
+                    """
+                    IPv4 Packet filter to be applied to inbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: hardware_count
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.common_acl_name = None
+                        self.hardware_count = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.hardware_count is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.inbound is not None and self.inbound._has_data():
+                        return True
+
+                    if self.outbound is not None and self.outbound._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter']['meta_info']
+
+
+            class Ipv6PacketFilter(object):
+                """
+                IPv6 Packet Filtering configuration for the
+                interface
+                
+                .. attribute:: inbound
+                
+                	IPv6 Packet filter to be applied to inbound packets
+                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound>`
+                
+                .. attribute:: outbound
+                
+                	IPv6 Packet filter to be applied to outbound packets
+                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound>`
+                
+                	**presence node**\: True
+                
+                
+
+                """
+
+                _prefix = 'ip-pfilter-subscriber-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.inbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound()
+                    self.inbound.parent = self
+                    self.outbound = None
+
+
+                class Inbound(object):
+                    """
+                    IPv6 Packet filter to be applied to inbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.common_acl_name = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound']['meta_info']
+
+
+                class Outbound(object):
+                    """
+                    IPv6 Packet filter to be applied to outbound
+                    packets
+                    
+                    .. attribute:: common_acl_name
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_statistics
+                    
+                    	Not supported (Leave unspecified)
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: name
+                    
+                    	IPv6 Packet Filter Name to be applied to Outbound packets
+                    	**type**\:  str
+                    
+                    	**length:** 1..65
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-pfilter-subscriber-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.common_acl_name = None
+                        self.interface_statistics = None
+                        self.name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self._is_presence:
+                            return True
+                        if self.common_acl_name is not None:
+                            return True
+
+                        if self.interface_statistics is not None:
+                            return True
+
+                        if self.name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.inbound is not None and self.inbound._has_data():
+                        return True
+
+                    if self.outbound is not None and self.outbound._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter']['meta_info']
+
+
+            class Ipv4Network(object):
+                """
+                Interface IPv4 Network configuration data
+                
+                .. attribute:: mtu
+                
+                	The IP Maximum Transmission Unit
+                	**type**\:  int
+                
+                	**range:** 68..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: rpf
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\:  bool
+                
+                	**default value**\: true
+                
+                .. attribute:: unnumbered
+                
+                	Enable IP processing without an explicit address
+                	**type**\:  str
+                
+                .. attribute:: unreachables
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'ipv4-ma-subscriber-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.mtu = None
+                    self.rpf = None
+                    self.unnumbered = None
+                    self.unreachables = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.mtu is not None:
+                        return True
+
+                    if self.rpf is not None:
+                        return True
+
+                    if self.unnumbered is not None:
+                        return True
+
+                    if self.unreachables is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network']['meta_info']
+
+
+            class Ipv6Network(object):
+                """
+                Interface IPv6 Network configuration data
+                
+                .. attribute:: addresses
+                
+                	Set the IPv6 address of an interface
+                	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses>`
+                
+                .. attribute:: mtu
+                
+                	MTU Setting of Interface
+                	**type**\:  int
+                
+                	**range:** 1280..65535
+                
+                	**units**\: byte
+                
+                .. attribute:: unreachables
+                
+                	Override Sending of ICMP Unreachable Messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: verify
+                
+                	IPv6 Verify Unicast Souce Reachable
+                	**type**\:   :py:class:`Ipv6ReachableViaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
+                
+                
+
+                """
+
+                _prefix = 'ipv6-ma-subscriber-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.addresses = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses()
+                    self.addresses.parent = self
+                    self.mtu = None
+                    self.unreachables = None
+                    self.verify = None
+
+
+                class Addresses(object):
+                    """
+                    Set the IPv6 address of an interface
+                    
+                    .. attribute:: auto_configuration
+                    
+                    	Auto IPv6 Interface Configuration
+                    	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-ma-subscriber-cfg'
+                    _revision = '2015-07-30'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.auto_configuration = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration()
+                        self.auto_configuration.parent = self
+
+
+                    class AutoConfiguration(object):
+                        """
+                        Auto IPv6 Interface Configuration
+                        
+                        .. attribute:: enable
+                        
+                        	The flag to enable auto ipv6 interface configuration
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-ma-subscriber-cfg'
+                        _revision = '2015-07-30'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.auto_configuration is not None and self.auto_configuration._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if self.addresses is not None and self.addresses._has_data():
+                        return True
+
+                    if self.mtu is not None:
+                        return True
+
+                    if self.unreachables is not None:
+                        return True
+
+                    if self.verify is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network']['meta_info']
 
 
             class Ipv6Neighbor(object):
@@ -7218,8 +7896,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.maximum is not None:
@@ -7289,8 +7965,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.prefix is not None:
@@ -7341,8 +8015,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.attempts is not None:
                             return True
 
@@ -7410,8 +8082,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self._is_presence:
                             return True
                         if self.count is not None:
@@ -7439,8 +8109,6 @@ class DynamicTemplate(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
                         return True
 
@@ -7503,518 +8171,67 @@ class DynamicTemplate(object):
                     return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor']['meta_info']
 
 
-            class Ipv4PacketFilter(object):
+            class Pbr(object):
                 """
-                IPv4 Packet Filtering configuration for the
-                template
+                Dynamic Template PBR configuration
                 
-                .. attribute:: inbound
+                .. attribute:: service_policy
                 
-                	IPv4 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound>`
+                	PBR service policy configuration
+                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy>`
                 
-                .. attribute:: outbound
+                .. attribute:: service_policy_in
                 
-                	IPv4 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound>`
-                
-                	**presence node**\: True
-                
-                
-
-                """
-
-                _prefix = 'ip-pfilter-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.inbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound()
-                    self.inbound.parent = self
-                    self.outbound = None
-
-
-                class Outbound(object):
-                    """
-                    IPv4 Packet filter to be applied to outbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: hardware_count
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self._is_presence:
-                            return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound']['meta_info']
-
-
-                class Inbound(object):
-                    """
-                    IPv4 Packet filter to be applied to inbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: hardware_count
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv4 Packet Filter Name to be applied to Inbound packets NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter']['meta_info']
-
-
-            class Ipv6PacketFilter(object):
-                """
-                IPv6 Packet Filtering configuration for the
-                interface
-                
-                .. attribute:: inbound
-                
-                	IPv6 Packet filter to be applied to inbound packets
-                	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound>`
-                
-                .. attribute:: outbound
-                
-                	IPv6 Packet filter to be applied to outbound packets
-                	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound>`
-                
-                	**presence node**\: True
-                
-                
-
-                """
-
-                _prefix = 'ip-pfilter-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.inbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound()
-                    self.inbound.parent = self
-                    self.outbound = None
-
-
-                class Inbound(object):
-                    """
-                    IPv6 Packet filter to be applied to inbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv6 Packet Filter Name to be applied to Inbound  NOTE\: This parameter is mandatory if 'CommonACLName' is not specified
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound']['meta_info']
-
-
-                class Outbound(object):
-                    """
-                    IPv6 Packet filter to be applied to outbound
-                    packets
-                    
-                    .. attribute:: common_acl_name
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_statistics
-                    
-                    	Not supported (Leave unspecified)
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: name
-                    
-                    	IPv6 Packet Filter Name to be applied to Outbound packets
-                    	**type**\:  str
-                    
-                    	**length:** 1..65
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-pfilter-subscriber-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self._is_presence:
-                            return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.inbound is not None and self.inbound._has_data():
-                        return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter']['meta_info']
-
-
-            class Accounting(object):
-                """
-                Subscriber accounting dynamic\-template commands
-                
-                .. attribute:: idle_timeout
-                
-                	Subscriber accounting idle timeout
-                	**type**\:   :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout>`
-                
-                .. attribute:: prepaid_feature
-                
-                	Subscriber accounting prepaid feature
+                	Class for subscriber ingress policy
                 	**type**\:  str
                 
-                .. attribute:: service_accounting
-                
-                	Subscriber accounting service accounting
-                	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting>`
-                
-                .. attribute:: session
-                
-                	Subscriber accounting session accounting
-                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session>`
-                
                 
 
                 """
 
-                _prefix = 'subscriber-accounting-cfg'
+                _prefix = 'pbr-subscriber-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
                     self.parent = None
-                    self.idle_timeout = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout()
-                    self.idle_timeout.parent = self
-                    self.prepaid_feature = None
-                    self.service_accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting()
-                    self.service_accounting.parent = self
-                    self.session = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session()
-                    self.session.parent = self
+                    self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy()
+                    self.service_policy.parent = self
+                    self.service_policy_in = None
 
 
-                class ServiceAccounting(object):
+                class ServicePolicy(object):
                     """
-                    Subscriber accounting service accounting
+                    PBR service policy configuration
                     
-                    .. attribute:: accounting_interim_interval
+                    .. attribute:: input
                     
-                    	Accounting interim interval in minutes
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**units**\: minute
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Service accounting method list name
+                    	Ingress service policy
                     	**type**\:  str
                     
                     
 
                     """
 
-                    _prefix = 'subscriber-accounting-cfg'
+                    _prefix = 'pbr-subscriber-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
                         self.parent = None
-                        self.accounting_interim_interval = None
-                        self.method_list_name = None
+                        self.input = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:service-accounting'
+                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.accounting_interim_interval is not None:
-                            return True
-
-                        if self.method_list_name is not None:
+                        if self.input is not None:
                             return True
 
                         return False
@@ -8022,183 +8239,24 @@ class DynamicTemplate(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting']['meta_info']
-
-
-                class Session(object):
-                    """
-                    Subscriber accounting session accounting
-                    
-                    .. attribute:: dual_stack_delay
-                    
-                    	Dual stack wait delay in seconds
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: hold_acct_start
-                    
-                    	Hold Accounting start based on IA\_PD
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: method_list_name
-                    
-                    	Session accounting method list name
-                    	**type**\:  str
-                    
-                    .. attribute:: periodic_interval
-                    
-                    	Interim accounting interval in minutes
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**units**\: minute
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.dual_stack_delay = None
-                        self.hold_acct_start = None
-                        self.method_list_name = None
-                        self.periodic_interval = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:session'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.dual_stack_delay is not None:
-                            return True
-
-                        if self.hold_acct_start is not None:
-                            return True
-
-                        if self.method_list_name is not None:
-                            return True
-
-                        if self.periodic_interval is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session']['meta_info']
-
-
-                class IdleTimeout(object):
-                    """
-                    Subscriber accounting idle timeout
-                    
-                    .. attribute:: direction
-                    
-                    	Idle timeout traffic direction
-                    	**type**\:  str
-                    
-                    .. attribute:: threshold
-                    
-                    	Threshold in minute(s) per packet
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: timeout_value
-                    
-                    	Idle timeout value in seconds
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'subscriber-accounting-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.direction = None
-                        self.threshold = None
-                        self.timeout_value = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:idle-timeout'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.direction is not None:
-                            return True
-
-                        if self.threshold is not None:
-                            return True
-
-                        if self.timeout_value is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout']['meta_info']
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy']['meta_info']
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:accounting'
+                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.idle_timeout is not None and self.idle_timeout._has_data():
+                    if self.service_policy is not None and self.service_policy._has_data():
                         return True
 
-                    if self.prepaid_feature is not None:
-                        return True
-
-                    if self.service_accounting is not None and self.service_accounting._has_data():
-                        return True
-
-                    if self.session is not None and self.session._has_data():
+                    if self.service_policy_in is not None:
                         return True
 
                     return False
@@ -8206,87 +8264,7 @@ class DynamicTemplate(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting']['meta_info']
-
-
-            class Ipv4Network(object):
-                """
-                Interface IPv4 Network configuration data
-                
-                .. attribute:: mtu
-                
-                	The IP Maximum Transmission Unit
-                	**type**\:  int
-                
-                	**range:** 68..65535
-                
-                	**units**\: byte
-                
-                .. attribute:: rpf
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
-                
-                	**default value**\: true
-                
-                .. attribute:: unnumbered
-                
-                	Enable IP processing without an explicit address
-                	**type**\:  str
-                
-                .. attribute:: unreachables
-                
-                	TRUE if enabled, FALSE if disabled
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                
-
-                """
-
-                _prefix = 'ipv4-ma-subscriber-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.mtu = None
-                    self.rpf = None
-                    self.unnumbered = None
-                    self.unreachables = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.mtu is not None:
-                        return True
-
-                    if self.rpf is not None:
-                        return True
-
-                    if self.unnumbered is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network']['meta_info']
+                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr']['meta_info']
 
 
             class Qos(object):
@@ -8425,8 +8403,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.account_stats is not None:
@@ -8520,8 +8496,6 @@ class DynamicTemplate(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self._is_presence:
                                 return True
                             if self.account_stats is not None:
@@ -8558,8 +8532,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.input is not None and self.input._has_data():
                             return True
 
@@ -8626,8 +8598,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.aal is not None:
                             return True
 
@@ -8684,8 +8654,6 @@ class DynamicTemplate(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.minimum_bandwidth is not None:
                             return True
 
@@ -8708,8 +8676,6 @@ class DynamicTemplate(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.account is not None and self.account._has_data():
                         return True
 
@@ -8727,69 +8693,94 @@ class DynamicTemplate(object):
                     return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos']['meta_info']
 
 
-            class Pbr(object):
+            class Accounting(object):
                 """
-                Dynamic Template PBR configuration
+                Subscriber accounting dynamic\-template commands
                 
-                .. attribute:: service_policy
+                .. attribute:: idle_timeout
                 
-                	PBR service policy configuration
-                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy>`
+                	Subscriber accounting idle timeout
+                	**type**\:   :py:class:`IdleTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout>`
                 
-                .. attribute:: service_policy_in
+                .. attribute:: prepaid_feature
                 
-                	Class for subscriber ingress policy
+                	Subscriber accounting prepaid feature
                 	**type**\:  str
                 
+                .. attribute:: service_accounting
+                
+                	Subscriber accounting service accounting
+                	**type**\:   :py:class:`ServiceAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting>`
+                
+                .. attribute:: session
+                
+                	Subscriber accounting session accounting
+                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session>`
+                
                 
 
                 """
 
-                _prefix = 'pbr-subscriber-cfg'
+                _prefix = 'subscriber-accounting-cfg'
                 _revision = '2015-11-09'
 
                 def __init__(self):
                     self.parent = None
-                    self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy()
-                    self.service_policy.parent = self
-                    self.service_policy_in = None
+                    self.idle_timeout = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout()
+                    self.idle_timeout.parent = self
+                    self.prepaid_feature = None
+                    self.service_accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting()
+                    self.service_accounting.parent = self
+                    self.session = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session()
+                    self.session.parent = self
 
 
-                class ServicePolicy(object):
+                class ServiceAccounting(object):
                     """
-                    PBR service policy configuration
+                    Subscriber accounting service accounting
                     
-                    .. attribute:: input
+                    .. attribute:: accounting_interim_interval
                     
-                    	Ingress service policy
+                    	Accounting interim interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Service accounting method list name
                     	**type**\:  str
                     
                     
 
                     """
 
-                    _prefix = 'pbr-subscriber-cfg'
+                    _prefix = 'subscriber-accounting-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
                         self.parent = None
-                        self.input = None
+                        self.accounting_interim_interval = None
+                        self.method_list_name = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
+                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:service-accounting'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.input is not None:
+                        if self.accounting_interim_interval is not None:
+                            return True
+
+                        if self.method_list_name is not None:
                             return True
 
                         return False
@@ -8797,384 +8788,79 @@ class DynamicTemplate(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
-                    if self.service_policy_in is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr']['meta_info']
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting']['meta_info']
 
 
-            class Ipv6Network(object):
-                """
-                Interface IPv6 Network configuration data
-                
-                .. attribute:: addresses
-                
-                	Set the IPv6 address of an interface
-                	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses>`
-                
-                .. attribute:: mtu
-                
-                	MTU Setting of Interface
-                	**type**\:  int
-                
-                	**range:** 1280..65535
-                
-                	**units**\: byte
-                
-                .. attribute:: unreachables
-                
-                	Override Sending of ICMP Unreachable Messages
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: verify
-                
-                	IPv6 Verify Unicast Souce Reachable
-                	**type**\:   :py:class:`Ipv6ReachableViaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
-                
-                
-
-                """
-
-                _prefix = 'ipv6-ma-subscriber-cfg'
-                _revision = '2015-07-30'
-
-                def __init__(self):
-                    self.parent = None
-                    self.addresses = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses()
-                    self.addresses.parent = self
-                    self.mtu = None
-                    self.unreachables = None
-                    self.verify = None
-
-
-                class Addresses(object):
+                class Session(object):
                     """
-                    Set the IPv6 address of an interface
+                    Subscriber accounting session accounting
                     
-                    .. attribute:: auto_configuration
+                    .. attribute:: dual_stack_delay
                     
-                    	Auto IPv6 Interface Configuration
-                    	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-ma-subscriber-cfg'
-                    _revision = '2015-07-30'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.auto_configuration = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration()
-                        self.auto_configuration.parent = self
-
-
-                    class AutoConfiguration(object):
-                        """
-                        Auto IPv6 Interface Configuration
-                        
-                        .. attribute:: enable
-                        
-                        	The flag to enable auto ipv6 interface configuration
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-ma-subscriber-cfg'
-                        _revision = '2015-07-30'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.enable = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.enable is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.auto_configuration is not None and self.auto_configuration._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.addresses is not None and self.addresses._has_data():
-                        return True
-
-                    if self.mtu is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
-                    if self.verify is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network']['meta_info']
-
-
-            class SpanMonitorSessions(object):
-                """
-                Monitor Session container for this template
-                
-                .. attribute:: span_monitor_session
-                
-                	Configuration for a particular class of Monitor Session
-                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession>`
-                
-                
-
-                """
-
-                _prefix = 'ethernet-span-subscriber-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.span_monitor_session = YList()
-                    self.span_monitor_session.parent = self
-                    self.span_monitor_session.name = 'span_monitor_session'
-
-
-                class SpanMonitorSession(object):
-                    """
-                    Configuration for a particular class of Monitor
-                    Session
-                    
-                    .. attribute:: session_class  <key>
-                    
-                    	Session Class
-                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
-                    
-                    .. attribute:: acl
-                    
-                    	Enable ACL matching for traffic mirroring
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: attachment
-                    
-                    	Attach the interface to a Monitor Session
-                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg.DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment>`
-                    
-                    	**presence node**\: True
-                    
-                    .. attribute:: mirror_first
-                    
-                    	Mirror a specified number of bytes from start of packet
+                    	Dual stack wait delay in seconds
                     	**type**\:  int
                     
-                    	**range:** 1..10000
+                    	**range:** \-2147483648..2147483647
                     
-                    	**units**\: byte
+                    	**units**\: second
                     
-                    .. attribute:: mirror_interval
+                    .. attribute:: hold_acct_start
                     
-                    	Specify the mirror interval
-                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
+                    	Hold Accounting start based on IA\_PD
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: method_list_name
+                    
+                    	Session accounting method list name
+                    	**type**\:  str
+                    
+                    .. attribute:: periodic_interval
+                    
+                    	Interim accounting interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**units**\: minute
                     
                     
 
                     """
 
-                    _prefix = 'ethernet-span-subscriber-cfg'
+                    _prefix = 'subscriber-accounting-cfg'
                     _revision = '2015-11-09'
 
                     def __init__(self):
                         self.parent = None
-                        self.session_class = None
-                        self.acl = None
-                        self.attachment = None
-                        self.mirror_first = None
-                        self.mirror_interval = None
-
-
-                    class Attachment(object):
-                        """
-                        Attach the interface to a Monitor Session
-                        
-                        .. attribute:: direction
-                        
-                        	Specify the direction of traffic to replicate (optional)
-                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
-                        
-                        .. attribute:: port_level_enable
-                        
-                        	Enable port level traffic mirroring
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        .. attribute:: session_name
-                        
-                        	Session Name
-                        	**type**\:  str
-                        
-                        	**length:** 1..79
-                        
-                        	**mandatory**\: True
-                        
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
-                        
-
-                        This class is a :ref:`presence class<presence-class>`
-
-                        """
-
-                        _prefix = 'ethernet-span-subscriber-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.direction = None
-                            self.port_level_enable = None
-                            self.session_name = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self._is_presence:
-                                return True
-                            if self.direction is not None:
-                                return True
-
-                            if self.port_level_enable is not None:
-                                return True
-
-                            if self.session_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info']
+                        self.dual_stack_delay = None
+                        self.hold_acct_start = None
+                        self.method_list_name = None
+                        self.periodic_interval = None
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.session_class is None:
-                            raise YPYModelError('Key property session_class is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:session'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.session_class is not None:
+                        if self.dual_stack_delay is not None:
                             return True
 
-                        if self.acl is not None:
+                        if self.hold_acct_start is not None:
                             return True
 
-                        if self.attachment is not None and self.attachment._has_data():
+                        if self.method_list_name is not None:
                             return True
 
-                        if self.mirror_first is not None:
-                            return True
-
-                        if self.mirror_interval is not None:
+                        if self.periodic_interval is not None:
                             return True
 
                         return False
@@ -9182,33 +8868,105 @@ class DynamicTemplate(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession']['meta_info']
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session']['meta_info']
+
+
+                class IdleTimeout(object):
+                    """
+                    Subscriber accounting idle timeout
+                    
+                    .. attribute:: direction
+                    
+                    	Idle timeout traffic direction
+                    	**type**\:  str
+                    
+                    .. attribute:: threshold
+                    
+                    	Threshold in minute(s) per packet
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: timeout_value
+                    
+                    	Idle timeout value in seconds
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**units**\: second
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-accounting-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.direction = None
+                        self.threshold = None
+                        self.timeout_value = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:idle-timeout'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if self.direction is not None:
+                            return True
+
+                        if self.threshold is not None:
+                            return True
+
+                        if self.timeout_value is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
+                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout']['meta_info']
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
+                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:accounting'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.span_monitor_session is not None:
-                        for child_ref in self.span_monitor_session:
-                            if child_ref._has_data():
-                                return True
+                    if self.idle_timeout is not None and self.idle_timeout._has_data():
+                        return True
+
+                    if self.prepaid_feature is not None:
+                        return True
+
+                    if self.service_accounting is not None and self.service_accounting._has_data():
+                        return True
+
+                    if self.session is not None and self.session._has_data():
+                        return True
 
                     return False
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions']['meta_info']
+                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting']['meta_info']
 
             @property
             def _common_path(self):
@@ -9222,8 +8980,6 @@ class DynamicTemplate(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.template_name is not None:
                     return True
 
@@ -9274,8 +9030,6 @@ class DynamicTemplate(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.subscriber_service is not None:
                 for child_ref in self.subscriber_service:
                     if child_ref._has_data():
@@ -9298,8 +9052,6 @@ class DynamicTemplate(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.ip_subscribers is not None and self.ip_subscribers._has_data():
             return True
 

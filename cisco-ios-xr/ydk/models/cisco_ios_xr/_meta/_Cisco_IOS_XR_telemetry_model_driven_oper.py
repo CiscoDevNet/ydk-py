@@ -31,17 +31,17 @@ _meta_table = {
             'udp':'udp',
             'dialin':'dialin',
         }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
+    'MdtIpEnum' : _MetaInfoEnum('MdtIpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
+        {
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+        }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
     'MdtEncodingEnumEnum' : _MetaInfoEnum('MdtEncodingEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
         {
             'not-set':'not_set',
             'gpb':'gpb',
             'self-describing-gpb':'self_describing_gpb',
             'json':'json',
-        }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
-    'MdtIpEnum' : _MetaInfoEnum('MdtIpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
-        {
-            'ipv4':'ipv4',
-            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
     'TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress' : {
         'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress',
@@ -54,13 +54,13 @@ _meta_table = {
                 'ip_type',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV4 Address
                 ''',
                 'ipv4_address',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV6 Address
                 ''',
                 'ipv6_address',
@@ -509,7 +509,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('destination-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Id of the destination
                 ''',
                 'destination_id',
@@ -662,13 +662,13 @@ _meta_table = {
                 'ip_type',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV4 Address
                 ''',
                 'ipv4_address',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPV6 Address
                 ''',
                 'ipv6_address',
@@ -1157,7 +1157,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('subscription-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Id of the subscription
                 ''',
                 'subscription_id',
@@ -1247,7 +1247,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('sensor-group-id', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Id of the sensor group
                 ''',
                 'sensor_group_id',

@@ -18,16 +18,40 @@ _meta_table = {
             'default':'default',
             'hot-standby':'hot_standby',
         }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
-    'BundleCiscoExtTypesEnum' : _MetaInfoEnum('BundleCiscoExtTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
-        {
-            'lon-signaling-off':'lon_signaling_off',
-            'lon-signaling-on':'lon_signaling_on',
-        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
     'BundleModeEnum' : _MetaInfoEnum('BundleModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
         {
             'on':'on',
             'active':'active',
             'passive':'passive',
+        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
+    'ChurnLoggingEnum' : _MetaInfoEnum('ChurnLoggingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
+        {
+            'actor':'actor',
+            'partner':'partner',
+            'both':'both',
+        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
+    'BundleMinimumBandwidthRangeEnum' : _MetaInfoEnum('BundleMinimumBandwidthRangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
+        {
+            'none':'none',
+            'kbps':'kbps',
+            'mbps':'mbps',
+            'gbps':'gbps',
+        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
+    'BundlePortActivityEnum' : _MetaInfoEnum('BundlePortActivityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
+        {
+            'on':'on',
+            'active':'active',
+            'passive':'passive',
+            'inherit':'inherit',
+        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
+    'BundleCiscoExtTypesEnum' : _MetaInfoEnum('BundleCiscoExtTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
+        {
+            'lon-signaling-off':'lon_signaling_off',
+            'lon-signaling-on':'lon_signaling_on',
+        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
+    'BundlePeriodEnum' : _MetaInfoEnum('BundlePeriodEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
+        {
+            'true':'true',
         }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
     'BundleLoadBalanceEnum' : _MetaInfoEnum('BundleLoadBalanceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
         {
@@ -37,21 +61,15 @@ _meta_table = {
             'source-ip':'source_ip',
             'destination-ip':'destination_ip',
         }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
-    'ChurnLoggingEnum' : _MetaInfoEnum('ChurnLoggingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
+    'MlacpMaximizeParameterEnum' : _MetaInfoEnum('MlacpMaximizeParameterEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
         {
-            'actor':'actor',
-            'partner':'partner',
-            'both':'both',
+            'links':'links',
+            'bandwidth':'bandwidth',
         }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
     'MlacpSwitchoverEnum' : _MetaInfoEnum('MlacpSwitchoverEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
         {
             'brute-force':'brute_force',
             'revertive':'revertive',
-        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
-    'MlacpMaximizeParameterEnum' : _MetaInfoEnum('MlacpMaximizeParameterEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
-        {
-            'links':'links',
-            'bandwidth':'bandwidth',
         }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
     'BfdModeEnum' : _MetaInfoEnum('BfdModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
         {
@@ -63,30 +81,12 @@ _meta_table = {
         {
             'true':'true',
         }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
-    'BundleMinimumBandwidthRangeEnum' : _MetaInfoEnum('BundleMinimumBandwidthRangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
-        {
-            'none':'none',
-            'kbps':'kbps',
-            'mbps':'mbps',
-            'gbps':'gbps',
-        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
-    'BundlePeriodEnum' : _MetaInfoEnum('BundlePeriodEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
-        {
-            'true':'true',
-        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
-    'BundlePortActivityEnum' : _MetaInfoEnum('BundlePortActivityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg',
-        {
-            'on':'on',
-            'active':'active',
-            'passive':'passive',
-            'inherit':'inherit',
-        }, 'Cisco-IOS-XR-bundlemgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg']),
     'Lacp' : {
         'meta_info' : _MetaInfoClass('Lacp',
             False, 
             [
             _MetaInfoClassMember('system-mac', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                [], [b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
                 '''                Unique identifier for this system.
                 ''',
                 'system_mac',

@@ -13,6 +13,12 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'PceDisjointPathEnum' : _MetaInfoEnum('PceDisjointPathEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg',
+        {
+            'link':'link',
+            'node':'node',
+            'srlg':'srlg',
+        }, 'Cisco-IOS-XR-infra-xtc-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-xtc-cfg']),
     'PceExplicitPathHopEnum' : _MetaInfoEnum('PceExplicitPathHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg',
         {
             'address':'address',
@@ -20,30 +26,24 @@ _meta_table = {
             'sid-adjancency':'sid_adjancency',
             'binding-sid':'binding_sid',
         }, 'Cisco-IOS-XR-infra-xtc-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-xtc-cfg']),
-    'PceDisjointPathEnum' : _MetaInfoEnum('PceDisjointPathEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg',
-        {
-            'link':'link',
-            'node':'node',
-            'srlg':'srlg',
-        }, 'Cisco-IOS-XR-infra-xtc-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-xtc-cfg']),
     'Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity' : {
         'meta_info' : _MetaInfoClass('Pce.PccAddresses.PccAddress.LspNames.LspName.RsvpTe.Affinity',
             False, 
             [
             _MetaInfoClassMember('exclude-any', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Exclude-any affinity value
                 ''',
                 'exclude_any',
                 'Cisco-IOS-XR-infra-xtc-cfg', False),
             _MetaInfoClassMember('include-all', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Include-all affinity value
                 ''',
                 'include_all',
                 'Cisco-IOS-XR-infra-xtc-cfg', False),
             _MetaInfoClassMember('include-any', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
+                [], [b'[0-9a-fA-F]{1,8}'], 
                 '''                Include-any affinity value
                 ''',
                 'include_any',
@@ -124,7 +124,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                LSP name
                 ''',
                 'name',
@@ -182,7 +182,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address
                 ''',
                 'address',
@@ -280,7 +280,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address
                 ''',
                 'address',
@@ -367,7 +367,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('netconf-ssh-password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                Password to use for NETCONF SSH connections
                 ''',
                 'netconf_ssh_password',
@@ -406,17 +406,17 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Pce.DisjointPath.Groups.Group',
             False, 
             [
-            _MetaInfoClassMember('dp-type', REFERENCE_ENUM_CLASS, 'PceDisjointPathEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg', 'PceDisjointPathEnum', 
-                [], [], 
-                '''                Disjoiness type
-                ''',
-                'dp_type',
-                'Cisco-IOS-XR-infra-xtc-cfg', True),
             _MetaInfoClassMember('group-id', ATTRIBUTE, 'int' , None, None, 
                 [('1', '65535')], [], 
                 '''                Group ID
                 ''',
                 'group_id',
+                'Cisco-IOS-XR-infra-xtc-cfg', True),
+            _MetaInfoClassMember('dp-type', REFERENCE_ENUM_CLASS, 'PceDisjointPathEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg', 'PceDisjointPathEnum', 
+                [], [], 
+                '''                Disjoiness type
+                ''',
+                'dp_type',
                 'Cisco-IOS-XR-infra-xtc-cfg', True),
             _MetaInfoClassMember('sub-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '65535')], [], 
@@ -482,7 +482,7 @@ _meta_table = {
                 'index',
                 'Cisco-IOS-XR-infra-xtc-cfg', True),
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 Address
                 ''',
                 'address',
@@ -500,7 +500,7 @@ _meta_table = {
                 'mpls_label',
                 'Cisco-IOS-XR-infra-xtc-cfg', False),
             _MetaInfoClassMember('remote-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Remote IPv4 address
                 ''',
                 'remote_address',
@@ -534,7 +534,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                [], [b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
                 '''                Explicit-path name
                 ''',
                 'name',
@@ -616,7 +616,7 @@ _meta_table = {
                 'netconf',
                 'Cisco-IOS-XR-infra-xtc-cfg', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['(!.+)|([^!].+)'], 
+                [], [b'(!.+)|([^!].+)'], 
                 '''                MD5 password
                 ''',
                 'password',
@@ -634,7 +634,7 @@ _meta_table = {
                 'segment_routing',
                 'Cisco-IOS-XR-infra-xtc-cfg', False),
             _MetaInfoClassMember('server-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                IPv4 address of PCE server
                 ''',
                 'server_address',

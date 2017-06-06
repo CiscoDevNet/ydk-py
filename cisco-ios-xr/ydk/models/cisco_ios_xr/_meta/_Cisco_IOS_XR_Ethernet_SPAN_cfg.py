@@ -13,10 +13,12 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'SpanTrafficDirectionEnum' : _MetaInfoEnum('SpanTrafficDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg',
+    'SpanDestinationEnum' : _MetaInfoEnum('SpanDestinationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg',
         {
-            'rx-only':'rx_only',
-            'tx-only':'tx_only',
+            'interface':'interface',
+            'pseudowire':'pseudowire',
+            'ipv4-address':'ipv4_address',
+            'ipv6-address':'ipv6_address',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-cfg', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-cfg']),
     'SpanMirrorIntervalEnum' : _MetaInfoEnum('SpanMirrorIntervalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg',
         {
@@ -27,31 +29,29 @@ _meta_table = {
             '8k':'Y_8k',
             '16k':'Y_16k',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-cfg', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-cfg']),
-    'SpanDestinationEnum' : _MetaInfoEnum('SpanDestinationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg',
+    'SpanTrafficDirectionEnum' : _MetaInfoEnum('SpanTrafficDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg',
         {
-            'interface':'interface',
-            'pseudowire':'pseudowire',
-            'ipv4-address':'ipv4_address',
-            'ipv6-address':'ipv6_address',
+            'rx-only':'rx_only',
+            'tx-only':'tx_only',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-cfg', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-cfg']),
     'SpanMonitorSession.Sessions.Session.Destination' : {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Sessions.Session.Destination',
             False, 
             [
             _MetaInfoClassMember('destination-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], [b'(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Specify the destination interface name
                 ''',
                 'destination_interface_name',
                 'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
             _MetaInfoClassMember('destination-ipv4-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Specify the destination next-hop IPv4 address
                 ''',
                 'destination_ipv4_address',
                 'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
             _MetaInfoClassMember('destination-ipv6-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Specify the destination next-hop IPv6 address
                 ''',
                 'destination_ipv6_address',

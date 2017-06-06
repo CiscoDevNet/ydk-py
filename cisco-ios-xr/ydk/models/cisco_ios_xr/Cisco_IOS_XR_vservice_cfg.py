@@ -318,8 +318,6 @@ class Vservice(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4_destination_address is not None:
                             return True
 
@@ -353,8 +351,6 @@ class Vservice(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.function_name is not None:
                         return True
 
@@ -381,8 +377,6 @@ class Vservice(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     for child_ref in self.name:
                         if child_ref._has_data():
@@ -405,8 +399,6 @@ class Vservice(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.names is not None and self.names._has_data():
                 return True
 
@@ -570,8 +562,6 @@ class Vservice(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.action_type is not None:
                             return True
 
@@ -610,8 +600,6 @@ class Vservice(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.match_entry_name is not None:
                         return True
 
@@ -639,8 +627,6 @@ class Vservice(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.disposition_name is not None:
                     return True
 
@@ -669,8 +655,6 @@ class Vservice(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.metadata_disposition is not None:
                 for child_ref in self.metadata_disposition:
                     if child_ref._has_data():
@@ -823,8 +807,6 @@ class Vservice(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.ipv4_destination_address is not None:
                             return True
 
@@ -858,8 +840,6 @@ class Vservice(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.function_name is not None:
                         return True
 
@@ -886,8 +866,6 @@ class Vservice(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.name is not None:
                     for child_ref in self.name:
                         if child_ref._has_data():
@@ -910,8 +888,6 @@ class Vservice(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.names is not None and self.names._has_data():
                 return True
 
@@ -950,11 +926,6 @@ class Vservice(object):
             """
             metadata name, type and format
             
-            .. attribute:: format  <key>
-            
-            	Specify Format
-            	**type**\:   :py:class:`SfcMetadataType1AllocFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormatEnum>`
-            
             .. attribute:: metadata_name  <key>
             
             	metadata name
@@ -966,6 +937,11 @@ class Vservice(object):
             
             	Specify Type 
             	**type**\:   :py:class:`SfcMetadataAllocEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataAllocEnum>`
+            
+            .. attribute:: format  <key>
+            
+            	Specify Format
+            	**type**\:   :py:class:`SfcMetadataType1AllocFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg.SfcMetadataType1AllocFormatEnum>`
             
             .. attribute:: tenant_id
             
@@ -983,36 +959,34 @@ class Vservice(object):
 
             def __init__(self):
                 self.parent = None
-                self.format = None
                 self.metadata_name = None
                 self.type = None
+                self.format = None
                 self.tenant_id = None
 
             @property
             def _common_path(self):
-                if self.format is None:
-                    raise YPYModelError('Key property format is None')
                 if self.metadata_name is None:
                     raise YPYModelError('Key property metadata_name is None')
                 if self.type is None:
                     raise YPYModelError('Key property type is None')
+                if self.format is None:
+                    raise YPYModelError('Key property format is None')
 
-                return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:metadata-templates/Cisco-IOS-XR-vservice-cfg:metadata-template[Cisco-IOS-XR-vservice-cfg:format = ' + str(self.format) + '][Cisco-IOS-XR-vservice-cfg:metadata-name = ' + str(self.metadata_name) + '][Cisco-IOS-XR-vservice-cfg:type = ' + str(self.type) + ']'
+                return '/Cisco-IOS-XR-vservice-cfg:vservice/Cisco-IOS-XR-vservice-cfg:metadata-templates/Cisco-IOS-XR-vservice-cfg:metadata-template[Cisco-IOS-XR-vservice-cfg:metadata-name = ' + str(self.metadata_name) + '][Cisco-IOS-XR-vservice-cfg:type = ' + str(self.type) + '][Cisco-IOS-XR-vservice-cfg:format = ' + str(self.format) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.format is not None:
-                    return True
-
                 if self.metadata_name is not None:
                     return True
 
                 if self.type is not None:
+                    return True
+
+                if self.format is not None:
                     return True
 
                 if self.tenant_id is not None:
@@ -1035,8 +1009,6 @@ class Vservice(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.metadata_template is not None:
                 for child_ref in self.metadata_template:
                     if child_ref._has_data():
@@ -1244,8 +1216,6 @@ class Vservice(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.action is not None:
                                     return True
 
@@ -1277,8 +1247,6 @@ class Vservice(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.node is not None and self.node._has_data():
                                 return True
 
@@ -1381,8 +1349,6 @@ class Vservice(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.enable is not None:
                                         return True
 
@@ -1410,8 +1376,6 @@ class Vservice(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name is not None:
                                     return True
 
@@ -1437,8 +1401,6 @@ class Vservice(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sff_name is not None:
                                 for child_ref in self.sff_name:
                                     if child_ref._has_data():
@@ -1543,8 +1505,6 @@ class Vservice(object):
                                     return True
 
                                 def _has_data(self):
-                                    if not self.is_config():
-                                        return False
                                     if self.enable is not None:
                                         return True
 
@@ -1572,8 +1532,6 @@ class Vservice(object):
                                 return True
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.name is not None:
                                     return True
 
@@ -1599,8 +1557,6 @@ class Vservice(object):
                             return True
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.sf_name is not None:
                                 for child_ref in self.sf_name:
                                     if child_ref._has_data():
@@ -1627,8 +1583,6 @@ class Vservice(object):
                         return True
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.index is not None:
                             return True
 
@@ -1660,8 +1614,6 @@ class Vservice(object):
                     return True
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.path_id is not None:
                         return True
 
@@ -1687,8 +1639,6 @@ class Vservice(object):
                 return True
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.path is not None:
                     for child_ref in self.path:
                         if child_ref._has_data():
@@ -1711,8 +1661,6 @@ class Vservice(object):
             return True
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.paths is not None and self.paths._has_data():
                 return True
 
@@ -1733,8 +1681,6 @@ class Vservice(object):
         return True
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.metadata_dispositions is not None and self.metadata_dispositions._has_data():
             return True
 

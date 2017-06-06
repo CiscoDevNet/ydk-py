@@ -323,8 +323,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -366,8 +364,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.brief is not None:
                     for child_ref in self.brief:
                         if child_ref._has_data():
@@ -521,8 +517,6 @@ class MplsOam(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name_xr is not None:
                             return True
 
@@ -766,8 +760,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -826,8 +818,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -886,8 +876,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -946,8 +934,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1006,8 +992,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1066,8 +1050,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1126,8 +1108,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1186,8 +1166,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1246,8 +1224,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1306,8 +1282,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1366,8 +1340,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1426,8 +1398,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1486,8 +1456,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1546,8 +1514,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1573,8 +1539,6 @@ class MplsOam(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.protect_protocol_received_good_reply is not None and self.protect_protocol_received_good_reply._has_data():
                                 return True
 
@@ -1712,8 +1676,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1772,8 +1734,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1832,8 +1792,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1893,8 +1851,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -1920,8 +1876,6 @@ class MplsOam(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                                 return True
 
@@ -2029,8 +1983,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2089,8 +2041,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2149,8 +2099,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2210,8 +2158,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2237,8 +2183,6 @@ class MplsOam(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                                 return True
 
@@ -2346,8 +2290,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2406,8 +2348,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2466,8 +2406,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2527,8 +2465,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2554,8 +2490,6 @@ class MplsOam(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                                 return True
 
@@ -2663,8 +2597,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2723,8 +2655,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2783,8 +2713,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2844,8 +2772,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -2871,8 +2797,6 @@ class MplsOam(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                                 return True
 
@@ -2980,8 +2904,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -3040,8 +2962,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -3100,8 +3020,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -3161,8 +3079,6 @@ class MplsOam(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.bytes is not None:
                                     return True
 
@@ -3188,8 +3104,6 @@ class MplsOam(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                                 return True
 
@@ -3221,8 +3135,6 @@ class MplsOam(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.protect_rep_sent is not None and self.protect_rep_sent._has_data():
                             return True
 
@@ -3260,8 +3172,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         return True
 
@@ -3288,8 +3198,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.detail is not None:
                     for child_ref in self.detail:
                         if child_ref._has_data():
@@ -3312,8 +3220,6 @@ class MplsOam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.briefs is not None and self.briefs._has_data():
                 return True
 
@@ -3540,8 +3446,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -3598,8 +3502,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -3656,8 +3558,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -3714,8 +3614,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -3772,8 +3670,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -3830,8 +3726,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -3888,8 +3782,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -3946,8 +3838,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4004,8 +3894,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4062,8 +3950,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4120,8 +4006,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4178,8 +4062,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4236,8 +4118,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4294,8 +4174,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4319,8 +4197,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.protect_protocol_received_good_reply is not None and self.protect_protocol_received_good_reply._has_data():
                     return True
 
@@ -4456,8 +4332,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4514,8 +4388,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4572,8 +4444,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4631,8 +4501,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4656,8 +4524,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                     return True
 
@@ -4763,8 +4629,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4821,8 +4685,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4879,8 +4741,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4938,8 +4798,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -4963,8 +4821,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                     return True
 
@@ -5070,8 +4926,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5128,8 +4982,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5186,8 +5038,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5245,8 +5095,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5270,8 +5118,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                     return True
 
@@ -5377,8 +5223,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5435,8 +5279,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5493,8 +5335,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5552,8 +5392,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5577,8 +5415,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                     return True
 
@@ -5684,8 +5520,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5742,8 +5576,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5800,8 +5632,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5859,8 +5689,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.bytes is not None:
                         return True
 
@@ -5884,8 +5712,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.bfd_no_reply is not None and self.bfd_no_reply._has_data():
                     return True
 
@@ -5915,8 +5741,6 @@ class MplsOam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.protect_rep_sent is not None and self.protect_rep_sent._has_data():
                 return True
 
@@ -6092,8 +5916,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.echo_cancel_messages is not None:
                     return True
 
@@ -6218,8 +6040,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.downs is not None:
                         return True
 
@@ -6274,8 +6094,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.downs is not None:
                         return True
 
@@ -6330,8 +6148,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.downs is not None:
                         return True
 
@@ -6386,8 +6202,6 @@ class MplsOam(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.downs is not None:
                         return True
 
@@ -6411,8 +6225,6 @@ class MplsOam(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.collaborator_i_parm is not None and self.collaborator_i_parm._has_data():
                     return True
 
@@ -6442,8 +6254,6 @@ class MplsOam(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.collaborator_statistics is not None and self.collaborator_statistics._has_data():
                 return True
 
@@ -6470,8 +6280,6 @@ class MplsOam(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.global_ is not None and self.global_._has_data():
             return True
 

@@ -13,17 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'RadiusAuthenticationTypeIdentity' : {
-        'meta_info' : _MetaInfoClass('RadiusAuthenticationTypeIdentity',
-            False, 
-            [
-            ],
-            'ietf-system',
-            'radius-authentication-type',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
     'AuthenticationMethodIdentity' : {
         'meta_info' : _MetaInfoClass('AuthenticationMethodIdentity',
             False, 
@@ -31,6 +20,17 @@ _meta_table = {
             ],
             'ietf-system',
             'authentication-method',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'RadiusAuthenticationTypeIdentity' : {
+        'meta_info' : _MetaInfoClass('RadiusAuthenticationTypeIdentity',
+            False, 
+            [
+            ],
+            'ietf-system',
+            'radius-authentication-type',
             _yang_ns._namespaces['ietf-system'],
         'ydk.models.ietf.ietf_system'
         ),
@@ -80,20 +80,20 @@ _meta_table = {
                         'address',
                         'ietf-system', False, [
                             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                The address of the NTP server.
                                 ''',
                                 'address',
                                 'ietf-system', False),
                             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                The address of the NTP server.
                                 ''',
                                 'address',
                                 'ietf-system', False),
                         ]),
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
+                        [], [b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
                         '''                        The address of the NTP server.
                         ''',
                         'address',
@@ -201,13 +201,13 @@ _meta_table = {
                 'address',
                 'ietf-system', False, [
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                         '''                        The address of the DNS server.
                         ''',
                         'address',
                         'ietf-system', False),
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                         '''                        The address of the DNS server.
                         ''',
                         'address',
@@ -290,7 +290,7 @@ _meta_table = {
                 'options',
                 'ietf-system', False),
             _MetaInfoClassMember('search', REFERENCE_LEAFLIST, 'str' , None, None, 
-                [], ['((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
+                [], [b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
                 '''                An ordered list of domains to search when resolving
                 a host name.
                 ''',
@@ -337,20 +337,20 @@ _meta_table = {
                         'address',
                         'ietf-system', False, [
                             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                The address of the RADIUS server.
                                 ''',
                                 'address',
                                 'ietf-system', False),
                             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                                [], [b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                                 '''                                The address of the RADIUS server.
                                 ''',
                                 'address',
                                 'ietf-system', False),
                         ]),
                     _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
-                        [], ['((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
+                        [], [b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
                         '''                        The address of the RADIUS server.
                         ''',
                         'address',
@@ -520,7 +520,7 @@ _meta_table = {
                 'authorized_key',
                 'ietf-system', False),
             _MetaInfoClassMember('password', ATTRIBUTE, 'str' , None, None, 
-                [], ['$0$.*|$1$[a-zA-Z0-9./]{1,8}$[a-zA-Z0-9./]{22}|$5$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{43}|$6$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{86}'], 
+                [], [b'$0$.*|$1$[a-zA-Z0-9./]{1,8}$[a-zA-Z0-9./]{22}|$5$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{43}|$6$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{86}'], 
                 '''                The password for this entry.
                 ''',
                 'password',
@@ -602,7 +602,7 @@ _meta_table = {
                 'dns_resolver',
                 'ietf-system', False),
             _MetaInfoClassMember('hostname', ATTRIBUTE, 'str' , None, None, 
-                [], ['((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
+                [], [b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'], 
                 '''                The name of the host.  This name can be a single domain
                 label or the fully qualified domain name of the host.
                 ''',
@@ -685,13 +685,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('boot-datetime', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                The system date and time when the system last restarted.
                 ''',
                 'boot_datetime',
                 'ietf-system', False),
             _MetaInfoClassMember('current-datetime', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                The current system date and time.
                 ''',
                 'current_datetime',
@@ -732,7 +732,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('current-datetime', ATTRIBUTE, 'str' , None, None, 
-                [], ['\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
+                [], [b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'], 
                 '''                The current system date and time.
                 ''',
                 'current_datetime',
@@ -782,6 +782,28 @@ _meta_table = {
         'ydk.models.ietf.ietf_system'
         ),
     },
+    'LocalUsersIdentity' : {
+        'meta_info' : _MetaInfoClass('LocalUsersIdentity',
+            False, 
+            [
+            ],
+            'ietf-system',
+            'local-users',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
+    'RadiusPapIdentity' : {
+        'meta_info' : _MetaInfoClass('RadiusPapIdentity',
+            False, 
+            [
+            ],
+            'ietf-system',
+            'radius-pap',
+            _yang_ns._namespaces['ietf-system'],
+        'ydk.models.ietf.ietf_system'
+        ),
+    },
     'RadiusChapIdentity' : {
         'meta_info' : _MetaInfoClass('RadiusChapIdentity',
             False, 
@@ -800,28 +822,6 @@ _meta_table = {
             ],
             'ietf-system',
             'radius',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'RadiusPapIdentity' : {
-        'meta_info' : _MetaInfoClass('RadiusPapIdentity',
-            False, 
-            [
-            ],
-            'ietf-system',
-            'radius-pap',
-            _yang_ns._namespaces['ietf-system'],
-        'ydk.models.ietf.ietf_system'
-        ),
-    },
-    'LocalUsersIdentity' : {
-        'meta_info' : _MetaInfoClass('LocalUsersIdentity',
-            False, 
-            [
-            ],
-            'ietf-system',
-            'local-users',
             _yang_ns._namespaces['ietf-system'],
         'ydk.models.ietf.ietf_system'
         ),

@@ -13,11 +13,6 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
-    'TtySessionTimeoutDirectionEnum' : _MetaInfoEnum('TtySessionTimeoutDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes',
-        {
-            'in':'in_',
-            'in-out':'in_out',
-        }, 'Cisco-IOS-XR-tty-management-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-tty-management-datatypes']),
     'TtyPagerEnum' : _MetaInfoEnum('TtyPagerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes',
         {
             'more':'more',
@@ -30,16 +25,21 @@ _meta_table = {
             'default':'default',
             'none':'none',
         }, 'Cisco-IOS-XR-tty-management-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-tty-management-datatypes']),
+    'TtyTransportProtocolSelectEnum' : _MetaInfoEnum('TtyTransportProtocolSelectEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes',
+        {
+            'none':'none',
+            'all':'all',
+            'some':'some',
+        }, 'Cisco-IOS-XR-tty-management-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-tty-management-datatypes']),
     'TtyTransportProtocolEnum' : _MetaInfoEnum('TtyTransportProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes',
         {
             'none':'none',
             'telnet':'telnet',
             'ssh':'ssh',
         }, 'Cisco-IOS-XR-tty-management-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-tty-management-datatypes']),
-    'TtyTransportProtocolSelectEnum' : _MetaInfoEnum('TtyTransportProtocolSelectEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes',
+    'TtySessionTimeoutDirectionEnum' : _MetaInfoEnum('TtySessionTimeoutDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes',
         {
-            'none':'none',
-            'all':'all',
-            'some':'some',
+            'in':'in_',
+            'in-out':'in_out',
         }, 'Cisco-IOS-XR-tty-management-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-tty-management-datatypes']),
 }

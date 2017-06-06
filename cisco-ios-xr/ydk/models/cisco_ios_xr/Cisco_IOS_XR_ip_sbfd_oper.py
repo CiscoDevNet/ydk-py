@@ -333,8 +333,6 @@ class Sbfd(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.afi is not None:
                                 return True
 
@@ -366,8 +364,6 @@ class Sbfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.address is not None:
                             return True
 
@@ -414,8 +410,6 @@ class Sbfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -441,8 +435,6 @@ class Sbfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.remote_vrf is not None:
                     for child_ref in self.remote_vrf:
                         if child_ref._has_data():
@@ -584,8 +576,6 @@ class Sbfd(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.discr is not None:
                             return True
 
@@ -626,8 +616,6 @@ class Sbfd(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.vrf_name is not None:
                         return True
 
@@ -653,8 +641,6 @@ class Sbfd(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.local_vrf is not None:
                     for child_ref in self.local_vrf:
                         if child_ref._has_data():
@@ -677,8 +663,6 @@ class Sbfd(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.local_vrfs is not None and self.local_vrfs._has_data():
                 return True
 
@@ -702,8 +686,6 @@ class Sbfd(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.target_identifier is not None and self.target_identifier._has_data():
             return True
 

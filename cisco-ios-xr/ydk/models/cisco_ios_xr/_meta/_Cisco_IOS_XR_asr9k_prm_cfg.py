@@ -13,6 +13,12 @@ from ydk._core._dm_meta_info import ATTRIBUTE, REFERENCE_CLASS, REFERENCE_LIST, 
 from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 _meta_table = {
+    'PrmTcamProfileEnum' : _MetaInfoEnum('PrmTcamProfileEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg',
+        {
+            'profile0':'profile0',
+            'profile1':'profile1',
+            'profile2':'profile2',
+        }, 'Cisco-IOS-XR-asr9k-prm-cfg', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg']),
     'Asr9KEfdModeEnum' : _MetaInfoEnum('Asr9KEfdModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg',
         {
             'only-outer-encap':'only_outer_encap',
@@ -23,18 +29,12 @@ _meta_table = {
             'less-than':'less_than',
             'greater-than-or-equal':'greater_than_or_equal',
         }, 'Cisco-IOS-XR-asr9k-prm-cfg', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg']),
-    'PrmTcamProfileEnum' : _MetaInfoEnum('PrmTcamProfileEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg',
-        {
-            'profile0':'profile0',
-            'profile1':'profile1',
-            'profile2':'profile2',
-        }, 'Cisco-IOS-XR-asr9k-prm-cfg', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg']),
     'HardwareModuleQosMode.Nodes.Node' : {
         'meta_info' : _MetaInfoClass('HardwareModuleQosMode.Nodes.Node',
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_name',
@@ -137,7 +137,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_name',
@@ -246,7 +246,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node ID
                 ''',
                 'node_name',
@@ -489,7 +489,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                [], [b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
                 '''                Node Name
                 ''',
                 'node_name',

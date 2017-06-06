@@ -309,8 +309,6 @@ class VrfGroup(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.vrf_name is not None:
                                 return True
 
@@ -335,8 +333,6 @@ class VrfGroup(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_name is not None:
                             return True
 
@@ -370,8 +366,6 @@ class VrfGroup(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group is not None:
                         for child_ref in self.group:
                             if child_ref._has_data():
@@ -396,8 +390,6 @@ class VrfGroup(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -421,8 +413,6 @@ class VrfGroup(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -445,8 +435,6 @@ class VrfGroup(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
@@ -564,8 +552,6 @@ class Srlg(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.srlg_name is not None:
                     return True
 
@@ -592,8 +578,6 @@ class Srlg(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.srlg_map is not None:
                 for child_ref in self.srlg_map:
                     if child_ref._has_data():
@@ -775,8 +759,6 @@ class Srlg(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg_name is not None:
                             return True
 
@@ -805,8 +787,6 @@ class Srlg(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.srlg_map is not None:
                         for child_ref in self.srlg_map:
                             if child_ref._has_data():
@@ -936,8 +916,6 @@ class Srlg(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.priority is not None:
                                 return True
 
@@ -968,8 +946,6 @@ class Srlg(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.group_name is not None:
                             return True
 
@@ -1003,8 +979,6 @@ class Srlg(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.group is not None:
                         for child_ref in self.group:
                             if child_ref._has_data():
@@ -1134,8 +1108,6 @@ class Srlg(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.priority is not None:
                                 return True
 
@@ -1166,8 +1138,6 @@ class Srlg(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.inherit_node_name is not None:
                             return True
 
@@ -1201,8 +1171,6 @@ class Srlg(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.inherit_node is not None:
                         for child_ref in self.inherit_node:
                             if child_ref._has_data():
@@ -1307,8 +1275,6 @@ class Srlg(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -1345,8 +1311,6 @@ class Srlg(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface is not None:
                         for child_ref in self.interface:
                             if child_ref._has_data():
@@ -1490,8 +1454,6 @@ class Srlg(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.priority is not None:
                                 return True
 
@@ -1528,8 +1490,6 @@ class Srlg(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.interface_name is not None:
                             return True
 
@@ -1563,8 +1523,6 @@ class Srlg(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_detail is not None:
                         for child_ref in self.interface_detail:
                             if child_ref._has_data():
@@ -1645,8 +1603,6 @@ class Srlg(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.value is not None:
                             return True
 
@@ -1674,8 +1630,6 @@ class Srlg(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.srlg_value is not None:
                         for child_ref in self.srlg_value:
                             if child_ref._has_data():
@@ -1790,8 +1744,6 @@ class Srlg(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.interface_name is not None:
                                 for child in self.interface_name:
                                     if child is not None:
@@ -1818,8 +1770,6 @@ class Srlg(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.srlg_name is not None:
                             return True
 
@@ -1851,8 +1801,6 @@ class Srlg(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_srlg_name is not None:
                         for child_ref in self.interface_srlg_name:
                             if child_ref._has_data():
@@ -1877,8 +1825,6 @@ class Srlg(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -1920,8 +1866,6 @@ class Srlg(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -2036,8 +1980,6 @@ class Srlg(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.interface_name is not None:
                         for child in self.interface_name:
                             if child is not None:
@@ -2062,8 +2004,6 @@ class Srlg(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.srlg_name is not None:
                     return True
 
@@ -2093,8 +2033,6 @@ class Srlg(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.interface_srlg_name is not None:
                 for child_ref in self.interface_srlg_name:
                     if child_ref._has_data():
@@ -2117,8 +2055,6 @@ class Srlg(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
             return True
 
@@ -2193,8 +2129,6 @@ class SelectiveVrfDownload(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.is_svd_enabled is not None:
                 return True
 
@@ -2218,8 +2152,6 @@ class SelectiveVrfDownload(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.state is not None and self.state._has_data():
             return True
 

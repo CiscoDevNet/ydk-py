@@ -17,14 +17,14 @@ _meta_table = {
         {
             'SELF':'SELF',
         }, 'openconfig-bgp-policy', _yang_ns._namespaces['openconfig-bgp-policy']),
-    'BgpSetMedTypeEnum' : _MetaInfoEnum('BgpSetMedTypeEnum', 'ydk.models.openconfig.openconfig_bgp_policy',
-        {
-            'IGP':'IGP',
-        }, 'openconfig-bgp-policy', _yang_ns._namespaces['openconfig-bgp-policy']),
     'BgpSetCommunityOptionTypeEnum' : _MetaInfoEnum('BgpSetCommunityOptionTypeEnum', 'ydk.models.openconfig.openconfig_bgp_policy',
         {
             'ADD':'ADD',
             'REMOVE':'REMOVE',
             'REPLACE':'REPLACE',
+        }, 'openconfig-bgp-policy', _yang_ns._namespaces['openconfig-bgp-policy']),
+    'BgpSetMedTypeEnum' : _MetaInfoEnum('BgpSetMedTypeEnum', 'ydk.models.openconfig.openconfig_bgp_policy',
+        {
+            'IGP':'IGP',
         }, 'openconfig-bgp-policy', _yang_ns._namespaces['openconfig-bgp-policy']),
 }

@@ -554,8 +554,6 @@ class CrossBarStats(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.asic_id is not None:
                                 return True
 
@@ -716,8 +714,6 @@ class CrossBarStats(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.pkt_stat is not None:
                             for child_ref in self.pkt_stat:
                                 if child_ref._has_data():
@@ -975,8 +971,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ack_wait_cnt is not None:
                                     return True
 
@@ -1099,8 +1093,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ack_wait_cnt is not None:
                                     return True
 
@@ -1223,8 +1215,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.ack_wait_cnt is not None:
                                     return True
 
@@ -1355,8 +1345,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dest_drop_pkt_cnt is not None:
                                     return True
 
@@ -1466,8 +1454,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.dest_drop_pkt_cnt is not None:
                                     return True
 
@@ -1552,8 +1538,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.total_calc_rate is not None:
                                     return True
 
@@ -1640,8 +1624,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.mc2uc_preempt_cnt is not None:
                                     return True
 
@@ -1979,8 +1961,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.calc_rate is not None:
                                     return True
 
@@ -2387,8 +2367,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.calc_rate is not None:
                                     return True
 
@@ -2762,8 +2740,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.calc_rate is not None:
                                     return True
 
@@ -3136,8 +3112,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.calc_rate is not None:
                                     return True
 
@@ -3401,8 +3375,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.calc_rate is not None:
                                     return True
 
@@ -3616,8 +3588,6 @@ class CrossBarStats(object):
                                 return False
 
                             def _has_data(self):
-                                if not self.is_config():
-                                    return False
                                 if self.calc_rate is not None:
                                     return True
 
@@ -3685,8 +3655,6 @@ class CrossBarStats(object):
                             return False
 
                         def _has_data(self):
-                            if not self.is_config():
-                                return False
                             if self.asic_id is not None:
                                 return True
 
@@ -3754,8 +3722,6 @@ class CrossBarStats(object):
                         return False
 
                     def _has_data(self):
-                        if not self.is_config():
-                            return False
                         if self.sm15_stat is not None:
                             for child_ref in self.sm15_stat:
                                 if child_ref._has_data():
@@ -3780,8 +3746,6 @@ class CrossBarStats(object):
                     return False
 
                 def _has_data(self):
-                    if not self.is_config():
-                        return False
                     if self.pkt_stats is not None and self.pkt_stats._has_data():
                         return True
 
@@ -3807,8 +3771,6 @@ class CrossBarStats(object):
                 return False
 
             def _has_data(self):
-                if not self.is_config():
-                    return False
                 if self.node_name is not None:
                     return True
 
@@ -3832,8 +3794,6 @@ class CrossBarStats(object):
             return False
 
         def _has_data(self):
-            if not self.is_config():
-                return False
             if self.node is not None:
                 for child_ref in self.node:
                     if child_ref._has_data():
@@ -3856,8 +3816,6 @@ class CrossBarStats(object):
         return False
 
     def _has_data(self):
-        if not self.is_config():
-            return False
         if self.nodes is not None and self.nodes._has_data():
             return True
 
